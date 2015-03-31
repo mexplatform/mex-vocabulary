@@ -7,7 +7,7 @@
 
 *Please see below some useful information*
 
-## Group Discussion List
+## Group Discussion List (mex-project@googlegroups.com)
 group to discuss related issues to the ontology (mainly) and general topics
 
 ## Github files
