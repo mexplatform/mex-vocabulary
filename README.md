@@ -1,4 +1,5 @@
-# The MEX Project
+# The MEX Project 
+
 * Create an Ontology to describe machine learning experiments;
 * Provide related services and tools, such as importers and exporters;
 * Create an algorithm to infer knowledge;
@@ -7,7 +8,11 @@
 
 *Please see below some useful information*
 
-## Group Discussion List (mex-project@googlegroups.com)
+## Project Site (http://dnes2015br.dne5.com)
+
+## Group Discussion List
+mex-project@googlegroups.com
+
 group to discuss related issues to the ontology (mainly) and general topics
 
 ## Github files
