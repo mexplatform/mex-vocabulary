@@ -8,25 +8,15 @@
 
 *Please see below some useful information*
 
-## Project Site (http://dnes2015br.dne5.com)
+* [project site](http://dnes2015br.dne5.com)
+* [mailing list][mex-project@googlegroups.com]
+* ASANA: Project Management and Tasks (MEX Project)
+* SKYPE
 
-## Group Discussion List
-mex-project@googlegroups.com
-
-group to discuss related issues to the ontology (mainly) and general topics
-
-## Github files
-our repository for coding and file versioning
-  * The Ontology (MyEXP Ontology)                        -> /ontology
-  * Project Site                                         -> /site
-  * Files (general content, such as diagrams and images) -> /files
-  * Presentations                                        -> /ppt
-  * Algorithms                                           -> /algorithm
-  * Core (Services and Core functionalities)             -> /core
-
-## ASANA: Project Management and Tasks
-more practical and related to programming tasks. However, some planning for on going publication work as well
-
-## SKYPE Group
-for eventual group meetings
-
+### Github
+  * [algorithms](https://github.com/dnes85/mexproject/tree/master/algorithm)
+  * [core](https://github.com/dnes85/mexproject/tree/master/core)
+  * [ontology](https://github.com/dnes85/mexproject/tree/master/ontology)
+  * [site](https://github.com/dnes85/mexproject/tree/master/site)
+  * [files](https://github.com/dnes85/mexproject/tree/master/files)
+  * [ppt](https://github.com/dnes85/mexproject/tree/master/ppt)
