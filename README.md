@@ -13,10 +13,14 @@
 * ASANA: Project Management and Tasks (MEX Project)
 * SKYPE
 
-### Github
+### This repository
   * [algorithms](https://github.com/dnes85/mexproject/tree/master/algorithm)
   * [core](https://github.com/dnes85/mexproject/tree/master/core)
   * [ontology](https://github.com/dnes85/mexproject/tree/master/ontology)
   * [site](https://github.com/dnes85/mexproject/tree/master/site)
   * [files](https://github.com/dnes85/mexproject/tree/master/files)
   * [ppt](https://github.com/dnes85/mexproject/tree/master/ppt)
+
+### Experiment - Class Diagram
+![experiment class diagram](https://cloud.githubusercontent.com/assets/8351210/6961709/ec100052-d92d-11e4-9e9c-513e27a044be.png)
+
