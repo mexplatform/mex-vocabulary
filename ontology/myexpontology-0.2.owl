@@ -1,0 +1,1621 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE Ontology [
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://dne5.com/machine-learning/ontology/myexp.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://dne5.com/machine-learning/ontology/myexp.owl">
+    <Prefix name="" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Import>http://www.w3.org/TR/rdf-schema/</Import>
+    <Import>http://persistence.uni-leipzig.org/nlp2rdf/ontologies/nif-core#</Import>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Accuracy"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:AdaptativeBoost"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:AlgorithmForAssociation"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:AlgorithmForClassification"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:AlgorithmForClustering"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:AlgorithmForRegression"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:AlgorithmForSorting"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:AlgorithmForSummarization"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:AlgorithmGroupOfCategory"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:AlgorithmLearningMethod"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:AlgorithmLearningProblem"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:AlgorithmParameter"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Apriori"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ArraySorting"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Association"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:AverageComplexity"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:BIRCH"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:BackPropagation"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Bias"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:BinaryProblems"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Bonferroni-Dunn"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Bootstrap"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:C4.5"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:CART"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:CHAMELEON"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:CLARA"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:CLARANS"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:CURE"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ChebyschevDistance"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Chi-Square"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Classification"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ClassificationPerformance"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Clustering"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ClusteringProblems"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ComplexityFunction"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ComplexityLevel"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Corpus"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Cosine"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Cross-Validation"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:DataSet"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:DecisionTree"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:DecisionTreeAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Decompositions"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:DomainConcept"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:EnsembleMethod"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Error"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ErrorMeasures"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:EuclideanDistance"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Evaluation"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ExamplePerformance"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ExperimentData"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:F1"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:FP-growth"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:FalseNegative"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:FalseNegativeRate"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:FalsePositive"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:FalsePositiveRate"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:GA"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Holdout"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:HypothesisTests"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ID3"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ItemsetSummarization"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Kolmogorov-Smirnov"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:LinearRegression"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:LogisticRegression"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:MAD"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:MSE"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ManhattanDistance"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Mean"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Measures"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:NaiveBayes"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:NearestNeighbour"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Nemenyi"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:NeuralNetwork"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:NeuralNetworkAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Noise"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:OPTICS"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:OverallPerformance"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:PAM"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:PearsonCorrelation"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Performance"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Precision"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Predicted"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ProbabilisticModel"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Project"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ROC"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ROCK"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:RandomForest"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:RandomSampling"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Rates"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Real"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Recall"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Regression"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:RegressionPerformance"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Reinforcement"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ReinforcementAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:SVM"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:SamplingMethods"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:SemiSupervisedAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Sensitivity"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Software"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:SpaceComplexity"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Specificity"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:StandardDeviation"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Summarization"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Supervised"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:SupervisedAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:SupportVectorMachines"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:TimeComplexity"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:TotalError"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:TrueNegative"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:TruePositive"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Unsupervised"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:UnsupervisedAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:ValuePartition"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Variance"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:Wilcoxon"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:WorstComplexity"/>
+    </Declaration>
+    <Declaration>
+        <Class abbreviatedIRI="owl:k-Means"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithmClass"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithmImplementation"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithmLearningMethod"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithmLearningProblem"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithmParameter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:hasComplexity"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:hasGroup"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:hasLearningMethod"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:hasLearningTask"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:hasParameters"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:isAvailableAt"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:isBasedOnSolveProblemOfType"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:isComposeBy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:isEmsembleAlgorithm"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty abbreviatedIRI="owl:isPerformedFor"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:algorithmAcronym"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:algorithmBasicFormula"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:algorithmComplexity"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:algorithmKeywords"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:algorithmParameterName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:algorithmParameterValue"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:dataBalancing"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:dataCleaning"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:dataIntegration"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:dataNormalization"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:dataParameterSelection"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:dataSampling"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:dataTransformation"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:description"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:hasKernelFunction"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:kernel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:learning-type"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:url"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty abbreviatedIRI="owl:version"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:C4.5"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:CART"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:DL-Learning"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:FAMA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:GA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:ID3"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:Linear_Regression"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:Logistic_Regression"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:Microsoft_SQL_Server"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:NN-BackPropagation"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:Naive_Bayes"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:Nearest_Neighbour"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:R"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:SPSS"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:SVM"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:WEKA"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:k-means"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:parametro1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual abbreviatedIRI="owl:parametro2"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+    </Declaration>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:AlgorithmForAssociation"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="owl:Algorithm"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="owl:hasLearningTask"/>
+                <Class abbreviatedIRI="owl:Association"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:AlgorithmForClassification"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="owl:Algorithm"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="owl:hasLearningTask"/>
+                <Class abbreviatedIRI="owl:Classification"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:AlgorithmForClustering"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="owl:Algorithm"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="owl:hasLearningTask"/>
+                <Class abbreviatedIRI="owl:Clustering"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:AlgorithmForRegression"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="owl:Algorithm"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="owl:hasLearningTask"/>
+                <Class abbreviatedIRI="owl:Regression"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:AlgorithmForSorting"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="owl:Algorithm"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="owl:hasGroup"/>
+                <Class abbreviatedIRI="owl:ArraySorting"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:AlgorithmForSummarization"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="owl:Algorithm"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="owl:hasLearningTask"/>
+                <Class abbreviatedIRI="owl:Summarization"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:AlgorithmGroupOfCategory"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="owl:DecisionTree"/>
+            <Class abbreviatedIRI="owl:NeuralNetwork"/>
+            <Class abbreviatedIRI="owl:ProbabilisticModel"/>
+            <Class abbreviatedIRI="owl:SupportVectorMachines"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:AlgorithmLearningMethod"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="owl:Reinforcement"/>
+            <Class abbreviatedIRI="owl:Supervised"/>
+            <Class abbreviatedIRI="owl:Unsupervised"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:AlgorithmLearningProblem"/>
+        <ObjectUnionOf>
+            <Class abbreviatedIRI="owl:Association"/>
+            <Class abbreviatedIRI="owl:Classification"/>
+            <Class abbreviatedIRI="owl:Clustering"/>
+            <Class abbreviatedIRI="owl:Regression"/>
+            <Class abbreviatedIRI="owl:Summarization"/>
+        </ObjectUnionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:DecisionTreeAlgorithm"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="owl:Algorithm"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="owl:hasGroup"/>
+                <Class abbreviatedIRI="owl:DecisionTree"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:EnsembleMethod"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="owl:Algorithm"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="owl:isEmsembleAlgorithm"/>
+                <Class abbreviatedIRI="owl:Thing"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:NeuralNetworkAlgorithm"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="owl:Algorithm"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="owl:hasGroup"/>
+                <Class abbreviatedIRI="owl:NeuralNetwork"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:ReinforcementAlgorithm"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="owl:Algorithm"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="owl:hasLearningMethod"/>
+                <Class abbreviatedIRI="owl:Reinforcement"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:SemiSupervisedAlgorithm"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="owl:Algorithm"/>
+            <ObjectIntersectionOf>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty abbreviatedIRI="owl:hasLearningMethod"/>
+                    <Class abbreviatedIRI="owl:Supervised"/>
+                </ObjectSomeValuesFrom>
+                <ObjectSomeValuesFrom>
+                    <ObjectProperty abbreviatedIRI="owl:hasLearningMethod"/>
+                    <Class abbreviatedIRI="owl:Unsupervised"/>
+                </ObjectSomeValuesFrom>
+            </ObjectIntersectionOf>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:SupervisedAlgorithm"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="owl:Algorithm"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="owl:hasLearningMethod"/>
+                <Class abbreviatedIRI="owl:Supervised"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <EquivalentClasses>
+        <Class abbreviatedIRI="owl:UnsupervisedAlgorithm"/>
+        <ObjectIntersectionOf>
+            <Class abbreviatedIRI="owl:Algorithm"/>
+            <ObjectSomeValuesFrom>
+                <ObjectProperty abbreviatedIRI="owl:hasLearningMethod"/>
+                <Class abbreviatedIRI="owl:Unsupervised"/>
+            </ObjectSomeValuesFrom>
+        </ObjectIntersectionOf>
+    </EquivalentClasses>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Accuracy"/>
+        <Class abbreviatedIRI="owl:Evaluation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:AdaptativeBoost"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+        <Class abbreviatedIRI="owl:DomainConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:AlgorithmForAssociation"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:AlgorithmForClustering"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:AlgorithmForRegression"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:AlgorithmForSorting"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:AlgorithmForSummarization"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:AlgorithmGroupOfCategory"/>
+        <Class abbreviatedIRI="owl:ValuePartition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:AlgorithmLearningMethod"/>
+        <Class abbreviatedIRI="owl:ValuePartition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:AlgorithmLearningProblem"/>
+        <Class abbreviatedIRI="owl:ValuePartition"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:AlgorithmParameter"/>
+        <Class abbreviatedIRI="owl:DomainConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Apriori"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ArraySorting"/>
+        <Class abbreviatedIRI="owl:AlgorithmGroupOfCategory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Association"/>
+        <Class abbreviatedIRI="owl:AlgorithmLearningProblem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:AverageComplexity"/>
+        <Class abbreviatedIRI="owl:ComplexityLevel"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:BIRCH"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:BackPropagation"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Bias"/>
+        <Class abbreviatedIRI="owl:Decompositions"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:BinaryProblems"/>
+        <Class abbreviatedIRI="owl:Measures"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Bonferroni-Dunn"/>
+        <Class abbreviatedIRI="owl:HypothesisTests"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Bootstrap"/>
+        <Class abbreviatedIRI="owl:SamplingMethods"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:C4.5"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:CART"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:CHAMELEON"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:CLARA"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:CLARANS"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:CURE"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ChebyschevDistance"/>
+        <Class abbreviatedIRI="owl:ClusteringProblems"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Chi-Square"/>
+        <Class abbreviatedIRI="owl:HypothesisTests"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Classification"/>
+        <Class abbreviatedIRI="owl:AlgorithmLearningProblem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ClassificationPerformance"/>
+        <Class abbreviatedIRI="owl:Performance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Clustering"/>
+        <Class abbreviatedIRI="owl:AlgorithmLearningProblem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ClusteringProblems"/>
+        <Class abbreviatedIRI="owl:Measures"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ComplexityFunction"/>
+        <Class abbreviatedIRI="owl:Measures"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ComplexityLevel"/>
+        <Class abbreviatedIRI="owl:Measures"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Corpus"/>
+        <Class abbreviatedIRI="owl:ExperimentData"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Cosine"/>
+        <Class abbreviatedIRI="owl:ClusteringProblems"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Cross-Validation"/>
+        <Class abbreviatedIRI="owl:SamplingMethods"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:DataSet"/>
+        <Class abbreviatedIRI="owl:ExperimentData"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:DecisionTree"/>
+        <Class abbreviatedIRI="owl:AlgorithmGroupOfCategory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:DecisionTreeAlgorithm"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Decompositions"/>
+        <Class abbreviatedIRI="owl:Measures"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:EnsembleMethod"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Error"/>
+        <Class abbreviatedIRI="owl:ErrorMeasures"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ErrorMeasures"/>
+        <Class abbreviatedIRI="owl:Measures"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:EuclideanDistance"/>
+        <Class abbreviatedIRI="owl:ClusteringProblems"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Evaluation"/>
+        <Class abbreviatedIRI="owl:Measures"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ExamplePerformance"/>
+        <Class abbreviatedIRI="owl:DomainConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ExperimentData"/>
+        <Class abbreviatedIRI="owl:DomainConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:F1"/>
+        <Class abbreviatedIRI="owl:Rates"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:FP-growth"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:FalseNegative"/>
+        <Class abbreviatedIRI="owl:BinaryProblems"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:FalseNegativeRate"/>
+        <Class abbreviatedIRI="owl:Rates"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:FalsePositive"/>
+        <Class abbreviatedIRI="owl:BinaryProblems"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:FalsePositiveRate"/>
+        <Class abbreviatedIRI="owl:Rates"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:GA"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Holdout"/>
+        <Class abbreviatedIRI="owl:SamplingMethods"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:HypothesisTests"/>
+        <Class abbreviatedIRI="owl:Measures"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ID3"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ItemsetSummarization"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Kolmogorov-Smirnov"/>
+        <Class abbreviatedIRI="owl:HypothesisTests"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:LinearRegression"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:LogisticRegression"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:MAD"/>
+        <Class abbreviatedIRI="owl:Evaluation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:MSE"/>
+        <Class abbreviatedIRI="owl:Evaluation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ManhattanDistance"/>
+        <Class abbreviatedIRI="owl:ClusteringProblems"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Mean"/>
+        <Class abbreviatedIRI="owl:ErrorMeasures"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Measures"/>
+        <Class abbreviatedIRI="owl:DomainConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:NaiveBayes"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:NearestNeighbour"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Nemenyi"/>
+        <Class abbreviatedIRI="owl:HypothesisTests"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:NeuralNetwork"/>
+        <Class abbreviatedIRI="owl:AlgorithmGroupOfCategory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:NeuralNetworkAlgorithm"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Noise"/>
+        <Class abbreviatedIRI="owl:Decompositions"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:OPTICS"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:OverallPerformance"/>
+        <Class abbreviatedIRI="owl:DomainConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:PAM"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:PearsonCorrelation"/>
+        <Class abbreviatedIRI="owl:ClusteringProblems"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Performance"/>
+        <Class abbreviatedIRI="owl:DomainConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Precision"/>
+        <Class abbreviatedIRI="owl:Rates"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Predicted"/>
+        <Class abbreviatedIRI="owl:ErrorMeasures"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ProbabilisticModel"/>
+        <Class abbreviatedIRI="owl:AlgorithmGroupOfCategory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Project"/>
+        <Class abbreviatedIRI="owl:DomainConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ROC"/>
+        <Class abbreviatedIRI="owl:Rates"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ROCK"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:RandomForest"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:RandomSampling"/>
+        <Class abbreviatedIRI="owl:SamplingMethods"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Rates"/>
+        <Class abbreviatedIRI="owl:BinaryProblems"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Real"/>
+        <Class abbreviatedIRI="owl:ErrorMeasures"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Recall"/>
+        <Class abbreviatedIRI="owl:Rates"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Regression"/>
+        <Class abbreviatedIRI="owl:AlgorithmLearningProblem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:RegressionPerformance"/>
+        <Class abbreviatedIRI="owl:Performance"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Reinforcement"/>
+        <Class abbreviatedIRI="owl:AlgorithmLearningMethod"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:ReinforcementAlgorithm"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:SVM"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:SamplingMethods"/>
+        <Class abbreviatedIRI="owl:Measures"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:SemiSupervisedAlgorithm"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Sensitivity"/>
+        <Class abbreviatedIRI="owl:Rates"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Software"/>
+        <Class abbreviatedIRI="owl:DomainConcept"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:SpaceComplexity"/>
+        <Class abbreviatedIRI="owl:ComplexityFunction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Specificity"/>
+        <Class abbreviatedIRI="owl:Rates"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:StandardDeviation"/>
+        <Class abbreviatedIRI="owl:ErrorMeasures"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Summarization"/>
+        <Class abbreviatedIRI="owl:AlgorithmLearningProblem"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Supervised"/>
+        <Class abbreviatedIRI="owl:AlgorithmLearningMethod"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Supervised"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:hasLearningTask"/>
+            <Class abbreviatedIRI="owl:Classification"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Supervised"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:hasLearningTask"/>
+            <Class abbreviatedIRI="owl:Regression"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:SupervisedAlgorithm"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:SupportVectorMachines"/>
+        <Class abbreviatedIRI="owl:AlgorithmGroupOfCategory"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:TimeComplexity"/>
+        <Class abbreviatedIRI="owl:ComplexityFunction"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:TotalError"/>
+        <Class abbreviatedIRI="owl:Evaluation"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:TrueNegative"/>
+        <Class abbreviatedIRI="owl:BinaryProblems"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:TruePositive"/>
+        <Class abbreviatedIRI="owl:BinaryProblems"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Unsupervised"/>
+        <Class abbreviatedIRI="owl:AlgorithmLearningMethod"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Unsupervised"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:hasLearningTask"/>
+            <Class abbreviatedIRI="owl:Association"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Unsupervised"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:hasLearningTask"/>
+            <Class abbreviatedIRI="owl:Clustering"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Unsupervised"/>
+        <ObjectSomeValuesFrom>
+            <ObjectProperty abbreviatedIRI="owl:hasLearningTask"/>
+            <Class abbreviatedIRI="owl:Summarization"/>
+        </ObjectSomeValuesFrom>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:UnsupervisedAlgorithm"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Variance"/>
+        <Class abbreviatedIRI="owl:Decompositions"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:Wilcoxon"/>
+        <Class abbreviatedIRI="owl:HypothesisTests"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:WorstComplexity"/>
+        <Class abbreviatedIRI="owl:ComplexityLevel"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class abbreviatedIRI="owl:k-Means"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </SubClassOf>
+    <DisjointClasses>
+        <Class abbreviatedIRI="owl:DomainConcept"/>
+        <Class abbreviatedIRI="owl:ValuePartition"/>
+    </DisjointClasses>
+    <DisjointClasses>
+        <Class abbreviatedIRI="owl:Supervised"/>
+        <Class abbreviatedIRI="owl:Unsupervised"/>
+    </DisjointClasses>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Software"/>
+        <NamedIndividual abbreviatedIRI="owl:DL-Learning"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Software"/>
+        <NamedIndividual abbreviatedIRI="owl:FAMA"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Software"/>
+        <NamedIndividual abbreviatedIRI="owl:Microsoft_SQL_Server"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Software"/>
+        <NamedIndividual abbreviatedIRI="owl:R"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Software"/>
+        <NamedIndividual abbreviatedIRI="owl:SPSS"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class abbreviatedIRI="owl:Software"/>
+        <NamedIndividual abbreviatedIRI="owl:WEKA"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty abbreviatedIRI="owl:hasComplexity"/>
+        <NamedIndividual abbreviatedIRI="owl:Logistic_Regression"/>
+        <NamedIndividual abbreviatedIRI="owl:Logistic_Regression"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty abbreviatedIRI="owl:hasKernelFunction"/>
+        <NamedIndividual abbreviatedIRI="owl:Logistic_Regression"/>
+        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="owl:hasParameters"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty abbreviatedIRI="owl:isBasedOnSolveProblemOfType"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithm"/>
+        <Class abbreviatedIRI="owl:ClassificationPerformance"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithmClass"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithmImplementation"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithmLearningMethod"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithmLearningProblem"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithmParameter"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:hasComplexity"/>
+        <ObjectExactCardinality cardinality="1">
+            <ObjectProperty abbreviatedIRI="owl:hasComplexity"/>
+            <Class abbreviatedIRI="owl:Algorithm"/>
+        </ObjectExactCardinality>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:hasGroup"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:hasLearningMethod"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:hasLearningTask"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:isAvailableAt"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty abbreviatedIRI="owl:isPerformedFor"/>
+        <Class abbreviatedIRI="owl:Evaluation"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithm"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithmClass"/>
+        <Class abbreviatedIRI="owl:AlgorithmGroupOfCategory"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithmLearningMethod"/>
+        <Class abbreviatedIRI="owl:AlgorithmLearningMethod"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithmLearningProblem"/>
+        <Class abbreviatedIRI="owl:AlgorithmLearningProblem"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:hasAlgorithmParameter"/>
+        <Class abbreviatedIRI="owl:AlgorithmParameter"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:hasComplexity"/>
+        <DataSomeValuesFrom>
+            <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+            <Datatype abbreviatedIRI="rdfs:Literal"/>
+        </DataSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:hasGroup"/>
+        <Class abbreviatedIRI="owl:AlgorithmGroupOfCategory"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:hasLearningMethod"/>
+        <Class abbreviatedIRI="owl:AlgorithmLearningMethod"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:hasLearningTask"/>
+        <Class abbreviatedIRI="owl:AlgorithmLearningProblem"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:isAvailableAt"/>
+        <Class abbreviatedIRI="owl:Software"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:isComposeBy"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty abbreviatedIRI="owl:isPerformedFor"/>
+        <Class abbreviatedIRI="owl:AlgorithmLearningProblem"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty abbreviatedIRI="owl:dataIntegration"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty abbreviatedIRI="owl:hasKernelFunction"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="owl:algorithmAcronym"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="owl:algorithmBasicFormula"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="owl:algorithmComplexity"/>
+        <Class abbreviatedIRI="owl:NamedAlgorithm"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="owl:algorithmKeywords"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="owl:algorithmParameterName"/>
+        <Class abbreviatedIRI="owl:AlgorithmParameter"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="owl:algorithmParameterValue"/>
+        <Class abbreviatedIRI="owl:AlgorithmParameter"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="owl:description"/>
+        <Class abbreviatedIRI="owl:Software"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="owl:hasKernelFunction"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="owl:learning-type"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="owl:name"/>
+        <Class abbreviatedIRI="owl:Algorithm"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="owl:url"/>
+        <Class abbreviatedIRI="owl:Software"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty abbreviatedIRI="owl:version"/>
+        <Class abbreviatedIRI="owl:Software"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:algorithmAcronym"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:algorithmBasicFormula"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:algorithmComplexity"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:algorithmKeywords"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:algorithmParameterName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:algorithmParameterValue"/>
+        <Datatype abbreviatedIRI="rdfs:Literal"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:dataBalancing"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:dataCleaning"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:dataIntegration"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:dataNormalization"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:dataParameterSelection"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:dataSampling"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:dataTransformation"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:description"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:hasKernelFunction"/>
+        <Datatype abbreviatedIRI="xsd:boolean"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:kernel"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:learning-type"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:name"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:url"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty abbreviatedIRI="owl:version"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:Accuracy</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">classification metrics</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AbbreviatedIRI>owl:AdaptativeBoost</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">is a machine learning meta-algorithm formulated by Yoav Freund and Robert Schapire who won the prestigious &quot;Gödel Prize&quot; in 2003 for their work. It can be used in conjunction with many other types of learning algorithms to improve their performance. The output of the other learning algorithms (&apos;weak learners&apos;) is combined into a weighted sum that represents the final output of the boosted classifier. AdaBoost is adaptive in the sense that subsequent weak learners are tweaked in favor of those instances misclassified by previous classifiers. AdaBoost is sensitive to noisy data and outliers. In some problems, however, it can be less susceptible to the overfitting problem than other learning algorithms. The individual learners can be weak, but as long as the performance of each one is slightly better than random guessing (i.e., their error rate is smaller than 0.5 for binary classification), the final model can be proven to converge to a strong learner.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:Algorithm</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The basic information regarding the algorithms used into the experiment</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:label"/>
+        <AbbreviatedIRI>owl:Algorithm</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Algorithm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:AlgorithmGroupOfCategory</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">The group which identifies the algorithm: For instance, C-SVM is a SVM implementation...DecisionTree has C4.5, ID3, RandonForest, ...</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:AlgorithmLearningMethod</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Supervised Learning, Unsupervised Learning, Semi-supervised Learning, Reinforcement Learning, ...</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:AlgorithmLearningProblem</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">A ValuePartition that describes only values from Regression, Classification or Clustering. NB Subclasses can themselves be divided up into further partitions.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AbbreviatedIRI>owl:Apriori</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Apriori is an algorithm for frequent item set mining and association rule learning over transactional databases. It proceeds by identifying the frequent individual items in the database and extending them to larger and larger item sets as long as those item sets appear sufficiently often in the database. The frequent item sets determined by Apriori can be used to determine association rules which highlight general trends in the database: this has applications in domains such as market basket analysis.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AbbreviatedIRI>owl:BackPropagation</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Backpropagation, an abbreviation for &quot;backward propagation of errors&quot;, is a common method of training artificial neural networks used in conjunction with an optimization method such as gradient descent. The method calculates the gradient of a loss function with respects to all the weights in the network. The gradient is fed to the optimization method which in turn uses it to update the weights, in an attempt to minimize the loss function.</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:CLARA</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Clustering Large Applications</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:CLARANS</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Clustering Large Applications based on Randomized Search</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty IRI="http://purl.org/dc/elements/1.1/description"/>
+        <AbbreviatedIRI>owl:Corpus</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Class that provides a structured dataset</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:GA</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Genetic Algorithm</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:MAD</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">regression metrics</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:MSE</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">regression metrics</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:Nearest_Neighbour</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdf;PlainLiteral">k-NN</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:PAM</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">Partition Around Medoids</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:Software</AbbreviatedIRI>
+        <Literal datatypeIRI="&xsd;string">the tool (e.g.: Weka, Matlab, SPSS, 3rd party component ...)</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:TotalError</AbbreviatedIRI>
+        <Literal xml:lang="en" datatypeIRI="&rdf;PlainLiteral">classification metrics</Literal>
+    </AnnotationAssertion>
+    <AnnotationAssertion>
+        <AnnotationProperty abbreviatedIRI="rdfs:comment"/>
+        <AbbreviatedIRI>owl:learning-type</AbbreviatedIRI>
+        <Literal datatypeIRI="&rdfs;Literal">Reinforcement, Supervised, Unsupervised</Literal>
+    </AnnotationAssertion>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net -->
+
