@@ -22,5 +22,5 @@
   * [ppt](https://github.com/dnes85/mexproject/tree/master/ppt)
 
 ### Experiment - Class Diagram
-![experiment class diagram](https://cloud.githubusercontent.com/assets/8351210/6961709/ec100052-d92d-11e4-9e9c-513e27a044be.png)
+![experiment class diagram](http://www.dnes2015br.dne5.com/cd-mex-0.2.png)
 
