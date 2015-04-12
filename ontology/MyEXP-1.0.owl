@@ -3788,12 +3788,6 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
-###  http://www.w3.org/2002/07/owl#UserDefinedMeasure
-
-:UserDefinedMeasure rdf:type :Class .
-
-
-
 ###  http://www.w3.org/2002/07/owl#UserDefinedPerformance
 
 :UserDefinedPerformance rdf:type :Class .
