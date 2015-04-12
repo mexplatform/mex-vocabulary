@@ -30,8 +30,6 @@
                                                       
                                                       rdfs:seeAlso "MyExp Ontology: Guidelines on Publish Machine Learning Experiments using Linked Data"@en ;
                                                       
-                                                      dct:publisher <http://purl.org/dc/aboutdcmi#DCMI> ;
-                                                      
                                                       :imports <http://www.w3.org/TR/rdf-schema/> .
 
 
@@ -1534,111 +1532,9 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 
 
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasApplicationContext
+###  http://dne5.com/machine-learning/ontology/myexp.owl#hasUserDefinedPerformance
 
-:hasApplicationContext rdf:type :ObjectProperty .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasCorpus
-
-:hasCorpus rdf:type :ObjectProperty .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasEnvironment
-
-:hasEnvironment rdf:type :ObjectProperty .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasExecution
-
-:hasExecution rdf:type :ObjectProperty .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasExecutionInputParameter
-
-:hasExecutionInputParameter rdf:type :ObjectProperty ;
-                            
-                            rdfs:subPropertyOf :topObjectProperty .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasExecutionPerformance
-
-:hasExecutionPerformance rdf:type :ObjectProperty .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasExperiment
-
-:hasExperiment rdf:type :ObjectProperty ;
-               
-               rdfs:domain :ApplicationContext ;
-               
-               rdfs:range :Experiment ;
-               
-               rdfs:subPropertyOf :topObjectProperty .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasItemPerformance
-
-:hasItemPerformance rdf:type :ObjectProperty .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasKernelMethod
-
-:hasKernelMethod rdf:type :ObjectProperty ;
-                 
-                 rdfs:range :AlgorithmKernelMethod ;
-                 
-                 rdfs:domain :SupportVectorNetworks .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasModel
-
-:hasModel rdf:type :ObjectProperty .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasPerformance
-
-:hasPerformance rdf:type :ObjectProperty ;
-                
-                rdfs:range :Performance ;
-                
-                rdfs:domain :Execution .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasPhase
-
-:hasPhase rdf:type :ObjectProperty ;
-          
-          rdfs:range :Phase ;
-          
-          rdfs:domain :Execution .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasSamplingMethod
-
-:hasSamplingMethod rdf:type :ObjectProperty ;
-                   
-                   rdfs:domain :Execution ;
-                   
-                   rdfs:range :SamplingMethods .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasUserDefinedMeasures
-
-:hasUserDefinedMeasures rdf:type :ObjectProperty .
+:hasUserDefinedPerformance rdf:type :ObjectProperty .
 
 
 
@@ -2016,20 +1912,70 @@ dct:temporal rdf:type :ObjectProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#hasApplicationContext
+
+:hasApplicationContext rdf:type :ObjectProperty .
+
+
+
 ###  http://www.w3.org/2002/07/owl#hasComplexity
 
 :hasComplexity rdf:type :ObjectProperty ;
-               
-               rdfs:range [ rdf:type :Restriction ;
-                            :onProperty :topDataProperty ;
-                            :someValuesFrom rdfs:Literal
-                          ] ;
                
                rdfs:domain [ rdf:type :Restriction ;
                              :onProperty :hasComplexity ;
                              :onClass :Algorithm ;
                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                           ] .
+                           ] ;
+               
+               rdfs:range [ rdf:type :Restriction ;
+                            :onProperty :topDataProperty ;
+                            :someValuesFrom rdfs:Literal
+                          ] .
+
+
+
+###  http://www.w3.org/2002/07/owl#hasCorpus
+
+:hasCorpus rdf:type :ObjectProperty .
+
+
+
+###  http://www.w3.org/2002/07/owl#hasEnvironment
+
+:hasEnvironment rdf:type :ObjectProperty .
+
+
+
+###  http://www.w3.org/2002/07/owl#hasExecution
+
+:hasExecution rdf:type :ObjectProperty .
+
+
+
+###  http://www.w3.org/2002/07/owl#hasExecutionInputParameter
+
+:hasExecutionInputParameter rdf:type :ObjectProperty ;
+                            
+                            rdfs:subPropertyOf :topObjectProperty .
+
+
+
+###  http://www.w3.org/2002/07/owl#hasExecutionPerformance
+
+:hasExecutionPerformance rdf:type :ObjectProperty .
+
+
+
+###  http://www.w3.org/2002/07/owl#hasExperiment
+
+:hasExperiment rdf:type :ObjectProperty ;
+               
+               rdfs:domain :ApplicationContext ;
+               
+               rdfs:range :Experiment ;
+               
+               rdfs:subPropertyOf :topObjectProperty .
 
 
 
@@ -2038,6 +1984,22 @@ dct:temporal rdf:type :ObjectProperty ;
 :hasGroup rdf:type :ObjectProperty ;
           
           rdfs:domain :Algorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#hasItemPerformance
+
+:hasItemPerformance rdf:type :ObjectProperty .
+
+
+
+###  http://www.w3.org/2002/07/owl#hasKernelMethod
+
+:hasKernelMethod rdf:type :ObjectProperty ;
+                 
+                 rdfs:range :AlgorithmKernelMethod ;
+                 
+                 rdfs:domain :SupportVectorNetworks .
 
 
 
@@ -2061,11 +2023,47 @@ dct:temporal rdf:type :ObjectProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#hasModel
+
+:hasModel rdf:type :ObjectProperty .
+
+
+
 ###  http://www.w3.org/2002/07/owl#hasParameters
 
 :hasParameters rdf:type :ObjectProperty ;
                
                rdfs:subPropertyOf :topObjectProperty .
+
+
+
+###  http://www.w3.org/2002/07/owl#hasPerformance
+
+:hasPerformance rdf:type :ObjectProperty ;
+                
+                rdfs:domain :Execution ;
+                
+                rdfs:range :Performance .
+
+
+
+###  http://www.w3.org/2002/07/owl#hasPhase
+
+:hasPhase rdf:type :ObjectProperty ;
+          
+          rdfs:domain :Execution ;
+          
+          rdfs:range :Phase .
+
+
+
+###  http://www.w3.org/2002/07/owl#hasSamplingMethod
+
+:hasSamplingMethod rdf:type :ObjectProperty ;
+                   
+                   rdfs:domain :Execution ;
+                   
+                   rdfs:range :SamplingMethods .
 
 
 
@@ -2094,136 +2092,6 @@ dct:temporal rdf:type :ObjectProperty ;
 #    Data properties
 #
 #################################################################
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AttributeSelectionDescription
-
-:AttributeSelectionDescription rdf:type :DatatypeProperty ;
-                               
-                               rdfs:range xsd:string ;
-                               
-                               rdfs:domain :Experiment .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#DataNormalizedDescription
-
-:DataNormalizedDescription rdf:type :DatatypeProperty ;
-                           
-                           rdfs:range xsd:string ;
-                           
-                           rdfs:domain :Experiment .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Folds
-
-:Folds rdf:type :DatatypeProperty ;
-       
-       rdfs:range xsd:int ;
-       
-       rdfs:domain :SamplingMethods .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#NoiseRemovedDescription
-
-:NoiseRemovedDescription rdf:type :DatatypeProperty ;
-                         
-                         rdfs:range xsd:string ;
-                         
-                         rdfs:domain :Experiment .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#OutliersRemovedDescription
-
-:OutliersRemovedDescription rdf:type :DatatypeProperty ;
-                            
-                            rdfs:range xsd:string ;
-                            
-                            rdfs:domain :Experiment .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Sequential
-
-:Sequential rdf:type :DatatypeProperty ;
-            
-            rdfs:range xsd:boolean ;
-            
-            rdfs:domain :SamplingMethods .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#TestSize
-
-:TestSize rdf:type :DatatypeProperty ;
-          
-          rdfs:range xsd:double ;
-          
-          rdfs:domain :SamplingMethods .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#TrainSize
-
-:TrainSize rdf:type :DatatypeProperty ;
-           
-           rdfs:range xsd:double ;
-           
-           rdfs:domain :SamplingMethods .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#cache
-
-:cache rdf:type :DatatypeProperty ;
-       
-       rdfs:domain :Environment ;
-       
-       rdfs:range xsd:string .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#cpu
-
-:cpu rdf:type :DatatypeProperty ;
-     
-     rdfs:domain :Environment ;
-     
-     rdfs:range xsd:string .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hdType
-
-:hdType rdf:type :DatatypeProperty ;
-        
-        rdfs:domain :Environment ;
-        
-        rdfs:range xsd:string .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#memory
-
-:memory rdf:type :DatatypeProperty ;
-        
-        rdfs:domain :Environment ;
-        
-        rdfs:range xsd:string .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#videoGraphs
-
-:videoGraphs rdf:type :DatatypeProperty ;
-             
-             rdfs:domain :Environment ;
-             
-             rdfs:range xsd:string .
-
 
 
 ###  http://purl.org/dc/terms/alternative
@@ -2564,6 +2432,16 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#AttributeSelectionDescription
+
+:AttributeSelectionDescription rdf:type :DatatypeProperty ;
+                               
+                               rdfs:range xsd:string ;
+                               
+                               rdfs:domain :Experiment .
+
+
+
 ###  http://www.w3.org/2002/07/owl#BonferroniDunn
 
 :BonferroniDunn rdf:type :DatatypeProperty ;
@@ -2616,6 +2494,16 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#DataNormalizedDescription
+
+:DataNormalizedDescription rdf:type :DatatypeProperty ;
+                           
+                           rdfs:range xsd:string ;
+                           
+                           rdfs:domain :Experiment .
+
+
+
 ###  http://www.w3.org/2002/07/owl#Error
 
 :Error rdf:type :DatatypeProperty ;
@@ -2663,6 +2551,16 @@ doap:Description rdf:type :DatatypeProperty ;
                rdfs:range xsd:int ;
                
                rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#Folds
+
+:Folds rdf:type :DatatypeProperty ;
+       
+       rdfs:range xsd:int ;
+       
+       rdfs:domain :SamplingMethods .
 
 
 
@@ -2723,6 +2621,26 @@ doap:Description rdf:type :DatatypeProperty ;
          rdfs:range xsd:double ;
          
          rdfs:domain :StatisticalModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#NoiseRemovedDescription
+
+:NoiseRemovedDescription rdf:type :DatatypeProperty ;
+                         
+                         rdfs:range xsd:string ;
+                         
+                         rdfs:domain :Experiment .
+
+
+
+###  http://www.w3.org/2002/07/owl#OutliersRemovedDescription
+
+:OutliersRemovedDescription rdf:type :DatatypeProperty ;
+                            
+                            rdfs:range xsd:string ;
+                            
+                            rdfs:domain :Experiment .
 
 
 
@@ -2806,6 +2724,16 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#Sequential
+
+:Sequential rdf:type :DatatypeProperty ;
+            
+            rdfs:range xsd:boolean ;
+            
+            rdfs:domain :SamplingMethods .
+
+
+
 ###  http://www.w3.org/2002/07/owl#Specificity
 
 :Specificity rdf:type :DatatypeProperty ;
@@ -2826,6 +2754,16 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#TestSize
+
+:TestSize rdf:type :DatatypeProperty ;
+          
+          rdfs:range xsd:double ;
+          
+          rdfs:domain :SamplingMethods .
+
+
+
 ###  http://www.w3.org/2002/07/owl#TotalError
 
 :TotalError rdf:type :DatatypeProperty ;
@@ -2833,6 +2771,16 @@ doap:Description rdf:type :DatatypeProperty ;
             rdfs:range xsd:double ;
             
             rdfs:domain :RegressionModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#TrainSize
+
+:TrainSize rdf:type :DatatypeProperty ;
+           
+           rdfs:range xsd:double ;
+           
+           rdfs:domain :SamplingMethods .
 
 
 
@@ -2894,6 +2842,36 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#cache
+
+:cache rdf:type :DatatypeProperty ;
+       
+       rdfs:range xsd:string ;
+       
+       rdfs:domain :Environment .
+
+
+
+###  http://www.w3.org/2002/07/owl#cpu
+
+:cpu rdf:type :DatatypeProperty ;
+     
+     rdfs:range xsd:string ;
+     
+     rdfs:domain :Environment .
+
+
+
+###  http://www.w3.org/2002/07/owl#hdType
+
+:hdType rdf:type :DatatypeProperty ;
+        
+        rdfs:range xsd:string ;
+        
+        rdfs:domain :Environment .
+
+
+
 ###  http://www.w3.org/2002/07/owl#kernel
 
 :kernel rdf:type :DatatypeProperty ;
@@ -2911,6 +2889,16 @@ doap:Description rdf:type :DatatypeProperty ;
                rdfs:range xsd:string ;
                
                rdfs:domain :Algorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#memory
+
+:memory rdf:type :DatatypeProperty ;
+        
+        rdfs:range xsd:string ;
+        
+        rdfs:domain :Environment .
 
 
 
@@ -2941,6 +2929,16 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#videoGraphs
+
+:videoGraphs rdf:type :DatatypeProperty ;
+             
+             rdfs:range xsd:string ;
+             
+             rdfs:domain :Environment .
+
+
+
 
 
 #################################################################
@@ -2950,7 +2948,7 @@ doap:Description rdf:type :DatatypeProperty ;
 #################################################################
 
 
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AODE
+###  http://www.w3.org/2002/07/owl#AODE
 
 :AODE rdf:type :Class ;
       
@@ -2958,7 +2956,7 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AdaptativeBoost
+###  http://www.w3.org/2002/07/owl#AdaptativeBoost
 
 :AdaptativeBoost rdf:type :Class ;
                  
@@ -2966,13 +2964,33 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AlgorithmClass
+###  http://www.w3.org/2002/07/owl#Algorithm
+
+:Algorithm rdf:type :Class ;
+           
+           rdfs:label "Algorithm"@en ;
+           
+           rdfs:subClassOf [ rdf:type :Restriction ;
+                             :onProperty :isAvailableAt ;
+                             :onClass :AlgorithmImplementation ;
+                             :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                           ] ,
+                           [ rdf:type :Restriction ;
+                             :onProperty :hasParameters ;
+                             :someValuesFrom :AlgorithmParameter
+                           ] ;
+           
+           rdfs:comment "The basic information regarding the algorithms used into the experiment"@en .
+
+
+
+###  http://www.w3.org/2002/07/owl#AlgorithmClass
 
 :AlgorithmClass rdf:type :Class .
 
 
 
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AlgorithmForAssociation
+###  http://www.w3.org/2002/07/owl#AlgorithmForAssociation
 
 :AlgorithmForAssociation rdf:type :Class ;
                          
@@ -2989,7 +3007,7 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AlgorithmForClassification
+###  http://www.w3.org/2002/07/owl#AlgorithmForClassification
 
 :AlgorithmForClassification rdf:type :Class ;
                             
@@ -3006,7 +3024,7 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AlgorithmForClustering
+###  http://www.w3.org/2002/07/owl#AlgorithmForClustering
 
 :AlgorithmForClustering rdf:type :Class ;
                         
@@ -3023,7 +3041,7 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AlgorithmForRegression
+###  http://www.w3.org/2002/07/owl#AlgorithmForRegression
 
 :AlgorithmForRegression rdf:type :Class ;
                         
@@ -3040,7 +3058,7 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AlgorithmForSummarization
+###  http://www.w3.org/2002/07/owl#AlgorithmForSummarization
 
 :AlgorithmForSummarization rdf:type :Class ;
                            
@@ -3054,535 +3072,6 @@ doap:Description rdf:type :DatatypeProperty ;
                                             ] ;
                            
                            rdfs:subClassOf :Algorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AlgorithmKernelMethod
-
-:AlgorithmKernelMethod rdf:type :Class .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AlgorithmSemiSupervised
-
-:AlgorithmSemiSupervised rdf:type :Class ;
-                         
-                         :equivalentClass [ rdf:type :Class ;
-                                            :intersectionOf ( :Algorithm
-                                                              [ rdf:type :Class ;
-                                                                :intersectionOf ( [ rdf:type :Restriction ;
-                                                                                    :onProperty :hasAlgorithmLearningMethod ;
-                                                                                    :someValuesFrom :Supervised
-                                                                                  ]
-                                                                                  [ rdf:type :Restriction ;
-                                                                                    :onProperty :hasAlgorithmLearningMethod ;
-                                                                                    :someValuesFrom :Unsupervised
-                                                                                  ]
-                                                                                )
-                                                              ]
-                                                            )
-                                          ] ;
-                         
-                         rdfs:subClassOf :Algorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AlgorithmSupervised
-
-:AlgorithmSupervised rdf:type :Class ;
-                     
-                     :equivalentClass [ rdf:type :Class ;
-                                        :intersectionOf ( :Algorithm
-                                                          [ rdf:type :Restriction ;
-                                                            :onProperty :hasAlgorithmLearningMethod ;
-                                                            :someValuesFrom :Supervised
-                                                          ]
-                                                        )
-                                      ] ;
-                     
-                     rdfs:subClassOf :Algorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AlgorithmUnsupervised
-
-:AlgorithmUnsupervised rdf:type :Class ;
-                       
-                       :equivalentClass [ rdf:type :Class ;
-                                          :intersectionOf ( :Algorithm
-                                                            [ rdf:type :Restriction ;
-                                                              :onProperty :hasAlgorithmLearningMethod ;
-                                                              :someValuesFrom :Unsupervised
-                                                            ]
-                                                          )
-                                        ] ;
-                       
-                       rdfs:subClassOf :Algorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Apriori
-
-:Apriori rdf:type :Class ;
-         
-         rdfs:subClassOf :NamedAlgorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Association
-
-:Association rdf:type :Class ;
-             
-             rdfs:subClassOf :AlgorithmLearningProblem .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#BIRCH
-
-:BIRCH rdf:type :Class ;
-       
-       rdfs:subClassOf :NamedAlgorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#BackPropagation
-
-:BackPropagation rdf:type :Class ;
-                 
-                 rdfs:subClassOf :NamedAlgorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#BayesTheory
-
-:BayesTheory rdf:type :Class ;
-             
-             rdfs:subClassOf :AlgorithmClass .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#C4.5
-
-:C4.5 rdf:type :Class ;
-      
-      rdfs:subClassOf :NamedAlgorithm ,
-                      [ rdf:type :Restriction ;
-                        :onProperty :hasAlgorithmClass ;
-                        :onClass :DecisionTrees ;
-                        :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                      ] .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#CART
-
-:CART rdf:type :Class ;
-      
-      rdfs:subClassOf :NamedAlgorithm ,
-                      [ rdf:type :Restriction ;
-                        :onProperty :hasAlgorithmClass ;
-                        :onClass :DecisionTrees ;
-                        :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                      ] .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#CHAID
-
-:CHAID rdf:type :Class ;
-       
-       rdfs:subClassOf :NamedAlgorithm ,
-                       [ rdf:type :Restriction ;
-                         :onProperty :hasAlgorithmClass ;
-                         :onClass :DecisionTrees ;
-                         :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                       ] .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#CHAMELEON
-
-:CHAMELEON rdf:type :Class ;
-           
-           rdfs:subClassOf :NamedAlgorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#CLARA
-
-:CLARA rdf:type :Class ;
-       
-       rdfs:subClassOf :NamedAlgorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#CLARANS
-
-:CLARANS rdf:type :Class ;
-         
-         rdfs:subClassOf :NamedAlgorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#CURE
-
-:CURE rdf:type :Class ;
-      
-      rdfs:subClassOf :NamedAlgorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Classification
-
-:Classification rdf:type :Class ;
-                
-                rdfs:subClassOf :AlgorithmLearningProblem .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Clustering
-
-:Clustering rdf:type :Class ;
-            
-            rdfs:subClassOf :AlgorithmLearningProblem .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#DecisionTrees
-
-:DecisionTrees rdf:type :Class ;
-               
-               rdfs:subClassOf :AlgorithmClass .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Environment
-
-:Environment rdf:type :Class .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#ExecutionInputParameter
-
-:ExecutionInputParameter rdf:type :Class .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#GeneticAlgorithm
-
-:GeneticAlgorithm rdf:type :Class ;
-                  
-                  rdfs:subClassOf :NamedAlgorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#GeneticAlgorithms
-
-:GeneticAlgorithms rdf:type :Class ;
-                   
-                   rdfs:subClassOf :AlgorithmClass .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#ID3
-
-:ID3 rdf:type :Class ;
-     
-     rdfs:subClassOf :NamedAlgorithm ,
-                     [ rdf:type :Restriction ;
-                       :onProperty :hasAlgorithmClass ;
-                       :onClass :DecisionTrees ;
-                       :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                     ] .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Kmeans
-
-:Kmeans rdf:type :Class ;
-        
-        rdfs:subClassOf :NamedAlgorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#LinearRegression
-
-:LinearRegression rdf:type :Class ;
-                  
-                  rdfs:subClassOf :NamedAlgorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#LogisticRegression
-
-:LogisticRegression rdf:type :Class ;
-                    
-                    rdfs:subClassOf :NamedAlgorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#MARS
-
-:MARS rdf:type :Class ;
-      
-      rdfs:subClassOf :NamedAlgorithm ,
-                      [ rdf:type :Restriction ;
-                        :onProperty :hasAlgorithmClass ;
-                        :onClass :DecisionTrees ;
-                        :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                      ] .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#NaiveBayes
-
-:NaiveBayes rdf:type :Class ;
-            
-            rdfs:subClassOf :NamedAlgorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#NamedAlgorithm
-
-:NamedAlgorithm rdf:type :Class ;
-                
-                rdfs:subClassOf :Algorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#NearestNeighbour
-
-:NearestNeighbour rdf:type :Class ;
-                  
-                  rdfs:subClassOf :NamedAlgorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#NeuralNetwork
-
-:NeuralNetwork rdf:type :Class ;
-               
-               rdfs:subClassOf :AlgorithmClass .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#OPTICS
-
-:OPTICS rdf:type :Class ;
-        
-        rdfs:subClassOf :NamedAlgorithm .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Performance
-
-:Performance rdf:type :Class ;
-             
-             rdfs:subClassOf [ rdf:type :Restriction ;
-                               :onProperty :hasItemPerformance ;
-                               :someValuesFrom :ItemPerformance
-                             ] ,
-                             [ rdf:type :Restriction ;
-                               :onProperty :hasExecutionPerformance ;
-                               :onClass :ExecutionPerformance ;
-                               :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                             ] .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Phase
-
-:Phase rdf:type :Class ;
-       
-       :equivalentClass [ rdf:type :Class ;
-                          :oneOf ( :Trainning
-                                   :Test
-                                   :Validation
-                                 )
-                        ] .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#RandomForest
-
-:RandomForest rdf:type :Class ;
-              
-              rdfs:subClassOf :NamedAlgorithm ,
-                              [ rdf:type :Restriction ;
-                                :onProperty :hasAlgorithmClass ;
-                                :onClass :DecisionTrees ;
-                                :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                              ] ,
-                              [ rdf:type :Class ;
-                                :unionOf ( [ rdf:type :Restriction ;
-                                             :onProperty :hasAlgorithmLearningProblem ;
-                                             :onClass :Classification ;
-                                             :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                                           ]
-                                           [ rdf:type :Restriction ;
-                                             :onProperty :hasAlgorithmLearningProblem ;
-                                             :onClass :Regression ;
-                                             :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                                           ]
-                                         )
-                              ] ,
-                              [ rdf:type :Restriction ;
-                                :onProperty :hasAlgorithmLearningMethod ;
-                                :onClass :Supervised ;
-                                :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                              ] ;
-              
-              rdfs:comment "Random forests are an ensemble learning method for classification, regression and other tasks, that operate by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees. Random forests correct for decision trees' habit of overfitting to their training set."@en .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Regression
-
-:Regression rdf:type :Class ;
-            
-            rdfs:subClassOf :AlgorithmLearningProblem .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#RegressionFunctions
-
-:RegressionFunctions rdf:type :Class ;
-                     
-                     rdfs:subClassOf :AlgorithmClass ,
-                                     [ rdf:type :Restriction ;
-                                       :onProperty :hasKernelMethod ;
-                                       :onClass :AlgorithmKernelMethod ;
-                                       :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                                     ] .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Reinforcement
-
-:Reinforcement rdf:type :Class ;
-               
-               rdfs:subClassOf :AlgorithmLearningMethod .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#SemiSupervised
-
-:SemiSupervised rdf:type :Class ;
-                
-                :equivalentClass [ rdf:type :Class ;
-                                   :intersectionOf ( :Supervised
-                                                     :Unsupervised
-                                                   )
-                                 ] ;
-                
-                rdfs:subClassOf :AlgorithmLearningMethod .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Summarization
-
-:Summarization rdf:type :Class ;
-               
-               rdfs:subClassOf :AlgorithmLearningProblem .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Supervised
-
-:Supervised rdf:type :Class ;
-            
-            rdfs:subClassOf :AlgorithmLearningMethod .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#SupportVectorMachines
-
-:SupportVectorMachines rdf:type :Class ;
-                       
-                       rdfs:subClassOf :NamedAlgorithm ,
-                                       [ rdf:type :Restriction ;
-                                         :onProperty :hasAlgorithmLearningMethod ;
-                                         :onClass :Supervised ;
-                                         :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                                       ] ,
-                                       [ rdf:type :Restriction ;
-                                         :onProperty :hasAlgorithmClass ;
-                                         :onClass :SupportVectorNetworks ;
-                                         :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                                       ] ,
-                                       [ rdf:type :Class ;
-                                         :unionOf ( [ rdf:type :Restriction ;
-                                                      :onProperty :hasAlgorithmLearningProblem ;
-                                                      :onClass :Classification ;
-                                                      :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                                                    ]
-                                                    [ rdf:type :Restriction ;
-                                                      :onProperty :hasAlgorithmLearningProblem ;
-                                                      :onClass :Regression ;
-                                                      :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                                                    ]
-                                                  )
-                                       ] .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#SupportVectorNetworks
-
-:SupportVectorNetworks rdf:type :Class ;
-                       
-                       rdfs:subClassOf :AlgorithmClass ,
-                                       [ rdf:type :Restriction ;
-                                         :onProperty :hasKernelMethod ;
-                                         :onClass :AlgorithmKernelMethod ;
-                                         :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                                       ] .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Unsupervised
-
-:Unsupervised rdf:type :Class ;
-              
-              rdfs:subClassOf :AlgorithmLearningMethod .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#UserDefinedMeasure
-
-:UserDefinedMeasure rdf:type :Class .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#UserDefinedModelPerformance
-
-:UserDefinedModelPerformance rdf:type :Class ;
-                             
-                             rdfs:subClassOf :ExecutionPerformance ,
-                                             [ rdf:type :Restriction ;
-                                               :onProperty :hasUserDefinedMeasures ;
-                                               :onClass :UserDefinedMeasure ;
-                                               :minQualifiedCardinality "1"^^xsd:nonNegativeInteger
-                                             ] .
-
-
-
-###  http://www.w3.org/2002/07/owl#Algorithm
-
-:Algorithm rdf:type :Class ;
-           
-           rdfs:label "Algorithm"@en ;
-           
-           rdfs:subClassOf [ rdf:type :Restriction ;
-                             :onProperty :hasParameters ;
-                             :someValuesFrom :AlgorithmParameter
-                           ] ,
-                           [ rdf:type :Restriction ;
-                             :onProperty :isAvailableAt ;
-                             :onClass :AlgorithmImplementation ;
-                             :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                           ] ;
-           
-           rdfs:comment "The basic information regarding the algorithms used into the experiment"@en .
 
 
 
@@ -3604,6 +3093,12 @@ doap:Description rdf:type :DatatypeProperty ;
                                            :onClass :Algorithm ;
                                            :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                                          ] .
+
+
+
+###  http://www.w3.org/2002/07/owl#AlgorithmKernelMethod
+
+:AlgorithmKernelMethod rdf:type :Class .
 
 
 
@@ -3646,6 +3141,64 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#AlgorithmSemiSupervised
+
+:AlgorithmSemiSupervised rdf:type :Class ;
+                         
+                         :equivalentClass [ rdf:type :Class ;
+                                            :intersectionOf ( :Algorithm
+                                                              [ rdf:type :Class ;
+                                                                :intersectionOf ( [ rdf:type :Restriction ;
+                                                                                    :onProperty :hasAlgorithmLearningMethod ;
+                                                                                    :someValuesFrom :Supervised
+                                                                                  ]
+                                                                                  [ rdf:type :Restriction ;
+                                                                                    :onProperty :hasAlgorithmLearningMethod ;
+                                                                                    :someValuesFrom :Unsupervised
+                                                                                  ]
+                                                                                )
+                                                              ]
+                                                            )
+                                          ] ;
+                         
+                         rdfs:subClassOf :Algorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#AlgorithmSupervised
+
+:AlgorithmSupervised rdf:type :Class ;
+                     
+                     :equivalentClass [ rdf:type :Class ;
+                                        :intersectionOf ( :Algorithm
+                                                          [ rdf:type :Restriction ;
+                                                            :onProperty :hasAlgorithmLearningMethod ;
+                                                            :someValuesFrom :Supervised
+                                                          ]
+                                                        )
+                                      ] ;
+                     
+                     rdfs:subClassOf :Algorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#AlgorithmUnsupervised
+
+:AlgorithmUnsupervised rdf:type :Class ;
+                       
+                       :equivalentClass [ rdf:type :Class ;
+                                          :intersectionOf ( :Algorithm
+                                                            [ rdf:type :Restriction ;
+                                                              :onProperty :hasAlgorithmLearningMethod ;
+                                                              :someValuesFrom :Unsupervised
+                                                            ]
+                                                          )
+                                        ] ;
+                       
+                       rdfs:subClassOf :Algorithm .
+
+
+
 ###  http://www.w3.org/2002/07/owl#ApplicationContext
 
 :ApplicationContext rdf:type :Class ;
@@ -3660,11 +3213,138 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#Apriori
+
+:Apriori rdf:type :Class ;
+         
+         rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#Association
+
+:Association rdf:type :Class ;
+             
+             rdfs:subClassOf :AlgorithmLearningProblem .
+
+
+
+###  http://www.w3.org/2002/07/owl#BIRCH
+
+:BIRCH rdf:type :Class ;
+       
+       rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#BackPropagation
+
+:BackPropagation rdf:type :Class ;
+                 
+                 rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#BayesTheory
+
+:BayesTheory rdf:type :Class ;
+             
+             rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://www.w3.org/2002/07/owl#C4.5
+
+:C4.5 rdf:type :Class ;
+      
+      rdfs:subClassOf :NamedAlgorithm ,
+                      [ rdf:type :Restriction ;
+                        :onProperty :hasAlgorithmClass ;
+                        :onClass :DecisionTrees ;
+                        :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                      ] .
+
+
+
+###  http://www.w3.org/2002/07/owl#CART
+
+:CART rdf:type :Class ;
+      
+      rdfs:subClassOf :NamedAlgorithm ,
+                      [ rdf:type :Restriction ;
+                        :onProperty :hasAlgorithmClass ;
+                        :onClass :DecisionTrees ;
+                        :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                      ] .
+
+
+
+###  http://www.w3.org/2002/07/owl#CHAID
+
+:CHAID rdf:type :Class ;
+       
+       rdfs:subClassOf :NamedAlgorithm ,
+                       [ rdf:type :Restriction ;
+                         :onProperty :hasAlgorithmClass ;
+                         :onClass :DecisionTrees ;
+                         :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                       ] .
+
+
+
+###  http://www.w3.org/2002/07/owl#CHAMELEON
+
+:CHAMELEON rdf:type :Class ;
+           
+           rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#CLARA
+
+:CLARA rdf:type :Class ;
+       
+       rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#CLARANS
+
+:CLARANS rdf:type :Class ;
+         
+         rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#CURE
+
+:CURE rdf:type :Class ;
+      
+      rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#Classification
+
+:Classification rdf:type :Class ;
+                
+                rdfs:subClassOf :AlgorithmLearningProblem .
+
+
+
 ###  http://www.w3.org/2002/07/owl#ClassificationModelPerformance
 
 :ClassificationModelPerformance rdf:type :Class ;
                                 
                                 rdfs:subClassOf :ExecutionPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#Clustering
+
+:Clustering rdf:type :Class ;
+            
+            rdfs:subClassOf :AlgorithmLearningProblem .
 
 
 
@@ -3684,16 +3364,25 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#DecisionTrees
+
+:DecisionTrees rdf:type :Class ;
+               
+               rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://www.w3.org/2002/07/owl#Environment
+
+:Environment rdf:type :Class .
+
+
+
 ###  http://www.w3.org/2002/07/owl#Execution
 
 :Execution rdf:type :Class ;
            
            rdfs:subClassOf [ rdf:type :Restriction ;
-                             :onProperty :hasCorpus ;
-                             :onClass :Corpus ;
-                             :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                           ] ,
-                           [ rdf:type :Restriction ;
                              :onProperty :hasModel ;
                              :onClass :Model ;
                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
@@ -3717,7 +3406,18 @@ doap:Description rdf:type :DatatypeProperty ;
                              :onProperty :hasAlgorithmImplementation ;
                              :onClass :AlgorithmImplementation ;
                              :minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                           ] ,
+                           [ rdf:type :Restriction ;
+                             :onProperty :hasCorpus ;
+                             :onClass :Corpus ;
+                             :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                            ] .
+
+
+
+###  http://www.w3.org/2002/07/owl#ExecutionInputParameter
+
+:ExecutionInputParameter rdf:type :Class .
 
 
 
@@ -3726,11 +3426,11 @@ doap:Description rdf:type :DatatypeProperty ;
 :ExecutionPerformance rdf:type :Class ;
                       
                       :equivalentClass [ rdf:type :Class ;
-                                         :unionOf ( :UserDefinedModelPerformance
-                                                    :ClassificationModelPerformance
+                                         :unionOf ( :ClassificationModelPerformance
                                                     :ClusteringModelPerformance
                                                     :RegressionModelPerformance
                                                     :StatisticalModelPerformance
+                                                    :UserDefinedPerformance
                                                   )
                                        ] .
 
@@ -3741,25 +3441,54 @@ doap:Description rdf:type :DatatypeProperty ;
 :Experiment rdf:type :Class ;
             
             rdfs:subClassOf [ rdf:type :Restriction ;
-                              :onProperty :hasEnvironment ;
-                              :onClass :Environment ;
-                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                            ] ,
-                            [ rdf:type :Restriction ;
-                              :onProperty :hasApplicationContext ;
-                              :onClass :ApplicationContext ;
-                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                            ] ,
-                            [ rdf:type :Restriction ;
                               :onProperty :hasSamplingMethod ;
                               :onClass :SamplingMethods ;
+                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type :Restriction ;
+                              :onProperty :hasEnvironment ;
+                              :onClass :Environment ;
                               :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                             ] ,
                             [ rdf:type :Restriction ;
                               :onProperty :hasExecution ;
                               :onClass :Execution ;
                               :minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type :Restriction ;
+                              :onProperty :hasApplicationContext ;
+                              :onClass :ApplicationContext ;
+                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                             ] .
+
+
+
+###  http://www.w3.org/2002/07/owl#GeneticAlgorithm
+
+:GeneticAlgorithm rdf:type :Class ;
+                  
+                  rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#GeneticAlgorithms
+
+:GeneticAlgorithms rdf:type :Class ;
+                   
+                   rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://www.w3.org/2002/07/owl#ID3
+
+:ID3 rdf:type :Class ;
+     
+     rdfs:subClassOf :NamedAlgorithm ,
+                     [ rdf:type :Restriction ;
+                       :onProperty :hasAlgorithmClass ;
+                       :onClass :DecisionTrees ;
+                       :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                     ] .
 
 
 
@@ -3769,9 +3498,173 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#Kmeans
+
+:Kmeans rdf:type :Class ;
+        
+        rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#LinearRegression
+
+:LinearRegression rdf:type :Class ;
+                  
+                  rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#LogisticRegression
+
+:LogisticRegression rdf:type :Class ;
+                    
+                    rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#MARS
+
+:MARS rdf:type :Class ;
+      
+      rdfs:subClassOf :NamedAlgorithm ,
+                      [ rdf:type :Restriction ;
+                        :onProperty :hasAlgorithmClass ;
+                        :onClass :DecisionTrees ;
+                        :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                      ] .
+
+
+
 ###  http://www.w3.org/2002/07/owl#Model
 
 :Model rdf:type :Class .
+
+
+
+###  http://www.w3.org/2002/07/owl#NaiveBayes
+
+:NaiveBayes rdf:type :Class ;
+            
+            rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#NamedAlgorithm
+
+:NamedAlgorithm rdf:type :Class ;
+                
+                rdfs:subClassOf :Algorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#NearestNeighbour
+
+:NearestNeighbour rdf:type :Class ;
+                  
+                  rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#NeuralNetwork
+
+:NeuralNetwork rdf:type :Class ;
+               
+               rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://www.w3.org/2002/07/owl#OPTICS
+
+:OPTICS rdf:type :Class ;
+        
+        rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#Performance
+
+:Performance rdf:type :Class ;
+             
+             rdfs:subClassOf [ rdf:type :Restriction ;
+                               :onProperty :hasExecutionPerformance ;
+                               :onClass :ExecutionPerformance ;
+                               :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                             ] ,
+                             [ rdf:type :Restriction ;
+                               :onProperty :hasItemPerformance ;
+                               :someValuesFrom :ItemPerformance
+                             ] ,
+                             [ rdf:type :Restriction ;
+                               :onProperty :hasUserDefinedPerformance ;
+                               :someValuesFrom :UserDefinedPerformance
+                             ] .
+
+
+
+###  http://www.w3.org/2002/07/owl#Phase
+
+:Phase rdf:type :Class ;
+       
+       :equivalentClass [ rdf:type :Class ;
+                          :oneOf ( :Test
+                                   :Trainning
+                                   :Validation
+                                 )
+                        ] .
+
+
+
+###  http://www.w3.org/2002/07/owl#RandomForest
+
+:RandomForest rdf:type :Class ;
+              
+              rdfs:subClassOf :NamedAlgorithm ,
+                              [ rdf:type :Restriction ;
+                                :onProperty :hasAlgorithmClass ;
+                                :onClass :DecisionTrees ;
+                                :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                              ] ,
+                              [ rdf:type :Class ;
+                                :unionOf ( [ rdf:type :Restriction ;
+                                             :onProperty :hasAlgorithmLearningProblem ;
+                                             :onClass :Classification ;
+                                             :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                           ]
+                                           [ rdf:type :Restriction ;
+                                             :onProperty :hasAlgorithmLearningProblem ;
+                                             :onClass :Regression ;
+                                             :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                           ]
+                                         )
+                              ] ,
+                              [ rdf:type :Restriction ;
+                                :onProperty :hasAlgorithmLearningMethod ;
+                                :onClass :Supervised ;
+                                :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                              ] ;
+              
+              rdfs:comment "Random forests are an ensemble learning method for classification, regression and other tasks, that operate by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees. Random forests correct for decision trees' habit of overfitting to their training set."@en .
+
+
+
+###  http://www.w3.org/2002/07/owl#Regression
+
+:Regression rdf:type :Class ;
+            
+            rdfs:subClassOf :AlgorithmLearningProblem .
+
+
+
+###  http://www.w3.org/2002/07/owl#RegressionFunctions
+
+:RegressionFunctions rdf:type :Class ;
+                     
+                     rdfs:subClassOf :AlgorithmClass ,
+                                     [ rdf:type :Restriction ;
+                                       :onProperty :hasKernelMethod ;
+                                       :onClass :AlgorithmKernelMethod ;
+                                       :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                     ] .
 
 
 
@@ -3780,6 +3673,14 @@ doap:Description rdf:type :DatatypeProperty ;
 :RegressionModelPerformance rdf:type :Class ;
                             
                             rdfs:subClassOf :ExecutionPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#Reinforcement
+
+:Reinforcement rdf:type :Class ;
+               
+               rdfs:subClassOf :AlgorithmLearningMethod .
 
 
 
@@ -3797,11 +3698,105 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#SemiSupervised
+
+:SemiSupervised rdf:type :Class ;
+                
+                :equivalentClass [ rdf:type :Class ;
+                                   :intersectionOf ( :Supervised
+                                                     :Unsupervised
+                                                   )
+                                 ] ;
+                
+                rdfs:subClassOf :AlgorithmLearningMethod .
+
+
+
 ###  http://www.w3.org/2002/07/owl#StatisticalModelPerformance
 
 :StatisticalModelPerformance rdf:type :Class ;
                              
                              rdfs:subClassOf :ExecutionPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#Summarization
+
+:Summarization rdf:type :Class ;
+               
+               rdfs:subClassOf :AlgorithmLearningProblem .
+
+
+
+###  http://www.w3.org/2002/07/owl#Supervised
+
+:Supervised rdf:type :Class ;
+            
+            rdfs:subClassOf :AlgorithmLearningMethod .
+
+
+
+###  http://www.w3.org/2002/07/owl#SupportVectorMachines
+
+:SupportVectorMachines rdf:type :Class ;
+                       
+                       rdfs:subClassOf :NamedAlgorithm ,
+                                       [ rdf:type :Restriction ;
+                                         :onProperty :hasAlgorithmClass ;
+                                         :onClass :SupportVectorNetworks ;
+                                         :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ,
+                                       [ rdf:type :Class ;
+                                         :unionOf ( [ rdf:type :Restriction ;
+                                                      :onProperty :hasAlgorithmLearningProblem ;
+                                                      :onClass :Classification ;
+                                                      :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                    ]
+                                                    [ rdf:type :Restriction ;
+                                                      :onProperty :hasAlgorithmLearningProblem ;
+                                                      :onClass :Regression ;
+                                                      :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                    ]
+                                                  )
+                                       ] ,
+                                       [ rdf:type :Restriction ;
+                                         :onProperty :hasAlgorithmLearningMethod ;
+                                         :onClass :Supervised ;
+                                         :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                       ] .
+
+
+
+###  http://www.w3.org/2002/07/owl#SupportVectorNetworks
+
+:SupportVectorNetworks rdf:type :Class ;
+                       
+                       rdfs:subClassOf :AlgorithmClass ,
+                                       [ rdf:type :Restriction ;
+                                         :onProperty :hasKernelMethod ;
+                                         :onClass :AlgorithmKernelMethod ;
+                                         :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                       ] .
+
+
+
+###  http://www.w3.org/2002/07/owl#Unsupervised
+
+:Unsupervised rdf:type :Class ;
+              
+              rdfs:subClassOf :AlgorithmLearningMethod .
+
+
+
+###  http://www.w3.org/2002/07/owl#UserDefinedMeasure
+
+:UserDefinedMeasure rdf:type :Class .
+
+
+
+###  http://www.w3.org/2002/07/owl#UserDefinedPerformance
+
+:UserDefinedPerformance rdf:type :Class .
 
 
 
@@ -3816,306 +3811,9 @@ doap:Description rdf:type :DatatypeProperty ;
 
 ###  http://dne5.com/machine-learning/ontology/myexp.owl
 
-<http://dne5.com/machine-learning/ontology/myexp.owl> rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AODE
-
-:AODE rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#AdaptativeBoost
-
-:AdaptativeBoost rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Apriori
-
-:Apriori rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Association
-
-:Association rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#BIRCH
-
-:BIRCH rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#BackPropagation
-
-:BackPropagation rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Bayes
-
-:Bayes rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#C4.5
-
-:C4.5 rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#CART
-
-:CART rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#CHAMELEON
-
-:CHAMELEON rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#CLARA
-
-:CLARA rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#CLARANS
-
-:CLARANS rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#CURE
-
-:CURE rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Classification
-
-:Classification rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Clustering
-
-:Clustering rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#DecisionTrees
-
-:DecisionTrees rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#FP-growth
-
-:FP-growth rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#GA
-
-:GA rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#GaussianRBF
-
-:GaussianRBF rdf:type :AlgorithmKernelMethod ,
-                      :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#GeneticAlgorithm
-
-:GeneticAlgorithm rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#GraphKernel
-
-:GraphKernel rdf:type :AlgorithmKernelMethod ,
-                      :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#ID3
-
-:ID3 rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#K-means
-
-:K-means rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Linear
-
-:Linear rdf:type :AlgorithmKernelMethod ,
-                 :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#LinearRegression
-
-:LinearRegression rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#LogisticRegression
-
-:LogisticRegression rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#NaiveBayes
-
-:NaiveBayes rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#NearestNeighbour
-
-:NearestNeighbour rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#NeuralNetwork
-
-:NeuralNetwork rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#OPTICS
-
-:OPTICS rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#PathKernel
-
-:PathKernel rdf:type :AlgorithmKernelMethod ,
-                     :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Polynomial
-
-:Polynomial rdf:type :AlgorithmKernelMethod ,
-                     :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#RandomForest
-
-:RandomForest rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Regression
-
-:Regression rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#RegressionFunctions
-
-:RegressionFunctions rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Reinforcement
-
-:Reinforcement rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#SemiSupervised
-
-:SemiSupervised rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Sigmoid
-
-:Sigmoid rdf:type :AlgorithmKernelMethod ,
-                  :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#StringKernel
-
-:StringKernel rdf:type :AlgorithmKernelMethod ,
-                       :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Summarization
-
-:Summarization rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Supervised
-
-:Supervised rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#SupportVectorMachines
-
-:SupportVectorMachines rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#SupportVectorNetworks
-
-:SupportVectorNetworks rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Test
-
-:Test rdf:type :Phase ,
-               :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Trainning
-
-:Trainning rdf:type :Phase ,
-                    :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#TreeKernel
-
-:TreeKernel rdf:type :AlgorithmKernelMethod ,
-                     :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Unsupervised
-
-:Unsupervised rdf:type :NamedIndividual .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#Validation
-
-:Validation rdf:type :Phase ,
-                     :NamedIndividual .
+<http://dne5.com/machine-learning/ontology/myexp.owl> rdf:type :NamedIndividual ;
+                                                      
+                                                      dct:publisher <http://purl.org/dc/aboutdcmi#DCMI> .
 
 
 
@@ -5957,6 +5655,48 @@ dct:valid rdf:type :NamedIndividual ;
 
 
 
+###  http://www.w3.org/2002/07/owl#AODE
+
+:AODE rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#AdaptativeBoost
+
+:AdaptativeBoost rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#Apriori
+
+:Apriori rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#Association
+
+:Association rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#BIRCH
+
+:BIRCH rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#BackPropagation
+
+:BackPropagation rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#Bayes
+
+:Bayes rdf:type :NamedIndividual .
+
+
+
 ###  http://www.w3.org/2002/07/owl#Bootstrap
 
 :Bootstrap rdf:type :NamedIndividual ,
@@ -5976,6 +5716,42 @@ dct:valid rdf:type :NamedIndividual ;
 
 
 
+###  http://www.w3.org/2002/07/owl#CHAMELEON
+
+:CHAMELEON rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#CLARA
+
+:CLARA rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#CLARANS
+
+:CLARANS rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#CURE
+
+:CURE rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#Classification
+
+:Classification rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#Clustering
+
+:Clustering rdf:type :NamedIndividual .
+
+
+
 ###  http://www.w3.org/2002/07/owl#CrossValidation
 
 :CrossValidation rdf:type :NamedIndividual ,
@@ -5989,6 +5765,12 @@ dct:valid rdf:type :NamedIndividual ;
 
 
 
+###  http://www.w3.org/2002/07/owl#DecisionTrees
+
+:DecisionTrees rdf:type :NamedIndividual .
+
+
+
 ###  http://www.w3.org/2002/07/owl#FAMA
 
 :FAMA rdf:type :AlgorithmImplementation ,
@@ -5996,9 +5778,35 @@ dct:valid rdf:type :NamedIndividual ;
 
 
 
+###  http://www.w3.org/2002/07/owl#FP-growth
+
+:FP-growth rdf:type :NamedIndividual .
+
+
+
 ###  http://www.w3.org/2002/07/owl#GA
 
 :GA rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#GaussianRBF
+
+:GaussianRBF rdf:type :AlgorithmKernelMethod ,
+                      :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#GeneticAlgorithm
+
+:GeneticAlgorithm rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#GraphKernel
+
+:GraphKernel rdf:type :AlgorithmKernelMethod ,
+                      :NamedIndividual .
 
 
 
@@ -6015,6 +5823,12 @@ dct:valid rdf:type :NamedIndividual ;
 
 
 
+###  http://www.w3.org/2002/07/owl#K-means
+
+:K-means rdf:type :NamedIndividual .
+
+
+
 ###  http://www.w3.org/2002/07/owl#LibSVM
 
 :LibSVM rdf:type :AlgorithmImplementation ,
@@ -6022,9 +5836,28 @@ dct:valid rdf:type :NamedIndividual ;
 
 
 
+###  http://www.w3.org/2002/07/owl#Linear
+
+:Linear rdf:type :AlgorithmKernelMethod ,
+                 :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#LinearRegression
+
+:LinearRegression rdf:type :NamedIndividual .
+
+
+
 ###  http://www.w3.org/2002/07/owl#Linear_Regression
 
 :Linear_Regression rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#LogisticRegression
+
+:LogisticRegression rdf:type :NamedIndividual .
 
 
 
@@ -6055,9 +5888,21 @@ dct:valid rdf:type :NamedIndividual ;
 
 
 
+###  http://www.w3.org/2002/07/owl#NaiveBayes
+
+:NaiveBayes rdf:type :NamedIndividual .
+
+
+
 ###  http://www.w3.org/2002/07/owl#Naive_Bayes
 
 :Naive_Bayes rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#NearestNeighbour
+
+:NearestNeighbour rdf:type :NamedIndividual .
 
 
 
@@ -6066,6 +5911,32 @@ dct:valid rdf:type :NamedIndividual ;
 :Nearest_Neighbour rdf:type :NamedIndividual ;
                    
                    rdfs:comment "k-NN" .
+
+
+
+###  http://www.w3.org/2002/07/owl#NeuralNetwork
+
+:NeuralNetwork rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#OPTICS
+
+:OPTICS rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#PathKernel
+
+:PathKernel rdf:type :AlgorithmKernelMethod ,
+                     :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#Polynomial
+
+:Polynomial rdf:type :AlgorithmKernelMethod ,
+                     :NamedIndividual .
 
 
 
@@ -6082,6 +5953,30 @@ dct:valid rdf:type :NamedIndividual ;
 
 
 
+###  http://www.w3.org/2002/07/owl#RandomForest
+
+:RandomForest rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#Regression
+
+:Regression rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#RegressionFunctions
+
+:RegressionFunctions rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#Reinforcement
+
+:Reinforcement rdf:type :NamedIndividual .
+
+
+
 ###  http://www.w3.org/2002/07/owl#SPSS
 
 :SPSS rdf:type :AlgorithmImplementation ,
@@ -6092,6 +5987,84 @@ dct:valid rdf:type :NamedIndividual ;
 ###  http://www.w3.org/2002/07/owl#SVM
 
 :SVM rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#SemiSupervised
+
+:SemiSupervised rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#Sigmoid
+
+:Sigmoid rdf:type :AlgorithmKernelMethod ,
+                  :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#StringKernel
+
+:StringKernel rdf:type :AlgorithmKernelMethod ,
+                       :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#Summarization
+
+:Summarization rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#Supervised
+
+:Supervised rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#SupportVectorMachines
+
+:SupportVectorMachines rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#SupportVectorNetworks
+
+:SupportVectorNetworks rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#Test
+
+:Test rdf:type :NamedIndividual ,
+               :Phase .
+
+
+
+###  http://www.w3.org/2002/07/owl#Trainning
+
+:Trainning rdf:type :NamedIndividual ,
+                    :Phase .
+
+
+
+###  http://www.w3.org/2002/07/owl#TreeKernel
+
+:TreeKernel rdf:type :AlgorithmKernelMethod ,
+                     :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#Unsupervised
+
+:Unsupervised rdf:type :NamedIndividual .
+
+
+
+###  http://www.w3.org/2002/07/owl#Validation
+
+:Validation rdf:type :NamedIndividual ,
+                     :Phase .
 
 
 
@@ -6145,14 +6118,6 @@ dct:valid rdf:type :NamedIndividual ;
            )
 ] .
 [ rdf:type :AllDisjointClasses ;
-  :members ( :AlgorithmForAssociation
-             :AlgorithmForClassification
-             :AlgorithmForClustering
-             :AlgorithmForRegression
-             :AlgorithmForSummarization
-           )
-] .
-[ rdf:type :AllDisjointClasses ;
   :members ( :Association
              :Classification
              :Clustering
@@ -6161,11 +6126,19 @@ dct:valid rdf:type :NamedIndividual ;
            )
 ] .
 [ rdf:type :AllDisjointClasses ;
-  :members ( :UserDefinedModelPerformance
-             :ClassificationModelPerformance
+  :members ( :AlgorithmForAssociation
+             :AlgorithmForClassification
+             :AlgorithmForClustering
+             :AlgorithmForRegression
+             :AlgorithmForSummarization
+           )
+] .
+[ rdf:type :AllDisjointClasses ;
+  :members ( :ClassificationModelPerformance
              :ClusteringModelPerformance
              :RegressionModelPerformance
              :StatisticalModelPerformance
+             :UserDefinedPerformance
            )
 ] .
 
