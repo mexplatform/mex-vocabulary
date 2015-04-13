@@ -1,6 +1,7 @@
 @prefix : <http://www.w3.org/2002/07/owl#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
+@prefix mex: <http://dne5.com/machine-learning/ontology/myexp.owl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -10,28 +11,27 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix mex: <http://dne5.com/machine-learning/ontology/myexp.owl#> .
-@base <http://dne5.com/machine-learning/ontology/myexp.owl> .
+@base <http://dne5.com/machine-learning/ontology/myexp.owl#> .
 
 <http://dne5.com/machine-learning/ontology/myexp.owl#> rdf:type :Ontology ;
-                                                      
-                                                      dct:created "2014-02-02"^^xsd:date ;
-                                                      
-                                                      dct:modified "2014-04-05"^^xsd:date ;
-                                                      
-                                                      dc:creator "Diego Esteves"^^xsd:Name ;
-                                                      
-                                                      :versionInfo "0.1"@en ;
-                                                      
-                                                      dc:publisher "AKSW"@en ;
-                                                      
-                                                      dct:title "Dublin Core Metadata Element Set, Version 1.1"@en ;
-                                                      
-                                                      dc:title "MyEXP Ontology"@en ;
-                                                      
-                                                      rdfs:seeAlso "MyExp Ontology: Guidelines on Publish Machine Learning Experiments using Linked Data"@en ;
-                                                      
-                                                      :imports <http://www.w3.org/TR/rdf-schema/> .
+                                                       
+                                                       dct:created "2014-02-02"^^xsd:date ;
+                                                       
+                                                       dct:modified "2014-04-05"^^xsd:date ;
+                                                       
+                                                       dc:creator "Diego Esteves"^^xsd:Name ;
+                                                       
+                                                       :versionInfo "0.1"@en ;
+                                                       
+                                                       dc:publisher "AKSW"@en ;
+                                                       
+                                                       dct:title "Dublin Core Metadata Element Set, Version 1.1"@en ;
+                                                       
+                                                       dc:title "MyEXP Ontology"@en ;
+                                                       
+                                                       rdfs:seeAlso "MyExp Ontology: Guidelines on Publish Machine Learning Experiments using Linked Data"@en ;
+                                                       
+                                                       :imports <http://www.w3.org/TR/rdf-schema/> .
 
 
 #################################################################
@@ -423,21 +423,8 @@ dct:bibliographicCitation rdf:type :AnnotationProperty ;
 
 dct:conformsTo rdf:type :AnnotationProperty ;
                
-               rdfs:label "Conforms To"@en ;
-               
-               dct:issued "2001-05-21"^^xsd:date ;
-               
-               dct:modified "2008-01-14"^^xsd:date ;
-               
-               rdfs:comment "An established standard to which the described resource conforms."@en ;
-               
-               dct:hasVersion <http://dublincore.org/usage/terms/history/#conformsTo-003> ;
-               
-               rdfs:subPropertyOf dc:relation ;
-               
-               rdfs:isDefinedBy dct: ;
-               
-               rdfs:subPropertyOf dct:relation .
+               rdfs:subPropertyOf dc:relation ,
+                                  dct:relation .
 
 
 
@@ -445,21 +432,7 @@ dct:conformsTo rdf:type :AnnotationProperty ;
 
 dct:contributor rdf:type :AnnotationProperty ;
                 
-                rdfs:label "Contributor"@en ;
-                
-                dct:issued "2008-01-14"^^xsd:date ;
-                
-                dct:modified "2010-10-11"^^xsd:date ;
-                
-                rdfs:comment "An entity responsible for making contributions to the resource."@en ;
-                
-                dct:description "Examples of a Contributor include a person, an organization, or a service."@en ;
-                
-                dct:hasVersion <http://dublincore.org/usage/terms/history/#contributorT-001> ;
-                
-                rdfs:subPropertyOf dc:contributor ;
-                
-                rdfs:isDefinedBy dct: .
+                rdfs:subPropertyOf dc:contributor .
 
 
 
@@ -467,21 +440,7 @@ dct:contributor rdf:type :AnnotationProperty ;
 
 dct:coverage rdf:type :AnnotationProperty ;
              
-             rdfs:label "Coverage"@en ;
-             
-             dct:modified "2008-01-14"^^xsd:date ;
-             
-             dct:issued "2008-01-14"^^xsd:date ;
-             
-             dct:description "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges."@en ;
-             
-             rdfs:comment "The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#coverageT-001> ;
-             
-             rdfs:subPropertyOf dc:coverage ;
-             
-             rdfs:isDefinedBy dct: .
+             rdfs:subPropertyOf dc:coverage .
 
 
 
@@ -509,23 +468,7 @@ dct:created rdf:type :AnnotationProperty ;
 
 dct:creator rdf:type :AnnotationProperty ;
             
-            rdfs:label "Creator"@en ;
-            
-            dct:issued "2008-01-14"^^xsd:date ;
-            
-            dct:modified "2010-10-11"^^xsd:date ;
-            
-            rdfs:comment "An entity primarily responsible for making the resource."@en ;
-            
-            dct:description "Examples of a Creator include a person, an organization, or a service."@en ;
-            
-            rdfs:comment "list of authors of the experiment"@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#creatorT-002> ;
-            
-            rdfs:subPropertyOf dc:creator ;
-            
-            rdfs:isDefinedBy dct: .
+            rdfs:subPropertyOf dc:creator .
 
 
 
@@ -641,19 +584,7 @@ dct:description rdf:type :AnnotationProperty ;
 
 dct:extent rdf:type :AnnotationProperty ;
            
-           rdfs:label "Extent"@en ;
-           
-           dct:issued "2000-07-11"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date ;
-           
-           rdfs:comment "The size or duration of the resource."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#extent-003> ;
-           
-           rdfs:subPropertyOf dc:format ;
-           
-           rdfs:isDefinedBy dct: .
+           rdfs:subPropertyOf dc:format .
 
 
 
@@ -661,21 +592,7 @@ dct:extent rdf:type :AnnotationProperty ;
 
 dct:format rdf:type :AnnotationProperty ;
            
-           rdfs:label "Format"@en ;
-           
-           dct:issued "2008-01-14"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date ;
-           
-           dct:description "Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME]."@en ;
-           
-           rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#formatT-001> ;
-           
-           rdfs:subPropertyOf dc:format ;
-           
-           rdfs:isDefinedBy dct: .
+           rdfs:subPropertyOf dc:format .
 
 
 
@@ -959,19 +876,7 @@ dct:license rdf:type :AnnotationProperty ;
 
 dct:medium rdf:type :AnnotationProperty ;
            
-           rdfs:label "Medium"@en ;
-           
-           dct:issued "2000-07-11"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date ;
-           
-           rdfs:comment "The material or physical carrier of the resource."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#medium-003> ;
-           
-           rdfs:subPropertyOf dc:format ;
-           
-           rdfs:isDefinedBy dct: .
+           rdfs:subPropertyOf dc:format .
 
 
 
@@ -999,21 +904,7 @@ dct:modified rdf:type :AnnotationProperty ;
 
 dct:publisher rdf:type :AnnotationProperty ;
               
-              rdfs:label "Publisher"@en ;
-              
-              dct:issued "2008-01-14"^^xsd:date ;
-              
-              dct:modified "2010-10-11"^^xsd:date ;
-              
-              rdfs:comment "An entity responsible for making the resource available."@en ;
-              
-              dct:description "Examples of a Publisher include a person, an organization, or a service."@en ;
-              
-              dct:hasVersion <http://dublincore.org/usage/terms/history/#publisherT-001> ;
-              
-              rdfs:subPropertyOf dc:publisher ;
-              
-              rdfs:isDefinedBy dct: .
+              rdfs:subPropertyOf dc:publisher .
 
 
 
@@ -1151,19 +1042,7 @@ dct:source rdf:type :AnnotationProperty ;
 
 dct:spatial rdf:type :AnnotationProperty ;
             
-            rdfs:label "Spatial Coverage"@en ;
-            
-            dct:issued "2000-07-11"^^xsd:date ;
-            
-            dct:modified "2008-01-14"^^xsd:date ;
-            
-            rdfs:comment "Spatial characteristics of the resource."@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#spatial-003> ;
-            
-            rdfs:subPropertyOf dc:coverage ;
-            
-            rdfs:isDefinedBy dct: .
+            rdfs:subPropertyOf dc:coverage .
 
 
 
@@ -1199,19 +1078,7 @@ dct:tableOfContents rdf:type :AnnotationProperty ;
 
 dct:temporal rdf:type :AnnotationProperty ;
              
-             rdfs:label "Temporal Coverage"@en ;
-             
-             dct:issued "2000-07-11"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date ;
-             
-             rdfs:comment "Temporal characteristics of the resource."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#temporal-003> ;
-             
-             rdfs:subPropertyOf dc:coverage ;
-             
-             rdfs:isDefinedBy dct: .
+             rdfs:subPropertyOf dc:coverage .
 
 
 
@@ -1533,327 +1400,13 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 
 
-###  http://dne5.com/machine-learning/ontology/myexp.owl#hasUserDefinedPerformance
-
-:hasUserDefinedPerformance rdf:type :ObjectProperty .
-
-
-
-###  http://purl.org/dc/terms/accrualMethod
-
-dct:accrualMethod rdf:type :ObjectProperty ;
-                  
-                  rdfs:label "Accrual Method"@en ;
-                  
-                  dct:issued "2005-06-13"^^xsd:date ;
-                  
-                  dct:modified "2010-10-11"^^xsd:date ;
-                  
-                  rdfs:comment "The method by which items are added to a collection."@en ;
-                  
-                  dct:hasVersion <http://dublincore.org/usage/terms/history/#accrualMethod-003> ;
-                  
-                  rdfs:isDefinedBy dct: .
-
-
-
-###  http://purl.org/dc/terms/accrualPeriodicity
-
-dct:accrualPeriodicity rdf:type :ObjectProperty ;
-                       
-                       rdfs:label "Accrual Periodicity"@en ;
-                       
-                       dct:issued "2005-06-13"^^xsd:date ;
-                       
-                       dct:modified "2010-10-11"^^xsd:date ;
-                       
-                       rdfs:comment "The frequency with which items are added to a collection."@en ;
-                       
-                       dct:hasVersion <http://dublincore.org/usage/terms/history/#accrualPeriodicity-003> ;
-                       
-                       rdfs:isDefinedBy dct: .
-
-
-
-###  http://purl.org/dc/terms/accrualPolicy
-
-dct:accrualPolicy rdf:type :ObjectProperty ;
-                  
-                  rdfs:label "Accrual Policy"@en ;
-                  
-                  dct:issued "2005-06-13"^^xsd:date ;
-                  
-                  dct:modified "2010-10-11"^^xsd:date ;
-                  
-                  rdfs:comment "The policy governing the addition of items to a collection."@en ;
-                  
-                  dct:hasVersion <http://dublincore.org/usage/terms/history/#accrualPolicy-003> ;
-                  
-                  rdfs:isDefinedBy dct: .
-
-
-
-###  http://purl.org/dc/terms/audience
-
-dct:audience rdf:type :ObjectProperty ;
-             
-             rdfs:label "Audience"@en ;
-             
-             dct:issued "2001-05-21"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date ;
-             
-             rdfs:comment "A class of entity for whom the resource is intended or useful."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#audience-003> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-###  http://purl.org/dc/terms/conformsTo
-
-dct:conformsTo rdf:type :ObjectProperty ;
-               
-               rdfs:label "Conforms To"@en ;
-               
-               dct:issued "2001-05-21"^^xsd:date ;
-               
-               dct:modified "2008-01-14"^^xsd:date ;
-               
-               rdfs:comment "An established standard to which the described resource conforms."@en ;
-               
-               dct:hasVersion <http://dublincore.org/usage/terms/history/#conformsTo-003> ;
-               
-               rdfs:isDefinedBy dct: .
-
-
-
-###  http://purl.org/dc/terms/contributor
-
-dct:contributor rdf:type :ObjectProperty ;
-                
-                rdfs:label "Contributor"@en ;
-                
-                dct:issued "2008-01-14"^^xsd:date ;
-                
-                dct:modified "2010-10-11"^^xsd:date ;
-                
-                rdfs:comment "An entity responsible for making contributions to the resource."@en ;
-                
-                dct:description "Examples of a Contributor include a person, an organization, or a service."@en ;
-                
-                dct:hasVersion <http://dublincore.org/usage/terms/history/#contributorT-001> ;
-                
-                rdfs:isDefinedBy dct: .
-
-
-
-###  http://purl.org/dc/terms/coverage
-
-dct:coverage rdf:type :ObjectProperty ;
-             
-             rdfs:label "Coverage"@en ;
-             
-             dct:modified "2008-01-14"^^xsd:date ;
-             
-             dct:issued "2008-01-14"^^xsd:date ;
-             
-             dct:description "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges."@en ;
-             
-             rdfs:comment "The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#coverageT-001> ;
-             
-             rdfs:isDefinedBy dct: .
-
-
-
-###  http://purl.org/dc/terms/creator
-
-dct:creator rdf:type :ObjectProperty ;
-            
-            rdfs:label "Creator"@en ;
-            
-            dct:issued "2008-01-14"^^xsd:date ;
-            
-            dct:modified "2010-10-11"^^xsd:date ;
-            
-            rdfs:comment "An entity primarily responsible for making the resource."@en ;
-            
-            dct:description "Examples of a Creator include a person, an organization, or a service."@en ;
-            
-            rdfs:comment "list of authors of the experiment"@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#creatorT-002> ;
-            
-            rdfs:isDefinedBy dct: ;
-            
-            rdfs:subPropertyOf dct:contributor ;
-            
-            rdfs:domain :ApplicationContext .
-
-
-
-###  http://purl.org/dc/terms/educationLevel
-
-dct:educationLevel rdf:type :ObjectProperty ;
-                   
-                   rdfs:label "Audience Education Level"@en ;
-                   
-                   dct:issued "2002-07-13"^^xsd:date ;
-                   
-                   dct:modified "2008-01-14"^^xsd:date ;
-                   
-                   rdfs:comment "A class of entity, defined in terms of progression through an educational or training context, for which the described resource is intended."@en ;
-                   
-                   dct:hasVersion <http://dublincore.org/usage/terms/history/#educationLevel-002> ;
-                   
-                   rdfs:isDefinedBy dct: ;
-                   
-                   rdfs:subPropertyOf dct:audience .
-
-
-
-###  http://purl.org/dc/terms/extent
-
-dct:extent rdf:type :ObjectProperty ;
-           
-           rdfs:label "Extent"@en ;
-           
-           dct:issued "2000-07-11"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date ;
-           
-           rdfs:comment "The size or duration of the resource."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#extent-003> ;
-           
-           rdfs:isDefinedBy dct: ;
-           
-           rdfs:subPropertyOf dct:format .
-
-
-
-###  http://purl.org/dc/terms/format
-
-dct:format rdf:type :ObjectProperty ;
-           
-           rdfs:label "Format"@en ;
-           
-           dct:issued "2008-01-14"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date ;
-           
-           dct:description "Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME]."@en ;
-           
-           rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#formatT-001> ;
-           
-           rdfs:isDefinedBy dct: .
-
-
-
-###  http://purl.org/dc/terms/mediator
-
-dct:mediator rdf:type :ObjectProperty ;
-             
-             rdfs:label "Mediator"@en ;
-             
-             dct:issued "2001-05-21"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date ;
-             
-             rdfs:comment "An entity that mediates access to the resource and for whom the resource is intended or useful."@en ;
-             
-             dct:description "In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#mediator-003> ;
-             
-             rdfs:isDefinedBy dct: ;
-             
-             rdfs:subPropertyOf dct:audience .
-
-
-
-###  http://purl.org/dc/terms/medium
-
-dct:medium rdf:type :ObjectProperty ;
-           
-           rdfs:label "Medium"@en ;
-           
-           dct:issued "2000-07-11"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date ;
-           
-           rdfs:comment "The material or physical carrier of the resource."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#medium-003> ;
-           
-           rdfs:isDefinedBy dct: ;
-           
-           rdfs:subPropertyOf dct:format .
-
-
-
-###  http://purl.org/dc/terms/publisher
-
-dct:publisher rdf:type :ObjectProperty ;
-              
-              rdfs:label "Publisher"@en ;
-              
-              dct:issued "2008-01-14"^^xsd:date ;
-              
-              dct:modified "2010-10-11"^^xsd:date ;
-              
-              rdfs:comment "An entity responsible for making the resource available."@en ;
-              
-              dct:description "Examples of a Publisher include a person, an organization, or a service."@en ;
-              
-              dct:hasVersion <http://dublincore.org/usage/terms/history/#publisherT-001> ;
-              
-              rdfs:isDefinedBy dct: .
-
-
-
-###  http://purl.org/dc/terms/spatial
-
-dct:spatial rdf:type :ObjectProperty ;
-            
-            rdfs:label "Spatial Coverage"@en ;
-            
-            dct:issued "2000-07-11"^^xsd:date ;
-            
-            dct:modified "2008-01-14"^^xsd:date ;
-            
-            rdfs:comment "Spatial characteristics of the resource."@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#spatial-003> ;
-            
-            rdfs:isDefinedBy dct: ;
-            
-            rdfs:subPropertyOf dct:coverage .
-
-
-
-###  http://purl.org/dc/terms/temporal
-
-dct:temporal rdf:type :ObjectProperty ;
-             
-             rdfs:label "Temporal Coverage"@en ;
-             
-             dct:issued "2000-07-11"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date ;
-             
-             rdfs:comment "Temporal characteristics of the resource."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#temporal-003> ;
-             
-             rdfs:isDefinedBy dct: ;
-             
-             rdfs:subPropertyOf dct:coverage .
+###  http://dne5.com/machine-learning/ontology/myexp.owl#hasImplementation
+
+mex:hasImplementation rdf:type :ObjectProperty ;
+                      
+                      rdfs:range :AlgorithmImplementation ;
+                      
+                      rdfs:domain :Execution .
 
 
 
@@ -1861,7 +1414,9 @@ dct:temporal rdf:type :ObjectProperty ;
 
 :hasAlgorithm rdf:type :ObjectProperty ;
               
-              rdfs:range :Algorithm .
+              rdfs:range :Algorithm ;
+              
+              rdfs:domain :AlgorithmImplementation .
 
 
 
@@ -1869,17 +1424,9 @@ dct:temporal rdf:type :ObjectProperty ;
 
 :hasAlgorithmClass rdf:type :ObjectProperty ;
                    
-                   rdfs:domain :Algorithm .
-
-
-
-###  http://www.w3.org/2002/07/owl#hasAlgorithmImplementation
-
-:hasAlgorithmImplementation rdf:type :ObjectProperty ;
-                            
-                            rdfs:domain :Algorithm ;
-                            
-                            rdfs:range :AlgorithmImplementation .
+                   rdfs:range :AlgorithmClass ;
+                   
+                   rdfs:domain :NamedAlgorithm .
 
 
 
@@ -1887,9 +1434,9 @@ dct:temporal rdf:type :ObjectProperty ;
 
 :hasAlgorithmLearningMethod rdf:type :ObjectProperty ;
                             
-                            rdfs:domain :Algorithm ;
+                            rdfs:range :AlgorithmLearningMethod ;
                             
-                            rdfs:range :AlgorithmLearningMethod .
+                            rdfs:domain :NamedAlgorithm .
 
 
 
@@ -1897,9 +1444,9 @@ dct:temporal rdf:type :ObjectProperty ;
 
 :hasAlgorithmLearningProblem rdf:type :ObjectProperty ;
                              
-                             rdfs:domain :Algorithm ;
+                             rdfs:range :AlgorithmLearningProblem ;
                              
-                             rdfs:range :AlgorithmLearningProblem .
+                             rdfs:domain :NamedAlgorithm .
 
 
 
@@ -1907,64 +1454,69 @@ dct:temporal rdf:type :ObjectProperty ;
 
 :hasAlgorithmParameter rdf:type :ObjectProperty ;
                        
-                       rdfs:domain :AlgorithmImplementation ;
+                       rdfs:range :AlgorithmParameter ;
                        
-                       rdfs:range :AlgorithmParameter .
+                       rdfs:domain :NamedAlgorithm .
+
+
+
+###  http://www.w3.org/2002/07/owl#hasAlgorithmParameters
+
+:hasAlgorithmParameters rdf:type :ObjectProperty ;
+                        
+                        rdfs:range :AlgorithmParameter ;
+                        
+                        rdfs:domain :NamedAlgorithm .
 
 
 
 ###  http://www.w3.org/2002/07/owl#hasApplicationContext
 
-:hasApplicationContext rdf:type :ObjectProperty .
-
-
-
-###  http://www.w3.org/2002/07/owl#hasComplexity
-
-:hasComplexity rdf:type :ObjectProperty ;
-               
-               rdfs:domain [ rdf:type :Restriction ;
-                             :onProperty :hasComplexity ;
-                             :onClass :Algorithm ;
-                             :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                           ] ;
-               
-               rdfs:range [ rdf:type :Restriction ;
-                            :onProperty :topDataProperty ;
-                            :someValuesFrom rdfs:Literal
-                          ] .
+:hasApplicationContext rdf:type :ObjectProperty ;
+                       
+                       rdfs:range :ApplicationContext ;
+                       
+                       rdfs:domain :Experiment .
 
 
 
 ###  http://www.w3.org/2002/07/owl#hasCorpus
 
-:hasCorpus rdf:type :ObjectProperty .
+:hasCorpus rdf:type :ObjectProperty ;
+           
+           rdfs:range :Corpus ;
+           
+           rdfs:domain :Execution .
 
 
 
 ###  http://www.w3.org/2002/07/owl#hasEnvironment
 
-:hasEnvironment rdf:type :ObjectProperty .
+:hasEnvironment rdf:type :ObjectProperty ;
+                
+                rdfs:range :Environment ;
+                
+                rdfs:domain :Experiment .
 
 
 
 ###  http://www.w3.org/2002/07/owl#hasExecution
 
-:hasExecution rdf:type :ObjectProperty .
-
-
-
-###  http://www.w3.org/2002/07/owl#hasExecutionInputParameter
-
-:hasExecutionInputParameter rdf:type :ObjectProperty ;
-                            
-                            rdfs:subPropertyOf :topObjectProperty .
+:hasExecution rdf:type :ObjectProperty ;
+              
+              rdfs:range :Execution ;
+              
+              rdfs:domain :Experiment .
 
 
 
 ###  http://www.w3.org/2002/07/owl#hasExecutionPerformance
 
-:hasExecutionPerformance rdf:type :ObjectProperty .
+:hasExecutionPerformance rdf:type :ObjectProperty ;
+                         
+                         rdfs:range :ExecutionPerformance ;
+                         
+                         rdfs:domain :Performance .
 
 
 
@@ -1974,23 +1526,27 @@ dct:temporal rdf:type :ObjectProperty ;
                
                rdfs:domain :ApplicationContext ;
                
-               rdfs:range :Experiment ;
-               
-               rdfs:subPropertyOf :topObjectProperty .
+               rdfs:range :Experiment .
 
 
 
-###  http://www.w3.org/2002/07/owl#hasGroup
+###  http://www.w3.org/2002/07/owl#hasInputParameter
 
-:hasGroup rdf:type :ObjectProperty ;
-          
-          rdfs:domain :Algorithm .
+:hasInputParameter rdf:type :ObjectProperty ;
+                   
+                   rdfs:domain :Execution ;
+                   
+                   rdfs:range :ExecutionInputParameter .
 
 
 
 ###  http://www.w3.org/2002/07/owl#hasItemPerformance
 
-:hasItemPerformance rdf:type :ObjectProperty .
+:hasItemPerformance rdf:type :ObjectProperty ;
+                    
+                    rdfs:range :ItemPerformance ;
+                    
+                    rdfs:domain :Performance .
 
 
 
@@ -2000,7 +1556,8 @@ dct:temporal rdf:type :ObjectProperty ;
                  
                  rdfs:range :AlgorithmKernelMethod ;
                  
-                 rdfs:domain :SupportVectorNetworks .
+                 rdfs:domain :RegressionFunctions ,
+                             :SupportVectorNetworks .
 
 
 
@@ -2014,27 +1571,23 @@ dct:temporal rdf:type :ObjectProperty ;
 
 
 
-###  http://www.w3.org/2002/07/owl#hasLearningTask
+###  http://www.w3.org/2002/07/owl#hasLearningProblem
 
-:hasLearningTask rdf:type :ObjectProperty ;
-                 
-                 rdfs:domain :Algorithm ;
-                 
-                 rdfs:range :AlgorithmLearningProblem .
+:hasLearningProblem rdf:type :ObjectProperty ;
+                    
+                    rdfs:domain :Algorithm ;
+                    
+                    rdfs:range :AlgorithmLearningProblem .
 
 
 
 ###  http://www.w3.org/2002/07/owl#hasModel
 
-:hasModel rdf:type :ObjectProperty .
-
-
-
-###  http://www.w3.org/2002/07/owl#hasParameters
-
-:hasParameters rdf:type :ObjectProperty ;
-               
-               rdfs:subPropertyOf :topObjectProperty .
+:hasModel rdf:type :ObjectProperty ;
+          
+          rdfs:domain :Execution ;
+          
+          rdfs:range :Model .
 
 
 
@@ -2062,9 +1615,19 @@ dct:temporal rdf:type :ObjectProperty ;
 
 :hasSamplingMethod rdf:type :ObjectProperty ;
                    
-                   rdfs:domain :Execution ;
+                   rdfs:domain :Experiment ;
                    
                    rdfs:range :SamplingMethods .
+
+
+
+###  http://www.w3.org/2002/07/owl#hasUserDefinedPerformance
+
+:hasUserDefinedPerformance rdf:type :ObjectProperty ;
+                           
+                           rdfs:domain :Performance ;
+                           
+                           rdfs:range :UserDefinedPerformance .
 
 
 
@@ -2072,17 +1635,9 @@ dct:temporal rdf:type :ObjectProperty ;
 
 :isAvailableAt rdf:type :ObjectProperty ;
                
-               rdfs:domain :Algorithm .
-
-
-
-###  http://www.w3.org/2002/07/owl#isPerformedFor
-
-:isPerformedFor rdf:type :ObjectProperty ;
-                
-                rdfs:range :AlgorithmLearningProblem ;
-                
-                rdfs:domain :RegressionModelPerformance .
+               rdfs:range :AlgorithmImplementation ;
+               
+               rdfs:domain :NamedAlgorithm .
 
 
 
@@ -2093,186 +1648,6 @@ dct:temporal rdf:type :ObjectProperty ;
 #    Data properties
 #
 #################################################################
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#falseNegative
-
-:falseNegative rdf:type :DatatypeProperty ;
-               
-               rdfs:range xsd:integer ;
-               
-               rdfs:domain :ClassificationModelPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#falsePositive
-
-:falsePositive rdf:type :DatatypeProperty ;
-               
-               rdfs:range xsd:integer ;
-               
-               rdfs:domain :ClassificationModelPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#fmeasure
-
-:fmeasure rdf:type :DatatypeProperty ;
-          
-          rdfs:range xsd:double ;
-          
-          rdfs:domain :ClassificationModelPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#formula
-
-:formula rdf:type :DatatypeProperty ;
-         
-         rdfs:range xsd:string ;
-         
-         rdfs:domain :UserDefinedPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#meanAbsoluteDistance
-
-:meanAbsoluteDistance rdf:type :DatatypeProperty ;
-                      
-                      rdfs:range xsd:double ;
-                      
-                      rdfs:domain :RegressionModelPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#meanSquaredError
-
-:meanSquaredError rdf:type :DatatypeProperty ;
-                  
-                  rdfs:range xsd:double ;
-                  
-                  rdfs:domain :RegressionModelPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#parameter
-
-:parameter rdf:type :DatatypeProperty ;
-           
-           rdfs:range xsd:string ;
-           
-           rdfs:domain :AlgorithmParameter .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#precision
-
-:precision rdf:type :DatatypeProperty ;
-           
-           rdfs:range xsd:double ;
-           
-           rdfs:domain :ClassificationModelPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#predictedValue
-
-:predictedValue rdf:type :DatatypeProperty ;
-                
-                rdfs:range xsd:string ;
-                
-                rdfs:domain :ItemPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#realValue
-
-:realValue rdf:type :DatatypeProperty ;
-           
-           rdfs:range xsd:string ;
-           
-           rdfs:domain :ItemPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#recall
-
-:recall rdf:type :DatatypeProperty ;
-        
-        rdfs:range xsd:double ;
-        
-        rdfs:domain :ClassificationModelPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#residual
-
-:residual rdf:type :DatatypeProperty ;
-          
-          rdfs:range xsd:double ;
-          
-          rdfs:domain :RegressionModelPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#roc
-
-:roc rdf:type :DatatypeProperty ;
-     
-     rdfs:range xsd:double ;
-     
-     rdfs:domain :ClassificationModelPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#sensitivity
-
-:sensitivity rdf:type :DatatypeProperty ;
-             
-             rdfs:range xsd:double ;
-             
-             rdfs:domain :ClassificationModelPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#specificity
-
-:specificity rdf:type :DatatypeProperty ;
-             
-             rdfs:range xsd:double ;
-             
-             rdfs:domain :ClassificationModelPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#totalError
-
-:totalError rdf:type :DatatypeProperty ;
-            
-            rdfs:range xsd:double ;
-            
-            rdfs:domain :RegressionModelPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#trueNegative
-
-:trueNegative rdf:type :DatatypeProperty ;
-              
-              rdfs:range xsd:integer ;
-              
-              rdfs:domain :ClassificationModelPerformance .
-
-
-
-###  http://dne5.com/machine-learning/ontology/myexp.owl#truePositive
-
-:truePositive rdf:type :DatatypeProperty ;
-              
-              rdfs:range xsd:integer ;
-              
-              rdfs:domain :ClassificationModelPerformance .
-
 
 
 ###  http://purl.org/dc/terms/alternative
@@ -2370,22 +1745,6 @@ dct:created rdf:type :DatatypeProperty ;
 ###  http://purl.org/dc/terms/creator
 
 dct:creator rdf:type :DatatypeProperty ;
-            
-            rdfs:label "Creator"@en ;
-            
-            dct:issued "2008-01-14"^^xsd:date ;
-            
-            dct:modified "2010-10-11"^^xsd:date ;
-            
-            rdfs:comment "An entity primarily responsible for making the resource."@en ;
-            
-            dct:description "Examples of a Creator include a person, an organization, or a service."@en ;
-            
-            rdfs:comment "list of authors of the experiment"@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#creatorT-002> ;
-            
-            rdfs:isDefinedBy dct: ;
             
             rdfs:range xsd:string .
 
@@ -3043,6 +2402,46 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#falseNegative
+
+:falseNegative rdf:type :DatatypeProperty ;
+               
+               rdfs:range xsd:integer ;
+               
+               rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#falsePositive
+
+:falsePositive rdf:type :DatatypeProperty ;
+               
+               rdfs:range xsd:integer ;
+               
+               rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#fmeasure
+
+:fmeasure rdf:type :DatatypeProperty ;
+          
+          rdfs:range xsd:double ;
+          
+          rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#formula
+
+:formula rdf:type :DatatypeProperty ;
+         
+         rdfs:range xsd:string ;
+         
+         rdfs:domain :UserDefinedPerformance .
+
+
+
 ###  http://www.w3.org/2002/07/owl#hdType
 
 :hdType rdf:type :DatatypeProperty ;
@@ -3073,6 +2472,26 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#meanAbsoluteDistance
+
+:meanAbsoluteDistance rdf:type :DatatypeProperty ;
+                      
+                      rdfs:range xsd:double ;
+                      
+                      rdfs:domain :RegressionModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#meanSquaredError
+
+:meanSquaredError rdf:type :DatatypeProperty ;
+                  
+                  rdfs:range xsd:double ;
+                  
+                  rdfs:domain :RegressionModelPerformance .
+
+
+
 ###  http://www.w3.org/2002/07/owl#memory
 
 :memory rdf:type :DatatypeProperty ;
@@ -3091,6 +2510,126 @@ doap:Description rdf:type :DatatypeProperty ;
       
       rdfs:domain :Algorithm ,
                   :AlgorithmParameter .
+
+
+
+###  http://www.w3.org/2002/07/owl#parameter
+
+:parameter rdf:type :DatatypeProperty ;
+           
+           rdfs:range xsd:string ;
+           
+           rdfs:domain :AlgorithmParameter .
+
+
+
+###  http://www.w3.org/2002/07/owl#precision
+
+:precision rdf:type :DatatypeProperty ;
+           
+           rdfs:range xsd:double ;
+           
+           rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#predictedValue
+
+:predictedValue rdf:type :DatatypeProperty ;
+                
+                rdfs:range xsd:string ;
+                
+                rdfs:domain :ItemPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#realValue
+
+:realValue rdf:type :DatatypeProperty ;
+           
+           rdfs:range xsd:string ;
+           
+           rdfs:domain :ItemPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#recall
+
+:recall rdf:type :DatatypeProperty ;
+        
+        rdfs:range xsd:double ;
+        
+        rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#residual
+
+:residual rdf:type :DatatypeProperty ;
+          
+          rdfs:range xsd:double ;
+          
+          rdfs:domain :RegressionModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#roc
+
+:roc rdf:type :DatatypeProperty ;
+     
+     rdfs:range xsd:double ;
+     
+     rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#sensitivity
+
+:sensitivity rdf:type :DatatypeProperty ;
+             
+             rdfs:range xsd:double ;
+             
+             rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#specificity
+
+:specificity rdf:type :DatatypeProperty ;
+             
+             rdfs:range xsd:double ;
+             
+             rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#totalError
+
+:totalError rdf:type :DatatypeProperty ;
+            
+            rdfs:range xsd:double ;
+            
+            rdfs:domain :RegressionModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#trueNegative
+
+:trueNegative rdf:type :DatatypeProperty ;
+              
+              rdfs:range xsd:integer ;
+              
+              rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#truePositive
+
+:truePositive rdf:type :DatatypeProperty ;
+              
+              rdfs:range xsd:integer ;
+              
+              rdfs:domain :ClassificationModelPerformance .
 
 
 
@@ -3157,7 +2696,7 @@ doap:Description rdf:type :DatatypeProperty ;
                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                            ] ,
                            [ rdf:type :Restriction ;
-                             :onProperty :hasParameters ;
+                             :onProperty :hasAlgorithmParameters ;
                              :someValuesFrom :AlgorithmParameter
                            ] ;
            
@@ -3564,14 +3103,19 @@ doap:Description rdf:type :DatatypeProperty ;
 :Execution rdf:type :Class ;
            
            rdfs:subClassOf [ rdf:type :Restriction ;
-                             :onProperty :hasModel ;
-                             :onClass :Model ;
+                             :onProperty :isAvailableAt ;
+                             :onClass :AlgorithmImplementation ;
+                             :minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                           ] ,
+                           [ rdf:type :Restriction ;
+                             :onProperty :hasCorpus ;
+                             :onClass :Corpus ;
                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                            ] ,
                            [ rdf:type :Restriction ;
-                             :onProperty :hasExecutionInputParameter ;
-                             :onClass :ExecutionInputParameter ;
-                             :minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                             :onProperty :hasModel ;
+                             :onClass :Model ;
+                             :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                            ] ,
                            [ rdf:type :Restriction ;
                              :onProperty :hasPhase ;
@@ -3584,14 +3128,9 @@ doap:Description rdf:type :DatatypeProperty ;
                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                            ] ,
                            [ rdf:type :Restriction ;
-                             :onProperty :hasAlgorithmImplementation ;
-                             :onClass :AlgorithmImplementation ;
+                             :onProperty :hasInputParameter ;
+                             :onClass :ExecutionInputParameter ;
                              :minQualifiedCardinality "1"^^xsd:nonNegativeInteger
-                           ] ,
-                           [ rdf:type :Restriction ;
-                             :onProperty :hasCorpus ;
-                             :onClass :Corpus ;
-                             :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                            ] .
 
 
@@ -3622,23 +3161,23 @@ doap:Description rdf:type :DatatypeProperty ;
 :Experiment rdf:type :Class ;
             
             rdfs:subClassOf [ rdf:type :Restriction ;
-                              :onProperty :hasSamplingMethod ;
-                              :onClass :SamplingMethods ;
-                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                            ] ,
-                            [ rdf:type :Restriction ;
-                              :onProperty :hasEnvironment ;
-                              :onClass :Environment ;
-                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                            ] ,
-                            [ rdf:type :Restriction ;
                               :onProperty :hasExecution ;
                               :onClass :Execution ;
                               :minQualifiedCardinality "1"^^xsd:nonNegativeInteger
                             ] ,
                             [ rdf:type :Restriction ;
+                              :onProperty :hasSamplingMethod ;
+                              :onClass :SamplingMethods ;
+                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type :Restriction ;
                               :onProperty :hasApplicationContext ;
                               :onClass :ApplicationContext ;
+                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type :Restriction ;
+                              :onProperty :hasEnvironment ;
+                              :onClass :Environment ;
                               :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                             ] .
 
@@ -3767,6 +3306,10 @@ doap:Description rdf:type :DatatypeProperty ;
 :Performance rdf:type :Class ;
              
              rdfs:subClassOf [ rdf:type :Restriction ;
+                               :onProperty :hasUserDefinedPerformance ;
+                               :someValuesFrom :UserDefinedPerformance
+                             ] ,
+                             [ rdf:type :Restriction ;
                                :onProperty :hasExecutionPerformance ;
                                :onClass :ExecutionPerformance ;
                                :qualifiedCardinality "1"^^xsd:nonNegativeInteger
@@ -3774,10 +3317,6 @@ doap:Description rdf:type :DatatypeProperty ;
                              [ rdf:type :Restriction ;
                                :onProperty :hasItemPerformance ;
                                :someValuesFrom :ItemPerformance
-                             ] ,
-                             [ rdf:type :Restriction ;
-                               :onProperty :hasUserDefinedPerformance ;
-                               :someValuesFrom :UserDefinedPerformance
                              ] .
 
 
@@ -3800,11 +3339,6 @@ doap:Description rdf:type :DatatypeProperty ;
 :RandomForest rdf:type :Class ;
               
               rdfs:subClassOf :NamedAlgorithm ,
-                              [ rdf:type :Restriction ;
-                                :onProperty :hasAlgorithmClass ;
-                                :onClass :DecisionTrees ;
-                                :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                              ] ,
                               [ rdf:type :Class ;
                                 :unionOf ( [ rdf:type :Restriction ;
                                              :onProperty :hasAlgorithmLearningProblem ;
@@ -3821,6 +3355,11 @@ doap:Description rdf:type :DatatypeProperty ;
                               [ rdf:type :Restriction ;
                                 :onProperty :hasAlgorithmLearningMethod ;
                                 :onClass :Supervised ;
+                                :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                              ] ,
+                              [ rdf:type :Restriction ;
+                                :onProperty :hasAlgorithmClass ;
+                                :onClass :DecisionTrees ;
                                 :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                               ] ;
               
@@ -3923,8 +3462,8 @@ doap:Description rdf:type :DatatypeProperty ;
                        
                        rdfs:subClassOf :NamedAlgorithm ,
                                        [ rdf:type :Restriction ;
-                                         :onProperty :hasAlgorithmClass ;
-                                         :onClass :SupportVectorNetworks ;
+                                         :onProperty :hasAlgorithmLearningMethod ;
+                                         :onClass :Supervised ;
                                          :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                                        ] ,
                                        [ rdf:type :Class ;
@@ -3941,8 +3480,8 @@ doap:Description rdf:type :DatatypeProperty ;
                                                   )
                                        ] ,
                                        [ rdf:type :Restriction ;
-                                         :onProperty :hasAlgorithmLearningMethod ;
-                                         :onClass :Supervised ;
+                                         :onProperty :hasAlgorithmClass ;
+                                         :onClass :SupportVectorNetworks ;
                                          :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                                        ] .
 
@@ -4912,55 +4451,19 @@ dct:accessRights rdf:type :NamedIndividual .
 
 ###  http://purl.org/dc/terms/accrualMethod
 
-dct:accrualMethod rdf:type :NamedIndividual ;
-                  
-                  rdfs:label "Accrual Method"@en ;
-                  
-                  dct:issued "2005-06-13"^^xsd:date ;
-                  
-                  dct:modified "2010-10-11"^^xsd:date ;
-                  
-                  rdfs:comment "The method by which items are added to a collection."@en ;
-                  
-                  dct:hasVersion <http://dublincore.org/usage/terms/history/#accrualMethod-003> ;
-                  
-                  rdfs:isDefinedBy dct: .
+dct:accrualMethod rdf:type :NamedIndividual .
 
 
 
 ###  http://purl.org/dc/terms/accrualPeriodicity
 
-dct:accrualPeriodicity rdf:type :NamedIndividual ;
-                       
-                       rdfs:label "Accrual Periodicity"@en ;
-                       
-                       dct:issued "2005-06-13"^^xsd:date ;
-                       
-                       dct:modified "2010-10-11"^^xsd:date ;
-                       
-                       rdfs:comment "The frequency with which items are added to a collection."@en ;
-                       
-                       dct:hasVersion <http://dublincore.org/usage/terms/history/#accrualPeriodicity-003> ;
-                       
-                       rdfs:isDefinedBy dct: .
+dct:accrualPeriodicity rdf:type :NamedIndividual .
 
 
 
 ###  http://purl.org/dc/terms/accrualPolicy
 
-dct:accrualPolicy rdf:type :NamedIndividual ;
-                  
-                  rdfs:label "Accrual Policy"@en ;
-                  
-                  dct:issued "2005-06-13"^^xsd:date ;
-                  
-                  dct:modified "2010-10-11"^^xsd:date ;
-                  
-                  rdfs:comment "The policy governing the addition of items to a collection."@en ;
-                  
-                  dct:hasVersion <http://dublincore.org/usage/terms/history/#accrualPolicy-003> ;
-                  
-                  rdfs:isDefinedBy dct: .
+dct:accrualPolicy rdf:type :NamedIndividual .
 
 
 
@@ -4986,19 +4489,7 @@ dct:alternative rdf:type :NamedIndividual ;
 
 ###  http://purl.org/dc/terms/audience
 
-dct:audience rdf:type :NamedIndividual ;
-             
-             rdfs:label "Audience"@en ;
-             
-             dct:issued "2001-05-21"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date ;
-             
-             rdfs:comment "A class of entity for whom the resource is intended or useful."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#audience-003> ;
-             
-             rdfs:isDefinedBy dct: .
+dct:audience rdf:type :NamedIndividual .
 
 
 
@@ -5042,59 +4533,19 @@ dct:bibliographicCitation rdf:type :NamedIndividual ;
 
 ###  http://purl.org/dc/terms/conformsTo
 
-dct:conformsTo rdf:type :NamedIndividual ;
-               
-               rdfs:label "Conforms To"@en ;
-               
-               dct:issued "2001-05-21"^^xsd:date ;
-               
-               dct:modified "2008-01-14"^^xsd:date ;
-               
-               rdfs:comment "An established standard to which the described resource conforms."@en ;
-               
-               dct:hasVersion <http://dublincore.org/usage/terms/history/#conformsTo-003> ;
-               
-               rdfs:isDefinedBy dct: .
+dct:conformsTo rdf:type :NamedIndividual .
 
 
 
 ###  http://purl.org/dc/terms/contributor
 
-dct:contributor rdf:type :NamedIndividual ;
-                
-                rdfs:label "Contributor"@en ;
-                
-                dct:issued "2008-01-14"^^xsd:date ;
-                
-                dct:modified "2010-10-11"^^xsd:date ;
-                
-                rdfs:comment "An entity responsible for making contributions to the resource."@en ;
-                
-                dct:description "Examples of a Contributor include a person, an organization, or a service."@en ;
-                
-                dct:hasVersion <http://dublincore.org/usage/terms/history/#contributorT-001> ;
-                
-                rdfs:isDefinedBy dct: .
+dct:contributor rdf:type :NamedIndividual .
 
 
 
 ###  http://purl.org/dc/terms/coverage
 
-dct:coverage rdf:type :NamedIndividual ;
-             
-             rdfs:label "Coverage"@en ;
-             
-             dct:modified "2008-01-14"^^xsd:date ;
-             
-             dct:issued "2008-01-14"^^xsd:date ;
-             
-             dct:description "Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges."@en ;
-             
-             rdfs:comment "The spatial or temporal topic of the resource, the spatial applicability of the resource, or the jurisdiction under which the resource is relevant."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#coverageT-001> ;
-             
-             rdfs:isDefinedBy dct: .
+dct:coverage rdf:type :NamedIndividual .
 
 
 
@@ -5118,23 +4569,7 @@ dct:created rdf:type :NamedIndividual ;
 
 ###  http://purl.org/dc/terms/creator
 
-dct:creator rdf:type :NamedIndividual ;
-            
-            rdfs:label "Creator"@en ;
-            
-            dct:issued "2008-01-14"^^xsd:date ;
-            
-            dct:modified "2010-10-11"^^xsd:date ;
-            
-            rdfs:comment "An entity primarily responsible for making the resource."@en ;
-            
-            dct:description "Examples of a Creator include a person, an organization, or a service."@en ;
-            
-            rdfs:comment "list of authors of the experiment"@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#creatorT-002> ;
-            
-            rdfs:isDefinedBy dct: .
+dct:creator rdf:type :NamedIndividual .
 
 
 
@@ -5238,57 +4673,19 @@ dct:description rdf:type :NamedIndividual ;
 
 ###  http://purl.org/dc/terms/educationLevel
 
-dct:educationLevel rdf:type :NamedIndividual ;
-                   
-                   rdfs:label "Audience Education Level"@en ;
-                   
-                   dct:issued "2002-07-13"^^xsd:date ;
-                   
-                   dct:modified "2008-01-14"^^xsd:date ;
-                   
-                   rdfs:comment "A class of entity, defined in terms of progression through an educational or training context, for which the described resource is intended."@en ;
-                   
-                   dct:hasVersion <http://dublincore.org/usage/terms/history/#educationLevel-002> ;
-                   
-                   rdfs:isDefinedBy dct: .
+dct:educationLevel rdf:type :NamedIndividual .
 
 
 
 ###  http://purl.org/dc/terms/extent
 
-dct:extent rdf:type :NamedIndividual ;
-           
-           rdfs:label "Extent"@en ;
-           
-           dct:issued "2000-07-11"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date ;
-           
-           rdfs:comment "The size or duration of the resource."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#extent-003> ;
-           
-           rdfs:isDefinedBy dct: .
+dct:extent rdf:type :NamedIndividual .
 
 
 
 ###  http://purl.org/dc/terms/format
 
-dct:format rdf:type :NamedIndividual ;
-           
-           rdfs:label "Format"@en ;
-           
-           dct:issued "2008-01-14"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date ;
-           
-           dct:description "Examples of dimensions include size and duration. Recommended best practice is to use a controlled vocabulary such as the list of Internet Media Types [MIME]."@en ;
-           
-           rdfs:comment "The file format, physical medium, or dimensions of the resource."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#formatT-001> ;
-           
-           rdfs:isDefinedBy dct: .
+dct:format rdf:type :NamedIndividual .
 
 
 
@@ -5532,39 +4929,13 @@ dct:license rdf:type :NamedIndividual .
 
 ###  http://purl.org/dc/terms/mediator
 
-dct:mediator rdf:type :NamedIndividual ;
-             
-             rdfs:label "Mediator"@en ;
-             
-             dct:issued "2001-05-21"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date ;
-             
-             rdfs:comment "An entity that mediates access to the resource and for whom the resource is intended or useful."@en ;
-             
-             dct:description "In an educational context, a mediator might be a parent, teacher, teaching assistant, or care-giver."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#mediator-003> ;
-             
-             rdfs:isDefinedBy dct: .
+dct:mediator rdf:type :NamedIndividual .
 
 
 
 ###  http://purl.org/dc/terms/medium
 
-dct:medium rdf:type :NamedIndividual ;
-           
-           rdfs:label "Medium"@en ;
-           
-           dct:issued "2000-07-11"^^xsd:date ;
-           
-           dct:modified "2008-01-14"^^xsd:date ;
-           
-           rdfs:comment "The material or physical carrier of the resource."@en ;
-           
-           dct:hasVersion <http://dublincore.org/usage/terms/history/#medium-003> ;
-           
-           rdfs:isDefinedBy dct: .
+dct:medium rdf:type :NamedIndividual .
 
 
 
@@ -5594,21 +4965,7 @@ dct:provenance rdf:type :NamedIndividual .
 
 ###  http://purl.org/dc/terms/publisher
 
-dct:publisher rdf:type :NamedIndividual ;
-              
-              rdfs:label "Publisher"@en ;
-              
-              dct:issued "2008-01-14"^^xsd:date ;
-              
-              dct:modified "2010-10-11"^^xsd:date ;
-              
-              rdfs:comment "An entity responsible for making the resource available."@en ;
-              
-              dct:description "Examples of a Publisher include a person, an organization, or a service."@en ;
-              
-              dct:hasVersion <http://dublincore.org/usage/terms/history/#publisherT-001> ;
-              
-              rdfs:isDefinedBy dct: .
+dct:publisher rdf:type :NamedIndividual .
 
 
 
@@ -5730,19 +5087,7 @@ dct:source rdf:type :NamedIndividual ;
 
 ###  http://purl.org/dc/terms/spatial
 
-dct:spatial rdf:type :NamedIndividual ;
-            
-            rdfs:label "Spatial Coverage"@en ;
-            
-            dct:issued "2000-07-11"^^xsd:date ;
-            
-            dct:modified "2008-01-14"^^xsd:date ;
-            
-            rdfs:comment "Spatial characteristics of the resource."@en ;
-            
-            dct:hasVersion <http://dublincore.org/usage/terms/history/#spatial-003> ;
-            
-            rdfs:isDefinedBy dct: .
+dct:spatial rdf:type :NamedIndividual .
 
 
 
@@ -5772,19 +5117,7 @@ dct:tableOfContents rdf:type :NamedIndividual ;
 
 ###  http://purl.org/dc/terms/temporal
 
-dct:temporal rdf:type :NamedIndividual ;
-             
-             rdfs:label "Temporal Coverage"@en ;
-             
-             dct:issued "2000-07-11"^^xsd:date ;
-             
-             dct:modified "2008-01-14"^^xsd:date ;
-             
-             rdfs:comment "Temporal characteristics of the resource."@en ;
-             
-             dct:hasVersion <http://dublincore.org/usage/terms/history/#temporal-003> ;
-             
-             rdfs:isDefinedBy dct: .
+dct:temporal rdf:type :NamedIndividual .
 
 
 
@@ -6038,9 +5371,7 @@ dct:valid rdf:type :NamedIndividual ;
 
 ###  http://www.w3.org/2002/07/owl#Logistic_Regression
 
-:Logistic_Regression rdf:type :NamedIndividual ;
-                     
-                     :hasComplexity :Logistic_Regression .
+:Logistic_Regression rdf:type :NamedIndividual .
 
 
 
@@ -6284,20 +5615,19 @@ dct:valid rdf:type :NamedIndividual ;
 
 
 [ rdf:type :AllDisjointClasses ;
-  :members ( :BayesTheory
-             :DecisionTrees
-             :GeneticAlgorithms
-             :NeuralNetwork
-             :RegressionFunctions
-             :SupportVectorNetworks
-           )
-] .
-[ rdf:type :AllDisjointClasses ;
   :members ( :Association
              :Classification
              :Clustering
              :Regression
              :Summarization
+           )
+] .
+[ rdf:type :AllDisjointClasses ;
+  :members ( :ClassificationModelPerformance
+             :ClusteringModelPerformance
+             :RegressionModelPerformance
+             :StatisticalModelPerformance
+             :UserDefinedPerformance
            )
 ] .
 [ rdf:type :AllDisjointClasses ;
@@ -6309,11 +5639,12 @@ dct:valid rdf:type :NamedIndividual ;
            )
 ] .
 [ rdf:type :AllDisjointClasses ;
-  :members ( :ClassificationModelPerformance
-             :ClusteringModelPerformance
-             :RegressionModelPerformance
-             :StatisticalModelPerformance
-             :UserDefinedPerformance
+  :members ( :BayesTheory
+             :DecisionTrees
+             :GeneticAlgorithms
+             :NeuralNetwork
+             :RegressionFunctions
+             :SupportVectorNetworks
            )
 ] .
 
