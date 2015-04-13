@@ -17,10 +17,10 @@
   * [algorithms](https://github.com/dnes85/mexproject/tree/master/algorithm)
   * [core](https://github.com/dnes85/mexproject/tree/master/core)
   * [ontology](https://github.com/dnes85/mexproject/tree/master/ontology)
+  * [proof](https://github.com/dnes85/mexproject/tree/master/proof)
   * [site](https://github.com/dnes85/mexproject/tree/master/site)
-  * [files](https://github.com/dnes85/mexproject/tree/master/files)
   * [ppt](https://github.com/dnes85/mexproject/tree/master/ppt)
 
 ### Experiment - Class Diagram
-![experiment class diagram](http://www.dnes2015br.dne5.com/cd-mex-0.2.png)
+![Experiment ER](http://www.dnes2015br.dne5.com/cd-mex-0.3.png)
 
