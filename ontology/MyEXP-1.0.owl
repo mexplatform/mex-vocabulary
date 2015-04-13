@@ -10,9 +10,10 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix mex: <http://dne5.com/machine-learning/ontology/myexp.owl#> .
 @base <http://dne5.com/machine-learning/ontology/myexp.owl> .
 
-<http://dne5.com/machine-learning/ontology/myexp.owl> rdf:type :Ontology ;
+<http://dne5.com/machine-learning/ontology/myexp.owl#> rdf:type :Ontology ;
                                                       
                                                       dct:created "2014-02-02"^^xsd:date ;
                                                       
@@ -2094,6 +2095,186 @@ dct:temporal rdf:type :ObjectProperty ;
 #################################################################
 
 
+###  http://dne5.com/machine-learning/ontology/myexp.owl#falseNegative
+
+:falseNegative rdf:type :DatatypeProperty ;
+               
+               rdfs:range xsd:integer ;
+               
+               rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#falsePositive
+
+:falsePositive rdf:type :DatatypeProperty ;
+               
+               rdfs:range xsd:integer ;
+               
+               rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#fmeasure
+
+:fmeasure rdf:type :DatatypeProperty ;
+          
+          rdfs:range xsd:double ;
+          
+          rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#formula
+
+:formula rdf:type :DatatypeProperty ;
+         
+         rdfs:range xsd:string ;
+         
+         rdfs:domain :UserDefinedPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#meanAbsoluteDistance
+
+:meanAbsoluteDistance rdf:type :DatatypeProperty ;
+                      
+                      rdfs:range xsd:double ;
+                      
+                      rdfs:domain :RegressionModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#meanSquaredError
+
+:meanSquaredError rdf:type :DatatypeProperty ;
+                  
+                  rdfs:range xsd:double ;
+                  
+                  rdfs:domain :RegressionModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#parameter
+
+:parameter rdf:type :DatatypeProperty ;
+           
+           rdfs:range xsd:string ;
+           
+           rdfs:domain :AlgorithmParameter .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#precision
+
+:precision rdf:type :DatatypeProperty ;
+           
+           rdfs:range xsd:double ;
+           
+           rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#predictedValue
+
+:predictedValue rdf:type :DatatypeProperty ;
+                
+                rdfs:range xsd:string ;
+                
+                rdfs:domain :ItemPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#realValue
+
+:realValue rdf:type :DatatypeProperty ;
+           
+           rdfs:range xsd:string ;
+           
+           rdfs:domain :ItemPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#recall
+
+:recall rdf:type :DatatypeProperty ;
+        
+        rdfs:range xsd:double ;
+        
+        rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#residual
+
+:residual rdf:type :DatatypeProperty ;
+          
+          rdfs:range xsd:double ;
+          
+          rdfs:domain :RegressionModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#roc
+
+:roc rdf:type :DatatypeProperty ;
+     
+     rdfs:range xsd:double ;
+     
+     rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#sensitivity
+
+:sensitivity rdf:type :DatatypeProperty ;
+             
+             rdfs:range xsd:double ;
+             
+             rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#specificity
+
+:specificity rdf:type :DatatypeProperty ;
+             
+             rdfs:range xsd:double ;
+             
+             rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#totalError
+
+:totalError rdf:type :DatatypeProperty ;
+            
+            rdfs:range xsd:double ;
+            
+            rdfs:domain :RegressionModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#trueNegative
+
+:trueNegative rdf:type :DatatypeProperty ;
+              
+              rdfs:range xsd:integer ;
+              
+              rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#truePositive
+
+:truePositive rdf:type :DatatypeProperty ;
+              
+              rdfs:range xsd:integer ;
+              
+              rdfs:domain :ClassificationModelPerformance .
+
+
+
 ###  http://purl.org/dc/terms/alternative
 
 dct:alternative rdf:type :DatatypeProperty ;
@@ -2419,16 +2600,6 @@ doap:Description rdf:type :DatatypeProperty ;
                  rdfs:range xsd:string ;
                  
                  rdfs:domain :ApplicationContext .
-
-
-
-###  http://www.w3.org/2002/07/owl#Acronym
-
-:Acronym rdf:type :DatatypeProperty ;
-         
-         rdfs:range xsd:string ;
-         
-         rdfs:domain :Algorithm .
 
 
 
@@ -2823,6 +2994,16 @@ doap:Description rdf:type :DatatypeProperty ;
           rdfs:range xsd:double ;
           
           rdfs:domain :StatisticalModelPerformance .
+
+
+
+###  http://www.w3.org/2002/07/owl#acronym
+
+:acronym rdf:type :DatatypeProperty ;
+         
+         rdfs:range xsd:string ;
+         
+         rdfs:domain :NamedAlgorithm .
 
 
 
