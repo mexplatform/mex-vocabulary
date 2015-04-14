@@ -12,24 +12,21 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @base <http://dne5.com/machine-learning/ontology/myexp.owl#> .
-
 <http://dne5.com/machine-learning/ontology/myexp.owl#> rdf:type :Ontology ;
+                                                       
+                                                       :versionInfo "1.0"^^xsd:Name ;
                                                        
                                                        dct:created "2014-02-02"^^xsd:date ;
                                                        
                                                        dct:modified "2014-04-05"^^xsd:date ;
                                                        
-                                                       dc:creator "Diego Esteves"^^xsd:Name ;
+                                                       dc:publisher "AKSW - Leipzig University"^^xsd:Name ;
                                                        
-                                                       :versionInfo "0.1"@en ;
+                                                       dc:creator "Diego Esteves et al."^^xsd:Name ;
                                                        
-                                                       dc:publisher "AKSW"@en ;
+                                                       dct:alternative "MyExp"^^xsd:Name ;
                                                        
-                                                       dct:title "Dublin Core Metadata Element Set, Version 1.1"@en ;
-                                                       
-                                                       dc:title "MyEXP Ontology"@en ;
-                                                       
-                                                       rdfs:seeAlso "MyExp Ontology: Guidelines on Publish Machine Learning Experiments using Linked Data"@en ;
+                                                       dct:title "MyExp Ontology: Guidelines on Publish Machine Learning Experiments using Linked Data"^^xsd:Name ;
                                                        
                                                        :imports <http://www.w3.org/TR/rdf-schema/> .
 
@@ -1460,16 +1457,6 @@ mex:hasImplementation rdf:type :ObjectProperty ;
 
 
 
-###  http://www.w3.org/2002/07/owl#hasAlgorithmParameters
-
-:hasAlgorithmParameters rdf:type :ObjectProperty ;
-                        
-                        rdfs:range :AlgorithmParameter ;
-                        
-                        rdfs:domain :NamedAlgorithm .
-
-
-
 ###  http://www.w3.org/2002/07/owl#hasApplicationContext
 
 :hasApplicationContext rdf:type :ObjectProperty ;
@@ -1556,8 +1543,7 @@ mex:hasImplementation rdf:type :ObjectProperty ;
                  
                  rdfs:range :AlgorithmKernelMethod ;
                  
-                 rdfs:domain :RegressionFunctions ,
-                             :SupportVectorNetworks .
+                 rdfs:domain :SupportVectorNetworks .
 
 
 
@@ -2362,7 +2348,7 @@ doap:Description rdf:type :DatatypeProperty ;
          
          rdfs:range xsd:string ;
          
-         rdfs:domain :NamedAlgorithm .
+         rdfs:domain :Algorithm .
 
 
 
@@ -2668,11 +2654,27 @@ doap:Description rdf:type :DatatypeProperty ;
 #################################################################
 
 
-###  http://www.w3.org/2002/07/owl#AODE
+###  http://dne5.com/machine-learning/ontology/myexp.owl#Boost
 
-:AODE rdf:type :Class ;
-      
-      rdfs:subClassOf :NamedAlgorithm .
+mex:Boost rdf:type :Class ;
+          
+          rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#Cluster
+
+mex:Cluster rdf:type :Class ;
+            
+            rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#Metaheuristic
+
+mex:Metaheuristic rdf:type :Class ;
+                  
+                  rdfs:subClassOf :AlgorithmLearningProblem .
 
 
 
@@ -2680,7 +2682,30 @@ doap:Description rdf:type :DatatypeProperty ;
 
 :AdaptativeBoost rdf:type :Class ;
                  
-                 rdfs:subClassOf :NamedAlgorithm .
+                 rdfs:subClassOf :NamedAlgorithm ,
+                                 [ rdf:type :Restriction ;
+                                   :onProperty :hasAlgorithmLearningProblem ;
+                                   :onClass mex:Metaheuristic ;
+                                   :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type :Restriction ;
+                                   :onProperty :hasAlgorithmClass ;
+                                   :onClass mex:Boost ;
+                                   :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type :Restriction ;
+                                   :onProperty :hasAlgorithmLearningMethod ;
+                                   :onClass :Supervised ;
+                                   :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ,
+                                 [ rdf:type :Restriction ;
+                                   :onProperty :hasAlgorithmParameter ;
+                                   :someValuesFrom :AlgorithmParameter
+                                 ] ;
+                 
+                 rdfs:comment """AdaBoost, short for \"Adaptive Boosting\", is a machine learning meta-algorithm formulated by Yoav Freund and Robert Schapire who won the prestigious \"Gödel Prize\" in 2003 for their work. It can be used in conjunction with many other types of learning algorithms to improve their performance. The output of the other learning algorithms ('weak learners') is combined into a weighted sum that represents the final output of the boosted classifier. AdaBoost is adaptive in the sense that subsequent weak learners are tweaked in favor of those instances misclassified by previous classifiers. AdaBoost is sensitive to noisy data and outliers. In some problems, however, it can be less susceptible to the overfitting problem than other learning algorithms. The individual learners can be weak, but as long as the performance of each one is slightly better than random guessing (i.e., their error rate is smaller than 0.5 for binary classification), the final model can be proven to converge to a strong learner.
+
+While every learning algorithm will tend to suit some problem types better than others, and will typically have many different parameters and configurations to be adjusted before achieving optimal performance on a dataset, AdaBoost (with decision trees as the weak learners) is often referred to as the best out-of-the-box classifier. When used with decision tree learning, information gathered at each stage of the AdaBoost algorithm about the relative 'hardness' of each training sample is fed into the tree growing algorithm such that later trees tend to focus on harder to classify examples."""@en .
 
 
 
@@ -2690,23 +2715,24 @@ doap:Description rdf:type :DatatypeProperty ;
            
            rdfs:label "Algorithm"@en ;
            
-           rdfs:subClassOf [ rdf:type :Restriction ;
-                             :onProperty :isAvailableAt ;
-                             :onClass :AlgorithmImplementation ;
-                             :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                           ] ,
-                           [ rdf:type :Restriction ;
-                             :onProperty :hasAlgorithmParameters ;
-                             :someValuesFrom :AlgorithmParameter
-                           ] ;
-           
            rdfs:comment "The basic information regarding the algorithms used into the experiment"@en .
 
 
 
 ###  http://www.w3.org/2002/07/owl#AlgorithmClass
 
-:AlgorithmClass rdf:type :Class .
+:AlgorithmClass rdf:type :Class ;
+                
+                :equivalentClass [ rdf:type :Class ;
+                                   :unionOf ( mex:Boost
+                                              :BayesTheory
+                                              :DecisionTrees
+                                              :GeneticAlgorithms
+                                              :NeuralNetwork
+                                              :RegressionFunctions
+                                              :SupportVectorNetworks
+                                            )
+                                 ] .
 
 
 
@@ -2721,9 +2747,7 @@ doap:Description rdf:type :DatatypeProperty ;
                                                                 :someValuesFrom :Association
                                                               ]
                                                             )
-                                          ] ;
-                         
-                         rdfs:subClassOf :Algorithm .
+                                          ] .
 
 
 
@@ -2738,9 +2762,7 @@ doap:Description rdf:type :DatatypeProperty ;
                                                                    :someValuesFrom :Classification
                                                                  ]
                                                                )
-                                             ] ;
-                            
-                            rdfs:subClassOf :Algorithm .
+                                             ] .
 
 
 
@@ -2755,9 +2777,7 @@ doap:Description rdf:type :DatatypeProperty ;
                                                                :someValuesFrom :Clustering
                                                              ]
                                                            )
-                                         ] ;
-                        
-                        rdfs:subClassOf :Algorithm .
+                                         ] .
 
 
 
@@ -2772,9 +2792,7 @@ doap:Description rdf:type :DatatypeProperty ;
                                                                :someValuesFrom :Regression
                                                              ]
                                                            )
-                                         ] ;
-                        
-                        rdfs:subClassOf :Algorithm .
+                                         ] .
 
 
 
@@ -2789,9 +2807,7 @@ doap:Description rdf:type :DatatypeProperty ;
                                                                   :someValuesFrom :Summarization
                                                                 ]
                                                               )
-                                            ] ;
-                           
-                           rdfs:subClassOf :Algorithm .
+                                            ] .
 
 
 
@@ -2801,7 +2817,7 @@ doap:Description rdf:type :DatatypeProperty ;
                          
                          :equivalentClass [ rdf:type :Class ;
                                             :oneOf ( :Weka
-                                                     :FAMA
+                                                     :FAMa
                                                      :Matlab
                                                      :LibSVM
                                                      :SPSS
@@ -2810,7 +2826,7 @@ doap:Description rdf:type :DatatypeProperty ;
                          
                          rdfs:subClassOf [ rdf:type :Restriction ;
                                            :onProperty :hasAlgorithm ;
-                                           :onClass :Algorithm ;
+                                           :onClass :NamedAlgorithm ;
                                            :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                                          ] .
 
@@ -2843,7 +2859,8 @@ doap:Description rdf:type :DatatypeProperty ;
 :AlgorithmLearningProblem rdf:type :Class ;
                           
                           :equivalentClass [ rdf:type :Class ;
-                                             :unionOf ( :Association
+                                             :unionOf ( mex:Metaheuristic
+                                                        :Association
                                                         :Classification
                                                         :Clustering
                                                         :Regression
@@ -2879,9 +2896,7 @@ doap:Description rdf:type :DatatypeProperty ;
                                                                                 )
                                                               ]
                                                             )
-                                          ] ;
-                         
-                         rdfs:subClassOf :Algorithm .
+                                          ] .
 
 
 
@@ -2896,9 +2911,7 @@ doap:Description rdf:type :DatatypeProperty ;
                                                             :someValuesFrom :Supervised
                                                           ]
                                                         )
-                                      ] ;
-                     
-                     rdfs:subClassOf :Algorithm .
+                                      ] .
 
 
 
@@ -2913,9 +2926,7 @@ doap:Description rdf:type :DatatypeProperty ;
                                                               :someValuesFrom :Unsupervised
                                                             ]
                                                           )
-                                        ] ;
-                       
-                       rdfs:subClassOf :Algorithm .
+                                        ] .
 
 
 
@@ -2949,6 +2960,31 @@ doap:Description rdf:type :DatatypeProperty ;
 
 
 
+###  http://www.w3.org/2002/07/owl#AveragedOneDependenceEstimators
+
+:AveragedOneDependenceEstimators rdf:type :Class ;
+                                 
+                                 rdfs:subClassOf :NamedAlgorithm ,
+                                                 [ rdf:type :Restriction ;
+                                                   :onProperty :hasAlgorithmLearningMethod ;
+                                                   :onClass :Supervised ;
+                                                   :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                 ] ,
+                                                 [ rdf:type :Restriction ;
+                                                   :onProperty :hasAlgorithmClass ;
+                                                   :onClass :BayesTheory ;
+                                                   :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                 ] ,
+                                                 [ rdf:type :Restriction ;
+                                                   :onProperty :hasAlgorithmLearningProblem ;
+                                                   :onClass :Classification ;
+                                                   :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                 ] ;
+                                 
+                                 rdfs:comment "Averaged one-dependence estimators (AODE) is a probabilistic classification learning technique. It was developed to address the attribute-independence problem of the popular naive Bayes classifier. It frequently develops substantially more accurate classifiers than naive Bayes at the cost of a modest increase in the amount of computation"@en .
+
+
+
 ###  http://www.w3.org/2002/07/owl#BIRCH
 
 :BIRCH rdf:type :Class ;
@@ -2961,7 +2997,12 @@ doap:Description rdf:type :DatatypeProperty ;
 
 :BackPropagation rdf:type :Class ;
                  
-                 rdfs:subClassOf :NamedAlgorithm .
+                 rdfs:subClassOf :NamedAlgorithm ,
+                                 [ rdf:type :Restriction ;
+                                   :onProperty :hasAlgorithmClass ;
+                                   :onClass :NeuralNetwork ;
+                                   :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                 ] .
 
 
 
@@ -3103,14 +3144,19 @@ doap:Description rdf:type :DatatypeProperty ;
 :Execution rdf:type :Class ;
            
            rdfs:subClassOf [ rdf:type :Restriction ;
-                             :onProperty :isAvailableAt ;
-                             :onClass :AlgorithmImplementation ;
-                             :minQualifiedCardinality "1"^^xsd:nonNegativeInteger
-                           ] ,
-                           [ rdf:type :Restriction ;
                              :onProperty :hasCorpus ;
                              :onClass :Corpus ;
                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                           ] ,
+                           [ rdf:type :Restriction ;
+                             :onProperty :hasInputParameter ;
+                             :onClass :ExecutionInputParameter ;
+                             :minQualifiedCardinality "1"^^xsd:nonNegativeInteger
+                           ] ,
+                           [ rdf:type :Restriction ;
+                             :onProperty :hasAlgorithm ;
+                             :onClass :AlgorithmImplementation ;
+                             :minQualifiedCardinality "1"^^xsd:nonNegativeInteger
                            ] ,
                            [ rdf:type :Restriction ;
                              :onProperty :hasModel ;
@@ -3126,11 +3172,6 @@ doap:Description rdf:type :DatatypeProperty ;
                              :onProperty :hasPerformance ;
                              :onClass :Performance ;
                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                           ] ,
-                           [ rdf:type :Restriction ;
-                             :onProperty :hasInputParameter ;
-                             :onClass :ExecutionInputParameter ;
-                             :minQualifiedCardinality "1"^^xsd:nonNegativeInteger
                            ] .
 
 
@@ -3161,6 +3202,11 @@ doap:Description rdf:type :DatatypeProperty ;
 :Experiment rdf:type :Class ;
             
             rdfs:subClassOf [ rdf:type :Restriction ;
+                              :onProperty :hasApplicationContext ;
+                              :onClass :ApplicationContext ;
+                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type :Restriction ;
                               :onProperty :hasExecution ;
                               :onClass :Execution ;
                               :minQualifiedCardinality "1"^^xsd:nonNegativeInteger
@@ -3168,11 +3214,6 @@ doap:Description rdf:type :DatatypeProperty ;
                             [ rdf:type :Restriction ;
                               :onProperty :hasSamplingMethod ;
                               :onClass :SamplingMethods ;
-                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                            ] ,
-                            [ rdf:type :Restriction ;
-                              :onProperty :hasApplicationContext ;
-                              :onClass :ApplicationContext ;
                               :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                             ] ,
                             [ rdf:type :Restriction ;
@@ -3222,7 +3263,28 @@ doap:Description rdf:type :DatatypeProperty ;
 
 :Kmeans rdf:type :Class ;
         
-        rdfs:subClassOf :NamedAlgorithm .
+        rdfs:subClassOf :NamedAlgorithm ,
+                        [ rdf:type :Restriction ;
+                          :onProperty :hasAlgorithmLearningProblem ;
+                          :onClass :Clustering ;
+                          :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type :Restriction ;
+                          :onProperty :hasAlgorithmClass ;
+                          :onClass mex:Cluster ;
+                          :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                        ] ,
+                        [ rdf:type :Class ;
+                          :unionOf ( [ rdf:type :Restriction ;
+                                       :onProperty :hasAlgorithmLearningMethod ;
+                                       :someValuesFrom :SemiSupervised
+                                     ]
+                                     [ rdf:type :Restriction ;
+                                       :onProperty :hasAlgorithmLearningMethod ;
+                                       :someValuesFrom :Unsupervised
+                                     ]
+                                   )
+                        ] .
 
 
 
@@ -3230,7 +3292,22 @@ doap:Description rdf:type :DatatypeProperty ;
 
 :LinearRegression rdf:type :Class ;
                   
-                  rdfs:subClassOf :NamedAlgorithm .
+                  rdfs:subClassOf :NamedAlgorithm ,
+                                  [ rdf:type :Restriction ;
+                                    :onProperty :hasAlgorithmClass ;
+                                    :onClass :RegressionFunctions ;
+                                    :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type :Restriction ;
+                                    :onProperty :hasAlgorithmLearningProblem ;
+                                    :onClass :Regression ;
+                                    :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                  ] ,
+                                  [ rdf:type :Restriction ;
+                                    :onProperty :hasAlgorithmLearningMethod ;
+                                    :onClass :Supervised ;
+                                    :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                  ] .
 
 
 
@@ -3238,7 +3315,22 @@ doap:Description rdf:type :DatatypeProperty ;
 
 :LogisticRegression rdf:type :Class ;
                     
-                    rdfs:subClassOf :NamedAlgorithm .
+                    rdfs:subClassOf :NamedAlgorithm ,
+                                    [ rdf:type :Restriction ;
+                                      :onProperty :hasAlgorithmLearningMethod ;
+                                      :onClass :Supervised ;
+                                      :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type :Restriction ;
+                                      :onProperty :hasAlgorithmLearningProblem ;
+                                      :onClass :Regression ;
+                                      :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ,
+                                    [ rdf:type :Restriction ;
+                                      :onProperty :hasAlgorithmClass ;
+                                      :onClass :RegressionFunctions ;
+                                      :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                    ] .
 
 
 
@@ -3265,7 +3357,30 @@ doap:Description rdf:type :DatatypeProperty ;
 
 :NaiveBayes rdf:type :Class ;
             
-            rdfs:subClassOf :NamedAlgorithm .
+            rdfs:subClassOf :NamedAlgorithm ,
+                            [ rdf:type :Restriction ;
+                              :onProperty :hasAlgorithmClass ;
+                              :onClass :BayesTheory ;
+                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type :Restriction ;
+                              :onProperty :hasAlgorithmLearningProblem ;
+                              :onClass :Classification ;
+                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type :Restriction ;
+                              :onProperty :hasAlgorithmLearningMethod ;
+                              :onClass :Supervised ;
+                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                            ] ;
+            
+            rdfs:comment """In machine learning, naive Bayes classifiers are a family of simple probabilistic classifiers based on applying Bayes' theorem with strong (naive) independence assumptions between the features.
+
+Naive Bayes has been studied extensively since the 1950s. It was introduced under a different name into the text retrieval community in the early 1960s:488 and remains a popular (baseline) method for text categorization, the problem of judging documents as belonging to one category or the other (such as spam or legitimate, sports or politics, etc.) with word frequencies as the features. With appropriate preprocessing, it is competitive in this domain with more advanced methods including support vector machines.It also finds application in automatic medical diagnosis.
+
+Naive Bayes classifiers are highly scalable, requiring a number of parameters linear in the number of variables (features/predictors) in a learning problem. Maximum-likelihood training can be done by evaluating a closed-form expression, which takes linear time, rather than by expensive iterative approximation as used for many other types of classifiers.
+
+In the statistics and computer science literature, Naive Bayes models are known under a variety of names, including simple Bayes and independence Bayes.[4] All these names reference the use of Bayes' theorem in the classifier's decision rule, but naive Bayes is not (necessarily) a Bayesian method Russell and Norvig note that \"[naive Bayes] is sometimes called a Bayesian classifier, a somewhat careless usage that has prompted true Bayesians to call it the idiot Bayes model."""@en .
 
 
 
@@ -3273,7 +3388,12 @@ doap:Description rdf:type :DatatypeProperty ;
 
 :NamedAlgorithm rdf:type :Class ;
                 
-                rdfs:subClassOf :Algorithm .
+                rdfs:subClassOf :Algorithm ,
+                                [ rdf:type :Restriction ;
+                                  :onProperty :isAvailableAt ;
+                                  :onClass :AlgorithmImplementation ;
+                                  :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                ] .
 
 
 
@@ -3305,19 +3425,22 @@ doap:Description rdf:type :DatatypeProperty ;
 
 :Performance rdf:type :Class ;
              
-             rdfs:subClassOf [ rdf:type :Restriction ;
-                               :onProperty :hasUserDefinedPerformance ;
-                               :someValuesFrom :UserDefinedPerformance
-                             ] ,
-                             [ rdf:type :Restriction ;
-                               :onProperty :hasExecutionPerformance ;
-                               :onClass :ExecutionPerformance ;
-                               :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                             ] ,
-                             [ rdf:type :Restriction ;
-                               :onProperty :hasItemPerformance ;
-                               :someValuesFrom :ItemPerformance
-                             ] .
+             :equivalentClass [ rdf:type :Class ;
+                                :intersectionOf ( [ rdf:type :Restriction ;
+                                                    :onProperty :hasItemPerformance ;
+                                                    :someValuesFrom :ItemPerformance
+                                                  ]
+                                                  [ rdf:type :Restriction ;
+                                                    :onProperty :hasUserDefinedPerformance ;
+                                                    :someValuesFrom :UserDefinedPerformance
+                                                  ]
+                                                  [ rdf:type :Restriction ;
+                                                    :onProperty :hasExecutionPerformance ;
+                                                    :onClass :ExecutionPerformance ;
+                                                    :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                  ]
+                                                )
+                              ] .
 
 
 
@@ -3339,6 +3462,16 @@ doap:Description rdf:type :DatatypeProperty ;
 :RandomForest rdf:type :Class ;
               
               rdfs:subClassOf :NamedAlgorithm ,
+                              [ rdf:type :Restriction ;
+                                :onProperty :hasAlgorithmLearningMethod ;
+                                :onClass :Supervised ;
+                                :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                              ] ,
+                              [ rdf:type :Restriction ;
+                                :onProperty :hasAlgorithmClass ;
+                                :onClass :DecisionTrees ;
+                                :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                              ] ,
                               [ rdf:type :Class ;
                                 :unionOf ( [ rdf:type :Restriction ;
                                              :onProperty :hasAlgorithmLearningProblem ;
@@ -3351,16 +3484,6 @@ doap:Description rdf:type :DatatypeProperty ;
                                              :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                                            ]
                                          )
-                              ] ,
-                              [ rdf:type :Restriction ;
-                                :onProperty :hasAlgorithmLearningMethod ;
-                                :onClass :Supervised ;
-                                :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                              ] ,
-                              [ rdf:type :Restriction ;
-                                :onProperty :hasAlgorithmClass ;
-                                :onClass :DecisionTrees ;
-                                :qualifiedCardinality "1"^^xsd:nonNegativeInteger
                               ] ;
               
               rdfs:comment "Random forests are an ensemble learning method for classification, regression and other tasks, that operate by constructing a multitude of decision trees at training time and outputting the class that is the mode of the classes (classification) or mean prediction (regression) of the individual trees. Random forests correct for decision trees' habit of overfitting to their training set."@en .
@@ -3379,12 +3502,7 @@ doap:Description rdf:type :DatatypeProperty ;
 
 :RegressionFunctions rdf:type :Class ;
                      
-                     rdfs:subClassOf :AlgorithmClass ,
-                                     [ rdf:type :Restriction ;
-                                       :onProperty :hasKernelMethod ;
-                                       :onClass :AlgorithmKernelMethod ;
-                                       :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                                     ] .
+                     rdfs:subClassOf :AlgorithmClass .
 
 
 
@@ -3422,12 +3540,6 @@ doap:Description rdf:type :DatatypeProperty ;
 
 :SemiSupervised rdf:type :Class ;
                 
-                :equivalentClass [ rdf:type :Class ;
-                                   :intersectionOf ( :Supervised
-                                                     :Unsupervised
-                                                   )
-                                 ] ;
-                
                 rdfs:subClassOf :AlgorithmLearningMethod .
 
 
@@ -3461,11 +3573,6 @@ doap:Description rdf:type :DatatypeProperty ;
 :SupportVectorMachines rdf:type :Class ;
                        
                        rdfs:subClassOf :NamedAlgorithm ,
-                                       [ rdf:type :Restriction ;
-                                         :onProperty :hasAlgorithmLearningMethod ;
-                                         :onClass :Supervised ;
-                                         :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                                       ] ,
                                        [ rdf:type :Class ;
                                          :unionOf ( [ rdf:type :Restriction ;
                                                       :onProperty :hasAlgorithmLearningProblem ;
@@ -3480,10 +3587,19 @@ doap:Description rdf:type :DatatypeProperty ;
                                                   )
                                        ] ,
                                        [ rdf:type :Restriction ;
+                                         :onProperty :hasAlgorithmLearningMethod ;
+                                         :onClass :Supervised ;
+                                         :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ,
+                                       [ rdf:type :Restriction ;
                                          :onProperty :hasAlgorithmClass ;
                                          :onClass :SupportVectorNetworks ;
                                          :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                                       ] .
+                                       ] ;
+                       
+                       rdfs:comment """In machine learning, support vector machines (SVMs, also support vector networks) are supervised learning models with associated learning algorithms that analyze data and recognize patterns, used for classification and regression analysis. Given a set of training examples, each marked as belonging to one of two categories, an SVM training algorithm builds a model that assigns new examples into one category or the other, making it a non-probabilistic binary linear classifier. An SVM model is a representation of the examples as points in space, mapped so that the examples of the separate categories are divided by a clear gap that is as wide as possible. New examples are then mapped into that same space and predicted to belong to a category based on which side of the gap they fall on.
+
+In addition to performing linear classification, SVMs can efficiently perform a non-linear classification using what is called the kernel trick, implicitly mapping their inputs into high-dimensional feature spaces."""@en .
 
 
 
@@ -3491,12 +3607,13 @@ doap:Description rdf:type :DatatypeProperty ;
 
 :SupportVectorNetworks rdf:type :Class ;
                        
-                       rdfs:subClassOf :AlgorithmClass ,
-                                       [ rdf:type :Restriction ;
-                                         :onProperty :hasKernelMethod ;
-                                         :onClass :AlgorithmKernelMethod ;
-                                         :qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                                       ] .
+                       :equivalentClass [ rdf:type :Restriction ;
+                                          :onProperty :hasKernelMethod ;
+                                          :onClass :AlgorithmKernelMethod ;
+                                          :qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                        ] ;
+                       
+                       rdfs:subClassOf :AlgorithmClass .
 
 
 
@@ -3528,6 +3645,72 @@ doap:Description rdf:type :DatatypeProperty ;
 <http://dne5.com/machine-learning/ontology/myexp.owl> rdf:type :NamedIndividual ;
                                                       
                                                       dct:publisher <http://purl.org/dc/aboutdcmi#DCMI> .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#AdaBoost
+
+mex:AdaBoost rdf:type :AdaptativeBoost ,
+                      :NamedIndividual .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#C-SVM
+
+mex:C-SVM rdf:type :NamedIndividual ,
+                   :SupportVectorMachines .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#DL-Learner
+
+mex:DL-Learner rdf:type :AlgorithmImplementation ,
+                        :NamedIndividual .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#R
+
+mex:R rdf:type :AlgorithmImplementation ,
+               :NamedIndividual .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#R-SVM
+
+mex:R-SVM rdf:type :NamedIndividual ,
+                   :SupportVectorMachines .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#Reinforcement
+
+mex:Reinforcement rdf:type :NamedIndividual .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#SAS
+
+mex:SAS rdf:type :AlgorithmImplementation ,
+                 :NamedIndividual .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#SemiSupervised
+
+mex:SemiSupervised rdf:type :NamedIndividual .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#Supervised
+
+mex:Supervised rdf:type :NamedIndividual .
+
+
+
+###  http://dne5.com/machine-learning/ontology/myexp.owl#Unsupervised
+
+mex:Unsupervised rdf:type :NamedIndividual .
 
 
 
@@ -5279,9 +5462,9 @@ dct:valid rdf:type :NamedIndividual ;
 
 
 
-###  http://www.w3.org/2002/07/owl#FAMA
+###  http://www.w3.org/2002/07/owl#FAMa
 
-:FAMA rdf:type :AlgorithmImplementation ,
+:FAMa rdf:type :AlgorithmImplementation ,
                :NamedIndividual .
 
 
@@ -5615,14 +5798,6 @@ dct:valid rdf:type :NamedIndividual ;
 
 
 [ rdf:type :AllDisjointClasses ;
-  :members ( :Association
-             :Classification
-             :Clustering
-             :Regression
-             :Summarization
-           )
-] .
-[ rdf:type :AllDisjointClasses ;
   :members ( :ClassificationModelPerformance
              :ClusteringModelPerformance
              :RegressionModelPerformance
@@ -5639,7 +5814,50 @@ dct:valid rdf:type :NamedIndividual ;
            )
 ] .
 [ rdf:type :AllDisjointClasses ;
-  :members ( :BayesTheory
+  :members ( mex:Metaheuristic
+             :Association
+             :Classification
+             :Clustering
+             :Regression
+             :Summarization
+           )
+] .
+[ rdf:type :AllDisjointClasses ;
+  :members ( :Reinforcement
+             :SemiSupervised
+             :Supervised
+             :Unsupervised
+           )
+] .
+[ rdf:type :AllDisjointClasses ;
+  :members ( :AdaptativeBoost
+             :Apriori
+             :AveragedOneDependenceEstimators
+             :BIRCH
+             :BackPropagation
+             :C4.5
+             :CART
+             :CHAID
+             :CHAMELEON
+             :CLARA
+             :CLARANS
+             :CURE
+             :GeneticAlgorithm
+             :ID3
+             :Kmeans
+             :LinearRegression
+             :LogisticRegression
+             :MARS
+             :NaiveBayes
+             :NearestNeighbour
+             :OPTICS
+             :RandomForest
+             :SupportVectorMachines
+           )
+] .
+[ rdf:type :AllDisjointClasses ;
+  :members ( mex:Boost
+             :BayesTheory
              :DecisionTrees
              :GeneticAlgorithms
              :NeuralNetwork
