@@ -1,0 +1,124 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.dne5</groupId>
+  <artifactId>mex</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>mex-core</module>
+        <module>mex-gui</module>
+    </modules>
+    <name>MEX Project</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+        <jdk.version>1.7</jdk.version>
+        <spring.version>4.1.1.RELEASE</spring.version>
+        <jstl.version>1.2</jstl.version>
+        <junit.version>4.11</junit.version>
+        <logback.version>1.0.13</logback.version>
+        <jcl-over-slf4j.version>1.7.5</jcl-over-slf4j.version>
+  </properties>
+  <dependencies>
+      <!-- Unit Test -->
+      <dependency>
+          <groupId>junit</groupId>
+          <artifactId>junit</artifactId>
+          <version>${junit.version}</version>
+          <scope>test</scope>
+      </dependency>
+
+      <!-- Spring Core -->
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-core</artifactId>
+          <version>${spring.version}</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>commons-logging</groupId>
+                  <artifactId>commons-logging</artifactId>
+              </exclusion>
+          </exclusions>
+      </dependency>
+
+      <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>jcl-over-slf4j</artifactId>
+          <version>${jcl-over-slf4j.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>ch.qos.logback</groupId>
+          <artifactId>logback-classic</artifactId>
+          <version>${logback.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-web</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+
+      <dependency>
+          <groupId>org.springframework</groupId>
+          <artifactId>spring-webmvc</artifactId>
+          <version>${spring.version}</version>
+      </dependency>
+
+      <!-- jstl -->
+      <dependency>
+          <groupId>jstl</groupId>
+          <artifactId>jstl</artifactId>
+          <version>${jstl.version}</version>
+      </dependency>
+
+  </dependencies>
+  <build>
+      <!-- Set JDK Compiler Level -->
+      <plugins>
+          <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-compiler-plugin</artifactId>
+              <version>2.3.2</version>
+              <configuration>
+                  <source>${jdk.version}</source>
+                  <target>${jdk.version}</target>
+              </configuration>
+          </plugin>
+      </plugins>
+  </build>
+  <repositories>
+        <repository>
+            <id>maven repo</id>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>maven2-repository.dev.java.net</id>
+            <name>Java.net Repository for Maven</name>
+            <url>http://download.java.net/maven/2/</url>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>apache-repo-releases</id>
+            <url>https://repository.apache.org/content/repositories/releases/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>repository.apache.org</id>
+            <name>apache Repository</name>
+            <url>http://repository.apache.org/snapshots</url>
+        </repository>
+        <repository>
+            <id>maven.aksw.internal</id>
+            <name>University Leipzig, AKSW Maven2 Repository</name>
+            <url>http://maven.aksw.org/repository/internal</url>
+        </repository>
+        <repository>
+            <id>maven.aksw.snapshots</id>
+            <name>University Leipzig, AKSW Maven2 Repository</name>
+            <url>http://maven.aksw.org/repository/snapshots</url>
+        </repository>
+  </repositories>
+</project>
