@@ -9,7 +9,9 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix mex-core: <http://dne5.com/machine-learning/ontology/mex-core#> .
+@prefix mexcore:    <http://dne5.com/machine-learning/mex/ontology/mexcore#> .
+@prefix mexalgo:    <http://dne5.com/machine-learning/mex/ontology/mexalgo#> .
+@prefix mexperf:    <http://dne5.com/machine-learning/mex/ontology/mexperf#> .
 @prefix : <http://dne5.com/machine-learning/ontology/mex-perf#> .
 
 : a owl:Ontology ;
