@@ -13,14 +13,14 @@
 @prefix : <http://dne5.com/machine-learning/ontology/mex-perf#> .
 
 : a owl:Ontology ;
-    owl:versionInfo "1.0"^^xsd:Name ;
+    owl:versionInfo "1.0" ;
     dct:created "2014-02-02"^^xsd:date ;
     dct:modified "2014-04-05"^^xsd:date ;
-    dc:publisher "AKSW - Leipzig University"^^xsd:Name ;
-    dc:creator "Diego Esteves"^^xsd:Name ;
-    dc:contributor "Jens Lehmann, Julio Cesar Duarte"^^xsd:Name ;
-    dct:title "MEX Performance (mex-perf) is an ontology with the goal of describing performance values for machine learning problems (MEX Platform)"^^xsd:Name ;
-    owl:imports <http://usefulinc.com/ns/doap>,  <http://www.w3.org/TR/rdf-schema/>,  <http://www.w3.org/ns/prov> .
+    dc:publisher "AKSW - Leipzig University"@en ;
+    dc:creator "Diego Esteves" ;
+    dc:contributor "Jens Lehmann", "Julio Cesar Duarte" ;
+    dct:title "MEX Performance (mex-perf) is an ontology with the goal of describing performance values for machine learning problems (MEX Platform)"@en ;
+    owl:imports doap:,  rdfs:,  prov: .
 
 
 #################################################################

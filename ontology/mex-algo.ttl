@@ -13,17 +13,16 @@
 
 <http://dne5.com/machine-learning/ontology/mex-algo#>
   a owl:Ontology ;  
-  owl:versionInfo "1.0"^^xsd:Name ;
+  owl:versionInfo "1.0" ;
   rdfs:label "MEX-Algorithm"@en ;
-  rdfs:comment "MEX Algorithm (mex-algo) is an ontology with the goal of describing machine learning algorithms" ;
+  rdfs:comment "MEX Algorithm (mex-algo) is an ontology with the goal of describing machine learning algorithms"@en ;
   dct:created "2014-02-02"^^xsd:date ;
   dct:modified "2014-04-05"^^xsd:date ;
-  dc:publisher "AKSW Research Group - Leipzig University"^^xsd:Name ;
-  dc:creator "Diego Esteves"^^xsd:Name ;
-  dc:contributor "Jens Lehmann, Julio Cesar Duarte, Markus Ackermann"^^xsd:Name ;
-  dct:title "MEX Algorithm Ontology (mex-algo)"^^xsd:Name ;
-  owl:imports <http://usefulinc.com/ns/doap> , <http://www.w3.org/TR/rdf-schema/> , <http://www.w3.org/ns/prov> 
-.
+  dc:publisher "AKSW Research Group - Leipzig University" ;
+  dc:creator "Diego Esteves" ;
+  dc:contributor "Jens Lehmann", "Julio Cesar Duarte", "Markus Ackermann" ;
+  dct:title "MEX Algorithm Ontology (mex-algo)"@en ;
+  owl:imports doap:, rdfs:, prov: .
 
 
 #################################################################

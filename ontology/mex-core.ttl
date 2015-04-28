@@ -14,15 +14,14 @@
 
 <http://dne5.com/machine-learning/ontology/mex-core#> 
   a owl:Ontology ;
-  owl:versionInfo "1.0"^^xsd:Name ;
+  owl:versionInfo "1.0" ;
   dct:created "2014-02-02"^^xsd:date ;
   dct:modified "2014-04-05"^^xsd:date ;
-  dc:publisher "AKSW - Leipzig University"^^xsd:Name ;
-  dc:creator "Diego Esteves"^^xsd:Name ;
-  dc:contributor "Diego Moussallem, Dimitris Kontokostas, Maria Claudia Cavalcanti Reis, Markus Ackermann"^^xsd:Name ;
-  dct:title "MEX Core (mex-core) is an ontology with the goal of describing the core process for machine learning problems (MEX Platform)"^^xsd:Name ;
-  owl:imports <http://usefulinc.com/ns/doap> , <http://www.w3.org/TR/rdf-schema/> , <http://www.w3.org/ns/prov> 
- .
+  dc:publisher "AKSW - Leipzig University"@en ;
+  dc:creator "Diego Esteves" ;
+  dc:contributor "Diego Moussallem", "Dimitris Kontokostas", "Maria Claudia Cavalcanti Reis", "Markus Ackermann" ;
+  dct:title "MEX Core (mex-core) is an ontology with the goal of describing the core process for machine learning problems (MEX Platform)"@en ;
+  owl:imports doap: , rdfs: , prov: .
 
 
 #################################################################
