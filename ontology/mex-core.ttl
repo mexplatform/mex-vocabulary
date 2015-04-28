@@ -412,7 +412,7 @@ prov:wasInformedBy
 
 :Experiment a owl:Class ;
             
-            rdfs:subClassOf :DomainConceptSpac, prov:Entity .
+            rdfs:subClassOf :DomainConceptSpace, prov:Entity .
 
 
 
