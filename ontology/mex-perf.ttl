@@ -1,0 +1,908 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix mex-core: <http://dne5.com/machine-learning/ontology/mex-core#> .
+@prefix : <http://dne5.com/machine-learning/ontology/mex-perf#> .
+
+: a owl:Ontology ;
+    owl:versionInfo "1.0"^^xsd:Name ;
+    dct:created "2014-02-02"^^xsd:date ;
+    dct:modified "2014-04-05"^^xsd:date ;
+    dc:publisher "AKSW - Leipzig University"^^xsd:Name ;
+    dc:creator "Diego Esteves"^^xsd:Name ;
+    dc:contributor "Jens Lehmann, Julio Cesar Duarte"^^xsd:Name ;
+    dct:title "MEX Performance (mex-perf) is an ontology with the goal of describing performance values for machine learning problems (MEX Platform)"^^xsd:Name ;
+    owl:imports <http://usefulinc.com/ns/doap>,  <http://www.w3.org/TR/rdf-schema/>,  <http://www.w3.org/ns/prov> .
+
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#bonferroniDunn
+
+:bonferroniDunn a owl:AnnotationProperty ;
+                                                                                 
+                                                                                 rdfs:domain :StatisticalModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#chebyschevDistance
+
+:chebyschevDistance a owl:AnnotationProperty ;
+                                                                                     
+                                                                                     rdfs:domain :ClusteringModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#chiSquare
+
+:chiSquare a owl:AnnotationProperty ;
+                                                                            
+                                                                            rdfs:domain :StatisticalModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#cosine
+
+:cosine a owl:AnnotationProperty ;
+                                                                         
+                                                                         rdfs:domain :ClusteringModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#error
+
+:error a owl:AnnotationProperty ;
+                                                                        
+                                                                        rdfs:domain :ClassificationModelPerformance ,
+                                                                                    :ClusteringModelPerformance ,
+                                                                                    :RegressionModelPerformance ,
+                                                                                    :StatisticalModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#euclideanDistance
+
+:euclideanDistance a owl:AnnotationProperty ;
+                                                                                    
+                                                                                    rdfs:domain :ClusteringModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#f1Measure
+
+:f1Measure a owl:AnnotationProperty ;
+                                                                            
+                                                                            rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#falseNegative
+
+:falseNegative a owl:AnnotationProperty ;
+                                                                                
+                                                                                rdfs:domain :ClassificationMeasure ,
+                                                                                            :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#falsePositive
+
+:falsePositive a owl:AnnotationProperty ;
+                                                                                
+                                                                                rdfs:domain :ClassificationMeasure ,
+                                                                                            :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#formula
+
+:formula a owl:AnnotationProperty ;
+                                                                          
+                                                                          rdfs:domain :UserDefinedMeasure ,
+                                                                                      :UserDefinedPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#friedman
+
+:friedman a owl:AnnotationProperty ;
+                                                                           
+                                                                           rdfs:domain :StatisticalModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#genSimilarityCoefficient
+
+:genSimilarityCoefficient a owl:AnnotationProperty ;
+                                                                                           
+                                                                                           rdfs:domain :ClusteringModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#hammingDistance
+
+:hammingDistance a owl:AnnotationProperty ;
+                                                                                  
+                                                                                  rdfs:domain :ClusteringModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#kolmogorovSmirnov
+
+:kolmogorovSmirnov a owl:AnnotationProperty ;
+                                                                                    
+                                                                                    rdfs:domain :StatisticalModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#manhattanDistance
+
+:manhattanDistance a owl:AnnotationProperty ;
+                                                                                    
+                                                                                    rdfs:domain :ClusteringModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#mean
+
+:mean a owl:AnnotationProperty ;
+                                                                       
+                                                                       rdfs:domain :StatisticalModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#meanAbsoluteDeviation
+
+:meanAbsoluteDeviation a owl:AnnotationProperty ;
+                                                                                        
+                                                                                        rdfs:domain :RegressionMeasure ,
+                                                                                                    :RegressionModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#meanSquaredError
+
+:meanSquaredError a owl:AnnotationProperty ;
+                                                                                   
+                                                                                   rdfs:domain :RegressionModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#nemenyi
+
+:nemenyi a owl:AnnotationProperty ;
+                                                                          
+                                                                          rdfs:domain :StatisticalModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#pearsonCorrelation
+
+:pearsonCorrelation a owl:AnnotationProperty ;
+                                                                                     
+                                                                                     rdfs:domain :StatisticalModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#precision
+
+:precision a owl:AnnotationProperty ;
+                                                                            
+                                                                            rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#predictedValue
+
+:predictedValue a owl:AnnotationProperty ;
+                                                                                 
+                                                                                 rdfs:domain :ItemPerformance .
+                                                                                             
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#realValue
+
+:realValue a owl:AnnotationProperty ;
+                                                                            
+                                                                            rdfs:domain :ItemPerformance .
+                                                                                       
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#recall
+
+:recall a owl:AnnotationProperty ;
+                                                                         
+                                                                         rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#residual
+
+:residual a owl:AnnotationProperty ;
+                                                                           
+                                                                           rdfs:domain :RegressionModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#roc
+
+:roc a owl:AnnotationProperty ;
+                                                                      
+                                                                      rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#sensitivity
+
+:sensitivity a owl:AnnotationProperty ;
+                                                                              
+                                                                              rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#specificity
+
+:specificity a owl:AnnotationProperty ;
+                                                                              
+                                                                              rdfs:domain :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#standardDeviation
+
+:standardDeviation a owl:AnnotationProperty ;
+                                                                                    
+                                                                                    rdfs:domain :StatisticalModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#totalError
+
+:totalError a owl:AnnotationProperty ;
+                                                                             
+                                                                             rdfs:domain :RegressionModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#trueNegative
+
+:trueNegative a owl:AnnotationProperty ;
+                                                                               
+                                                                               rdfs:domain :ClassificationMeasure ,
+                                                                                           :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#truePositive
+
+:truePositive a owl:AnnotationProperty ;
+                                                                               
+                                                                               rdfs:domain :ClassificationMeasure ,
+                                                                                           :ClassificationModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#variance
+
+:variance a owl:AnnotationProperty ;
+                                                                           
+                                                                           rdfs:domain :StatisticalModelPerformance .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#wilcoxon
+
+:wilcoxon a owl:AnnotationProperty ;
+                                                                           
+                                                                           rdfs:domain :StatisticalModelPerformance .
+
+
+
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.w3.org/ns/prov#generated
+
+prov:generated a owl:ObjectProperty ;
+               
+               rdfs:label "generated"@en ;
+               
+               rdfs:domain prov:Activity ;
+               
+               rdfs:range prov:Entity .
+
+
+
+###  http://www.w3.org/ns/prov#hadMember
+
+prov:hadMember a owl:ObjectProperty ;
+               
+               rdfs:label "had member"@en ;
+               
+               rdfs:range prov:Entity ;
+               
+               rdfs:domain prov:Collection .
+
+
+
+###  http://www.w3.org/ns/prov#wasAttributedTo
+
+prov:wasAttributedTo a owl:ObjectProperty ;
+                     
+                     rdfs:label "was attributed to"@en ;
+                     
+                     rdfs:range prov:Agent ;
+                     
+                     rdfs:domain prov:Entity .
+
+
+
+###  http://www.w3.org/ns/prov#wasGeneratedBy
+
+prov:wasGeneratedBy a owl:ObjectProperty ;
+                    
+                    rdfs:label "was generated by"@en ;
+                    
+                    rdfs:comment "Activity used to generate the experiment"@en ;
+                    
+                    rdfs:range prov:Activity ;
+                    
+                    rdfs:domain prov:Entity .
+
+
+
+###  http://www.w3.org/ns/prov#wasInformedBy
+
+prov:wasInformedBy a owl:ObjectProperty ;
+                   
+                   rdfs:label "was started by"@en ;
+                   
+                   rdfs:range prov:Activity ;
+                   
+                   rdfs:domain prov:Activity .
+
+
+
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#L1norm
+
+:L1norm a owl:DatatypeProperty ;
+                                                            
+                                                            rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#L2norm
+
+:L2norm a owl:DatatypeProperty ;
+                                                            
+                                                            rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#Linfnorm
+
+:Linfnorm a owl:DatatypeProperty ;
+                                                              
+                                                              rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#correlationCoefficient
+
+:correlationCoefficient a owl:DatatypeProperty ;
+                                                                            
+                                                                            rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#falseNegativeRate
+
+:falseNegativeRate a owl:DatatypeProperty ;
+                                                                       
+                                                                       rdfs:domain :ClassificationMeasure ;
+                                                                       
+                                                                       rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#falsePositiveRate
+
+:falsePositiveRate a owl:DatatypeProperty ;
+                                                                       
+                                                                       rdfs:domain :ClassificationMeasure ;
+                                                                       
+                                                                       rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#kappaStatistics
+
+:kappaStatistics a owl:DatatypeProperty ;
+                                                                     
+                                                                     rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#median
+
+:median a owl:DatatypeProperty ;
+                                                            
+                                                            rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#medianAbsoluteDeviation
+
+:medianAbsoluteDeviation a owl:DatatypeProperty ;
+                                                                             
+                                                                             rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mode
+
+:mode a owl:DatatypeProperty ;
+                                                          
+                                                          rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#relativeAbsoluteError
+
+:relativeAbsoluteError a owl:DatatypeProperty ;
+                                                                           
+                                                                           rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#rootMeanSquaredError
+
+:rootMeanSquaredError a owl:DatatypeProperty ;
+                                                                          
+                                                                          rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#rootRelativeSquaredError
+
+:rootRelativeSquaredError a owl:DatatypeProperty ;
+                                                                              
+                                                                              rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#trueNegativeRate
+
+:trueNegativeRate a owl:DatatypeProperty ;
+                                                                      
+                                                                      rdfs:domain :ClassificationMeasure ;
+                                                                      
+                                                                      rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#truePositiveRate
+
+:truePositiveRate a owl:DatatypeProperty ;
+                                                                      
+                                                                      rdfs:domain :ClassificationMeasure ;
+                                                                      
+                                                                      rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#bonferroniDunn
+
+:bonferroniDunn a owl:DatatypeProperty ;
+                                                                                 
+                                                                                 rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#chebyschevDistance
+
+:chebyschevDistance a owl:DatatypeProperty ;
+                                                                                     
+                                                                                     rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#chiSquare
+
+:chiSquare a owl:DatatypeProperty ;
+                                                                            
+                                                                            rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#cosine
+
+:cosine a owl:DatatypeProperty ;
+                                                                         
+                                                                         rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#costParameter
+
+:costParameter a owl:DatatypeProperty .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#error
+
+:error a owl:DatatypeProperty ;
+                                                                        
+                                                                        rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#euclideanDistance
+
+:euclideanDistance a owl:DatatypeProperty ;
+                                                                                    
+                                                                                    rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#f1Measure
+
+:f1Measure a owl:DatatypeProperty ;
+                                                                            
+                                                                            rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#falseNegative
+
+:falseNegative a owl:DatatypeProperty ;
+                                                                                
+                                                                                rdfs:range xsd:integer .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#falsePositive
+
+:falsePositive a owl:DatatypeProperty ;
+                                                                                
+                                                                                rdfs:range xsd:integer .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#folds
+
+:folds a owl:DatatypeProperty ;
+                                                                        
+                                                                        rdfs:range xsd:int .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#formula
+
+:formula a owl:DatatypeProperty ;
+                                                                          
+                                                                          rdfs:range xsd:string .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#friedman
+
+:friedman a owl:DatatypeProperty ;
+                                                                           
+                                                                           rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#genSimilarityCoefficient
+
+:genSimilarityCoefficient a owl:DatatypeProperty ;
+                                                                                           
+                                                                                           rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#hammingDistance
+
+:hammingDistance a owl:DatatypeProperty ;
+                                                                                  
+                                                                                  rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#kernel
+
+:kernel a owl:DatatypeProperty ;
+                                                                         
+                                                                         rdfs:range xsd:string .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#kolmogorovSmirnov
+
+:kolmogorovSmirnov a owl:DatatypeProperty ;
+                                                                                    
+                                                                                    rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#manhattanDistance
+
+:manhattanDistance a owl:DatatypeProperty ;
+                                                                                    
+                                                                                    rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#mean
+
+:mean a owl:DatatypeProperty ;
+                                                                       
+                                                                       rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#meanAbsoluteDeviation
+
+:meanAbsoluteDeviation a owl:DatatypeProperty ;
+                                                                                        
+                                                                                        rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#meanSquaredError
+
+:meanSquaredError a owl:DatatypeProperty ;
+                                                                                   
+                                                                                   rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#nemenyi
+
+:nemenyi a owl:DatatypeProperty ;
+                                                                          
+                                                                          rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#pearsonCorrelation
+
+:pearsonCorrelation a owl:DatatypeProperty ;
+                                                                                     
+                                                                                     rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#precision
+
+:precision a owl:DatatypeProperty ;
+                                                                            
+                                                                            rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#predictedValue
+
+:predictedValue a owl:DatatypeProperty ;
+                                                                                 
+                                                                                 rdfs:range xsd:string .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#realValue
+
+:realValue a owl:DatatypeProperty ;
+                                                                            
+                                                                            rdfs:range xsd:string .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#recall
+
+:recall a owl:DatatypeProperty ;
+                                                                         
+                                                                         rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#residual
+
+:residual a owl:DatatypeProperty ;
+                                                                           
+                                                                           rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#roc
+
+:roc a owl:DatatypeProperty ;
+                                                                      
+                                                                      rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#sensitivity
+
+:sensitivity a owl:DatatypeProperty ;
+                                                                              
+                                                                              rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#specificity
+
+:specificity a owl:DatatypeProperty ;
+                                                                              
+                                                                              rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#standardDeviation
+
+:standardDeviation a owl:DatatypeProperty ;
+                                                                                    
+                                                                                    rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#totalError
+
+:totalError a owl:DatatypeProperty ;
+                                                                             
+                                                                             rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#trueNegative
+
+:trueNegative a owl:DatatypeProperty ;
+                                                                               
+                                                                               rdfs:range xsd:integer .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#truePositive
+
+:truePositive a owl:DatatypeProperty ;
+                                                                               
+                                                                               rdfs:range xsd:integer .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#variance
+
+:variance a owl:DatatypeProperty ;
+                                                                           
+                                                                           rdfs:range xsd:double .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#wilcoxon
+
+:wilcoxon a owl:DatatypeProperty ;
+                                                                           
+                                                                           rdfs:range xsd:double .
+
+
+
+
+
+#################################################################
+#    Classes
+#################################################################
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#ClassificationMeasure
+
+:ClassificationMeasure a owl:Class ;
+                                                                                        
+                                                                                        rdfs:subClassOf :PerformanceMeasure .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#ClusteringMeasure
+
+:ClusteringMeasure a owl:Class ;
+                                                                                    
+                                                                                    rdfs:subClassOf :PerformanceMeasure .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#ExecutionPerformance
+
+:ExecutionPerformance a owl:Class ;
+                                                                                       
+                                                                                       rdfs:subClassOf prov:Activity .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#ItemPerformance
+
+:ItemPerformance a owl:Class ;
+                                                                                  
+                                                                                  rdfs:subClassOf prov:Entity .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#ItemPerformanceCollection
+
+:ItemPerformanceCollection a owl:Class ;
+                                                                                            
+                                                                                            rdfs:subClassOf prov:Collection .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#PerformanceMeasure
+
+:PerformanceMeasure a owl:Class ;
+                                                                                     
+                                                                                     rdfs:subClassOf prov:Entity .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#RegressionMeasure
+
+:RegressionMeasure a owl:Class ;
+                                                                                    
+                                                                                    rdfs:subClassOf :PerformanceMeasure .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#StatisticalMeasure
+
+:StatisticalMeasure a owl:Class ;
+                                                                                     
+                                                                                     rdfs:subClassOf :PerformanceMeasure .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#UserDefinedMeasure
+
+:UserDefinedMeasure a owl:Class ;
+                                                                                     
+                                                                                     rdfs:subClassOf :PerformanceMeasure .
+
+
+
+###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#UserDefinedMeasureCollection
+
+:UserDefinedMeasureCollection a owl:Class ;
+                                                                                               
+                                                                                               rdfs:subClassOf prov:Collection .
+
+
+
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+
+:f1Measure dc:description "F-measure or F-score or F1 score" .
