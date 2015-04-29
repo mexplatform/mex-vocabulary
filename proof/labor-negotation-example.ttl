@@ -1,0 +1,173 @@
+@prefix rdfs:       <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:        <http://www.w3.org/2002/07/owl#> .
+@prefix prov:       <http://www.w3.org/ns/prov#> .
+@prefix dct:    <http://purl.org/dc/terms/> .
+@prefix dcterms:    <http://purl.org/dc/terms/> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcat:       <http://www.w3.org/ns/dcat#> .
+@prefix provone:    <http://purl.org/provone> .
+@prefix mex-core:    <http://dne5.com/machine-learning/ontology/mex-core#> .
+@prefix mex-algo:    <http://dne5.com/machine-learning/ontology/mex-algo#> .
+@prefix mex-perf:    <http://dne5.com/machine-learning/ontology/mex-perf#> .
+@prefix :  <http://dne5.com/machine-learning/mex/example/labour-neg#> .
+
+<http://dne5.com/machine-learning/mex/example/labour-neg#> a owl:Ontology .
+# Uncomment the following line to have Protege import the MEX schema definitions.
+# However, currently you will have to maually specify the locations of the corresponding
+# Turtle OWL files for Protege.
+#:  owl:imports mex-core:, mex-perf:, mex-algo: .
+
+:applicationContext a mex-core:ApplicationContext ;
+  foaf:name "Markus Ackermann" ;
+  foaf:mbox <mailto:ackermann@informatik.uni-leipzig.de> ;
+  foaf:homePage <http://aksw.org/MarkusAckermann.html> ;
+  doap:description "Example usage of MEX vocabularies, documenting the application of various classification methods implemented in the WEKA toolkit to judge about offers for Canadian labour contracts." ;
+  #doap:location ;
+  prov:actedOnBehalfOf :aksw .
+
+:aksw a prov:Organization ;
+  foaf:name "Agile Knowledge and Semantic Web Working Group" .
+
+:experiment a mex-core:Experiment ;
+  dct:identifier "labour-neg-exp-A" ;
+  dct:title "Labour Negotation Contract Offer Judgement Predictions" ;
+  dct:date "2015-04-28"^^xsd:date ;
+  mex-core:dataNormalizedDescription "none" ;
+  mex-core:outliersRemovedDescription "none" ;
+  mex-core:noiseRemovedDescription "none" ;
+  prov:wasAttributedTo :applicationContext ;
+  mex-core:hasSamplingMethod :sampling .
+
+:sampling a mex-core:SamplingMethod ;
+  mex-core:trainSize "0.8"^^xsd:double ;
+  mex-core:testSize "0.2"^^xsd:double ;
+  mex-core:folds "1"^^xsd:integer ;
+  mex-core:sequential "false"^^xsd:boolean ;
+  prov:wasDerivedFrom :experiment .
+
+:labordata a mex-core:Dataset ;
+  dct:title "Labor Relations Data Set" ;
+  dct:description """The data includes all collective agreements reached in the business and personal services sector for locals with at least 500 members (teachers, nurses, university staff, police, etc) in Canada in 87 and first quarter of 88.""" ; 
+  dcat:landingPage <https://archive.ics.uci.edu/ml/datasets/Labor+Relations> ;
+  dcat:distribution :labordata-tsv .
+
+:labordata-tsv 
+       a dcat:Distribution ;
+       dcat:accessURL <https://archive.ics.uci.edu/ml/machine-learning-databases/labor-negotiations/> ;
+       dcat:mediaType "text/tsv" .
+
+:hardware
+	a prov:Entity, doap:Project, mex-core:HardwareConfiguration;
+	doap:os "GNU/Linux 3.19.4-100.fc20.x86_64 Fedora Heisenbug"^^xsd:string;
+	mex-core:cpu "Intel Core i5-2430M"^^xsd:string;
+	mex-core:memory "16 GiB"^^xsd:string;
+	mex-core:hdType "OCZ-VERTEX3 128 GiB"^^xsd:string;
+	mex-core:cpu-cache "3 MiB"^^xsd:string;
+	mex-core:video-graphics "Intel Mobile HD Graphics 3"^^xsd:string .
+
+:exec-A a mex-core:Execution ;
+  prov:used :trainingSplit-A, :testSplit-A, :hardware, :trainingSplit-A, :testSplit-A, :adtTreeModel ;
+  prov:used :wekaLADTree, :alternatingDecisionTree ;
+  prov:startedBy :exp ;
+  dct:indentifer "labor-neg-exec-A" ;
+  prov:startedAtTime "2014-04-19T14:22:00+00:00"^^xsd:dateTime ;
+  prov:endedAtTime "2014-04-19T14:23:30+00:00"^^xsd:dateTime .
+
+:adtTreeModel a mex-core:Model ;
+  prov:wasGeneratedBy :exec .
+
+
+:trainingSplit-A a mex-core:DataInputExampleCollection ;
+  mex-core:hasPhase :trainingPhase  .
+
+:trainingPhase a mex-core:Training .
+  
+:testSplit-A a mex-core:DataInputExampleCollection ;
+  mex-core:hasPhase :testPhase .
+
+:testPhase a mex-core:Test .
+
+:supervisedLearning a mex-algo:Supervised .
+
+:classification a mex-algo:Classification .
+
+:params-A a mex-algo:AlgorithmParameterCollection ;
+  dct:identitier "algoParams-A" ;
+  prov:hadMember :param-boostingIterations-A, :param-debug-A .
+  
+:param-boostingIterations-A a mex-core:AlgorithmParameter ;
+  dct:identifier "numOfBoostingIterations" ;
+  prov:value "10"^^xsd:nonNegativeInteger .
+
+:param-debug-A a mex-core:AlgorithmParameter ;
+  dct:identifier "debug" ;
+  prov:value "false"^^xsd:boolean .
+
+:params-A prov:hadMember :param-boostingIterations-A, :param-debug-A .
+
+:performance-A a mex-perf:ExecutionPerformance ;
+  prov:wasInformedBy :exec-A;
+  prov:generated :fmeasure-A, :precision-A, :recall-A, :fmeasure-good-A, :precision-good-A,
+    :recall-good-A, :fmeasure-bad-A, :precision-bad-A, :recall-bad-A .
+  
+
+:fmeasure-A a mex-perf:ClassificationPerformance ;
+  dct:identitier "wgt-avg-f-measure" ;
+  dct:description "Weighted Average F-Measure" ;
+  prov:value "0.913"^^xsd:double .
+
+:precision-A a mex-perf:ClassificationPerformance ;
+  dct:identitier "wgt-avg-precision" ;
+  dct:description "Weighted Average Precision" ;
+  prov:value "0.932"^^xsd:double .
+
+:recall-A a mex-perf:ClassificationPerformance ;
+  dct:identitier "wgt-avg-recall" ;
+  dct:description "Weighted Average Recall" ;
+  prov:value "0.909"^^xsd:double .
+
+:fmeasure-good-A a mex-perf:ClassificationPerformance ;
+  dct:identitier "class-good-f-measure" ;
+  dct:description "Weighted Average F-Measure" ;
+  prov:value "0.933"^^xsd:double .
+
+:precision-good-A a mex-perf:ClassificationPerformance ;
+  dct:identitier "class-good-precision" ;
+  dct:description "Weighted Average Precision" ;
+  prov:value "1"^^xsd:double .
+
+:recall-good-A a mex-perf:ClassificationPerformance ;
+  dct:identitier "class-good-recall" ;
+  dct:description "Weighted Average Recall" ;
+  prov:value "0.875"^^xsd:double .
+
+:fmeasure-bad-A a mex-perf:ClassificationPerformance ;
+  dct:identitier "class-good-f-measure" ;
+  dct:description "Weighted Average F-Measure" ;
+  prov:value "0.857"^^xsd:double .
+
+:precision-bad-A a mex-perf:ClassificationPerformance ;
+  dct:identitier "class-good-precision" ;
+  dct:description "Weighted Average Precision" ;
+  prov:value "0.75"^^xsd:double .
+
+:recall-bad-A a mex-perf:ClassificationPerformance ;
+  dct:identitier "class-good-recall" ;
+  dct:description "Weighted Average Recall" ;
+  prov:value "1"^^xsd:double .
+
+:wekaLADTree a mex-algo:WEKA ;
+  doap:name "LADTree in WEKA 3" ;
+  doap:revision "3.6.12" ;
+  doap:homepage "http://www.cs.waikato.ac.nz/~ml/weka/" ;
+  doap:programming-language "Java" ; 
+  prov:wasDerivedFrom :alternatingDecisionTree ;
+  doap:repository [
+    a doap:SVNRepository ;
+    doap:location <http://svn.code.sf.net/p/weka/code/weka-code> 
+  ] .
+
+:alternatingDecisionTree a mex-core:Algorithm ;
+  dct:name "Alternating Decision Tree using Logit Boost".
