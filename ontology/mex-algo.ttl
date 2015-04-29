@@ -151,7 +151,7 @@ prov:hadMember
 
 ###  mex-algo#AQ
 
-:AQ a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:onClass owl:Rules ;  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+:AQ a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:onClass :Rules ;  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
 
 
 ###  mex-algo#AdaptativeBoost
@@ -375,7 +375,7 @@ prov:hadMember
 
 ###  mex-algo#INDUCE
 
-:INDUCE a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:onClass owl:Rules ;  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+:INDUCE a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:onClass :Rules ;  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
 
 
 ###  mex-algo#InductiveLogicProgramming
@@ -678,7 +678,7 @@ prov:hadMember
 
 ###  mex-algo#Rules
 
-owl:Rules a owl:Class ;
+:Rules a owl:Class ;
                                                                
                                                                rdfs:subClassOf :AlgorithmClass .
 
@@ -845,7 +845,7 @@ owl:Rules a owl:Class ;
      owl:intersectionOf ( :Algorithm
                                                                                                                [ a owl:Restriction ;
                          owl:onProperty :hasClass ;
-                         owl:someValuesFrom owl:Rules
+                         owl:someValuesFrom :Rules
                                                                                                                ]
                                                                                                              )
                                                                                            ] .
