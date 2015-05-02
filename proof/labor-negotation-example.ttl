@@ -130,32 +130,32 @@
 
 :fmeasure-good-A a mex-perf:ClassificationPerformance ;
   dct:identitier "class-good-f-measure" ;
-  dct:description "Weighted Average F-Measure" ;
+  dct:description "F-Measure for class good" ;
   prov:value "0.933"^^xsd:double .
 
 :precision-good-A a mex-perf:ClassificationPerformance ;
   dct:identitier "class-good-precision" ;
-  dct:description "Weighted Average Precision" ;
+  dct:description "Precision for class good" ;
   prov:value "1"^^xsd:double .
 
 :recall-good-A a mex-perf:ClassificationPerformance ;
   dct:identitier "class-good-recall" ;
-  dct:description "Weighted Average Recall" ;
+  dct:description "Recall for class good" ;
   prov:value "0.875"^^xsd:double .
 
 :fmeasure-bad-A a mex-perf:ClassificationPerformance ;
   dct:identitier "class-good-f-measure" ;
-  dct:description "Weighted Average F-Measure" ;
+  dct:description "F-Measure for class bad" ;
   prov:value "0.857"^^xsd:double .
 
 :precision-bad-A a mex-perf:ClassificationPerformance ;
   dct:identitier "class-good-precision" ;
-  dct:description "Weighted Average Precision" ;
+  dct:description "Precision for class bad" ;
   prov:value "0.75"^^xsd:double .
 
 :recall-bad-A a mex-perf:ClassificationPerformance ;
   dct:identitier "class-good-recall" ;
-  dct:description "Weighted Average Recall" ;
+  dct:description "Recall for class bad" ;
   prov:value "1"^^xsd:double .
 
 :wekaLADTree a mex-algo:WEKA ;
