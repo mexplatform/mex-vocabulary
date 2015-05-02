@@ -23,7 +23,9 @@
   foaf:name "Markus Ackermann" ;
   foaf:mbox <mailto:ackermann@informatik.uni-leipzig.de> ;
   foaf:homePage <http://aksw.org/MarkusAckermann.html> ;
-  doap:description "Example usage of MEX vocabularies, documenting the application of various classification methods implemented in the WEKA toolkit to judge about offers for Canadian labour contracts." ;
+  doap:description """Example usage of MEX vocabularies, documenting the application of various
+  classification methods implemented in the WEKA toolkit to judge about offers for Canadian labour
+  contracts.""" ;
   #doap:location ;
   prov:actedOnBehalfOf :aksw .
 
@@ -49,27 +51,30 @@
 
 :labordata a mex-core:Dataset ;
   dct:title "Labor Relations Data Set" ;
-  dct:description """The data includes all collective agreements reached in the business and personal services sector for locals with at least 500 members (teachers, nurses, university staff, police, etc) in Canada in 87 and first quarter of 88.""" ; 
+  dct:description """The data includes all collective agreements reached in the business and
+  personal services sector for locals with at least 500 members (teachers, nurses, university staff,
+  police, etc) in Canada in 87 and first quarter of 88.""" ;
   dcat:landingPage <https://archive.ics.uci.edu/ml/datasets/Labor+Relations> ;
   dcat:distribution :labordata-tsv .
 
 :labordata-tsv 
-       a dcat:Distribution ;
-       dcat:accessURL <https://archive.ics.uci.edu/ml/machine-learning-databases/labor-negotiations/> ;
-       dcat:mediaType "text/tsv" .
+  a dcat:Distribution ;
+  dcat:accessURL <https://archive.ics.uci.edu/ml/machine-learning-databases/labor-negotiations/> ;
+  dcat:mediaType "text/tsv" .
 
 :hardware
-	a prov:Entity, doap:Project, mex-core:HardwareConfiguration;
-	doap:os "GNU/Linux 3.19.4-100.fc20.x86_64 Fedora Heisenbug"^^xsd:string;
-	mex-core:cpu "Intel Core i5-2430M"^^xsd:string;
-	mex-core:memory "16 GiB"^^xsd:string;
-	mex-core:hdType "OCZ-VERTEX3 128 GiB"^^xsd:string;
-	mex-core:cpu-cache "3 MiB"^^xsd:string;
-	mex-core:video-graphics "Intel Mobile HD Graphics 3"^^xsd:string .
+  a prov:Entity, doap:Project, mex-core:HardwareConfiguration;
+  doap:os "GNU/Linux 3.19.4-100.fc20.x86_64 Fedora Heisenbug"^^xsd:string;
+  mex-core:cpu "Intel Core i5-2430M"^^xsd:string;
+  mex-core:memory "16 GiB"^^xsd:string;
+  mex-core:hdType "OCZ-VERTEX3 128 GiB"^^xsd:string;
+  mex-core:cpu-cache "3 MiB"^^xsd:string;
+  mex-core:video-graphics "Intel Mobile HD Graphics 3"^^xsd:string .
 
 :exec-A a mex-core:Execution ;
-  prov:used :trainingSplit-A, :testSplit-A, :hardware, :trainingSplit-A, :testSplit-A, :adtTreeModel ;
-  prov:used :wekaLADTree, :alternatingDecisionTree ;
+  prov:used :trainingSplit-A, :testSplit-A ;
+  prov:used :hardware ;
+  prov:used :wekaLADTree, :alternatingDecisionTree, :adtTreeModel ;
   prov:startedBy :exp ;
   dct:indentifer "labor-neg-exec-A" ;
   prov:startedAtTime "2014-04-19T14:22:00+00:00"^^xsd:dateTime ;
@@ -111,7 +116,6 @@
   prov:wasInformedBy :exec-A;
   prov:generated :fmeasure-A, :precision-A, :recall-A, :fmeasure-good-A, :precision-good-A,
     :recall-good-A, :fmeasure-bad-A, :precision-bad-A, :recall-bad-A .
-  
 
 :fmeasure-A a mex-perf:ClassificationPerformance ;
   dct:identitier "wgt-avg-f-measure" ;
