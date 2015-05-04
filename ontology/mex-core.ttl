@@ -9,10 +9,10 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix mex-core:    <http://dne5.com/machine-learning/ontology/mex-core#> .
-@prefix : <http://dne5.com/machine-learning/ontology/mex-core#> .
+@prefix mex-core:    <http://mex.aksw.org/mex-core#> .
+@prefix : <http://mex.aksw.org/mex-core#> .
 
-<http://dne5.com/machine-learning/ontology/mex-core#> 
+<http://mex.aksw.org/mex-core#> 
   a owl:Ontology ;
   owl:versionInfo "1.0" ;
   dct:created "2014-02-02"^^xsd:date ;
@@ -29,7 +29,7 @@
 #################################################################
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#hasPhase
+###  :hasPhase
 
 :hasPhase a owl:FunctionalProperty ,
                    owl:ObjectProperty ;
@@ -40,7 +40,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#hasSamplingMethod
+###  :hasSamplingMethod
 
 :hasSamplingMethod a owl:FunctionalProperty ,
                             owl:ObjectProperty ;
@@ -103,7 +103,7 @@ prov:wasInformedBy
 #################################################################
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#attributeSelectionDescription
+###  :attributeSelectionDescription
 
 :attributeSelectionDescription a owl:DatatypeProperty ;
                                
@@ -113,7 +113,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#cpu
+###  :cpu
 
 :cpu a owl:DatatypeProperty ;
      
@@ -123,7 +123,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#cpu-cache
+###  :cpu-cache
 
 :cpu-cache a owl:DatatypeProperty ;
            
@@ -133,7 +133,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#dataNormalizedDescription
+###  :dataNormalizedDescription
 
 :dataNormalizedDescription a owl:DatatypeProperty ;
                            
@@ -143,7 +143,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#endsAt
+###  :endsAt
 
 :endsAt a owl:DatatypeProperty ;
         
@@ -153,7 +153,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#folds
+###  :folds
 
 :folds a owl:DatatypeProperty ;
        
@@ -163,7 +163,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#hdType
+###  :hdType
 
 :hdType a owl:DatatypeProperty ;
         
@@ -173,7 +173,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#memory
+###  :memory
 
 :memory a owl:DatatypeProperty ;
         
@@ -183,7 +183,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#noiseRemovedDescription
+###  :noiseRemovedDescription
 
 :noiseRemovedDescription a owl:DatatypeProperty ;
                          
@@ -193,7 +193,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#outliersRemovedDescription
+###  :outliersRemovedDescription
 
 :outliersRemovedDescription a owl:DatatypeProperty ;
                             
@@ -203,7 +203,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#sequential
+###  :sequential
 
 :sequential a owl:DatatypeProperty ;
             
@@ -213,7 +213,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#startsAt
+###  :startsAt
 
 :startsAt a owl:DatatypeProperty ;
           
@@ -223,7 +223,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#testSize
+###  :testSize
 
 :testSize a owl:DatatypeProperty ;
           
@@ -233,7 +233,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#trainSize
+###  :trainSize
 
 :trainSize a owl:DatatypeProperty ;
            
@@ -243,7 +243,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#videoGraphs
+###  :videoGraphs
 
 :videoGraphs a owl:DatatypeProperty ;
              
@@ -260,7 +260,7 @@ prov:wasInformedBy
 #################################################################
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#AdaptativeWebSites
+###  :AdaptativeWebSites
 
 :AdaptativeWebSites a owl:Class ;
                     
@@ -268,7 +268,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#AffectiveComputing
+###  :AffectiveComputing
 
 :AffectiveComputing a owl:Class ;
                     
@@ -276,7 +276,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#ApplicationContext
+###  :ApplicationContext
 
 :ApplicationContext a owl:Class ;
                     
@@ -286,7 +286,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#Bioinformatics
+###  :Bioinformatics
 
 :Bioinformatics a owl:Class ;
                 
@@ -294,7 +294,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#BrainMachineInterfaces
+###  :BrainMachineInterfaces
 
 :BrainMachineInterfaces a owl:Class ;
                         
@@ -302,7 +302,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#Cheminformatics
+###  :Cheminformatics
 
 :Cheminformatics a owl:Class ;
                  
@@ -310,7 +310,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#ClassifyingDNAsequences
+###  :ClassifyingDNAsequences
 
 :ClassifyingDNAsequences a owl:Class ;
                          
@@ -318,7 +318,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#ComputationalAdversiting
+###  :ComputationalAdversiting
 
 :ComputationalAdversiting a owl:Class ;
                           
@@ -326,7 +326,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#ComputationalFinance
+###  :ComputationalFinance
 
 :ComputationalFinance a owl:Class ;
                       
@@ -334,7 +334,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#ComputerVision
+###  :ComputerVision
 
 :ComputerVision a owl:Class ;
                 
@@ -342,7 +342,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#Context
+###  :Context
 
 :Context a owl:Class ;
          
@@ -350,7 +350,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#Dataset
+###  :Dataset
 
 :Dataset a owl:Class ;
          
@@ -360,7 +360,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#DatasetInputExample
+###  :DatasetInputExample
 
 :DatasetInputExample a owl:Class ;
                      
@@ -368,7 +368,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#DatasetInputExampleCollection
+###  :DatasetInputExampleCollection
 
 :DatasetInputExampleCollection a owl:Class ;
                                
@@ -376,7 +376,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#DetectingCreditCardFrauds
+###  :DetectingCreditCardFrauds
 
 :DetectingCreditCardFrauds a owl:Class ;
                            
@@ -384,7 +384,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#DomainConceptSpace
+###  :DomainConceptSpace
 
 :DomainConceptSpace a owl:Class ;
                     
@@ -392,7 +392,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#ExecutionParameter
+###  :ExecutionParameter
 
 :ExecutionParameter a owl:Class ;
                     
@@ -400,7 +400,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#ExecutionParameterCollection
+###  :ExecutionParameterCollection
 
 :ExecutionParameterCollection a owl:Class ;
                               
@@ -408,7 +408,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#Experiment
+###  :Experiment
 
 :Experiment a owl:Class ;
             
@@ -416,7 +416,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#FactPrediction
+###  :FactPrediction
 
 :FactPrediction a owl:Class ;
                 
@@ -424,7 +424,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#GamePlaying
+###  :GamePlaying
 
 :GamePlaying a owl:Class ;
              
@@ -432,7 +432,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#HardwareConfiguration
+###  :HardwareConfiguration
 
 :HardwareConfiguration a owl:Class ;
                        
@@ -440,7 +440,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#InformationRetrieval
+###  :InformationRetrieval
 
 :InformationRetrieval a owl:Class ;
                       
@@ -448,7 +448,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#InternetFraudDetection
+###  :InternetFraudDetection
 
 :InternetFraudDetection a owl:Class ;
                         
@@ -456,7 +456,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#MachinePerception
+###  :MachinePerception
 
 :MachinePerception a owl:Class ;
                    
@@ -464,7 +464,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#MedicalDiagnosis
+###  :MedicalDiagnosis
 
 :MedicalDiagnosis a owl:Class ;
                   
@@ -472,7 +472,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#Metaheuristics
+###  :Metaheuristics
 
 :Metaheuristics a owl:Class ;
                 
@@ -480,7 +480,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#NaturalLanguageProcessing
+###  :NaturalLanguageProcessing
 
 :NaturalLanguageProcessing a owl:Class ;
                            
@@ -488,7 +488,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#ObjectRecognition
+###  :ObjectRecognition
 
 :ObjectRecognition a owl:Class ;
                    
@@ -496,7 +496,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#Optimization
+###  :Optimization
 
 :Optimization a owl:Class ;
               
@@ -504,7 +504,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#RecomenderSystems
+###  :RecomenderSystems
 
 :RecomenderSystems a owl:Class ;
                    
@@ -512,7 +512,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#Robotics
+###  :Robotics
 
 :Robotics a owl:Class ;
           
@@ -520,7 +520,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#SamplingMethod
+###  :SamplingMethod
 
 :SamplingMethod a owl:Class ;
                 
@@ -528,7 +528,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#SearchEngines
+###  :SearchEngines
 
 :SearchEngines a owl:Class ;
                
@@ -536,7 +536,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#SentimentAnalysis
+###  :SentimentAnalysis
 
 :SentimentAnalysis a owl:Class ;
                    
@@ -544,7 +544,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#SequenceMining
+###  :SequenceMining
 
 :SequenceMining a owl:Class ;
                 
@@ -552,7 +552,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#SoftwareEnginnering
+###  :SoftwareEnginnering
 
 :SoftwareEnginnering a owl:Class ;
                      
@@ -560,7 +560,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#SpeechAndHandwritingRecognition
+###  :SpeechAndHandwritingRecognition
 
 :SpeechAndHandwritingRecognition a owl:Class ;
                                  
@@ -568,7 +568,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#StockMarketAnalysis
+###  :StockMarketAnalysis
 
 :StockMarketAnalysis a owl:Class ;
                      
@@ -576,7 +576,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#StructuralHealthMonitoring
+###  :StructuralHealthMonitoring
 
 :StructuralHealthMonitoring a owl:Class ;
                             
@@ -584,7 +584,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#SyntacticLanguageProcessing
+###  :SyntacticLanguageProcessing
 
 :SyntacticLanguageProcessing a owl:Class ;
                              
@@ -592,7 +592,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#Test
+###  :Test
 
 :Test a owl:Class ;
       
@@ -600,7 +600,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#Training
+###  :Training
 
 :Training a owl:Class ;
           
@@ -608,7 +608,7 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#Validation
+###  :Validation
 
 :Validation a owl:Class ;
             
@@ -616,13 +616,13 @@ prov:wasInformedBy
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-core.ttl#ValuePartition
+###  :ValuePartition
 
 :ValuePartition a owl:Class .
 
 
 
-###  http://www.w3.org/2002/07/owl#DatasetInputExampleCollection
+###  :DatasetInputExampleCollection
 
 :DatasetInputExampleCollection a owl:Class ;
                                   
@@ -630,7 +630,7 @@ prov:wasInformedBy
 
 
 
-###  http://www.w3.org/2002/07/owl#Execution
+###  :Execution
 
 :Execution a owl:Class ;
               
@@ -638,7 +638,7 @@ prov:wasInformedBy
 
 
 
-###  http://www.w3.org/2002/07/owl#Model
+###  :Model
 
 :Model a owl:Class ;
           
@@ -646,7 +646,7 @@ prov:wasInformedBy
 
 
 
-###  http://www.w3.org/2002/07/owl#Phase
+###  :Phase
 
 :Phase a owl:Class ;
           

@@ -9,12 +9,12 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix mex-core:    <http://dne5.com/machine-learning/ontology/mex-core#> .
-@prefix mex-algo:    <http://dne5.com/machine-learning/ontology/mex-algo#> .
-@prefix mex-perf:    <http://dne5.com/machine-learning/ontology/mex-perf#> .
-@prefix : <http://dne5.com/machine-learning/ontology/mex-algo#> .
+@prefix mex-core:    <http://mex.aksw.org/mex-core#> .
+@prefix mex-algo:    <http://mex.aksw.org/mex-algo#> .
+@prefix mex-perf:    <http://mex.aksw.org/mex-perf#> .
+@prefix : <http://mex.aksw.org/mex-algo#> .
 
-<http://dne5.com/machine-learning/ontology/mex-algo#>
+<http://mex.aksw.org/mex-algo#>
   a owl:Ontology ;  
   owl:versionInfo "1.0" ;
   rdfs:label "MEX-Algorithm"@en ;
@@ -32,7 +32,7 @@
 #    Object Properties
 #################################################################
 
-###  mex-algo#hasAlgorithmConfiguration
+###  :hasAlgorithmConfiguration
 
 :hasAlgorithmConfiguration 
   a owl:ObjectProperty ,
@@ -41,7 +41,7 @@
 
 
 
-###  mex-algo#isAlgorithmConfigurationOf
+###  :isAlgorithmConfigurationOf
 
 :isAlgorithmConfigurationOf 
   a owl:ObjectProperty ,
@@ -50,7 +50,7 @@
 
 
 
-###  mex-algo#isAlgorithmParameterCollectionOf
+###  :isAlgorithmParameterCollectionOf
 
 :isAlgorithmParameterCollectionOf 
   a owl:FunctionalProperty ,
@@ -64,7 +64,7 @@
 
 
 
-###  mex-algo#isClassOf
+###  :isClassOf
 
 :isClassOf a owl:IrreflexiveProperty ,
   owl:ObjectProperty ; 
@@ -74,42 +74,42 @@
   owl:inverseOf :hasClass 
 .
 
-###  mex-algo#isImplementationOf
+###  :isImplementationOf
 
 :isImplementationOf a owl:FunctionalProperty , owl:InverseFunctionalProperty , owl:ObjectProperty ; rdfs:range :Algorithm ;  rdfs:subPropertyOf :isAlgorithmConfigurationOf ;  rdfs:domain :Implementation ; owl:inverseOf :hasImplementation .
 
 
-###  mex-algo#isLearningMethodOf
+###  :isLearningMethodOf
 
 :isLearningMethodOf a owl:FunctionalProperty , owl:InverseFunctionalProperty , owl:ObjectProperty ; rdfs:range :Algorithm ;  rdfs:subPropertyOf :isAlgorithmConfigurationOf ;  rdfs:domain :LearningMethod ; owl:inverseOf :hasLearningMethod .
 
 
-###  mex-algo#isLearningProblemOf
+###  :isLearningProblemOf
 
 :isLearningProblemOf a owl:FunctionalProperty , owl:InverseFunctionalProperty , owl:ObjectProperty ; rdfs:range :Algorithm ;  rdfs:subPropertyOf :isAlgorithmConfigurationOf ;  rdfs:domain :LearningProblem ; owl:inverseOf :hasLearningProblem .
 
 
-###  http://www.w3.org/2002/07/owl#hasAlgorithmParameterCollection
+###  :hasAlgorithmParameterCollection
 
 :hasAlgorithmParameterCollection a owl:FunctionalProperty , owl:InverseFunctionalProperty , owl:IrreflexiveProperty , owl:ObjectProperty ; rdfs:domain :Algorithm ;  rdfs:range :AlgorithmParameterCollection ;  rdfs:subPropertyOf :hasAlgorithmConfiguration .
 
 
-###  http://www.w3.org/2002/07/owl#hasClass
+###  :hasClass
 
 :hasClass a owl:IrreflexiveProperty , owl:ObjectProperty ; rdfs:domain :Algorithm ;  rdfs:subPropertyOf :hasAlgorithmConfiguration ;  rdfs:range :AlgorithmClass .
 
 
-###  http://www.w3.org/2002/07/owl#hasImplementation
+###  :hasImplementation
 
 :hasImplementation a owl:FunctionalProperty , owl:InverseFunctionalProperty , owl:ObjectProperty ; rdfs:domain :Algorithm ;  rdfs:subPropertyOf :hasAlgorithmConfiguration ;  rdfs:range :Implementation .
 
 
-###  http://www.w3.org/2002/07/owl#hasLearningMethod
+###  :hasLearningMethod
 
 :hasLearningMethod a owl:FunctionalProperty , owl:InverseFunctionalProperty , owl:IrreflexiveProperty , owl:ObjectProperty ; rdfs:domain :Algorithm ;  rdfs:subPropertyOf :hasAlgorithmConfiguration ;  rdfs:range :LearningMethod .
 
 
-###  http://www.w3.org/2002/07/owl#hasLearningProblem
+###  :hasLearningProblem
 
 :hasLearningProblem a owl:FunctionalProperty , owl:InverseFunctionalProperty , owl:IrreflexiveProperty , owl:ObjectProperty ; rdfs:domain :Algorithm ;  rdfs:subPropertyOf :hasAlgorithmConfiguration ;  rdfs:range :LearningProblem .
 
@@ -132,7 +132,7 @@ prov:hadMember
 #################################################################
 
 
-###  http://www.w3.org/2002/07/owl#acronym
+###  :acronym
 
 :acronym a owl:DatatypeProperty ; rdfs:range xsd:string ; rdfs:domain :NamedAlgorithm .
 
@@ -144,22 +144,22 @@ prov:hadMember
 #################################################################
 
 
-###  mex-algo#ADTree
+###  :ADTree
 
 :ADTree a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :DecisionTrees ] .
 
 
-###  mex-algo#AQ
+###  :AQ
 
 :AQ a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:onClass :Rules ;  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
 
 
-###  mex-algo#AdaptativeBoost
+###  :AdaptativeBoost
 
 :AdaptativeBoost a owl:Class ; rdfs:label "AdaBoost"@en ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ;  owl:onClass :Boosting ;  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
 
 
-###  mex-algo#Algorithm
+###  :Algorithm
 
 :Algorithm a owl:Class ; 
   rdfs:subClassOf prov:Entity, [ 
@@ -177,358 +177,358 @@ prov:hadMember
     ] .
 
 
-###  mex-algo#AlgorithmParameterCollection
+###  :AlgorithmParameterCollection
 
 :AlgorithmParameterCollection a owl:Class ; 
   rdfs:subClassOf prov:Collection .
 
 
 
-###  mex-algo#ApacheMahout
+###  :ApacheMahout
 
 :ApacheMahout a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#Apriori
+###  :Apriori
 
 :Apriori a owl:Class ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#AutoregressiveIntegratedMovingAverage
+###  :AutoregressiveIntegratedMovingAverage
 
 :AutoregressiveIntegratedMovingAverage a owl:Class ; rdfs:label "ARIMA"@en ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#AutoregressiveMovingAverage
+###  :AutoregressiveMovingAverage
 
 :AutoregressiveMovingAverage a owl:Class ; rdfs:label "ARMA"@en ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#AverageOneDependenceEstimators
+###  :AverageOneDependenceEstimators
 
 :AverageOneDependenceEstimators a owl:Class ; rdfs:label "AODE"@en ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#BFTree
+###  :BFTree
 
 :BFTree a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :DecisionTrees ] .
 
 
-###  mex-algo#BIRCH
+###  :BIRCH
 
 :BIRCH a owl:Class ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#Bagging
+###  :Bagging
 
 :Bagging a owl:Class ; rdfs:subClassOf :AlgorithmClass .
 
 
-###  mex-algo#Baseline
+###  :Baseline
 
 :Baseline a owl:Class ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#BayesTheoryAlgorithms
+###  :BayesTheoryAlgorithms
 
 :BayesTheoryAlgorithms a owl:Class ; owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( :Algorithm [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :BayesTheory ] ) ] .
 
 
-###  mex-algo#Boosting
+###  :Boosting
 
 :Boosting a owl:Class ; rdfs:subClassOf :AlgorithmClass .
 
 
-###  mex-algo#C
+###  :C
 
 :C a owl:Class ; rdfs:subClassOf :Library .
 
 
-###  mex-algo#C-SVM
+###  :C-SVM
 
 :C-SVM a owl:Class ; rdfs:subClassOf :SupportVectorMachines , [ a owl:Restriction ; owl:onProperty :hasLearningProblem ; owl:onClass :Classification ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
 
 
-###  mex-algo#C4.5
+###  :C4.5
 
 :C4.5 a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :DecisionTrees ] ; owl:disjointWith :BackPropagation , :Kmeans , :LogisticRegression , :NaiveBayes , :RandomForest , :RegressionAnalysis , :SupportVectorMachines .
 
 
-###  mex-algo#CART
+###  :CART
 
 :CART a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:onClass :DecisionTrees ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
 
-###  mex-algo#CHAID
+###  :CHAID
 
 :CHAID a owl:Class ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#CHAMELEON
+###  :CHAMELEON
 
 :CHAMELEON a owl:Class ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#CLARA
+###  :CLARA
 
 :CLARA a owl:Class ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#CLARANS
+###  :CLARANS
 
 :CLARANS a owl:Class ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#CPlusPlus
+###  :CPlusPlus
 
 :CPlusPlus a owl:Class ; rdfs:subClassOf :Library .
 
 
-###  mex-algo#CURE
+###  :CURE
 
 :CURE a owl:Class ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#Centura
+###  :Centura
 
 :Centura a owl:Class ; rdfs:subClassOf :Library .
 
 
-###  mex-algo#Clustering
+###  :Clustering
 
 :Clustering a owl:Class ; rdfs:subClassOf :AlgorithmClass .
 
 
-###  mex-algo#DLLearner
+###  :DLLearner
 
 :DLLearner a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#DecisionStump
+###  :DecisionStump
 
 :DecisionStump a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :DecisionTrees ] .
 
 
-###  mex-algo#DecisionTreesAlgorithms
+###  :DecisionTreesAlgorithms
 
 :DecisionTreesAlgorithms a owl:Class ; owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( :Algorithm [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :DecisionTrees ] ) ] .
 
 
-###  mex-algo#DescriptiveMethod
+###  :DescriptiveMethod
 
 :DescriptiveMethod a owl:Class ; owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( :Algorithm [ a owl:Restriction ; owl:onProperty :hasLearningMethod ; owl:onClass :Unsupervised ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] ) ] ; rdfs:comment "are typically unsupervised and are used to induce interesting patterns (such as association rules) from unlabeled data. The induced patterns are useful in exploratory data analysis."@en .
 
-###  mex-algo#ELKI
+###  :ELKI
 
 :ELKI a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#EViews
+###  :EViews
 
 :EViews a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#Encog
+###  :Encog
 
 :Encog a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#EnsambleTechnique
+###  :EnsambleTechnique
 
 :EnsambleTechnique a owl:Class ; owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( :Algorithm [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :Bagging ] ) ] , [ a owl:Class ; owl:intersectionOf ( :Algorithm [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :Boosting ] ) ] .
 
 
-###  mex-algo#FAMa
+###  :FAMa
 
 :FAMa a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#FP
+###  :FP
 
 :FP a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :DecisionTrees ] .
 
 
-###  mex-algo#ForClassificationProblem
+###  :ForClassificationProblem
 
 :ForClassificationProblem a owl:Class ; owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( :Algorithm [ a owl:Restriction ; owl:onProperty :hasLearningProblem ; owl:onClass :Classification ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] ) ] .
 
 
 
-###  mex-algo#H2O
+###  :H2O
 
 :H2O a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#HybridAlgorithm
+###  :HybridAlgorithm
 
 :HybridAlgorithm a owl:Class ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#IBMMiner
+###  :IBMMiner
 
 :IBMMiner a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#ID3
+###  :ID3
 
 :ID3 a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:onClass :DecisionTrees ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
 
 
-###  mex-algo#INDUCE
+###  :INDUCE
 
 :INDUCE a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:onClass :Rules ;  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
 
 
-###  mex-algo#InductiveLogicProgramming
+###  :InductiveLogicProgramming
 
 :InductiveLogicProgramming a owl:Class ; rdfs:label "ILP"@en ; rdfs:subClassOf :AlgorithmClass .
 
 
-###  mex-algo#J48
+###  :J48
 
 :J48 a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :DecisionTrees ] .
 
 
-###  mex-algo#J48Graft
+###  :J48Graft
 
 :J48Graft a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :DecisionTrees ] .
 
 
-###  mex-algo#Java
+###  :Java
 
 :Java a owl:Class ; rdfs:subClassOf :Library .
 
 
-###  mex-algo#JavaScript
+###  :JavaScript
 
 :JavaScript a owl:Class ; rdfs:subClassOf :Library .
 
 
-###  mex-algo#Julia
+###  :Julia
 
 :Julia a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#KNIME
+###  :KNIME
 
 :KNIME a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#KXEN
+###  :KXEN
 
 :KXEN a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#LADTree
+###  :LADTree
 
 :LADTree a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :DecisionTrees ] .
 
 
-###  mex-algo#LIONsolver
+###  :LIONsolver
 
 :LIONsolver a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#LMT
+###  :LMT
 
 :LMT a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :DecisionTrees ] .
 
 
-###  mex-algo#LibLinear
+###  :LibLinear
 
 :LibLinear a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#LibSVM
+###  :LibSVM
 
 :LibSVM a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#Library
+###  :Library
 
 :Library a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#LinearRegression
+###  :LinearRegression
 
 :LinearRegression a owl:Class ; rdfs:subClassOf :RegressionAnalysis .
 
 
-###  mex-algo#LogicalRepresentations
+###  :LogicalRepresentations
 
 :LogicalRepresentations a owl:Class ; rdfs:subClassOf :AlgorithmClass .
 
 
-###  mex-algo#MARS
+###  :MARS
 
 :MARS a owl:Class ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#MLPACK
+###  :MLPACK
 
 :MLPACK a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#Markov
+###  :Markov
 
 :Markov a owl:Class ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#MassiveOnlineAnalysis
+###  :MassiveOnlineAnalysis
 
 :MassiveOnlineAnalysis a owl:Class ; rdfs:label "MOA"@en ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#Mathematica
+###  :Mathematica
 
 :Mathematica a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#Matlab
+###  :Matlab
 
 :Matlab a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#Metaheuristic
+###  :Metaheuristic
 
 :Metaheuristic a owl:Class ; rdfs:subClassOf :LearningProblem .
 
 
-###  mex-algo#MicrosoftAzureMachineLearning
+###  :MicrosoftAzureMachineLearning
 
 :MicrosoftAzureMachineLearning a owl:Class ; rdfs:label "AZURE"@en ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#MonteCarloMachineLearningLibrary
+###  :MonteCarloMachineLearningLibrary
 
 :MonteCarloMachineLearningLibrary a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#NBTree
+###  :NBTree
 
 :NBTree a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:onClass :DecisionTrees ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
 
 
-###  mex-algo#NearestNeigbour
+###  :NearestNeigbour
 
 :NearestNeigbour a owl:Class ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#NeuroSolutions
+###  :NeuroSolutions
 
 :NeuroSolutions a owl:Class ; rdfs:subClassOf :Implementation .
 
 
-###  mex-algo#NodeJS
+###  :NodeJS
 
 :NodeJS a owl:Class ; rdfs:subClassOf :Library .
 
 
-###  mex-algo#OPTICS
+###  :OPTICS
 
 :OPTICS a owl:Class ; rdfs:subClassOf :NamedAlgorithm .
 
 
-###  mex-algo#Octave
+###  :Octave
 
 :Octave a owl:Class ;
                                                                 
@@ -536,7 +536,7 @@ prov:hadMember
 
 
 
-###  mex-algo#OpenCV
+###  :OpenCV
 
 :OpenCV a owl:Class ;
                                                                 
@@ -544,7 +544,7 @@ prov:hadMember
 
 
 
-###  mex-algo#OpenNN
+###  :OpenNN
 
 :OpenNN a owl:Class ;
                                                                 
@@ -552,7 +552,7 @@ prov:hadMember
 
 
 
-###  mex-algo#OracleDataMining
+###  :OracleDataMining
 
 :OracleDataMining a owl:Class ;
                                                                           
@@ -560,7 +560,7 @@ prov:hadMember
 
 
 
-###  mex-algo#Orange
+###  :Orange
 
 :Orange a owl:Class ;
                                                                 
@@ -568,7 +568,7 @@ prov:hadMember
 
 
 
-###  mex-algo#Other
+###  :Other
 
 :Other a owl:Class ;
                                                                
@@ -576,7 +576,7 @@ prov:hadMember
 
 
 
-###  mex-algo#PHP
+###  :PHP
 
 :PHP a owl:Class ;
                                                              
@@ -584,7 +584,7 @@ prov:hadMember
 
 
 
-###  mex-algo#PredictiveMethod
+###  :PredictiveMethod
 
 :PredictiveMethod a owl:Class ;
                                                                           
@@ -602,7 +602,7 @@ prov:hadMember
 
 
 
-###  mex-algo#ProbabilisticSoftLogic
+###  :ProbabilisticSoftLogic
 
 :ProbabilisticSoftLogic a owl:Class ;
                                                                                 
@@ -610,7 +610,7 @@ prov:hadMember
 
 
 
-###  mex-algo#Python
+###  :Python
 
 :Python a owl:Class ;
                                                                 
@@ -618,7 +618,7 @@ prov:hadMember
 
 
 
-###  mex-algo#R
+###  :R
 
 :R a owl:Class ;
                                                            
@@ -626,7 +626,7 @@ prov:hadMember
 
 
 
-###  mex-algo#R-SVM
+###  :R-SVM
 
 :R-SVM a owl:Class ;
                                                                
@@ -639,7 +639,7 @@ prov:hadMember
 
 
 
-###  mex-algo#RCASE
+###  :RCASE
 
 :RCASE a owl:Class ;
                                                                
@@ -647,7 +647,7 @@ prov:hadMember
 
 
 
-###  mex-algo#REPTree
+###  :REPTree
 
 :REPTree a owl:Class ;
                                                                  
@@ -660,7 +660,7 @@ prov:hadMember
 
 
 
-###  mex-algo#RapidMiner
+###  :RapidMiner
 
 :RapidMiner a owl:Class ;
                                                                     
@@ -668,7 +668,7 @@ prov:hadMember
 
 
 
-###  mex-algo#Ruby
+###  :Ruby
 
 :Ruby a owl:Class ;
                                                               
@@ -676,7 +676,7 @@ prov:hadMember
 
 
 
-###  mex-algo#Rules
+###  :Rules
 
 :Rules a owl:Class ;
                                                                
@@ -684,7 +684,7 @@ prov:hadMember
 
 
 
-###  mex-algo#SAP
+###  :SAP
 
 :SAP a owl:Class ;
                                                              
@@ -692,7 +692,7 @@ prov:hadMember
 
 
 
-###  mex-algo#SASEnterpriseMiner
+###  :SASEnterpriseMiner
 
 :SASEnterpriseMiner a owl:Class ;
                                                                             
@@ -702,7 +702,7 @@ prov:hadMember
 
 
 
-###  mex-algo#SPSS
+###  :SPSS
 
 :SPSS a owl:Class ;
                                                               
@@ -710,7 +710,7 @@ prov:hadMember
 
 
 
-###  mex-algo#SQLServerAnalysisServices
+###  :SQLServerAnalysisServices
 
 :SQLServerAnalysisServices a owl:Class ;
                                                                                    
@@ -718,7 +718,7 @@ prov:hadMember
 
 
 
-###  mex-algo#STATISTICADataMiner
+###  :STATISTICADataMiner
 
 :STATISTICADataMiner a owl:Class ;
                                                                              
@@ -728,7 +728,7 @@ prov:hadMember
 
 
 
-###  mex-algo#Shogun
+###  :Shogun
 
 :Shogun a owl:Class ;
                                                                 
@@ -736,7 +736,7 @@ prov:hadMember
 
 
 
-###  mex-algo#SimpleCart
+###  :SimpleCart
 
 :SimpleCart a owl:Class ;
                                                                     
@@ -749,7 +749,7 @@ prov:hadMember
 
 
 
-###  mex-algo#Stata
+###  :Stata
 
 :Stata a owl:Class ;
                                                                
@@ -757,7 +757,7 @@ prov:hadMember
 
 
 
-###  mex-algo#StatisticalApproach
+###  :StatisticalApproach
 
 :StatisticalApproach a owl:Class ;
                                                                              
@@ -788,7 +788,7 @@ prov:hadMember
 
 
 
-###  mex-algo#SupervisedApproach
+###  :SupervisedApproach
 
 :SupervisedApproach a owl:Class ;
                                                                             
@@ -821,7 +821,7 @@ prov:hadMember
 
 
 
-###  mex-algo#SymbolicApproach
+###  :SymbolicApproach
 
 :SymbolicApproach a owl:Class ;
                                                                           
@@ -852,7 +852,7 @@ prov:hadMember
 
 
 
-###  mex-algo#UnsupervisedApproach
+###  :UnsupervisedApproach
 
 :UnsupervisedApproach a owl:Class ;
                                                                               
@@ -890,7 +890,7 @@ prov:hadMember
 
 
 
-###  mex-algo#UserClassifier
+###  :UserClassifier
 
 :UserClassifier a owl:Class ;
                                                                         
@@ -903,7 +903,7 @@ prov:hadMember
 
 
 
-###  mex-algo#Weka
+###  :Weka
 
 :Weka a owl:Class ;
                                                               
@@ -911,7 +911,7 @@ prov:hadMember
 
 
 
-###  mex-algo#YALE
+###  :YALE
 
 :YALE a owl:Class ;
                                                               
@@ -919,7 +919,7 @@ prov:hadMember
 
 
 
-###  mex-algo#Yooreeka
+###  :Yooreeka
 
 :Yooreeka a owl:Class ;
                                                                   
@@ -927,7 +927,7 @@ prov:hadMember
 
 
 
-###  mex-algo#mlpy
+###  :mlpy
 
 :mlpy a owl:Class ;
                                                               
@@ -935,7 +935,7 @@ prov:hadMember
 
 
 
-###  mex-algo#scikit-learn
+###  :scikit-learn
 
 :scikit-learn a owl:Class ;
                                                                       
@@ -943,7 +943,7 @@ prov:hadMember
 
 
 
-###  mex-algo#.DotNet
+###  :.DotNet
 
 :DotNet a owl:Class ;
                                                                  
@@ -951,7 +951,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#AlgorithmClass
+###  :AlgorithmClass
 
 :AlgorithmClass a owl:Class ;
                 
@@ -961,7 +961,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#AlgorithmParameter
+###  :AlgorithmParameter
 
 :AlgorithmParameter a owl:Class ;
                     rdfs:subClassOf prov:Entity ;
@@ -970,7 +970,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#ArtificialNeuralNetwork
+###  :ArtificialNeuralNetwork
 
 :ArtificialNeuralNetwork a owl:Class ;
                          
@@ -980,7 +980,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#Association
+###  :Association
 
 :Association a owl:Class ;
              
@@ -988,7 +988,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#BackPropagation
+###  :BackPropagation
 
 :BackPropagation a owl:Class ;
                  
@@ -1008,7 +1008,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#BayesTheory
+###  :BayesTheory
 
 :BayesTheory a owl:Class ;
              
@@ -1016,7 +1016,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#Classification
+###  :Classification
 
 :Classification a owl:Class ;
                 
@@ -1024,7 +1024,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#Clustering
+###  :Clustering
 
 :Clustering a owl:Class ;
             
@@ -1032,7 +1032,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#DecisionTrees
+###  :DecisionTrees
 
 :DecisionTrees a owl:Class ;
                
@@ -1040,7 +1040,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#GeneticAlgorithms
+###  :GeneticAlgorithms
 
 :GeneticAlgorithms a owl:Class ;
                    
@@ -1048,7 +1048,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#Implementation
+###  :Implementation
 
 :Implementation a owl:Class ;
         rdfs:subClassOf prov:SoftwareAgent, doap:Project, doap:Version
@@ -1057,7 +1057,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#Kmeans
+###  :Kmeans
 
 :Kmeans a owl:Class ;
         
@@ -1076,7 +1076,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#LearningMethod
+###  :LearningMethod
 
 :LearningMethod a owl:Class ;
                 
@@ -1084,7 +1084,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#LearningProblem
+###  :LearningProblem
 
 :LearningProblem a owl:Class ;
                  
@@ -1092,7 +1092,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#LogisticRegression
+###  :LogisticRegression
 
 :LogisticRegression a owl:Class ;
                     
@@ -1104,7 +1104,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#NaiveBayes
+###  :NaiveBayes
 
 :NaiveBayes a owl:Class ;
             
@@ -1130,7 +1130,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#NamedAlgorithm
+###  :NamedAlgorithm
 
 :NamedAlgorithm a owl:Class ;
                 
@@ -1140,7 +1140,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#RandomForest
+###  :RandomForest
 
 :RandomForest a owl:Class ;
               
@@ -1155,7 +1155,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#Regression
+###  :Regression
 
 :Regression a owl:Class ;
             
@@ -1163,7 +1163,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#RegressionAnalysis
+###  :RegressionAnalysis
 
 :RegressionAnalysis a owl:Class ;
                     
@@ -1178,7 +1178,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#RegressionFunctions
+###  :RegressionFunctions
 
 :RegressionFunctions a owl:Class ;
                      
@@ -1186,7 +1186,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#Reinforcement
+###  :Reinforcement
 
 :Reinforcement a owl:Class ;
                
@@ -1194,7 +1194,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#SemiSupervised
+###  :SemiSupervised
 
 :SemiSupervised a owl:Class ;
                 
@@ -1202,7 +1202,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#Summarization
+###  :Summarization
 
 :Summarization a owl:Class ;
                
@@ -1210,7 +1210,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#Supervised
+###  :Supervised
 
 :Supervised a owl:Class ;
             
@@ -1218,7 +1218,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#SupportVectorMachines
+###  :SupportVectorMachines
 
 :SupportVectorMachines a owl:Class ;
                        
@@ -1257,7 +1257,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#SupportVectorNetworks
+###  :SupportVectorNetworks
 
 :SupportVectorNetworks a owl:Class ;
                        
@@ -1265,7 +1265,7 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#Unsupervised
+###  :Unsupervised
 
 :Unsupervised a owl:Class ;
               
@@ -1283,307 +1283,307 @@ prov:hadMember
 
 
 
-###  mex-algo#AdaBoost
+###  :AdaBoost
 
 :AdaBoost a :NamedIndividual .
 
 
 
-###  mex-algo#C-SVM
+###  :C-SVM
 
 :C-SVM a :NamedIndividual .
 
 
 
-###  mex-algo#DL-Learner
+###  :DL-Learner
 
 :DL-Learner a :NamedIndividual .
 
 
 
-###  mex-algo#R
+###  :R
 
 :R a :NamedIndividual .
 
 
 
-###  mex-algo#R-SVM
+###  :R-SVM
 
 :R-SVM a :NamedIndividual .
 
 
 
-###  mex-algo#Reinforcement
+###  :Reinforcement
 
 :Reinforcement a :NamedIndividual .
 
 
 
-###  mex-algo#SAS
+###  :SAS
 
 :SAS a :NamedIndividual .
 
 
 
-###  mex-algo#SemiSupervised
+###  :SemiSupervised
 
 :SemiSupervised a :NamedIndividual .
 
 
 
-###  mex-algo#Supervised
+###  :Supervised
 
 :Supervised a :NamedIndividual .
 
 
 
-###  mex-algo#Unsupervised
+###  :Unsupervised
 
 :Unsupervised a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#AODE
+###  :AODE
 
 :AODE a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#AdaptativeBoost
+###  :AdaptativeBoost
 
 :AdaptativeBoost a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Apriori
+###  :Apriori
 
 :Apriori a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Association
+###  :Association
 
 :Association a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#BIRCH
+###  :BIRCH
 
 :BIRCH a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#BackPropagation
+###  :BackPropagation
 
 :BackPropagation a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Bayes
+###  :Bayes
 
 :Bayes a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Bootstrap
+###  :Bootstrap
 
 :Bootstrap a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#C4.5
+###  :C4.5
 
 :C4.5 a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#CART
+###  :CART
 
 :CART a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#CHAMELEON
+###  :CHAMELEON
 
 :CHAMELEON a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#CLARA
+###  :CLARA
 
 :CLARA a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#CLARANS
+###  :CLARANS
 
 :CLARANS a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#CURE
+###  :CURE
 
 :CURE a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Classification
+###  :Classification
 
 :Classification a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Clustering
+###  :Clustering
 
 :Clustering a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#CrossValidation
+###  :CrossValidation
 
 :CrossValidation a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#DL-Learning
+###  :DL-Learning
 
 :DL-Learning a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#DecisionTrees
+###  :DecisionTrees
 
 :DecisionTrees a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#FAMa
+###  :FAMa
 
 :FAMa a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#FP-growth
+###  :FP-growth
 
 :FP-growth a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#GA
+###  :GA
 
 :GA a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#GaussianRBF
+###  :GaussianRBF
 
 :GaussianRBF a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#GeneticAlgorithm
+###  :GeneticAlgorithm
 
 :GeneticAlgorithm a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#GraphKernel
+###  :GraphKernel
 
 :GraphKernel a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Holdout
+###  :Holdout
 
 :Holdout a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#ID3
+###  :ID3
 
 :ID3 a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#K-means
+###  :K-means
 
 :K-means a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#LibSVM
+###  :LibSVM
 
 :LibSVM a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Linear
+###  :Linear
 
 :Linear a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#LinearRegression
+###  :LinearRegression
 
 :LinearRegression a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Linear_Regression
+###  :Linear_Regression
 
 :Linear_Regression a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#LogisticRegression
+###  :LogisticRegression
 
 :LogisticRegression a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Logistic_Regression
+###  :Logistic_Regression
 
 :Logistic_Regression a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Matlab
+###  :Matlab
 
 :Matlab a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Microsoft_SQL_Server
+###  :Microsoft_SQL_Server
 
 :Microsoft_SQL_Server a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#NN-BackPropagation
+###  :NN-BackPropagation
 
 :NN-BackPropagation a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#NaiveBayes
+###  :NaiveBayes
 
 :NaiveBayes a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Naive_Bayes
+###  :Naive_Bayes
 
 :Naive_Bayes a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#NearestNeighbour
+###  :NearestNeighbour
 
 :NearestNeighbour a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Nearest_Neighbour
+###  :Nearest_Neighbour
 
 :Nearest_Neighbour a :NamedIndividual ;
                    
@@ -1591,175 +1591,175 @@ prov:hadMember
 
 
 
-###  http://www.w3.org/2002/07/owl#NeuralNetwork
+###  :NeuralNetwork
 
 :NeuralNetwork a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#OPTICS
+###  :OPTICS
 
 :OPTICS a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#PathKernel
+###  :PathKernel
 
 :PathKernel a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Polynomial
+###  :Polynomial
 
 :Polynomial a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#R
+###  :R
 
 :R a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#RandomCrossValidation
+###  :RandomCrossValidation
 
 :RandomCrossValidation a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#RandomForest
+###  :RandomForest
 
 :RandomForest a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Regression
+###  :Regression
 
 :Regression a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#RegressionFunctions
+###  :RegressionFunctions
 
 :RegressionFunctions a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Reinforcement
+###  :Reinforcement
 
 :Reinforcement a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#SPSS
+###  :SPSS
 
 :SPSS a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#SVM
+###  :SVM
 
 :SVM a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#SemiSupervised
+###  :SemiSupervised
 
 :SemiSupervised a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Sigmoid
+###  :Sigmoid
 
 :Sigmoid a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#StringKernel
+###  :StringKernel
 
 :StringKernel a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Summarization
+###  :Summarization
 
 :Summarization a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Supervised
+###  :Supervised
 
 :Supervised a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#SupportVectorMachines
+###  :SupportVectorMachines
 
 :SupportVectorMachines a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#SupportVectorNetworks
+###  :SupportVectorNetworks
 
 :SupportVectorNetworks a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Test
+###  :Test
 
 :Test a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Trainning
+###  :Trainning
 
 :Trainning a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#TreeKernel
+###  :TreeKernel
 
 :TreeKernel a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Unsupervised
+###  :Unsupervised
 
 :Unsupervised a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Validation
+###  :Validation
 
 :Validation a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#WEKA
+###  :WEKA
 
 :WEKA a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#Weka
+###  :Weka
 
 :Weka a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#k-means
+###  :k-means
 
 :k-means a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#parametro1
+###  :parametro1
 
 :parametro1 a :NamedIndividual .
 
 
 
-###  http://www.w3.org/2002/07/owl#parametro2
+###  :parametro2
 
 :parametro2 a :NamedIndividual .
 

@@ -9,10 +9,10 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix mex-core:    <http://dne5.com/machine-learning/ontology/mex-core#> .
-@prefix mex-algo:    <http://dne5.com/machine-learning/ontology/mex-algo#> .
-@prefix mex-perf:    <http://dne5.com/machine-learning/ontology/mex-perf#> .
-@prefix : <http://dne5.com/machine-learning/ontology/mex-perf#> .
+@prefix mex-core:    <http://mex.aksw.org/mex-core#> .
+@prefix mex-algo:    <http://mex.aksw.org/mex-algo#> .
+@prefix mex-perf:    <http://mex.aksw.org/mex-perf#> .
+@prefix : <http://mex.aksw.org/mex-perf#> .
 
 : a owl:Ontology ;
     owl:versionInfo "1.0" ;
@@ -30,7 +30,7 @@
 #################################################################
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#bonferroniDunn
+###  :bonferroniDunn
 
 :bonferroniDunn a owl:AnnotationProperty ;
                                                                                  
@@ -38,7 +38,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#chebyschevDistance
+###  :chebyschevDistance
 
 :chebyschevDistance a owl:AnnotationProperty ;
                                                                                      
@@ -46,7 +46,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#chiSquare
+###  :chiSquare
 
 :chiSquare a owl:AnnotationProperty ;
                                                                             
@@ -54,7 +54,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#cosine
+###  :cosine
 
 :cosine a owl:AnnotationProperty ;
                                                                          
@@ -62,7 +62,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#error
+###  :error
 
 :error a owl:AnnotationProperty ;
                                                                         
@@ -73,7 +73,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#euclideanDistance
+###  :euclideanDistance
 
 :euclideanDistance a owl:AnnotationProperty ;
                                                                                     
@@ -81,7 +81,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#f1Measure
+###  :f1Measure
 
 :f1Measure a owl:AnnotationProperty ;
                                                                             
@@ -89,7 +89,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#falseNegative
+###  :falseNegative
 
 :falseNegative a owl:AnnotationProperty ;
                                                                                 
@@ -98,7 +98,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#falsePositive
+###  :falsePositive
 
 :falsePositive a owl:AnnotationProperty ;
                                                                                 
@@ -107,7 +107,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#formula
+###  :formula
 
 :formula a owl:AnnotationProperty ;
                                                                           
@@ -116,7 +116,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#friedman
+###  :friedman
 
 :friedman a owl:AnnotationProperty ;
                                                                            
@@ -124,7 +124,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#genSimilarityCoefficient
+###  :genSimilarityCoefficient
 
 :genSimilarityCoefficient a owl:AnnotationProperty ;
                                                                                            
@@ -132,7 +132,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#hammingDistance
+###  :hammingDistance
 
 :hammingDistance a owl:AnnotationProperty ;
                                                                                   
@@ -140,7 +140,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#kolmogorovSmirnov
+###  :kolmogorovSmirnov
 
 :kolmogorovSmirnov a owl:AnnotationProperty ;
                                                                                     
@@ -148,7 +148,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#manhattanDistance
+###  :manhattanDistance
 
 :manhattanDistance a owl:AnnotationProperty ;
                                                                                     
@@ -156,7 +156,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#mean
+###  :mean
 
 :mean a owl:AnnotationProperty ;
                                                                        
@@ -164,7 +164,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#meanAbsoluteDeviation
+###  :meanAbsoluteDeviation
 
 :meanAbsoluteDeviation a owl:AnnotationProperty ;
                                                                                         
@@ -173,7 +173,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#meanSquaredError
+###  :meanSquaredError
 
 :meanSquaredError a owl:AnnotationProperty ;
                                                                                    
@@ -181,7 +181,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#nemenyi
+###  :nemenyi
 
 :nemenyi a owl:AnnotationProperty ;
                                                                           
@@ -189,7 +189,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#pearsonCorrelation
+###  :pearsonCorrelation
 
 :pearsonCorrelation a owl:AnnotationProperty ;
                                                                                      
@@ -197,7 +197,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#precision
+###  :precision
 
 :precision a owl:AnnotationProperty ;
                                                                             
@@ -205,7 +205,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#predictedValue
+###  :predictedValue
 
 :predictedValue a owl:AnnotationProperty ;
                                                                                  
@@ -214,7 +214,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#realValue
+###  :realValue
 
 :realValue a owl:AnnotationProperty ;
                                                                             
@@ -223,7 +223,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#recall
+###  :recall
 
 :recall a owl:AnnotationProperty ;
                                                                          
@@ -231,7 +231,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#residual
+###  :residual
 
 :residual a owl:AnnotationProperty ;
                                                                            
@@ -239,7 +239,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#roc
+###  :roc
 
 :roc a owl:AnnotationProperty ;
                                                                       
@@ -247,7 +247,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#sensitivity
+###  :sensitivity
 
 :sensitivity a owl:AnnotationProperty ;
                                                                               
@@ -255,7 +255,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#specificity
+###  :specificity
 
 :specificity a owl:AnnotationProperty ;
                                                                               
@@ -263,7 +263,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#standardDeviation
+###  :standardDeviation
 
 :standardDeviation a owl:AnnotationProperty ;
                                                                                     
@@ -271,7 +271,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#totalError
+###  :totalError
 
 :totalError a owl:AnnotationProperty ;
                                                                              
@@ -279,7 +279,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#trueNegative
+###  :trueNegative
 
 :trueNegative a owl:AnnotationProperty ;
                                                                                
@@ -288,7 +288,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#truePositive
+###  :truePositive
 
 :truePositive a owl:AnnotationProperty ;
                                                                                
@@ -297,7 +297,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#variance
+###  :variance
 
 :variance a owl:AnnotationProperty ;
                                                                            
@@ -305,7 +305,7 @@
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#wilcoxon
+###  :wilcoxon
 
 :wilcoxon a owl:AnnotationProperty ;
                                                                            
@@ -322,7 +322,7 @@
 #################################################################
 
 
-###  http://www.w3.org/ns/prov#generated
+###  :generated
 
 prov:generated a owl:ObjectProperty ;
                
@@ -334,7 +334,7 @@ prov:generated a owl:ObjectProperty ;
 
 
 
-###  http://www.w3.org/ns/prov#hadMember
+###  :hadMember
 
 prov:hadMember a owl:ObjectProperty ;
                
@@ -346,7 +346,7 @@ prov:hadMember a owl:ObjectProperty ;
 
 
 
-###  http://www.w3.org/ns/prov#wasAttributedTo
+###  :wasAttributedTo
 
 prov:wasAttributedTo a owl:ObjectProperty ;
                      
@@ -358,7 +358,7 @@ prov:wasAttributedTo a owl:ObjectProperty ;
 
 
 
-###  http://www.w3.org/ns/prov#wasGeneratedBy
+###  :wasGeneratedBy
 
 prov:wasGeneratedBy a owl:ObjectProperty ;
                     
@@ -372,7 +372,7 @@ prov:wasGeneratedBy a owl:ObjectProperty ;
 
 
 
-###  http://www.w3.org/ns/prov#wasInformedBy
+###  :wasInformedBy
 
 prov:wasInformedBy a owl:ObjectProperty ;
                    
@@ -391,7 +391,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 #################################################################
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#L1norm
+###  :L1norm
 
 :L1norm a owl:DatatypeProperty ;
                                                             
@@ -399,7 +399,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#L2norm
+###  :L2norm
 
 :L2norm a owl:DatatypeProperty ;
                                                             
@@ -407,7 +407,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#Linfnorm
+###  :Linfnorm
 
 :Linfnorm a owl:DatatypeProperty ;
                                                               
@@ -415,7 +415,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#correlationCoefficient
+###  :correlationCoefficient
 
 :correlationCoefficient a owl:DatatypeProperty ;
                                                                             
@@ -423,7 +423,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#falseNegativeRate
+###  :falseNegativeRate
 
 :falseNegativeRate a owl:DatatypeProperty ;
                                                                        
@@ -433,7 +433,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#falsePositiveRate
+###  :falsePositiveRate
 
 :falsePositiveRate a owl:DatatypeProperty ;
                                                                        
@@ -443,7 +443,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#kappaStatistics
+###  :kappaStatistics
 
 :kappaStatistics a owl:DatatypeProperty ;
                                                                      
@@ -451,7 +451,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#median
+###  :median
 
 :median a owl:DatatypeProperty ;
                                                             
@@ -459,7 +459,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#medianAbsoluteDeviation
+###  :medianAbsoluteDeviation
 
 :medianAbsoluteDeviation a owl:DatatypeProperty ;
                                                                              
@@ -467,7 +467,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mode
+###  :mode
 
 :mode a owl:DatatypeProperty ;
                                                           
@@ -475,7 +475,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#relativeAbsoluteError
+###  :relativeAbsoluteError
 
 :relativeAbsoluteError a owl:DatatypeProperty ;
                                                                            
@@ -483,7 +483,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#rootMeanSquaredError
+###  :rootMeanSquaredError
 
 :rootMeanSquaredError a owl:DatatypeProperty ;
                                                                           
@@ -491,7 +491,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#rootRelativeSquaredError
+###  :rootRelativeSquaredError
 
 :rootRelativeSquaredError a owl:DatatypeProperty ;
                                                                               
@@ -499,7 +499,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#trueNegativeRate
+###  :trueNegativeRate
 
 :trueNegativeRate a owl:DatatypeProperty ;
                                                                       
@@ -509,7 +509,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#truePositiveRate
+###  :truePositiveRate
 
 :truePositiveRate a owl:DatatypeProperty ;
                                                                       
@@ -519,7 +519,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#bonferroniDunn
+###  :bonferroniDunn
 
 :bonferroniDunn a owl:DatatypeProperty ;
                                                                                  
@@ -527,7 +527,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#chebyschevDistance
+###  :chebyschevDistance
 
 :chebyschevDistance a owl:DatatypeProperty ;
                                                                                      
@@ -535,7 +535,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#chiSquare
+###  :chiSquare
 
 :chiSquare a owl:DatatypeProperty ;
                                                                             
@@ -543,7 +543,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#cosine
+###  :cosine
 
 :cosine a owl:DatatypeProperty ;
                                                                          
@@ -551,13 +551,13 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#costParameter
+###  :costParameter
 
 :costParameter a owl:DatatypeProperty .
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#error
+###  :error
 
 :error a owl:DatatypeProperty ;
                                                                         
@@ -565,7 +565,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#euclideanDistance
+###  :euclideanDistance
 
 :euclideanDistance a owl:DatatypeProperty ;
                                                                                     
@@ -573,7 +573,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#f1Measure
+###  :f1Measure
 
 :f1Measure a owl:DatatypeProperty ;
                                                                             
@@ -581,7 +581,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#falseNegative
+###  :falseNegative
 
 :falseNegative a owl:DatatypeProperty ;
                                                                                 
@@ -589,7 +589,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#falsePositive
+###  :falsePositive
 
 :falsePositive a owl:DatatypeProperty ;
                                                                                 
@@ -597,7 +597,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#folds
+###  :folds
 
 :folds a owl:DatatypeProperty ;
                                                                         
@@ -605,7 +605,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#formula
+###  :formula
 
 :formula a owl:DatatypeProperty ;
                                                                           
@@ -613,7 +613,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#friedman
+###  :friedman
 
 :friedman a owl:DatatypeProperty ;
                                                                            
@@ -621,7 +621,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#genSimilarityCoefficient
+###  :genSimilarityCoefficient
 
 :genSimilarityCoefficient a owl:DatatypeProperty ;
                                                                                            
@@ -629,7 +629,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#hammingDistance
+###  :hammingDistance
 
 :hammingDistance a owl:DatatypeProperty ;
                                                                                   
@@ -637,7 +637,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#kernel
+###  :kernel
 
 :kernel a owl:DatatypeProperty ;
                                                                          
@@ -645,7 +645,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#kolmogorovSmirnov
+###  :kolmogorovSmirnov
 
 :kolmogorovSmirnov a owl:DatatypeProperty ;
                                                                                     
@@ -653,7 +653,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#manhattanDistance
+###  :manhattanDistance
 
 :manhattanDistance a owl:DatatypeProperty ;
                                                                                     
@@ -661,7 +661,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#mean
+###  :mean
 
 :mean a owl:DatatypeProperty ;
                                                                        
@@ -669,7 +669,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#meanAbsoluteDeviation
+###  :meanAbsoluteDeviation
 
 :meanAbsoluteDeviation a owl:DatatypeProperty ;
                                                                                         
@@ -677,7 +677,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#meanSquaredError
+###  :meanSquaredError
 
 :meanSquaredError a owl:DatatypeProperty ;
                                                                                    
@@ -685,7 +685,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#nemenyi
+###  :nemenyi
 
 :nemenyi a owl:DatatypeProperty ;
                                                                           
@@ -693,7 +693,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#pearsonCorrelation
+###  :pearsonCorrelation
 
 :pearsonCorrelation a owl:DatatypeProperty ;
                                                                                      
@@ -701,7 +701,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#precision
+###  :precision
 
 :precision a owl:DatatypeProperty ;
                                                                             
@@ -709,7 +709,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#predictedValue
+###  :predictedValue
 
 :predictedValue a owl:DatatypeProperty ;
                                                                                  
@@ -717,7 +717,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#realValue
+###  :realValue
 
 :realValue a owl:DatatypeProperty ;
                                                                             
@@ -725,7 +725,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#recall
+###  :recall
 
 :recall a owl:DatatypeProperty ;
                                                                          
@@ -733,7 +733,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#residual
+###  :residual
 
 :residual a owl:DatatypeProperty ;
                                                                            
@@ -741,7 +741,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#roc
+###  :roc
 
 :roc a owl:DatatypeProperty ;
                                                                       
@@ -749,7 +749,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#sensitivity
+###  :sensitivity
 
 :sensitivity a owl:DatatypeProperty ;
                                                                               
@@ -757,7 +757,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#specificity
+###  :specificity
 
 :specificity a owl:DatatypeProperty ;
                                                                               
@@ -765,7 +765,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#standardDeviation
+###  :standardDeviation
 
 :standardDeviation a owl:DatatypeProperty ;
                                                                                     
@@ -773,7 +773,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#totalError
+###  :totalError
 
 :totalError a owl:DatatypeProperty ;
                                                                              
@@ -781,7 +781,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#trueNegative
+###  :trueNegative
 
 :trueNegative a owl:DatatypeProperty ;
                                                                                
@@ -789,7 +789,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#truePositive
+###  :truePositive
 
 :truePositive a owl:DatatypeProperty ;
                                                                                
@@ -797,7 +797,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#variance
+###  :variance
 
 :variance a owl:DatatypeProperty ;
                                                                            
@@ -805,7 +805,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#wilcoxon
+###  :wilcoxon
 
 :wilcoxon a owl:DatatypeProperty ;
                                                                            
@@ -820,7 +820,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 #################################################################
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#ClassificationMeasure
+###  :ClassificationMeasure
 
 :ClassificationMeasure a owl:Class ;
                                                                                         
@@ -828,7 +828,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#ClusteringMeasure
+###  :ClusteringMeasure
 
 :ClusteringMeasure a owl:Class ;
                                                                                     
@@ -836,7 +836,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#ExecutionPerformance
+###  :ExecutionPerformance
 
 :ExecutionPerformance a owl:Class ;
                                                                                        
@@ -844,7 +844,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#ItemPerformance
+###  :ItemPerformance
 
 :ItemPerformance a owl:Class ;
                                                                                   
@@ -852,7 +852,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#ItemPerformanceCollection
+###  :ItemPerformanceCollection
 
 :ItemPerformanceCollection a owl:Class ;
                                                                                             
@@ -860,7 +860,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#PerformanceMeasure
+###  :PerformanceMeasure
 
 :PerformanceMeasure a owl:Class ;
                                                                                      
@@ -868,7 +868,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#RegressionMeasure
+###  :RegressionMeasure
 
 :RegressionMeasure a owl:Class ;
                                                                                     
@@ -876,7 +876,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#StatisticalMeasure
+###  :StatisticalMeasure
 
 :StatisticalMeasure a owl:Class ;
                                                                                      
@@ -884,7 +884,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#UserDefinedMeasure
+###  :UserDefinedMeasure
 
 :UserDefinedMeasure a owl:Class ;
                                                                                      
@@ -892,7 +892,7 @@ prov:wasInformedBy a owl:ObjectProperty ;
 
 
 
-###  http://dne5.com/machine-learning/ontology/mex-perf#mex-perf.ttl#UserDefinedMeasureCollection
+###  :UserDefinedMeasureCollection
 
 :UserDefinedMeasureCollection a owl:Class ;
                                                                                                
