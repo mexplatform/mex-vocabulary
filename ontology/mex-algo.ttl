@@ -14,8 +14,7 @@
 @prefix mex-perf:    <http://mex.aksw.org/mex-perf#> .
 @prefix : <http://mex.aksw.org/mex-algo#> .
 
-<http://mex.aksw.org/mex-algo#>
-  a owl:Ontology ;  
+: a owl:Ontology ;  
   owl:versionInfo "1.0" ;
   rdfs:label "MEX-Algorithm"@en ;
   rdfs:comment "MEX Algorithm (mex-algo) is an ontology with the goal of describing machine learning algorithms"@en ;
@@ -23,10 +22,9 @@
   dct:modified "2014-04-05"^^xsd:date ;
   dc:publisher "AKSW Research Group - Leipzig University" ;
   dc:creator "Diego Esteves" ;
-  dc:contributor "Jens Lehmann", "Julio Cesar Duarte", "Markus Ackermann" ;
+  dc:contributor "Jens Lehmann", "Ricardo Usbeck", "Diego Moussallem", "Markus Ackermann", "Sebastian Hellmann", "Maria Claudia Cavalcanti Reis", "Julio Cesar Duarte" ;
   dct:title "MEX Algorithm Ontology (mex-algo)"@en ;
   owl:imports doap:, rdfs:, prov: .
-
 
 #################################################################
 #    Object Properties
