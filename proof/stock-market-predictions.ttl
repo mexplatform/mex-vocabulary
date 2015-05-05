@@ -1,0 +1,645 @@
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix prov:     <http://www.w3.org/ns/prov#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix dcat:     <http://www.w3.org/ns/dcat#> .
+@prefix dct: 	  <http://purl.org/dc/terms/> .
+@prefix doap:     <http://usefulinc.com/ns/doap#> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix mex-core: <http://dne5.com/machine-learning/mex/ontology/mex-core#> .
+@prefix mex-algo: <http://dne5.com/machine-learning/mex/ontology/mex-algo#> .
+@prefix mex-perf: <http://dne5.com/machine-learning/mex/ontology/mex-perf#> .
+@prefix :  <http://dne5.com/machine-learning/mex/example/001#> .
+
+##################################################################
+#    Ontology 		  : MEX 
+#    Date     		  : 2015-04-30
+#	 More information : http://aksw.org/Projects/MEX.html
+##################################################################
+
+##################################################################
+#	 Layer        : mex-core (mex-core)
+#    Version      : 1.0
+#	 Version Label: mex-core1-iswc-20150430
+##################################################################
+
+#	Organization Information
+
+:application
+   a prov:Agent, prov:Person, prov:Organization, doap:Project, mex-core:ApplicationContext;
+   foaf:givenName      "Diego Esteves"^^xsd:string;
+   foaf:mbox           <mailto:diegoesteves@gmail.com>;
+   foaf:homePage       <https://de.linkedin.com/in/diegoestevesbr>;
+   doap:homepage       <https://code.google.com/p/fama/>;
+   doap:description    "Prediction of assets behavior in financial series using machine learning algorithms. Describing the best best results achieved for the SVM algorithm"^^xsd:string;
+   doap:category       "Stock Market Predictions - Financial Series"^^xsd:string;
+   rdfs:seeAlso        <http://thesai.org/Downloads/IJARAI/Volume2No11/Paper_7-Prediction_of_assets_behavior_in_financial_series_using_machine_learning_algorithms.pdf>;
+   doap:location	   <dne5/test.git>;
+   prov:actedOnBehalfOf :ime;
+.
+
+:ime
+   a prov:Agent, prov:Organization;
+   foaf:name "Military Institute of Engineering";
+. 
+
+:context
+	a prov:Entity, mex-core:StockMarketAnalysis;
+	prov:wasAttributedTo :application
+.
+
+#	Experiment
+
+:exp
+	a prov:Entity, mex-core:Experiment;
+	dct:identifier "exp-example-001"^^xsd:string;
+	dcterms:title "Stock market prediction - d+1 - bovespa close pricing"^^xsd:string;
+	dcterms:date "2-24-2014"^^xsd:date;
+	dcterms:description "checking the behaviour of 4 big stocks in the brazilian market. configurations for sliding window - default AC756 parameters"^^xsd:string;
+	mex-core:dataNormalizedDescription "we used the min-max algorithm for computations"^^xsd:string;
+	mex-core:outliersRemovedDescription "here we removed splits and reverse splits for each stock market, since we can consider this as outlier"^^xsd:string;
+	mex-core:noiseRemovedDescription "excluding first 80 values for computations"^^xsd:string;
+	mex-core:attributeSelectionDescription "analyzing the basics financial market components (v-min, v-max, v-open, v-close)"^^xsd:string;
+	prov:wasAttributedTo :application;
+	mex-core:hasSamplingMethod :sampling;
+.
+
+:sampling
+	a prov:Entity, mex-core:SlidingValidation;
+	mex-core:trainSize "0.8"^^xsd:double;
+	mex-core:testSize "0.2"^^xsd:double;
+	mex-core:folds "1"^^xsd:integer;
+	mex-core:sequential "true"^^xsd:boolean;
+	mex-core:numberOfIteraction "20"^^xsd:integer;
+	prov:wasDerivedFrom :exp;
+.
+
+:dset-petr4
+	a prov:Entity, mex-core:Dataset;
+	dcterms:title "IBOV Stock Market"^^xsd:string;
+	dcterms:description "Stock:PETR4"^^xsd:string;
+	dcat:landingPage <http://www.bmfbovespa.com.br/pt-br/cotacoes-historicas/FormSeriesHistoricas.asp>;
+.
+
+:dset-alll11
+	a prov:Entity, mex-core:Dataset;
+	dcterms:title "IBOV Stock Market"^^xsd:string;
+	dcterms:description "Stock:ALLL11"^^xsd:string;
+	dcat:landingPage <http://www.bmfbovespa.com.br/pt-br/cotacoes-historicas/FormSeriesHistoricas.asp>;
+.
+
+:dset-elet6
+	a prov:Entity, mex-core:Dataset;
+	dcterms:title "IBOV Stock Market"^^xsd:string;
+	dcterms:description "Stock:ELET6"^^xsd:string;
+	dcat:landingPage <http://www.bmfbovespa.com.br/pt-br/cotacoes-historicas/FormSeriesHistoricas.asp>;
+.
+
+:dset-csna3
+	a prov:Entity, mex-core:Dataset;
+	dcterms:title "IBOV Stock Market"^^xsd:string;
+	dcterms:description "Stock:CSNA3"^^xsd:string;
+	dcat:landingPage <http://www.bmfbovespa.com.br/pt-br/cotacoes-historicas/FormSeriesHistoricas.asp>;
+.
+
+:hardware
+	a prov:Entity, doap:Project, mex-core:HardwareConfiguration;
+	doap:os "windows7x64"^^xsd:string;
+	mex-core:cpu "core i7"^^xsd:string;
+	mex-core:memory "8gb"^^xsd:string;
+	mex-core:hdType "samsung 320gb"^^xsd:string;
+	mex-core:cpu-cache "3mb"^^xsd:string;
+	mex-core:video-graphs "n/a"^^xsd:string;
+.
+
+#Executions
+
+####### ALLL11 ####### 
+:exec1
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-svm-param-collection, :ep-base-sliding-3-collection, :svm-base-window-model, :alg-svm, :test-phase, :dset-alll11, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec001"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec2
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-svm-param-collection, :ep-base-sliding-5-collection, :svm-base-window-model, :alg-svm, :test-phase, :dset-alll11, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec002"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+.
+
+:exec3
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-svm-param-collection, :ep-base-sliding-10-collection, :svm-base-window-model, :alg-svm, :test-phase, :dset-alll11, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec003"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:20:00-04:00"^^xsd:dateTime;
+.
+
+####### PETR4 ####### 
+:exec4
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-svm-param-collection, :ep-base-sliding-3-collection, :svm-base-window-model, :alg-svm, :test-phase, :dset-petr4, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec004"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec5
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-svm-param-collection, :ep-base-sliding-5-collection, :svm-base-window-model, :alg-svm, :test-phase, :dset-petr4, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec005"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+.
+
+:exec6
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-svm-param-collection, :ep-base-sliding-10-collection, :svm-base-window-model, :alg-svm, :test-phase, :dset-petr4, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec006"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:20:00-04:00"^^xsd:dateTime;
+.
+
+
+####### CSNA3 ####### 
+:exec7
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-svm-param-collection, :ep-base-sliding-3-collection, :svm-base-window-model, :alg-svm, :test-phase, :dset-csna3, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec007"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec8
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-svm-param-collection, :ep-base-sliding-5-collection, :svm-base-window-model, :alg-svm, :test-phase, :dset-csna3, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec008"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+.
+
+:exec9
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-svm-param-collection, :ep-base-sliding-10-collection, :svm-base-window-model, :alg-svm, :test-phase, :dset-csna3, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec009"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:20:00-04:00"^^xsd:dateTime;
+.
+
+####### ELET6 ####### 
+:exec10
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-svm-param-collection, :ep-base-sliding-3-collection, :svm-base-window-model, :alg-svm, :test-phase, :dset-elet6, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec010"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec11
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-svm-param-collection, :ep-base-sliding-5-collection, :svm-base-window-model, :alg-svm, :test-phase, :dset-elet6, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec011"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+.
+
+:exec12
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-svm-param-collection, :ep-base-sliding-10-collection, :svm-base-window-model, :alg-svm, :test-phase, :dset-elet6, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec012"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:20:00-04:00"^^xsd:dateTime;
+.
+
+####### ExecutionParameterCollection ####### 
+
+:ep-base-sliding-3-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-base-sliding-window-3"^^xsd:string;
+.
+
+:ep-base-sliding-5-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-base-sliding-window-5"^^xsd:string;
+.
+
+:ep-base-sliding-10-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-base-sliding-window-10"^^xsd:string;
+.
+
+####### ExecutionParameter ####### 
+
+:ep-min
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "min"^^xsd:string;
+.
+
+:ep-max
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "max"^^xsd:string;
+.
+
+:ep-open
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "open"^^xsd:string;
+.
+
+:ep-close
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "close"^^xsd:string;
+.
+
+:ep-d3
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "d3"^^xsd:string;
+.
+
+:ep-d5
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "d5"^^xsd:string;
+.
+
+:ep-d10
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "d10"^^xsd:string;
+.
+
+
+:ep-base-sliding-3-collection prov:hadMember :ep-base .
+:ep-base-sliding-3-collection prov:hadMember :ep-min .
+:ep-base-sliding-3-collection prov:hadMember :ep-max .
+:ep-base-sliding-3-collection prov:hadMember :ep-close .
+:ep-base-sliding-5-collection prov:hadMember :ep-d3 .
+
+:ep-base-sliding-5-collection prov:hadMember :ep-base .
+:ep-base-sliding-5-collection prov:hadMember :ep-min .
+:ep-base-sliding-5-collection prov:hadMember :ep-max .
+:ep-base-sliding-5-collection prov:hadMember :ep-close .
+:ep-base-sliding-5-collection prov:hadMember :ep-d5 .
+
+:ep-base-sliding-10-collection prov:hadMember :ep-base .
+:ep-base-sliding-10-collection prov:hadMember :ep-min .
+:ep-base-sliding-10-collection prov:hadMember :ep-max .
+:ep-base-sliding-10-collection prov:hadMember :ep-close .
+:ep-base-sliding-10-collection prov:hadMember :ep-d10 .
+
+#:execparam prov:wasGeneratedBy mex-core:Execution .
+
+
+####### Model ####### 
+
+
+:svm-base-window-model
+	a mex-core:Model;
+	dcterms:identifier "00167"^^xsd:string;
+	dcterms:description "classification svm for default parameters and window computation"^^xsd:string;
+	dcat:landingPage <>;
+	dcterms:date "2-22-2014"^^xsd:date;
+.
+
+
+#:nb-base-window-model
+#	a mex-core:Model;
+#	dcterms:identifier "00156"^^xsd:string;
+#	dcterms:description "classification nb for default parameters and window computation"^^xsd:string;
+#	dcat:landingPage <>;
+#	dcterms:date "2-22-2014"^^xsd:date;
+#.
+
+
+#:lr-base-window-model
+#	a mex-core:Model;
+#	dcterms:identifier "00215"^^xsd:string;
+#	dcterms:description "classification lr for default parameters and window computation"^^xsd:string;
+#	dcat:landingPage <>;
+#	dcterms:date "2-25-2014"^^xsd:date;
+#.
+
+
+
+####### Phase ####### 
+:test-phase
+	a mex-core:Test;
+.
+
+##################################################################
+#	 Layer        : mex-performance (mex-perf)
+#    Version      : 1.0
+#	 Version Label: mex-perf1-iswc-20150430
+##################################################################
+
+:execPerformance1
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec1;
+	prov:generated :classMeasure1;
+.
+
+:execPerformance2
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec2;
+	prov:generated :classMeasure2;
+.
+
+:execPerformance3
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec3;
+	prov:generated :classMeasure3;
+.
+
+:execPerformance4
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec4;
+	prov:generated :classMeasure4;
+.
+
+:execPerformance5
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec5;
+	prov:generated :classMeasure5;
+.
+
+:execPerformance6
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec6;
+	prov:generated :classMeasure6;
+.
+
+:execPerformance7
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec7;
+	prov:generated :classMeasure7;
+.
+
+:execPerformance8
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec8;
+	prov:generated :classMeasure8;
+.
+
+:execPerformance9
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec9;
+	prov:generated :classMeasure9;
+.
+
+:execPerformance10
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec10;
+	prov:generated :classMeasure10;
+.
+
+:execPerformance11
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec11;
+	prov:generated :classMeasure11;
+.
+
+:execPerformance12
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec12;
+	prov:generated :classMeasure12;
+.
+
+:classMeasure1
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "65.0"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance1;
+.
+
+:classMeasure2
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "71.0"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance2;
+.
+
+:classMeasure3
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "65.0"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance3;
+.
+
+:classMeasure4
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "71.0"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance4;
+.
+
+:classMeasure5
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "71.0"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance5;
+.
+
+:classMeasure6
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "64.0"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance6;
+.
+
+:classMeasure7
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "64.0"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance7;
+.
+
+:classMeasure8
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "65.0"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance8;
+.
+
+:classMeasure9
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "64.0"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance9;
+.
+
+:classMeasure10
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "68.0"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance10;
+.
+
+:classMeasure11
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "68.0"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance11;
+.
+
+:classMeasure12
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "76.0"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance12;
+.
+#:userDefinedCollection
+#   a prov:Collection, :UserDefinedPerformanceCollection;
+#   prov:hadMember :userDefined1;
+#   prov:hadMember :userDefined2;
+#   prov:actedOnBehalfOf :pactual;
+#.
+
+#:pactual 
+#   a prov:Agent, prov:Organization;
+#   foaf:name "BTG Pactual IB";
+#. 
+
+#:userDefined1
+#	a prov:Entity, mex-perf:UserDefinedPerformance;
+#	dct:identifier "GINDEX01"^^xsd:string;
+#	dct:description "global correlated index us-dolar x ibov"^^xsd:string;
+#	mex-perf:formula "gindex=(usdol/ibov)^2"^^xsd:string;
+#	prov:value "0.3546"^^xsd:string;
+#.
+
+#:userDefined2
+#	a prov:Entity, mex-perf:UserDefinedPerformance;
+#	dct:identifier "GINDEX02"^^xsd:string;
+#	dct:description "global correlated index euro x ibov"^^xsd:string;
+#	mex-perf:formula "gindex=(euro/ibov)^2"^^xsd:string;
+#	prov:value "0.3941"^^xsd:string;
+#.
+
+##################################################################
+#	 Layer        : mex-algorithm (mex-algo)
+#    Version      : 1.0
+#	 Version Label: mex-algo1-iswc-20150430
+##################################################################
+
+####### The Algorithms ####### 
+
+# Tendency Keeper 
+#:alg-bls
+#	a:mex-algo:Baseline;
+#	dcterms:identifier "fama-baseline"^^xsd:string;
+#	dcterms:description "naive baseline system for stock market day trade"^^xsd:string;
+#	mex-algo:acronym "BLS";	
+#	mex-algo:hasClass :class-bls;
+#	mex-algo:hasLearningProblem :lp-classification;
+#	mex-algo:hasLearningMethod :lm-supervised;
+#	mex-algo:hasImplementation :imp-fama;
+#.
+
+# SVM 
+:alg-svm
+	a mex-algo:SVM;
+	dcterms:identifier "fama-svm"^^xsd:string;
+	dcterms:description "support vector machines"^^xsd:string;
+	mex-algo:acronym "SVM";
+	mex-algo:hasClass :class-svm;
+	mex-algo:hasLearningProblem :lp-classification;
+	mex-algo:hasLearningMethod :lm-supervised;
+	mex-algo:hasImplementation :imp-fama;
+.
+
+# NaiveBayes 
+#:alg-nb
+#	a mex-algo:NaiveBayes;
+#	dcterms:identifier "fama-nb"^^xsd:string;
+#	dcterms:description "naive bayes"^^xsd:string;
+#	mex-algo:acronym "NB";
+#	mex-algo:hasClass :class-dt;
+#	mex-algo:hasLearningProblem :lp-classification;
+#	mex-algo:hasLearningMethod :lm-supervised;
+#	mex-algo:hasImplementation :imp-fama;
+#.
+
+# Logit Regression 
+#:alg-lr
+#	a mex-algo:LogisticRegression;
+#	dcterms:identifier "fama-lr"^^xsd:string;
+#	dcterms:description "logistic regression"^^xsd:string;
+#	mex-algo:acronym "LR";
+#	mex-algo:hasClass :class-rf;
+#	mex-algo:hasLearningProblem :lp-classification;
+#	mex-algo:hasLearningMethod :lm-supervised;
+#	mex-algo:hasImplementation :imp-fama;
+#.
+
+
+# Their Associated Values
+
+:imp-fama
+	a mex-algo:FAMa;
+	rdfs:label "IME framework"^^xsd:string;
+	doap:name "Framework de Aprendizado de Maquina"^^xsd:string;
+	doap:homepage <>;
+	doap:revision "2.0"^^xsd:string;
+	doap:description "machine learning framework developed by IME-Brazil";
+	doap:programming-language "c"^^xsd:string;
+
+.
+
+:lm-supervised 
+	a mex-algo:Supervised; 
+.
+
+:lp-classification 
+	a mex-algo:Classification;
+.
+
+:class-bls 
+	a mex-algo:BaselineSystem;
+.
+
+:class-dt 
+	a mex-algo:DecisionTrees;
+.
+
+:class-rf 
+	a mex-algo:RegressionFunctions;
+.
+
+:class-svm 
+	a mex-algo:SupportVectorNetworks;
+.
+
+
+
+####### AlgorithmParameterCollection ####### 
+
+:alg-svm-param-collection
+  a prov:Collection, mex-algo:AlgorithmParameterCollection;
+  dcterms:identifier "c-svm-parameters"^^xsd:string;
+.
+
+:p11
+	a mex-algo:AlgorithmParameter;
+	dcterms:identifier "type"^^xsd:string;
+	prov:value "nu-SVC"^^xsd:string;
+.
+
+:p12
+	a mex-algo:AlgorithmParameter;
+	dcterms:identifier "kernel"^^xsd:string;
+	prov:value "linear"^^xsd:string;
+.
+
+:p13
+	a mex-algo:AlgorithmParameter;
+	dcterms:identifier "nu"^^xsd:string;
+	prov:value "0.5"^^xsd:string;
+.
+
+:alg-svm-param-collection prov:hadMember :p11 .
+:alg-svm-param-collection prov:hadMember :p12 .
+:alg-svm-param-collection prov:hadMember :p13 .
+#:algparam prov:wasGeneratedBy :exec .
+
