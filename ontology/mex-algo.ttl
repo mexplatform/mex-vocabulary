@@ -247,9 +247,9 @@ prov:hadMember
 :C-SVM a owl:Class ; rdfs:subClassOf :SupportVectorMachines , [ a owl:Restriction ; owl:onProperty :hasLearningProblem ; owl:onClass :Classification ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
 
 
-###  :C4.5
+###  :C45
 
-:C4.5 a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :DecisionTrees ] ; owl:disjointWith :BackPropagation , :Kmeans , :LogisticRegression , :NaiveBayes , :RandomForest , :RegressionAnalysis , :SupportVectorMachines .
+:C45 a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :DecisionTrees ] ; owl:disjointWith :BackPropagation , :Kmeans , :LogisticRegression , :NaiveBayes , :RandomForest , :RegressionAnalysis , :SupportVectorMachines .
 
 
 ###  :CART
@@ -1389,9 +1389,9 @@ prov:hadMember
 
 
 
-###  :C4.5
+###  :C45
 
-:C4.5 a :NamedIndividual .
+:C45 a :NamedIndividual .
 
 
 
