@@ -14,13 +14,17 @@
 @prefix mex-perf:    <http://mex.aksw.org/mex-perf#> .
 @prefix : <http://mex.aksw.org/mex-algo#> .
 
-: a owl:Ontology ;  
+<http://mex.aksw.org/mex-algo> 
+  a owl:Ontology ;  
+  rdfs:label "The MEX Vocabulary (mex-algo)"@en;
+  rdfs:label "Vocabulario MEX (mex-algo)"@pt;
+  rdfs:comment """MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-algo layer represents the algorithm information existing into a basic machine learning experiment."""@en;
+  rdfs:comment """MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-algo representa informacaos de algoritmos existentes em um experimento de aprendizado de maquina."""@pt;
   owl:versionInfo "1.0" ;
-  rdfs:label "MEX-Algorithm"@en ;
-  rdfs:comment "MEX Algorithm (mex-algo) is an ontology with the goal of describing machine learning algorithms"@en ;
   dct:created "2014-02-02"^^xsd:date ;
   dct:modified "2014-04-05"^^xsd:date ;
-  dc:publisher "AKSW Research Group - Leipzig University" ;
+  dc:publisher "AKSW Research Group - Leipzig University"@en ;
+  dc:publisher "AKSW - Universidade de Leipzig"@pt ;
   dc:creator "Diego Esteves" ;
   dc:contributor "Jens Lehmann", "Ricardo Usbeck", "Diego Moussallem", "Markus Ackermann", "Sebastian Hellmann", "Maria Claudia Cavalcanti Reis", "Julio Cesar Duarte" ;
   dct:title "MEX Algorithm Ontology (mex-algo)"@en ;
