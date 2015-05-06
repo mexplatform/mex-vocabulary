@@ -1,0 +1,940 @@
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix prov:     <http://www.w3.org/ns/prov#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix dcat:     <http://www.w3.org/ns/dcat#> .
+@prefix dct: 	  <http://purl.org/dc/terms/> .
+@prefix doap:     <http://usefulinc.com/ns/doap#> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix mex-core: <http://dne5.com/machine-learning/mex/ontology/mex-core#> .
+@prefix mex-algo: <http://dne5.com/machine-learning/mex/ontology/mex-algo#> .
+@prefix mex-perf: <http://dne5.com/machine-learning/mex/ontology/mex-perf#> .
+@prefix :  <http://dne5.com/machine-learning/mex/example/002#> .
+
+##################################################################
+#    Ontology 		  : MEX 
+#    Date     		  : 2015-04-30
+#	 More information : http://aksw.org/Projects/MEX.html
+##################################################################
+
+##################################################################
+#	 Layer        : mex-core (mex-core)
+#    Version      : 1.0
+#	 Version Label: mex-core1-iswc-20150430
+##################################################################
+
+#	Organization Information
+
+:application
+   a prov:Agent, prov:Person, prov:Organization, doap:Project, mex-core:ApplicationContext;
+   foaf:givenName      "Lorenz Buhmann"^^xsd:string;
+   foaf:mbox           <mailto:buhmann@informatik.uni-leipzig.de>;
+   foaf:homePage       <>;
+   doap:homepage       <>;
+   doap:description    "Inductive Lexical Learning of Class Expressions. Describing the baseline ELTL running over DL-Learner"^^xsd:string;
+   doap:category       "Ontology Engineering; Schemata"^^xsd:string;
+   rdfs:seeAlso        <http://link.springer.com/chapter/10.1007/978-3-319-13704-9_4>;
+   doap:location	   <>;
+   prov:actedOnBehalfOf :aksw;
+.
+
+:aksw
+   a prov:Agent, prov:Organization;
+   foaf:name "Leipzig University";
+. 
+
+:context
+	a prov:Entity, mex-core:SoftwareEnginnering;
+	prov:wasAttributedTo :application
+.
+
+#	Experiment
+
+:exp
+	a prov:Entity, mex-core:Experiment;
+	dct:identifier "exp-example-002"^^xsd:string;
+	dcterms:title "Inductive Lexical Learning of Class Expressions using DL-Learner"^^xsd:string;
+	dcterms:date "11-28-2014"^^xsd:date;
+	dcterms:description "the first approach combining both sources of evidence, in particular we combine an existing logical learning approach with statistical relevance measures applied on textual resources"^^xsd:string;
+	mex-core:dataNormalizedDescription "min-max algorithm"^^xsd:string;
+	mex-core:outliersRemovedDescription ""^^xsd:string;
+	mex-core:noiseRemovedDescription ""^^xsd:string;
+	mex-core:attributeSelectionDescription ""^^xsd:string;
+	prov:wasAttributedTo :application;
+	mex-core:hasSamplingMethod :sampling;
+.
+
+:sampling
+	a prov:Entity, mex-core:CrossValidation;
+	mex-core:trainSize "0.8"^^xsd:double;
+	mex-core:testSize "0.2"^^xsd:double;
+	mex-core:folds "10"^^xsd:integer;
+	mex-core:sequential "true"^^xsd:boolean;
+	prov:wasDerivedFrom :exp;
+.
+
+:dset-dbpedia39-en
+	a prov:Entity, mex-core:Dataset;
+	dcterms:title "DBPedia 3.9 English"^^xsd:string;
+	dcterms:description "DBPedia 3.9 English"^^xsd:string;
+	dcat:landingPage <http://downloads.dbpedia.org/3.9/en/>;
+.
+
+
+:hardware
+	a prov:Entity, doap:Project, mex-core:HardwareConfiguration;
+	doap:os "ubuntu14.02"^^xsd:string;
+	mex-core:cpu "core i5"^^xsd:string;
+	mex-core:memory "16gb"^^xsd:string;
+	mex-core:hdType "samsung 320gb"^^xsd:string;
+	mex-core:cpu-cache "3mb"^^xsd:string;
+	mex-core:video-graphs "n/a"^^xsd:string;
+.
+
+#Executions
+
+####### DL-Learner ####### 
+:exec1
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-1-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec001"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec2
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-2-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec002"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec3
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-3-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec003"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec4
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-4-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec004"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec5
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-5-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec005"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec6
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-6-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec006"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec7
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-7-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec007"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec8
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-8-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec008"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec9
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-9-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec009"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec10
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-10-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec010"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec11
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-11-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec011"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec12
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-12-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec012"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec13
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-13-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec013"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec14
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-14-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec014"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec15
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-15-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec015"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec16
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-16-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec016"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec17
+      a prov:Activity, mex-core:Execution;
+      prov:used :ep-17-collection, :eltl-model, :alg-eltl, :test-phase, :dset-dbpedia39-en, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec017"^^xsd:string;
+      prov:startedAtTime "2014-11-10T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2014-11-10T13:05:00-04:00"^^xsd:dateTime;
+.
+
+
+####### ExecutionParameterCollection ####### 
+
+:ep-1-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl1"^^xsd:string;
+.
+
+:ep-2-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl2"^^xsd:string;
+.
+
+:ep-3-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl3"^^xsd:string;
+.
+
+:ep-4-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl4"^^xsd:string;
+.
+
+:ep-5-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl5"^^xsd:string;
+.
+
+:ep-6-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl6"^^xsd:string;
+.
+
+:ep-7-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl7"^^xsd:string;
+.
+
+:ep-8-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl8"^^xsd:string;
+.
+
+:ep-9-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl9"^^xsd:string;
+.
+
+:ep-10-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl10"^^xsd:string;
+.
+
+:ep-11-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl11"^^xsd:string;
+.
+
+:ep-12-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl12"^^xsd:string;
+.
+
+:ep-13-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl13"^^xsd:string;
+.
+
+:ep-14-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl14"^^xsd:string;
+.
+
+:ep-15-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl15"^^xsd:string;
+.
+
+:ep-16-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl16"^^xsd:string;
+.
+
+:ep-17-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "ep-eltl17"^^xsd:string;
+.
+
+####### ExecutionParameter ####### 
+
+:ep-math-top
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "⊤"^^xsd:string;
+.
+
+:ep-math-exists
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "∃"^^xsd:string;
+.
+
+:ep-math-intersection
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "∏"^^xsd:string;
+.
+
+:ep-class-person
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "person"^^xsd:string;
+.
+
+:ep-class-selection
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "selection"^^xsd:string;
+.
+
+:ep-class-birthPlacePopulatedPlace
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "birthPlace.PopulatedPlace"^^xsd:string;
+.
+
+:ep-class-birthPlacePlace
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "birthPlace.Place"^^xsd:string;
+.
+
+:ep-class-birthDatedate
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "birthDate.date"^^xsd:string;
+.
+
+:ep-class-occupationPersonFunction
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "occupation.PersonFunction"^^xsd:string;
+.
+
+:ep-class-missionSpaceMission
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "mission.SpaceMission"^^xsd:string;
+.
+
+:ep-class-nationalityCountry
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "nationality.Country"^^xsd:string;
+.
+
+:ep-class-timeInSpaceMinute
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "timeInSpace.minute"^^xsd:string;
+.
+
+
+:ep-1-collection prov:hadMember :ep-class-person .
+:ep-1-collection prov:hadMember :ep-math-intersection .
+:ep-1-collection prov:hadMember :ep-math-exists .
+:ep-1-collection prov:hadMember :ep-class-selection .
+:ep-1-collection prov:hadMember :ep-math-top .
+
+:ep-2-collection prov:hadMember :ep-class-person .
+:ep-2-collection prov:hadMember :ep-math-intersection .
+:ep-2-collection prov:hadMember :ep-math-exists .
+:ep-2-collection prov:hadMember :ep-class-selection .
+:ep-2-collection prov:hadMember :ep-math-top .
+:ep-2-collection prov:hadMember :ep-math-intersection .
+:ep-2-collection prov:hadMember :ep-math-exists .
+:ep-2-collection prov:hadMember :ep-class-birthPlacePopulatedPlace .
+
+:ep-3-collection prov:hadMember :ep-class-person .
+:ep-3-collection prov:hadMember :ep-math-intersection .
+:ep-3-collection prov:hadMember :ep-math-exists .
+:ep-3-collection prov:hadMember :ep-class-selection .
+:ep-3-collection prov:hadMember :ep-math-top .
+:ep-3-collection prov:hadMember :ep-math-intersection .
+:ep-3-collection prov:hadMember :ep-math-exists .
+:ep-3-collection prov:hadMember :ep-class-birthPlacePlace .
+
+:ep-4-collection prov:hadMember :ep-class-person .
+:ep-4-collection prov:hadMember :ep-math-intersection .
+:ep-4-collection prov:hadMember :ep-math-exists .
+:ep-4-collection prov:hadMember :ep-class-missionSpaceMission .
+
+:ep-5-collection prov:hadMember :ep-class-person .
+:ep-5-collection prov:hadMember :ep-math-intersection .
+:ep-5-collection prov:hadMember :ep-math-exists .
+:ep-5-collection prov:hadMember :ep-class-selection .
+:ep-5-collection prov:hadMember :ep-math-top .
+:ep-5-collection prov:hadMember :ep-math-intersection .
+:ep-5-collection prov:hadMember :ep-math-exists .
+:ep-5-collection prov:hadMember :ep-class-nationalityCountry .
+
+:ep-6-collection prov:hadMember :ep-class-person .
+:ep-6-collection prov:hadMember :ep-math-intersection .
+:ep-6-collection prov:hadMember :ep-math-exists .
+:ep-6-collection prov:hadMember :ep-class-nationalityCountry .
+
+:ep-7-collection prov:hadMember :ep-class-person .
+:ep-7-collection prov:hadMember :ep-math-intersection .
+:ep-7-collection prov:hadMember :ep-math-exists .
+:ep-7-collection prov:hadMember :ep-class-selection .
+:ep-7-collection prov:hadMember :ep-math-top .
+:ep-7-collection prov:hadMember :ep-math-intersection .
+:ep-7-collection prov:hadMember :ep-math-exists .
+:ep-7-collection prov:hadMember :ep-class-occupationPersonFunction .
+
+:ep-8-collection prov:hadMember :ep-class-person .
+:ep-8-collection prov:hadMember :ep-math-intersection .
+:ep-8-collection prov:hadMember :ep-math-exists .
+:ep-8-collection prov:hadMember :ep-class-timeInSpaceMinute .
+
+:ep-9-collection prov:hadMember :ep-class-person .
+:ep-9-collection prov:hadMember :ep-math-intersection .
+:ep-9-collection prov:hadMember :ep-math-exists .
+:ep-9-collection prov:hadMember :ep-class-missionSpaceMission .
+:ep-9-collection prov:hadMember :ep-math-intersection .
+:ep-9-collection prov:hadMember :ep-math-exists .
+:ep-9-collection prov:hadMember :ep-class-timeInSpaceMinute .
+
+:ep-10-collection prov:hadMember :ep-class-person .
+:ep-10-collection prov:hadMember :ep-math-intersection .
+:ep-10-collection prov:hadMember :ep-math-exists .
+:ep-10-collection prov:hadMember :ep-class-selection .
+:ep-10-collection prov:hadMember :ep-math-top .
+:ep-10-collection prov:hadMember :ep-math-intersection .
+:ep-10-collection prov:hadMember :ep-math-exists .
+:ep-10-collection prov:hadMember :ep-class-missionSpaceMission .
+
+:ep-11-collection prov:hadMember :ep-class-person .
+:ep-11-collection prov:hadMember :ep-math-intersection .
+:ep-11-collection prov:hadMember :ep-math-exists .
+:ep-11-collection prov:hadMember :ep-class-missionSpaceMission .
+:ep-11-collection prov:hadMember :ep-math-intersection .
+:ep-11-collection prov:hadMember :ep-math-exists .
+:ep-11-collection prov:hadMember :ep-class-birthPlacePlace .
+
+:ep-12-collection prov:hadMember :ep-class-person .
+:ep-12-collection prov:hadMember :ep-math-intersection .
+:ep-12-collection prov:hadMember :ep-math-exists .
+:ep-12-collection prov:hadMember :ep-class-selection .
+:ep-12-collection prov:hadMember :ep-math-top .
+:ep-12-collection prov:hadMember :ep-math-intersection .
+:ep-12-collection prov:hadMember :ep-math-exists .
+:ep-12-collection prov:hadMember :ep-class-nationalityCountry .
+:ep-12-collection prov:hadMember :ep-math-intersection .
+:ep-12-collection prov:hadMember :ep-math-exists .
+:ep-12-collection prov:hadMember :ep-class-birthPlacePlace .
+
+:ep-13-collection prov:hadMember :ep-class-person .
+:ep-13-collection prov:hadMember :ep-math-intersection .
+:ep-13-collection prov:hadMember :ep-math-exists .
+:ep-13-collection prov:hadMember :ep-class-selection .
+:ep-13-collection prov:hadMember :ep-math-top .
+:ep-13-collection prov:hadMember :ep-math-intersection .
+:ep-13-collection prov:hadMember :ep-math-exists .
+:ep-13-collection prov:hadMember :ep-class-birthDatedate .
+
+:ep-14-collection prov:hadMember :ep-class-person .
+:ep-14-collection prov:hadMember :ep-math-intersection .
+:ep-14-collection prov:hadMember :ep-math-exists .
+:ep-14-collection prov:hadMember :ep-class-missionSpaceMission .
+:ep-14-collection prov:hadMember :ep-math-intersection .
+:ep-14-collection prov:hadMember :ep-math-exists .
+:ep-14-collection prov:hadMember :ep-class-occupationPersonFunction .
+
+:ep-15-collection prov:hadMember :ep-class-person .
+:ep-15-collection prov:hadMember :ep-math-intersection .
+:ep-15-collection prov:hadMember :ep-math-exists .
+:ep-15-collection prov:hadMember :ep-class-missionSpaceMission .
+:ep-15-collection prov:hadMember :ep-math-intersection .
+:ep-15-collection prov:hadMember :ep-math-exists .
+:ep-15-collection prov:hadMember :ep-class-nationalityCountry .
+
+:ep-16-collection prov:hadMember :ep-class-person .
+:ep-16-collection prov:hadMember :ep-math-intersection .
+:ep-16-collection prov:hadMember :ep-math-exists .
+:ep-16-collection prov:hadMember :ep-class-selection .
+:ep-16-collection prov:hadMember :ep-math-top .
+:ep-16-collection prov:hadMember :ep-math-intersection .
+:ep-16-collection prov:hadMember :ep-math-exists .
+:ep-16-collection prov:hadMember :ep-class-birthPlacePopulatedPlace .
+:ep-16-collection prov:hadMember :ep-math-intersection .
+:ep-16-collection prov:hadMember :ep-math-exists .
+:ep-16-collection prov:hadMember :ep-class-missionSpaceMission .
+
+:ep-17-collection prov:hadMember :ep-class-person .
+:ep-17-collection prov:hadMember :ep-math-intersection .
+:ep-17-collection prov:hadMember :ep-math-exists .
+:ep-17-collection prov:hadMember :ep-class-selection .
+:ep-17-collection prov:hadMember :ep-math-top .
+:ep-17-collection prov:hadMember :ep-math-intersection .
+:ep-17-collection prov:hadMember :ep-math-exists .
+:ep-17-collection prov:hadMember :ep-class-nationalityCountry .
+:ep-17-collection prov:hadMember :ep-math-intersection .
+:ep-17-collection prov:hadMember :ep-math-exists .
+:ep-17-collection prov:hadMember :ep-class-occupationPersonFunction .
+
+#:execparam prov:wasGeneratedBy mex-core:Execution .
+
+
+####### Model ####### 
+
+:eltl-model
+	a mex-core:Model;
+	dcterms:identifier "ELETL987b"^^xsd:string;
+	dcterms:description "eltl algorithm implemented on DL-Learner"^^xsd:string;
+	dcat:landingPage <>;
+	dcterms:date "4-22-2014"^^xsd:date;
+.
+
+
+####### Phase ####### 
+:test-phase
+	a mex-core:Test;
+.
+
+##################################################################
+#	 Layer        : mex-performance (mex-perf)
+#    Version      : 1.0
+#	 Version Label: mex-perf1-iswc-20150430
+##################################################################
+
+:execPerformance1
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec1;
+	prov:generated :classMeasure1;
+.
+
+:execPerformance2
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec2;
+	prov:generated :classMeasure2;
+.
+
+:execPerformance3
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec3;
+	prov:generated :classMeasure3;
+.
+
+:execPerformance4
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec4;
+	prov:generated :classMeasure4;
+.
+
+:execPerformance5
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec5;
+	prov:generated :classMeasure5;
+.
+
+:execPerformance6
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec6;
+	prov:generated :classMeasure6;
+.
+
+:execPerformance7
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec7;
+	prov:generated :classMeasure7;
+.
+
+:execPerformance8
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec8;
+	prov:generated :classMeasure8;
+.
+
+:execPerformance9
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec9;
+	prov:generated :classMeasure9;
+.
+
+:execPerformance10
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec10;
+	prov:generated :classMeasure10;
+.
+
+:execPerformance11
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec11;
+	prov:generated :classMeasure11;
+.
+
+:execPerformance12
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec12;
+	prov:generated :classMeasure12;
+.
+
+:execPerformance13
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec13;
+	prov:generated :classMeasure13;
+.
+
+:execPerformance14
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec14;
+	prov:generated :classMeasure14;
+.
+
+:execPerformance15
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec15;
+	prov:generated :classMeasure15;
+.
+
+:execPerformance16
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec16;
+	prov:generated :classMeasure16;
+.
+
+:execPerformance17
+	a prov:Activity, mex-perf:ExecutionPerformance;
+	prov:wasInformedBy :exec17;
+	prov:generated :classMeasure17;
+.
+
+
+
+:classMeasure1
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.977"^^xsd:float;
+	mex-perf:pmi "0.662"^^xsd:float;
+	mex-perf:spmi "0.529"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance1;
+.
+
+:classMeasure2
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.960"^^xsd:float;
+	mex-perf:pmi "0.797"^^xsd:float;
+	mex-perf:spmi "0.549"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance2;
+.
+
+:classMeasure3
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.960"^^xsd:float;
+	mex-perf:pmi "0.716"^^xsd:float;
+	mex-perf:spmi "0.518"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance3;
+.
+
+:classMeasure4
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.950"^^xsd:float;
+	mex-perf:pmi "0.493"^^xsd:float;
+	mex-perf:spmi "0.664"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance4;
+.
+
+:classMeasure5
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.947"^^xsd:float;
+	mex-perf:pmi "0.707"^^xsd:float;
+	mex-perf:spmi "0.498"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance5;
+.
+
+:classMeasure6
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.937"^^xsd:float;
+	mex-perf:pmi "0.672"^^xsd:float;
+	mex-perf:spmi "0.487"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance6;
+.
+
+:classMeasure7
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.937"^^xsd:float;
+	mex-perf:pmi "0.672"^^xsd:float;
+	mex-perf:spmi "0.487"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance7;
+.
+
+:classMeasure8
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.933"^^xsd:float;
+	mex-perf:pmi "0.771"^^xsd:float;
+	mex-perf:spmi "0.571"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance8;
+.
+
+:classMeasure9
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.933"^^xsd:float;
+	mex-perf:pmi "0.620"^^xsd:float;
+	mex-perf:spmi "0.643"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance9;
+.
+
+:classMeasure10
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.933"^^xsd:float;
+	mex-perf:pmi "0.584"^^xsd:float;
+	mex-perf:spmi "0.603"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance10;
+.
+
+:classMeasure11
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.933"^^xsd:float;
+	mex-perf:pmi "0.615"^^xsd:float;
+	mex-perf:spmi "0.599"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance11;
+.
+
+:classMeasure12
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.933"^^xsd:float;
+	mex-perf:pmi "0.733"^^xsd:float;
+	mex-perf:spmi "0.499"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance12;
+.
+
+:classMeasure13
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.923"^^xsd:float;
+	mex-perf:pmi "0.553"^^xsd:float;
+	mex-perf:spmi "0.466"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance13;
+.
+
+:classMeasure14
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.923"^^xsd:float;
+	mex-perf:pmi "0.571"^^xsd:float;
+	mex-perf:spmi "0.568"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance14;
+.
+
+:classMeasure15
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.923"^^xsd:float;
+	mex-perf:pmi "0.605"^^xsd:float;
+	mex-perf:spmi "0.579"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance15;
+.
+
+:classMeasure16
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.920"^^xsd:float;
+	mex-perf:pmi "0.703"^^xsd:float;
+	mex-perf:spmi "0.596"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance16;
+.
+
+:classMeasure17
+	a prov:Entity, mex-perf:ClassificationMeasure;
+	mex-perf:accuracy "0.917"^^xsd:float;
+	mex-perf:pmi "0.701"^^xsd:float;
+	mex-perf:spmi "0.477"^^xsd:float;
+	prov:wasGeneratedBy :execPerformance17;
+.
+
+
+
+#:userDefinedCollection
+#   a prov:Collection, :UserDefinedPerformanceCollection;
+#   prov:hadMember :userDefined1;
+#   prov:hadMember :userDefined2;
+#   prov:actedOnBehalfOf :pactual;
+#.
+
+#:pactual 
+#   a prov:Agent, prov:Organization;
+#   foaf:name "BTG Pactual IB";
+#. 
+
+#:userDefined1
+#	a prov:Entity, mex-perf:UserDefinedPerformance;
+#	dct:identifier "GINDEX01"^^xsd:string;
+#	dct:description "global correlated index us-dolar x ibov"^^xsd:string;
+#	mex-perf:formula "gindex=(usdol/ibov)^2"^^xsd:string;
+#	prov:value "0.3546"^^xsd:string;
+#.
+
+#:userDefined2
+#	a prov:Entity, mex-perf:UserDefinedPerformance;
+#	dct:identifier "GINDEX02"^^xsd:string;
+#	dct:description "global correlated index euro x ibov"^^xsd:string;
+#	mex-perf:formula "gindex=(euro/ibov)^2"^^xsd:string;
+#	prov:value "0.3941"^^xsd:string;
+#.
+
+##################################################################
+#	 Layer        : mex-algorithm (mex-algo)
+#    Version      : 1.0
+#	 Version Label: mex-algo1-iswc-20150430
+##################################################################
+
+####### The Algorithms ####### 
+
+# Tendency Keeper 
+#:alg-bls
+#	a:mex-algo:Baseline;
+#	dcterms:identifier "fama-baseline"^^xsd:string;
+#	dcterms:description "naive baseline system for stock market day trade"^^xsd:string;
+#	mex-algo:acronym "BLS";	
+#	mex-algo:hasClass :class-bls;
+#	mex-algo:hasLearningProblem :lp-classification;
+#	mex-algo:hasLearningMethod :lm-supervised;
+#	mex-algo:hasImplementation :imp-fama;
+#.
+
+# SVM 
+:alg-eltl
+	a mex-algo:ELTL;
+	dcterms:identifier "DL-Learner-ELTL"^^xsd:string;
+	dcterms:description "Tree Learner"^^xsd:string;
+	mex-algo:acronym "ELTL";
+	mex-algo:hasClass :class-dt;
+	mex-algo:hasLearningProblem :lp-classification;
+	mex-algo:hasLearningMethod :lm-supervised;
+	mex-algo:hasImplementation :imp-dl;
+.
+
+# Their Associated Values
+
+:imp-dl
+	a mex-algo:DL-Learner;
+	rdfs:label "DL-Learner"^^xsd:string;
+	doap:name "Description Logics Framework"^^xsd:string;
+	doap:homepage <>;
+	doap:revision "1.0"^^xsd:string;
+	doap:description "AKSW MOLE DL Framework";
+	doap:programming-language "Java"^^xsd:string;
+
+.
+
+:lm-supervised 
+	a mex-algo:Supervised; 
+.
+
+:lp-classification 
+	a mex-algo:Classification;
+.
+
+:class-bls 
+	a mex-algo:BaselineSystem;
+.
+
+:class-dt 
+	a mex-algo:DecisionTrees;
+.
+
+:class-rf 
+	a mex-algo:RegressionFunctions;
+.
+
+:class-eltl 
+	a mex-algo:DecisionTrees;
+.
+
+
+
+####### AlgorithmParameterCollection ####### 
+
+#:alg-svm-param-collection
+#  a prov:Collection, mex-algo:AlgorithmParameterCollection;
+#  dcterms:identifier "c-svm-parameters"^^xsd:string;
+#.
+
+#:p11
+#	a mex-algo:AlgorithmParameter;
+#	dcterms:identifier "type"^^xsd:string;
+#	prov:value "nu-SVC"^^xsd:string;
+#.
+
+#:p12
+#	a mex-algo:AlgorithmParameter;
+#	dcterms:identifier "kernel"^^xsd:string;
+#	prov:value "linear"^^xsd:string;
+#.
+
+#:p13
+#	a mex-algo:AlgorithmParameter;
+#	dcterms:identifier "nu"^^xsd:string;
+#	prov:value "0.5"^^xsd:string;
+#.
+
+#:alg-svm-param-collection prov:hadMember :p11 .
+#:alg-svm-param-collection prov:hadMember :p12 .
+#:alg-svm-param-collection prov:hadMember :p13 .
+#:algparam prov:wasGeneratedBy :exec .
+
