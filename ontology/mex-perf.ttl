@@ -38,359 +38,316 @@
 
 ###  :bonferroniDunn
 
-:bonferroniDunn a owl:AnnotationProperty ;
-                                                                                 
-                                                                                 rdfs:domain :StatisticalModelPerformance .
-
-
+:bonferroniDunn 
+  a owl:AnnotationProperty ;
+  rdfs:domain :StatisticalMeasure 
+.
 
 ###  :chebyschevDistance
 
-:chebyschevDistance a owl:AnnotationProperty ;
-                                                                                     
-                                                                                     rdfs:domain :ClusteringModelPerformance .
-
-
+:chebyschevDistance 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClusteringMeasure 
+.
 
 ###  :chiSquare
 
-:chiSquare a owl:AnnotationProperty ;
-                                                                            
-                                                                            rdfs:domain :StatisticalModelPerformance .
-
-
+:chiSquare 
+  a owl:AnnotationProperty ;
+  rdfs:domain :StatisticalMeasure 
+.
 
 ###  :cosine
-
-:cosine a owl:AnnotationProperty ;
-                                                                         
-                                                                         rdfs:domain :ClusteringModelPerformance .
-
-
+:cosine 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClusteringMeasure 
+.
 
 ###  :error
 
-:error a owl:AnnotationProperty ;
-                                                                        
-                                                                        rdfs:domain :ClassificationModelPerformance ,
-                                                                                    :ClusteringModelPerformance ,
-                                                                                    :RegressionModelPerformance ,
-                                                                                    :StatisticalModelPerformance .
-
-
+:error 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClassificationMeasure , :ClusteringMeasure , :RegressionMeasure , :StatisticalMeasure 
+.
 
 ###  :euclideanDistance
 
-:euclideanDistance a owl:AnnotationProperty ;
-                                                                                    
-                                                                                    rdfs:domain :ClusteringModelPerformance .
-
-
+:euclideanDistance 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClusteringMeasure 
+.
 
 ###  :f1Measure
 
-:f1Measure a owl:AnnotationProperty ;
-                                                                            
-                                                                            rdfs:domain :ClassificationModelPerformance .
-
-
+:f1Measure 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClassificationMeasure 
+.
 
 ###  :falseNegative
 
-:falseNegative a owl:AnnotationProperty ;
-                                                                                
-                                                                                rdfs:domain :ClassificationMeasure ,
-                                                                                            :ClassificationModelPerformance .
-
-
+:falseNegative 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClassificationMeasure 
+.
 
 ###  :falsePositive
 
-:falsePositive a owl:AnnotationProperty ;
-                                                                                
-                                                                                rdfs:domain :ClassificationMeasure ,
-                                                                                            :ClassificationModelPerformance .
-
-
+:falsePositive 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClassificationMeasure 
+.
 
 ###  :formula
 
-:formula a owl:AnnotationProperty ;
-                                                                          
-                                                                          rdfs:domain :UserDefinedMeasure ,
-                                                                                      :UserDefinedPerformance .
+:formula 
+  a owl:AnnotationProperty ;
+  rdfs:domain :UserDefinedMeasure 
+.
 
 
 
 ###  :friedman
 
-:friedman a owl:AnnotationProperty ;
-                                                                           
-                                                                           rdfs:domain :StatisticalModelPerformance .
-
-
+:friedman 
+  a owl:AnnotationProperty ;
+  rdfs:domain :StatisticalMeasure 
+.
 
 ###  :genSimilarityCoefficient
 
-:genSimilarityCoefficient a owl:AnnotationProperty ;
-                                                                                           
-                                                                                           rdfs:domain :ClusteringModelPerformance .
-
-
+:genSimilarityCoefficient 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClusteringMeasure 
+.
 
 ###  :hammingDistance
 
-:hammingDistance a owl:AnnotationProperty ;
-                                                                                  
-                                                                                  rdfs:domain :ClusteringModelPerformance .
-
-
+:hammingDistance 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClusteringMeasure 
+.
 
 ###  :kolmogorovSmirnov
 
-:kolmogorovSmirnov a owl:AnnotationProperty ;
-                                                                                    
-                                                                                    rdfs:domain :StatisticalModelPerformance .
-
-
+:kolmogorovSmirnov 
+  a owl:AnnotationProperty ;
+  rdfs:domain :StatisticalMeasure 
+.
 
 ###  :manhattanDistance
 
-:manhattanDistance a owl:AnnotationProperty ;
-                                                                                    
-                                                                                    rdfs:domain :ClusteringModelPerformance .
-
-
+:manhattanDistance 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClusteringMeasure 
+.
 
 ###  :mean
 
-:mean a owl:AnnotationProperty ;
-                                                                       
-                                                                       rdfs:domain :StatisticalModelPerformance .
-
-
+:mean 
+  a owl:AnnotationProperty ;
+  rdfs:domain :StatisticalMeasure 
+.
 
 ###  :meanAbsoluteDeviation
 
-:meanAbsoluteDeviation a owl:AnnotationProperty ;
-                                                                                        
-                                                                                        rdfs:domain :RegressionMeasure ,
-                                                                                                    :RegressionModelPerformance .
-
-
+:meanAbsoluteDeviation 
+  a owl:AnnotationProperty ;
+  rdfs:domain :RegressionMeasure 
+.
 
 ###  :meanSquaredError
 
-:meanSquaredError a owl:AnnotationProperty ;
-                                                                                   
-                                                                                   rdfs:domain :RegressionModelPerformance .
-
-
+:meanSquaredError 
+  a owl:AnnotationProperty ;
+  rdfs:domain :RegressionMeasure 
+.
 
 ###  :nemenyi
 
-:nemenyi a owl:AnnotationProperty ;
-                                                                          
-                                                                          rdfs:domain :StatisticalModelPerformance .
-
-
+:nemenyi 
+  a owl:AnnotationProperty ;
+  rdfs:domain :StatisticalMeasure 
+.
 
 ###  :pearsonCorrelation
 
-:pearsonCorrelation a owl:AnnotationProperty ;
-                                                                                     
-                                                                                     rdfs:domain :StatisticalModelPerformance .
-
-
+:pearsonCorrelation 
+  a owl:AnnotationProperty ;
+  rdfs:domain :StatisticalMeasure 
+.
 
 ###  :precision
 
-:precision a owl:AnnotationProperty ;
-                                                                            
-                                                                            rdfs:domain :ClassificationModelPerformance .
-
-
+:precision 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClassificationMeasure 
+.
 
 ###  :predictedValue
 
-:predictedValue a owl:AnnotationProperty ;
-                                                                                 
-                                                                                 rdfs:domain :ItemPerformance .
-                                                                                             
-
-
+:predictedValue 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ItemPerformance 
+.
 
 ###  :realValue
 
-:realValue a owl:AnnotationProperty ;
-                                                                            
-                                                                            rdfs:domain :ItemPerformance .
-                                                                                       
-
-
+:realValue 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ItemPerformance 
+.
 
 ###  :recall
 
-:recall a owl:AnnotationProperty ;
-                                                                         
-                                                                         rdfs:domain :ClassificationModelPerformance .
-
-
+:recall 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClassificationMeasure 
+.
 
 ###  :residual
 
-:residual a owl:AnnotationProperty ;
-                                                                           
-                                                                           rdfs:domain :RegressionModelPerformance .
-
-
+:residual 
+  a owl:AnnotationProperty ;
+  rdfs:domain :RegressionMeasure 
+.
 
 ###  :roc
 
-:roc a owl:AnnotationProperty ;
-                                                                      
-                                                                      rdfs:domain :ClassificationModelPerformance .
-
-
+:roc 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClassificationMeasure 
+.
 
 ###  :sensitivity
 
-:sensitivity a owl:AnnotationProperty ;
-                                                                              
-                                                                              rdfs:domain :ClassificationModelPerformance .
-
-
+:sensitivity 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClassificationMeasure 
+.
 
 ###  :specificity
 
-:specificity a owl:AnnotationProperty ;
-                                                                              
-                                                                              rdfs:domain :ClassificationModelPerformance .
-
-
+:specificity 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClassificationMeasure 
+.
 
 ###  :standardDeviation
 
-:standardDeviation a owl:AnnotationProperty ;
-                                                                                    
-                                                                                    rdfs:domain :StatisticalModelPerformance .
-
-
+:standardDeviation 
+  a owl:AnnotationProperty ;
+  rdfs:domain :StatisticalMeasure 
+.
 
 ###  :totalError
 
-:totalError a owl:AnnotationProperty ;
-                                                                             
-                                                                             rdfs:domain :RegressionModelPerformance .
-
-
+:totalError 
+  a owl:AnnotationProperty ;
+  rdfs:domain :RegressionMeasure 
+.
 
 ###  :trueNegative
 
-:trueNegative a owl:AnnotationProperty ;
-                                                                               
-                                                                               rdfs:domain :ClassificationMeasure ,
-                                                                                           :ClassificationModelPerformance .
-
-
+:trueNegative 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClassificationMeasure 
+.
 
 ###  :truePositive
 
-:truePositive a owl:AnnotationProperty ;
-                                                                               
-                                                                               rdfs:domain :ClassificationMeasure ,
-                                                                                           :ClassificationModelPerformance .
-
-
+:truePositive 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClassificationMeasure 
+.
 
 ###  :variance
 
-:variance a owl:AnnotationProperty ;
-                                                                           
-                                                                           rdfs:domain :StatisticalModelPerformance .
-
-
+:variance 
+  a owl:AnnotationProperty ;
+  rdfs:domain :StatisticalMeasure 
+.
 
 ###  :wilcoxon
 
-:wilcoxon a owl:AnnotationProperty ;
-                                                                           
-                                                                           rdfs:domain :StatisticalModelPerformance .
+:wilcoxon 
+  a owl:AnnotationProperty ;
+  rdfs:domain :StatisticalMeasure 
+.
 
 
+###  :accuracy
 
+:accuracy 
+  a owl:AnnotationProperty ;
+  rdfs:domain :ClassificationMeasure 
+.
+
+###  :pmi
+
+:pmi 
+  a owl:AnnotationProperty ;
+  rdfs:domain :StatisticalMeasure 
+.
+
+###  :spmi
+
+:spmi
+  a owl:AnnotationProperty ;
+  rdfs:domain :StatisticalMeasure 
+.
 
 
 #################################################################
-#
 #    Object Properties
-#
 #################################################################
 
 
 ###  :generated
 
-prov:generated a owl:ObjectProperty ;
-               
-               rdfs:label "generated"@en ;
-               
-               rdfs:domain prov:Activity ;
-               
-               rdfs:range prov:Entity .
-
-
+prov:generated 
+  a owl:ObjectProperty ;
+  rdfs:label "generated"@en ;
+  rdfs:domain prov:Activity ;
+  rdfs:range prov:Entity 
+.
 
 ###  :hadMember
 
-prov:hadMember a owl:ObjectProperty ;
-               
-               rdfs:label "had member"@en ;
-               
-               rdfs:range prov:Entity ;
-               
-               rdfs:domain prov:Collection .
-
-
+prov:hadMember 
+  a owl:ObjectProperty ;
+  rdfs:label "had member"@en ;
+  rdfs:range prov:Entity ;
+  rdfs:domain prov:Collection 
+.
 
 ###  :wasAttributedTo
 
-prov:wasAttributedTo a owl:ObjectProperty ;
-                     
-                     rdfs:label "was attributed to"@en ;
-                     
-                     rdfs:range prov:Agent ;
-                     
-                     rdfs:domain prov:Entity .
-
-
+prov:wasAttributedTo 
+  a owl:ObjectProperty ;
+  rdfs:label "was attributed to"@en ;
+  rdfs:range prov:Agent ;
+  rdfs:domain prov:Entity 
+.
 
 ###  :wasGeneratedBy
 
-prov:wasGeneratedBy a owl:ObjectProperty ;
-                    
-                    rdfs:label "was generated by"@en ;
-                    
-                    rdfs:comment "Activity used to generate the experiment"@en ;
-                    
-                    rdfs:range prov:Activity ;
-                    
-                    rdfs:domain prov:Entity .
-
-
+prov:wasGeneratedBy 
+  a owl:ObjectProperty ;
+  rdfs:label "was generated by"@en ;
+  rdfs:comment "Activity used to generate the experiment"@en ;
+  rdfs:range prov:Activity ;
+  rdfs:domain prov:Entity 
+.
 
 ###  :wasInformedBy
 
-prov:wasInformedBy a owl:ObjectProperty ;
-                   
-                   rdfs:label "was started by"@en ;
-                   
-                   rdfs:range prov:Activity ;
-                   
-                   rdfs:domain prov:Activity .
-
-
-
-
+prov:wasInformedBy 
+  a owl:ObjectProperty ;
+  rdfs:label "was started by"@en ;
+  rdfs:range prov:Activity ;
+  rdfs:domain prov:Activity 
+.
 
 #################################################################
 #    Data properties
