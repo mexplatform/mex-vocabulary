@@ -18,7 +18,7 @@
   rdfs:label "Vocabulario MEX (mex-core)"@pt;
   rdfs:comment """MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-core layer represents the core information gathered from a basic machine learning experiment design."""@en;
   rdfs:comment """MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-core representa a principal informacao obtida de um experimento de aprendizado de maquina."""@pt;
-  owl:versionInfo "1.0" ;
+  owl:versionInfo "1.0.0" ;
   dct:created "2014-02-02"^^xsd:date ;
   dct:modified "2014-04-05"^^xsd:date ;
   dc:publisher "AKSW - Leipzig University"@en ;
