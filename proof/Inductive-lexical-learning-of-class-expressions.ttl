@@ -808,35 +808,6 @@
 .
 
 
-
-#:userDefinedCollection
-#   a prov:Collection, :UserDefinedPerformanceCollection;
-#   prov:hadMember :userDefined1;
-#   prov:hadMember :userDefined2;
-#   prov:actedOnBehalfOf :pactual;
-#.
-
-#:pactual 
-#   a prov:Agent, prov:Organization;
-#   foaf:name "BTG Pactual IB";
-#. 
-
-#:userDefined1
-#	a prov:Entity, mex-perf:UserDefinedPerformance;
-#	dct:identifier "GINDEX01"^^xsd:string;
-#	dct:description "global correlated index us-dolar x ibov"^^xsd:string;
-#	mex-perf:formula "gindex=(usdol/ibov)^2"^^xsd:string;
-#	prov:value "0.3546"^^xsd:string;
-#.
-
-#:userDefined2
-#	a prov:Entity, mex-perf:UserDefinedPerformance;
-#	dct:identifier "GINDEX02"^^xsd:string;
-#	dct:description "global correlated index euro x ibov"^^xsd:string;
-#	mex-perf:formula "gindex=(euro/ibov)^2"^^xsd:string;
-#	prov:value "0.3941"^^xsd:string;
-#.
-
 ##################################################################
 #	 Layer        : mex-algorithm (mex-algo)
 #    Version      : 1.0
@@ -845,19 +816,6 @@
 
 ####### The Algorithms ####### 
 
-# Tendency Keeper 
-#:alg-bls
-#	a:mex-algo:Baseline;
-#	dcterms:identifier "fama-baseline"^^xsd:string;
-#	dcterms:description "naive baseline system for stock market day trade"^^xsd:string;
-#	mex-algo:acronym "BLS";	
-#	mex-algo:hasClass :class-bls;
-#	mex-algo:hasLearningProblem :lp-classification;
-#	mex-algo:hasLearningMethod :lm-supervised;
-#	mex-algo:hasImplementation :imp-fama;
-#.
-
-# SVM 
 :alg-eltl
 	a mex-algo:ELTL;
 	dcterms:identifier "DL-Learner-ELTL"^^xsd:string;
@@ -907,34 +865,4 @@
 .
 
 
-
-####### AlgorithmParameterCollection ####### 
-
-#:alg-svm-param-collection
-#  a prov:Collection, mex-algo:AlgorithmParameterCollection;
-#  dcterms:identifier "c-svm-parameters"^^xsd:string;
-#.
-
-#:p11
-#	a mex-algo:AlgorithmParameter;
-#	dcterms:identifier "type"^^xsd:string;
-#	prov:value "nu-SVC"^^xsd:string;
-#.
-
-#:p12
-#	a mex-algo:AlgorithmParameter;
-#	dcterms:identifier "kernel"^^xsd:string;
-#	prov:value "linear"^^xsd:string;
-#.
-
-#:p13
-#	a mex-algo:AlgorithmParameter;
-#	dcterms:identifier "nu"^^xsd:string;
-#	prov:value "0.5"^^xsd:string;
-#.
-
-#:alg-svm-param-collection prov:hadMember :p11 .
-#:alg-svm-param-collection prov:hadMember :p12 .
-#:alg-svm-param-collection prov:hadMember :p13 .
-#:algparam prov:wasGeneratedBy :exec .
 
