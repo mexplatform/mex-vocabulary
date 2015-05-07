@@ -7,10 +7,10 @@
 @prefix dct: 	  <http://purl.org/dc/terms/> .
 @prefix doap:     <http://usefulinc.com/ns/doap#> .
 @prefix foaf:     <http://xmlns.com/foaf/0.1/> .
-@prefix mex-core: <http://dne5.com/machine-learning/mex/ontology/mex-core#> .
-@prefix mex-algo: <http://dne5.com/machine-learning/mex/ontology/mex-algo#> .
-@prefix mex-perf: <http://dne5.com/machine-learning/mex/ontology/mex-perf#> .
-@prefix :  <http://dne5.com/machine-learning/mex/example/001#> .
+@prefix mex-core:    <http://mex.aksw.org/mex-core#> .
+@prefix mex-algo:    <http://mex.aksw.org/mex-algo#> .
+@prefix mex-perf:    <http://mex.aksw.org/mex-perf#> .
+@prefix :  <http://mex.aksw.org/example/stock-market#> .
 
 ##################################################################
 #    Ontology 		  : MEX 
@@ -25,6 +25,14 @@
 ##################################################################
 
 #	Organization Information
+
+<http://mex.aksw.org/example/stock-market>
+  a owl:Ontology ;
+  owl:versionInfo "1.0.0" ;
+  dct:created "2014-04-29"^^xsd:date ;
+  dct:modified "2014-05-07"^^xsd:date ;
+  dc:creator "Diego Esteves" ;
+  owl:imports mex-core:, mex-perf:, mex-algo: .
 
 :application
    a prov:Agent, prov:Person, prov:Organization, doap:Project, mex-core:ApplicationContext;
