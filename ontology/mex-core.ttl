@@ -33,6 +33,11 @@
 #    Object Properties
 #################################################################
 
+###  :hasApplicationContext
+
+:hasApplicationContext 
+  a owl:ObjectProperty;
+  rdfs:range :ApplicationContext .
 
 ###  :hasPhase
 
