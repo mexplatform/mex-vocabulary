@@ -39,6 +39,13 @@
   a owl:ObjectProperty;
   rdfs:range :ApplicationContext .
 
+
+###  :hasContext
+
+:hasContext 
+  a owl:ObjectProperty;
+  rdfs:range :Context .
+
 ###  :hasPhase
 
 :hasPhase a owl:FunctionalProperty ,
