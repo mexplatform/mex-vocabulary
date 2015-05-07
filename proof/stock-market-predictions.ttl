@@ -37,15 +37,8 @@
   owl:imports mex-core:, mex-perf:, mex-algo: .
 
 :application
-   a prov:Agent, prov:Person, prov:Organization, doap:Project, mex-core:ApplicationContext;
-   foaf:givenName      "Diego Esteves"^^xsd:string;
-   foaf:mbox           <mailto:diegoesteves@gmail.com>;
-   foaf:homePage       <https://de.linkedin.com/in/diegoestevesbr>;
-   doap:homepage       <https://code.google.com/p/fama/>;
-   doap:description    "Prediction of assets behavior in financial series using machine learning algorithms. Describing the best best results achieved for the SVM algorithm"^^xsd:string;
-   doap:category       "Stock Market Predictions - Financial Series"^^xsd:string;
+   a prov:Agent, prov:Person, prov:Organization, mex-core:ApplicationContext;
    rdfs:seeAlso        <http://thesai.org/Downloads/IJARAI/Volume2No11/Paper_7-Prediction_of_assets_behavior_in_financial_series_using_machine_learning_algorithms.pdf>;
-   doap:location	   <dne5/test.git>;
    mex-core:trustyURI  "RABjE8wWCwDYFJtDVmQB2t8H5FkAWFcRu-lo_I671-Hg8"^^xsd:string;
    prov:actedOnBehalfOf :ime;
 .

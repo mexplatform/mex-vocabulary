@@ -27,16 +27,9 @@
 #	Organization Information
 
 :application
-   a prov:Agent, prov:Person, prov:Organization, doap:Project, mex-core:ApplicationContext;
-   foaf:givenName      "Lorenz Buhmann"^^xsd:string;
-   foaf:mbox           <mailto:buhmann@informatik.uni-leipzig.de>;
-   foaf:homePage       <>;
-   doap:homepage       <>;
-   doap:description    "Inductive Lexical Learning of Class Expressions. Describing the baseline ELTL running over DL-Learner"^^xsd:string;
-   doap:category       "Ontology Engineering; Schemata"^^xsd:string;
+   a prov:Agent, prov:Person, prov:Organization, mex-core:ApplicationContext;
    rdfs:seeAlso        <http://link.springer.com/chapter/10.1007/978-3-319-13704-9_4>;
-   doap:location	   <>;
-   mex-core:trustyURI  "...."^^xsd:string;
+   mex-core:trustyURI  "RANZ9FFi5PQUFYzfsimHt9bmqWCiQfgylZ9fWerH0CGJo"^^xsd:string;
    prov:actedOnBehalfOf :aksw;
 .
 
