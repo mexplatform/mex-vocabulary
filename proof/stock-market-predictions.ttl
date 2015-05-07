@@ -46,6 +46,7 @@
    doap:category       "Stock Market Predictions - Financial Series"^^xsd:string;
    rdfs:seeAlso        <http://thesai.org/Downloads/IJARAI/Volume2No11/Paper_7-Prediction_of_assets_behavior_in_financial_series_using_machine_learning_algorithms.pdf>;
    doap:location	   <dne5/test.git>;
+   mex-core:trustyURI  "RABjE8wWCwDYFJtDVmQB2t8H5FkAWFcRu-lo_I671-Hg8"^^xsd:string;
    prov:actedOnBehalfOf :ime;
 .
 

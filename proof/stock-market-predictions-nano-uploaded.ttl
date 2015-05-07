@@ -1,0 +1,49 @@
+@prefix this: <http://mex.aksw.org/nano/001#RABjE8wWCwDYFJtDVmQB2t8H5FkAWFcRu-lo_I671-Hg8> .
+@prefix sub: <http://mex.aksw.org/nano/001#RABjE8wWCwDYFJtDVmQB2t8H5FkAWFcRu-lo_I671-Hg8.> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix mex-core: <http://mex.aksw.org/mex-core#> .
+@prefix mexfile: <http://mex.aksw.org/example/001#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+
+sub:nphead {
+  this: np:hasAssertion sub:assertion ;
+    np:hasProvenance sub:provenance ;
+    np:hasPublicationInfo sub:publication ;
+    a np:Nanopublication .
+}
+
+sub:assertion {
+  this: a np:Assertion .
+  
+  sub:experiment mex-core:hasApplicationContext mexfile:context ;
+    mex-core:hasContext mexfile:context ;
+    sub:hasAccuracy "0.71" ;
+    rdfs:comment "results gathered from the financial market analysis using support vector machines for BOVESPA Stock Exchange"@en .
+}
+
+sub:provenance {
+  this: a np:Provenance .
+  
+  sub:assertion prov:wasDerivedFrom mexfile:experiment ;
+    prov:wasGeneratedBy <http://www.comp.ime.eb.br/> .
+}
+
+sub:publication {
+  this: dcterms:created "2015-03-28T11:32:30.758274Z"^^xsd:dateTime ;
+    dcterms:rights <http://creativecommons.org/licenses/by/3.0/> ;
+    dcterms:rightsHolder <http://www.comp.ime.eb.br/> ;
+    pav:createdBy <https://scholar.google.com/citations?user=PS2D2GoAAAAJ&hl=pt-BR&oi=sra> ;
+    doap:category "Stock Market Predictions - Financial Series" ;
+    doap:description "Prediction of assets behavior in financial series using machine learning algorithms. Describing the best best results achieved for the SVM algorithm" ;
+    doap:homepage <https://code.google.com/p/fama/> ;
+    doap:location <https://code.google.com/p/fama/> ;
+    a np:PublicationInfo ;
+    foaf:givenName "Esteves" ;
+    foaf:mbox <mailto:diegoesteves@gmail.com> .
+}
