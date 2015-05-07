@@ -240,6 +240,14 @@ prov:wasInformedBy
           rdfs:range rdfs:Literal .
 
 
+###  :trustyURI
+
+:trustyURI a owl:DatatypeProperty ;
+          
+          rdfs:domain :ApplicationContext ;
+          
+          rdfs:range rdfs:Literal .
+
 
 ###  :testSize
 
