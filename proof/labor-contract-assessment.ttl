@@ -2,8 +2,8 @@
 @prefix xsd:        <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl:        <http://www.w3.org/2002/07/owl#> .
 @prefix prov:       <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct:    <http://purl.org/dc/terms/> .
-@prefix dcterms:    <http://purl.org/dc/terms/> .
 @prefix doap: <http://usefulinc.com/ns/doap#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dcat:       <http://www.w3.org/ns/dcat#> .
@@ -13,8 +13,8 @@
 @prefix mex-perf:    <http://mex.aksw.org/mex-perf#> .
 @prefix :  <http://mex.aksw.org/example/labour-neg#> .
 
-<http://mex.aksw.org/example/labour-neg#> 
-  a owl:Ontology .
+<http://mex.aksw.org/example/labour-neg> 
+  a owl:Ontology ;
   owl:versionInfo "0.5" ;
   dct:created "2014-04-29"^^xsd:date ;
   dct:modified "2014-05-07"^^xsd:date ;

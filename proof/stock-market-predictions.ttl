@@ -4,6 +4,7 @@
 @prefix prov:     <http://www.w3.org/ns/prov#> .
 @prefix dcterms:  <http://purl.org/dc/terms/> .
 @prefix dcat:     <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: 	  <http://purl.org/dc/terms/> .
 @prefix doap:     <http://usefulinc.com/ns/doap#> .
 @prefix foaf:     <http://xmlns.com/foaf/0.1/> .
@@ -29,7 +30,7 @@
 <http://mex.aksw.org/example/stock-market>
   a owl:Ontology ;
   owl:versionInfo "1.0.0" ;
-  dct:created "2014-04-29"^^xsd:date ;
+  dct:created "2014-05-05"^^xsd:date ;
   dct:modified "2014-05-07"^^xsd:date ;
   dc:creator "Diego Esteves" ;
   owl:imports mex-core:, mex-perf:, mex-algo: .
@@ -63,7 +64,7 @@
 	a prov:Entity, mex-core:Experiment;
 	dct:identifier "exp-example-001"^^xsd:string;
 	dcterms:title "Stock market prediction - d+1 - bovespa close pricing"^^xsd:string;
-	dcterms:date "2-24-2014"^^xsd:date;
+	dcterms:date "2014-02-24"^^xsd:date;
 	dcterms:description "checking the behaviour of 4 big stocks in the brazilian market. configurations for sliding window - default AC756 parameters"^^xsd:string;
 	mex-core:dataNormalizedDescription "we used the min-max algorithm for computations"^^xsd:string;
 	mex-core:outliersRemovedDescription "here we removed splits and reverse splits for each stock market, since we can consider this as outlier"^^xsd:string;
@@ -320,7 +321,7 @@
 	dcterms:identifier "00167"^^xsd:string;
 	dcterms:description "classification svm for default parameters and window computation"^^xsd:string;
 	dcat:landingPage <>;
-	dcterms:date "2-22-2014"^^xsd:date;
+	dcterms:date "2014-02-22"^^xsd:date;
 .
 
 
