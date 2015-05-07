@@ -56,7 +56,7 @@
 	a prov:Entity, mex-core:Experiment;
 	dct:identifier "exp-example-002"^^xsd:string;
 	dcterms:title "Inductive Lexical Learning of Class Expressions using DL-Learner"^^xsd:string;
-	dcterms:date "11-28-2014"^^xsd:date;
+	dcterms:date "2014-11-28"^^xsd:date;
 	dcterms:description "the first approach combining both sources of evidence, in particular we combine an existing logical learning approach with statistical relevance measures applied on textual resources"^^xsd:string;
 	mex-core:dataNormalizedDescription "min-max algorithm"^^xsd:string;
 	mex-core:outliersRemovedDescription ""^^xsd:string;
@@ -553,7 +553,7 @@
 	dcterms:identifier "ELETL987b"^^xsd:string;
 	dcterms:description "eltl algorithm implemented on DL-Learner"^^xsd:string;
 	dcat:landingPage <>;
-	dcterms:date "4-22-2014"^^xsd:date;
+	dcterms:date "2014-04-22"^^xsd:date;
 .
 
 
