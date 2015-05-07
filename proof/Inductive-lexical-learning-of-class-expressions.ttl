@@ -36,8 +36,8 @@
    doap:category       "Ontology Engineering; Schemata"^^xsd:string;
    rdfs:seeAlso        <http://link.springer.com/chapter/10.1007/978-3-319-13704-9_4>;
    doap:location	   <>;
+   mex-core:trustyURI  "...."^^xsd:string;
    prov:actedOnBehalfOf :aksw;
-   :hasNanofile "#RA5Whgc-H1tnrTMNE06DT8UY_8ap2-kAGNRwq51LoR6lY";  
 .
 
 :aksw
