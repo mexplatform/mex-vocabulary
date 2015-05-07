@@ -1,0 +1,47 @@
+@prefix this: <http://mex.aksw.org/nano/002.RANZ9FFi5PQUFYzfsimHt9bmqWCiQfgylZ9fWerH0CGJo> .
+@prefix sub: <http://mex.aksw.org/nano/002.RANZ9FFi5PQUFYzfsimHt9bmqWCiQfgylZ9fWerH0CGJo#> .
+@prefix np: <http://www.nanopub.org/nschema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix mex-core: <http://mex.aksw.org/mex-core#> .
+@prefix mexfile: <http://mex.aksw.org/example/002#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+
+sub:nphead {
+	this: np:hasAssertion sub:assertion ;
+		np:hasProvenance sub:provenance ;
+		np:hasPublicationInfo sub:publication ;
+		a np:Nanopublication .
+}
+
+sub:assertion {
+	sub:experiment mex-core:hasApplicationContext mexfile:context ;
+		mex-core:hasContext mexfile:context ;
+		sub:hasAccuracy "0.92" ;
+		rdfs:comment "the first approach combining both sources of evidence, in particular we combine an existing logical learning approach with statistical relevance measures applied on textual resources. "@en .
+	
+	this: a np:Assertion .
+}
+
+sub:provenance {
+	sub:assertion prov:wasDerivedFrom mexfile:experiment ;
+		prov:wasGeneratedBy <http://aksw.org/> .
+	
+	this: a np:Provenance .
+}
+
+sub:publication {
+	this: dcterms:created "2015-04-07T08:05:20.653424Z"^^xsd:dateTime ;
+		dcterms:rights <http://creativecommons.org/licenses/by/3.0/> ;
+		dcterms:rightsHolder <http://aksw.org/> ;
+		pav:createdBy <https://scholar.google.de/citations?user=3DvsLZ8AAAAJ&hl=de> ;
+		doap:category "Ontology Engineering; Schemata" ;
+		doap:description "Inductive Lexical Learning of Class Expressions. Describing the baseline ELTL running over DL-Learner" ;
+		a np:PublicationInfo ;
+		foaf:givenName "Buhmann" ;
+		foaf:mbox <mailto:buhmann@informatik.uni-leipzig.de> .
+}
