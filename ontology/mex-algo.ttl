@@ -231,6 +231,39 @@ prov:hadMember
 :Baseline a owl:Class ; rdfs:subClassOf :NamedAlgorithm .
 
 
+###  :SequentialMinimalOptimization
+
+:SequentialMinimalOptimization 
+  a owl:Class ; 
+  rdfs:subClassOf :NamedAlgorithm 
+.
+
+###  :LinearSMO
+
+:LinearSMO 
+  a owl:Class ; 
+  rdfs:subClassOf :SequentialMinimalOptimization 
+.
+
+###  :DecisionTable
+
+:DecisionTable 
+  a owl:Class ; 
+  rdfs:subClassOf :NamedAlgorithm 
+.
+
+###  :MultilayerPerceptron
+
+:MultilayerPerceptron 
+  a owl:Class ; 
+  rdfs:subClassOf :NamedAlgorithm ,
+  [ a owl:Restriction ;
+    owl:onProperty :hasClass ;
+    owl:onClass :ArtificialNeuralNetwork ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+  ] ;
+.
+
 ###  :BayesTheoryAlgorithms
 
 :BayesTheoryAlgorithms a owl:Class ; owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( :Algorithm [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :BayesTheory ] ) ] .
@@ -245,10 +278,50 @@ prov:hadMember
 
 :C a owl:Class ; rdfs:subClassOf :Library .
 
+###  :Polynomial-SVM
+
+:Polynomial-SVM a owl:Class ; 
+  rdfs:subClassOf :SupportVectorMachines 
+.
+
+###  :Linear-SVM
+
+:Linear-SVM a owl:Class ; 
+  rdfs:subClassOf :SupportVectorMachines 
+.
+
+###  :RBF-SVM
+
+:RBF-SVM a owl:Class ; 
+  rdfs:subClassOf :SupportVectorMachines 
+.
+
+###  :Sigmoid-SVM
+
+:Sigmoid-SVM a owl:Class ; 
+  rdfs:subClassOf :SupportVectorMachines 
+.
+
 
 ###  :C-SVM
 
-:C-SVM a owl:Class ; rdfs:subClassOf :SupportVectorMachines , [ a owl:Restriction ; owl:onProperty :hasLearningProblem ; owl:onClass :ClassificationProblem ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+:C-SVM a owl:Class ; 
+  rdfs:subClassOf :SupportVectorMachines , 
+    [ a owl:Restriction ; 
+      owl:onProperty :hasLearningProblem ; 
+      owl:onClass :ClassificationProblem ; 
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+###  :R-SVM
+
+:R-SVM a owl:Class ;
+  rdfs:subClassOf :SupportVectorMachines ,
+    [ a owl:Restriction ;
+      owl:onProperty :hasLearningProblem ;
+      owl:onClass :Regression ;
+      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+    ] 
+.
 
 
 ###  :C45
@@ -393,7 +466,13 @@ prov:hadMember
 
 ###  :J48
 
-:J48 a owl:Class ; rdfs:subClassOf :NamedAlgorithm , [ a owl:Restriction ; owl:onProperty :hasClass ; owl:someValuesFrom :DecisionTrees ] .
+:J48 a owl:Class ; 
+  rdfs:subClassOf :NamedAlgorithm , 
+  [ a owl:Restriction ; 
+    owl:onProperty :hasClass ; 
+    owl:someValuesFrom :DecisionTrees 
+  ] 
+.
 
 
 ###  :J48Graft
@@ -632,18 +711,6 @@ prov:hadMember
                                                            
                                                            rdfs:subClassOf :Implementation .
 
-
-
-###  :R-SVM
-
-:R-SVM a owl:Class ;
-                                                               
-                                                               rdfs:subClassOf :SupportVectorMachines ,
-                                                                               [ a owl:Restriction ;
-                                                                                 owl:onProperty :hasLearningProblem ;
-                                                                                 owl:onClass :Regression ;
-                                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
-                                                                               ] .
 
 
 
@@ -1141,32 +1208,40 @@ prov:hadMember
 ###  :NamedAlgorithm
 
 :NamedAlgorithm a owl:Class ;
-                
                 rdfs:subClassOf :Algorithm ; 
-                
                 rdfs:comment "The basic information regarding the algorithms used into the experiment"@en .
 
 
+###  :RandomTree
 
-###  :RandomForest
-
-:RandomForest a owl:Class ;
-              
+:RandomTree a owl:Class ;
               rdfs:subClassOf :NamedAlgorithm ,
                               [ a owl:Restriction ;
                                 owl:onProperty :hasClass ;
                                 owl:someValuesFrom :DecisionTrees
                               ] ;
-              
               owl:disjointWith :RegressionAnalysis ,
-                            :SupportVectorMachines .
+                            :SupportVectorMachines 
+.
+
+
+###  :RandomForest
+
+:RandomForest a owl:Class ;
+              rdfs:subClassOf :NamedAlgorithm ,
+                              [ a owl:Restriction ;
+                                owl:onProperty :hasClass ;
+                                owl:someValuesFrom :DecisionTrees
+                              ] ;
+              owl:disjointWith :RegressionAnalysis ,
+                            :SupportVectorMachines 
+.
 
 
 
 ###  :Regression
 
 :Regression a owl:Class ;
-            
             rdfs:subClassOf :LearningProblem .
 
 
@@ -1174,14 +1249,12 @@ prov:hadMember
 ###  :RegressionAnalysis
 
 :RegressionAnalysis a owl:Class ;
-                    
                     rdfs:subClassOf :NamedAlgorithm ,
                                     [ a owl:Restriction ;
                                       owl:onProperty :hasClass ;
                                       owl:onClass :RegressionFunctions ;
                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
                                     ] ;
-                    
                     owl:disjointWith :SupportVectorMachines .
 
 
@@ -1189,7 +1262,6 @@ prov:hadMember
 ###  :RegressionFunctions
 
 :RegressionFunctions a owl:Class ;
-                     
                      rdfs:subClassOf :AlgorithmClass .
 
 
@@ -1197,7 +1269,6 @@ prov:hadMember
 ###  :Reinforcement
 
 :Reinforcement a owl:Class ;
-               
                rdfs:subClassOf :LearningMethod .
 
 
@@ -1205,7 +1276,6 @@ prov:hadMember
 ###  :SemiSupervised
 
 :SemiSupervised a owl:Class ;
-                
                 rdfs:subClassOf :LearningMethod .
 
 
@@ -1213,7 +1283,6 @@ prov:hadMember
 ###  :Summarization
 
 :Summarization a owl:Class ;
-               
                rdfs:subClassOf :LearningProblem .
 
 
@@ -1221,7 +1290,6 @@ prov:hadMember
 ###  :Supervised
 
 :Supervised a owl:Class ;
-            
             rdfs:subClassOf :LearningMethod .
 
 
@@ -1229,7 +1297,6 @@ prov:hadMember
 ###  :SupportVectorMachines
 
 :SupportVectorMachines a owl:Class ;
-                       
                        rdfs:subClassOf :NamedAlgorithm ,
                                        [ a owl:Class ;
                                          owl:unionOf ( [ a owl:Restriction ;
@@ -1267,21 +1334,16 @@ prov:hadMember
 
 ###  :SupportVectorNetworks
 
-:SupportVectorNetworks a owl:Class ;
-                       
-                       rdfs:subClassOf :AlgorithmClass .
-
+:SupportVectorNetworks 
+  a owl:Class ;
+  rdfs:subClassOf :AlgorithmClass .
 
 
 ###  :Unsupervised
 
-:Unsupervised a owl:Class ;
-              
-              rdfs:subClassOf :LearningMethod .
-
-
-
-
+:Unsupervised 
+  a owl:Class ;            
+  rdfs:subClassOf :LearningMethod .
 
 #################################################################
 #
