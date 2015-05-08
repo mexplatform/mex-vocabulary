@@ -1,0 +1,1066 @@
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix prov:     <http://www.w3.org/ns/prov#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix dcat:     <http://www.w3.org/ns/dcat#> .
+@prefix dc: 	  <http://purl.org/dc/elements/1.1/> .
+@prefix dct: 	  <http://purl.org/dc/terms/> .
+@prefix doap:     <http://usefulinc.com/ns/doap#> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix mex-core: <http://mex.aksw.org/mex-core#> .
+@prefix mex-algo: <http://mex.aksw.org/mex-algo#> .
+@prefix mex-perf: <http://mex.aksw.org/mex-perf#> .
+@prefix :  <http://mex.aksw.org/example/001#> .
+
+
+##################################################################
+#    Ontology 		  : MEX 
+#    Date     		  : 2015-04-30
+#	 More information : http://aksw.org/Projects/MEX.html
+##################################################################
+
+##################################################################
+#	 Layer        : mex-core (mex-core)
+#    Version      : 1.0
+#	 Version Label: mex-core1-iswc-20150430
+##################################################################
+
+#	Organization Information
+
+<http://mex.aksw.org/example/stock-market>
+  a owl:Ontology ;
+  owl:versionInfo "1.0.0" ;
+  dct:created "2015-04-30"^^xsd:date ;
+  dct:modified "2015-05-07"^^xsd:date ;
+  dc:creator "Tommaso Soru" ;
+  owl:imports mex-core:, mex-perf:, mex-algo: .
+
+:application
+   a prov:Agent, prov:Person, prov:Organization, mex-core:ApplicationContext;
+   rdfs:seeAlso        <http://dl.acm.org/citation.cfm?id=2660532>;
+   mex-core:trustyURI  "RAKxMtpWRJNDKRSjM-QUJ3Vj6Sd_uPCyfVMPo2-MWLd3M"^^xsd:string;
+   prov:actedOnBehalfOf :aksw;
+.
+
+:aksw
+   a prov:Agent, prov:Organization;
+   foaf:name "AKSW research group";
+. 
+
+:context
+	a prov:Entity, mex-core:LinkDiscovery;
+	prov:wasAttributedTo :application
+.
+
+#	Experiment
+
+:exp
+	a prov:Entity, mex-core:Experiment;
+	dct:identifier "exp-example-003"^^xsd:string;
+	dcterms:title "Comparison of ML algorithms for Link Discovery"^^xsd:string;
+	dcterms:date "2014-02-24"^^xsd:date;
+	dcterms:description "The detection of links between resources is intrinsic to the vision of the Linked Data Web. Due to the mere size of current knowledge bases, this task is commonly addressed by using tools"^^xsd:string;
+	mex-core:dataNormalizedDescription ""^^xsd:string;
+	mex-core:outliersRemovedDescription ""^^xsd:string;
+	mex-core:noiseRemovedDescription ""^^xsd:string;
+	mex-core:attributeSelectionDescription "test significance level = 0.5"^^xsd:string;
+	prov:wasAttributedTo :application;
+	mex-core:hasSamplingMethod :sampling;
+.
+
+:sampling
+	a prov:Entity, mex-core:SlidingValidation;
+	mex-core:trainSize "0.9"^^xsd:double;
+	mex-core:testSize "0.1"^^xsd:double;
+	mex-core:folds "10"^^xsd:integer;
+	mex-core:sequential "true"^^xsd:boolean;
+	prov:wasDerivedFrom :exp;
+.
+
+:dset1
+	a prov:Entity, mex-core:Dataset;
+	dcterms:title "DS1"^^xsd:string;
+	dcterms:description "Ontology Alignment Evaluation Initiative (OAEI) 2010 Benchmark DS1"^^xsd:string;
+	dcat:landingPage <http://oaei.ontologymatching.org/2010/benchmarks>;
+.
+
+:dset2
+	a prov:Entity, mex-core:Dataset;
+	dcterms:title "DS2"^^xsd:string;
+	dcterms:description "Ontology Alignment Evaluation Initiative (OAEI) 2010 Benchmark DS2"^^xsd:string;
+	dcat:landingPage <http://oaei.ontologymatching.org/2010/benchmarks>;
+.
+
+:dset3
+	a prov:Entity, mex-core:Dataset;
+	dcterms:title "DS3"^^xsd:string;
+	dcterms:description "Ontology Alignment Evaluation Initiative (OAEI) 2010 Benchmark DS3"^^xsd:string;
+	dcat:landingPage <http://oaei.ontologymatching.org/2010/benchmarks>;
+.
+
+:dset4
+	a prov:Entity, mex-core:Dataset;
+	dcterms:title "DS4"^^xsd:string;
+	dcterms:description "Benchmark for Entity Resolution DS4"^^xsd:string;
+	dcat:landingPage <http://dbs.uni-leipzig.de/de/research/projects/object_matching/fever/benchmark_datasets_for_entity_resolution>;
+.
+
+:dset5
+	a prov:Entity, mex-core:Dataset;
+	dcterms:title "DS5"^^xsd:string;
+	dcterms:description "Benchmark for Entity Resolution DS5"^^xsd:string;
+	dcat:landingPage <http://dbs.uni-leipzig.de/de/research/projects/object_matching/fever/benchmark_datasets_for_entity_resolution>;
+.
+
+:dset6
+	a prov:Entity, mex-core:Dataset;
+	dcterms:title "DS6"^^xsd:string;
+	dcterms:description "Benchmark for Entity Resolution DS6"^^xsd:string;
+	dcat:landingPage <http://dbs.uni-leipzig.de/de/research/projects/object_matching/fever/benchmark_datasets_for_entity_resolution>;
+.
+
+
+
+:hardware
+	a prov:Entity, doap:Project, mex-core:HardwareConfiguration;
+	doap:os "Ubuntu Linux"^^xsd:string;
+	mex-core:cpu "2.5 GHz"^^xsd:string;
+	mex-core:memory "8GB of RAM"^^xsd:string;
+	mex-core:hdType "SSD"^^xsd:string;
+	mex-core:cpu-cache "3mb"^^xsd:string;
+	mex-core:video-graphs "n/a"^^xsd:string;
+.
+
+#Executions
+
+####### Multilayer Perceptron ####### 
+:exec1
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-mpp, :test-phase, :dset1, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec001"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec2
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-mpp, :test-phase, :dset2, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec002"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+.
+
+:exec3
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-mpp, :test-phase, :dset3, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec003"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+.
+
+:exec4
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-mpp, :test-phase, :dset4, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec004"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:14:00-04:00"^^xsd:dateTime;
+.
+
+:exec5
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-mpp, :test-phase, :dset5, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec005"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:15:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+.
+
+:exec6
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-mpp, :test-phase, :dset6, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec006"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:59:00-04:00"^^xsd:dateTime;
+.
+
+
+####### Naive Bayes ####### 
+:exec7
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-nb, :test-phase, :dset1, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec007"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec8
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-nb, :test-phase, :dset2, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec008"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+.
+
+:exec9
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-nb, :test-phase, :dset3, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec009"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+.
+
+:exec10
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-nb, :test-phase, :dset4, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec010"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:14:00-04:00"^^xsd:dateTime;
+.
+
+:exec11
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-nb, :test-phase, :dset5, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec011"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:15:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+.
+
+:exec12
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-nb, :test-phase, :dset6, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec012"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:59:00-04:00"^^xsd:dateTime;
+.
+
+
+####### J48 ####### 
+:exec13
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-j48, :test-phase, :dset1, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec013"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec14
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-j48, :test-phase, :dset2, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec014"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+.
+
+:exec15
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-j48, :test-phase, :dset3, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec015"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+.
+
+:exec16
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-j48, :test-phase, :dset4, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec016"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:14:00-04:00"^^xsd:dateTime;
+.
+
+:exec17
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-j48, :test-phase, :dset5, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec017"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:15:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+.
+
+:exec18
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-j48, :test-phase, :dset6, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec018"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:59:00-04:00"^^xsd:dateTime;
+.
+
+
+####### Table ####### 
+:exec19
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-dtable, :test-phase, :dset1, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec019"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec20
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-dtable, :test-phase, :dset2, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec020"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+.
+
+:exec21
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-dtable, :test-phase, :dset3, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec021"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+.
+
+:exec22
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-dtable, :test-phase, :dset4, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec022"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:14:00-04:00"^^xsd:dateTime;
+.
+
+:exec23
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-dtable, :test-phase, :dset5, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec023"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:15:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+.
+
+:exec24
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-dtable, :test-phase, :dset6, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec024"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:59:00-04:00"^^xsd:dateTime;
+.
+
+
+####### SMO ####### 
+:exec25
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-linearsmo, :test-phase, :dset1, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec025"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec26
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-linearsmo, :test-phase, :dset2, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec026"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+.
+
+:exec27
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-linearsmo, :test-phase, :dset3, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec027"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+.
+
+:exec28
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-linearsmo, :test-phase, :dset4, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec028"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:14:00-04:00"^^xsd:dateTime;
+.
+
+:exec29
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-linearsmo, :test-phase, :dset5, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec029"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:15:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+.
+
+:exec30
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-linearsmo, :test-phase, :dset6, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec030"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:59:00-04:00"^^xsd:dateTime;
+.
+
+
+
+####### Rtree ####### 
+:exec31
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-randomt, :test-phase, :dset1, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec031"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec32
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-randomt, :test-phase, :dset2, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec032"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+.
+
+:exec33
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-randomt, :test-phase, :dset3, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec033"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+.
+
+:exec34
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-randomt, :test-phase, :dset4, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec034"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:14:00-04:00"^^xsd:dateTime;
+.
+
+:exec35
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-randomt, :test-phase, :dset5, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec035"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:15:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+.
+
+:exec36
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-randomt, :test-phase, :dset6, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec036"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:59:00-04:00"^^xsd:dateTime;
+.
+
+
+####### Linear Regression ####### 
+:exec37
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-linreg, :test-phase, :dset1, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec037"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec38
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-linreg, :test-phase, :dset2, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec038"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+.
+
+:exec39
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-linreg, :test-phase, :dset3, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec039"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+.
+
+:exec40
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-linreg, :test-phase, :dset4, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec040"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:14:00-04:00"^^xsd:dateTime;
+.
+
+:exec41
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-linreg, :test-phase, :dset5, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec041"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:15:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+.
+
+:exec42
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-linreg, :test-phase, :dset6, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec042"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:59:00-04:00"^^xsd:dateTime;
+.
+
+
+####### Logit Reg ####### 
+:exec43
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-logreg, :test-phase, :dset1, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec043"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec44
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-logreg, :test-phase, :dset2, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec044"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+.
+
+:exec45
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-logreg, :test-phase, :dset3, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec045"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+.
+
+:exec46
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-logreg, :test-phase, :dset4, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec046"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:14:00-04:00"^^xsd:dateTime;
+.
+
+:exec47
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-logreg, :test-phase, :dset5, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec047"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:15:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+.
+
+:exec48
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-logreg, :test-phase, :dset6, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec048"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:59:00-04:00"^^xsd:dateTime;
+.
+
+
+####### Linear SVM ####### 
+:exec49
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-lsvm, :test-phase, :dset1, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec001"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec50
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-lsvm, :test-phase, :dset2, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec002"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+.
+
+:exec51
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-lsvm, :test-phase, :dset3, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec003"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+.
+
+:exec52
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-lsvm, :test-phase, :dset4, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec004"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:14:00-04:00"^^xsd:dateTime;
+.
+
+:exec53
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-lsvm, :test-phase, :dset5, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec005"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:15:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+.
+
+:exec54
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-lsvm, :test-phase, :dset6, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec006"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:59:00-04:00"^^xsd:dateTime;
+.
+
+
+####### Poly SVM ####### 
+:exec55
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-psvm, :test-phase, :dset1, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec001"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+.
+
+:exec56
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-psvm, :test-phase, :dset2, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec002"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+.
+
+:exec57
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-psvm, :test-phase, :dset3, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec003"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:10:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+.
+
+:exec58
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-psvm, :test-phase, :dset4, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec004"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:12:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:14:00-04:00"^^xsd:dateTime;
+.
+
+:exec59
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-psvm, :test-phase, :dset5, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec005"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:15:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+.
+
+:exec60
+      a prov:Activity, mex-core:Execution;
+      prov:used :alg-psvm, :test-phase, :dset6, :ep-collection, :hardware;
+      prov:wasStartedBy :exp;
+      dcterms:identifier "exec006"^^xsd:string;
+      prov:startedAtTime "2012-04-15T13:55:00-04:00"^^xsd:dateTime;
+      prov:endedAtTime   "2012-04-15T13:59:00-04:00"^^xsd:dateTime;
+.
+
+
+####### ExecutionParameterCollection ####### 
+
+:ep-collection
+  a prov:Collection, mex-core:ExecutionParameterCollection;
+  dcterms:identifier "eplinks"^^xsd:string;
+.
+
+####### ExecutionParameter ####### 
+
+:ep-s
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "s"^^xsd:string;
+.
+
+:ep-o
+	a mex-core:ExecutionParameter;
+	dcterms:identifier "o"^^xsd:string;
+.
+
+
+:ep-collection prov:hadMember :ep-s .
+:ep-collection prov:hadMember :ep-o .
+
+
+####### Phase ####### 
+:test-phase
+	a mex-core:Test;
+.
+
+##################################################################
+#	 Layer        : mex-performance (mex-perf)
+#    Version      : 1.0
+#	 Version Label: mex-perf1-iswc-20150430
+##################################################################
+
+:execPerformance1 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec1; prov:generated :classMeasure1 .
+:execPerformance2 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec2; prov:generated :classMeasure2 .
+:execPerformance3 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec3; prov:generated :classMeasure3 .
+:execPerformance4 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec4; prov:generated :classMeasure4 .
+:execPerformance5 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec5; prov:generated :classMeasure5 .
+:execPerformance6 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec6; prov:generated :classMeasure6 .
+:execPerformance7 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec7; prov:generated :classMeasure7 .
+:execPerformance8 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec8; prov:generated :classMeasure8 .
+:execPerformance9 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec9; prov:generated :classMeasure9 .
+:execPerformance10 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec10; prov:generated :classMeasure10 .
+:execPerformance11 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec11; prov:generated :classMeasure11 .
+:execPerformance12 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec12; prov:generated :classMeasure12 .
+:execPerformance13 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec13; prov:generated :classMeasure13 .
+:execPerformance14 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec14; prov:generated :classMeasure14 .
+:execPerformance15 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec15; prov:generated :classMeasure15 .
+:execPerformance16 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec16; prov:generated :classMeasure16 .
+:execPerformance17 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec17; prov:generated :classMeasure17 .
+:execPerformance18 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec18; prov:generated :classMeasure18 .
+:execPerformance19 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec19; prov:generated :classMeasure19 .
+:execPerformance20 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec20; prov:generated :classMeasure20 .
+:execPerformance21 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec21; prov:generated :classMeasure21 .
+:execPerformance22 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec22; prov:generated :classMeasure22 .
+:execPerformance23 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec23; prov:generated :classMeasure23 .
+:execPerformance24 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec24; prov:generated :classMeasure24 .
+:execPerformance25 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec25; prov:generated :classMeasure25 .
+:execPerformance26 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec26; prov:generated :classMeasure26 .
+:execPerformance27 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec27; prov:generated :classMeasure27 .
+:execPerformance28 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec28; prov:generated :classMeasure28 .
+:execPerformance29 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec29; prov:generated :classMeasure29 .
+:execPerformance30 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec30; prov:generated :classMeasure30 .
+:execPerformance31 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec31; prov:generated :classMeasure31 .
+:execPerformance32 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec32; prov:generated :classMeasure32 .
+:execPerformance33 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec33; prov:generated :classMeasure33 .
+:execPerformance34 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec34; prov:generated :classMeasure34 .
+:execPerformance35 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec35; prov:generated :classMeasure35 .
+:execPerformance36 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec36; prov:generated :classMeasure36 .
+:execPerformance37 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec37; prov:generated :classMeasure37 .
+:execPerformance38 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec38; prov:generated :classMeasure38 .
+:execPerformance39 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec39; prov:generated :classMeasure39 .
+:execPerformance40 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec40; prov:generated :classMeasure40 .
+:execPerformance41 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec41; prov:generated :classMeasure41 .
+:execPerformance42 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec42; prov:generated :classMeasure42 .
+:execPerformance43 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec43; prov:generated :classMeasure43 .
+:execPerformance44 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec44; prov:generated :classMeasure44 .
+:execPerformance45 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec45; prov:generated :classMeasure45 .
+:execPerformance46 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec46; prov:generated :classMeasure46 .
+:execPerformance47 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec47; prov:generated :classMeasure47 .
+:execPerformance48 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec48; prov:generated :classMeasure48 .
+:execPerformance49 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec49; prov:generated :classMeasure49 .
+:execPerformance50 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec50; prov:generated :classMeasure50 .
+:execPerformance51 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec51; prov:generated :classMeasure51 .
+:execPerformance52 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec52; prov:generated :classMeasure52 .
+:execPerformance53 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec53; prov:generated :classMeasure53 .
+:execPerformance54 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec54; prov:generated :classMeasure54 .
+:execPerformance55 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec55; prov:generated :classMeasure55 .
+:execPerformance56 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec56; prov:generated :classMeasure56 .
+:execPerformance57 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec57; prov:generated :classMeasure57 .
+:execPerformance58 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec58; prov:generated :classMeasure58 .
+:execPerformance59 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec59; prov:generated :classMeasure59 .
+:execPerformance60 a prov:Activity, mex-perf:ExecutionPerformance; prov:wasInformedBy :exec60; prov:generated :classMeasure60 .
+
+:classMeasure1 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.995"^^xsd:float; prov:wasGeneratedBy :execPerformance1 .
+:classMeasure11 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.999"^^xsd:float; prov:wasGeneratedBy :execPerformance11 .
+:classMeasure21 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "1"^^xsd:float; prov:wasGeneratedBy :execPerformance21 .
+:classMeasure31 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9798"^^xsd:float; prov:wasGeneratedBy :execPerformance31 .
+:classMeasure41 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.995"^^xsd:float; prov:wasGeneratedBy :execPerformance41 .
+:classMeasure51 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.993"^^xsd:float; prov:wasGeneratedBy :execPerformance51 .
+:classMeasure2 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9745"^^xsd:float; prov:wasGeneratedBy :execPerformance2 .
+:classMeasure12 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.994"^^xsd:float; prov:wasGeneratedBy :execPerformance12 .
+:classMeasure22 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.994"^^xsd:float; prov:wasGeneratedBy :execPerformance22 .
+:classMeasure32 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9775"^^xsd:float; prov:wasGeneratedBy :execPerformance32 .
+:classMeasure42 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.995"^^xsd:float; prov:wasGeneratedBy :execPerformance42 .
+:classMeasure52 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9812"^^xsd:float; prov:wasGeneratedBy :execPerformance52 .
+:classMeasure3 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9873"^^xsd:float; prov:wasGeneratedBy :execPerformance3 .
+:classMeasure13 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "1"^^xsd:float; prov:wasGeneratedBy :execPerformance13 .
+:classMeasure23 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9556"^^xsd:float; prov:wasGeneratedBy :execPerformance23 .
+:classMeasure33 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9692"^^xsd:float; prov:wasGeneratedBy :execPerformance33 .
+:classMeasure43 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9924"^^xsd:float; prov:wasGeneratedBy :execPerformance43 .
+:classMeasure53 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9899"^^xsd:float; prov:wasGeneratedBy :execPerformance53 .
+:classMeasure4 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9376"^^xsd:float; prov:wasGeneratedBy :execPerformance4 .
+:classMeasure14 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.3505"^^xsd:float; prov:wasGeneratedBy :execPerformance14 .
+:classMeasure24 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "1"^^xsd:float; prov:wasGeneratedBy :execPerformance24 .
+:classMeasure34 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9667"^^xsd:float; prov:wasGeneratedBy :execPerformance34 .
+:classMeasure44 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "1"^^xsd:float; prov:wasGeneratedBy :execPerformance44 .
+:classMeasure54 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "1"^^xsd:float; prov:wasGeneratedBy :execPerformance54 .
+:classMeasure5 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9829"^^xsd:float; prov:wasGeneratedBy :execPerformance5 .
+:classMeasure15 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "1"^^xsd:float; prov:wasGeneratedBy :execPerformance15 .
+:classMeasure25 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.8989"^^xsd:float; prov:wasGeneratedBy :execPerformance25 .
+:classMeasure35 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9775"^^xsd:float; prov:wasGeneratedBy :execPerformance35 .
+:classMeasure45 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9829"^^xsd:float; prov:wasGeneratedBy :execPerformance45 .
+:classMeasure55 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9519"^^xsd:float; prov:wasGeneratedBy :execPerformance55 .
+:classMeasure6 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9743"^^xsd:float; prov:wasGeneratedBy :execPerformance6 .
+:classMeasure16 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9771"^^xsd:float; prov:wasGeneratedBy :execPerformance16 .
+:classMeasure26 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9258"^^xsd:float; prov:wasGeneratedBy :execPerformance26 .
+:classMeasure36 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9766"^^xsd:float; prov:wasGeneratedBy :execPerformance36 .
+:classMeasure46 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9766"^^xsd:float; prov:wasGeneratedBy :execPerformance46 .
+:classMeasure56 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9636"^^xsd:float; prov:wasGeneratedBy :execPerformance56 .
+:classMeasure7 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9682"^^xsd:float; prov:wasGeneratedBy :execPerformance7 .
+:classMeasure17 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9781"^^xsd:float; prov:wasGeneratedBy :execPerformance17 .
+:classMeasure27 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.9767"^^xsd:float; prov:wasGeneratedBy :execPerformance27 .
+:classMeasure37 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.2947"^^xsd:float; prov:wasGeneratedBy :execPerformance37 .
+:classMeasure47 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.3558"^^xsd:float; prov:wasGeneratedBy :execPerformance47 .
+:classMeasure57 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.4064"^^xsd:float; prov:wasGeneratedBy :execPerformance57 .
+:classMeasure8 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.4663"^^xsd:float; prov:wasGeneratedBy :execPerformance8 .
+:classMeasure18 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.4244"^^xsd:float; prov:wasGeneratedBy :execPerformance18 .
+:classMeasure28 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.4428"^^xsd:float; prov:wasGeneratedBy :execPerformance28 .
+:classMeasure38 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.3706"^^xsd:float; prov:wasGeneratedBy :execPerformance38 .
+:classMeasure48 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.3938"^^xsd:float; prov:wasGeneratedBy :execPerformance48 .
+:classMeasure58 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.2706"^^xsd:float; prov:wasGeneratedBy :execPerformance58 .
+:classMeasure9 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.3728"^^xsd:float; prov:wasGeneratedBy :execPerformance9 .
+:classMeasure19 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.0292"^^xsd:float; prov:wasGeneratedBy :execPerformance19 .
+:classMeasure29 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.4349"^^xsd:float; prov:wasGeneratedBy :execPerformance29 .
+:classMeasure39 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.4192"^^xsd:float; prov:wasGeneratedBy :execPerformance39 .
+:classMeasure49 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.3139"^^xsd:float; prov:wasGeneratedBy :execPerformance49 .
+:classMeasure59 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.2966"^^xsd:float; prov:wasGeneratedBy :execPerformance59 .
+:classMeasure10 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.3153"^^xsd:float; prov:wasGeneratedBy :execPerformance10 .
+:classMeasure20 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.3684"^^xsd:float; prov:wasGeneratedBy :execPerformance20 .
+:classMeasure30 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.4103"^^xsd:float; prov:wasGeneratedBy :execPerformance30 .
+:classMeasure40 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.3918"^^xsd:float; prov:wasGeneratedBy :execPerformance40 .
+:classMeasure50 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.3169"^^xsd:float; prov:wasGeneratedBy :execPerformance50 .
+:classMeasure60 a prov:Entity, mex-perf:ClassificationMeasure; mex-perf:f1Measure "0.119"^^xsd:float; prov:wasGeneratedBy :execPerformance60 .
+
+
+##################################################################
+#	 Layer        : mex-algorithm (mex-algo)
+#    Version      : 1.0
+#	 Version Label: mex-algo1-iswc-20150430
+##################################################################
+
+####### The Algorithms ####### 
+
+# Polynomial SVM 
+:alg-psvm
+	a mex-algo:Polynomial-SVM;
+	dcterms:identifier "poly-svm"^^xsd:string;
+	dcterms:description "polynomial kernel for support vector machines"^^xsd:string;
+	mex-algo:acronym "SVM";
+	mex-algo:hasClass :class-svm;
+	mex-algo:hasLearningProblem :lp-classification;
+	mex-algo:hasLearningMethod :lm-supervised;
+	mex-algo:hasImplementation :imp-libsvm;
+.
+
+# Linear SVM 
+:alg-lsvm
+	a mex-algo:Linear-SVM;
+	dcterms:identifier "linear-svm"^^xsd:string;
+	dcterms:description "linear kernel for support vector machines"^^xsd:string;
+	mex-algo:acronym "SVM";
+	mex-algo:hasClass :class-svm;
+	mex-algo:hasLearningProblem :lp-classification;
+	mex-algo:hasLearningMethod :lm-supervised;
+	mex-algo:hasImplementation :imp-libsvm;
+.
+
+# NaiveBayes 
+:alg-nb
+	a mex-algo:NaiveBayes;
+	dcterms:identifier "weka-nb"^^xsd:string;
+	dcterms:description "naive bayes"^^xsd:string;
+	mex-algo:acronym "NB";
+	mex-algo:hasClass :class-dt;
+	mex-algo:hasLearningProblem :lp-classification;
+	mex-algo:hasLearningMethod :lm-supervised;
+	mex-algo:hasImplementation :imp-weka;
+.
+
+# LogisticRegression 
+:alg-logreg
+	a mex-algo:LogisticRegression;
+	dcterms:identifier "weka-lr"^^xsd:string;
+	dcterms:description "logit regression"^^xsd:string;
+	mex-algo:acronym "LR";
+	mex-algo:hasClass :class-dt;
+	mex-algo:hasLearningProblem :lp-regression;
+	mex-algo:hasLearningMethod :lm-supervised;
+	mex-algo:hasImplementation :imp-weka;
+.
+
+# LinearRegression 
+:alg-linreg
+	a mex-algo:LinearRegression;
+	dcterms:identifier "weka-lr"^^xsd:string;
+	dcterms:description "linear regression"^^xsd:string;
+	mex-algo:acronym "LR";
+	mex-algo:hasClass :class-dt;
+	mex-algo:hasLearningProblem :lp-regression;
+	mex-algo:hasLearningMethod :lm-supervised;
+	mex-algo:hasImplementation :imp-weka;
+.
+
+# LinearSMO 
+:alg-linearsmo
+	a mex-algo:LinearSMO;
+	dcterms:identifier "weka-smo"^^xsd:string;
+	dcterms:description "linear smo"^^xsd:string;
+	mex-algo:acronym "LR";
+	mex-algo:hasImplementation :imp-weka;
+.
+
+# DecisionTable 
+:alg-dtable
+	a mex-algo:DecisionTable;
+	dcterms:identifier "weka-smo"^^xsd:string;
+	dcterms:description "decision table"^^xsd:string;
+	mex-algo:acronym "DT";
+	mex-algo:hasImplementation :imp-weka;
+.
+
+# MultilayerPerceptron 
+:alg-mpp
+	a mex-algo:MultilayerPerceptron;
+	dcterms:identifier "weka-mpp"^^xsd:string;
+	dcterms:description "Multilayer Perceptron"^^xsd:string;
+	mex-algo:acronym "MLP";
+	mex-algo:hasLearningMethod :lm-supervised;
+	mex-algo:hasImplementation :imp-weka;
+.
+
+# Random Tree 
+:alg-randomt
+	a mex-algo:RandomTree;
+	dcterms:identifier "weka-rt"^^xsd:string;
+	dcterms:description "random tree"^^xsd:string;
+	mex-algo:acronym "RT";
+	mex-algo:hasClass :class-dt;
+	mex-algo:hasLearningProblem :lp-classification;
+	mex-algo:hasLearningMethod :lm-supervised;
+	mex-algo:hasImplementation :imp-weka;
+.
+
+# J48 
+:alg-j48
+	a mex-algo:J48;
+	dcterms:identifier "weka-rt"^^xsd:string;
+	dcterms:description "J48 tree"^^xsd:string;
+	mex-algo:acronym "J48";
+	mex-algo:hasClass :class-dt;
+	mex-algo:hasLearningProblem :lp-classification;
+	mex-algo:hasLearningMethod :lm-supervised;
+	mex-algo:hasImplementation :imp-weka;
+.
+
+
+# Their Associated Values
+
+:imp-libsvm
+	a mex-algo:LIBSvm;
+	rdfs:label "Lib SVM"^^xsd:string;
+	doap:name "LIBSvm"^^xsd:string;
+	doap:homepage <http://www.csie.ntu.edu.tw/~cjlin/libsvm/>;
+	doap:revision "1.0"^^xsd:string;
+	doap:description "libsvm library";
+	doap:programming-language "c"^^xsd:string;
+.
+
+:imp-weka
+	a mex-algo:Weka;
+	rdfs:label "WEKA"^^xsd:string;
+	doap:name "Weka"^^xsd:string;
+	doap:homepage <http://prdownloads.sourceforge.net/weka/weka-3-6-12.zip>;
+	doap:revision "3.6.2"^^xsd:string;
+	doap:description "weka";
+	doap:programming-language "java"^^xsd:string;
+.
+
+
+:lm-supervised 
+	a mex-algo:Supervised; 
+.
+
+:lp-classification 
+	a mex-algo:Classification;
+.
+
+:lp-regression 
+	a mex-algo:Regression;
+.
+
+:class-bls 
+	a mex-algo:BaselineSystem;
+.
+
+:class-dt 
+	a mex-algo:DecisionTrees;
+.
+
+:class-rf 
+	a mex-algo:RegressionFunctions;
+.
+
+:class-svm 
+	a mex-algo:SupportVectorNetworks;
+.
+
+####### AlgorithmParameterCollection ####### 
+
+:alg-svm-param-collection
+  a prov:Collection, mex-algo:AlgorithmParameterCollection;
+  dcterms:identifier "c-svm-parameters"^^xsd:string;
+.
+
+:p11
+	a mex-algo:AlgorithmParameter;
+	dcterms:identifier "C"^^xsd:string;
+	prov:value "10^3"^^xsd:string;
+.
+
+:p12
+	a mex-algo:AlgorithmParameter;
+	dcterms:identifier "kernel"^^xsd:string;
+	prov:value "linear"^^xsd:string;
+.
+
+:p13
+	a mex-algo:AlgorithmParameter;
+	dcterms:identifier "nu"^^xsd:string;
+	prov:value "0.5"^^xsd:string;
+.
+
+:p14
+      a mex-algo:AlgorithmParameter;
+      dcterms:identifier "gamma"^^xsd:string;
+      prov:value "1"^^xsd:string;
+.
+
+
+
+:alg-svm-param-collection prov:hadMember :p11 .
+:alg-svm-param-collection prov:hadMember :p12 .
+:alg-svm-param-collection prov:hadMember :p13 .
+:alg-svm-param-collection prov:hadMember :p14 .
+#:algparam prov:wasGeneratedBy :exec .
+

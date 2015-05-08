@@ -300,6 +300,11 @@ prov:wasInformedBy
                     rdfs:subClassOf :Context .
 
 
+###  :AffectiveComputing
+
+:LinkDiscovery a owl:Class ;
+                    rdfs:subClassOf :Context .
+
 
 ###  :AffectiveComputing
 
