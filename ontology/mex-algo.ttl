@@ -248,7 +248,7 @@ prov:hadMember
 
 ###  :C-SVM
 
-:C-SVM a owl:Class ; rdfs:subClassOf :SupportVectorMachines , [ a owl:Restriction ; owl:onProperty :hasLearningProblem ; owl:onClass :Classification ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+:C-SVM a owl:Class ; rdfs:subClassOf :SupportVectorMachines , [ a owl:Restriction ; owl:onProperty :hasLearningProblem ; owl:onClass :ClassificationProblem ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
 
 
 ###  :C45
@@ -357,7 +357,7 @@ prov:hadMember
 
 ###  :ForClassificationProblem
 
-:ForClassificationProblem a owl:Class ; owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( :Algorithm [ a owl:Restriction ; owl:onProperty :hasLearningProblem ; owl:onClass :Classification ; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] ) ] .
+:ForClassificationProblem a owl:Class ; owl:equivalentClass [ a owl:Class ; owl:intersectionOf ( :Algorithm [ a owl:Restriction ; owl:onProperty :hasLearningProblem ; owl:onClass :ClassificationProblem; owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] ) ] .
 
 
 
@@ -814,7 +814,7 @@ prov:hadMember
                                                                                                                  [ a owl:Class ;
                            owl:unionOf ( [ a owl:Restriction ;
                                         owl:onProperty :hasLearningProblem ;
-                                        owl:onClass :Classification ;
+                                        owl:onClass :ClassificationProblem;
                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
                                                                                                                               ]
                                                                                                                               [ a owl:Restriction ;
@@ -883,7 +883,7 @@ prov:hadMember
                                                                                                                                 ]
                                                                                                                                 [ a owl:Restriction ;
                                           owl:onProperty :hasLearningProblem ;
-                                          owl:onClass :Clustering ;
+                                          owl:onClass :ClusteringProblem ;
                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
                                                                                                                                 ]
                                                                                                                                 [ a owl:Restriction ;
@@ -1034,7 +1034,7 @@ prov:hadMember
 
 ###  :Clustering
 
-:Clustering a owl:Class ;
+:ClusteringProblem a owl:Class ;
             
             rdfs:subClassOf :LearningProblem .
 
@@ -1234,7 +1234,7 @@ prov:hadMember
                                        [ a owl:Class ;
                                          owl:unionOf ( [ a owl:Restriction ;
                                                       owl:onProperty :hasLearningProblem ;
-                                                      owl:onClass :Classification ;
+                                                      owl:onClass :ClassificationProblem;
                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
                                                     ]
                                                     [ a owl:Restriction ;

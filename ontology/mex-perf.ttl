@@ -39,69 +39,69 @@
 ###  :bonferroniDunn
 
 :bonferroniDunn 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :StatisticalMeasure 
 .
 
 ###  :chebyschevDistance
 
 :chebyschevDistance 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClusteringMeasure 
 .
 
 ###  :chiSquare
 
 :chiSquare 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :StatisticalMeasure 
 .
 
 ###  :cosine
 :cosine 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClusteringMeasure 
 .
 
 ###  :error
 
 :error 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClassificationMeasure , :ClusteringMeasure , :RegressionMeasure , :StatisticalMeasure 
 .
 
 ###  :euclideanDistance
 
 :euclideanDistance 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClusteringMeasure 
 .
 
 ###  :f1Measure
 
 :f1Measure 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClassificationMeasure 
 .
 
 ###  :falseNegative
 
 :falseNegative 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClassificationMeasure 
 .
 
 ###  :falsePositive
 
 :falsePositive 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClassificationMeasure 
 .
 
 ###  :formula
 
 :formula 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :UserDefinedMeasure 
 .
 
@@ -110,168 +110,168 @@
 ###  :friedman
 
 :friedman 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :StatisticalMeasure 
 .
 
 ###  :genSimilarityCoefficient
 
 :genSimilarityCoefficient 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClusteringMeasure 
 .
 
 ###  :hammingDistance
 
 :hammingDistance 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClusteringMeasure 
 .
 
 ###  :kolmogorovSmirnov
 
 :kolmogorovSmirnov 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :StatisticalMeasure 
 .
 
 ###  :manhattanDistance
 
 :manhattanDistance 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClusteringMeasure 
 .
 
 ###  :mean
 
 :mean 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :StatisticalMeasure 
 .
 
 ###  :meanAbsoluteDeviation
 
 :meanAbsoluteDeviation 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :RegressionMeasure 
 .
 
 ###  :meanSquaredError
 
 :meanSquaredError 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :RegressionMeasure 
 .
 
 ###  :nemenyi
 
 :nemenyi 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :StatisticalMeasure 
 .
 
 ###  :pearsonCorrelation
 
 :pearsonCorrelation 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :StatisticalMeasure 
 .
 
 ###  :precision
 
 :precision 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClassificationMeasure 
 .
 
 ###  :predictedValue
 
 :predictedValue 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ItemPerformance 
 .
 
 ###  :realValue
 
 :realValue 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ItemPerformance 
 .
 
 ###  :recall
 
 :recall 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClassificationMeasure 
 .
 
 ###  :residual
 
 :residual 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :RegressionMeasure 
 .
 
 ###  :roc
 
 :roc 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClassificationMeasure 
 .
 
 ###  :sensitivity
 
 :sensitivity 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClassificationMeasure 
 .
 
 ###  :specificity
 
 :specificity 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClassificationMeasure 
 .
 
 ###  :standardDeviation
 
 :standardDeviation 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :StatisticalMeasure 
 .
 
 ###  :totalError
 
 :totalError 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :RegressionMeasure 
 .
 
 ###  :trueNegative
 
 :trueNegative 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClassificationMeasure 
 .
 
 ###  :truePositive
 
 :truePositive 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClassificationMeasure 
 .
 
 ###  :variance
 
 :variance 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :StatisticalMeasure 
 .
 
 ###  :wilcoxon
 
 :wilcoxon 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :StatisticalMeasure 
 .
 
@@ -279,21 +279,21 @@
 ###  :accuracy
 
 :accuracy 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :ClassificationMeasure 
 .
 
 ###  :pmi
 
 :pmi 
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :StatisticalMeasure 
 .
 
 ###  :spmi
 
 :spmi
-  a owl:AnnotationProperty ;
+  a owl:DatatypeProperty ;
   rdfs:domain :StatisticalMeasure 
 .
 
@@ -303,51 +303,6 @@
 #################################################################
 
 
-###  :generated
-
-prov:generated 
-  a owl:ObjectProperty ;
-  rdfs:label "generated"@en ;
-  rdfs:domain prov:Activity ;
-  rdfs:range prov:Entity 
-.
-
-###  :hadMember
-
-prov:hadMember 
-  a owl:ObjectProperty ;
-  rdfs:label "had member"@en ;
-  rdfs:range prov:Entity ;
-  rdfs:domain prov:Collection 
-.
-
-###  :wasAttributedTo
-
-prov:wasAttributedTo 
-  a owl:ObjectProperty ;
-  rdfs:label "was attributed to"@en ;
-  rdfs:range prov:Agent ;
-  rdfs:domain prov:Entity 
-.
-
-###  :wasGeneratedBy
-
-prov:wasGeneratedBy 
-  a owl:ObjectProperty ;
-  rdfs:label "was generated by"@en ;
-  rdfs:comment "Activity used to generate the experiment"@en ;
-  rdfs:range prov:Activity ;
-  rdfs:domain prov:Entity 
-.
-
-###  :wasInformedBy
-
-prov:wasInformedBy 
-  a owl:ObjectProperty ;
-  rdfs:label "was started by"@en ;
-  rdfs:range prov:Activity ;
-  rdfs:domain prov:Activity 
-.
 
 #################################################################
 #    Data properties
