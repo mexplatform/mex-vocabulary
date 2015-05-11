@@ -627,9 +627,9 @@ prov:wasInformedBy
 
 
 
-###  :SoftwareEnginnering
+###  :SoftwareEngineering
 
-:SoftwareEnginnering a owl:Class ;
+:SoftwareEngineering a owl:Class ;
                      
                      rdfs:subClassOf :Context .
 
