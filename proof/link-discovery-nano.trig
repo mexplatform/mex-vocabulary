@@ -37,10 +37,9 @@ sub:assertion {
   mexfile:alg-psvm sub:hasAccuracy "45.38" .
   
   mexfile:alg-randomt sub:hasAccuracy "77.75" .
-  
-  mex-core:hasApplicationContext mexfile:context ""^^xsd:integer .
-  
-  mex-core:hasContext mexfile:context ""^^xsd:integer .
+
+  sub:experiment mex-core:hasApplicationContext mexfile:application ;
+  mex-core:hasContext mexfile:context .
   
   this: a np:Assertion .
 }
