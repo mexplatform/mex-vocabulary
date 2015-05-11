@@ -45,7 +45,7 @@
 
 #	Experiment
 
-:exp
+:experiment
 	a prov:Entity, mex-core:Experiment;
 	dct:identifier "exp-example-002"^^xsd:string;
 	dcterms:title "Inductive Lexical Learning of Class Expressions using DL-Learner"^^xsd:string;

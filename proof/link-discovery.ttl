@@ -11,7 +11,7 @@
 @prefix mex-core: <http://mex.aksw.org/mex-core#> .
 @prefix mex-algo: <http://mex.aksw.org/mex-algo#> .
 @prefix mex-perf: <http://mex.aksw.org/mex-perf#> .
-@prefix :  <http://mex.aksw.org/example/001#> .
+@prefix :  <http://mex.aksw.org/example/003#> .
 
 
 ##################################################################
@@ -28,7 +28,7 @@
 
 #	Organization Information
 
-<http://mex.aksw.org/example/stock-market>
+<http://mex.aksw.org/example/003>
   a owl:Ontology ;
   owl:versionInfo "1.0.0" ;
   dct:created "2015-04-30"^^xsd:date ;
@@ -55,7 +55,7 @@
 
 #	Experiment
 
-:exp
+:experiment
 	a prov:Entity, mex-core:Experiment;
 	dct:identifier "exp-example-003"^^xsd:string;
 	dcterms:title "Comparison of ML algorithms for Link Discovery"^^xsd:string;
