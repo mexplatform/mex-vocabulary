@@ -12,6 +12,7 @@
 @prefix mex-core:    <http://mex.aksw.org/mex-core#> .
 @prefix mex-algo:    <http://mex.aksw.org/mex-algo#> .
 @prefix mex-perf:    <http://mex.aksw.org/mex-perf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <http://mex.aksw.org/mex-algo#> .
 
 <http://mex.aksw.org/mex-algo> 
@@ -24,10 +25,11 @@
   dct:created "2014-02-02"^^xsd:date ;
   dct:modified "2014-04-05"^^xsd:date ;
   dc:publisher "AKSW Research Group - Leipzig University"@en ;
-  dc:publisher "AKSW - Universidade de Leipzig"@pt ;
-  dc:creator "Diego Esteves" ;
-  dc:contributor "Jens Lehmann", "Ricardo Usbeck", "Diego Moussallem", "Markus Ackermann", "Sebastian Hellmann", "Maria Claudia Cavalcanti Reis", "Julio Cesar Duarte" ;
+  dc:publisher "AKSW Grupo de Pesquisa - Universidade de Leipzig"@pt ;
+  dct:creator  mex-core:esteves ; 
+  dct:contributor mex-core:lehmann, mex-core:usbeck, mex-core:moussallem, mex-core:ackermann, mex-core:hellmann, mex-core:yoko, mex-core:duarte ;
   dct:title "MEX Algorithm Ontology (mex-algo)"@en ;
+  rdfs:isDefinedBy <http://mex.aksw.org/mex-algo#> ;
   owl:imports doap:, rdfs:, prov: .
 
 #################################################################

@@ -12,6 +12,7 @@
 @prefix mex-core:    <http://mex.aksw.org/mex-core#> .
 @prefix mex-algo:    <http://mex.aksw.org/mex-algo#> .
 @prefix mex-perf:    <http://mex.aksw.org/mex-perf#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix : <http://mex.aksw.org/mex-perf#> .
 
 <http://mex.aksw.org/mex-perf> 
@@ -23,11 +24,12 @@
     owl:versionInfo "1.0.0" ;
     dct:created "2014-02-02"^^xsd:date ;
     dct:modified "2014-04-05"^^xsd:date ;
-    dc:publisher "AKSW - Leipzig University"@en ;
-    dc:publisher "AKSW - Universidade de Leipzig"@pt ;
-    dc:creator "Diego Esteves" ;
-    dc:contributor "Jens Lehmann", "Ricardo Usbeck", "Diego Moussallem", "Markus Ackermann", "Sebastian Hellmann", "Maria Claudia Cavalcanti Reis", "Julio Cesar Duarte" ;
+    dc:publisher "AKSW Research Group - Leipzig University"@en ;
+    dc:publisher "AKSW Grupo de Pesquisa - Universidade de Leipzig"@pt ;
+    dct:creator mex-core:esteves ;
+    dct:contributor mex-core:lehmann, mex-core:usbeck, mex-core:moussallem, mex-core:ackermann, mex-core:hellmann, mex-core:yoko, mex-core:duarte ;
     dct:title "MEX Performance (mex-perf) is an ontology with the goal of describing performance values for machine learning problems (MEX Platform)"@en ;
+    rdfs:isDefinedBy <http://mex.aksw.org/mex-perf#> ;
     owl:imports doap:,  rdfs:,  prov: .
 
 
