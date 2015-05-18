@@ -16,7 +16,8 @@
 @prefix : <http://mex.aksw.org/mex-algo#> .
 
 <http://mex.aksw.org/mex-algo> 
-  a owl:Ontology ;  
+  a owl:Ontology ; 
+  rdf:about "http://mex.aksw.org/mex-doc-algo#" ; 
   rdfs:label "The MEX Vocabulary (mex-algo)"@en;
   rdfs:label "Vocabulario MEX (mex-algo)"@pt;
   rdfs:comment """MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-algo layer represents the algorithm information existing into a basic machine learning experiment."""@en;
@@ -31,6 +32,7 @@
   dct:title "MEX Algorithm Ontology (mex-algo)"@en ;
   rdfs:isDefinedBy <http://mex.aksw.org/mex-algo#> ;
   owl:imports doap:, rdfs:, prov: .
+
 
 #################################################################
 #    Object Properties

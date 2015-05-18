@@ -15,6 +15,7 @@
 
 <http://mex.aksw.org/mex-core> 
   a owl:Ontology ;
+  rdf:about "http://mex.aksw.org/mex-doc-core#" ; 
   rdfs:label "The MEX Vocabulary (mex-core)"@en;
   rdfs:label "Vocabulario MEX (mex-core)"@pt;
   rdfs:comment """MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-core layer represents the core information gathered from a basic machine learning experiment design."""@en;

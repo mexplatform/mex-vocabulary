@@ -17,6 +17,7 @@
 
 <http://mex.aksw.org/mex-perf> 
     a owl:Ontology ;
+    rdf:about "http://mex.aksw.org/mex-doc-perf#" ; 
     rdfs:label "The MEX Vocabulary (mex-perf)"@en;
     rdfs:label "Vocabulario MEX (mex-perf)"@pt;
     rdfs:comment """MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-perf layer is the 3rd level of the MEX for representing the machine learning algorithm's performances."""@en;
