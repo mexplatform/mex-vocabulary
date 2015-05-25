@@ -19,7 +19,7 @@ sub:nphead {
 }
 
 sub:assertion {
-	sub:experiment mex-core:hasApplicationContext mexfile:context ;
+	sub:experiment mex-core:hasApplicationContext mexfile:application ;
 		mex-core:hasContext mexfile:context ;
 		sub:hasAccuracy "0.92" ;
 		rdfs:comment "the first approach combining both sources of evidence, in particular we combine an existing logical learning approach with statistical relevance measures applied on textual resources. "@en .

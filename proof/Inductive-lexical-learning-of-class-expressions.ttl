@@ -39,7 +39,7 @@
 . 
 
 :context
-	a prov:Entity, mex-core:SoftwareEnginnering;
+	a prov:Entity, mex-core:SoftwareEngineering;
 	prov:wasAttributedTo :application
 .
 

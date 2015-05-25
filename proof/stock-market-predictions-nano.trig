@@ -21,7 +21,7 @@
 
 :assertion {
   :experiment :hasAccuracy "0.71"^^xsd:string ;
-               mex-core:hasApplicationContext mexfile:context ;
+               mex-core:hasApplicationContext mexfile:application ;
                mex-core:hasContext mexfile:context ;
      rdfs:comment "results gathered from the financial market analysis using support vector machines for BOVESPA Stock Exchange"@en . 
   : a np:Assertion .
