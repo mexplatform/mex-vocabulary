@@ -1,4 +1,4 @@
-@prefix : <http://mex.aksw.org/mex-core#> .
+@prefix : <http://mex.aksw.org/mex-algo#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -11,44 +11,46 @@
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix mex-algo: <http://mex.aksw.org/mex-algo#> .
 @prefix mex-core: <http://mex.aksw.org/mex-core#> .
-@base <http://mex.aksw.org/mex-core> .
+@prefix mex-perf: <http://mex.aksw.org/mex-perf#> .
+@base <http://mex.aksw.org/mex-algo> .
 
-<http://mex.aksw.org/mex-core> rdf:type owl:Ontology ;
+<http://mex.aksw.org/mex-algo> rdf:type owl:Ontology ;
                                
-                               rdfs:label "The MEX Vocabulary (mex-core)"@en ,
-                                          "Vocabulario MEX (mex-core)"@pt ;
+                               rdfs:label "The MEX Vocabulary (mex-algo)"@en ,
+                                          "Vocabulario MEX (mex-algo)"@pt ;
                                
                                dct:created "2014-02-02"^^xsd:date ;
                                
                                dct:modified "2014-04-05"^^xsd:date ;
                                
-                               owl:versionInfo "1.0.0" ;
-                               
                                dc:publisher "AKSW Research Group - Leipzig University"@en ;
                                
-                               dct:title "MEX Core (mex-core) is an ontology with the goal of describing the core process for machine learning problems (MEX Platform)"@en ;
+                               rdf:about "http://mex.aksw.org/mex-doc-algo#" ;
                                
-                               rdf:about "http://mex.aksw.org/mex-doc-core#" ;
+                               owl:versionInfo "1.0.0" ;
                                
-                               rdfs:comment "MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-core layer represents the core information gathered from a basic machine learning experiment design."@en ;
+                               dct:title "MEX Algorithm Ontology (mex-algo)"@en ;
+                               
+                               rdfs:comment "MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-algo layer represents the algorithm information existing into a basic machine learning experiment."@en ;
                                
                                dc:publisher "AKSW Grupo de Pesquisa - Universidade de Leipzig"@pt ;
                                
-                               rdfs:comment "MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-core representa a principal informacao obtida de um experimento de aprendizado de maquina."@pt ;
+                               rdfs:comment "MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-algo representa informacaos de algoritmos existentes em um experimento de aprendizado de maquina."@pt ;
                                
                                rdfs:isDefinedBy : ;
                                
-                               dct:contributor :ackermann ,
-                                               :duarte ;
+                               dct:contributor mex-core:ackermann ,
+                                               mex-core:duarte ;
                                
-                               dct:creator :esteves ;
+                               dct:creator mex-core:esteves ;
                                
-                               dct:contributor :hellmann ,
-                                               :lehmann ,
-                                               :moussallem ,
-                                               :usbeck ,
-                                               :yoko ;
+                               dct:contributor mex-core:hellmann ,
+                                               mex-core:lehmann ,
+                                               mex-core:moussallem ,
+                                               mex-core:usbeck ,
+                                               mex-core:yoko ;
                                
                                owl:imports doap: ,
                                            rdfs: ,
@@ -62,69 +64,168 @@
 #################################################################
 
 
-###  http://mex.aksw.org/mex-core#endsAt
+###  http://mex.aksw.org/mex-algo#hasAlgorithmConfiguration
 
-:endsAt rdf:type owl:ObjectProperty ;
-        
-        rdfs:domain :DatasetInputExampleCollection ;
-        
-        rdfs:range rdfs:Literal .
+:hasAlgorithmConfiguration rdf:type owl:ObjectProperty ,
+                                    owl:TransitiveProperty .
 
 
 
-###  http://mex.aksw.org/mex-core#hasApplicationContext
+###  http://mex.aksw.org/mex-algo#hasAlgorithmParameterCollection
 
-:hasApplicationContext rdf:type owl:ObjectProperty ;
-                       
-                       rdfs:range :ApplicationContext .
-
-
-
-###  http://mex.aksw.org/mex-core#hasContext
-
-:hasContext rdf:type owl:ObjectProperty ;
-            
-            rdfs:range :Context .
-
+:hasAlgorithmParameterCollection rdf:type owl:FunctionalProperty ,
+                                          owl:InverseFunctionalProperty ,
+                                          owl:IrreflexiveProperty ,
+                                          owl:ObjectProperty ;
+                                 
+                                 rdfs:domain :Algorithm ;
+                                 
+                                 rdfs:range :AlgorithmParameterCollection ;
+                                 
+                                 rdfs:subPropertyOf :hasAlgorithmConfiguration .
 
 
-###  http://mex.aksw.org/mex-core#hasPhase
 
-:hasPhase rdf:type owl:FunctionalProperty ,
+###  http://mex.aksw.org/mex-algo#hasClass
+
+:hasClass rdf:type owl:IrreflexiveProperty ,
                    owl:ObjectProperty ;
           
-          rdfs:domain :DatasetInputExampleCollection ;
+          rdfs:domain :Algorithm ;
           
-          rdfs:range :Phase .
+          rdfs:range :AlgorithmClass ;
+          
+          rdfs:subPropertyOf :hasAlgorithmConfiguration .
 
 
 
-###  http://mex.aksw.org/mex-core#hasSamplingMethod
+###  http://mex.aksw.org/mex-algo#hasImplementation
 
-:hasSamplingMethod rdf:type owl:FunctionalProperty ,
+:hasImplementation rdf:type owl:FunctionalProperty ,
+                            owl:InverseFunctionalProperty ,
                             owl:ObjectProperty ;
                    
-                   rdfs:domain :Experiment .
+                   rdfs:domain :Algorithm ;
+                   
+                   rdfs:range :Implementation ;
+                   
+                   rdfs:subPropertyOf :hasAlgorithmConfiguration .
 
 
 
-###  http://mex.aksw.org/mex-core#startsAt
+###  http://mex.aksw.org/mex-algo#hasLearningMethod
 
-:startsAt rdf:type owl:ObjectProperty ;
-          
-          rdfs:domain :DatasetInputExampleCollection ;
-          
-          rdfs:range rdfs:Literal .
+:hasLearningMethod rdf:type owl:FunctionalProperty ,
+                            owl:InverseFunctionalProperty ,
+                            owl:IrreflexiveProperty ,
+                            owl:ObjectProperty ;
+                   
+                   rdfs:domain :Algorithm ;
+                   
+                   rdfs:range :LearningMethod ;
+                   
+                   rdfs:subPropertyOf :hasAlgorithmConfiguration .
 
 
 
-###  http://mex.aksw.org/mex-core#trustyURI
+###  http://mex.aksw.org/mex-algo#hasLearningProblem
 
-:trustyURI rdf:type owl:ObjectProperty ;
+:hasLearningProblem rdf:type owl:FunctionalProperty ,
+                             owl:InverseFunctionalProperty ,
+                             owl:IrreflexiveProperty ,
+                             owl:ObjectProperty ;
+                    
+                    rdfs:domain :Algorithm ;
+                    
+                    rdfs:range :LearningProblem ;
+                    
+                    rdfs:subPropertyOf :hasAlgorithmConfiguration .
+
+
+
+###  http://mex.aksw.org/mex-algo#isAlgorithmConfigurationOf
+
+:isAlgorithmConfigurationOf rdf:type owl:ObjectProperty ,
+                                     owl:TransitiveProperty .
+
+
+
+###  http://mex.aksw.org/mex-algo#isAlgorithmParameterCollectionOf
+
+:isAlgorithmParameterCollectionOf rdf:type owl:FunctionalProperty ,
+                                           owl:InverseFunctionalProperty ,
+                                           owl:ObjectProperty ;
+                                  
+                                  rdfs:range :Algorithm ;
+                                  
+                                  rdfs:domain :AlgorithmParameter ;
+                                  
+                                  owl:inverseOf :hasAlgorithmParameterCollection ;
+                                  
+                                  rdfs:subPropertyOf :isAlgorithmConfigurationOf .
+
+
+
+###  http://mex.aksw.org/mex-algo#isClassOf
+
+:isClassOf rdf:type owl:IrreflexiveProperty ,
+                    owl:ObjectProperty ;
            
-           rdfs:domain :ApplicationContext ;
+           rdfs:range :Algorithm ;
            
-           rdfs:range rdfs:Literal .
+           rdfs:domain :AlgorithmClass ;
+           
+           owl:inverseOf :hasClass ;
+           
+           rdfs:subPropertyOf :isAlgorithmConfigurationOf .
+
+
+
+###  http://mex.aksw.org/mex-algo#isImplementationOf
+
+:isImplementationOf rdf:type owl:FunctionalProperty ,
+                             owl:InverseFunctionalProperty ,
+                             owl:ObjectProperty ;
+                    
+                    rdfs:range :Algorithm ;
+                    
+                    rdfs:domain :Implementation ;
+                    
+                    owl:inverseOf :hasImplementation ;
+                    
+                    rdfs:subPropertyOf :isAlgorithmConfigurationOf .
+
+
+
+###  http://mex.aksw.org/mex-algo#isLearningMethodOf
+
+:isLearningMethodOf rdf:type owl:FunctionalProperty ,
+                             owl:InverseFunctionalProperty ,
+                             owl:ObjectProperty ;
+                    
+                    rdfs:range :Algorithm ;
+                    
+                    rdfs:domain :LearningMethod ;
+                    
+                    owl:inverseOf :hasLearningMethod ;
+                    
+                    rdfs:subPropertyOf :isAlgorithmConfigurationOf .
+
+
+
+###  http://mex.aksw.org/mex-algo#isLearningProblemOf
+
+:isLearningProblemOf rdf:type owl:FunctionalProperty ,
+                              owl:InverseFunctionalProperty ,
+                              owl:ObjectProperty ;
+                     
+                     rdfs:range :Algorithm ;
+                     
+                     rdfs:domain :LearningProblem ;
+                     
+                     owl:inverseOf :hasLearningProblem ;
+                     
+                     rdfs:subPropertyOf :isAlgorithmConfigurationOf .
 
 
 
@@ -137,32 +238,6 @@ prov:hadMember rdf:type owl:ObjectProperty ;
                rdfs:domain prov:Collection ;
                
                rdfs:range prov:Entity .
-
-
-
-###  http://www.w3.org/ns/prov#used
-
-prov:used rdf:type owl:ObjectProperty ;
-          
-          rdfs:label "used"@en ;
-          
-          rdfs:comment "Entity used by the Activity to generate the experiment"@en ;
-          
-          rdfs:domain prov:Activity ;
-          
-          rdfs:range prov:Entity .
-
-
-
-###  http://www.w3.org/ns/prov#wasAttributedTo
-
-prov:wasAttributedTo rdf:type owl:ObjectProperty ;
-                     
-                     rdfs:label "was attributed to"@en ;
-                     
-                     rdfs:range prov:Agent ;
-                     
-                     rdfs:domain prov:Entity .
 
 
 
@@ -180,46 +255,6 @@ prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
 
 
 
-###  http://www.w3.org/ns/prov#wasGeneratedBy
-
-prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
-                    
-                    rdfs:label "was generated by"@en ;
-                    
-                    rdfs:comment "Activity used to generate the experiment"@en ;
-                    
-                    rdfs:range prov:Activity ;
-                    
-                    rdfs:domain prov:Entity .
-
-
-
-###  http://www.w3.org/ns/prov#wasInformedBy
-
-prov:wasInformedBy rdf:type owl:ObjectProperty ;
-                   
-                   rdfs:label "was started by"@en ;
-                   
-                   rdfs:range prov:Activity ;
-                   
-                   rdfs:domain prov:Activity .
-
-
-
-###  http://www.w3.org/ns/prov#wasStartedBy
-
-prov:wasStartedBy rdf:type owl:ObjectProperty ;
-                  
-                  rdfs:label "was started by"@en ;
-                  
-                  rdfs:comment "Activity used to generate the experiment"@en ;
-                  
-                  rdfs:domain prov:Activity ;
-                  
-                  rdfs:range prov:Entity .
-
-
-
 
 
 #################################################################
@@ -229,161 +264,13 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 #################################################################
 
 
-###  http://mex.aksw.org/mex-core#attributeSelectionDescription
-
-:attributeSelectionDescription rdf:type owl:DatatypeProperty ;
-                               
-                               rdfs:domain :Experiment ;
-                               
-                               rdfs:range xsd:string .
-
-
-
-###  http://mex.aksw.org/mex-core#cpu
-
-:cpu rdf:type owl:DatatypeProperty ;
-     
-     rdfs:domain :HardwareConfiguration ;
-     
-     rdfs:range xsd:string .
-
-
-
-###  http://mex.aksw.org/mex-core#cpu-cache
-
-:cpu-cache rdf:type owl:DatatypeProperty ;
-           
-           rdfs:domain :HardwareConfiguration ;
-           
-           rdfs:range xsd:string .
-
-
-
-###  http://mex.aksw.org/mex-core#dataNormalizedDescription
-
-:dataNormalizedDescription rdf:type owl:DatatypeProperty ;
-                           
-                           rdfs:domain :Experiment ;
-                           
-                           rdfs:range xsd:string .
-
-
-
-###  http://mex.aksw.org/mex-core#endsAt
-
-:endsAt rdf:type owl:DatatypeProperty .
-
-
-
-###  http://mex.aksw.org/mex-core#folds
-
-:folds rdf:type owl:DatatypeProperty ;
-       
-       rdfs:domain :SamplingMethod ;
-       
-       rdfs:range xsd:nonNegativeInteger .
-
-
-
-###  http://mex.aksw.org/mex-core#hdType
-
-:hdType rdf:type owl:DatatypeProperty ;
-        
-        rdfs:domain :HardwareConfiguration ;
-        
-        rdfs:range xsd:string .
-
-
-
-###  http://mex.aksw.org/mex-core#memory
-
-:memory rdf:type owl:DatatypeProperty ;
-        
-        rdfs:domain :HardwareConfiguration ;
-        
-        rdfs:range xsd:string .
-
-
-
-###  http://mex.aksw.org/mex-core#noiseRemovedDescription
-
-:noiseRemovedDescription rdf:type owl:DatatypeProperty ;
-                         
-                         rdfs:domain :Experiment ;
-                         
-                         rdfs:range xsd:string .
-
-
-
-###  http://mex.aksw.org/mex-core#numberOfIteraction
-
-:numberOfIteraction rdf:type owl:DatatypeProperty ;
-                    
-                    rdfs:domain :SlidingCrossValidation ;
-                    
-                    rdfs:range xsd:nonNegativeInteger .
-
-
-
-###  http://mex.aksw.org/mex-core#outliersRemovedDescription
-
-:outliersRemovedDescription rdf:type owl:DatatypeProperty ;
-                            
-                            rdfs:domain :Experiment ;
-                            
-                            rdfs:range xsd:string .
-
-
-
-###  http://mex.aksw.org/mex-core#sequential
-
-:sequential rdf:type owl:DatatypeProperty ;
-            
-            rdfs:domain :SamplingMethod ;
-            
-            rdfs:range xsd:boolean .
-
-
-
-###  http://mex.aksw.org/mex-core#startsAt
-
-:startsAt rdf:type owl:DatatypeProperty .
-
-
-
-###  http://mex.aksw.org/mex-core#testSize
-
-:testSize rdf:type owl:DatatypeProperty ;
-          
-          rdfs:domain :SamplingMethod ;
-          
-          rdfs:range xsd:double .
-
-
-
-###  http://mex.aksw.org/mex-core#trainSize
-
-:trainSize rdf:type owl:DatatypeProperty ;
-           
-           rdfs:domain :SamplingMethod ;
-           
-           rdfs:range xsd:double .
-
-
-
-###  http://mex.aksw.org/mex-core#trustyURI
-
-:trustyURI rdf:type owl:DatatypeProperty .
-
-
-
-###  http://mex.aksw.org/mex-core#videoGraphs
-
-:videoGraphs rdf:type owl:DatatypeProperty ;
-             
-             rdfs:domain :HardwareConfiguration ;
-             
-             rdfs:range xsd:string .
+###  http://mex.aksw.org/mex-algo#acronym
+
+:acronym rdf:type owl:DatatypeProperty ;
+         
+         rdfs:domain :NamedAlgorithm ;
+         
+         rdfs:range xsd:string .
 
 
 
@@ -396,199 +283,1177 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 #################################################################
 
 
-###  http://mex.aksw.org/mex-core#ApplicationContext
+###  http://mex.aksw.org/mex-algo#ADTree
 
-:ApplicationContext rdf:type owl:Class ;
-                    
-                    rdfs:subClassOf :DomainConceptSpace ,
-                                    prov:Agent ,
-                                    prov:Organization ,
-                                    prov:Person ;
-                    
-                    rdfs:comment "describes the context of the experiment, such as NLP, Stock Market Forecast, BioInformatics, Text-Retrieval AND contact informations/publication"@en .
-
-
-
-###  http://mex.aksw.org/mex-core#Bootstrapping
-
-:Bootstrapping rdf:type owl:Class ;
-               
-               rdfs:subClassOf :SamplingMethod .
+:ADTree rdf:type owl:Class ;
+        
+        rdfs:subClassOf :NamedAlgorithm ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasClass ;
+                          owl:someValuesFrom :DecisionTrees
+                        ] .
 
 
 
-###  http://mex.aksw.org/mex-core#Context
+###  http://mex.aksw.org/mex-algo#AQ
 
-:Context rdf:type owl:Class ;
-         
-         rdfs:subClassOf :DomainConceptSpace ,
-                         prov:Entity .
+:AQ rdf:type owl:Class ;
+    
+    rdfs:subClassOf :NamedAlgorithm ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty :hasClass ;
+                      owl:onClass :Rules ;
+                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                    ] .
 
 
 
-###  http://mex.aksw.org/mex-core#CrossValidation
+###  http://mex.aksw.org/mex-algo#AdaptativeBoost
 
-:CrossValidation rdf:type owl:Class ;
+:AdaptativeBoost rdf:type owl:Class ;
                  
-                 rdfs:subClassOf :SamplingMethod .
+                 rdfs:subClassOf :NamedAlgorithm ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasClass ;
+                                   owl:onClass :Boosting ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                 ] .
 
 
 
-###  http://mex.aksw.org/mex-core#Dataset
+###  http://mex.aksw.org/mex-algo#Algorithm
 
-:Dataset rdf:type owl:Class ;
-         
-         rdfs:subClassOf :DomainConceptSpace ,
-                         prov:Entity ;
-         
-         dc:description "Class that provides a structured dataset"@en .
-
-
-
-###  http://mex.aksw.org/mex-core#DatasetInputExample
-
-:DatasetInputExample rdf:type owl:Class ;
-                     
-                     rdfs:subClassOf :DomainConceptSpace .
-
-
-
-###  http://mex.aksw.org/mex-core#DatasetInputExampleCollection
-
-:DatasetInputExampleCollection rdf:type owl:Class ;
-                               
-                               rdfs:subClassOf :DomainConceptSpace ,
-                                               prov:Collection .
-
-
-
-###  http://mex.aksw.org/mex-core#DomainConceptSpace
-
-:DomainConceptSpace rdf:type owl:Class ;
-                    
-                    owl:disjointWith :ValuePartition .
-
-
-
-###  http://mex.aksw.org/mex-core#Execution
-
-:Execution rdf:type owl:Class ;
+:Algorithm rdf:type owl:Class ;
            
-           rdfs:subClassOf :DomainConceptSpace ,
-                           prov:Activity .
+           rdfs:subClassOf prov:Entity ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasLearningProblem ;
+                             owl:someValuesFrom :LearningProblem
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasLearningMethod ;
+                             owl:someValuesFrom :LearningMethod
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty :hasClass ;
+                             owl:someValuesFrom :AlgorithmClass
+                           ] .
 
 
 
-###  http://mex.aksw.org/mex-core#Experiment
+###  http://mex.aksw.org/mex-algo#AlgorithmClass
 
-:Experiment rdf:type owl:Class ;
-            
-            rdfs:subClassOf :DomainConceptSpace ,
-                            prov:Entity .
-
-
-
-###  http://mex.aksw.org/mex-core#HardwareConfiguration
-
-:HardwareConfiguration rdf:type owl:Class ;
-                       
-                       rdfs:subClassOf :DomainConceptSpace ,
-                                       doap:Version ,
-                                       prov:Entity .
-
-
-
-###  http://mex.aksw.org/mex-core#Holdout
-
-:Holdout rdf:type owl:Class ;
-         
-         rdfs:subClassOf :SamplingMethod .
-
-
-
-###  http://mex.aksw.org/mex-core#LeaveOneOut
-
-:LeaveOneOut rdf:type owl:Class ;
-             
-             rdfs:subClassOf :SamplingMethod .
-
-
-
-###  http://mex.aksw.org/mex-core#Model
-
-:Model rdf:type owl:Class ;
-       
-       rdfs:subClassOf :DomainConceptSpace ,
-                       prov:Entity .
-
-
-
-###  http://mex.aksw.org/mex-core#NFoldsCrossValidation
-
-:NFoldsCrossValidation rdf:type owl:Class ;
-                       
-                       rdfs:subClassOf :SamplingMethod .
-
-
-
-###  http://mex.aksw.org/mex-core#Phase
-
-:Phase rdf:type owl:Class ;
-       
-       owl:equivalentClass [ rdf:type owl:Class ;
-                             owl:unionOf ( :Test
-                                           :Training
-                                           :Validation
-                                         )
-                           ] ;
-       
-       rdfs:subClassOf :ValuePartition .
-
-
-
-###  http://mex.aksw.org/mex-core#SamplingMethod
-
-:SamplingMethod rdf:type owl:Class ;
+:AlgorithmClass rdf:type owl:Class ;
                 
-                rdfs:subClassOf :DomainConceptSpace .
+                owl:disjointWith :AlgorithmParameter ,
+                                 :LearningMethod ,
+                                 :LearningProblem .
 
 
 
-###  http://mex.aksw.org/mex-core#SlidingCrossValidation
+###  http://mex.aksw.org/mex-algo#AlgorithmParameter
 
-:SlidingCrossValidation rdf:type owl:Class ;
-                        
-                        rdfs:subClassOf :SamplingMethod .
-
-
-
-###  http://mex.aksw.org/mex-core#Test
-
-:Test rdf:type owl:Class ;
-      
-      rdfs:subClassOf :Phase .
+:AlgorithmParameter rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf prov:Entity ;
+                    
+                    owl:disjointWith :LearningMethod ,
+                                     :LearningProblem .
 
 
 
-###  http://mex.aksw.org/mex-core#Training
+###  http://mex.aksw.org/mex-algo#AlgorithmParameterCollection
 
-:Training rdf:type owl:Class ;
+:AlgorithmParameterCollection rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf prov:Collection .
+
+
+
+###  http://mex.aksw.org/mex-algo#AllDisjointClasses
+
+:AllDisjointClasses rdf:type owl:Class .
+
+
+
+###  http://mex.aksw.org/mex-algo#Apriori
+
+:Apriori rdf:type owl:Class ;
+         
+         rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#ArtificialNeuralNetwork
+
+:ArtificialNeuralNetwork rdf:type owl:Class ;
+                         
+                         rdfs:label "ANN"@en ;
+                         
+                         rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://mex.aksw.org/mex-algo#Association
+
+:Association rdf:type owl:Class ;
+             
+             rdfs:subClassOf :LearningProblem .
+
+
+
+###  http://mex.aksw.org/mex-algo#AutoregressiveIntegratedMovingAverage
+
+:AutoregressiveIntegratedMovingAverage rdf:type owl:Class ;
+                                       
+                                       rdfs:label "ARIMA"@en ;
+                                       
+                                       rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#AutoregressiveMovingAverage
+
+:AutoregressiveMovingAverage rdf:type owl:Class ;
+                             
+                             rdfs:label "ARMA"@en ;
+                             
+                             rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#AverageOneDependenceEstimators
+
+:AverageOneDependenceEstimators rdf:type owl:Class ;
+                                
+                                rdfs:label "AODE"@en ;
+                                
+                                rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#BFTree
+
+:BFTree rdf:type owl:Class ;
+        
+        rdfs:subClassOf :NamedAlgorithm ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasClass ;
+                          owl:someValuesFrom :DecisionTrees
+                        ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#BIRCH
+
+:BIRCH rdf:type owl:Class ;
+       
+       rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#BackPropagation
+
+:BackPropagation rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :NamedAlgorithm ,
+                                 [ rdf:type owl:Restriction ;
+                                   owl:onProperty :hasClass ;
+                                   owl:onClass :ArtificialNeuralNetwork ;
+                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                 ] ;
+                 
+                 owl:disjointWith :C45 ,
+                                  :ELTL ,
+                                  :Kmeans ,
+                                  :LogisticRegression ,
+                                  :NaiveBayes ,
+                                  :RandomForest ,
+                                  :RegressionAnalysis ,
+                                  :SupportVectorMachines .
+
+
+
+###  http://mex.aksw.org/mex-algo#Bagging
+
+:Bagging rdf:type owl:Class ;
+         
+         rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://mex.aksw.org/mex-algo#Baseline
+
+:Baseline rdf:type owl:Class ;
           
-          rdfs:subClassOf :Phase .
+          rdfs:subClassOf :NamedAlgorithm .
 
 
 
-###  http://mex.aksw.org/mex-core#Validation
+###  http://mex.aksw.org/mex-algo#BayesTheory
 
-:Validation rdf:type owl:Class ;
+:BayesTheory rdf:type owl:Class ;
+             
+             rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://mex.aksw.org/mex-algo#BayesTheoryAlgorithms
+
+:BayesTheoryAlgorithms rdf:type owl:Class ;
+                       
+                       owl:equivalentClass [ rdf:type owl:Class ;
+                                             owl:intersectionOf ( :Algorithm
+                                                                  [ rdf:type owl:Restriction ;
+                                                                    owl:onProperty :hasClass ;
+                                                                    owl:someValuesFrom :BayesTheory
+                                                                  ]
+                                                                )
+                                           ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#Boosting
+
+:Boosting rdf:type owl:Class ;
+          
+          rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://mex.aksw.org/mex-algo#C-SVM
+
+:C-SVM rdf:type owl:Class ;
+       
+       rdfs:subClassOf :SupportVectorMachines ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasLearningProblem ;
+                         owl:onClass :ClassificationProblem ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                       ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#C45
+
+:C45 rdf:type owl:Class ;
+     
+     rdfs:subClassOf :NamedAlgorithm ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasClass ;
+                       owl:someValuesFrom :DecisionTrees
+                     ] ;
+     
+     owl:disjointWith :Kmeans ,
+                      :LogisticRegression ,
+                      :NaiveBayes ,
+                      :RandomForest ,
+                      :RegressionAnalysis ,
+                      :SupportVectorMachines .
+
+
+
+###  http://mex.aksw.org/mex-algo#CART
+
+:CART rdf:type owl:Class ;
+      
+      rdfs:subClassOf :NamedAlgorithm ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasClass ;
+                        owl:onClass :DecisionTrees ;
+                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                      ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#CHAID
+
+:CHAID rdf:type owl:Class ;
+       
+       rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#CHAMELEON
+
+:CHAMELEON rdf:type owl:Class ;
+           
+           rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#CLARA
+
+:CLARA rdf:type owl:Class ;
+       
+       rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#CLARANS
+
+:CLARANS rdf:type owl:Class ;
+         
+         rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#CURE
+
+:CURE rdf:type owl:Class ;
+      
+      rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#Classification
+
+:Classification rdf:type owl:Class ;
+                
+                rdfs:subClassOf :LearningProblem .
+
+
+
+###  http://mex.aksw.org/mex-algo#ClassificationProblem
+
+:ClassificationProblem rdf:type owl:Class .
+
+
+
+###  http://mex.aksw.org/mex-algo#Clustering
+
+:Clustering rdf:type owl:Class ;
             
-            rdfs:subClassOf :Phase .
+            rdfs:subClassOf :AlgorithmClass .
 
 
 
-###  http://mex.aksw.org/mex-core#ValuePartition
+###  http://mex.aksw.org/mex-algo#ClusteringProblem
 
-:ValuePartition rdf:type owl:Class .
+:ClusteringProblem rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :LearningProblem .
+
+
+
+###  http://mex.aksw.org/mex-algo#DecisionStump
+
+:DecisionStump rdf:type owl:Class ;
+               
+               rdfs:subClassOf :NamedAlgorithm ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty :hasClass ;
+                                 owl:someValuesFrom :DecisionTrees
+                               ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#DecisionTable
+
+:DecisionTable rdf:type owl:Class ;
+               
+               rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#DecisionTrees
+
+:DecisionTrees rdf:type owl:Class ;
+               
+               rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://mex.aksw.org/mex-algo#DecisionTreesAlgorithms
+
+:DecisionTreesAlgorithms rdf:type owl:Class ;
+                         
+                         owl:equivalentClass [ rdf:type owl:Class ;
+                                               owl:intersectionOf ( :Algorithm
+                                                                    [ rdf:type owl:Restriction ;
+                                                                      owl:onProperty :hasClass ;
+                                                                      owl:someValuesFrom :DecisionTrees
+                                                                    ]
+                                                                  )
+                                             ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#DescriptiveMethod
+
+:DescriptiveMethod rdf:type owl:Class ;
+                   
+                   owl:equivalentClass [ rdf:type owl:Class ;
+                                         owl:intersectionOf ( :Algorithm
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :hasLearningMethod ;
+                                                                owl:onClass :Unsupervised ;
+                                                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                              ]
+                                                            )
+                                       ] ;
+                   
+                   rdfs:comment "are typically unsupervised and are used to induce interesting patterns (such as association rules) from unlabeled data. The induced patterns are useful in exploratory data analysis."@en .
+
+
+
+###  http://mex.aksw.org/mex-algo#ELTL
+
+:ELTL rdf:type owl:Class ;
+      
+      rdfs:subClassOf :NamedAlgorithm ,
+                      [ rdf:type owl:Restriction ;
+                        owl:onProperty :hasClass ;
+                        owl:someValuesFrom :DecisionTrees
+                      ] ;
+      
+      owl:disjointWith :Kmeans ,
+                       :LogisticRegression ,
+                       :NaiveBayes ,
+                       :RandomForest ,
+                       :RegressionAnalysis ,
+                       :SupportVectorMachines .
+
+
+
+###  http://mex.aksw.org/mex-algo#EnsambleTechnique
+
+:EnsambleTechnique rdf:type owl:Class ;
+                   
+                   owl:equivalentClass [ rdf:type owl:Class ;
+                                         owl:intersectionOf ( :Algorithm
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :hasClass ;
+                                                                owl:someValuesFrom :Boosting
+                                                              ]
+                                                            )
+                                       ] ,
+                                       [ rdf:type owl:Class ;
+                                         owl:intersectionOf ( :Algorithm
+                                                              [ rdf:type owl:Restriction ;
+                                                                owl:onProperty :hasClass ;
+                                                                owl:someValuesFrom :Bagging
+                                                              ]
+                                                            )
+                                       ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#FP
+
+:FP rdf:type owl:Class ;
+    
+    rdfs:subClassOf :NamedAlgorithm ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty :hasClass ;
+                      owl:someValuesFrom :DecisionTrees
+                    ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#ForClassificationProblem
+
+:ForClassificationProblem rdf:type owl:Class ;
+                          
+                          owl:equivalentClass [ rdf:type owl:Class ;
+                                                owl:intersectionOf ( :Algorithm
+                                                                     [ rdf:type owl:Restriction ;
+                                                                       owl:onProperty :hasLearningProblem ;
+                                                                       owl:onClass :ClassificationProblem ;
+                                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                     ]
+                                                                   )
+                                              ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#GeneticAlgorithms
+
+:GeneticAlgorithms rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://mex.aksw.org/mex-algo#HybridAlgorithm
+
+:HybridAlgorithm rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#ID3
+
+:ID3 rdf:type owl:Class ;
+     
+     rdfs:subClassOf :NamedAlgorithm ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasClass ;
+                       owl:onClass :DecisionTrees ;
+                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                     ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#INDUCE
+
+:INDUCE rdf:type owl:Class ;
+        
+        rdfs:subClassOf :NamedAlgorithm ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasClass ;
+                          owl:onClass :Rules ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                        ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#Implementation
+
+:Implementation rdf:type owl:Class ;
+                
+                rdfs:subClassOf doap:Project ,
+                                doap:Version ,
+                                prov:SoftwareAgent .
+
+
+
+###  http://mex.aksw.org/mex-algo#InductiveLogicProgramming
+
+:InductiveLogicProgramming rdf:type owl:Class ;
+                           
+                           rdfs:label "ILP"@en ;
+                           
+                           rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://mex.aksw.org/mex-algo#J48
+
+:J48 rdf:type owl:Class ;
+     
+     rdfs:subClassOf :NamedAlgorithm ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasClass ;
+                       owl:someValuesFrom :DecisionTrees
+                     ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#J48Graft
+
+:J48Graft rdf:type owl:Class ;
+          
+          rdfs:subClassOf :NamedAlgorithm ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :hasClass ;
+                            owl:someValuesFrom :DecisionTrees
+                          ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#Kmeans
+
+:Kmeans rdf:type owl:Class ;
+        
+        rdfs:subClassOf :NamedAlgorithm ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasClass ;
+                          owl:onClass :Clustering ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                        ] ;
+        
+        owl:disjointWith :LogisticRegression ,
+                         :NaiveBayes ,
+                         :RandomForest ,
+                         :RegressionAnalysis ,
+                         :SupportVectorMachines .
+
+
+
+###  http://mex.aksw.org/mex-algo#LADTree
+
+:LADTree rdf:type owl:Class ;
+         
+         rdfs:subClassOf :NamedAlgorithm ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasClass ;
+                           owl:someValuesFrom :DecisionTrees
+                         ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#LMT
+
+:LMT rdf:type owl:Class ;
+     
+     rdfs:subClassOf :NamedAlgorithm ,
+                     [ rdf:type owl:Restriction ;
+                       owl:onProperty :hasClass ;
+                       owl:someValuesFrom :DecisionTrees
+                     ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#LearningMethod
+
+:LearningMethod rdf:type owl:Class ;
+                
+                rdfs:comment "Supervised Learning, Unsupervised Learning, Semi-supervised Learning, Reinforcement Learning, ..."@en .
+
+
+
+###  http://mex.aksw.org/mex-algo#LearningProblem
+
+:LearningProblem rdf:type owl:Class ;
+                 
+                 rdfs:comment "A ValuePartition that describes only values from Regression, Classification or Clustering. NB Subclasses can themselves be divided up into further partitions."@en .
+
+
+
+###  http://mex.aksw.org/mex-algo#Linear-SVM
+
+:Linear-SVM rdf:type owl:Class ;
+            
+            rdfs:subClassOf :SupportVectorMachines .
+
+
+
+###  http://mex.aksw.org/mex-algo#LinearRegression
+
+:LinearRegression rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf :RegressionAnalysis .
+
+
+
+###  http://mex.aksw.org/mex-algo#LinearSMO
+
+:LinearSMO rdf:type owl:Class ;
+           
+           rdfs:subClassOf :SequentialMinimalOptimization .
+
+
+
+###  http://mex.aksw.org/mex-algo#LogicalRepresentations
+
+:LogicalRepresentations rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://mex.aksw.org/mex-algo#LogisticRegression
+
+:LogisticRegression rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf :RegressionAnalysis ;
+                    
+                    owl:disjointWith :NaiveBayes ,
+                                     :RandomForest ,
+                                     :SupportVectorMachines .
+
+
+
+###  http://mex.aksw.org/mex-algo#MARS
+
+:MARS rdf:type owl:Class ;
+      
+      rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#Markov
+
+:Markov rdf:type owl:Class ;
+        
+        rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#Metaheuristic
+
+:Metaheuristic rdf:type owl:Class ;
+               
+               rdfs:subClassOf :LearningProblem .
+
+
+
+###  http://mex.aksw.org/mex-algo#MultilayerPerceptron
+
+:MultilayerPerceptron rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf :NamedAlgorithm ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty :hasClass ;
+                                        owl:onClass :ArtificialNeuralNetwork ;
+                                        owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                      ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#NBTree
+
+:NBTree rdf:type owl:Class ;
+        
+        rdfs:subClassOf :NamedAlgorithm ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty :hasClass ;
+                          owl:onClass :DecisionTrees ;
+                          owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                        ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#NaiveBayes
+
+:NaiveBayes rdf:type owl:Class ;
+            
+            rdfs:subClassOf :NamedAlgorithm ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasLearningProblem ;
+                              owl:onClass :Regression ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasLearningMethod ;
+                              owl:onClass :Supervised ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasClass ;
+                              owl:someValuesFrom :BayesTheory
+                            ] ;
+            
+            owl:disjointWith :RandomForest ,
+                             :RegressionAnalysis ,
+                             :SupportVectorMachines .
+
+
+
+###  http://mex.aksw.org/mex-algo#NamedAlgorithm
+
+:NamedAlgorithm rdf:type owl:Class ;
+                
+                rdfs:subClassOf :Algorithm ;
+                
+                rdfs:comment "The basic information regarding the algorithms used into the experiment"@en .
+
+
+
+###  http://mex.aksw.org/mex-algo#NearestNeigbour
+
+:NearestNeigbour rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#OPTICS
+
+:OPTICS rdf:type owl:Class ;
+        
+        rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#Polynomial-SVM
+
+:Polynomial-SVM rdf:type owl:Class ;
+                
+                rdfs:subClassOf :SupportVectorMachines .
+
+
+
+###  http://mex.aksw.org/mex-algo#PredictiveMethod
+
+:PredictiveMethod rdf:type owl:Class ;
+                  
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:intersectionOf ( :Algorithm
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :hasLearningMethod ;
+                                                               owl:onClass :Supervised ;
+                                                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                             ]
+                                                           )
+                                      ] ;
+                  
+                  rdfs:comment "they are used to induce models or theories from class-labeled data"@en .
+
+
+
+###  http://mex.aksw.org/mex-algo#ProbabilisticSoftLogic
+
+:ProbabilisticSoftLogic rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#R-SVM
+
+:R-SVM rdf:type owl:Class ;
+       
+       rdfs:subClassOf :SupportVectorMachines ,
+                       [ rdf:type owl:Restriction ;
+                         owl:onProperty :hasLearningProblem ;
+                         owl:onClass :Regression ;
+                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                       ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#RBF-SVM
+
+:RBF-SVM rdf:type owl:Class ;
+         
+         rdfs:subClassOf :SupportVectorMachines .
+
+
+
+###  http://mex.aksw.org/mex-algo#REPTree
+
+:REPTree rdf:type owl:Class ;
+         
+         rdfs:subClassOf :NamedAlgorithm ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :hasClass ;
+                           owl:onClass :DecisionTrees ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                         ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#RandomForest
+
+:RandomForest rdf:type owl:Class ;
+              
+              rdfs:subClassOf :NamedAlgorithm ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty :hasClass ;
+                                owl:someValuesFrom :DecisionTrees
+                              ] ;
+              
+              owl:disjointWith :RegressionAnalysis ,
+                               :SupportVectorMachines .
+
+
+
+###  http://mex.aksw.org/mex-algo#RandomTree
+
+:RandomTree rdf:type owl:Class ;
+            
+            rdfs:subClassOf :NamedAlgorithm ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasClass ;
+                              owl:someValuesFrom :DecisionTrees
+                            ] ;
+            
+            owl:disjointWith :RegressionAnalysis ,
+                             :SupportVectorMachines .
+
+
+
+###  http://mex.aksw.org/mex-algo#Regression
+
+:Regression rdf:type owl:Class ;
+            
+            rdfs:subClassOf :LearningProblem .
+
+
+
+###  http://mex.aksw.org/mex-algo#RegressionAnalysis
+
+:RegressionAnalysis rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf :NamedAlgorithm ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty :hasClass ;
+                                      owl:onClass :RegressionFunctions ;
+                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                    ] ;
+                    
+                    owl:disjointWith :SupportVectorMachines .
+
+
+
+###  http://mex.aksw.org/mex-algo#RegressionFunctions
+
+:RegressionFunctions rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://mex.aksw.org/mex-algo#Reinforcement
+
+:Reinforcement rdf:type owl:Class ;
+               
+               rdfs:subClassOf :LearningMethod .
+
+
+
+###  http://mex.aksw.org/mex-algo#Rules
+
+:Rules rdf:type owl:Class ;
+       
+       rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://mex.aksw.org/mex-algo#SemiSupervised
+
+:SemiSupervised rdf:type owl:Class ;
+                
+                rdfs:subClassOf :LearningMethod .
+
+
+
+###  http://mex.aksw.org/mex-algo#SequentialMinimalOptimization
+
+:SequentialMinimalOptimization rdf:type owl:Class ;
+                               
+                               rdfs:subClassOf :NamedAlgorithm .
+
+
+
+###  http://mex.aksw.org/mex-algo#Sigmoid-SVM
+
+:Sigmoid-SVM rdf:type owl:Class ;
+             
+             rdfs:subClassOf :SupportVectorMachines .
+
+
+
+###  http://mex.aksw.org/mex-algo#SimpleCart
+
+:SimpleCart rdf:type owl:Class ;
+            
+            rdfs:subClassOf :NamedAlgorithm ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty :hasClass ;
+                              owl:onClass :DecisionTrees ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                            ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#StatisticalApproach
+
+:StatisticalApproach rdf:type owl:Class ;
+                     
+                     owl:equivalentClass [ rdf:type owl:Class ;
+                                           owl:intersectionOf ( :Algorithm
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasClass ;
+                                                                  owl:someValuesFrom :SupportVectorNetworks
+                                                                ]
+                                                              )
+                                         ] ,
+                                         [ rdf:type owl:Class ;
+                                           owl:intersectionOf ( :Algorithm
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasClass ;
+                                                                  owl:someValuesFrom :BayesTheory
+                                                                ]
+                                                              )
+                                         ] ,
+                                         [ rdf:type owl:Class ;
+                                           owl:intersectionOf ( :Algorithm
+                                                                [ rdf:type owl:Restriction ;
+                                                                  owl:onProperty :hasClass ;
+                                                                  owl:someValuesFrom :ArtificialNeuralNetwork
+                                                                ]
+                                                              )
+                                         ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#Summarization
+
+:Summarization rdf:type owl:Class ;
+               
+               rdfs:subClassOf :LearningProblem .
+
+
+
+###  http://mex.aksw.org/mex-algo#Supervised
+
+:Supervised rdf:type owl:Class ;
+            
+            rdfs:subClassOf :LearningMethod .
+
+
+
+###  http://mex.aksw.org/mex-algo#SupervisedApproach
+
+:SupervisedApproach rdf:type owl:Class ;
+                    
+                    owl:equivalentClass [ rdf:type owl:Class ;
+                                          owl:intersectionOf ( :Algorithm
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty :hasLearningMethod ;
+                                                                 owl:onClass :Supervised ;
+                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                               ]
+                                                             )
+                                        ] ,
+                                        [ rdf:type owl:Class ;
+                                          owl:intersectionOf ( :Algorithm
+                                                               [ rdf:type owl:Class ;
+                                                                 owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty :hasLearningProblem ;
+                                                                                 owl:onClass :ClassificationProblem ;
+                                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                               ]
+                                                                               [ rdf:type owl:Restriction ;
+                                                                                 owl:onProperty :hasLearningProblem ;
+                                                                                 owl:onClass :Regression ;
+                                                                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                               ]
+                                                                             )
+                                                               ]
+                                                             )
+                                        ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#SupportVectorMachines
+
+:SupportVectorMachines rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :NamedAlgorithm ,
+                                       [ rdf:type owl:Restriction ;
+                                         owl:onProperty :hasClass ;
+                                         owl:onClass :SupportVectorNetworks ;
+                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                       ] ,
+                                       [ rdf:type owl:Class ;
+                                         owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasLearningMethod ;
+                                                         owl:onClass :SemiSupervised ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasLearningMethod ;
+                                                         owl:onClass :Supervised ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                       ]
+                                                     )
+                                       ] ,
+                                       [ rdf:type owl:Class ;
+                                         owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasLearningProblem ;
+                                                         owl:onClass :ClassificationProblem ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                       ]
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty :hasLearningProblem ;
+                                                         owl:onClass :Regression ;
+                                                         owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                       ]
+                                                     )
+                                       ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#SupportVectorNetworks
+
+:SupportVectorNetworks rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :AlgorithmClass .
+
+
+
+###  http://mex.aksw.org/mex-algo#SymbolicApproach
+
+:SymbolicApproach rdf:type owl:Class ;
+                  
+                  owl:equivalentClass [ rdf:type owl:Class ;
+                                        owl:intersectionOf ( :Algorithm
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :hasClass ;
+                                                               owl:someValuesFrom :DecisionTrees
+                                                             ]
+                                                           )
+                                      ] ,
+                                      [ rdf:type owl:Class ;
+                                        owl:intersectionOf ( :Algorithm
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :hasClass ;
+                                                               owl:someValuesFrom :LogicalRepresentations
+                                                             ]
+                                                           )
+                                      ] ,
+                                      [ rdf:type owl:Class ;
+                                        owl:intersectionOf ( :Algorithm
+                                                             [ rdf:type owl:Restriction ;
+                                                               owl:onProperty :hasClass ;
+                                                               owl:someValuesFrom :Rules
+                                                             ]
+                                                           )
+                                      ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#Unsupervised
+
+:Unsupervised rdf:type owl:Class ;
+              
+              rdfs:subClassOf :LearningMethod .
+
+
+
+###  http://mex.aksw.org/mex-algo#UnsupervisedApproach
+
+:UnsupervisedApproach rdf:type owl:Class ;
+                      
+                      owl:equivalentClass [ rdf:type owl:Class ;
+                                            owl:intersectionOf ( :Algorithm
+                                                                 [ rdf:type owl:Class ;
+                                                                   owl:unionOf ( [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty :hasLearningProblem ;
+                                                                                   owl:onClass :Association ;
+                                                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                                 ]
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty :hasLearningProblem ;
+                                                                                   owl:onClass :ClusteringProblem ;
+                                                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                                 ]
+                                                                                 [ rdf:type owl:Restriction ;
+                                                                                   owl:onProperty :hasLearningProblem ;
+                                                                                   owl:onClass :Summarization ;
+                                                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                                 ]
+                                                                               )
+                                                                 ]
+                                                               )
+                                          ] ,
+                                          [ rdf:type owl:Class ;
+                                            owl:intersectionOf ( :Algorithm
+                                                                 [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty :hasLearningMethod ;
+                                                                   owl:onClass :Unsupervised ;
+                                                                   owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                                                 ]
+                                                               )
+                                          ] .
+
+
+
+###  http://mex.aksw.org/mex-algo#UserClassifier
+
+:UserClassifier rdf:type owl:Class ;
+                
+                rdfs:subClassOf :NamedAlgorithm ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty :hasClass ;
+                                  owl:onClass :DecisionTrees ;
+                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger
+                                ] .
 
 
 
@@ -601,408 +1466,379 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 #################################################################
 
 
-###  http://aksw.org/DiegoEsteves.html
+###  http://mex.aksw.org/mex-algo#AZURE
 
-<http://aksw.org/DiegoEsteves.html> rdf:type owl:NamedIndividual .
+:AZURE rdf:type :Implementation ,
+                owl:NamedIndividual .
 
 
 
-###  http://aksw.org/DiegoMoussallem.html
+###  http://mex.aksw.org/mex-algo#ApacheMahout
 
-<http://aksw.org/DiegoMoussallem.html> rdf:type owl:NamedIndividual .
-
-
-
-###  http://aksw.org/JensLehmann.html
-
-<http://aksw.org/JensLehmann.html> rdf:type owl:NamedIndividual .
-
-
-
-###  http://aksw.org/MarkusAckermann.html
-
-<http://aksw.org/MarkusAckermann.html> rdf:type owl:NamedIndividual .
-
-
-
-###  http://aksw.org/RicardoUsbeck.html
-
-<http://aksw.org/RicardoUsbeck.html> rdf:type owl:NamedIndividual .
-
-
-
-###  http://aksw.org/SebastianHellmann.html
-
-<http://aksw.org/SebastianHellmann.html> rdf:type owl:NamedIndividual .
-
-
-
-###  http://lattes.cnpq.br/7292694995543789
-
-<http://lattes.cnpq.br/7292694995543789> rdf:type owl:NamedIndividual .
-
-
-
-###  http://lattes.cnpq.br/9591256136167135
-
-<http://lattes.cnpq.br/9591256136167135> rdf:type owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#AdaptativeWebsite
-
-:AdaptativeWebsite rdf:type :Context ,
-                            owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#AffectiveComputing
-
-:AffectiveComputing rdf:type :Context ,
-                             owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#Bioinformatics
-
-:Bioinformatics rdf:type :Context ,
-                         owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#BrainMachineInterfaces
-
-:BrainMachineInterfaces rdf:type :Context ,
-                                 owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#Cheminformatics
-
-:Cheminformatics rdf:type :Context ,
-                          owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#ClassifyingDNAsequences
-
-:ClassifyingDNAsequences rdf:type :Context ,
-                                  owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#ComputationalAdversiting
-
-:ComputationalAdversiting rdf:type :Context ,
-                                   owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#ComputationalFinance
-
-:ComputationalFinance rdf:type :Context ,
-                               owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#ComputerVision
-
-:ComputerVision rdf:type :Context ,
-                         owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#DetectingCreditCardFrauds
-
-:DetectingCreditCardFrauds rdf:type :Context ,
-                                    owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#FactPrediction
-
-:FactPrediction rdf:type :Context ,
-                         owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#GamePlaying
-
-:GamePlaying rdf:type :Context ,
-                      owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#InformationRetrieval
-
-:InformationRetrieval rdf:type :Context ,
-                               owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#InternetFraudDetection
-
-:InternetFraudDetection rdf:type :Context ,
-                                 owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#LinkDiscovery
-
-:LinkDiscovery rdf:type :Context ,
-                        owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#MachinePerception
-
-:MachinePerception rdf:type :Context ,
-                            owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#MedicalDiagnosis
-
-:MedicalDiagnosis rdf:type :Context ,
-                           owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#Metaheuristics
-
-:Metaheuristics rdf:type :Context ,
-                         owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#NaturalLanguageProcessing
-
-:NaturalLanguageProcessing rdf:type :Context ,
-                                    owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#ObjectRecognition
-
-:ObjectRecognition rdf:type :Context ,
-                            owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#Optimization
-
-:Optimization rdf:type :Context ,
+:ApacheMahout rdf:type :Implementation ,
                        owl:NamedIndividual .
 
 
 
-###  http://mex.aksw.org/mex-core#RecomenderSystems
+###  http://mex.aksw.org/mex-algo#DLLearner
 
-:RecomenderSystems rdf:type :Context ,
-                            owl:NamedIndividual .
+:DLLearner rdf:type :Implementation ,
+                    owl:NamedIndividual .
 
 
 
-###  http://mex.aksw.org/mex-core#Robotics
+###  http://mex.aksw.org/mex-algo#ELKI
 
-:Robotics rdf:type :Context ,
+:ELKI rdf:type :Implementation ,
+               owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#EViews
+
+:EViews rdf:type :Implementation ,
+                 owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#Encog
+
+:Encog rdf:type :Implementation ,
+                owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#FAMa
+
+:FAMa rdf:type :Implementation ,
+               owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#H2O
+
+:H2O rdf:type :Implementation ,
+              owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#IBMMiner
+
+:IBMMiner rdf:type :Implementation ,
                    owl:NamedIndividual .
 
 
 
-###  http://mex.aksw.org/mex-core#SearchEngines
+###  http://mex.aksw.org/mex-algo#Julia
 
-:SearchEngines rdf:type :Context ,
-                        owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#SentimentAnalysis
-
-:SentimentAnalysis rdf:type :Context ,
-                            owl:NamedIndividual .
+:Julia rdf:type :Implementation ,
+                owl:NamedIndividual .
 
 
 
-###  http://mex.aksw.org/mex-core#SequenceMining
+###  http://mex.aksw.org/mex-algo#KNIME
 
-:SequenceMining rdf:type :Context ,
+:KNIME rdf:type :Implementation ,
+                owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#KXEN
+
+:KXEN rdf:type :Implementation ,
+               owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#LIONsolver
+
+:LIONsolver rdf:type :Implementation ,
+                     owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#LibLinear
+
+:LibLinear rdf:type :Implementation ,
+                    owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#LibSVM
+
+:LibSVM rdf:type :Implementation ,
+                 owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#LibraryC
+
+:LibraryC rdf:type :Implementation ,
+                   owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#LibraryCPlusPlus
+
+:LibraryCPlusPlus rdf:type :Implementation ,
+                           owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#LibraryCentura
+
+:LibraryCentura rdf:type :Implementation ,
                          owl:NamedIndividual .
 
 
 
-###  http://mex.aksw.org/mex-core#SoftwareEnginnering
+###  http://mex.aksw.org/mex-algo#LibraryDotNet
 
-:SoftwareEnginnering rdf:type :Context ,
-                              owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#SpeechAndHandwritingRecognition
-
-:SpeechAndHandwritingRecognition rdf:type :Context ,
-                                          owl:NamedIndividual .
+:LibraryDotNet rdf:type :Implementation ,
+                        owl:NamedIndividual .
 
 
 
-###  http://mex.aksw.org/mex-core#StockMarketAnalysis
+###  http://mex.aksw.org/mex-algo#LibraryJava
 
-:StockMarketAnalysis rdf:type :Context ,
-                              owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#StructuralHealthMonitoring
-
-:StructuralHealthMonitoring rdf:type :Context ,
-                                     owl:NamedIndividual .
+:LibraryJava rdf:type :Implementation ,
+                      owl:NamedIndividual .
 
 
 
-###  http://mex.aksw.org/mex-core#SyntacticLanguageProcessing
+###  http://mex.aksw.org/mex-algo#LibraryJavaScript
 
-:SyntacticLanguageProcessing rdf:type :Context ,
-                                      owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#ackermann
-
-:ackermann rdf:type owl:NamedIndividual ,
-                    foaf:Person ;
-           
-           foaf:familyName "Ackermann"^^rdfs:Literal ;
-           
-           foaf:givenName "Markus"^^rdfs:Literal ;
-           
-           foaf:mbox_sha1sum "cbaa093f6b7de561e5915569f2c78435ee14ad3c"^^rdfs:Literal ;
-           
-           foaf:homepage <http://aksw.org/MarkusAckermann.html> .
+:LibraryJavaScript rdf:type :Implementation ,
+                            owl:NamedIndividual .
 
 
 
-###  http://mex.aksw.org/mex-core#duarte
+###  http://mex.aksw.org/mex-algo#LibraryNodeJS
 
-:duarte rdf:type owl:NamedIndividual ,
-                 foaf:Person ;
-        
-        foaf:mbox_sha1sum "0e3dbfc59f8e1cdd7840b4a82176a378042b4988"^^rdfs:Literal ;
-        
-        foaf:familyName "Duarte"^^rdfs:Literal ;
-        
-        foaf:givenName "Julio Cesar"^^rdfs:Literal ;
-        
-        foaf:homepage <http://lattes.cnpq.br/9591256136167135> .
+:LibraryNodeJS rdf:type :Implementation ,
+                        owl:NamedIndividual .
 
 
 
-###  http://mex.aksw.org/mex-core#esteves
+###  http://mex.aksw.org/mex-algo#LibraryOther
 
-:esteves rdf:type owl:NamedIndividual ,
-                  foaf:Person ;
-         
-         foaf:mbox_sha1sum "809a23a3a8dfbca0df798c59ed4a1941217e8c38"^^rdfs:Literal ;
-         
-         foaf:givenName "Diego"^^rdfs:Literal ;
-         
-         foaf:familyName "Esteves"^^rdfs:Literal ;
-         
-         foaf:homepage <http://aksw.org/DiegoEsteves.html> .
+:LibraryOther rdf:type :Implementation ,
+                       owl:NamedIndividual .
 
 
 
-###  http://mex.aksw.org/mex-core#hellmann
+###  http://mex.aksw.org/mex-algo#LibraryPHP
 
-:hellmann rdf:type owl:NamedIndividual ,
-                   foaf:Person ;
-          
-          foaf:mbox_sha1sum "3b9b030bfa83b9c747d525b7943829d3abc2813b"^^rdfs:Literal ;
-          
-          foaf:familyName "Hellmann"^^rdfs:Literal ;
-          
-          foaf:givenName "Sebastian"^^rdfs:Literal ;
-          
-          foaf:homepage <http://aksw.org/SebastianHellmann.html> .
+:LibraryPHP rdf:type :Implementation ,
+                     owl:NamedIndividual .
 
 
 
-###  http://mex.aksw.org/mex-core#lehmann
+###  http://mex.aksw.org/mex-algo#LibraryPython
 
-:lehmann rdf:type owl:NamedIndividual ,
-                  foaf:Person ;
-         
-         foaf:mbox_sha1sum "01fee219e665ecea3905f361517b2bd4a344975d"^^rdfs:Literal ;
-         
-         foaf:givenName "Jens"^^rdfs:Literal ;
-         
-         foaf:familyName "Lehmann"^^rdfs:Literal ;
-         
-         foaf:homepage <http://aksw.org/JensLehmann.html> .
+:LibraryPython rdf:type :Implementation ,
+                        owl:NamedIndividual .
 
 
 
-###  http://mex.aksw.org/mex-core#moussallem
+###  http://mex.aksw.org/mex-algo#LibraryRuby
 
-:moussallem rdf:type owl:NamedIndividual ,
-                     foaf:Person ;
-            
-            foaf:mbox_sha1sum "7368dcca7ca3b3c8f3937d73c829a94460ca81bc"^^rdfs:Literal ;
-            
-            foaf:givenName "Diego"^^rdfs:Literal ;
-            
-            foaf:familyName "Moussallem"^^rdfs:Literal ;
-            
-            foaf:homepage <http://aksw.org/DiegoMoussallem.html> .
+:LibraryRuby rdf:type :Implementation ,
+                      owl:NamedIndividual .
 
 
 
-###  http://mex.aksw.org/mex-core#usbeck
+###  http://mex.aksw.org/mex-algo#MLPACK
 
-:usbeck rdf:type owl:NamedIndividual ,
-                 foaf:Person ;
-        
-        foaf:givenName "Ricardo"^^rdfs:Literal ;
-        
-        foaf:familyName "Usbeck"^^rdfs:Literal ;
-        
-        foaf:mbox_sha1sum "cf1c5ea391961440c9c6f7b8348d0f920a3cea77"^^rdfs:Literal ;
-        
-        foaf:homepage <http://aksw.org/RicardoUsbeck.html> .
+:MLPACK rdf:type :Implementation ,
+                 owl:NamedIndividual .
 
 
 
-###  http://mex.aksw.org/mex-core#yoko
+###  http://mex.aksw.org/mex-algo#MOA
 
-:yoko rdf:type owl:NamedIndividual ,
-               foaf:Person ;
-      
-      foaf:mbox_sha1sum "5510fa025d7f58fc80eb090d2f0a13e3c33346c8"^^rdfs:Literal ;
-      
-      foaf:familyName "Cavalcanti Reis"^^rdfs:Literal ;
-      
-      foaf:givenName "Maria Claudia"^^rdfs:Literal ;
-      
-      foaf:homepage <http://lattes.cnpq.br/7292694995543789> .
+:MOA rdf:type :Implementation ,
+              owl:NamedIndividual .
 
 
 
+###  http://mex.aksw.org/mex-algo#Mathematica
+
+:Mathematica rdf:type :Implementation ,
+                      owl:NamedIndividual .
 
 
-#################################################################
-#
-#    General axioms
-#
-#################################################################
+
+###  http://mex.aksw.org/mex-algo#Matlab
+
+:Matlab rdf:type :Implementation ,
+                 owl:NamedIndividual .
 
 
-[ rdf:type owl:AllDisjointClasses ;
-  owl:members ( :Test
-                :Training
-                :Validation
-              )
+
+###  http://mex.aksw.org/mex-algo#MonteCarloMachineLearning
+
+:MonteCarloMachineLearning rdf:type :Implementation ,
+                                    owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#NeuroSolutions
+
+:NeuroSolutions rdf:type :Implementation ,
+                         owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#Octave
+
+:Octave rdf:type :Implementation ,
+                 owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#OpenCV
+
+:OpenCV rdf:type :Implementation ,
+                 owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#OpenNN
+
+:OpenNN rdf:type :Implementation ,
+                 owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#OracleDataMining
+
+:OracleDataMining rdf:type :Implementation ,
+                           owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#Orange
+
+:Orange rdf:type :Implementation ,
+                 owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#R
+
+:R rdf:type :Implementation ,
+            owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#RCASE
+
+:RCASE rdf:type :Implementation ,
+                owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#RapidMiner
+
+:RapidMiner rdf:type :Implementation ,
+                     owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#SAP
+
+:SAP rdf:type :Implementation ,
+              owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#SAS
+
+:SAS rdf:type :Implementation ,
+              owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#SPSS
+
+:SPSS rdf:type :Implementation ,
+               owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#SQLServerAnalysisServices
+
+:SQLServerAnalysisServices rdf:type :Implementation ,
+                                    owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#STATISTICA
+
+:STATISTICA rdf:type :Implementation ,
+                     owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#Shogun
+
+:Shogun rdf:type :Implementation ,
+                 owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#Stata
+
+:Stata rdf:type :Implementation ,
+                owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#Weka
+
+:Weka rdf:type :Implementation ,
+               owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#YALE
+
+:YALE rdf:type :Implementation ,
+               owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#Yooreeka
+
+:Yooreeka rdf:type :Implementation ,
+                   owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#mlpy
+
+:mlpy rdf:type :Implementation ,
+               owl:NamedIndividual .
+
+
+
+###  http://mex.aksw.org/mex-algo#scikit-learn
+
+:scikit-learn rdf:type :Implementation ,
+                       owl:NamedIndividual .
+
+
+
+[ rdf:type :AllDisjointClasses
 ] .
-
-
-
+[ rdf:type :AllDisjointClasses
+] .
+[ rdf:type :AllDisjointClasses
+] .
+[ rdf:type :AllDisjointClasses
+] .
+[ rdf:type :AllDisjointClasses
+] .
 
 ###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
