@@ -1,0 +1,33 @@
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix mexalgo:  <http://mex.aksw.org/mex-algo#> .
+@prefix mexcore:  <http://mex.aksw.org/mex-core#> .
+@prefix mexperf:  <http://mex.aksw.org/mex-perf#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix doap:    <http://usefulinc.com/ns/doap#> .
+@prefix this:    <http://mex.aksw.org/examples/001/> .
+
+this:application
+      a       prov:Person , mexcore:ApplicationContext , prov:Organization , prov:Agent ;
+      dct:dateCopyrighted "2015.06.29 00:28:36 CEST" ;
+      foaf:givenName "D Esteves" ;
+      foaf:mbox "esteves@informatik.uni-leipzig.de" .
+
+mexcore:ApplicationContext
+      prov:wasAttributedTo
+              "teste" .
+
+this:xxx
+      dc:description "zzzzzzz" ;
+      dc:title "dddddd" ;
+      prov:wasAttributedTo
+              this:context .
+
+this:John
+      prov:wasAttributedTo
+              this:context .
