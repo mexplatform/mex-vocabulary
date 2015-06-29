@@ -3,7 +3,7 @@ package org.aksw.mex.core;
 import java.util.Date;
 
 /**
- * Created by root on 26.06.15.
+ * Created by esteves on 26.06.15.
  */
 public class ModelVO {
 

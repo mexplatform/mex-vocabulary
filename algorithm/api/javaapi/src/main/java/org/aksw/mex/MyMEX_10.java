@@ -1,5 +1,7 @@
 package org.aksw.mex;
 
+import com.google.common.collect.Collections2;
+import com.google.common.collect.Iterables;
 import org.aksw.mex.algo.AlgorithmParameterVO;
 import org.aksw.mex.algo.AlgorithmVO;
 import org.aksw.mex.algo.ImplementationVO;
@@ -11,12 +13,22 @@ import org.aksw.mex.perf.example.ExamplePerformanceVO;
 import org.aksw.mex.perf.overall.*;
 import org.aksw.mex.util.Global;
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by esteves on 26.06.15.
  */
 public class MyMEX_10 {
+
+    public MyMEX_10(){
+        this.applicationContext = new ApplicationContextVO();
+        this.experiment = new ExperimentVO();
+        this.experimentConfigurationList = new ArrayList<>();
+    }
+
 
     public ApplicationContextVO getApplicationContext() {
         return applicationContext;
@@ -36,6 +48,7 @@ public class MyMEX_10 {
     private ExecutionIndividualVO executionIndividual;
     private ExecutionSetVO executionSet;
     private ExperimentConfigurationVO experimentConfiguration;
+    private List<ExperimentConfigurationVO> experimentConfigurationList;
     private ExperimentVO experiment;
     private FeatureVO feature;
     private FeatureVOCollection featureCollection;
@@ -118,7 +131,7 @@ public class MyMEX_10 {
         return experimentConfiguration;
     }
 
-    public void setExperimentConfiguration(ExperimentConfigurationVO experimentConfiguration) {
+    public void setExpConf_iguration(ExperimentConfigurationVO experimentConfiguration) {
         this.experimentConfiguration = experimentConfiguration;
     }
 
@@ -274,10 +287,7 @@ public class MyMEX_10 {
         this.executionPerformance = executionPerformance;
     }
 
-    public MyMEX_10(){
-        this.applicationContext = new ApplicationContextVO();
-        this.experiment = new ExperimentVO();
-    }
+
 
     //MEX
     public void setAuthorName(String value){
@@ -289,99 +299,150 @@ public class MyMEX_10 {
     public void setContext(String value){this.applicationContext.setContext(value);}
     public void setOrganization(String value){this.applicationContext.setOrganization(value);}
 
-    public void setExperimentId(String value){this.experiment.setId(value);}
-    public void setExperimentTitle(String value){this.experiment.set_title(value);}
-    public void setExperimentDate(Date value){this.experiment.setDate(value);}
-    public void setExperimentDescription(String value){this.experiment.setDescription(value);}
+    public void setExp_Id(String value){this.experiment.setId(value);}
+    public void setExp_Title(String value){this.experiment.set_title(value);}
+    public void setExp_Date(Date value){this.experiment.setDate(value);}
+    public void setExp_Description(String value){this.experiment.setDescription(value);}
 
-    public void setExperimentConfId(String value){this.experimentConfiguration.set_id(value);}
-    public void setExperimentConfDescription(String value){this.experimentConfiguration.set_description(value);}
-    public void setExperimentConfModelId(String value){
+    public void setExpConf_Id(String value){this.experimentConfiguration.set_id(value);}
+    public void setExpConf_Description(String value){this.experimentConfiguration.set_description(value);}
+    public void setExpConf_Model_Id(String value){
         if (this.experimentConfiguration.getModel() == null) {
          this.experimentConfiguration.setModel(new ModelVO());
         }
         this.experimentConfiguration.getModel().set_id(value);
     }
-    public void setExperimentConfModelDescription(String value){
+    public void setExpConf_Model_Description(String value){
         if (this.experimentConfiguration.getModel() == null) {
             this.experimentConfiguration.setModel(new ModelVO());
         }
         this.experimentConfiguration.getModel().set_description(value);
     }
-    public void setExperimentConfModelDate(Date value){
+    public void setExpConf_Model_Date(Date value){
         if (this.experimentConfiguration.getModel() == null) {
             this.experimentConfiguration.setModel(new ModelVO());
         }
         this.experimentConfiguration.getModel().set_date(value);
     }
 
-    public void setExperimentConfSamplingMethod(String value){
+    public void setExpConf_SamplingMethod(String value){
         this.experimentConfiguration.setSamplingMethod(new SamplingMethodVO(value));
     }
 
-    public void setExperimentConfSamplingMethodTrainSize(double value){
+    public void setExpConf_SamplingMethod_TrainSize(double value){
         if (this.experimentConfiguration.getSamplingMethod() == null) {
             this.experimentConfiguration.setSamplingMethod(new SamplingMethodVO(Global.EnumSamplingMethod.Holdout));
         }
         this.experimentConfiguration.getSamplingMethod().setTrainSize(value);
     }
 
-    public void setExperimentConfSamplingMethodTestSize(double value){
+    public void setExpConf_SamplingMethod_TestSize(double value){
         if (this.experimentConfiguration.getSamplingMethod() == null) {
             this.experimentConfiguration.setSamplingMethod(new SamplingMethodVO(Global.EnumSamplingMethod.Holdout));
         }
         this.experimentConfiguration.getSamplingMethod().setTestSize(value);
     }
 
-    public void setExperimentConfSamplingMethodNumberOfFolds(Integer value){
+    public void setExpConf_SamplingMethod_NumberOfFolds(Integer value){
         if (this.experimentConfiguration.getSamplingMethod() == null) {
             this.experimentConfiguration.setSamplingMethod(new SamplingMethodVO(Global.EnumSamplingMethod.Holdout));
         }
         this.experimentConfiguration.getSamplingMethod().setFolds(value);
     }
 
-    public void setExperimentConfSamplingMethodIsSequential(boolean value){
+    public void setExpConf_SamplingMethod_IsSequential(boolean value){
         if (this.experimentConfiguration.getSamplingMethod() == null) {
             this.experimentConfiguration.setSamplingMethod(new SamplingMethodVO(Global.EnumSamplingMethod.Holdout));
         }
         this.experimentConfiguration.getSamplingMethod().setSequential(value);
     }
 
-    public void setExperimentConfHardwareOS(String value){
+    public void setExpConf_Hardware_OS(String value){
         if (this.experimentConfiguration.getHardwareConfiguration() == null) {
             this.experimentConfiguration.setHardwareConfiguration(new HardwareConfigurationVO());
         }
         this.experimentConfiguration.getHardwareConfiguration().setOperationalSystem(value);
     }
 
-    public void setExperimentConfHardwareCPU(String value){
+    public void setExpConf_Hardware_CPU(String value){
         if (this.experimentConfiguration.getHardwareConfiguration() == null) {
             this.experimentConfiguration.setHardwareConfiguration(new HardwareConfigurationVO());
         }
         this.experimentConfiguration.getHardwareConfiguration().setCPU(value);
     }
 
-    public void setExperimentConfHardwareMB(String value){
+    public void setExpConf_Hardware_MB(String value){
         if (this.experimentConfiguration.getHardwareConfiguration() == null) {
             this.experimentConfiguration.setHardwareConfiguration(new HardwareConfigurationVO());
         }
         this.experimentConfiguration.getHardwareConfiguration().setMemory(value);
     }
 
-    public void setExperimentConfHardwareHD(String value){
+    public void setExpConf_Hardware_HD(String value){
         if (this.experimentConfiguration.getHardwareConfiguration() == null) {
             this.experimentConfiguration.setHardwareConfiguration(new HardwareConfigurationVO());
         }
         this.experimentConfiguration.getHardwareConfiguration().setHD(value);
     }
 
-    public void setExperimentConfHardwareCPUCache(String value){
+    public void setExpConf_Hardware_CPUCache(String value){
         if (this.experimentConfiguration.getHardwareConfiguration() == null) {
             this.experimentConfiguration.setHardwareConfiguration(new HardwareConfigurationVO());
         }
         this.experimentConfiguration.getHardwareConfiguration().setCache(value);
     }
 
+    public void setExpConf_DataSet_Title(String value){
+        if (this.experimentConfiguration.getDataSet() == null) {
+            this.experimentConfiguration.setDataSet(new DataSetVO());
+        }
+        this.experimentConfiguration.getDataSet().setName(value);
+    }
 
+    public void setExpConf_DataSet_Description(String value){
+        if (this.experimentConfiguration.getDataSet() == null) {
+            this.experimentConfiguration.setDataSet(new DataSetVO());
+        }
+        this.experimentConfiguration.getDataSet().setDescription(value);
+    }
+
+    public void setExpConf_DataSet_LandingPage(String value){
+        if (this.experimentConfiguration.getDataSet() == null) {
+            this.experimentConfiguration.setDataSet(new DataSetVO());
+        }
+        this.experimentConfiguration.getDataSet().setURI(value);
+    }
+
+    public void addExpConf_Feature(String label){
+        int i=0;
+        if (this.experimentConfiguration.getFeatures() != null)
+        {
+            i=this.experimentConfiguration.getFeatures().size();
+        }
+        this.experimentConfiguration.addFeature(new FeatureVO(String.valueOf(i+1),label));
+    }
+    public ExperimentConfigurationVO getExpConf(String value){
+        Collection<ExperimentConfigurationVO> t
+                = Collections2.filter(this.experimentConfigurationList, experimentConfigurationVO -> experimentConfigurationVO.get_id().equals(value));
+        if (t != null){
+            return Iterables.get(t, 0);
+        }else {return null;}
+    }
+
+    public void addExpConf_Id(String value){
+        try
+        {
+            Collection<ExperimentConfigurationVO> t
+                    = Collections2.filter(this.experimentConfigurationList, p -> p.get_id().equals(value));
+            if (t != null){
+                throw new Exception("Experiment Configuration ID already assigned");
+            }else
+            {
+                this.experimentConfigurationList.add(new ExperimentConfigurationVO(value));}
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+    }
 
 }

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by root on 08.06.15.
+ * Created by esteves on 08.06.15.
  */
 public class AlgorithmVO {
 

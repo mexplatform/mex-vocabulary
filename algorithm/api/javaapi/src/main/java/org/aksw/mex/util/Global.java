@@ -1,5 +1,5 @@
 package org.aksw.mex.util; /**
- * Created by root on 26.06.15.
+ * Created by esteves on 26.06.15.
  */
 
 public class Global {

@@ -1,7 +1,7 @@
 package org.aksw.mex.core;
 
 /**
- * Created by root on 26.06.15.
+ * Created by esteves on 26.06.15.
  */
 public class SamplingMethodVO {
 
@@ -15,7 +15,7 @@ public class SamplingMethodVO {
         this._individualName = value.toString();
     }
 
-    public void setIndividualName(String value){
+    public void setName(String value){
         this._individualName = value;
     }
 

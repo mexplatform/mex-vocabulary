@@ -1,10 +1,13 @@
 package org.aksw.mex.core;
 
+import com.google.common.collect.Collections2;
+
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
- * Created by root on 25.06.15.
+ * Created by esteves on 25.06.15.
  */
 public class ExperimentConfigurationVO {
 
@@ -40,6 +43,10 @@ public class ExperimentConfigurationVO {
         this._description = description;
         this._executions = new ArrayList<Execution>();
         this._feature = new ArrayList<FeatureVO>();
+    }
+
+    public ExperimentConfigurationVO(String id) {
+        this._id = id;
     }
 
     public void setModel(ModelVO model) {
@@ -95,8 +102,24 @@ public class ExperimentConfigurationVO {
         return _executions.remove(param);
     }
 
-    public boolean addFeature(FeatureVO value){
-        return this._feature.add(value);
+
+    public void addFeature(String featureName){
+        try
+        {
+            Collection<FeatureVO> t
+                    = Collections2.filter(this._feature, p -> p.get_id().equals(featureName));
+
+            if (t != null){
+                throw new Exception("Feature already assigned");
+            }else
+            {
+                this._feature.add(new FeatureVO(String.valueOf(this._feature.size()+1), featureName));}
+
+        } catch (Exception e){
+            System.out.println(e.toString());
+        }
+
     }
+
 
 }

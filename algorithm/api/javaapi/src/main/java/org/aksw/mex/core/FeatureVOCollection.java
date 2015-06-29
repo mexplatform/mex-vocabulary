@@ -1,6 +1,13 @@
 package org.aksw.mex.core;
 
+import com.google.common.base.Predicate;
+import com.google.common.collect.Collections2;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
+
+
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -8,14 +15,13 @@ import java.util.List;
  */
 public class FeatureVOCollection {
 
-    private List<FeatureVO> _examples;
+    private List<FeatureVO> _features;
 
     public FeatureVOCollection(){
 
-        this._examples = new ArrayList<>();
+        this._features = new ArrayList<>();
     }
 
-    public boolean addExample(FeatureVO value){
-        return this._examples.add(value);
-    }
+
+
 }

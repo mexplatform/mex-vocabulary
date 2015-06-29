@@ -3,7 +3,7 @@ package org.aksw.mex.perf.overall;
 import org.aksw.mex.perf.IPerformance;
 
 /**
- * Created by root on 26.06.15.
+ * Created by esteves on 26.06.15.
  */
 public class ClusteringMeasureVO implements IPerformance {
 
