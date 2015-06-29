@@ -68,38 +68,75 @@ public class MEXModel {
         Resource provAgent = model.createResource(PROVO.NS + PROVO.ClasseTypes.AGENT);
         Resource provPerson = model.createResource(PROVO.NS + PROVO.ClasseTypes.PERSON);
         Resource provOrganization = model.createResource(PROVO.NS + PROVO.ClasseTypes.ORGANIZATION);
+        Resource provEntity = model.createResource(PROVO.NS + PROVO.ClasseTypes.ENTITY);
+
         Resource mexcore_APC = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.APPLICATION_CONTEXT);
+        Resource mexcore_EXP_HEADER = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXPERIMENT);
+
 
         //mex-core
-        Resource appContext;
+        Resource _application = null;
+        Resource _context;
+        Resource _organization;
+        Resource _expHeader;
 
         //gets
         if (mex.getApplicationContext() != null){
-            appContext = model.createResource(URIbase+ "application")
+            _application = model.createResource(URIbase + "application")
                     .addProperty(RDF.type, provAgent)
                     .addProperty(RDF.type, provPerson)
                     .addProperty(RDF.type, provOrganization)
                     .addProperty(RDF.type, mexcore_APC)
                     .addProperty(DCTerms.dateCopyrighted, new SimpleDateFormat("yyyy.MM.dd HH:mm:ss z").format(mex.getApplicationContext().get_fileDate()));
 
-
             if (mex.getApplicationContext().get_givenName() != null) {
-                appContext.addProperty(FOAF.givenName, mex.getApplicationContext().get_givenName());}
+                _application.addProperty(FOAF.givenName, mex.getApplicationContext().get_givenName());}
             if (mex.getApplicationContext().get_mbox() != null) {
-                appContext.addProperty(FOAF.mbox, mex.getApplicationContext().get_mbox());}
+                _application.addProperty(FOAF.mbox, mex.getApplicationContext().get_mbox());}
 
             if (mex.getApplicationContext().get_homepage() != null) {
-                appContext.addProperty(DOAP.givenName, mex.getApplicationContext().get_givenName());}
+                _application.addProperty(DOAP.homepage, mex.getApplicationContext().get_givenName());}
             if (mex.getApplicationContext().get_description() != null) {
-                appContext.addProperty(DOAP.mbox, mex.getApplicationContext().get_mbox());}
+                _application.addProperty(DOAP.description, mex.getApplicationContext().get_mbox());}
             if (mex.getApplicationContext().get_category() != null) {
-                appContext.addProperty(DOAP.givenName, mex.getApplicationContext().get_givenName());}
+                _application.addProperty(DOAP.category, mex.getApplicationContext().get_givenName());}
             if (mex.getApplicationContext().get_location() != null) {
-                appContext.addProperty(DOAP.mbox, mex.getApplicationContext().get_mbox());}
+                _application.addProperty(DOAP.location, mex.getApplicationContext().get_mbox());}
 
             if (mex.getApplicationContext().get_trustyURI() != null) {
-                appContext.addProperty(MEXCORE_10.trustyURI, mex.getApplicationContext().get_mbox());}
+                _application.addProperty(MEXCORE_10.trustyURI, mex.getApplicationContext().get_mbox());}
+
+            if (mex.getApplicationContext().get_organization() != null) {
+                Resource mexcore_ORG = model.createResource(MEXCORE_10.NS + mex.getApplicationContext().get_organization());
+                _organization = model.createResource(URIbase + "organization")
+                        .addProperty(RDF.type, provAgent)
+                        .addProperty(RDF.type, provOrganization)
+                        .addProperty(FOAF.givenName, mex.getApplicationContext().get_organization());}
+
+            if (mex.getApplicationContext().get_context() != null) {
+                Resource mexcore_CON = model.createResource(MEXCORE_10.NS + mex.getApplicationContext().get_context().get_context());
+                _context = model.createResource(URIbase+ "context")
+                        .addProperty(RDF.type, provEntity)
+                        .addProperty(RDF.type, mexcore_CON)
+                        .addProperty(PROVO.wasAttributedTo, _application);}
         }
+
+        if (mex.getExperiment() != null) {
+            _expHeader = model.createResource(URIbase + "experiment-header")
+                    .addProperty(RDF.type, provEntity)
+                    .addProperty(RDF.type, mexcore_EXP_HEADER)
+                    .addProperty(DCTerms.identifier, mex.getExperiment().get_id())
+                    .addProperty(DCTerms.title,mex.getExperiment().get_title())
+                    .addProperty(DCTerms.date, new SimpleDateFormat("yyyy.MM.dd HH:mm:ss z").format(mex.getExperiment().get_date()))
+                    .addProperty(DCTerms.description, mex.getExperiment().get_description());
+
+            if (mex.getApplicationContext() != null) {
+                _expHeader.addProperty(PROVO.wasAttributedTo, _application);
+            }
+
+        }
+
+
 
 
         //mex-algo
@@ -107,19 +144,20 @@ public class MEXModel {
 
         //mex-perf
 
-        Resource context = model.createResource(URIbase + "context");
+       /* Resource context2 = model.createResource(URIbase + "context");
 
         Resource john = model.createResource( URIbase + "John" );
         //Property hasSurname = model.createProperty( PROVO.NS + "hasSurname" );
-        model.add( john, PROVO.wasAttributedTo, context );
+        model.add( john, PROVO.wasAttributedTo, context2 );
 
         final Resource clsApplicationContext = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.APPLICATION_CONTEXT );
         model.add(clsApplicationContext, PROVO.wasAttributedTo,"teste");
 
         Resource appcontext = model.createResource(URIbase + "xxx")
                 .addProperty(DC.title, "dddddd")
-                .addProperty(PROVO.wasAttributedTo, context)
+                .addProperty(PROVO.wasAttributedTo, context2)
                 .addProperty(DC.description, "zzzzzzz");
+                */
 
 
         FileWriter out;

@@ -15,6 +15,48 @@ public class ExperimentVO {
     private String _noiseRemoved;
     private String _attributeSelection;
 
+    public String get_id() {
+        return _id;
+    }
+
+    public Date get_date() {
+        return _date;
+    }
+
+    public String get_description() {
+        return _description;
+    }
+
+    public String get_dataNormalized() {
+        return _dataNormalized;
+    }
+
+    public String get_outliersRemoved() {
+        return _outliersRemoved;
+    }
+
+    public String get_noiseRemoved() {
+        return _noiseRemoved;
+    }
+
+    public String get_attributeSelection() {
+        return _attributeSelection;
+    }
+
+    public String get_title() {
+        return _title;
+    }
+
+    public ApplicationContextVO get_applicationContext() {
+        return _applicationContext;
+    }
+
+    public void set_title(String _title) {
+        this._title = _title;
+    }
+
+    private String _title;
+
     private ApplicationContextVO _applicationContext;
 
     public ExperimentVO(String id, ApplicationContextVO app) {

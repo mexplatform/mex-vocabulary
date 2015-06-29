@@ -4,6 +4,7 @@ import org.aksw.mex.util.Global;
 import org.aksw.mex.util.ontology.mex.MEXCORE_10;
 import org.aksw.mex.util.ontology.PROVO;
 
+import javax.naming.Context;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -52,7 +53,7 @@ public class ApplicationContextVO  {
     private String _location;
     private String _trustyURI;
     private Date _fileDate;
-
+    private String _organization;
     private ContextVO _context;
     private List<ExperimentVO> _experiments;
 
@@ -70,6 +71,14 @@ public class ApplicationContextVO  {
         this._fileDate = new Date();
     }
 
+
+    public ContextVO get_context() {
+        return _context;
+    }
+
+    public String get_organization() {
+        return _organization;
+    }
 
     public ApplicationContextVO(String givenName, String mbox, String homepage, String description, String category, String location, String trustyURI) {
         this._givenName = givenName;
@@ -106,7 +115,7 @@ public class ApplicationContextVO  {
     public void setTrustyURI(String value){
         this._trustyURI = value;
     }
-
+    public void setOrganization(String value) {this._organization = value;}
 
     public boolean addExperiment(ExperimentVO value){
         return this._experiments.add(value);

@@ -27,6 +27,10 @@ public class HardwareConfigurationVO {
         this._cpu=cpu;
     }
 
+    public HardwareConfigurationVO(){
+
+    }
+
     public void setOperationalSystem(String value){
         this._os = value;
     }

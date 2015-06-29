@@ -12,22 +12,26 @@
 @prefix doap:    <http://usefulinc.com/ns/doap#> .
 @prefix this:    <http://mex.aksw.org/examples/001/> .
 
+this:organization
+      a       prov:Organization , prov:Agent ;
+      foaf:givenName "Leipzig University" .
+
 this:application
       a       prov:Person , mexcore:ApplicationContext , prov:Organization , prov:Agent ;
-      dct:dateCopyrighted "2015.06.29 00:28:36 CEST" ;
+      dct:dateCopyrighted "2015.06.29 14:34:30 CEST" ;
       foaf:givenName "D Esteves" ;
       foaf:mbox "esteves@informatik.uni-leipzig.de" .
 
-mexcore:ApplicationContext
+this:experiment-header
+      a       mexcore:Experiment , prov:Entity ;
+      dct:date "2015.06.29 14:34:30 CEST" ;
+      dct:description "my first MEX experiment" ;
+      dct:identifier "001" ;
+      dct:title "my first experiment" ;
       prov:wasAttributedTo
-              "teste" .
+              this:application .
 
-this:xxx
-      dc:description "zzzzzzz" ;
-      dc:title "dddddd" ;
+this:context
+      a       mexcore:RecomenderSystems , prov:Entity ;
       prov:wasAttributedTo
-              this:context .
-
-this:John
-      prov:wasAttributedTo
-              this:context .
+              this:application .

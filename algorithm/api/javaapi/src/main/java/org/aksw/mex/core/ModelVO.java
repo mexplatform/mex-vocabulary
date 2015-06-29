@@ -7,6 +7,30 @@ import java.util.Date;
  */
 public class ModelVO {
 
+    public String get_id() {
+        return _id;
+    }
+
+    public void set_id(String _id) {
+        this._id = _id;
+    }
+
+    public String get_description() {
+        return _description;
+    }
+
+    public void set_description(String _description) {
+        this._description = _description;
+    }
+
+    public Date get_date() {
+        return _date;
+    }
+
+    public void set_date(Date _date) {
+        this._date = _date;
+    }
+
     private String _id;
     private String _description;
     private Date _date;

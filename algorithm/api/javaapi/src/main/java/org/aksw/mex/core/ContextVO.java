@@ -5,6 +5,10 @@ package org.aksw.mex.core;
  */
 public class ContextVO {
 
+    public String get_context() {
+        return _context;
+    }
+
     private String _context="";
     public ContextVO(String param) {
         this._context = param;

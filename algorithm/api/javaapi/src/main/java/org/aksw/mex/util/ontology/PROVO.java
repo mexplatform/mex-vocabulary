@@ -23,6 +23,7 @@ public class PROVO implements IOntology {
     public static final Property wasInformedBy;
     public static final Property wasGeneratedBy;
     public static final Property generated;
+    public static final Property actedOnBehalfOf;
 
     protected PROVO() {
     }
@@ -39,6 +40,7 @@ public class PROVO implements IOntology {
         wasInformedBy = m_model.createProperty(NS + "wasInformedBy");
         wasGeneratedBy = m_model.createProperty(NS + "wasGeneratedBy");
         generated = m_model.createProperty(NS + "generated");
+        actedOnBehalfOf = m_model.createProperty(NS + "actedOnBehalfOf");
     }
 
 

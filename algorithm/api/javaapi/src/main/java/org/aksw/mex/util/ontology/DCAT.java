@@ -12,8 +12,7 @@ public class DCAT {
     private static Model m_model = ModelFactory.createDefaultModel();
     public static final String NS = "http://www.w3.org/ns/dcat#";
     public static final Resource NAMESPACE;
-    public static final Property givenName;
-    public static final Property mbox;
+    public static final Property landingPage;
 
 
     public DCAT() {
@@ -25,8 +24,7 @@ public class DCAT {
 
     static {
         NAMESPACE = m_model.createResource("http://www.w3.org/ns/dcat#");
-        givenName = m_model.createProperty("http://www.w3.org/ns/dcat#givenName");
-        mbox = m_model.createProperty("http://www.w3.org/ns/dcat#mbox");
+        landingPage = m_model.createProperty("http://www.w3.org/ns/dcat#landingPage");
 
     }
 
