@@ -95,11 +95,11 @@ public class ImplementationVO {
     }*/
 
 
-    public String getIndividualName() {
+    public String get() {
         return _individualName;
     }
 
-    public void setIndividualName(String value) {
+    public void set(String value) {
         this._individualName = value;
     }
 

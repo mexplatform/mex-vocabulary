@@ -24,10 +24,7 @@ public class ExampleSimple {
             mex.setAuthorEmail("esteves@informatik.uni-leipzig.de");
             mex.setContext(Global.EnumContext.RecomenderSystems);
             mex.setOrganization("Leipzig University");
-        }
 
-        //the header for your experiment
-        {
             mex.setExp_Id("E001");
             mex.setExp_Title("my first experiment");
             mex.setExp_Date(new Date());
@@ -67,18 +64,16 @@ public class ExampleSimple {
 
         }
 
-        //parei aqui!!!!!!!!!!!
-
         //adding algorithms and parameters
         {
-            mex.getExpConf(eid).addExpConf_Algorithm_Implementation_Name(EnumImplementation.Weka);
-            mex.addExpConf_Algorithm_Implementation_Revision("3.6.6");
+            mex.getExpConf(eid).getImplementation().set(EnumImplementation.Weka);
+            mex.getExpConf(eid).getImplementation().setRevision("3.6.6");
 
-            mex.addExpConf_Algorithm(EnumAlgorithm.SupportVectorMachines, "Support Vector Machines", "C-SVM");
-            mex.addExpConf_Algorithm(EnumAlgorithm.NaiveBayes);
+            mex.getExpConf(eid).addAlgorithm(EnumAlgorithm.SupportVectorMachines);
+            mex.getExpConf(eid).addAlgorithm(EnumAlgorithm.NaiveBayes);
 
-            mex.addExpConf_Algorithm_Parameter(EnumAlgorithm.SupportVectorMachines, "C", "10^3");
-            mex.addExpConf_Algorithm_Parameter(EnumAlgorithm.SupportVectorMachines, "alpha", "0.23");
+            mex.getExpConf(eid).getAlgorithm(EnumAlgorithm.SupportVectorMachines).addParameter("C", "10^3");
+            mex.getExpConf(eid).getAlgorithm(EnumAlgorithm.SupportVectorMachines).addParameter("alpha", "0.2");
         }
 
 

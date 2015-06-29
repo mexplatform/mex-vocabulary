@@ -29,6 +29,10 @@ public class AlgorithmVO {
         return _dct_identifier;
     }
 
+    public String getIndividualName() {
+        return this._individualName;
+    }
+
     public void setIdentifier(String value) {
         this._dct_identifier = value;
     }
@@ -51,6 +55,10 @@ public class AlgorithmVO {
 
     public boolean addParameter(AlgorithmParameterVO param){
         return _parameters.add(param);
+    }
+
+    public boolean addParameter(String param, String value){
+        return _parameters.add(new AlgorithmParameterVO(param, value));
     }
 
     public boolean removeParam(AlgorithmParameterVO param){
