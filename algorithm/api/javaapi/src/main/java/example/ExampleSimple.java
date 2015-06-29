@@ -77,24 +77,31 @@ public class ExampleSimple {
         }
 
 
-        //your runs
+        //associate your run x each algorithm
         {
-            mex.addExpConf_Execution_Overall("EX001", EnumPhase.TEST);
-            mex.setExpConf_Execution_StartTime("EX001", new Date());
-            mex.setExpConf_Execution_StartAtDataSetPosition("EX001", "1423");
-            mex.setExpConf_Execution_EndsAtDataSetPosition("EX001", "2089");
+            String ex1 = "EX001";
+            String ex2 = "EX002";
 
-            //call your model here...
+            mex.getExpConf(eid).addExecutionOverall(ex1, EnumPhase.TRAIN);
+            mex.getExpConf(eid).getExecution(ex1).setStartDate(new Date());
+            mex.getExpConf(eid).getExecutionOverall(ex1).setStartsAtPosition("1233");
+            mex.getExpConf(eid).getExecutionOverall(ex1).setEndsAtPosition("1376");
+            //your models call here !
+            mex.getExpConf(eid).getExecution(ex1).setEndDate(new Date());
 
-            mex.ExpConf_setExecution_EndTime("EX001", new Date());
+
+            mex.getExpConf(eid).addExecutionOverall(ex2, EnumPhase.TEST);
+            mex.getExpConf(eid).getExecution(ex2).setStartDate(new Date());
+            mex.getExpConf(eid).getExecutionOverall(ex2).setStartsAtPosition("1377");
+            mex.getExpConf(eid).getExecutionOverall(ex2).setEndsAtPosition("1420");
+            //your models call here !
+            mex.getExpConf(eid).getExecution(ex2).setEndDate(new Date());
+
         }
 
 
-        //saving performances
+        //saving performances for each run
 
-
-
-        //mex.getAlgorithmParameterCollection().getParameters().add(new AlgorithmParameterVO("C", "2"));
 
 
         //exporting your ML experiment

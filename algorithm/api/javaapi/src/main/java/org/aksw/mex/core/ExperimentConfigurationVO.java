@@ -7,6 +7,7 @@ import org.aksw.mex.algo.ImplementationVO;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -48,7 +49,7 @@ public class ExperimentConfigurationVO {
         this._id = id;
         this._description = description;
         this._executions = new ArrayList<Execution>();
-        this._feature = new ArrayList<FeatureVO>();
+        this._features = new ArrayList<FeatureVO>();
     }
 
     public ExperimentConfigurationVO(String id) {
@@ -85,11 +86,15 @@ public class ExperimentConfigurationVO {
     }
 
     public List<FeatureVO> getFeatures(){
-        return this._feature;
+        return this._features;
+    }
+
+    public List<Execution> getExecutions(){
+        return this._executions;
     }
 
     public FeatureVO getFeature(Integer index){
-        return this._feature.get(index);
+        return this._features.get(index);
     }
 
     public HardwareConfigurationVO getHardwareConfiguration() {
@@ -98,6 +103,62 @@ public class ExperimentConfigurationVO {
 
     public DataSetVO getDataSet() {
         return this._ds;
+    }
+
+
+    public void addExecutionOverall(String id, String phase){
+        this._executions.add(new ExecutionSetVO(id, new PhaseVO(phase)));
+    }
+
+    public void addExecutionSingle(String id, String phase){
+        this._executions.add(new ExecutionIndividualVO(id, new PhaseVO(phase)));
+    }
+
+    public void setExecutionStartTime(String executionId, Date value){
+        try {
+            Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(executionId));
+            if (t != null){Iterables.get(t, 0).setStartDate(value);}
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+    }
+
+    public void setExecutionEndTime(String executionId, Date value){
+        try {
+            Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(executionId));
+            if (t != null){Iterables.get(t, 0).setEndDate(value);}
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+    }
+
+    public ExecutionSetVO getExecutionOverall(String id){
+         ExecutionSetVO r = null;
+        try {
+            Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(id));
+            if (t != null){
+                if (Iterables.get(t, 0) instanceof ExecutionSetVO) {
+                    r = (ExecutionSetVO) Iterables.get(t, 0);}
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+        return r;
+    }
+
+    public Execution getExecution(String id){
+        Execution ret  = null;
+        try {
+            Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(id));
+            if (t != null){ret = Iterables.get(t, 0);}
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+        return ret;
     }
 
     public boolean addExecution(Execution param){

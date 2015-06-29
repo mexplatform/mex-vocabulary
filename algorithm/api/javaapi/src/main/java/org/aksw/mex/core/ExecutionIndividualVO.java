@@ -11,6 +11,10 @@ public class ExecutionIndividualVO extends Execution {
 
     }
 
+    public ExecutionIndividualVO(String id, PhaseVO phase){
+        this._id = id;
+        this._phase = phase;
+    }
 
 
 
