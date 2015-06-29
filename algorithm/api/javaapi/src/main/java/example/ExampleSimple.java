@@ -76,12 +76,10 @@ public class ExampleSimple {
             mex.getExpConf(eid).getAlgorithm(EnumAlgorithm.SupportVectorMachines).addParameter("alpha", "0.2");
         }
 
-
+        String ex1 = "EX001";
+        String ex2 = "EX002";
         //associate your run x each algorithm
         {
-            String ex1 = "EX001";
-            String ex2 = "EX002";
-
             mex.getExpConf(eid).addExecutionOverall(ex1, EnumPhase.TRAIN);
             mex.getExpConf(eid).getExecution(ex1).setStartDate(new Date());
             mex.getExpConf(eid).getExecutionOverall(ex1).setStartsAtPosition("1233");
@@ -99,8 +97,16 @@ public class ExampleSimple {
 
         }
 
-
         //saving performances for each run
+        {
+            mex.getExpConf(eid).getExecution(ex1).get_performance()
+                    .addClassificationMeasure(EnumClassificationMeasure.ACCURACY, .96)
+                    .addClassificationMeasure(EnumClassificationMeasure.TF_RATE, .70);
+
+            mex.getExpConf(eid).getExecution(ex2).get_performance()
+                    .addClassificationMeasure(EnumClassificationMeasure.ACCURACY, .84)
+                    .addClassificationMeasure(EnumClassificationMeasure.TF_RATE, .57);
+        }
 
 
 

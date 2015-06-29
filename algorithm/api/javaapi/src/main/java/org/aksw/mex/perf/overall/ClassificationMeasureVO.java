@@ -5,7 +5,7 @@ import org.aksw.mex.perf.IPerformance;
 /**
  * Created by esteves on 26.06.15.
  */
-public class ClassificationMeasureVO implements IPerformance {
+public class ClassificationMeasureVO {
 
     private double _accuracy;
     private double _fMeasure;

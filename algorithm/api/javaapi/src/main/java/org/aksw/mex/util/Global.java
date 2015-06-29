@@ -182,6 +182,9 @@ public class Global {
         public static final String TEST = "Test";
         public static final String VALIDATION = "Validation";
     }
+    public class EnumClassificationMeasure{
+        public static final String ACCURACY = "accuracy";
+    }
 
 
     /*public class EnumMEXPrefixNamespace{

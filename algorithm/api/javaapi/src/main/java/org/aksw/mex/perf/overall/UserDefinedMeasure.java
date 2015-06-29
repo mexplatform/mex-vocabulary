@@ -5,7 +5,7 @@ import org.aksw.mex.perf.IPerformance;
 /**
  * Created by esteves on 26.06.15.
  */
-public class UserDefinedMeasure implements IPerformance{
+public class UserDefinedMeasure{
 
     public String get_id() {
         return _id;

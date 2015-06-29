@@ -5,7 +5,7 @@ import org.aksw.mex.perf.IPerformance;
 /**
  * Created by esteves on 26.06.15.
  */
-public class ClusteringMeasureVO implements IPerformance {
+public class ClusteringMeasureVO  {
 
     public void set_chebyschevDistance(double _chebyschevDistance) {
         this._chebyschevDistance = _chebyschevDistance;

@@ -1,20 +1,26 @@
 package org.aksw.mex.perf.example;
 
+import org.aksw.mex.perf.IPerformance;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by esteves on 26.06.15.
  */
-public class ExamplePerformanceCollection {
+public class ExamplePerformanceCollection implements IPerformance {
 
-    private List<ExamplePerformanceVO> examples;
+    private List<ExamplePerformanceVO> performances;
 
     public ExamplePerformanceCollection(){
-        examples = new ArrayList<>();
+        performances = new ArrayList<>();
     }
 
     public boolean addExamplePerformance(ExamplePerformanceVO example){
-        return this.examples.add(example);
+        return this.performances.add(example);
+    }
+
+    public void addPerformanceExample(String name, double value){
+        this.performances.add(new )
     }
 }

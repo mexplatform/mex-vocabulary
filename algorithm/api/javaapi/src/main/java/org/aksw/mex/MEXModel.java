@@ -8,6 +8,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.vocabulary.*;
 import org.aksw.mex.util.Constants;
+import org.aksw.mex.util.Global;
 import org.aksw.mex.util.ontology.*;
 import org.aksw.mex.util.ontology.mex.MEXALGO_10;
 import org.aksw.mex.util.ontology.mex.MEXCORE_10;
@@ -136,6 +137,7 @@ public class MEXModel {
 
         }
 
+        Global.EnumPerformanceMeasure.
 
 
 
