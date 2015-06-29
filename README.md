@@ -4,6 +4,7 @@
 
 ### This repository
   * [vocabulary](https://github.com/dnes85/mexproject/tree/master/ontology)
+  * [APIs](https://github.com/dnes85/mexproject/tree/master/algorithm)
   * [examples](https://github.com/dnes85/mexproject/tree/master/proof)
   * [ppt](https://github.com/dnes85/mexproject/tree/master/ppt)
 
