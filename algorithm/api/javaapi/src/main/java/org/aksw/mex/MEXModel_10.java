@@ -191,25 +191,51 @@ public class MEXModel_10 {
                             .addProperty(RDF.type, provEntity)
                             .addProperty(RDF.type, mexcore_SAMPLING_METHOD);
 
-                    if (StringUtils.isNotBlank(item.SamplingMethod().getFolds().toString()) &&
-                            StringUtils.isNotEmpty(item.SamplingMethod().getFolds().toString())) {
+                    if (StringUtils.isNotBlank(item.SamplingMethod().getFolds().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getFolds().toString())) {
                         _sampling.addProperty(MEXCORE_10.folds, item.SamplingMethod().getFolds().toString());}
 
-                    if (StringUtils.isNotBlank(item.SamplingMethod().getSequential().toString()) &&
-                            StringUtils.isNotEmpty(item.SamplingMethod().getSequential().toString())) {
-                        _sampling.addProperty(MEXCORE_10.sequential, item.SamplingMethod().getSequential().toString());
-                    }
+                    if (StringUtils.isNotBlank(item.SamplingMethod().getSequential().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getSequential().toString())) {
+                        _sampling.addProperty(MEXCORE_10.sequential, item.SamplingMethod().getSequential().toString());}
 
-                    if (StringUtils.isNotBlank(item.SamplingMethod().getTrainSize().toString()) &&
-                            StringUtils.isNotEmpty(item.SamplingMethod().getTrainSize().toString())) {
+                    if (StringUtils.isNotBlank(item.SamplingMethod().getTrainSize().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getTrainSize().toString())) {
                         _sampling.addProperty(MEXCORE_10.trainSize, item.SamplingMethod().getTrainSize().toString());}
 
-                    if (StringUtils.isNotBlank(item.SamplingMethod().getTestSize().toString()) &&
-                            StringUtils.isNotEmpty(item.SamplingMethod().getTestSize().toString())) {
+                    if (StringUtils.isNotBlank(item.SamplingMethod().getTestSize().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getTestSize().toString())) {
                         _sampling.addProperty(MEXCORE_10.testSize, item.SamplingMethod().getTestSize().toString());}
 
                     _expConfiguration.addProperty(PROVO.used, _sampling);
                 }
+
+                //HARDWARE CONFIGURATION
+                if (item.HardwareConfiguration() != null) {
+
+                    Resource _hardware = model.createResource(URIbase + "hardware")
+                            .addProperty(RDF.type, provEntity)
+                            .addProperty(RDF.type, mexcore_HARDWARE);
+
+                    if (StringUtils.isNotBlank(item.HardwareConfiguration().getOs()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getOs())) {
+                        _hardware.addProperty(DOAP.os, item.HardwareConfiguration().getOs());}
+
+                    if (StringUtils.isNotBlank(item.HardwareConfiguration().getCache()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getCache())) {
+                        _hardware.addProperty(MEXCORE_10.cache, item.HardwareConfiguration().getCache());}
+
+                    if (StringUtils.isNotBlank(item.HardwareConfiguration().getCPU()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getCPU())) {
+                        _hardware.addProperty(MEXCORE_10.cpu, item.HardwareConfiguration().getCPU());}
+
+                    if (StringUtils.isNotBlank(item.HardwareConfiguration().getMemory()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getMemory())) {
+                        _hardware.addProperty(MEXCORE_10.memory, item.HardwareConfiguration().getMemory());}
+
+                    if (StringUtils.isNotBlank(item.HardwareConfiguration().getHD()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getHD())) {
+                        _hardware.addProperty(MEXCORE_10.hd, item.HardwareConfiguration().getHD());}
+
+                    if (StringUtils.isNotBlank(item.HardwareConfiguration().getVideo()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getVideo())) {
+                        _hardware.addProperty(MEXCORE_10.video, item.HardwareConfiguration().getVideo());}
+
+                    _expConfiguration.addProperty(PROVO.used, _hardware);
+                }
+
+
+
 
                 aux++;
 
