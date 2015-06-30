@@ -87,7 +87,7 @@ public class MEXSerializer_10 {
         Resource mexcore_DATASET = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.DATASET);
         Resource mexcore_EXEC = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXECUTION);
         Resource mexcore_FEATURE = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.FEATURE);
-        Resource mexcore_PHASE = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.PHASE);
+
         Resource mexcore_EXAMPLE = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXAMPLE);
         Resource mexcore_EXAMPLE_COLLECTION = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXAMPLE_COLLECTION);
 
@@ -340,10 +340,11 @@ public class MEXSerializer_10 {
 
                             //PHASE
                             if (e.getPhase() != null){
+                                Resource mexcore_PHASE = model.createResource(MEXCORE_10.NS + e.getPhase().getName());
                                 if (StringUtils.isNotBlank(e.getPhase().getName()) && StringUtils.isNotEmpty(e.getPhase().getName())) {
-                                Resource _phase = model.createResource(URIbase + "phase")
+                                Resource _phase = model.createResource(URIbase + "phase" + e.getPhase().getName())
                                         .addProperty(RDF.type, provEntity)
-                                        .addProperty(RDF.type, MEXCORE_10.NS + e.getPhase().getName());
+                                        .addProperty(RDF.type, mexcore_PHASE);
                                 _exec.addProperty(PROVO.used, _phase);}
                             }
 
