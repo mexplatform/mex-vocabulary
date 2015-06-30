@@ -46,6 +46,7 @@ public abstract class MEXCORE_10 extends MEXCORE implements IOntology {
     public static final Property attributeSelectionDescription;
 
 
+
     static {
         NAMESPACE = m_model.createResource(NS);
         group = m_model.createProperty(NS + "group");

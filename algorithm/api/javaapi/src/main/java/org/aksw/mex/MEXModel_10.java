@@ -234,6 +234,23 @@ public class MEXModel_10 {
                     _expConfiguration.addProperty(PROVO.used, _hardware);
                 }
 
+                //DATASET
+                if (item.DataSet() != null) {
+
+                    Resource _dataset = model.createResource(URIbase + "dataset")
+                            .addProperty(RDF.type, provEntity)
+                            .addProperty(RDF.type, mexcore_DATASET);
+
+                    if (StringUtils.isNotBlank(item.DataSet().getName()) && StringUtils.isNotEmpty(item.DataSet().getName())) {
+                        _dataset.addProperty(DCTerms.title, item.DataSet().getName());}
+                    if (StringUtils.isNotBlank(item.DataSet().getDescription()) && StringUtils.isNotEmpty(item.DataSet().getDescription())) {
+                        _dataset.addProperty(DCTerms.description, item.DataSet().getDescription());}
+                    if (StringUtils.isNotBlank(item.DataSet().getURI()) && StringUtils.isNotEmpty(item.DataSet().getURI())) {
+                        _dataset.addProperty(DCAT.landingPage, item.DataSet().getURI());}
+
+                    _expConfiguration.addProperty(PROVO.used, _dataset);
+                }
+
 
 
 

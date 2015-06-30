@@ -5,6 +5,10 @@ package org.aksw.mex.core;
  */
 public class DataSetVO {
 
+    public String getName() {return _name;}
+    public String getDescription() {return _description;}
+    public String getURI() {return _uri;}
+
     private String _name;
     private String _description;
     private String _uri;
