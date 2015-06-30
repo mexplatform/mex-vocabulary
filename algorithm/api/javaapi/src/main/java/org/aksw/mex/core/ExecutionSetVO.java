@@ -26,5 +26,11 @@ public class ExecutionSetVO extends Execution {
     public void setEndsAtPosition(String value){
         this._endPosition = value;
     }
+    public String getStartsAtPosition(){
+        return this._startPosition;
+    }
+    public String getEndsAtPosition(){
+        return this._endPosition;
+    }
 
 }

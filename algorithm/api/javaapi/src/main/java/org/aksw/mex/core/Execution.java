@@ -23,17 +23,23 @@ public abstract class Execution {
     protected ExperimentConfigurationVO _expConf;
     protected PhaseVO _phase;
     protected AlgorithmVO _algo;
-    protected ExampleCollection _exampleCollection;
+    //protected ExampleCollection _exampleCollection;
+    protected List<ExampleVO> _examples;
     protected List<Measure> _performances;
 
     public Execution(){
         this._performances = new ArrayList<>();
-        this._exampleCollection = new ExampleCollection();
+        this._examples = new ArrayList();
     }
 
-    public ExampleCollection getExampleCollection(){
+    public List<ExampleVO> getExamples(){
+        return this._examples;
+    }
+
+    /*public ExampleCollection getExampleCollection(){
         return this._exampleCollection;
     }
+    */
 
     public String getId() {
         return _id;
@@ -71,7 +77,7 @@ public abstract class Execution {
     public void set_phase(PhaseVO _phase) {
         this._phase = _phase;
     }
-    public AlgorithmVO get_algo() {
+    public AlgorithmVO getAlgorithm() {
         return _algo;
     }
     public void set_algo(AlgorithmVO _algo) {
