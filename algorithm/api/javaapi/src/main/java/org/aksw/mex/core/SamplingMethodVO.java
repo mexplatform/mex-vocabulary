@@ -5,6 +5,26 @@ package org.aksw.mex.core;
  */
 public class SamplingMethodVO {
 
+    public String getIndividualName() {
+        return _individualName;
+    }
+
+    public Double getTrainSize() {
+        return _trainSize;
+    }
+
+    public Double getTestSize() {
+        return _testSize;
+    }
+
+    public Integer getFolds() {
+        return _folds;
+    }
+
+    public Boolean getSequential() {
+        return _sequential;
+    }
+
     private String _individualName;
     private Double _trainSize;
     private Double _testSize;

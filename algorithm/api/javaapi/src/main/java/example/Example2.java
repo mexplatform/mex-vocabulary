@@ -2,7 +2,7 @@ package example;
 
 import java.util.Date;
 
-import org.aksw.mex.MEXModel;
+import org.aksw.mex.MEXModel_10;
 import org.aksw.mex.MyMEX_10;
 import org.aksw.mex.algo.AlgorithmParameterVO;
 import org.aksw.mex.algo.AlgorithmVO;
@@ -21,7 +21,7 @@ public class Example2 {
 
         MyMEX_10 mex = null;
 
-        MEXModel.getInstance().saveToDisk("d.ttl", "http://aksw.org/sample/", mex);
+        MEXModel_10.getInstance().saveToDisk("d.ttl", "http://aksw.org/sample/", mex);
         System.exit(0);
 
         //ajustar no loop de busca das subclasses...tem que ser metodo recursivo para pegar todos os filhos!
@@ -133,8 +133,8 @@ public class Example2 {
         /* save the file */
 
 
-        MEXModel.getInstance().parse();
-        MEXModel.getInstance().saveToDisk("/home/esteves/Desktop/mexfile1.ttl", "url.com", mex);
+        MEXModel_10.getInstance().parse();
+        MEXModel_10.getInstance().saveToDisk("/home/esteves/Desktop/mexfile1.ttl", "url.com", mex);
 
 
 

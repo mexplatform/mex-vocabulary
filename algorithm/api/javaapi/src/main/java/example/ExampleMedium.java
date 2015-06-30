@@ -1,6 +1,6 @@
 package example;
 
-import org.aksw.mex.MEXModel;
+import org.aksw.mex.MEXModel_10;
 import org.aksw.mex.MyMEX_10;
 import org.aksw.mex.util.Global;
 import org.aksw.mex.util.Global.*;
@@ -108,8 +108,8 @@ public class ExampleMedium {
         }
 
         //exporting your ML experiment
-        MEXModel.getInstance().parse();
-        MEXModel.getInstance().saveToDisk("teste.ttl","http://mex.aksw.org/examples/001/", mex);
+        MEXModel_10.getInstance().parse();
+        MEXModel_10.getInstance().saveToDisk("teste.ttl","http://mex.aksw.org/examples/001/", mex);
 
         System.exit(0);
 
