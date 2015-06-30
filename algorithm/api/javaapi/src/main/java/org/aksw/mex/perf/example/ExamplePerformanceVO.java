@@ -1,7 +1,5 @@
 package org.aksw.mex.perf.example;
 
-import org.aksw.mex.perf.IPerformance;
-
 /**
  * Created by esteves on 26.06.15.
  */

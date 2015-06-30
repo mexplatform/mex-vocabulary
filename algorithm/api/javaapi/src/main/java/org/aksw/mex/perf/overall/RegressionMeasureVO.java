@@ -3,7 +3,7 @@ package org.aksw.mex.perf.overall;
 /**
  * Created by esteves on 26.06.15.
  */
-public class RegressionMeasureVO {
+public class RegressionMeasureVO extends Measure {
 
     public void setMeanAbsoluteDeviation(double _meanAbsoluteDeviation) {
         this._meanAbsoluteDeviation = _meanAbsoluteDeviation;

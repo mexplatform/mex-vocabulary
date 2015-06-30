@@ -1,11 +1,9 @@
 package org.aksw.mex.perf.overall;
 
-import org.aksw.mex.perf.IPerformance;
-
 /**
  * Created by esteves on 26.06.15.
  */
-public class ClusteringMeasureVO  {
+public class ClusteringMeasureVO extends Measure  {
 
     public void set_chebyschevDistance(double _chebyschevDistance) {
         this._chebyschevDistance = _chebyschevDistance;

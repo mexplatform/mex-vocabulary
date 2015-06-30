@@ -3,7 +3,7 @@ package org.aksw.mex.perf.overall;
 /**
  * Created by esteves on 26.06.15.
  */
-public class StatisticalMeasureVO {
+public class StatisticalMeasureVO extends Measure {
 
     public double getPearsonCorrelation() {
         return pearsonCorrelation;

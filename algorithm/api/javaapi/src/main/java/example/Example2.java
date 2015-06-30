@@ -62,15 +62,15 @@ public class Example2 {
         mcExpConf1.setDataSet(new DataSetVO("BOVESPA_20110101_20131201"));
 
         mcExpConf1.setSamplingMethod(new SamplingMethodVO(Global.EnumSamplingMethod.CrossValidation));
-        mcExpConf1.getSamplingMethod().setTrainSize(0.8);
-        mcExpConf1.getSamplingMethod().setTrainSize(0.2);
-        mcExpConf1.getSamplingMethod().setFolds(10);
-        mcExpConf1.getSamplingMethod().setSequential(true);
+        mcExpConf1.SamplingMethod().setTrainSize(0.8);
+        mcExpConf1.SamplingMethod().setTrainSize(0.2);
+        mcExpConf1.SamplingMethod().setFolds(10);
+        mcExpConf1.SamplingMethod().setSequential(true);
 
-        mcExpConf1.addFeature(new FeatureVO(1, "open_value"));
-        mcExpConf1.addFeature(new FeatureVO(2, "close_value"));
-        mcExpConf1.addFeature(new FeatureVO(3, "min_value"));
-        mcExpConf1.addFeature(new FeatureVO(4, "max_value"));
+        //mcExpConf1.addFeature(new FeatureVO(1, "open_value"));
+        //mcExpConf1.addFeature(new FeatureVO(2, "close_value"));
+        //mcExpConf1.addFeature(new FeatureVO(3, "min_value"));
+        //mcExpConf1.addFeature(new FeatureVO(4, "max_value"));
 
         /* step 3: define the algorithms */
 
@@ -123,12 +123,12 @@ public class Example2 {
         ClassificationMeasureVO p1 = new ClassificationMeasureVO();
         p1.setAccuracy(accTrain);
         p1.set_fMeasure(fMeasureTrain);
-        exec1.addPerformance(p1);
+        //exec1.addPerformance(p1);
 
         ClassificationMeasureVO p2 = new ClassificationMeasureVO();
         p2.setAccuracy(accTrain);
         p2.set_fMeasure(fMeasureTest);
-        exec2.addPerformance(p2);
+        //exec2.addPerformance(p2);
 
         /* save the file */
 

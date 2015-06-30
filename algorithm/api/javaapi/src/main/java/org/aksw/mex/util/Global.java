@@ -182,9 +182,194 @@ public class Global {
         public static final String TEST = "Test";
         public static final String VALIDATION = "Validation";
     }
-    public class EnumClassificationMeasure{
-        public static final String ACCURACY = "accuracy";
+
+    public enum EnumMeasures {
+
+        /*regression*/
+        MEAN_ABSOLUTE_DEVIATION(EnumRegressionMeasure.MEAN_ABSOLUTE_DEVIATION.toString()),
+        MEAN_SQUARE_ERROR(EnumRegressionMeasure.MEAN_SQUARE_ERROR.toString()),
+        RESIDUAL(EnumRegressionMeasure.RESIDUAL.toString()),
+        TOTAL_ERROR(EnumRegressionMeasure.TOTAL_ERROR.toString()),
+        MEDIAN_ABSOLUTE_DEVIATION(EnumRegressionMeasure.MEDIAN_ABSOLUTE_DEVIATION.toString()),
+        RELATIVE_ABSOLUTE_ERROR(EnumRegressionMeasure.RELATIVE_ABSOLUTE_ERROR.toString()),
+        ROOT_RELATIVE_SQUARED_ERROR(EnumRegressionMeasure.ROOT_RELATIVE_SQUARED_ERROR.toString()),
+        ROOT_MEAN_SQUARED_ERROR(EnumRegressionMeasure.ROOT_MEAN_SQUARED_ERROR.toString()),
+        CORRELATION_COREFFICIENT(EnumRegressionMeasure.CORRELATION_COREFFICIENT.toString()),
+
+        /*classification*/
+        ACCURACY(EnumClassificationMeasure.ACCURACY.toString()),
+        FMEASURE(EnumClassificationMeasure.FMEASURE.toString()),
+        PRECISION(EnumClassificationMeasure.PRECISION.toString()),
+        RECALL(EnumClassificationMeasure.RECALL.toString()),
+        ROC(EnumClassificationMeasure.ROC.toString()),
+        SENSITIVITY(EnumClassificationMeasure.SENSITIVITY.toString()),
+        SPECIFICITY(EnumClassificationMeasure.SPECIFICITY.toString()),
+        TRUE_NEGATIVE(EnumClassificationMeasure.TRUE_NEGATIVE.toString()),
+        TRUE_POSITIVE(EnumClassificationMeasure.TRUE_POSITIVE.toString()),
+        FALSE_NEGATIVE(EnumClassificationMeasure.FALSE_NEGATIVE.toString()),
+        FALSE_POSITIVE(EnumClassificationMeasure.FALSE_POSITIVE.toString()),
+        FALSE_NEGATIVE_RATE(EnumClassificationMeasure.ACCURACY.toString()),
+        FALSE_POSITIVE_RATE(EnumClassificationMeasure.FALSE_POSITIVE_RATE.toString()),
+        TRUE_NEGATIVE_RATE(EnumClassificationMeasure.TRUE_NEGATIVE_RATE.toString()),
+        TRUE_POSITIVE_RATE(EnumClassificationMeasure.TRUE_POSITIVE_RATE.toString()),
+
+        /*clustering*/
+        CHEBYSCHEV_DISTANCE(EnumClusteringMeasure.CHEBYSCHEV_DISTANCE.toString()),
+        HAMMING_DISTANCE(EnumClusteringMeasure.HAMMING_DISTANCE.toString()),
+        EUCLIDEAN_DISTANCE(EnumClusteringMeasure.EUCLIDEAN_DISTANCE.toString()),
+        MANHATTAN_DISTANCE(EnumClusteringMeasure.MANHATTAN_DISTANCE.toString()),
+        GEN_SIMILARITY_COEFFICIENT(EnumClusteringMeasure.GEN_SIMILARITY_COEFFICIENT.toString()),
+
+        /*statistics*/
+        PEARSON_CORRELATION(EnumStatisticalMeasure.PEARSON_CORRELATION.toString()),
+        CHI_SQUARE(EnumStatisticalMeasure.CHI_SQUARE.toString()),
+        ERROR(EnumStatisticalMeasure.ERROR.toString()),
+        KOLMOGOROV_SMIRNOV(EnumStatisticalMeasure.KOLMOGOROV_SMIRNOV.toString()),
+        MEAN(EnumStatisticalMeasure.MEAN.toString()),
+        NEMENYI(EnumStatisticalMeasure.NEMENYI.toString()),
+        STANDARD_DEVIATION(EnumStatisticalMeasure.STANDARD_DEVIATION.toString()),
+        WILCOXON(EnumStatisticalMeasure.WILCOXON.toString()),
+        VARIANCE(EnumStatisticalMeasure.VARIANCE.toString()),
+        FRIEDMAN(EnumStatisticalMeasure.FRIEDMAN.toString()),
+        MEDIAN(EnumStatisticalMeasure.MEDIAN.toString()),
+        KAPPA_STATISTICS(EnumStatisticalMeasure.KAPPA_STATISTICS.toString()),
+        MODE(EnumStatisticalMeasure.MODE.toString()),
+        L2NORM(EnumStatisticalMeasure.L2NORM.toString()),
+        L1NORM(EnumStatisticalMeasure.L1NORM.toString()),
+        LINFNORM(EnumStatisticalMeasure.LINFNORM.toString());
+
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumMeasures(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+
     }
+    public enum EnumRegressionMeasure {
+
+        MEAN_ABSOLUTE_DEVIATION("meanAbsoluteDeviation"),
+        MEAN_SQUARE_ERROR("meanSquareError"),
+        RESIDUAL("residual"),
+        TOTAL_ERROR("totalError"),
+        MEDIAN_ABSOLUTE_DEVIATION("medianAbsoluteDeviation"),
+        RELATIVE_ABSOLUTE_ERROR("relativeAbsoluteError"),
+        ROOT_RELATIVE_SQUARED_ERROR("rootRelativeSquaredError"),
+        ROOT_MEAN_SQUARED_ERROR("rootMeanSquaredError"),
+        CORRELATION_COREFFICIENT("correlationCoefficient");
+
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumRegressionMeasure(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+    }
+    public enum EnumClassificationMeasure {
+        ACCURACY("accuracy"),
+        FMEASURE("fMeasure"),
+        PRECISION("precision"),
+        RECALL("recall"),
+        ROC("roc"),
+        SENSITIVITY("sensitivity"),
+        SPECIFICITY("specificity"),
+        TRUE_NEGATIVE("trueNegative"),
+        TRUE_POSITIVE("truePositive"),
+        FALSE_NEGATIVE("falseNegative"),
+        FALSE_POSITIVE("falsePositive"),
+        FALSE_NEGATIVE_RATE("falseNegativeRate"),
+        FALSE_POSITIVE_RATE("falsePositiveRate"),
+        TRUE_NEGATIVE_RATE("trueNegativeRate"),
+        TRUE_POSITIVE_RATE("truePositiveRate");
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumClassificationMeasure(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+    }
+    public enum EnumStatisticalMeasure {
+        PEARSON_CORRELATION("pearsonCorrelation"),
+        CHI_SQUARE("chiSquare"),
+        ERROR("error"),
+        KOLMOGOROV_SMIRNOV("kolmogorovSmirnov"),
+        MEAN("mean"),
+        NEMENYI("nemenyi"),
+        STANDARD_DEVIATION("standardDeviation"),
+        WILCOXON("wilcoxon"),
+        VARIANCE("variance"),
+        FRIEDMAN("friedman"),
+        MEDIAN("median"),
+        KAPPA_STATISTICS("kappaStatistics"),
+        MODE("mode"),
+        L2NORM("L2norm"),
+        L1NORM("L1norm"),
+        LINFNORM("Linfnorm");
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumStatisticalMeasure(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+    }
+    public enum EnumClusteringMeasure {
+
+        CHEBYSCHEV_DISTANCE("chebyschevDistance"),
+        HAMMING_DISTANCE("hammingDistance"),
+        EUCLIDEAN_DISTANCE("euclideanDistance"),
+        MANHATTAN_DISTANCE("manhattanDistance"),
+        GEN_SIMILARITY_COEFFICIENT("genSimilarityCoefficient");
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumClusteringMeasure(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+
+    }
+
+
+
 
 
     /*public class EnumMEXPrefixNamespace{

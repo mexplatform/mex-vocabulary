@@ -11,7 +11,7 @@ public class ModelVO {
         return _id;
     }
 
-    public void set_id(String _id) {
+    public void setId(String _id) {
         this._id = _id;
     }
 
@@ -19,7 +19,7 @@ public class ModelVO {
         return _description;
     }
 
-    public void set_description(String _description) {
+    public void setDescription(String _description) {
         this._description = _description;
     }
 
@@ -27,7 +27,7 @@ public class ModelVO {
         return _date;
     }
 
-    public void set_date(Date _date) {
+    public void setDate(Date _date) {
         this._date = _date;
     }
 

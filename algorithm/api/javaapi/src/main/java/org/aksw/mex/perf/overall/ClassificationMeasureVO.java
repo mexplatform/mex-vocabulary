@@ -1,11 +1,9 @@
 package org.aksw.mex.perf.overall;
 
-import org.aksw.mex.perf.IPerformance;
-
 /**
  * Created by esteves on 26.06.15.
  */
-public class ClassificationMeasureVO {
+public class ClassificationMeasureVO extends Measure {
 
     private double _accuracy;
     private double _fMeasure;
@@ -23,10 +21,13 @@ public class ClassificationMeasureVO {
     private double _trueNegativeRate;
     private double _truePositiveRate;
 
+    private String _name;
+    private double _value;
 
     public ClassificationMeasureVO(){
-
     }
+
+
 
     public void set_fMeasure(double _fMeasure) {
         this._fMeasure = _fMeasure;

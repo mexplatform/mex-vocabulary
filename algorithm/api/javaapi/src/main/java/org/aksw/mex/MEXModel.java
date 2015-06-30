@@ -137,7 +137,6 @@ public class MEXModel {
 
         }
 
-        Global.EnumPerformanceMeasure.
 
 
 

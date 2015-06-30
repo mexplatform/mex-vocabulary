@@ -23,6 +23,7 @@ public class AlgorithmVO {
     }
     public AlgorithmVO(String ind) {
         this._individualName = ind;
+        this._parameters = new ArrayList<AlgorithmParameterVO>();
     }
 
     public String getIdentifier() {

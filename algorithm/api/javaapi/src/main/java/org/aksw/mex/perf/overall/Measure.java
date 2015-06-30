@@ -8,24 +8,30 @@ public abstract class Measure {
     private String _name;
     private double _value;
 
-    public String get_name() {
+
+    public Measure(){}
+    public Measure(String measure, double value){
+        this._value = value;
+        this._name = measure;
+    }
+
+
+    public void setMeasure(String m, double v){
+        this._name = m;
+        this._value=v;
+    }
+
+    public String getName() {
         return _name;
     }
-
-    public void set_name(String _name) {
+    public void setName(String _name) {
         this._name = _name;
     }
-
-    public double get_value() {
+    public double getValue() {
         return _value;
     }
-
-    public void set_value(double _value) {
+    public void setValue(double _value) {
         this._value = _value;
-    }
-
-    public Measure(){
-
     }
 
 
