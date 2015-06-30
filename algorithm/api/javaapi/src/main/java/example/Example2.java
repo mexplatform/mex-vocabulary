@@ -50,7 +50,7 @@ public class Example2 {
 
         //creating logical division 01
         ExperimentConfigurationVO mcExpConf1 = new ExperimentConfigurationVO("EXP001", "grouping desc");
-        mcExpConf1.setExperiment(mcExp);
+        //mcExpConf1.setExperiment(mcExp);
 
         mcExpConf1.setModel(new ModelVO("MSVM003201502"));
 

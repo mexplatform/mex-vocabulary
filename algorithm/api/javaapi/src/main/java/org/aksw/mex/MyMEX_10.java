@@ -304,7 +304,7 @@ public class MyMEX_10 {
     public void setExperimentDate(Date value){this.experiment.setDate(value);}
     public void setExperimentDescription(String value){this.experiment.setDescription(value);}
 
-    public void setExpConf_Id(String value){this.experimentConfiguration.set_id(value);}
+    public void setExpConf_Id(String value){this.experimentConfiguration.setId(value);}
     public void setExpConf_Description(String value){this.experimentConfiguration.setDescription(value);}
     public void setExpConf_Model_Id(String value){
         if (this.experimentConfiguration.Model() == null) {
@@ -425,7 +425,7 @@ public class MyMEX_10 {
 
     public ExperimentConfigurationVO Configuration(String value){
         Collection<ExperimentConfigurationVO> t
-                = Collections2.filter(this.experimentConfigurationList, experimentConfigurationVO -> experimentConfigurationVO.get_id().equals(value));
+                = Collections2.filter(this.experimentConfigurationList, experimentConfigurationVO -> experimentConfigurationVO.getId().equals(value));
         if (t != null){
             return Iterables.get(t, 0);
         }else {return null;}
@@ -435,7 +435,7 @@ public class MyMEX_10 {
         try
         {
             Collection<ExperimentConfigurationVO> t
-                    = Collections2.filter(this.experimentConfigurationList, p -> p.get_id().equals(value));
+                    = Collections2.filter(this.experimentConfigurationList, p -> p.getId().equals(value));
             if (t != null && t.size() > 0){
                 throw new Exception("Experiment Configuration ID already assigned");
             }else

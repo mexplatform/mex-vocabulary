@@ -84,14 +84,16 @@ public class ExampleSimple {
             mex.Configuration(eid).ExecutionOverall(ex1).setStartDate(new Date());
             mex.Configuration(eid).ExecutionOverall(ex1).setStartsAtPosition("1233");
             mex.Configuration(eid).ExecutionOverall(ex1).setEndsAtPosition("1376");
-            //your models call here !
-            mex.Configuration(eid).Execution(ex1).setEndDate(new Date());
+
+                //your models call here !
+            mex.Configuration(eid).ExecutionOverall(ex1).setEndDate(new Date());
 
             mex.Configuration(eid).addExecutionOverall(ex2, EnumPhase.TEST);
             mex.Configuration(eid).ExecutionOverall(ex2).setStartDate(new Date());
             mex.Configuration(eid).ExecutionOverall(ex2).setStartsAtPosition("1377");
             mex.Configuration(eid).ExecutionOverall(ex2).setEndsAtPosition("1420");
-            //your models call here !
+
+                //your models call here !
             mex.Configuration(eid).ExecutionOverall(ex2).setEndDate(new Date());
 
         }
