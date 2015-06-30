@@ -2,7 +2,7 @@ package example;
 
 import java.util.Date;
 
-import org.aksw.mex.MEXModel_10;
+import org.aksw.mex.MEXSerializer_10;
 import org.aksw.mex.MyMEX_10;
 import org.aksw.mex.algo.AlgorithmParameterVO;
 import org.aksw.mex.algo.AlgorithmVO;
@@ -21,7 +21,7 @@ public class Example2 {
 
         MyMEX_10 mex = null;
 
-        MEXModel_10.getInstance().saveToDisk("d.ttl", "http://aksw.org/sample/", mex);
+        MEXSerializer_10.getInstance().saveToDisk("d.ttl", "http://aksw.org/sample/", mex);
         System.exit(0);
 
         //ajustar no loop de busca das subclasses...tem que ser metodo recursivo para pegar todos os filhos!
@@ -88,12 +88,12 @@ public class Example2 {
         // train
         ExecutionSetVO exec1 = new ExecutionSetVO("E001", new PhaseVO(EnumPhase.TRAIN));
         exec1.setExperimentConfiguration(mcExpConf1);
-        exec1.setExamples(new DataSetExampleCollection(0l, 114l));
+        exec1.setExamples(new ExampleCollection(0l, 114l));
 
         // test
         ExecutionSetVO exec2 = new ExecutionSetVO("E002", new PhaseVO(EnumPhase.TEST));
         exec2.setExperimentConfiguration(mcExpConf1);
-        exec2.setExamples(new DataSetExampleCollection(115l, 160l));
+        exec2.setExamples(new ExampleCollection(115l, 160l));
 
         /*****************************************************************
          * YOUR SIMULATION'S RUN - BEGIN
@@ -133,8 +133,8 @@ public class Example2 {
         /* save the file */
 
 
-        MEXModel_10.getInstance().parse();
-        MEXModel_10.getInstance().saveToDisk("/home/esteves/Desktop/mexfile1.ttl", "url.com", mex);
+        MEXSerializer_10.getInstance().parse();
+        MEXSerializer_10.getInstance().saveToDisk("/home/esteves/Desktop/mexfile1.ttl", "url.com", mex);
 
 
 

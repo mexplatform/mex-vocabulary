@@ -9,6 +9,7 @@ import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.vocabulary.*;
 import org.aksw.mex.core.ExperimentConfigurationVO;
+import org.aksw.mex.core.FeatureVO;
 import org.aksw.mex.util.Constants;
 import org.aksw.mex.util.ontology.*;
 import org.aksw.mex.util.ontology.mex.MEXALGO_10;
@@ -19,16 +20,16 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * Created by esteves on 25.06.15.
  */
-public class MEXModel_10 {
+public class MEXSerializer_10 {
     private boolean _valid;
 
-    private static MEXModel_10 instance = null;
-    protected MEXModel_10() {
+    private static MEXSerializer_10 instance = null;
+    protected MEXSerializer_10() {
         _valid=false;
     }
-    public static MEXModel_10 getInstance() {
+    public static MEXSerializer_10 getInstance() {
         if(instance == null) {
-            instance = new MEXModel_10();
+            instance = new MEXSerializer_10();
         }
         return instance;
     }
@@ -251,7 +252,24 @@ public class MEXModel_10 {
                     _expConfiguration.addProperty(PROVO.used, _dataset);
                 }
 
+                //FEATURE
+                int auxf = 1;
+                for(Iterator<FeatureVO> ifeature = item.getFeatures().iterator(); ifeature.hasNext(); ) {
+                    FeatureVO f = ifeature.next();
+                    if (f != null) {
+                        Resource _feature = model.createResource(URIbase + "feature" + String.valueOf(auxf))
+                                .addProperty(RDF.type, provEntity)
+                                .addProperty(RDF.type, mexcore_FEATURE);
 
+                        if (StringUtils.isNotBlank(f.getId()) && StringUtils.isNotEmpty(f.getId())) {
+                            _feature.addProperty(DCTerms.identifier, f.getId());}
+                        if (StringUtils.isNotBlank(f.getName()) && StringUtils.isNotEmpty(f.getName())) {
+                            _feature.addProperty(RDFS.label, f.getName());}
+
+                        _expConfiguration.addProperty(PROVO.used, _feature);
+                        auxf++;
+                    }
+                }
 
 
                 aux++;

@@ -5,28 +5,28 @@ package org.aksw.mex.core;
  */
 public class FeatureVO {
 
-    public String get_id() {
+    public String getId() {
         return _id;
     }
 
-    public void set_id(String _index) {
+    public void setId(String _index) {
         this._id = _index;
     }
 
-    public String get_feature() {
-        return _feature;
+    public String getName() {
+        return _name;
     }
 
-    public void set_feature(String _feature) {
-        this._feature = _feature;
+    public void setName(String _feature) {
+        this._name = _feature;
     }
 
     private String _id;
-    private String _feature;
+    private String _name;
 
     public FeatureVO(String id, String name){
         this._id = id;
-        this._feature = name;
+        this._name = name;
     }
 
 

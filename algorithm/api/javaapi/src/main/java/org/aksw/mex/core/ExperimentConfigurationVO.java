@@ -140,12 +140,18 @@ public class ExperimentConfigurationVO {
         this._executions.add(new ExecutionSetVO(id, new PhaseVO(phase)));
     }
     public void addFeature(String featureName){
+        if (this._features == null) {
+            this._features = new ArrayList<>();}
+
         try {
-            Collection<FeatureVO> t = Collections2.filter(this._features, p -> p.get_id().equals(featureName));
+            Collection<FeatureVO> t = Collections2.filter(this._features, p -> p.getId().equals(featureName));
             if (t != null && t.size() > 0){throw new Exception("Feature already assigned");}
-            else {this._features.add(new FeatureVO(String.valueOf(this._features.size()+1), featureName));}
+            else {
+                this._features.add(new FeatureVO(String.valueOf(this._features.size()+1), featureName));
+            }
         } catch (Exception e){
-            System.out.println(e.toString());}
+            System.out.println(e.toString());
+        }
     }
     public void addAlgorithm(String algorithmName){
         if (this._algorithms == null) {

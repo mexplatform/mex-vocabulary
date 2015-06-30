@@ -23,39 +23,28 @@ import java.util.List;
  */
 public class MyMEX_10 {
 
-    public MyMEX_10(){
-        this.applicationContext = new ApplicationContextVO();
-        this.experiment = new ExperimentVO();
-        this.experimentConfigurationList = new ArrayList<>();
-    }
-
-
-    public ApplicationContextVO getApplicationContext() {
-        return applicationContext;
-    }
-
-    public void setApplicationContext(ApplicationContextVO applicationContext) {
-        this.applicationContext = applicationContext;
-    }
-
-    //mex-core
+    //mex-core->experiment
     private ApplicationContextVO applicationContext;
     private ContextVO context;
-    private DataSetAttributeVO attribute;
-    private DataSetExampleCollection exampleCollection;
-    private DataSetExampleVO example;
-    private DataSetVO dataset;
-    private ExecutionIndividualVO executionIndividual;
-    private ExecutionSetVO executionSet;
-    private ExperimentConfigurationVO experimentConfiguration;
-    private List<ExperimentConfigurationVO> experimentConfigurationList;
     private ExperimentVO experiment;
-    private FeatureVO feature;
+    //mex-core->configuration
     private FeatureVOCollection featureCollection;
+    private List<FeatureVO> featureList;
     private HardwareConfigurationVO hardwareConfiguration;
     private ModelVO model;
     private PhaseVO phase;
     private SamplingMethodVO samplingMethod;
+    //mex-core->execution
+
+    private ExampleCollection exampleCollection;
+    private ExampleVO example;
+    private DataSetVO dataset;
+
+    private ExecutionIndividualVO executionIndividual;
+    private ExecutionSetVO executionSet;
+
+    private List<ExperimentConfigurationVO> experimentConfigurationList;
+
     //mex-algo
     private AlgorithmParameterCollectionVO algorithmParameterCollection;
     private AlgorithmParameterVO algorithmParameter;
@@ -71,6 +60,65 @@ public class MyMEX_10 {
     private UserDefinedMeasure userDefinedMeasure;
     private ExecutionPerformance executionPerformance;
 
+    public MyMEX_10(){
+        this.applicationContext = new ApplicationContextVO();
+        this.experiment = new ExperimentVO();
+        this.experimentConfigurationList = new ArrayList<>();
+        this.featureList = new ArrayList<>();
+    }
+
+
+    //MEX
+    public void setAuthorName(String value){this.applicationContext.setAuthorName(value);}
+    public void setAuthorEmail(String value){this.applicationContext.setMailBox(value);}
+    public void setContext(String value){this.applicationContext.setContext(value);}
+    public void setOrganization(String value){this.applicationContext.setOrganization(value);}
+    public void setExperimentId(String value){this.experiment.setId(value);}
+    public void setExperimentTitle(String value){this.experiment.set_title(value);}
+    public void setExperimentDate(Date value){this.experiment.setDate(value);}
+    public void setExperimentDescription(String value){this.experiment.setDescription(value);}
+    public ModelVO getModel() {return model;}
+    public void setModel(ModelVO model) {this.model = model;}
+    public List<ExperimentConfigurationVO> getExperimentConfigurations() {return experimentConfigurationList;}
+    public ExperimentVO getExperiment() {return experiment;}
+    public List<FeatureVO> getFeatures() {return featureList;}
+    public ApplicationContextVO getApplicationContext() {return applicationContext;}
+    public ExperimentConfigurationVO Configuration(String value){
+        Collection<ExperimentConfigurationVO> t
+                = Collections2.filter(this.experimentConfigurationList, experimentConfigurationVO -> experimentConfigurationVO.getId().equals(value));
+        if (t != null){
+            return Iterables.get(t, 0);
+        }else {return null;}
+    }
+    public void addConfiguration(String value){
+        try
+        {
+            Collection<ExperimentConfigurationVO> t
+                    = Collections2.filter(this.experimentConfigurationList, p -> p.getId().equals(value));
+            if (t != null && t.size() > 0){
+                throw new Exception("Experiment Configuration ID already assigned");
+            }else
+            {
+                this.experimentConfigurationList.add(new ExperimentConfigurationVO(value));}
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+    }
+
+    /*public void addExpConf_Feature(String label){
+        int i=0;
+        if (this.experimentConfiguration.getFeatures() != null)
+        {
+            i=this.experimentConfiguration.getFeatures().size();
+        }
+        this.experimentConfiguration.addFeature(new FeatureVO(String.valueOf(i+1),label));
+    }
+    */
+
+
+
+
     public ContextVO getContext() {
         return context;
     }
@@ -79,27 +127,25 @@ public class MyMEX_10 {
     //    this.context = context;
     //}
 
-    public DataSetAttributeVO getAttribute() {
-        return attribute;
+
+    public void setApplicationContext(ApplicationContextVO applicationContext) {
+        this.applicationContext = applicationContext;
     }
 
-    public void setAttribute(DataSetAttributeVO attribute) {
-        this.attribute = attribute;
-    }
 
-    public DataSetExampleCollection getExampleCollection() {
+    public ExampleCollection getExampleCollection() {
         return exampleCollection;
     }
 
-    public void setExampleCollection(DataSetExampleCollection exampleCollection) {
+    public void setExampleCollection(ExampleCollection exampleCollection) {
         this.exampleCollection = exampleCollection;
     }
 
-    public DataSetExampleVO getExample() {
+    public ExampleVO getExample() {
         return example;
     }
 
-    public void setExample(DataSetExampleVO example) {
+    public void setExample(ExampleVO example) {
         this.example = example;
     }
 
@@ -127,29 +173,13 @@ public class MyMEX_10 {
         this.executionSet = executionSet;
     }
 
-    public List<ExperimentConfigurationVO> getExperimentConfigurations() {
-        return experimentConfigurationList;
-    }
 
-    public void setExpConf_iguration(ExperimentConfigurationVO experimentConfiguration) {
-        this.experimentConfiguration = experimentConfiguration;
-    }
-
-    public ExperimentVO getExperiment() {
-        return experiment;
-    }
 
     public void setExperiment(ExperimentVO experiment) {
         this.experiment = experiment;
     }
 
-    public FeatureVO getFeature() {
-        return feature;
-    }
 
-    public void setFeature(FeatureVO feature) {
-        this.feature = feature;
-    }
 
     public FeatureVOCollection getFeatureCollection() {
         return featureCollection;
@@ -167,13 +197,8 @@ public class MyMEX_10 {
         this.hardwareConfiguration = hardwareConfiguration;
     }
 
-    public ModelVO getModel() {
-        return model;
-    }
 
-    public void setModel(ModelVO model) {
-        this.model = model;
-    }
+
 
     public PhaseVO getPhase() {
         return phase;
@@ -289,162 +314,6 @@ public class MyMEX_10 {
 
 
 
-    //MEX
-    public void setAuthorName(String value){
-        this.applicationContext.setAuthorName(value);
-    }
-    public void setAuthorEmail(String value){
-        this.applicationContext.setMailBox(value);
-    }
-    public void setContext(String value){this.applicationContext.setContext(value);}
-    public void setOrganization(String value){this.applicationContext.setOrganization(value);}
 
-    public void setExperimentId(String value){this.experiment.setId(value);}
-    public void setExperimentTitle(String value){this.experiment.set_title(value);}
-    public void setExperimentDate(Date value){this.experiment.setDate(value);}
-    public void setExperimentDescription(String value){this.experiment.setDescription(value);}
-
-    public void setExpConf_Id(String value){this.experimentConfiguration.setId(value);}
-    public void setExpConf_Description(String value){this.experimentConfiguration.setDescription(value);}
-    public void setExpConf_Model_Id(String value){
-        if (this.experimentConfiguration.Model() == null) {
-         this.experimentConfiguration.setModel(new ModelVO());
-        }
-        this.experimentConfiguration.Model().setId(value);
-    }
-    public void setExpConf_Model_Description(String value){
-        if (this.experimentConfiguration.Model() == null) {
-            this.experimentConfiguration.setModel(new ModelVO());
-        }
-        this.experimentConfiguration.Model().setDescription(value);
-    }
-    public void setExpConf_Model_Date(Date value){
-        if (this.experimentConfiguration.Model() == null) {
-            this.experimentConfiguration.setModel(new ModelVO());
-        }
-        this.experimentConfiguration.Model().setDate(value);
-    }
-
-    public void setExpConf_SamplingMethod(String value){
-        this.experimentConfiguration.setSamplingMethod(new SamplingMethodVO(value));
-    }
-
-    public void setExpConf_SamplingMethod_TrainSize(double value){
-        if (this.experimentConfiguration.SamplingMethod() == null) {
-            this.experimentConfiguration.setSamplingMethod(new SamplingMethodVO(Global.EnumSamplingMethod.Holdout));
-        }
-        this.experimentConfiguration.SamplingMethod().setTrainSize(value);
-    }
-
-    public void setExpConf_SamplingMethod_TestSize(double value){
-        if (this.experimentConfiguration.SamplingMethod() == null) {
-            this.experimentConfiguration.setSamplingMethod(new SamplingMethodVO(Global.EnumSamplingMethod.Holdout));
-        }
-        this.experimentConfiguration.SamplingMethod().setTestSize(value);
-    }
-
-    public void setExpConf_SamplingMethod_NumberOfFolds(Integer value){
-        if (this.experimentConfiguration.SamplingMethod() == null) {
-            this.experimentConfiguration.setSamplingMethod(new SamplingMethodVO(Global.EnumSamplingMethod.Holdout));
-        }
-        this.experimentConfiguration.SamplingMethod().setFolds(value);
-    }
-
-    public void setExpConf_SamplingMethod_IsSequential(boolean value){
-        if (this.experimentConfiguration.SamplingMethod() == null) {
-            this.experimentConfiguration.setSamplingMethod(new SamplingMethodVO(Global.EnumSamplingMethod.Holdout));
-        }
-        this.experimentConfiguration.SamplingMethod().setSequential(value);
-    }
-
-    public void setExpConf_Hardware_OS(String value){
-        if (this.experimentConfiguration.HardwareConfiguration() == null) {
-            this.experimentConfiguration.setHardwareConfiguration(new HardwareConfigurationVO());
-        }
-        this.experimentConfiguration.HardwareConfiguration().setOperationalSystem(value);
-    }
-
-    public void setExpConf_Hardware_CPU(String value){
-        if (this.experimentConfiguration.HardwareConfiguration() == null) {
-            this.experimentConfiguration.setHardwareConfiguration(new HardwareConfigurationVO());
-        }
-        this.experimentConfiguration.HardwareConfiguration().setCPU(value);
-    }
-
-    public void setExpConf_Hardware_MB(String value){
-        if (this.experimentConfiguration.HardwareConfiguration() == null) {
-            this.experimentConfiguration.setHardwareConfiguration(new HardwareConfigurationVO());
-        }
-        this.experimentConfiguration.HardwareConfiguration().setMemory(value);
-    }
-
-    public void setExpConf_Hardware_HD(String value){
-        if (this.experimentConfiguration.HardwareConfiguration() == null) {
-            this.experimentConfiguration.setHardwareConfiguration(new HardwareConfigurationVO());
-        }
-        this.experimentConfiguration.HardwareConfiguration().setHD(value);
-    }
-
-    public void setExpConf_Hardware_CPUCache(String value){
-        if (this.experimentConfiguration.HardwareConfiguration() == null) {
-            this.experimentConfiguration.setHardwareConfiguration(new HardwareConfigurationVO());
-        }
-        this.experimentConfiguration.HardwareConfiguration().setCache(value);
-    }
-
-    public void setExpConf_DataSet_Title(String value){
-        if (this.experimentConfiguration.DataSet() == null) {
-            this.experimentConfiguration.setDataSet(new DataSetVO());
-        }
-        this.experimentConfiguration.DataSet().setName(value);
-    }
-
-    public void setExpConf_DataSet_Description(String value){
-        if (this.experimentConfiguration.DataSet() == null) {
-            this.experimentConfiguration.setDataSet(new DataSetVO());
-        }
-        this.experimentConfiguration.DataSet().setDescription(value);
-    }
-
-    public void setExpConf_DataSet_LandingPage(String value){
-        if (this.experimentConfiguration.DataSet() == null) {
-            this.experimentConfiguration.setDataSet(new DataSetVO());
-        }
-        this.experimentConfiguration.DataSet().setURI(value);
-    }
-
-    /*public void addExpConf_Feature(String label){
-        int i=0;
-        if (this.experimentConfiguration.getFeatures() != null)
-        {
-            i=this.experimentConfiguration.getFeatures().size();
-        }
-        this.experimentConfiguration.addFeature(new FeatureVO(String.valueOf(i+1),label));
-    }
-    */
-
-    public ExperimentConfigurationVO Configuration(String value){
-        Collection<ExperimentConfigurationVO> t
-                = Collections2.filter(this.experimentConfigurationList, experimentConfigurationVO -> experimentConfigurationVO.getId().equals(value));
-        if (t != null){
-            return Iterables.get(t, 0);
-        }else {return null;}
-    }
-
-    public void addConfiguration(String value){
-        try
-        {
-            Collection<ExperimentConfigurationVO> t
-                    = Collections2.filter(this.experimentConfigurationList, p -> p.getId().equals(value));
-            if (t != null && t.size() > 0){
-                throw new Exception("Experiment Configuration ID already assigned");
-            }else
-            {
-                this.experimentConfigurationList.add(new ExperimentConfigurationVO(value));}
-        }catch (Exception e){
-            System.out.println(e.toString());
-        }
-
-    }
 
 }

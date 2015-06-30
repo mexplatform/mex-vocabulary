@@ -6,19 +6,19 @@ import java.util.List;
 /**
  * Created by esteves on 26.06.15.
  */
-public class DataSetExampleCollection implements IDataSetExample {
+public class ExampleCollection implements IDataSetExample {
 
     private Long _startsAt;
     private Long _endsAt;
-    private List<DataSetExampleVO> _examples;
+    private List<ExampleVO> _examples;
 
-    public DataSetExampleCollection(Long startIndex, Long endIndex){
+    public ExampleCollection(Long startIndex, Long endIndex){
         this._startsAt = startIndex;
         this._endsAt = endIndex;
-        this._examples = new ArrayList<DataSetExampleVO>();
+        this._examples = new ArrayList<ExampleVO>();
     }
 
-    public boolean addExample(DataSetExampleVO value){
+    public boolean addExample(ExampleVO value){
        return this._examples.add(value);
     }
 
