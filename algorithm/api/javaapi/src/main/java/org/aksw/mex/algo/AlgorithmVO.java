@@ -14,16 +14,20 @@ public class AlgorithmVO {
     private String _acroynm;
     private List<AlgorithmParameterVO> _parameters;
 
+    public List<AlgorithmParameterVO> getParameters(){
+        return this._parameters;
+    }
+
     public AlgorithmVO(String ind, String _dct_identifier, String _dct_description, String _acroynm){
         this._individualName = ind;
         this._dct_identifier = _dct_identifier;
         this._dct_description = _dct_description;
         this._acroynm = _acroynm;
-        this._parameters = new ArrayList<AlgorithmParameterVO>();
+        this._parameters = new ArrayList<>();
     }
     public AlgorithmVO(String ind) {
         this._individualName = ind;
-        this._parameters = new ArrayList<AlgorithmParameterVO>();
+        this._parameters = new ArrayList<>();
     }
 
     public String getIdentifier() {

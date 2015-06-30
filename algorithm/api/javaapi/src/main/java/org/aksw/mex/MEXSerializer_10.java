@@ -8,6 +8,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.vocabulary.*;
+import org.aksw.mex.algo.AlgorithmParameterVO;
 import org.aksw.mex.core.*;
 import org.aksw.mex.util.Constants;
 import org.aksw.mex.util.ontology.*;
@@ -324,12 +325,15 @@ public class MEXSerializer_10 {
                                     .addProperty(RDF.type, mexcore_EXEC)
                                     .addProperty(PROVO.id, e.getId())
                                     .addProperty(PROVO.startedAtTime, e.getStartedAtTime().toString())
-                                    .addProperty(PROVO.endedAtTime, e.getEndedAtTime().toString())
-                                    .addProperty(MEXCORE_10.group, e.getGrouped().toString());
+                                    .addProperty(PROVO.endedAtTime, e.getEndedAtTime().toString());
+
                             if (e instanceof ExecutionSetVO) {
                                 ExecutionSetVO temp = (ExecutionSetVO) e;
                                 _exec.addProperty(MEXCORE_10.startsAtPosition, temp.getStartsAtPosition());
                                 _exec.addProperty(MEXCORE_10.endsAtPosition, temp.getEndsAtPosition());
+                                _exec.addProperty(MEXCORE_10.group, "true");
+                            }else{
+                                _exec.addProperty(MEXCORE_10.group, "false");
                             }
 
                             //PHASE
@@ -372,9 +376,29 @@ public class MEXSerializer_10 {
                                     _alg.addProperty(MEXALGO_10.acronym, e.getAlgorithm().getAcroynm());}
 
                                 _exec.addProperty(PROVO.used, _alg);
+
+                                //ALGORITHM PARAMETER
+                                if (e.getAlgorithm().getParameters() != null && e.getAlgorithm().getParameters().size() > 0) {
+                                    Integer auxparam = 1;
+                                    for(Iterator<AlgorithmParameterVO> iparam = e.getAlgorithm().getParameters().iterator(); iparam.hasNext(); ) {
+                                        AlgorithmParameterVO algoParam = iparam.next();
+                                        if (algoParam != null) {
+                                            Resource _algoParam = null;
+                                            _algoParam = model.createResource(URIbase + "param" + String.valueOf(auxparam))
+                                                    .addProperty(RDF.type, provEntity)
+                                                    .addProperty(RDF.type, mexalgo_ALGO_PARAM)
+                                                    .addProperty(PROVO.value, algoParam.getValue())
+                                                    .addProperty(DCTerms.identifier, algoParam.getIdentifier());
+
+                                            _alg.addProperty(MEXALGO_10.hasParameter,_algoParam);
+                                            _exec.addProperty(PROVO.used, _alg);
+                                            auxparam++;}
+                                    }
+
+                                }
                             }
-                            //ALGORITHM PARAMETER
-                            
+
+
 
                             /*if (e.getExampleCollection() != null) {
                                 Resource _excollection = model.createResource(URIbase + "example_collection")
