@@ -25,6 +25,11 @@ public class PROVO implements IOntology {
     public static final Property generated;
     public static final Property actedOnBehalfOf;
 
+    public static final Property id;
+    public static final Property value;
+    public static final Property startedAtTime;
+    public static final Property endedAtTime;
+
     protected PROVO() {
     }
 
@@ -41,6 +46,11 @@ public class PROVO implements IOntology {
         wasGeneratedBy = m_model.createProperty(NS + "wasGeneratedBy");
         generated = m_model.createProperty(NS + "generated");
         actedOnBehalfOf = m_model.createProperty(NS + "actedOnBehalfOf");
+
+        id = m_model.createProperty(NS + "id");
+        value = m_model.createProperty(NS + "value");
+        startedAtTime = m_model.createProperty(NS + "startedAtTime");
+        endedAtTime = m_model.createProperty(NS + "endedAtTime");
     }
 
 

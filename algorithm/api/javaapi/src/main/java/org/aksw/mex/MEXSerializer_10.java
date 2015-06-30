@@ -8,6 +8,8 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.vocabulary.*;
+import org.aksw.mex.core.ExampleVO;
+import org.aksw.mex.core.Execution;
 import org.aksw.mex.core.ExperimentConfigurationVO;
 import org.aksw.mex.core.FeatureVO;
 import org.aksw.mex.util.Constants;
@@ -74,6 +76,7 @@ public class MEXSerializer_10 {
         Resource provOrganization = model.createResource(PROVO.NS + PROVO.ClasseTypes.ORGANIZATION);
         Resource provEntity = model.createResource(PROVO.NS + PROVO.ClasseTypes.ENTITY);
         Resource provActivity = model.createResource(PROVO.NS + PROVO.ClasseTypes.ACTIVITY);
+        Resource provCollection = model.createResource(PROVO.NS + PROVO.ClasseTypes.COLLECTION);
 
         Resource mexcore_APC = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.APPLICATION_CONTEXT);
         Resource mexcore_EXP_HEADER = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXPERIMENT);
@@ -85,6 +88,8 @@ public class MEXSerializer_10 {
         Resource mexcore_EXEC = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXECUTION);
         Resource mexcore_FEATURE = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.FEATURE);
         Resource mexcore_PHASE = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.PHASE);
+        Resource mexcore_EXAMPLE = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXAMPLE);
+        Resource mexcore_EXAMPLE_COLLECTION = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXAMPLE_COLLECTION);
 
         Resource mexalgo_IMPLEMENTATION = model.createResource(MEXCORE_10.NS + MEXALGO_10.ClasseTypes.IMPLEMENTATION);
         Resource mexalgo_ALGO = model.createResource(MEXCORE_10.NS + MEXALGO_10.ClasseTypes.ALGORITHM);
@@ -271,7 +276,74 @@ public class MEXSerializer_10 {
                     }
                 }
 
+                //EXECUTIONS
+                int auxe = 1;
+                for(Iterator<Execution> iexec = item.getExecutions().iterator(); iexec.hasNext(); ) {
+                    Execution e = iexec.next();
+                    Resource _exec = null;
+                    if (e != null) {
 
+                        //EXECUTION
+                        _exec = model.createResource(URIbase + "execution" + String.valueOf(auxe))
+                                .addProperty(RDF.type, provActivity)
+                                .addProperty(RDF.type, mexcore_EXEC)
+                                .addProperty(PROVO.id, e.getId())
+                                .addProperty(PROVO.startedAtTime, e.getStartedAtTime().toString())
+                                .addProperty(PROVO.endedAtTime, e.getEndedAtTime().toString())
+                                .addProperty(MEXCORE_10.group, e.getGrouped().toString());
+
+                        //PHASE
+                        if (StringUtils.isNotBlank(e.getPhase().getName()) && StringUtils.isNotEmpty(e.getPhase().getName())) {
+                            Resource _phase = model.createResource(URIbase + "phase")
+                                    .addProperty(RDF.type, provEntity)
+                                    .addProperty(RDF.type, MEXCORE_10.NS + e.getPhase().getName());
+                            _exec.addProperty(PROVO.used, _phase);
+                        }
+
+                        //EXAMPLE (the set of examples)
+                        if (e.getExampleCollection() != null) {
+                            Resource _excollection = model.createResource(URIbase + "example_collection")
+                                    .addProperty(RDF.type, provActivity)
+                                    .addProperty(RDF.type, mexcore_EXAMPLE_COLLECTION);
+
+                            if (StringUtils.isNotBlank(e.getExampleCollection().getStartIndex().toString()) &&
+                                    StringUtils.isNotEmpty(e.getExampleCollection().getStartIndex().toString())) {
+                                _excollection.addProperty(MEXCORE_10.startsAtPosition, e.getExampleCollection().getStartIndex().toString());
+                            }
+                            if (StringUtils.isNotBlank(e.getExampleCollection().getEndIndex().toString()) &&
+                                    StringUtils.isNotEmpty(e.getExampleCollection().getEndIndex().toString())) {
+                                _excollection.addProperty(MEXCORE_10.endsAtPosition, e.getExampleCollection().getEndIndex().toString());
+                            }
+                            int auxexample = 1;
+                            //EXAMPLES (individual representation for given run)
+                            for(Iterator<ExampleVO> iexample = e.getExampleCollection().getExamples().iterator(); iexample.hasNext(); ) {
+                                ExampleVO example = iexample.next();
+                                if (example != null) {
+                                    Resource _example = null;
+                                    _example = model.createResource(URIbase + "example" + String.valueOf(auxexample))
+                                            .addProperty(RDF.type, provEntity)
+                                            .addProperty(RDF.type, mexcore_EXAMPLE)
+                                            .addProperty(PROVO.value, example.getValue())
+                                            .addProperty(DCTerms.identifier, example.getId());
+
+                                    _excollection.addProperty(PROVO.hadMember,_example);
+                                    _exec.addProperty(PROVO.used, _example);
+                                    auxexample++;}
+                            }
+                            _exec.addProperty(PROVO.used, _excollection);
+                        }
+
+
+
+                        
+                    }
+                    //next execution
+                    _exec.addProperty(PROVO.wasInformedBy, _expConfiguration);
+                    auxe++;
+                }
+
+
+                //next experiment configuration
                 aux++;
 
             }

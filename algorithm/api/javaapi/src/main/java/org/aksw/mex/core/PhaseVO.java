@@ -10,4 +10,9 @@ public class PhaseVO {
     public PhaseVO(String value){
         this._phase = value;
     }
+
+    public String getName(){
+        return this._phase;
+    }
+
 }

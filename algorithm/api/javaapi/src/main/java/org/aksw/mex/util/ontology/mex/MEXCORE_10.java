@@ -85,6 +85,8 @@ public abstract class MEXCORE_10 extends MEXCORE implements IOntology {
         public static final String HARDWARE_CONFIGURATION = "HardwareConfiguration";
         public static final String DATASET = "Dataset";
         public static final String PHASE = "Phase";
+        public static final String EXAMPLE = "Example";
+        public static final String EXAMPLE_COLLECTION = "ExampleCollection";
     }
 
     public class Predicates{

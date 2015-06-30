@@ -23,31 +23,37 @@ public abstract class Execution {
     protected ExperimentConfigurationVO _expConf;
     protected PhaseVO _phase;
     protected AlgorithmVO _algo;
-    protected IDataSetExample _example;
+    protected ExampleCollection _exampleCollection;
     protected List<Measure> _performances;
 
     public Execution(){
+        this._performances = new ArrayList<>();
+        this._exampleCollection = new ExampleCollection();
     }
 
-    public String get_id() {
+    public ExampleCollection getExampleCollection(){
+        return this._exampleCollection;
+    }
+
+    public String getId() {
         return _id;
     }
     public void set_id(String _id) {
         this._id = _id;
     }
-    public Boolean get_grouped() {
+    public Boolean getGrouped() {
         return _grouped;
     }
     public void set_grouped(Boolean _grouped) {
         this._grouped = _grouped;
     }
-    public Date get_startedAtTime() {
+    public Date getStartedAtTime() {
         return _startedAtTime;
     }
     public void set_startedAtTime(Date _startedAtTime) {
         this._startedAtTime = _startedAtTime;
     }
-    public Date get_endedAtTime() {
+    public Date getEndedAtTime() {
         return _endedAtTime;
     }
     public void set_endedAtTime(Date _endedAtTime) {
@@ -59,7 +65,7 @@ public abstract class Execution {
     public void set_expConf(ExperimentConfigurationVO _expConf) {
         this._expConf = _expConf;
     }
-    public PhaseVO get_phase() {
+    public PhaseVO getPhase() {
         return _phase;
     }
     public void set_phase(PhaseVO _phase) {
@@ -70,12 +76,6 @@ public abstract class Execution {
     }
     public void set_algo(AlgorithmVO _algo) {
         this._algo = _algo;
-    }
-    public IDataSetExample get_example() {
-        return _example;
-    }
-    public void set_example(IDataSetExample _example) {
-        this._example = _example;
     }
     public void setId(String value){
         this._id = value;
@@ -91,9 +91,6 @@ public abstract class Execution {
     }
     public void setAlgorithm(AlgorithmVO value){
         this._algo = value;
-    }
-    public void setExamples(IDataSetExample value){
-        this._example = value;
     }
     public void setPhase(PhaseVO value){
         this._phase = value;
@@ -143,8 +140,6 @@ public abstract class Execution {
                 return ret;}
 
     }
-
-
     private boolean addClassificationPerformance(String p, double value) {
         ClassificationMeasureVO m = new ClassificationMeasureVO();
         m.setValue(value);

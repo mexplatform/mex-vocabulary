@@ -88,12 +88,12 @@ public class Example2 {
         // train
         ExecutionSetVO exec1 = new ExecutionSetVO("E001", new PhaseVO(EnumPhase.TRAIN));
         exec1.setExperimentConfiguration(mcExpConf1);
-        exec1.setExamples(new ExampleCollection(0l, 114l));
+        //exec1.setExamples(new ExampleCollection(0l, 114l));
 
         // test
         ExecutionSetVO exec2 = new ExecutionSetVO("E002", new PhaseVO(EnumPhase.TEST));
         exec2.setExperimentConfiguration(mcExpConf1);
-        exec2.setExamples(new ExampleCollection(115l, 160l));
+        //exec2.setExamples(new ExampleCollection(115l, 160l));
 
         /*****************************************************************
          * YOUR SIMULATION'S RUN - BEGIN

@@ -8,14 +8,32 @@ import java.util.List;
  */
 public class ExampleVO implements IDataSetExample{
 
-    private List<FeatureVO> _attributes;
+    public String getId() {
+        return _id;
+    }
+
+    public void setId(String _id) {
+        this._id = _id;
+    }
+
+    public String getValue() {
+        return _value;
+    }
+
+    public void setValue(String _value) {
+        this._value = _value;
+    }
+
+    private String _id;
+    private String _value;
 
     public ExampleVO(){
-        this._attributes = new ArrayList<FeatureVO>();
     }
 
-    public boolean addAttribute(FeatureVO value){
-        return this._attributes.add(value);
+    public ExampleVO(String id, String value){
+        this._id = id;
+        this._value=value;
     }
+
 
 }
