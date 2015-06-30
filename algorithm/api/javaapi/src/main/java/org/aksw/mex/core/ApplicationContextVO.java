@@ -72,7 +72,7 @@ public class ApplicationContextVO  {
     }
 
 
-    public ContextVO get_context() {
+    public ContextVO getContext() {
         return _context;
     }
 

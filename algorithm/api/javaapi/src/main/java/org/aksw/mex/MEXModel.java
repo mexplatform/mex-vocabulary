@@ -2,17 +2,20 @@ package org.aksw.mex;
 
 import java.io.FileWriter;
 import java.text.SimpleDateFormat;
+import java.util.Iterator;
 
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.vocabulary.*;
+import org.aksw.mex.core.ExperimentConfigurationVO;
 import org.aksw.mex.util.Constants;
 import org.aksw.mex.util.Global;
 import org.aksw.mex.util.ontology.*;
 import org.aksw.mex.util.ontology.mex.MEXALGO_10;
 import org.aksw.mex.util.ontology.mex.MEXCORE_10;
 import org.aksw.mex.util.ontology.mex.MEXPERF_10;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by esteves on 25.06.15.
@@ -70,10 +73,11 @@ public class MEXModel {
         Resource provPerson = model.createResource(PROVO.NS + PROVO.ClasseTypes.PERSON);
         Resource provOrganization = model.createResource(PROVO.NS + PROVO.ClasseTypes.ORGANIZATION);
         Resource provEntity = model.createResource(PROVO.NS + PROVO.ClasseTypes.ENTITY);
+        Resource provActivity = model.createResource(PROVO.NS + PROVO.ClasseTypes.ACTIVITY);
 
         Resource mexcore_APC = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.APPLICATION_CONTEXT);
         Resource mexcore_EXP_HEADER = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXPERIMENT);
-
+        Resource mexcore_EXP_CONF = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXPERIMENT_CONFIGURATION);
 
         //mex-core
         Resource _application = null;
@@ -114,14 +118,15 @@ public class MEXModel {
                         .addProperty(RDF.type, provOrganization)
                         .addProperty(FOAF.givenName, mex.getApplicationContext().get_organization());}
 
-            if (mex.getApplicationContext().get_context() != null) {
-                Resource mexcore_CON = model.createResource(MEXCORE_10.NS + mex.getApplicationContext().get_context().get_context());
+            if (mex.getApplicationContext().getContext() != null) {
+                Resource mexcore_CON = model.createResource(MEXCORE_10.NS + mex.getApplicationContext().getContext().get_context());
                 _context = model.createResource(URIbase+ "context")
                         .addProperty(RDF.type, provEntity)
                         .addProperty(RDF.type, mexcore_CON)
                         .addProperty(PROVO.wasAttributedTo, _application);}
         }
 
+        //EXPERIMENT
         if (mex.getExperiment() != null) {
             _expHeader = model.createResource(URIbase + "experiment-header")
                     .addProperty(RDF.type, provEntity)
@@ -133,6 +138,43 @@ public class MEXModel {
 
             if (mex.getApplicationContext() != null) {
                 _expHeader.addProperty(PROVO.wasAttributedTo, _application);
+            }
+
+        }
+        //EXPERIMENT CONFIGURATION
+        if (mex.getExperimentConfigurations() != null) {
+            int aux = 1;
+            for(Iterator<ExperimentConfigurationVO> i = mex.getExperimentConfigurations().iterator(); i.hasNext(); ) {
+                ExperimentConfigurationVO item = i.next();
+
+                Resource _expConfiguration = model.createResource(URIbase + "configuration" + aux)
+                        .addProperty(RDF.type, provActivity)
+                        .addProperty(RDF.type, mexcore_EXP_CONF)
+                        .addProperty(DCTerms.identifier, item.getId())
+                        .addProperty(DCTerms.description, item.getDescription());
+
+                //MODEL
+                if (item.Model() != null) {
+                    Resource _model = model.createResource(URIbase + "model")
+                            .addProperty(RDF.type, provEntity);
+
+                    if (StringUtils.isNotBlank(item.Model().get_id()) &&
+                            StringUtils.isNotEmpty(item.Model().get_id())) {
+                                _model.addProperty(DCTerms.identifier, item.Model().get_id());
+                            }
+                    if (StringUtils.isNotBlank(item.Model().get_description()) &&
+                            StringUtils.isNotEmpty(item.Model().get_description())) {
+                                _model.addProperty(DCTerms.description, item.Model().get_description());
+                            }
+                    if (item.Model().get_date() != null) {
+                        _model.addProperty(DCTerms.date, item.Model().get_date().toString());
+                    }
+
+                    _expConfiguration.addProperty(PROVO.used, _application);
+                }
+
+                aux++;
+
             }
 
         }

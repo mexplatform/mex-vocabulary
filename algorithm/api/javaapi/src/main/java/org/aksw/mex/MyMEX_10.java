@@ -127,8 +127,8 @@ public class MyMEX_10 {
         this.executionSet = executionSet;
     }
 
-    public ExperimentConfigurationVO getExperimentConfiguration() {
-        return experimentConfiguration;
+    public List<ExperimentConfigurationVO> getExperimentConfigurations() {
+        return experimentConfigurationList;
     }
 
     public void setExpConf_iguration(ExperimentConfigurationVO experimentConfiguration) {

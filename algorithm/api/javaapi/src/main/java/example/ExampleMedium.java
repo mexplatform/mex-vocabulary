@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * Created by esteves on 27.06.15.
  */
-public class ExampleSimple {
+public class ExampleMedium {
 
     public static void main(String[] args) {
 
