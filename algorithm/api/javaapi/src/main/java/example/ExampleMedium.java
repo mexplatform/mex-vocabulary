@@ -104,10 +104,10 @@ public class ExampleMedium {
         //saving performances for each run
         {
             mex.Configuration(eid).ExecutionOverall(ex1).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
-            mex.Configuration(eid).ExecutionOverall(ex1).addPerformance(EnumMeasures.TRUE_POSITIVE_RATE.toString(), .70);
+            mex.Configuration(eid).ExecutionOverall(ex1).addPerformance(EnumMeasures.TRUEPOSITIVERATE.toString(), .70);
             mex.Configuration(eid).ExecutionOverall(ex2).addPerformance(EnumMeasures.ERROR.toString(), .04);
             mex.Configuration(eid).ExecutionOverall(ex2).addPerformance(EnumMeasures.ACCURACY.toString(), .83);
-            mex.Configuration(eid).ExecutionOverall(ex2).addPerformance(EnumMeasures.TRUE_POSITIVE_RATE.toString(), .61);
+            mex.Configuration(eid).ExecutionOverall(ex2).addPerformance(EnumMeasures.TRUEPOSITIVERATE.toString(), .61);
         }
 
         //exporting your ML experiment

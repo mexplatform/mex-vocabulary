@@ -108,13 +108,13 @@ public abstract class Execution {
 
             try{
                 type = "cla";
-                if (EnumUtils.isValidEnum(Global.EnumClassificationMeasure.class, p) == false){
+                if (EnumUtils.isValidEnum(Global.EnumClassificationMeasure.class, p.toUpperCase()) == false){
                     type = "reg";
-                    if (EnumUtils.isValidEnum(Global.EnumRegressionMeasure.class, p) == false){
+                    if (EnumUtils.isValidEnum(Global.EnumRegressionMeasure.class, p.toUpperCase()) == false){
                         type = "sta";
-                        if (EnumUtils.isValidEnum(Global.EnumStatisticalMeasure.class, p) == false){
+                        if (EnumUtils.isValidEnum(Global.EnumStatisticalMeasure.class, p.toUpperCase()) == false){
                             type = "clu";
-                            if (EnumUtils.isValidEnum(Global.EnumClusteringMeasure.class, p) == false){
+                            if (EnumUtils.isValidEnum(Global.EnumClusteringMeasure.class, p.toUpperCase()) == false){
                                 return false;}
                         }
                     }

@@ -10,6 +10,8 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.vocabulary.*;
 import org.aksw.mex.algo.AlgorithmParameterVO;
 import org.aksw.mex.core.*;
+import org.aksw.mex.perf.example.ExamplePerformanceVO;
+import org.aksw.mex.perf.overall.*;
 import org.aksw.mex.util.Constants;
 import org.aksw.mex.util.ontology.*;
 import org.aksw.mex.util.ontology.mex.MEXALGO_10;
@@ -398,6 +400,40 @@ public class MEXSerializer_10 {
                                     }
 
                                 }
+                            }
+                            //PERFORMANCES
+                            if (e.getPerformances() != null && e.getPerformances().size() > 0) {
+                                Integer auxmea = 1;
+                                for(Iterator<Measure> imea = e.getPerformances().iterator(); imea.hasNext(); ) {
+                                    Measure mea = imea.next();
+                                    if (mea != null) {
+                                        Resource _mea = null;
+
+                                        Resource mexperf;
+                                        String auxType = null;
+
+                                        if (mea instanceof ClassificationMeasureVO){
+                                            auxType=MEXPERF_10.ClasseTypes.CLASSIFICATION_MEASURE;
+                                        }else if (mea instanceof RegressionMeasureVO){
+                                            auxType=MEXPERF_10.ClasseTypes.REGRESSION_MEASURE;
+                                        }else if (mea instanceof ClusteringMeasureVO){
+                                            auxType=MEXPERF_10.ClasseTypes.CLUSTERING_MEASURE;
+                                        }else if (mea instanceof StatisticalMeasureVO){
+                                            auxType=MEXPERF_10.ClasseTypes.STATISTICAL_MEASURE;
+                                        }
+
+                                        mexperf = model.createResource(MEXPERF_10.NS + auxType);
+
+                                        _mea = model.createResource(URIbase + "measure" + String.valueOf(auxe) + "_" + String.valueOf(auxmea))
+                                                .addProperty(RDF.type, provEntity)
+                                                .addProperty(RDF.type, mexperf)
+                                                .addProperty(PROVO.value, String.valueOf(mea.getValue()))
+                                                .addProperty(DCTerms.identifier, mea.getName());
+
+                                        _mea.addProperty(PROVO.wasInformedBy, _exec);
+                                        auxmea++;}
+                                }
+
                             }
 
 

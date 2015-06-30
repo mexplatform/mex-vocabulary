@@ -204,35 +204,35 @@ public class Global {
         ROC(EnumClassificationMeasure.ROC.toString()),
         SENSITIVITY(EnumClassificationMeasure.SENSITIVITY.toString()),
         SPECIFICITY(EnumClassificationMeasure.SPECIFICITY.toString()),
-        TRUE_NEGATIVE(EnumClassificationMeasure.TRUE_NEGATIVE.toString()),
-        TRUE_POSITIVE(EnumClassificationMeasure.TRUE_POSITIVE.toString()),
-        FALSE_NEGATIVE(EnumClassificationMeasure.FALSE_NEGATIVE.toString()),
-        FALSE_POSITIVE(EnumClassificationMeasure.FALSE_POSITIVE.toString()),
-        FALSE_NEGATIVE_RATE(EnumClassificationMeasure.ACCURACY.toString()),
-        FALSE_POSITIVE_RATE(EnumClassificationMeasure.FALSE_POSITIVE_RATE.toString()),
-        TRUE_NEGATIVE_RATE(EnumClassificationMeasure.TRUE_NEGATIVE_RATE.toString()),
-        TRUE_POSITIVE_RATE(EnumClassificationMeasure.TRUE_POSITIVE_RATE.toString()),
+        TRUENEGATIVE(EnumClassificationMeasure.TRUENEGATIVE.toString()),
+        TRUEPOSITIVE(EnumClassificationMeasure.TRUEPOSITIVE.toString()),
+        FALSENEGATIVE(EnumClassificationMeasure.FALSENEGATIVE.toString()),
+        FALSEPOSITIVE(EnumClassificationMeasure.FALSEPOSITIVE.toString()),
+        FALSENEGATIVERATE(EnumClassificationMeasure.ACCURACY.toString()),
+        FALSEPOSITIVERATE(EnumClassificationMeasure.FALSEPOSITIVERATE.toString()),
+        TRUENEGATIVERATE(EnumClassificationMeasure.TRUENEGATIVERATE.toString()),
+        TRUEPOSITIVERATE(EnumClassificationMeasure.TRUEPOSITIVERATE.toString()),
 
         /*clustering*/
-        CHEBYSCHEV_DISTANCE(EnumClusteringMeasure.CHEBYSCHEV_DISTANCE.toString()),
-        HAMMING_DISTANCE(EnumClusteringMeasure.HAMMING_DISTANCE.toString()),
-        EUCLIDEAN_DISTANCE(EnumClusteringMeasure.EUCLIDEAN_DISTANCE.toString()),
-        MANHATTAN_DISTANCE(EnumClusteringMeasure.MANHATTAN_DISTANCE.toString()),
-        GEN_SIMILARITY_COEFFICIENT(EnumClusteringMeasure.GEN_SIMILARITY_COEFFICIENT.toString()),
+        CHEBYSCHEVDISTANCE(EnumClusteringMeasure.CHEBYSCHEVDISTANCE.toString()),
+        HAMMINGDISTANCE(EnumClusteringMeasure.HAMMINGDISTANCE.toString()),
+        EUCLIDEANDISTANCE(EnumClusteringMeasure.EUCLIDEANDISTANCE.toString()),
+        MANHATTANDISTANCE(EnumClusteringMeasure.MANHATTANDISTANCE.toString()),
+        GENSIMILARITYCOEFFICIENT(EnumClusteringMeasure.GENSIMILARITYCOEFFICIENT.toString()),
 
         /*statistics*/
-        PEARSON_CORRELATION(EnumStatisticalMeasure.PEARSON_CORRELATION.toString()),
-        CHI_SQUARE(EnumStatisticalMeasure.CHI_SQUARE.toString()),
+        PEARSONCORRELATION(EnumStatisticalMeasure.PEARSONCORRELATION.toString()),
+        CHISQUARE(EnumStatisticalMeasure.CHISQUARE.toString()),
         ERROR(EnumStatisticalMeasure.ERROR.toString()),
-        KOLMOGOROV_SMIRNOV(EnumStatisticalMeasure.KOLMOGOROV_SMIRNOV.toString()),
+        KOLMOGOROVSMIRNOV(EnumStatisticalMeasure.KOLMOGOROVSMIRNOV.toString()),
         MEAN(EnumStatisticalMeasure.MEAN.toString()),
         NEMENYI(EnumStatisticalMeasure.NEMENYI.toString()),
-        STANDARD_DEVIATION(EnumStatisticalMeasure.STANDARD_DEVIATION.toString()),
+        STANDARDDEVIATION(EnumStatisticalMeasure.STANDARDDEVIATION.toString()),
         WILCOXON(EnumStatisticalMeasure.WILCOXON.toString()),
         VARIANCE(EnumStatisticalMeasure.VARIANCE.toString()),
         FRIEDMAN(EnumStatisticalMeasure.FRIEDMAN.toString()),
         MEDIAN(EnumStatisticalMeasure.MEDIAN.toString()),
-        KAPPA_STATISTICS(EnumStatisticalMeasure.KAPPA_STATISTICS.toString()),
+        KAPPASTATISTICS(EnumStatisticalMeasure.KAPPASTATISTICS.toString()),
         MODE(EnumStatisticalMeasure.MODE.toString()),
         L2NORM(EnumStatisticalMeasure.L2NORM.toString()),
         L1NORM(EnumStatisticalMeasure.L1NORM.toString()),
@@ -289,14 +289,14 @@ public class Global {
         ROC("roc"),
         SENSITIVITY("sensitivity"),
         SPECIFICITY("specificity"),
-        TRUE_NEGATIVE("trueNegative"),
-        TRUE_POSITIVE("truePositive"),
-        FALSE_NEGATIVE("falseNegative"),
-        FALSE_POSITIVE("falsePositive"),
-        FALSE_NEGATIVE_RATE("falseNegativeRate"),
-        FALSE_POSITIVE_RATE("falsePositiveRate"),
-        TRUE_NEGATIVE_RATE("trueNegativeRate"),
-        TRUE_POSITIVE_RATE("truePositiveRate");
+        TRUENEGATIVE("trueNegative"),
+        TRUEPOSITIVE("truePositive"),
+        FALSENEGATIVE("falseNegative"),
+        FALSEPOSITIVE("falsePositive"),
+        FALSENEGATIVERATE("falseNegativeRate"),
+        FALSEPOSITIVERATE("falsePositiveRate"),
+        TRUENEGATIVERATE("trueNegativeRate"),
+        TRUEPOSITIVERATE("truePositiveRate");
 
         private final String text;
         /**
@@ -313,18 +313,18 @@ public class Global {
         public String toString() {return text;}
     }
     public enum EnumStatisticalMeasure {
-        PEARSON_CORRELATION("pearsonCorrelation"),
-        CHI_SQUARE("chiSquare"),
+        PEARSONCORRELATION("pearsonCorrelation"),
+        CHISQUARE("chiSquare"),
         ERROR("error"),
-        KOLMOGOROV_SMIRNOV("kolmogorovSmirnov"),
+        KOLMOGOROVSMIRNOV("kolmogorovSmirnov"),
         MEAN("mean"),
         NEMENYI("nemenyi"),
-        STANDARD_DEVIATION("standardDeviation"),
+        STANDARDDEVIATION("standardDeviation"),
         WILCOXON("wilcoxon"),
         VARIANCE("variance"),
         FRIEDMAN("friedman"),
         MEDIAN("median"),
-        KAPPA_STATISTICS("kappaStatistics"),
+        KAPPASTATISTICS("kappaStatistics"),
         MODE("mode"),
         L2NORM("L2norm"),
         L1NORM("L1norm"),
@@ -346,11 +346,11 @@ public class Global {
     }
     public enum EnumClusteringMeasure {
 
-        CHEBYSCHEV_DISTANCE("chebyschevDistance"),
-        HAMMING_DISTANCE("hammingDistance"),
-        EUCLIDEAN_DISTANCE("euclideanDistance"),
-        MANHATTAN_DISTANCE("manhattanDistance"),
-        GEN_SIMILARITY_COEFFICIENT("genSimilarityCoefficient");
+        CHEBYSCHEVDISTANCE("chebyschevDistance"),
+        HAMMINGDISTANCE("hammingDistance"),
+        EUCLIDEANDISTANCE("euclideanDistance"),
+        MANHATTANDISTANCE("manhattanDistance"),
+        GENSIMILARITYCOEFFICIENT("genSimilarityCoefficient");
 
         private final String text;
         /**
