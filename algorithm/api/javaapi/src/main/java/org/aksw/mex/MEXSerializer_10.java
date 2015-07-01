@@ -43,10 +43,35 @@ public class MEXSerializer_10 {
 
             List<ExperimentConfigurationVO> configurations = mex.getExperimentConfigurations();
             for (int i = 0; i < configurations.size(); i++) {
+
                 if (configurations.get(i).SamplingMethod() != null &&
                         (configurations.get(i).SamplingMethod().getTestSize() == null || configurations.get(i).SamplingMethod().getTrainSize() == null)) {
-                    throw new Exception("missing parameters for sampling method");
+                    throw new Exception("missing parameters for sampling: inform the train and test size for sampling methods!");
                 }
+
+                //minimal set of classes to be implemented
+                if (configurations.get(i).getFeatures() == null
+                        || configurations.get(i).getFeatures().size() == 0){
+                    throw new Exception("missing feature(s)!");
+                }
+
+                if (configurations.get(i).getAlgorithms() == null
+                        || configurations.get(i).getAlgorithms().size() == 0){
+                    throw new Exception("missing algorithm(s)!");
+                }
+
+                if (configurations.get(i).getExecutions() == null
+                        || configurations.get(i).getExecutions().size() == 0){
+                    throw new Exception("missing execution(s)!");
+                }
+
+                for (int j = 0; j < configurations.get(i).getExecutions().size(); j++) {
+                    if (configurations.get(i).getExecutions().get(j).getPerformances() == null ||
+                            configurations.get(i).getExecutions().get(j).getPerformances().size() == 0){
+                                throw new Exception("missing execution performance for the execution index " + String.valueOf(j));
+                            }
+                }
+
             }
 
             _valid=true;

@@ -186,7 +186,9 @@ public class ExperimentConfigurationVO {
         } catch (Exception e){
             System.out.println(e.toString());}
     }
-
+    public List<AlgorithmVO> getAlgorithms(){
+        return this._algorithms;
+    }
     public List<FeatureVO> getFeatures(){
         return this._features;
     }
