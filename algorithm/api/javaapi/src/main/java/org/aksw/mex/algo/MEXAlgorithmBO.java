@@ -2,8 +2,7 @@ package org.aksw.mex.algo;
 
 import com.hp.hpl.jena.ontology.*;
 import com.hp.hpl.jena.rdf.model.*;
-import com.hp.hpl.jena.util.iterator.ExtendedIterator;
-import org.aksw.mex.util.Constants;
+import org.aksw.mex.util.MEXConstant;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -28,10 +27,10 @@ public class MEXAlgorithmBO {
             //_algorithmParameters = new AlgorithmParameterCollectionVO();
             _implementations = new ArrayList<ImplementationVO>();
 
-            //is = new URL(org.aksw.mex.util.Constants.MEX_ALGO_URL).openStream();
+            //is = new URL(org.aksw.mex.util.MEXConstant.MEX_ALGO_URL).openStream();
             is = new FileInputStream("/home/esteves/Desktop/mex-algo1.0.ttl");
 
-            _model.read(is,null, Constants.FILE_FORMAT);
+            _model.read(is,null, MEXConstant.FILE_FORMAT);
 
             _base = _model.getNsPrefixURI("");
             _rdfs = _model.getNsPrefixURI("rdfs");
@@ -73,7 +72,7 @@ public class MEXAlgorithmBO {
         try {
             ImplementationVO vo;
 
-            iClass =_model.getOntClass(_base + Constants.CLS_IMPLEMENTATION);
+            iClass =_model.getOntClass(_base + MEXConstant.CLS_IMPLEMENTATION);
             for (ExtendedIterator<? extends OntResource> it= iClass.listInstances(true); it.hasNext();) {
                 Individual ind = (Individual) it.next();
 

@@ -4,7 +4,7 @@ import com.google.common.collect.Collections2;
 import com.google.common.collect.Iterables;
 import org.aksw.mex.algo.AlgorithmVO;
 import org.aksw.mex.algo.ImplementationVO;
-import org.aksw.mex.util.Global;
+import org.aksw.mex.util.MEXEnum;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -83,7 +83,7 @@ public class ExperimentConfigurationVO {
     }
     public SamplingMethodVO SamplingMethod() {
         if (this._sampling == null){
-            this._sampling = new SamplingMethodVO(Global.EnumSamplingMethod.Holdout);
+            this._sampling = new SamplingMethodVO(MEXEnum.EnumSamplingMethod.Holdout);
         }
         return this._sampling ;
     }

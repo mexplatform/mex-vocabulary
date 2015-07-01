@@ -11,7 +11,7 @@ import org.aksw.mex.perf.ExecutionPerformance;
 import org.aksw.mex.perf.example.ExamplePerformanceCollection;
 import org.aksw.mex.perf.example.ExamplePerformanceVO;
 import org.aksw.mex.perf.overall.*;
-import org.aksw.mex.util.Global;
+import org.aksw.mex.util.MEXConstant;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -62,8 +62,9 @@ public class MyMEX_10 {
 
     public MyMEX_10(){
         this.applicationContext = new ApplicationContextVO();
-        this.experiment = new ExperimentVO();
+        this.experiment = new ExperimentVO(MEXConstant.DEFAULT_EXP_ID);
         this.experimentConfigurationList = new ArrayList<>();
+        this.experimentConfigurationList.add(new ExperimentConfigurationVO(MEXConstant.DEFAULT_EXP_CONFIGURATION_ID));
         this.featureList = new ArrayList<>();
     }
 
@@ -90,6 +91,13 @@ public class MyMEX_10 {
             return Iterables.get(t, 0);
         }else {return null;}
     }
+    public ExperimentConfigurationVO Configuration(){
+        Collection<ExperimentConfigurationVO> t
+                = Collections2.filter(this.experimentConfigurationList, experimentConfigurationVO -> experimentConfigurationVO.getId().equals(MEXConstant.DEFAULT_EXP_CONFIGURATION_ID));
+        if (t != null){
+            return Iterables.get(t, 0);
+        }else {return null;}
+    }
     public void addConfiguration(String value){
         try
         {
@@ -99,6 +107,7 @@ public class MyMEX_10 {
                 throw new Exception("Experiment Configuration ID already assigned");
             }else
             {
+                this.experimentConfigurationList.removeIf(p -> p.getId().equals(MEXConstant.DEFAULT_EXP_CONFIGURATION_ID));
                 this.experimentConfigurationList.add(new ExperimentConfigurationVO(value));}
         }catch (Exception e){
             System.out.println(e.toString());

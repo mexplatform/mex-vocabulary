@@ -1,6 +1,8 @@
 package org.aksw.mex;
 
 import java.io.FileWriter;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
 
@@ -10,9 +12,8 @@ import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.vocabulary.*;
 import org.aksw.mex.algo.AlgorithmParameterVO;
 import org.aksw.mex.core.*;
-import org.aksw.mex.perf.example.ExamplePerformanceVO;
 import org.aksw.mex.perf.overall.*;
-import org.aksw.mex.util.Constants;
+import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.ontology.*;
 import org.aksw.mex.util.ontology.mex.MEXALGO_10;
 import org.aksw.mex.util.ontology.mex.MEXCORE_10;
@@ -35,7 +36,7 @@ public class MEXSerializer_10 {
         }
         return instance;
     }
-    public boolean parse(){
+    public boolean parse(MyMEX_10 mex){
         if (1==1) {
             _valid = true;
         }
@@ -156,11 +157,24 @@ public class MEXSerializer_10 {
         if (mex.getExperiment() != null) {
             _expHeader = model.createResource(URIbase + "experiment-header")
                     .addProperty(RDF.type, provEntity)
-                    .addProperty(RDF.type, mexcore_EXP_HEADER)
-                    .addProperty(DCTerms.identifier, mex.getExperiment().get_id())
-                    .addProperty(DCTerms.title, mex.getExperiment().get_title())
-                    .addProperty(DCTerms.date, new SimpleDateFormat("yyyy.MM.dd HH:mm:ss z").format(mex.getExperiment().get_date()))
-                    .addProperty(DCTerms.description, mex.getExperiment().get_description());
+                    .addProperty(RDF.type, mexcore_EXP_HEADER);
+                    if(StringUtils.isNotEmpty(mex.getExperiment().get_id()) && StringUtils.isNotBlank(mex.getExperiment().get_id())) {
+                        _expHeader.addProperty(DCTerms.identifier, mex.getExperiment().get_id());
+                    }
+                    if(StringUtils.isNotEmpty(mex.getExperiment().get_title()) && StringUtils.isNotBlank(mex.getExperiment().get_title())) {
+                        _expHeader.addProperty(DCTerms.title, mex.getExperiment().get_title());
+                    }
+                    if(mex.getExperiment().get_date() != null) {
+                        DateFormat df = new SimpleDateFormat("yyyy.MM.dd HH:mm:ss z");
+                        try{
+                            df.setLenient(false);
+                            df.parse(mex.getExperiment().get_date().toString());
+                            _expHeader.addProperty(DCTerms.date, new SimpleDateFormat("yyyy.MM.dd HH:mm:ss z").format(mex.getExperiment().get_date()));
+                        }catch (ParseException e) {}
+                    }
+                    if(StringUtils.isNotEmpty(mex.getExperiment().get_description()) && StringUtils.isNotBlank(mex.getExperiment().get_description())) {
+                        _expHeader.addProperty(DCTerms.description, mex.getExperiment().get_description());
+                    }
 
             if (mex.getApplicationContext() != null) {
                 _expHeader.addProperty(PROVO.wasAttributedTo, _application);
@@ -175,10 +189,13 @@ public class MEXSerializer_10 {
 
                 Resource _expConfiguration = model.createResource(URIbase + "configuration" + aux)
                         .addProperty(RDF.type, provActivity)
-                        .addProperty(RDF.type, mexcore_EXP_CONF)
-                        .addProperty(DCTerms.identifier, item.getId())
-                        .addProperty(DCTerms.description, item.getDescription());
-
+                        .addProperty(RDF.type, mexcore_EXP_CONF);
+                if(StringUtils.isNotEmpty(item.getId()) && StringUtils.isNotBlank(item.getId())) {
+                    _expConfiguration.addProperty(DCTerms.identifier, item.getId());
+                }
+                if(StringUtils.isNotEmpty(item.getDescription()) && StringUtils.isNotBlank(item.getDescription())) {
+                    _expConfiguration.addProperty(DCTerms.description, item.getDescription());
+                }
 
 
                 //MODEL
@@ -219,19 +236,19 @@ public class MEXSerializer_10 {
                             .addProperty(RDF.type, provEntity)
                             .addProperty(RDF.type, mexcore_SAMPLING_METHOD);
 
-                    if (StringUtils.isNotBlank(item.SamplingMethod().getFolds().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getFolds().toString())) {
+                    if (item.SamplingMethod().getFolds() != null && StringUtils.isNotBlank(item.SamplingMethod().getFolds().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getFolds().toString())) {
                         _sampling.addProperty(MEXCORE_10.folds, item.SamplingMethod().getFolds().toString());
                     }
 
-                    if (StringUtils.isNotBlank(item.SamplingMethod().getSequential().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getSequential().toString())) {
+                    if (item.SamplingMethod().getSequential() != null && StringUtils.isNotBlank(item.SamplingMethod().getSequential().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getSequential().toString())) {
                         _sampling.addProperty(MEXCORE_10.sequential, item.SamplingMethod().getSequential().toString());
                     }
 
-                    if (StringUtils.isNotBlank(item.SamplingMethod().getTrainSize().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getTrainSize().toString())) {
+                    if (item.SamplingMethod().getTrainSize() != null && StringUtils.isNotBlank(item.SamplingMethod().getTrainSize().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getTrainSize().toString())) {
                         _sampling.addProperty(MEXCORE_10.trainSize, item.SamplingMethod().getTrainSize().toString());
                     }
 
-                    if (StringUtils.isNotBlank(item.SamplingMethod().getTestSize().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getTestSize().toString())) {
+                    if (item.SamplingMethod().getTestSize() != null && StringUtils.isNotBlank(item.SamplingMethod().getTestSize().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getTestSize().toString())) {
                         _sampling.addProperty(MEXCORE_10.testSize, item.SamplingMethod().getTestSize().toString());
                     }
 
@@ -325,14 +342,22 @@ public class MEXSerializer_10 {
                             _exec = model.createResource(URIbase + "execution" + String.valueOf(auxe))
                                     .addProperty(RDF.type, provActivity)
                                     .addProperty(RDF.type, mexcore_EXEC)
-                                    .addProperty(PROVO.id, e.getId())
-                                    .addProperty(PROVO.startedAtTime, e.getStartedAtTime().toString())
-                                    .addProperty(PROVO.endedAtTime, e.getEndedAtTime().toString());
+                                    .addProperty(PROVO.id, e.getId());
+                            if (e.getStartedAtTime() != null) {
+                                _exec.addProperty(PROVO.startedAtTime, e.getStartedAtTime().toString());
+                            }
+                            if (e.getEndedAtTime() != null) {
+                                _exec.addProperty(PROVO.endedAtTime, e.getEndedAtTime().toString());
+                            }
 
                             if (e instanceof ExecutionSetVO) {
                                 ExecutionSetVO temp = (ExecutionSetVO) e;
-                                _exec.addProperty(MEXCORE_10.startsAtPosition, temp.getStartsAtPosition());
-                                _exec.addProperty(MEXCORE_10.endsAtPosition, temp.getEndsAtPosition());
+                                if (temp.getStartsAtPosition() != null) {
+                                    _exec.addProperty(MEXCORE_10.startsAtPosition, temp.getStartsAtPosition());
+                                }
+                                if (temp.getEndsAtPosition() != null) {
+                                    _exec.addProperty(MEXCORE_10.endsAtPosition, temp.getEndsAtPosition());
+                                }
                                 _exec.addProperty(MEXCORE_10.group, "true");
                             }else{
                                 _exec.addProperty(MEXCORE_10.group, "false");
@@ -514,7 +539,7 @@ public class MEXSerializer_10 {
             try {
 
                 out = new FileWriter(filename);
-                model.write(out, Constants.EnumRDFFormat.TURTLE);
+                model.write(out, MEXConstant.EnumRDFFormat.TURTLE);
                 out.close();
             } catch (Exception e) {
                 System.out.println("error: " + e.toString());

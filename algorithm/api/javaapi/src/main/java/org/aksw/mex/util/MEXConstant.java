@@ -3,7 +3,7 @@ package org.aksw.mex.util;
 /**
  * Created by esteves on 08.06.15.
  */
-public final class  Constants {
+public final class MEXConstant {
 
     public static final String TESTE_TTL = "/home/esteves/teste.ttl";
     public static final String MEX_ALGO_URL = "http://mex.aksw.org/mex-algo#";
@@ -18,6 +18,9 @@ public final class  Constants {
     public static final String CLS_SAMPLING_METHOD = "SamplingMethod";
     public static final String CLS_PERFORMANCE_MEASURE = "PerformanceMeasure";
 
+    public static final String DEFAULT_EXP_CONFIGURATION_ID = "MEX_EXP_CONF_D001";
+    public static final String DEFAULT_EXP_ID = "MEX_EXP_D001";
+
     public class EnumRDFFormat{
         public static final String TURTLE = "TURTLE";
         public static final String TTL = "TTL";
@@ -31,7 +34,7 @@ public final class  Constants {
         public static final String RDF_JSON = "RDF/JSON";
     }
 
-    private Constants(){
+    private MEXConstant(){
         throw new AssertionError();
     }
 

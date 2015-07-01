@@ -2,8 +2,8 @@ package example;
 
 import org.aksw.mex.MEXSerializer_10;
 import org.aksw.mex.MyMEX_10;
-import org.aksw.mex.util.Global;
-import org.aksw.mex.util.Global.*;
+import org.aksw.mex.util.MEXEnum;
+import org.aksw.mex.util.MEXEnum.*;
 
 import java.util.Date;
 
@@ -22,7 +22,7 @@ public class ExampleMedium {
             //change later here the sets for adds
             mex.setAuthorName("D Esteves");
             mex.setAuthorEmail("esteves@informatik.uni-leipzig.de");
-            mex.setContext(Global.EnumContext.RecomenderSystems);
+            mex.setContext(MEXEnum.EnumContext.RecomenderSystems);
             mex.setOrganization("Leipzig University");
 
             mex.setExperimentId("E001");
@@ -111,7 +111,7 @@ public class ExampleMedium {
         }
 
         //exporting your ML experiment
-        MEXSerializer_10.getInstance().parse();
+        MEXSerializer_10.getInstance().parse(mex);
         MEXSerializer_10.getInstance().saveToDisk("teste.ttl","http://mex.aksw.org/examples/001/", mex);
 
         System.exit(0);

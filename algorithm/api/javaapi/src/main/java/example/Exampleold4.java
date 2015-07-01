@@ -3,23 +3,23 @@ package example;
 /**
  * Created by esteves on 26.06.15.
  */
-public class Example4 {
+public class Exampleold4 {
 
      /*
 
-        FileManager.get().addLocatorClassLoader(Example.class.getClassLoader());
-        Model model = FileManager.get().loadModel(Constants.MEX_ALGO_URL, null, "TURTLE");
+        FileManager.get().addLocatorClassLoader(Exampleold.class.getClassLoader());
+        Model model = FileManager.get().loadModel(MEXConstant.MEX_ALGO_URL, null, "TURTLE");
         StmtIterator iter = model.listStatements();
-        Property p1 = model.getProperty(Constants.MEX_ALGO_URL + "dataProperty1");
+        Property p1 = model.getProperty(MEXConstant.MEX_ALGO_URL + "dataProperty1");
 
         try {
             InputStream is;
-            //is = new URL(org.aksw.mex.util.Constants.MEX_ALGO_URL).openStream();
-            is = new FileInputStream(Constants.TESTE_TTL);
+            //is = new URL(org.aksw.mex.util.MEXConstant.MEX_ALGO_URL).openStream();
+            is = new FileInputStream(MEXConstant.TESTE_TTL);
 
 
             OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
-            ontModel.read(is, null, Constants.FILE_FORMAT);
+            ontModel.read(is, null, MEXConstant.FILE_FORMAT);
 
             String base = ontModel.getNsPrefixURI("");
 
@@ -27,7 +27,7 @@ public class Example4 {
 
             System.out.println(iProperty.toString());
 
-            OntClass iClass =ontModel.getOntClass(base + Constants.CLS_IMPLEMENTATION);
+            OntClass iClass =ontModel.getOntClass(base + MEXConstant.CLS_IMPLEMENTATION);
             for (ExtendedIterator<? extends OntResource> it= iClass.listInstances(true);it.hasNext();) {
                 Individual ins = (Individual) it.next();
 

@@ -6,7 +6,7 @@ import com.hp.hpl.jena.util.FileManager;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
 import org.aksw.mex.algo.ImplementationVO;
 import org.aksw.mex.algo.MEXAlgorithmBO;
-import org.aksw.mex.util.Constants;
+import org.aksw.mex.util.MEXConstant;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -15,10 +15,10 @@ import java.util.List;
 /**
  * Created by esteves on 09.06.15.
  */
-public class Example {
+public class Exampleold {
 
     public static void main(String[] args) {
-        System.out.println("org.aksw.mex.example.Example for interchange results of machine learning!");
+        System.out.println("org.aksw.mex.example.Exampleold for interchange results of machine learning!");
 
 
         MEXAlgorithmBO algBO = new MEXAlgorithmBO();
@@ -27,7 +27,7 @@ public class Example {
         //System.out.println(imp.size());
 
 
-        FileManager.get().addLocatorClassLoader(Example.class.getClassLoader());
+        FileManager.get().addLocatorClassLoader(Exampleold.class.getClassLoader());
         Model model = FileManager.get().loadModel("/home/esteves/teste.ttl", null, "TURTLE");
         StmtIterator iter = model.listStatements();
         Property p1 = model.getProperty("http://www.w3.org/1999/02/22-rdf-syntax-ns#type1");
@@ -36,7 +36,7 @@ public class Example {
             InputStream is;
             is = new FileInputStream("/home/esteves/teste.ttl");
             OntModel ontModel = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
-            ontModel.read(is, null, Constants.FILE_FORMAT);
+            ontModel.read(is, null, MEXConstant.FILE_FORMAT);
 
             OntProperty iProperty = ontModel.getOntProperty("http://mex.org#dataProperty1");
 

@@ -8,14 +8,14 @@ import org.aksw.mex.algo.AlgorithmParameterVO;
 import org.aksw.mex.algo.AlgorithmVO;
 import org.aksw.mex.algo.ImplementationVO;
 import org.aksw.mex.perf.overall.ClassificationMeasureVO;
-import org.aksw.mex.util.Global;
+import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.core.*;
-import org.aksw.mex.util.Global.*;
+import org.aksw.mex.util.MEXEnum.*;
 
 /**
  * Created by esteves on 09.06.15.
  */
-public class Example2 {
+public class Exampleold2 {
 
     public static void main(String[] args) {
 
@@ -27,12 +27,12 @@ public class Example2 {
         //ajustar no loop de busca das subclasses...tem que ser metodo recursivo para pegar todos os filhos!
 
         /***************************************************************
-         * MyMEX_10 Wrapper org.aksw.mex.example.Example
+         * MyMEX_10 Wrapper org.aksw.mex.example.Exampleold
          ***************************************************************/
         /* step 1: author and context */
 
         ApplicationContextVO mcContext = new ApplicationContextVO("D Esteves", "esteves@informatik.uni-leipzig.de");
-        mcContext.setContext(Global.EnumContext.ComputationalFinance);
+        mcContext.setContext(MEXEnum.EnumContext.ComputationalFinance);
 
             //adding experimental information
             ExperimentVO mcExp = new ExperimentVO("EXP001", mcContext);
@@ -61,7 +61,7 @@ public class Example2 {
 
         mcExpConf1.setDataSet(new DataSetVO("BOVESPA_20110101_20131201"));
 
-        mcExpConf1.setSamplingMethod(new SamplingMethodVO(Global.EnumSamplingMethod.CrossValidation));
+        mcExpConf1.setSamplingMethod(new SamplingMethodVO(MEXEnum.EnumSamplingMethod.CrossValidation));
         mcExpConf1.SamplingMethod().setTrainSize(0.8);
         mcExpConf1.SamplingMethod().setTrainSize(0.2);
         mcExpConf1.SamplingMethod().setFolds(10);
@@ -133,7 +133,7 @@ public class Example2 {
         /* save the file */
 
 
-        MEXSerializer_10.getInstance().parse();
+        MEXSerializer_10.getInstance().parse(mex);
         MEXSerializer_10.getInstance().saveToDisk("/home/esteves/Desktop/mexfile1.ttl", "url.com", mex);
 
 

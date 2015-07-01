@@ -1,10 +1,9 @@
 package org.aksw.mex.core;
 
-import org.aksw.mex.util.Global;
+import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.util.ontology.mex.MEXCORE_10;
 import org.aksw.mex.util.ontology.PROVO;
 
-import javax.naming.Context;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -59,14 +58,14 @@ public class ApplicationContextVO  {
 
     public ApplicationContextVO(){
         this._fileDate = new Date();
-        this._context = new ContextVO(Global.EnumContext.NotInformed);
+        this._context = new ContextVO(MEXEnum.EnumContext.NotInformed);
     }
 
     public ApplicationContextVO(String name, String mbox){
         this._fileDate = new Date();
         this._givenName = name;
         this._mbox = mbox;
-        this._context = new ContextVO(Global.EnumContext.NotInformed);
+        this._context = new ContextVO(MEXEnum.EnumContext.NotInformed);
         this._experiments = new ArrayList<>();
         this._fileDate = new Date();
     }
@@ -88,7 +87,7 @@ public class ApplicationContextVO  {
         this._category = category;
         this._location = location;
         this._trustyURI = trustyURI;
-        this._context = new ContextVO(Global.EnumContext.NotInformed);
+        this._context = new ContextVO(MEXEnum.EnumContext.NotInformed);
     }
 
     public void setContext(String value){

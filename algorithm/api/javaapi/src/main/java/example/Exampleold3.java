@@ -3,7 +3,7 @@ package example;
 import com.hp.hpl.jena.ontology.*;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.util.iterator.ExtendedIterator;
-import org.aksw.mex.util.Constants;
+import org.aksw.mex.util.MEXConstant;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -11,17 +11,17 @@ import java.io.InputStream;
 /**
  * Created by esteves on 26.06.15.
  */
-public class Example3 {
+public class Exampleold3 {
 
     public static void main(String[] args){
 
-        //class to helps to generate the enums for org.aksw.mex.util.Global
+        //class to helps to generate the enums for org.aksw.mex.util.MEXEnum
 
-        generateIndividualsOrClassesForEnum("/home/esteves/Desktop/mex-algo1.0.ttl", Constants.CLS_IMPLEMENTATION, "I");
-        generateIndividualsOrClassesForEnum("/home/esteves/Desktop/mex-core1.0.ttl", Constants.CLS_CONTEXT, "I");
-        generateIndividualsOrClassesForEnum("/home/esteves/Desktop/mex-algo1.0.ttl", Constants.CLS_NAMED_ALGORITHM, "SC");
-        generateIndividualsOrClassesForEnum("/home/esteves/Desktop/mex-core1.0.ttl", Constants.CLS_SAMPLING_METHOD, "SC");
-        generateIndividualsOrClassesForEnum("/home/esteves/Desktop/mex-perf1.0.ttl", Constants.CLS_PERFORMANCE_MEASURE, "SC");
+        generateIndividualsOrClassesForEnum("/home/esteves/Desktop/mex-algo1.0.ttl", MEXConstant.CLS_IMPLEMENTATION, "I");
+        generateIndividualsOrClassesForEnum("/home/esteves/Desktop/mex-core1.0.ttl", MEXConstant.CLS_CONTEXT, "I");
+        generateIndividualsOrClassesForEnum("/home/esteves/Desktop/mex-algo1.0.ttl", MEXConstant.CLS_NAMED_ALGORITHM, "SC");
+        generateIndividualsOrClassesForEnum("/home/esteves/Desktop/mex-core1.0.ttl", MEXConstant.CLS_SAMPLING_METHOD, "SC");
+        generateIndividualsOrClassesForEnum("/home/esteves/Desktop/mex-perf1.0.ttl", MEXConstant.CLS_PERFORMANCE_MEASURE, "SC");
 
     }
 
@@ -32,10 +32,10 @@ public class Example3 {
         OntModel ontModel2;
 
         try{
-            //is = new URL(org.aksw.mex.util.Constants.MEX_ALGO_URL).openStream();
+            //is = new URL(org.aksw.mex.util.MEXConstant.MEX_ALGO_URL).openStream();
             is2 = new FileInputStream(file);
             ontModel2 = ModelFactory.createOntologyModel(OntModelSpec.OWL_DL_MEM);
-            ontModel2.read(is2, null, Constants.FILE_FORMAT);
+            ontModel2.read(is2, null, MEXConstant.FILE_FORMAT);
             base2 = ontModel2.getNsPrefixURI("");
             //iProperty2 = ontModel2.getOntProperty(base2 + "acronym");
             //System.out.println(iProperty2.toString());

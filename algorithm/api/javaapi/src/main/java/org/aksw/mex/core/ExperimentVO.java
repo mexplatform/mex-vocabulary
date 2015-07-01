@@ -65,8 +65,8 @@ public class ExperimentVO {
         this._date = new Date();
     }
 
-    public ExperimentVO() {
-
+    public ExperimentVO(String id) {
+        this._id = id;
     }
 
     public void setApplicationContext(ApplicationContextVO value){

@@ -2,7 +2,7 @@ package org.aksw.mex.util; /**
  * Created by esteves on 26.06.15.
  */
 
-public class Global {
+public class MEXEnum {
 
     public class EnumImplementation {
         public static final String H2O = "H2O";

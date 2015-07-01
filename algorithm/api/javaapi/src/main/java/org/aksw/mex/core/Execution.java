@@ -3,7 +3,7 @@ package org.aksw.mex.core;
 import com.google.common.collect.Collections2;
 import org.aksw.mex.algo.AlgorithmVO;
 import org.aksw.mex.perf.overall.*;
-import org.aksw.mex.util.Global;
+import org.aksw.mex.util.MEXEnum;
 import org.apache.commons.lang3.EnumUtils;
 
 import java.util.ArrayList;
@@ -108,13 +108,13 @@ public abstract class Execution {
 
             try{
                 type = "cla";
-                if (EnumUtils.isValidEnum(Global.EnumClassificationMeasure.class, p.toUpperCase()) == false){
+                if (EnumUtils.isValidEnum(MEXEnum.EnumClassificationMeasure.class, p.toUpperCase()) == false){
                     type = "reg";
-                    if (EnumUtils.isValidEnum(Global.EnumRegressionMeasure.class, p.toUpperCase()) == false){
+                    if (EnumUtils.isValidEnum(MEXEnum.EnumRegressionMeasure.class, p.toUpperCase()) == false){
                         type = "sta";
-                        if (EnumUtils.isValidEnum(Global.EnumStatisticalMeasure.class, p.toUpperCase()) == false){
+                        if (EnumUtils.isValidEnum(MEXEnum.EnumStatisticalMeasure.class, p.toUpperCase()) == false){
                             type = "clu";
-                            if (EnumUtils.isValidEnum(Global.EnumClusteringMeasure.class, p.toUpperCase()) == false){
+                            if (EnumUtils.isValidEnum(MEXEnum.EnumClusteringMeasure.class, p.toUpperCase()) == false){
                                 return false;}
                         }
                     }
