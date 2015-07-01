@@ -133,7 +133,7 @@ public class Exampleold2 {
         /* save the file */
 
 
-        MEXSerializer_10.getInstance().parse(mex);
+        //MEXSerializer_10.getInstance().parse(mex);
         MEXSerializer_10.getInstance().saveToDisk("/home/esteves/Desktop/mexfile1.ttl", "url.com", mex);
 
 

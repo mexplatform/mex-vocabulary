@@ -6,17 +6,17 @@ package org.aksw.mex.perf.overall;
 public abstract class Measure {
 
     private String _name;
-    private double _value;
+    private Double _value;
 
 
     public Measure(){}
-    public Measure(String measure, double value){
+    public Measure(String measure, Double value){
         this._value = value;
         this._name = measure;
     }
 
 
-    public void setMeasure(String m, double v){
+    public void setMeasure(String m, Double v){
         this._name = m;
         this._value=v;
     }
@@ -27,10 +27,10 @@ public abstract class Measure {
     public void setName(String _name) {
         this._name = _name;
     }
-    public double getValue() {
+    public Double getValue() {
         return _value;
     }
-    public void setValue(double _value) {
+    public void setValue(Double _value) {
         this._value = _value;
     }
 

@@ -76,27 +76,19 @@ public class ExperimentConfigurationVO {
     //}
 
     public ModelVO Model() {
-        if (this._model == null){
-            this._model = new ModelVO();
-        }
         return this._model;
     }
+    public void setSamplingMethod(String name) {
+        this._sampling = new SamplingMethodVO(name) ;
+    }
+
     public SamplingMethodVO SamplingMethod() {
-        if (this._sampling == null){
-            this._sampling = new SamplingMethodVO(MEXEnum.EnumSamplingMethod.Holdout);
-        }
         return this._sampling ;
     }
     public HardwareConfigurationVO HardwareConfiguration() {
-        if (this._hard == null){
-            this._hard = new HardwareConfigurationVO();
-        }
         return this._hard;
     }
     public DataSetVO DataSet() {
-        if (this._ds == null){
-            this._ds = new DataSetVO();
-        }
         return this._ds;
     }
     public AlgorithmVO Algorithm(String algorithmName){
@@ -116,9 +108,6 @@ public class ExperimentConfigurationVO {
         return ret;
     }
     public ImplementationVO Implementation() {
-        if (this._implementation ==null){
-            this._implementation = new ImplementationVO();
-        }
         return this._implementation;
     }
     public ExecutionSetVO ExecutionOverall(String id){
@@ -139,6 +128,14 @@ public class ExperimentConfigurationVO {
     public void addExecutionOverall(String id, String phase){
         this._executions.add(new ExecutionSetVO(id, new PhaseVO(phase)));
     }
+
+    public String addExecutionOverall(String phase){
+        Integer total = this._executions.size() + 1;
+        this._executions.add(new ExecutionSetVO(String.valueOf(total), new PhaseVO(phase)));
+        return total.toString();
+    }
+
+
     public void addFeature(String featureName){
         if (this._features == null) {
             this._features = new ArrayList<>();}
@@ -153,6 +150,29 @@ public class ExperimentConfigurationVO {
             System.out.println(e.toString());
         }
     }
+
+    public void addFeature(String[] featuresName){
+        if (this._features == null) {
+            this._features = new ArrayList<>();}
+
+        int size = featuresName.length;
+        for (int i=0; i<size; i++)
+        {
+            String feature = featuresName[i];
+            try {
+                Collection<FeatureVO> t = Collections2.filter(this._features, p -> p.getId().equals(feature));
+                if (t != null && t.size() > 0){throw new Exception("Feature already assigned");}
+                else {
+                    this._features.add(new FeatureVO(String.valueOf(this._features.size()+1), feature));
+                }
+            } catch (Exception e){
+                System.out.println(e.toString());
+            }
+        }
+
+
+    }
+
     public void addAlgorithm(String algorithmName){
         if (this._algorithms == null) {
             this._algorithms = new ArrayList<>();}

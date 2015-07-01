@@ -5,51 +5,51 @@ package org.aksw.mex.perf.overall;
  */
 public class RegressionMeasureVO extends Measure {
 
-    public void setMeanAbsoluteDeviation(double _meanAbsoluteDeviation) {
+    public void setMeanAbsoluteDeviation(Double _meanAbsoluteDeviation) {
         this._meanAbsoluteDeviation = _meanAbsoluteDeviation;
     }
 
-    public void setMeanSquareError(double _meanSquareError) {
+    public void setMeanSquareError(Double _meanSquareError) {
         this._meanSquareError = _meanSquareError;
     }
 
-    public void setResidual(double _residual) {
+    public void setResidual(Double _residual) {
         this._residual = _residual;
     }
 
-    public void setTotalError(double _totalError) {
+    public void setTotalError(Double _totalError) {
         this._totalError = _totalError;
     }
 
-    public void setMedianAbsoluteDeviation(double _medianAbsoluteDeviation) {
+    public void setMedianAbsoluteDeviation(Double _medianAbsoluteDeviation) {
         this._medianAbsoluteDeviation = _medianAbsoluteDeviation;
     }
 
-    public void setRelativeAbsoluteError(double _relativeAbsoluteError) {
+    public void setRelativeAbsoluteError(Double _relativeAbsoluteError) {
         this._relativeAbsoluteError = _relativeAbsoluteError;
     }
 
-    public void setRootRelativeSquaredError(double _rootRelativeSquaredError) {
+    public void setRootRelativeSquaredError(Double _rootRelativeSquaredError) {
         this._rootRelativeSquaredError = _rootRelativeSquaredError;
     }
 
-    public void setRootMeanSquaredError(double _rootMeanSquaredError) {
+    public void setRootMeanSquaredError(Double _rootMeanSquaredError) {
         this._rootMeanSquaredError = _rootMeanSquaredError;
     }
 
-    public void setCorrelationCoefficient(double _correlationCoefficient) {
+    public void setCorrelationCoefficient(Double _correlationCoefficient) {
         this._correlationCoefficient = _correlationCoefficient;
     }
 
-    private double _meanAbsoluteDeviation;
-    private double _meanSquareError;
-    private double _residual;
-    private double _totalError;
-    private double _medianAbsoluteDeviation;
-    private double _relativeAbsoluteError;
-    private double _rootRelativeSquaredError;
-    private double _rootMeanSquaredError;
-    private double _correlationCoefficient;
+    private Double _meanAbsoluteDeviation;
+    private Double _meanSquareError;
+    private Double _residual;
+    private Double _totalError;
+    private Double _medianAbsoluteDeviation;
+    private Double _relativeAbsoluteError;
+    private Double _rootRelativeSquaredError;
+    private Double _rootMeanSquaredError;
+    private Double _correlationCoefficient;
 
 
     public RegressionMeasureVO(){

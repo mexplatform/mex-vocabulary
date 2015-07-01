@@ -5,6 +5,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Iterator;
+import java.util.List;
 
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Model;
@@ -14,6 +15,7 @@ import org.aksw.mex.algo.AlgorithmParameterVO;
 import org.aksw.mex.core.*;
 import org.aksw.mex.perf.overall.*;
 import org.aksw.mex.util.MEXConstant;
+import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.util.ontology.*;
 import org.aksw.mex.util.ontology.mex.MEXALGO_10;
 import org.aksw.mex.util.ontology.mex.MEXCORE_10;
@@ -36,11 +38,22 @@ public class MEXSerializer_10 {
         }
         return instance;
     }
-    public boolean parse(MyMEX_10 mex){
-        if (1==1) {
-            _valid = true;
-        }
+    public boolean parse(MyMEX_10 mex) throws Exception{
+        _valid=false;
+
+            List<ExperimentConfigurationVO> configurations = mex.getExperimentConfigurations();
+            for (int i = 0; i < configurations.size(); i++) {
+                if (configurations.get(i).SamplingMethod() != null &&
+                        (configurations.get(i).SamplingMethod().getTestSize() == null || configurations.get(i).SamplingMethod().getTrainSize() == null)) {
+                    throw new Exception("missing parameters for sampling method");
+                }
+            }
+
+            _valid=true;
+
+
         return _valid;
+
     }
 
     public void saveToDisk(String filename, String URIbase, MyMEX_10 mex){
@@ -200,6 +213,8 @@ public class MEXSerializer_10 {
 
                 //MODEL
                 if (item.Model() != null) {
+                    boolean atLeastOne = false;
+
                     Resource _model = model.createResource(URIbase + "model")
                             .addProperty(RDF.type, provEntity)
                             .addProperty(RDF.type, mexcore_MODEL);
@@ -207,18 +222,25 @@ public class MEXSerializer_10 {
                     if (StringUtils.isNotBlank(item.Model().get_id()) &&
                             StringUtils.isNotEmpty(item.Model().get_id())) {
                         _model.addProperty(DCTerms.identifier, item.Model().get_id());
+                        atLeastOne=true;
                     }
 
                     if (StringUtils.isNotBlank(item.Model().get_description()) &&
                             StringUtils.isNotEmpty(item.Model().get_description())) {
                         _model.addProperty(DCTerms.description, item.Model().get_description());
+                        atLeastOne=true;
                     }
 
                     if (item.Model().get_date() != null) {
                         _model.addProperty(DCTerms.date, item.Model().get_date().toString());
+                        atLeastOne=true;
                     }
 
-                    _expConfiguration.addProperty(PROVO.used, _model);
+                    if (atLeastOne) {
+                        _expConfiguration.addProperty(PROVO.used, _model);
+
+                    }
+
                 }
                 //IMPLEMENTATION
                 if (item.Implementation() != null) {
@@ -394,7 +416,7 @@ public class MEXSerializer_10 {
                             if (e.getAlgorithm() != null) {
                                 Resource mexalgo_ALGO = model.createResource(MEXCORE_10.NS + e.getAlgorithm().getIndividualName());
 
-                                    Resource _alg = model.createResource(URIbase + e.getAlgorithm().getIndividualName())
+                                    Resource _alg = model.createResource(URIbase + "alg" + e.getAlgorithm().getIndividualName())
                                             .addProperty(RDF.type, provEntity)
                                             .addProperty(RDF.type, mexalgo_ALGO);
                                     _exec.addProperty(PROVO.used, _alg);

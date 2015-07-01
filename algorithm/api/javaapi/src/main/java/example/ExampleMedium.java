@@ -111,7 +111,12 @@ public class ExampleMedium {
         }
 
         //exporting your ML experiment
-        MEXSerializer_10.getInstance().parse(mex);
+        try{
+            MEXSerializer_10.getInstance().parse(mex);
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+
         MEXSerializer_10.getInstance().saveToDisk("teste.ttl","http://mex.aksw.org/examples/001/", mex);
 
         System.exit(0);

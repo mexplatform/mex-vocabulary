@@ -5,31 +5,31 @@ package org.aksw.mex.perf.overall;
  */
 public class ClusteringMeasureVO extends Measure  {
 
-    public void set_chebyschevDistance(double _chebyschevDistance) {
+    public void set_chebyschevDistance(Double _chebyschevDistance) {
         this._chebyschevDistance = _chebyschevDistance;
     }
 
-    public void set_hammingDistance(double _hammingDistance) {
+    public void set_hammingDistance(Double _hammingDistance) {
         this._hammingDistance = _hammingDistance;
     }
 
-    public void set_euclideanDistance(double _euclideanDistance) {
+    public void set_euclideanDistance(Double _euclideanDistance) {
         this._euclideanDistance = _euclideanDistance;
     }
 
-    public void set_manhattanDistance(double _manhattanDistance) {
+    public void set_manhattanDistance(Double _manhattanDistance) {
         this._manhattanDistance = _manhattanDistance;
     }
 
-    public void set_genSimilarityCoerfficient(double _genSimilarityCoerfficient) {
+    public void set_genSimilarityCoerfficient(Double _genSimilarityCoerfficient) {
         this._genSimilarityCoerfficient = _genSimilarityCoerfficient;
     }
 
-    private double _chebyschevDistance;
-    private double _hammingDistance;
-    private double _euclideanDistance;
-    private double _manhattanDistance;
-    private double _genSimilarityCoerfficient;
+    private Double _chebyschevDistance;
+    private Double _hammingDistance;
+    private Double _euclideanDistance;
+    private Double _manhattanDistance;
+    private Double _genSimilarityCoerfficient;
 
     public ClusteringMeasureVO(){
 

@@ -26,23 +26,27 @@ public class Example01 {
         }
         {
 
-            mex.Configuration().SamplingMethod().setName(EnumSamplingMethod.Holdout);
+            mex.Configuration().setSamplingMethod(EnumSamplingMethod.Holdout);
 
-            mex.Configuration().addFeature("min");
-            mex.Configuration().addFeature("max");
-            mex.Configuration().addFeature("ope");
-            mex.Configuration().addFeature("clo");
+            String[] features = {"min", "max", "ope clo"};
+            mex.Configuration().addFeature(features);
+
 
             mex.Configuration().addAlgorithm(MEXEnum.EnumAlgorithm.NaiveBayes);
 
-            String ex1 = "EX001";
 
-            mex.Configuration().addExecutionOverall(ex1, MEXEnum.EnumPhase.TEST);
-            mex.Configuration().ExecutionOverall(ex1).setAlgorithm(mex.Configuration().Algorithm(EnumAlgorithm.NaiveBayes));
-            mex.Configuration().ExecutionOverall(ex1).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
+            String executionId = mex.Configuration().addExecutionOverall(MEXEnum.EnumPhase.TEST);
+            mex.Configuration().ExecutionOverall(executionId).setAlgorithm(mex.Configuration().Algorithm(EnumAlgorithm.NaiveBayes));
+            mex.Configuration().ExecutionOverall(executionId).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
 
-            MEXSerializer_10.getInstance().parse(mex);
-            MEXSerializer_10.getInstance().saveToDisk("ex_simplest.ttl","http://mex.aksw.org/examples/001/", mex);
+            try{
+                MEXSerializer_10.getInstance().parse(mex);
+                MEXSerializer_10.getInstance().saveToDisk("ex001.ttl","http://mex.aksw.org/examples/001/", mex);
+            }catch (Exception e){
+                System.out.println(e.toString());
+            }
+
+
 
             //your models call here !
 

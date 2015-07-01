@@ -43,7 +43,12 @@ public class Example02 {
         mex.Configuration(eid).ExecutionOverall(ex1).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithm.NaiveBayes));
         mex.Configuration(eid).ExecutionOverall(ex1).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
 
-        MEXSerializer_10.getInstance().parse(mex);
+        try{
+            MEXSerializer_10.getInstance().parse(mex);
+        }catch (Exception e){
+
+        }
+
         MEXSerializer_10.getInstance().saveToDisk("ex_simplest.ttl","http://mex.aksw.org/examples/001/", mex);
 
         //your models call here !
