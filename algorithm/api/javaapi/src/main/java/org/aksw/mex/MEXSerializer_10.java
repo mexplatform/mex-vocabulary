@@ -41,34 +41,51 @@ public class MEXSerializer_10 {
     public boolean parse(MyMEX_10 mex) throws Exception{
         _valid=false;
 
+            /* minimal set of classes to be implemented */
+
+            if (mex.getApplicationContext() == null ||
+                    (StringUtils.isEmpty(mex.getApplicationContext().get_givenName()) ||
+                    StringUtils.isBlank(mex.getApplicationContext().get_givenName()))) {
+                throw new Exception("[APPLICATION_CONTEXT]: missing the author name!");
+            }
+
             List<ExperimentConfigurationVO> configurations = mex.getExperimentConfigurations();
             for (int i = 0; i < configurations.size(); i++) {
 
+
+                //dataset
+                if (configurations.get(i).DataSet() == null
+                        || (StringUtils.isBlank(configurations.get(i).DataSet().getName()) ||
+                            StringUtils.isEmpty(configurations.get(i).DataSet().getName()))){
+                    throw new Exception("[EXPERIMENT_CONFIGURATION]: missing basic dataset information: inform at least the dataset/file name!");
+                }
+
+                //sampling method
                 if (configurations.get(i).SamplingMethod() != null &&
                         (configurations.get(i).SamplingMethod().getTestSize() == null || configurations.get(i).SamplingMethod().getTrainSize() == null)) {
-                    throw new Exception("missing parameters for sampling: inform the train and test size for sampling methods!");
+                    throw new Exception("[EXPERIMENT_CONFIGURATION]: missing parameters for sampling: inform the train and test size for sampling methods!");
                 }
 
                 //minimal set of classes to be implemented
                 if (configurations.get(i).getFeatures() == null
                         || configurations.get(i).getFeatures().size() == 0){
-                    throw new Exception("missing feature(s)!");
+                    throw new Exception("[EXPERIMENT_CONFIGURATION]: missing feature(s)!");
                 }
 
                 if (configurations.get(i).getAlgorithms() == null
                         || configurations.get(i).getAlgorithms().size() == 0){
-                    throw new Exception("missing algorithm(s)!");
+                    throw new Exception("[EXPERIMENT_CONFIGURATION]: missing algorithm(s)!");
                 }
 
                 if (configurations.get(i).getExecutions() == null
                         || configurations.get(i).getExecutions().size() == 0){
-                    throw new Exception("missing execution(s)!");
+                    throw new Exception("[EXPERIMENT_CONFIGURATION]: missing execution(s)!");
                 }
 
                 for (int j = 0; j < configurations.get(i).getExecutions().size(); j++) {
                     if (configurations.get(i).getExecutions().get(j).getPerformances() == null ||
                             configurations.get(i).getExecutions().get(j).getPerformances().size() == 0){
-                                throw new Exception("missing execution performance for the execution index " + String.valueOf(j));
+                                throw new Exception("[PERFORMANCE]: missing execution's performance for the execution index " + String.valueOf(j));
                             }
                 }
 

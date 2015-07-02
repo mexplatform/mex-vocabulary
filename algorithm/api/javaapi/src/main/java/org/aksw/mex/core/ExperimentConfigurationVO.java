@@ -36,6 +36,7 @@ public class ExperimentConfigurationVO {
         this._executions = new ArrayList<>();
         this._features = new ArrayList<>();
         this._algorithms = new ArrayList<>();
+        this._ds = new DataSetVO();
     }
 
     public ExperimentConfigurationVO(String id) {
@@ -43,6 +44,7 @@ public class ExperimentConfigurationVO {
         this._executions = new ArrayList<>();
         this._features = new ArrayList<>();
         this._algorithms = new ArrayList<>();
+        this._ds = new DataSetVO();
     }
 
 
