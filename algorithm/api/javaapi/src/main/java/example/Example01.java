@@ -18,7 +18,6 @@ public class Example01 {
         MyMEX_10 mex = new MyMEX_10();
 
         try{
-
             /* (1) basic authoring provenance */
             mex.setAuthorName("D Esteves");
             String confID = mex.addConfiguration();

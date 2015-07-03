@@ -77,21 +77,21 @@ public class Exampleold2 {
         ImplementationVO software = new ImplementationVO(EnumImplementation.Weka);
         software.setRevision("3.6.6");
 
-        AlgorithmVO algSVM = new AlgorithmVO(EnumAlgorithm.SupportVectorMachines);
-        algSVM.addParameter(new AlgorithmParameterVO("C", "10^2"));
-        algSVM.addParameter(new AlgorithmParameterVO("alpha", "0.1"));
+        //AlgorithmVO algSVM = new AlgorithmVO(EnumAlgorithm.SupportVectorMachines);
+        //algSVM.addParameter(new AlgorithmParameterVO("C", "10^2"));
+        //algSVM.addParameter(new AlgorithmParameterVO("alpha", "0.1"));
 
-        AlgorithmVO algNB = new AlgorithmVO(EnumAlgorithm.NaiveBayes);
+        //AlgorithmVO algNB = new AlgorithmVO(EnumAlgorithm.NaiveBayes);
 
         /* step 4: control the executions */
 
         // train
-        ExecutionSetVO exec1 = new ExecutionSetVO("E001", new PhaseVO(EnumPhase.TRAIN));
+        ExecutionSetVO exec1 = new ExecutionSetVO(null, "E001", new PhaseVO(EnumPhase.TRAIN));
         exec1.setExperimentConfiguration(mcExpConf1);
         //exec1.setExamples(new ExampleCollection(0l, 114l));
 
         // test
-        ExecutionSetVO exec2 = new ExecutionSetVO("E002", new PhaseVO(EnumPhase.TEST));
+        ExecutionSetVO exec2 = new ExecutionSetVO(null, "E002", new PhaseVO(EnumPhase.TEST));
         exec2.setExperimentConfiguration(mcExpConf1);
         //exec2.setExamples(new ExampleCollection(115l, 160l));
 

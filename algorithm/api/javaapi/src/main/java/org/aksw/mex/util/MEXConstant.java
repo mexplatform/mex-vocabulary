@@ -18,6 +18,7 @@ public final class MEXConstant {
     public static final String CLS_SAMPLING_METHOD = "SamplingMethod";
     public static final String CLS_PERFORMANCE_MEASURE = "PerformanceMeasure";
 
+    public static final String DEFAULT_EXEC_ID = "MEX_EXEC_D";
     public static final String DEFAULT_EXP_CONFIGURATION_ID = "MEX_EXP_CONF_D";
     public static final String DEFAULT_EXP_ID = "MEX_EXP_D";
 

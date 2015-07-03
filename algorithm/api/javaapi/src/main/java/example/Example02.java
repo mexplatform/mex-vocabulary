@@ -35,7 +35,7 @@ public class Example02 {
             mex.Configuration(eid).addAlgorithm(MEXEnum.EnumAlgorithm.NaiveBayes);
 
             String ex1 = "EX001";
-            mex.Configuration(eid).addExecutionOverall(ex1, MEXEnum.EnumPhase.TEST);
+            //mex.Configuration(eid).addExecution(MEXEnum.EnumPhase.TEST);
             mex.Configuration(eid).ExecutionOverall(ex1).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithm.NaiveBayes));
             mex.Configuration(eid).ExecutionOverall(ex1).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
 

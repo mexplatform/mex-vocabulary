@@ -15,9 +15,10 @@ public class ExecutionSetVO extends Execution {
 
     }
 
-    public ExecutionSetVO(String id, PhaseVO phase){
+    public ExecutionSetVO(ExperimentConfigurationVO ep, String id, PhaseVO phase){
         this._id = id;
         this._phase = phase;
+        this._expConf = ep;
     }
 
     public void setStartsAtPosition(String value){

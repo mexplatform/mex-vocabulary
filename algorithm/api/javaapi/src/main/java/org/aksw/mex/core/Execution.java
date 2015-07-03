@@ -28,6 +28,7 @@ public abstract class Execution {
     protected List<ExampleVO> _examples;
     protected List<Measure> _performances;
 
+
     public Execution(){
         this._performances = new ArrayList<>();
         this._examples = new ArrayList();
@@ -69,6 +70,7 @@ public abstract class Execution {
     public ExperimentConfigurationVO get_expConf() {
         return _expConf;
     }
+
     public void set_expConf(ExperimentConfigurationVO _expConf) {
         this._expConf = _expConf;
     }
@@ -115,11 +117,9 @@ public abstract class Execution {
         }
         return true;
     }
-
     public void setPhase(PhaseVO value){
         this._phase = value;
     }
-
     public boolean addPerformance(String p, double v){
         String type = "";
         boolean ret = false;
@@ -188,7 +188,6 @@ public abstract class Execution {
         m.setName(p);
         return this._performances.add(m);
     }
-
     public List<ClassificationMeasureVO> getClassificationPerformance() {
         List<ClassificationMeasureVO> classifications = null;
         Collection<Measure> t

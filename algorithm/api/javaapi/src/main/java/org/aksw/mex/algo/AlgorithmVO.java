@@ -13,29 +13,36 @@ public class AlgorithmVO {
     private String _dct_description;
     private String _acroynm;
     private List<AlgorithmParameterVO> _parameters;
+    private String _className;
 
     public List<AlgorithmParameterVO> getParameters(){
         return this._parameters;
     }
 
-    public AlgorithmVO(String ind, String _dct_identifier, String _dct_description, String _acroynm){
+    public AlgorithmVO(String mexclass, String ind, String _dct_identifier, String _dct_description, String _acroynm){
         this._individualName = ind;
         this._dct_identifier = _dct_identifier;
         this._dct_description = _dct_description;
         this._acroynm = _acroynm;
         this._parameters = new ArrayList<>();
+        this._className = mexclass;
     }
-    public AlgorithmVO(String ind) {
+    public AlgorithmVO(String mexclass, String ind) {
         this._individualName = ind;
         this._parameters = new ArrayList<>();
+        this._className = mexclass;
     }
 
-    public AlgorithmVO(String ind, String identifier) {
+    public AlgorithmVO(String mexclass, String ind, String identifier) {
         this._individualName = ind;
         this._dct_identifier = identifier;
         this._parameters = new ArrayList<>();
+        this._className = mexclass;
     }
 
+    public String getClassName(){
+        return this._className;
+    }
 
     public String getIdentifier() {
         return _dct_identifier;

@@ -456,14 +456,14 @@ public class MEXSerializer_10 {
                             }
                             //ALGORITHM
                             if (e.getAlgorithm() != null) {
-                                Resource mexalgo_ALGO = model.createResource(MEXCORE_10.NS + e.getAlgorithm().getIndividualName());
+                                Resource mexalgo_ALGO = model.createResource(MEXCORE_10.NS + e.getAlgorithm().getClassName());
 
                                     Resource _alg = model.createResource(URIbase + "alg" + e.getAlgorithm().getIndividualName())
                                             .addProperty(RDF.type, provEntity)
                                             .addProperty(RDF.type, mexalgo_ALGO);
                                     _exec.addProperty(PROVO.used, _alg);
                                 if (StringUtils.isNotBlank(e.getAlgorithm().getIdentifier()) && StringUtils.isNotEmpty(e.getAlgorithm().getIdentifier())) {
-                                    _alg.addProperty(DCTerms.identifier, e.getAlgorithm().getAcroynm());}
+                                    _alg.addProperty(DCTerms.identifier, e.getAlgorithm().getIdentifier());}
                                 if (StringUtils.isNotBlank(e.getAlgorithm().getDescription()) && StringUtils.isNotEmpty(e.getAlgorithm().getDescription())) {
                                     _alg.addProperty(DCTerms.description, e.getAlgorithm().getDescription());}
                                 if (StringUtils.isNotBlank(e.getAlgorithm().getAcroynm()) && StringUtils.isNotEmpty(e.getAlgorithm().getAcroynm())) {

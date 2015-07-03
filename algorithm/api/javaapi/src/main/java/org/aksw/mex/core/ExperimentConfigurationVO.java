@@ -4,8 +4,9 @@ import com.google.common.collect.Collections2;
 import com.google.common.collect.Iterables;
 import org.aksw.mex.algo.AlgorithmVO;
 import org.aksw.mex.algo.ImplementationVO;
+import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum;
-import sun.swing.StringUIClientPropertyKey;
+
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -139,21 +140,22 @@ public class ExperimentConfigurationVO {
         return ret;
     }
 
-    public void addExecutionOverall(String id, String phase){
-        this._executions.add(new ExecutionSetVO(id, new PhaseVO(phase)));
+    public void addExecutionOverall(String expID, String id, String phase){
+        this._executions.add(new ExecutionSetVO(this, id, new PhaseVO(phase)));
     }
 
     public String addExecution(String type, String phase){
 
         Integer total = this._executions.size() + 1;
 
+
         switch (type){
             case MEXEnum.EnumExecutionType.SINGLE:
-                this._executions.add(new ExecutionIndividualVO(String.valueOf(total), new PhaseVO(phase)));
+                this._executions.add(new ExecutionIndividualVO(this, MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
             case MEXEnum.EnumExecutionType.OVERALL:
-                this._executions.add(new ExecutionSetVO(String.valueOf(total), new PhaseVO(phase)));
+                this._executions.add(new ExecutionSetVO(this, MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
         }
-        return total.toString();
+        return MEXConstant.DEFAULT_EXEC_ID + total.toString();
     }
 
 
@@ -204,11 +206,11 @@ public class ExperimentConfigurationVO {
             Collection<AlgorithmVO> t = Collections2.filter(this._algorithms, p -> p.getIndividualName().equals(algorithmName));
             if (t != null && t.size() > 0){
                 ret = algorithmName + String.valueOf(t.size() + 1);
-                this._algorithms.add(new AlgorithmVO(algorithmName, ret));
+                this._algorithms.add(new AlgorithmVO(algorithmName, ret, ret));
             }
             else {
                 ret = String.valueOf(algorithmName + String.valueOf(1));
-                this._algorithms.add(new AlgorithmVO(algorithmName, ret));
+                this._algorithms.add(new AlgorithmVO(algorithmName, ret, ret));
             }
         }catch (Exception e){
             System.out.println(e.toString());
@@ -231,9 +233,7 @@ public class ExperimentConfigurationVO {
     public FeatureVO getFeature(Integer index){
         return this._features.get(index);
     }
-    public void addExecutionSingle(String id, String phase){
-        this._executions.add(new ExecutionIndividualVO(id, new PhaseVO(phase)));
-    }
+
     public void setExecutionStartTime(String executionId, Date value){
         try {
             Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(executionId));

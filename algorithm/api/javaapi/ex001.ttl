@@ -12,13 +12,33 @@
 @prefix foaf:    <http://xmlns.com/foaf/0.1/> .
 @prefix dc:      <http://purl.org/dc/elements/1.1/> .
 
-this:algNaiveBayes
-      a       prov:Entity , mexcore:NaiveBayes .
-
 this:application
       a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
-      dct:dateCopyrighted "2015.07.02 17:48:24 CEST" ;
+      dct:dateCopyrighted "2015.07.03 18:27:47 CEST" ;
       foaf:givenName "D Esteves" .
+
+this:context
+      a       prov:Entity , mexcore:NotInformed ;
+      prov:wasAttributedTo
+              this:application .
+
+this:phaseTest
+      a       mexcore:Test , prov:Entity .
+
+this:execution1
+      a       mexcore:Execution , prov:Activity ;
+      mexcore:group "true" ;
+      prov:id "MEX_EXEC_D1" ;
+      prov:used this:phaseTest , this:algNaiveBayes1 ;
+      prov:wasInformedBy this:configuration1 .
+
+this:algNaiveBayes1
+      a       prov:Entity , mexcore:NaiveBayes ;
+      dct:identifier "NaiveBayes1" .
+
+this:dataset
+      a       prov:Entity , mexcore:Dataset ;
+      dct:title "mydataset.csv" .
 
 this:feature1
       a       mexcore:Feature , prov:Entity ;
@@ -36,25 +56,16 @@ this:feature2
       rdfs:label "max" ;
       dct:identifier "2" .
 
-this:context
-      a       prov:Entity , mexcore:NotInformed ;
-      prov:wasAttributedTo
-              this:application .
-
 this:feature3
       a       mexcore:Feature , prov:Entity ;
       rdfs:label "ope clo" ;
       dct:identifier "3" .
 
-this:phaseTest
-      a       mexcore:Test , prov:Entity .
-
-this:execution1
-      a       mexcore:Execution , prov:Activity ;
-      mexcore:group "true" ;
-      prov:id "1" ;
-      prov:used this:algNaiveBayes , this:phaseTest ;
-      prov:wasInformedBy this:configuration1 .
+this:measure1_2
+      a       mexperf:StatisticalMeasure , prov:Entity ;
+      dct:identifier "error" ;
+      prov:value "0.04" ;
+      prov:wasInformedBy this:execution1 .
 
 this:measure1_1
       a       prov:Entity , mexperf:ClassificationMeasure ;
@@ -66,7 +77,3 @@ this:configuration1
       a       mexcore:ExperimentConfiguration , prov:Activity ;
       dct:identifier "MEX_EXP_CONF_D1" ;
       prov:used this:feature1 , this:feature2 , this:feature3 , this:dataset .
-
-this:dataset
-      a       prov:Entity , mexcore:Dataset ;
-      dct:title "mydataset.csv" .
