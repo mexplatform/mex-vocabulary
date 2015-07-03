@@ -9,6 +9,10 @@ public class SamplingMethodVO {
         return _individualName;
     }
 
+    public String getClassName() {
+        return _className;
+    }
+
     public Double getTrainSize() {
         return _trainSize;
     }
@@ -32,14 +36,14 @@ public class SamplingMethodVO {
     private Integer _folds;
     private Boolean _sequential;
 
-    public SamplingMethodVO(String value, String ind) {
-        this._className = value;
+    public SamplingMethodVO(String ind, String classname) {
         this._individualName = ind;
+        this._className = classname;
     }
 
-    public SamplingMethodVO(String ind, String value, Double train, Double test) {
-        this._className = value;
+    public SamplingMethodVO(String ind, String classname, Double train, Double test) {
         this._individualName = ind;
+        this._className = classname;
         this._trainSize = train;
         this._testSize = test;
     }

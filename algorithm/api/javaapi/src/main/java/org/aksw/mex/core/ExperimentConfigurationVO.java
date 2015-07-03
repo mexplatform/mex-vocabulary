@@ -5,7 +5,10 @@ import com.google.common.collect.Iterables;
 import org.aksw.mex.algo.AlgorithmVO;
 import org.aksw.mex.algo.ImplementationVO;
 import org.aksw.mex.util.MEXConstant;
+import org.aksw.mex.util.MEXController;
 import org.aksw.mex.util.MEXEnum;
+import org.aksw.mex.util.ontology.mex.MEXALGO_10;
+import org.aksw.mex.util.ontology.mex.MEXCORE_10;
 
 
 import java.util.ArrayList;
@@ -82,8 +85,8 @@ public class ExperimentConfigurationVO {
     public ModelVO Model() {
         return this._model;
     }
-    public void setSamplingMethod(String name) {
-        this._sampling = new SamplingMethodVO(name) ;
+    public void setSamplingMethod(String classname, String name) {
+        this._sampling = new SamplingMethodVO(classname, name) ;
     }
 
     public SamplingMethodVO SamplingMethod() {
@@ -196,37 +199,40 @@ public class ExperimentConfigurationVO {
 
     }
 
-    public String addSamplingMethod(String className, Double train, Double test) throws Exception{
+    public void addSamplingMethod(String className, Double train, Double test) throws Exception{
 
-        String ret = "";
         try{
-            Integer x =
             if (this._sampling == null) {
-                this._sampling = new SamplingMethodVO(className, train, test);}
+                String individualName = MEXCORE_10.ClasseTypes.SAMPLING_METHOD.toLowerCase() +
+                        String.valueOf(MEXController.getInstance().getNumberOfSamplingMethods() + 1);
+
+                this._sampling = new SamplingMethodVO(individualName,className, train, test);
+
+                MEXController.getInstance().addSamplingMethodCounter();
+            }
+
+
 
         }catch (Exception e){
             System.out.println(e.toString());
         }
 
-        return ret;
     }
 
-    public String addAlgorithm(String algorithmName) throws Exception{
+    public String addAlgorithm(String algorithmClass) throws Exception{
 
         String ret = "";
         try{
             if (this._algorithms == null) {
                 this._algorithms = new ArrayList<>();}
 
-            Collection<AlgorithmVO> t = Collections2.filter(this._algorithms, p -> p.getIndividualName().equals(algorithmName));
-            if (t != null && t.size() > 0){
-                ret = algorithmName + String.valueOf(t.size() + 1);
-                this._algorithms.add(new AlgorithmVO(algorithmName, ret, ret));
-            }
-            else {
-                ret = String.valueOf(algorithmName + String.valueOf(1));
-                this._algorithms.add(new AlgorithmVO(algorithmName, ret, ret));
-            }
+            String individualName = MEXALGO_10.ClasseTypes.ALGORITHM.toLowerCase() +
+                    String.valueOf(MEXController.getInstance().getNumberOfAlgorithms() + 1);
+
+            this._algorithms.add(new AlgorithmVO(algorithmClass, individualName, individualName));
+
+            MEXController.getInstance().addAlgorithmCounter();
+
         }catch (Exception e){
             System.out.println(e.toString());
         }

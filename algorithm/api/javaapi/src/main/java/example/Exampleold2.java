@@ -61,7 +61,7 @@ public class Exampleold2 {
 
         mcExpConf1.setDataSet(new DataSetVO("BOVESPA_20110101_20131201"));
 
-        mcExpConf1.setSamplingMethod(new SamplingMethodVO(MEXEnum.EnumSamplingMethod.CrossValidation));
+        mcExpConf1.setSamplingMethod(new SamplingMethodVO("",MEXEnum.EnumSamplingMethod.CrossValidation));
         mcExpConf1.SamplingMethod().setTrainSize(0.8);
         mcExpConf1.SamplingMethod().setTrainSize(0.2);
         mcExpConf1.SamplingMethod().setFolds(10);

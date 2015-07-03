@@ -16,7 +16,7 @@ this:execution1
       a       mexcore:Execution , prov:Activity ;
       mexcore:group "true" ;
       prov:id "MEX_EXEC_D1" ;
-      prov:used this:phaseTest , this:algNaiveBayes1 , this:algRegressionAnalysis1 ;
+      prov:used this:phaseTest , this:algorithm1 , this:algorithm2 ;
       prov:wasInformedBy this:configuration2 , this:configuration1 .
 
 this:feature4
@@ -29,15 +29,6 @@ this:feature3
       rdfs:label "ope" ;
       dct:identifier "3" .
 
-this:algRegressionAnalysis1
-      a       prov:Entity , mexcore:RegressionAnalysis ;
-      dct:identifier "RegressionAnalysis1" .
-
-this:sampling
-      a       prov:Entity , mexcore:Holdout ;
-      mexcore:testSize "0.2" , "0.1" ;
-      mexcore:trainSize "0.8" .
-
 this:feature2
       a       mexcore:Feature , prov:Entity ;
       rdfs:label "max" ;
@@ -45,7 +36,7 @@ this:feature2
 
 this:application
       a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
-      dct:dateCopyrighted "2015.07.03 18:59:34 CEST" ;
+      dct:dateCopyrighted "2015.07.03 20:46:59 CEST" ;
       foaf:givenName "D Esteves" ;
       foaf:mbox "esteves@informatik.uni-leipzig.de" .
 
@@ -57,12 +48,12 @@ this:feature1
 this:configuration2
       a       mexcore:ExperimentConfiguration , prov:Activity ;
       dct:identifier "MEX_EXP_CONF_D2" ;
-      prov:used this:dataset , this:sampling , this:feature2 , this:feature1 .
+      prov:used this:samplingmethod2 , this:dataset , this:feature2 , this:feature1 .
 
 this:configuration1
       a       mexcore:ExperimentConfiguration , prov:Activity ;
       dct:identifier "MEX_EXP_CONF_D1" ;
-      prov:used this:feature4 , this:dataset , this:feature3 , this:sampling , this:feature2 , this:feature1 .
+      prov:used this:samplingmethod1 , this:feature4 , this:dataset , this:feature3 , this:feature2 , this:feature1 .
 
 this:phaseTest
       a       mexcore:Test , prov:Entity .
@@ -73,13 +64,23 @@ this:experiment-header
       prov:wasAttributedTo
               this:application .
 
-this:algNaiveBayes1
-      a       prov:Entity , mexcore:NaiveBayes ;
-      dct:identifier "NaiveBayes1" .
+this:samplingmethod1
+      a       prov:Entity , mexcore:Holdout ;
+      mexcore:testSize "0.2" ;
+      mexcore:trainSize "0.8" .
+
+this:samplingmethod2
+      a       prov:Entity , mexcore:Holdout ;
+      mexcore:testSize "0.2" ;
+      mexcore:trainSize "0.8" .
 
 this:dataset
       a       prov:Entity , mexcore:Dataset ;
       dct:title "mydataset.csv" .
+
+this:algorithm1
+      a       prov:Entity , mexcore:NaiveBayes ;
+      dct:identifier "algorithm1" .
 
 this:measure1_4
       a       prov:Entity , mexperf:ClassificationMeasure ;
@@ -109,3 +110,7 @@ this:measure1_1
       dct:identifier "accuracy" ;
       prov:value "0.8" , "0.86" ;
       prov:wasInformedBy this:execution1 .
+
+this:algorithm2
+      a       prov:Entity , mexcore:RegressionAnalysis ;
+      dct:identifier "algorithm2" .

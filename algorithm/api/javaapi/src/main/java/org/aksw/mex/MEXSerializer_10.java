@@ -135,12 +135,13 @@ public class MEXSerializer_10 {
                 ExperimentConfigurationVO item = i.next();
 
                 //SAMPLING
+                String samplingClass = item.SamplingMethod().getIndividualName();
                 String  samplingName   = item.SamplingMethod().getIndividualName();
                 Double  samplingTrain  = item.SamplingMethod().getTrainSize();
                 Double  samplingTest   = item.SamplingMethod().getTestSize();
                 Integer samplingFolds  = item.SamplingMethod().getFolds();
 
-                SamplingMethodVO tempSampling = new SamplingMethodVO(samplingName,samplingTrain,samplingTest);
+                SamplingMethodVO tempSampling = new SamplingMethodVO(samplingClass, samplingName,samplingTrain,samplingTest);
                 tempSampling.setFolds(samplingFolds);
 
                 Collection<ExperimentConfigurationVO> t =
@@ -335,9 +336,9 @@ public class MEXSerializer_10 {
                 }
                 //SAMPLING METHOD
                 if (item.SamplingMethod() != null) {
-                    Resource mexcore_SAMPLING_METHOD = model.createResource(MEXCORE_10.NS + item.SamplingMethod().getIndividualName());
+                    Resource mexcore_SAMPLING_METHOD = model.createResource(MEXCORE_10.NS + item.SamplingMethod().getClassName());
 
-                    Resource _sampling = model.createResource(URIbase + "sampling")
+                    Resource _sampling = model.createResource(URIbase + item.SamplingMethod().getIndividualName())
                             .addProperty(RDF.type, provEntity)
                             .addProperty(RDF.type, mexcore_SAMPLING_METHOD);
 
@@ -499,7 +500,7 @@ public class MEXSerializer_10 {
                             if (e.getAlgorithm() != null) {
                                 Resource mexalgo_ALGO = model.createResource(MEXCORE_10.NS + e.getAlgorithm().getClassName());
 
-                                    Resource _alg = model.createResource(URIbase + "alg" + e.getAlgorithm().getIndividualName())
+                                    Resource _alg = model.createResource(URIbase + e.getAlgorithm().getIndividualName())
                                             .addProperty(RDF.type, provEntity)
                                             .addProperty(RDF.type, mexalgo_ALGO);
                                     _exec.addProperty(PROVO.used, _alg);

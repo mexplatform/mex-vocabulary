@@ -174,7 +174,7 @@ public class MyMEX_10 {
         try
         {
             ret=addConf(StringUtils.EMPTY);
-            MEXController.getInstance().addExperimentConfiguration();
+            MEXController.getInstance().addExperimentConfigurationCounter();
         }catch (Exception e){
             throw new Exception(e);
         }
