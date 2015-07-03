@@ -26,16 +26,29 @@ public class SamplingMethodVO {
     }
 
     private String _individualName;
+    private String _className;
     private Double _trainSize;
     private Double _testSize;
     private Integer _folds;
     private Boolean _sequential;
 
-    public SamplingMethodVO(String value) {
-        this._individualName = value.toString();
+    public SamplingMethodVO(String value, String ind) {
+        this._className = value;
+        this._individualName = ind;
     }
 
-    public void setName(String value){
+    public SamplingMethodVO(String ind, String value, Double train, Double test) {
+        this._className = value;
+        this._individualName = ind;
+        this._trainSize = train;
+        this._testSize = test;
+    }
+
+    public void setClassName(String value){
+        this._className = value;
+    }
+
+    public void setIndividualName(String value){
         this._individualName = value;
     }
 

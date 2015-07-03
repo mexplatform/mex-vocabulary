@@ -196,6 +196,21 @@ public class ExperimentConfigurationVO {
 
     }
 
+    public String addSamplingMethod(String className, Double train, Double test) throws Exception{
+
+        String ret = "";
+        try{
+            Integer x =
+            if (this._sampling == null) {
+                this._sampling = new SamplingMethodVO(className, train, test);}
+
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+        return ret;
+    }
+
     public String addAlgorithm(String algorithmName) throws Exception{
 
         String ret = "";

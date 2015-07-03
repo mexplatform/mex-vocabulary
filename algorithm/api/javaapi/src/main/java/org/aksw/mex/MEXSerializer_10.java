@@ -4,14 +4,17 @@ import java.io.FileWriter;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import com.google.common.collect.Collections2;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.vocabulary.*;
 import org.aksw.mex.algo.AlgorithmParameterVO;
+import org.aksw.mex.algo.AlgorithmVO;
 import org.aksw.mex.core.*;
 import org.aksw.mex.perf.overall.*;
 import org.aksw.mex.util.MEXConstant;
@@ -121,7 +124,45 @@ public class MEXSerializer_10 {
         model.setNsPrefix("dcat", DCAT.getURI());
     }
 
+
+    //go back here later...
+    private void cleanUpTheResources(MyMEX_10 mex) {
+
+        //EXPERIMENT CONFIGURATION
+        if (mex.getExperimentConfigurations() != null) {
+            int aux = 1;
+            for (Iterator<ExperimentConfigurationVO> i = mex.getExperimentConfigurations().iterator(); i.hasNext(); ) {
+                ExperimentConfigurationVO item = i.next();
+
+                //SAMPLING
+                String  samplingName   = item.SamplingMethod().getIndividualName();
+                Double  samplingTrain  = item.SamplingMethod().getTrainSize();
+                Double  samplingTest   = item.SamplingMethod().getTestSize();
+                Integer samplingFolds  = item.SamplingMethod().getFolds();
+
+                SamplingMethodVO tempSampling = new SamplingMethodVO(samplingName,samplingTrain,samplingTest);
+                tempSampling.setFolds(samplingFolds);
+
+                Collection<ExperimentConfigurationVO> t =
+                        Collections2.filter(mex.getExperimentConfigurations(),
+                                p -> p.SamplingMethod().getFolds().equals(samplingFolds) &&
+                                        p.SamplingMethod().getIndividualName().equals(samplingName) &&
+                                        p.SamplingMethod().getTrainSize().equals(samplingTrain) &&
+                                        p.SamplingMethod().getTestSize().equals(samplingTest));
+                if (t != null && t.size() > 0){
+                    item = null;
+                }
+
+
+            }
+
+        }
+    }
+
+
     private void writeJena(String filename, String URIbase, MyMEX_10 mex) {
+
+        //cleanUpTheResources(mex);
 
         Model model = ModelFactory.createDefaultModel();
         setHeaders(model, URIbase);

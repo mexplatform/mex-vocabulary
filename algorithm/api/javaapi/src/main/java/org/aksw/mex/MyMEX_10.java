@@ -12,6 +12,7 @@ import org.aksw.mex.perf.example.ExamplePerformanceCollection;
 import org.aksw.mex.perf.example.ExamplePerformanceVO;
 import org.aksw.mex.perf.overall.*;
 import org.aksw.mex.util.MEXConstant;
+import org.aksw.mex.util.MEXController;
 import org.aksw.mex.util.MEXEnum;
 import org.apache.commons.lang3.StringUtils;
 
@@ -173,6 +174,7 @@ public class MyMEX_10 {
         try
         {
             ret=addConf(StringUtils.EMPTY);
+            MEXController.getInstance().addExperimentConfiguration();
         }catch (Exception e){
             throw new Exception(e);
         }

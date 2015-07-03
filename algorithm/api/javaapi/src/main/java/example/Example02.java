@@ -7,7 +7,7 @@ import org.aksw.mex.util.MEXEnum.*;
 
 /**
  * Created by esteves on 01.07.15.
- *
+ * Creating 2 groups of executions for feature impact analyze purposes, each of those running 2 algorithms
  */
 public class Example02 {
 
@@ -20,27 +20,44 @@ public class Example02 {
             mex.setAuthorName("D Esteves");
             mex.setAuthorEmail("esteves@informatik.uni-leipzig.de");
             /* (2) grouping the executions by configurations */
-            String eid = "EX001CONF1";
-            mex.addConfiguration(eid);
+            String conf01ID = mex.addConfiguration();
+            String conf02ID = mex.addConfiguration();
             /* (2.1) the dataset */
-            mex.Configuration(eid).DataSet().setName("mydataset.csv");
+            mex.Configuration(conf01ID).DataSet().setName("mydataset.csv");
+            mex.Configuration(conf02ID).DataSet().setName("mydataset.csv");
             /* (2.2) the features */
-            String[] features = {"min", "max", "ope clo"};
-            mex.Configuration(eid).addFeature(features);
+            String[] features01 = {"min", "max", "ope", "clo"};
+            String[] features02 = {"min", "max"};
+            mex.Configuration(conf01ID).addFeature(features01);
+            mex.Configuration(conf02ID).addFeature(features02);
             /* (2.3) the sampling method */
-            mex.Configuration(eid).SamplingMethod().setName(EnumSamplingMethod.Holdout);
-            mex.Configuration(eid).SamplingMethod().setTrainSize(0.8);
-            mex.Configuration(eid).SamplingMethod().setTestSize(0.2);
+            mex.Configuration(conf01ID).addSamplingMethod(EnumSamplingMethod.Holdout, 0.8, 0.2);
+            mex.Configuration(conf02ID).addSamplingMethod(EnumSamplingMethod.Holdout, 0.8, 0.2);
+
             /* (2.4) the algorithms and hyperparameters */
-            mex.Configuration(eid).addAlgorithm(MEXEnum.EnumAlgorithm.NaiveBayes);
+            String alg01ID = mex.Configuration(conf01ID).addAlgorithm(EnumAlgorithm.NaiveBayes);
+            String alg02ID = mex.Configuration(conf02ID).addAlgorithm(EnumAlgorithm.RegressionAnalysis);
+            /* (2.5) the executions */
+            String exec01ID = mex.Configuration(conf01ID).addExecution(EnumExecutionType.OVERALL, EnumPhase.TEST);
+            String exec02ID = mex.Configuration(conf02ID).addExecution(EnumExecutionType.OVERALL, EnumPhase.TEST);
+            {
+                //your models call here !
+            }
+            /* (2.6) the performances for the executions */
+            mex.Configuration(conf01ID).Execution(exec01ID).setAlgorithm(alg01ID);
+            mex.Configuration(conf01ID).Execution(exec01ID).addPerformance(EnumMeasures.ACCURACY.toString(), .86);
+            mex.Configuration(conf01ID).Execution(exec01ID).addPerformance(EnumMeasures.ERROR.toString(), .14);
+            mex.Configuration(conf01ID).Execution(exec01ID).addPerformance(EnumMeasures.TRUEPOSITIVE.toString(), 3534);
 
-            String ex1 = "EX001";
-            //mex.Configuration(eid).addExecution(MEXEnum.EnumPhase.TEST);
-            mex.Configuration(eid).ExecutionOverall(ex1).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithm.NaiveBayes));
-            mex.Configuration(eid).ExecutionOverall(ex1).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
+            mex.Configuration(conf02ID).Execution(exec02ID).setAlgorithm(alg02ID);
+            mex.Configuration(conf02ID).Execution(exec02ID).addPerformance(EnumMeasures.ACCURACY.toString(), .80);
+            mex.Configuration(conf02ID).Execution(exec02ID).addPerformance(EnumMeasures.ERROR.toString(), .20);
+            mex.Configuration(conf01ID).Execution(exec01ID).addPerformance(EnumMeasures.TRUEPOSITIVE.toString(), 3143);
 
+            /* (2.7) parsing the mex file */
             MEXSerializer_10.getInstance().parse(mex);
-            MEXSerializer_10.getInstance().saveToDisk("ex_simplest.ttl", "http://mex.aksw.org/examples/001/", mex);
+            /* (2.8) saving the mex file */
+            MEXSerializer_10.getInstance().saveToDisk("ex002.ttl", "http://mex.aksw.org/examples/002/", mex);
 
         }catch (Exception e){
             System.out.println(e.toString());

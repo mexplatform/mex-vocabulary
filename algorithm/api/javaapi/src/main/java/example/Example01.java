@@ -24,21 +24,19 @@ public class Example01 {
             /* (2) the dataset */
             mex.Configuration(confID).DataSet().setName("mydataset.csv");
             /* (3) the features */
-            String[] features = {"min", "max", "ope clo"};
+            String[] features = {"min", "max", "ope", "clo"};
             mex.Configuration(confID).addFeature(features);
             /* (4) the algorithms and hyperparameters */
-            String algID = mex.Configuration(confID).addAlgorithm(EnumAlgorithm.NaiveBayes);
+            String alg01ID = mex.Configuration(confID).addAlgorithm(EnumAlgorithm.NaiveBayes);
             /* (5) the executions */
             String execID = mex.Configuration(confID).addExecution(EnumExecutionType.OVERALL, EnumPhase.TEST);
             {
                 //your models call here !
             }
             /* (6) the performances for the executions */
-            mex.Configuration(confID).Execution(execID).setAlgorithm(algID);
+            mex.Configuration(confID).Execution(execID).setAlgorithm(alg01ID);
             mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
             mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ERROR.toString(), .04);
-
-
             /* (7) parsing the mex file */
             MEXSerializer_10.getInstance().parse(mex);
             /* (8) saving the mex file */
