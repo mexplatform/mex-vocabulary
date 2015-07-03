@@ -17,6 +17,11 @@ public class ExampleMedium {
         //the MEX wrapper!
         MyMEX_10 mex = new MyMEX_10();
 
+        try{
+
+
+
+
         //basic authoring provenance
         {
             //change later here the sets for adds
@@ -111,15 +116,19 @@ public class ExampleMedium {
         }
 
         //exporting your ML experiment
-        try{
+
             MEXSerializer_10.getInstance().parse(mex);
-        }catch (Exception e){
-            System.out.println(e.toString());
-        }
+
+
 
         MEXSerializer_10.getInstance().saveToDisk("teste.ttl","http://mex.aksw.org/examples/001/", mex);
 
         System.exit(0);
+
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+
 
     }
 

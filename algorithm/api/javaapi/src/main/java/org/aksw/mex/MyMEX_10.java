@@ -93,14 +93,14 @@ public class MyMEX_10 {
     }
     public ExperimentConfigurationVO Configuration(){
         Collection<ExperimentConfigurationVO> t
-                = Collections2.filter(this.experimentConfigurationList, experimentConfigurationVO -> experimentConfigurationVO.getId().equals(MEXConstant.DEFAULT_EXP_CONFIGURATION_ID));
-        if (t != null){
+                = Collections2.filter(this.experimentConfigurationList, experimentConfigurationVO -> experimentConfigurationVO.getId().equals(MEXConstant.DEFAULT_EXP_CONFIGURATION_ID + "1"));
+        if (t != null && t.size()>0){
             return Iterables.get(t, 0);
         }else {return null;}
     }
 
-    private boolean addConf(String value) throws Exception{
-        boolean ret= false;
+    private String addConf(String value) throws Exception{
+        String ret="";
         String valueaux;
         try
         {
@@ -132,7 +132,10 @@ public class MyMEX_10 {
                     throw new Exception("Error: Experiment Configuration ID " + valueaux + " already assigned");
                 }
                 else {
-                    ret = this.experimentConfigurationList.add(new ExperimentConfigurationVO(value));
+                    ret = valueaux;
+                    if (this.experimentConfigurationList.add(new ExperimentConfigurationVO(value))==false){
+                        throw new Exception("Error when including the item in the list");
+                    }
                 }
             }
 
@@ -141,8 +144,8 @@ public class MyMEX_10 {
         }
         return ret;
     }
-    public boolean addConfiguration() throws Exception{
-        boolean ret = false;
+    public String addConfiguration() throws Exception{
+        String ret;
         try
         {
             ret=addConf(StringUtils.EMPTY);
@@ -151,8 +154,8 @@ public class MyMEX_10 {
         }
         return ret;
     }
-    public boolean addConfiguration(String value) throws Exception{
-        boolean ret = false;
+    public String addConfiguration(String value) throws Exception{
+        String ret;
         try
         {
             ret=addConf(value);

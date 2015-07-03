@@ -17,9 +17,8 @@ this:algNaiveBayes
 
 this:application
       a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
-      dct:dateCopyrighted "2015.07.02 16:03:40 CEST" ;
-      foaf:givenName "D Esteves" ;
-      foaf:mbox "esteves@informatik.uni-leipzig.de" .
+      dct:dateCopyrighted "2015.07.02 17:48:24 CEST" ;
+      foaf:givenName "D Esteves" .
 
 this:feature1
       a       mexcore:Feature , prov:Entity ;
@@ -28,7 +27,7 @@ this:feature1
 
 this:experiment-header
       a       prov:Entity , mexcore:Experiment ;
-      dct:identifier "MEX_EXP_D001" ;
+      dct:identifier "MEX_EXP_D" ;
       prov:wasAttributedTo
               this:application .
 
@@ -65,7 +64,7 @@ this:measure1_1
 
 this:configuration1
       a       mexcore:ExperimentConfiguration , prov:Activity ;
-      dct:identifier "MEX_EXP_CONF_D001" ;
+      dct:identifier "MEX_EXP_CONF_D1" ;
       prov:used this:feature1 , this:feature2 , this:feature3 , this:dataset .
 
 this:dataset

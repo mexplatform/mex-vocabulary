@@ -17,25 +17,29 @@ public class Example01 {
 
         MyMEX_10 mex = new MyMEX_10();
 
-        /* (1) basic authoring provenance */
-        mex.setAuthorName("D Esteves");
-        /* (2) the dataset */
-        mex.Configuration().DataSet().setName("mydataset.csv");
-        /* (3) the features */
-        String[] features = {"min", "max", "ope clo"};
-        mex.Configuration().addFeature(features);
-        /* (4) the algorithms and hyperparameters */
-        mex.Configuration().addAlgorithm(MEXEnum.EnumAlgorithm.NaiveBayes);
-        /* (5) the executions */
-        String executionId = mex.Configuration().addExecutionOverall(MEXEnum.EnumPhase.TEST);
-        {
-            //your models call here !
-        }
-        /* (6) the performances for the executions */
-        mex.Configuration().ExecutionOverall(executionId).setAlgorithm(mex.Configuration().Algorithm(EnumAlgorithm.NaiveBayes));
-        mex.Configuration().ExecutionOverall(executionId).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
-
         try{
+
+            /* (1) basic authoring provenance */
+            mex.setAuthorName("D Esteves");
+            String confID = mex.addConfiguration();
+            /* (2) the dataset */
+            mex.Configuration(confID).DataSet().setName("mydataset.csv");
+            /* (3) the features */
+            String[] features = {"min", "max", "ope clo"};
+            mex.Configuration(confID).addFeature(features);
+            /* (4) the algorithms and hyperparameters */
+            mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.NaiveBayes);
+            /* (5) the executions */
+            String executionId = mex.Configuration(confID).addExecutionOverall(MEXEnum.EnumPhase.TEST);
+            {
+                //your models call here !
+            }
+            /* (6) the performances for the executions */
+            mex.Configuration(confID).ExecutionOverall(executionId).setAlgorithm(mex.Configuration().Algorithm(EnumAlgorithm.NaiveBayes));
+            mex.Configuration(confID).ExecutionOverall(executionId).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
+
+
+
             /* (7) parsing the mex file */
             MEXSerializer_10.getInstance().parse(mex);
             /* (8) saving the mex file */
