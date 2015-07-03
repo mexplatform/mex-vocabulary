@@ -143,9 +143,16 @@ public class ExperimentConfigurationVO {
         this._executions.add(new ExecutionSetVO(id, new PhaseVO(phase)));
     }
 
-    public String addExecutionOverall(String phase){
+    public String addExecution(String type, String phase){
+
         Integer total = this._executions.size() + 1;
-        this._executions.add(new ExecutionSetVO(String.valueOf(total), new PhaseVO(phase)));
+
+        switch (type){
+            case MEXEnum.EnumExecutionType.SINGLE:
+                this._executions.add(new ExecutionIndividualVO(String.valueOf(total), new PhaseVO(phase)));
+            case MEXEnum.EnumExecutionType.OVERALL:
+                this._executions.add(new ExecutionSetVO(String.valueOf(total), new PhaseVO(phase)));
+        }
         return total.toString();
     }
 

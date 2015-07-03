@@ -368,7 +368,10 @@ public class MEXEnum {
 
     }
 
-
+    public class EnumExecutionType{
+        public static final String SINGLE = "single";
+        public static final String OVERALL = "overall";
+    }
 
 
 
