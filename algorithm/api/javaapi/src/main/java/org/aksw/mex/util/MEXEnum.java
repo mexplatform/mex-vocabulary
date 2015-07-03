@@ -94,6 +94,7 @@ public class MEXEnum {
         public static final String NotInformed = "NotInformed";
     }
     public class EnumAlgorithm {
+        public static final String PART = "PART";
         public static final String J48Graft = "J48Graft";
         public static final String AverageOneDependenceEstimators = "AverageOneDependenceEstimators";
         public static final String MARS = "MARS";

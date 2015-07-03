@@ -63,7 +63,6 @@ public class Example02 {
             System.out.println(e.toString());
         }
 
-        //your models call here !
     }
 }
 

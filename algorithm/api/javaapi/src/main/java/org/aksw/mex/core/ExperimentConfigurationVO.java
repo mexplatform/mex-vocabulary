@@ -219,6 +219,30 @@ public class ExperimentConfigurationVO {
 
     }
 
+    public void addSamplingMethod(String className, Integer folds) throws Exception{
+
+        try{
+            if (this._sampling == null) {
+                String individualName = MEXCORE_10.ClasseTypes.SAMPLING_METHOD.toLowerCase() +
+                        String.valueOf(MEXController.getInstance().getNumberOfSamplingMethods() + 1);
+
+                this._sampling = new SamplingMethodVO(individualName,className);
+                this._sampling.setFolds(folds);
+                this._sampling.setTrainSize((double)folds - 1);
+                this._sampling.setTestSize((double)1);
+
+                MEXController.getInstance().addSamplingMethodCounter();
+            }
+
+
+
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+    }
+
+
     public String addAlgorithm(String algorithmClass) throws Exception{
 
         String ret = "";
