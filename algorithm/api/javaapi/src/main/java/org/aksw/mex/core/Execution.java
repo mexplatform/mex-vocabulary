@@ -1,6 +1,7 @@
 package org.aksw.mex.core;
 
 import com.google.common.collect.Collections2;
+import com.google.common.collect.Iterables;
 import org.aksw.mex.algo.AlgorithmVO;
 import org.aksw.mex.perf.overall.*;
 import org.aksw.mex.util.MEXEnum;
@@ -98,6 +99,23 @@ public abstract class Execution {
     public void setAlgorithm(AlgorithmVO value){
         this._algo = value;
     }
+    public boolean setAlgorithm(String id) throws Exception{
+        try{
+            //check whether the algorithm exists into the experiment configuration
+            Collection<AlgorithmVO> t
+                    = Collections2.filter(this.get_expConf().getAlgorithms(id), p -> p instanceof AlgorithmVO);
+            if (t != null && t.size() > 0){
+                this._algo = Iterables.get(t, 0);
+            }else{
+                throw new Exception("The algorithm (id=" + id + ") does not exists for the experiment");
+            }
+
+        }catch (Exception e){
+            throw new Exception(e);
+        }
+        return true;
+    }
+
     public void setPhase(PhaseVO value){
         this._phase = value;
     }
@@ -175,7 +193,7 @@ public abstract class Execution {
         List<ClassificationMeasureVO> classifications = null;
         Collection<Measure> t
                 = Collections2.filter(this._performances, p -> p instanceof ClassificationMeasureVO);
-        if (t != null){
+        if (t != null && t.size() >0){
             classifications = new ArrayList(t);
         }
         return classifications;

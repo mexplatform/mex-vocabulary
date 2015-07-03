@@ -28,16 +28,16 @@ public class Example01 {
             String[] features = {"min", "max", "ope clo"};
             mex.Configuration(confID).addFeature(features);
             /* (4) the algorithms and hyperparameters */
-            mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.NaiveBayes);
+            String algID = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.NaiveBayes);
             /* (5) the executions */
-            String executionId = mex.Configuration(confID).addExecutionOverall(MEXEnum.EnumPhase.TEST);
+            String execID = mex.Configuration(confID).addExecutionOverall(MEXEnum.EnumPhase.TEST);
             {
                 //your models call here !
             }
             /* (6) the performances for the executions */
-            mex.Configuration(confID).ExecutionOverall(executionId).setAlgorithm(mex.Configuration().Algorithm(EnumAlgorithm.NaiveBayes));
-            mex.Configuration(confID).ExecutionOverall(executionId).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
-
+            mex.Configuration(confID).Execution(execID).setAlgorithm(algID);
+            mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
+            mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ERROR.toString(), .04);
 
 
             /* (7) parsing the mex file */

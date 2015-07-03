@@ -12,6 +12,7 @@ import org.aksw.mex.perf.example.ExamplePerformanceCollection;
 import org.aksw.mex.perf.example.ExamplePerformanceVO;
 import org.aksw.mex.perf.overall.*;
 import org.aksw.mex.util.MEXConstant;
+import org.aksw.mex.util.MEXEnum;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
@@ -87,7 +88,7 @@ public class MyMEX_10 {
     public ExperimentConfigurationVO Configuration(String value){
         Collection<ExperimentConfigurationVO> t
                 = Collections2.filter(this.experimentConfigurationList, experimentConfigurationVO -> experimentConfigurationVO.getId().equals(value));
-        if (t != null){
+        if (t != null && t.size() >0){
             return Iterables.get(t, 0);
         }else {return null;}
     }
@@ -98,6 +99,8 @@ public class MyMEX_10 {
             return Iterables.get(t, 0);
         }else {return null;}
     }
+
+   
 
     private String addConf(String value) throws Exception{
         String ret="";

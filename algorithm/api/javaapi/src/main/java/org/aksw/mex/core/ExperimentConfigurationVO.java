@@ -5,6 +5,7 @@ import com.google.common.collect.Iterables;
 import org.aksw.mex.algo.AlgorithmVO;
 import org.aksw.mex.algo.ImplementationVO;
 import org.aksw.mex.util.MEXEnum;
+import sun.swing.StringUIClientPropertyKey;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -126,6 +127,17 @@ public class ExperimentConfigurationVO {
         }
         return r;
     }
+    public Execution Execution(String id){
+        Execution ret  = null;
+        try {
+            Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(id));
+            if (t != null && t.size() >0){ret = Iterables.get(t, 0);}
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+        return ret;
+    }
 
     public void addExecutionOverall(String id, String phase){
         this._executions.add(new ExecutionSetVO(id, new PhaseVO(phase)));
@@ -175,20 +187,32 @@ public class ExperimentConfigurationVO {
 
     }
 
-    public void addAlgorithm(String algorithmName){
-        if (this._algorithms == null) {
-            this._algorithms = new ArrayList<>();}
+    public String addAlgorithm(String algorithmName) throws Exception{
 
-        try {
+        String ret = "";
+        try{
+            if (this._algorithms == null) {
+                this._algorithms = new ArrayList<>();}
+
             Collection<AlgorithmVO> t = Collections2.filter(this._algorithms, p -> p.getIndividualName().equals(algorithmName));
-            if (t != null && t.size() > 0){throw new Exception("Algorithm already assigned");}
-            else {
-                this._algorithms.add(new AlgorithmVO(String.valueOf(algorithmName)));
+            if (t != null && t.size() > 0){
+                ret = algorithmName + String.valueOf(t.size() + 1);
+                this._algorithms.add(new AlgorithmVO(algorithmName, ret));
             }
-        } catch (Exception e){
-            System.out.println(e.toString());}
+            else {
+                ret = String.valueOf(algorithmName + String.valueOf(1));
+                this._algorithms.add(new AlgorithmVO(algorithmName, ret));
+            }
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+        return ret;
     }
     public List<AlgorithmVO> getAlgorithms(){
+        return this._algorithms;
+    }
+    public List<AlgorithmVO> getAlgorithms(String id){
         return this._algorithms;
     }
     public List<FeatureVO> getFeatures(){
@@ -220,17 +244,6 @@ public class ExperimentConfigurationVO {
         catch (Exception e){
             System.out.println(e.toString());
         }
-    }
-    public Execution Execution(String id){
-        Execution ret  = null;
-        try {
-            Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(id));
-            if (t != null && t.size() >0){ret = Iterables.get(t, 0);}
-        }
-        catch (Exception e){
-            System.out.println(e.toString());
-        }
-        return ret;
     }
     public boolean addExecution(Execution param){
         return _executions.add(param);

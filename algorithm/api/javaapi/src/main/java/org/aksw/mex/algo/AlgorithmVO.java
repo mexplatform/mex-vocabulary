@@ -30,6 +30,13 @@ public class AlgorithmVO {
         this._parameters = new ArrayList<>();
     }
 
+    public AlgorithmVO(String ind, String identifier) {
+        this._individualName = ind;
+        this._dct_identifier = identifier;
+        this._parameters = new ArrayList<>();
+    }
+
+
     public String getIdentifier() {
         return _dct_identifier;
     }
