@@ -45,7 +45,7 @@ this:feature1
 
 this:application
       a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
-      dct:dateCopyrighted "2015.07.03 21:56:02 CEST" ;
+      dct:dateCopyrighted "2015.07.06 14:32:19 CEST" ;
       foaf:givenName "P.Creek" .
 
 this:phaseTest

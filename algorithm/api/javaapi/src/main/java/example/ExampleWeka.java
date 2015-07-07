@@ -73,76 +73,60 @@ public class ExampleWeka {
         String ds = "weather.txt";
 
         try {
+             /* (1) basic authoring provenance */
             mex.setAuthorName("P.Creek");
+             /* (2) grouping the executions by configurations */
             String confID = mex.addConfiguration();
+             /* (2.1) the dataset */
             mex.Configuration(confID).DataSet().setName(ds);
 
             BufferedReader datafile = readDataFile(ds);
-
             Instances data = new Instances(datafile);
             data.setClassIndex(data.numAttributes() - 1);
 
+            /* (2.2) the features */
             for (int i = 0; i < data.numAttributes(); i++) {
-                mex.Configuration(confID).addFeature(data.attribute(i).name());
-            }
+                mex.Configuration(confID).addFeature(data.attribute(i).name());}
 
-            // Do 10-split cross validation
             Instances[][] split = crossValidationSplit(data, 10);
 
-               /* (2.3) the sampling method */
+            /* (2.3) the sampling method */
             mex.Configuration(confID).addSamplingMethod(MEXEnum.EnumSamplingMethod.CrossValidation, 10);
 
-            // Separate split into training and testing arrays
             Instances[] trainingSplits = split[0];
             Instances[] testingSplits = split[1];
 
-            // Use a set of classifiers
-            Classifier[] models = {
-                    new J48(), // a decision tree
-                    new PART(),
-                    new DecisionTable(),//decision table majority classifier
-                    new DecisionStump() //one-level decision tree
-            };
-            /* (4) the algorithms and hyperparameters */
-            String[] algIDs = new String[4];
+            Classifier[] models = {new J48(), new PART(), new DecisionTable(), new DecisionStump()};
 
+            /* (2.4) the algorithms and hyperparameters */
+            String[] algIDs = new String[4];
             algIDs[0] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.J48);
             algIDs[1] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.PART);
             algIDs[2] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.DecisionTable);
             algIDs[3] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.DecisionStump);
 
+            /* (2.5) the executions */
             String[] execIDs = new String[models.length];
 
-            // Run for each model
             for (int j = 0; j < models.length; j++) {
-
-                // Collect every group of predictions for current model in a FastVector
                 FastVector predictions = new FastVector();
-
-                // For each training-testing split pair, train and test the classifier
                 for (int i = 0; i < trainingSplits.length; i++) {
                     Evaluation validation = classify(models[j], trainingSplits[i], testingSplits[i]);
-
                     predictions.appendElements(validation.predictions());
-
                     // Uncomment to see the summary for each training-testing pair.
                     //System.out.println(models[j].toString());
-
                 }
-
-                // Calculate overall accuracy of current classifier on all splits
                 double accuracy = calculateAccuracy(predictions);
 
+                /* (2.6) the performances for the executions */
                 execIDs[j] = mex.Configuration(confID).addExecution(MEXEnum.EnumExecutionType.OVERALL, MEXEnum.EnumPhase.TEST);
                 mex.Configuration(confID).Execution(execIDs[j]).setAlgorithm(algIDs[j]);
                 mex.Configuration(confID).Execution(execIDs[j]).addPerformance(MEXEnum.EnumMeasures.ACCURACY.toString(), accuracy);
 
-                // Print current classifier's name and accuracy in a complicated,
-                // but nice-looking way.
                 System.out.println("Accuracy of " + models[j].getClass().getSimpleName() + ": " + String.format("%.2f%%", accuracy));
-                        //+ "\n---------------------------------");
             }
 
+            /* (2.7) parsing the mex file */
             MEXSerializer_10.getInstance().parse(mex);
             /* (2.8) saving the mex file */
             MEXSerializer_10.getInstance().saveToDisk("exweka.ttl", "http://mex.aksw.org/examples/Weka/", mex);

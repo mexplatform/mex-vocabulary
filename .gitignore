@@ -6,3 +6,4 @@ node-apps/
 nodetest/
 algorithm/api/nodeapi/node_modules/*.*
 algorithm/api/nodejs/.idea/
+algorithm/api/nodeapi/node_modules/
