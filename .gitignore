@@ -4,3 +4,5 @@ mex-gui/
 mex-tryitout/
 node-apps/
 nodetest/
+algorithm/api/nodeapi/node_modules/*.*
+algorithm/api/nodejs/.idea/
