@@ -1,0 +1,9 @@
+# IntelliJ project files
+.idea
+*.iml
+out
+gen
+testes
+mexobjects
+package.json
+node_modules
