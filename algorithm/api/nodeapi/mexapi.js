@@ -1,65 +1,260 @@
 /* MEX */
-var AppContext = require('./core-appcontext.js');
-var app = new AppContext('Esteves', '');
+var AppContext = require('./vo/core/appcontext.js');
+var Experiment = require('./vo/core/experiment.js');
+var ExperimentConf = require('./vo/core/experimentconfiguration.js');
+var Util = require('./util/mexconstant.js');
 
+var app = new AppContext();
+var exp = new Experiment();
+var expConfList = [];
+
+var valid = false;
 /* others */
 var N3 = require('n3');
 
-var mexcoreuri = 'http://mex.aksw.org/mex-core#';
 var rdfsuri = 'http://www.w3.org/1999/02/22-rdf-syntax-ns#';
 var provuri = 'http://www.w3.org/ns/prov#';
 var thisuri = 'http://mex.aksw.org/examples/001#';
 var dcturi = 'http://purl.org/dc/terms/';
 var foafuri = 'http://xmlns.com/foaf/0.1/';
+var mexcoreuri = 'http://mex.aksw.org/mex-core#';
+var mexalgouri = 'http://mex.aksw.org/mex-algo#';
+var mexperfuri = 'http://mex.aksw.org/mex-perf#';
+var owluri = 'http://www.w3.org/2002/07/owl#';
+var xsduri = 'http://www.w3.org/2001/XMLSchema#';
+var doapuri = 'http://usefulinc.com/ns/doap#';
+var dcaturi = 'http://www.w3.org/ns/dcat#';
+var dcuri ='http://purl.org/dc/elements/1.1/';
 
+/****************************** MEX-CORE ******************************/
+//APP-CONTEXT
+exports.setAuthorName = function(value) {
+    app.set_name(value)
+};
+
+exports.setContext = function(value) {
+    app.set_context(value)
+};
+
+exports.setAuthorEmail = function(value) {
+    app.set_email(value)
+};
+//EXPERIMENT
+exports.setExperimentIdentification = function(value) {
+    app.set_email(value)
+};
+exports.setExperimentDescription = function(value) {
+    app.set_email(value)
+};
+exports.setExperimentDate = function(value) {
+    app.set_email(value)
+};
+
+
+function getExperimentConfigurationIndex(id){
+    for (var i = 0; i < expConfList.length; i++) {
+        if(expConfList[i].get_id() == id){
+            return i;
+        }
+    }
+    return -1;
+}
+exports.addExecution = function(idConfiguration, executiontype, phase) {
+    var index;
+    try{
+        index = getExperimentConfigurationIndex(idConfiguration);
+        if (index!=-1){
+            expConfList[index].add_algorithm(executiontype, phase);
+        }
+    }catch (e){
+        console.log('error: ' + e);
+    }
+
+};
+exports.addAlgorithm = function(idConfiguration, algorithm) {
+    var index;
+    try{
+        index = getExperimentConfigurationIndex(idConfiguration);
+        if (index!=-1){
+            expConfList[index].add_algorithm(idConfiguration, algorithm);
+        }
+    }catch (e){
+        console.log('error: ' + e);
+    }
+
+};
+exports.addFeature = function(idConfiguration, id, value) {
+    var index;
+    try{
+        index = getExperimentConfigurationIndex(idConfiguration);
+        if (index!=-1){
+            expConfList[index].add_feature(idConfiguration, id, value);
+        }
+    }catch (e){
+        console.log('error: ' + e);
+    }
+
+};
+exports.addFeatures = function(idConfiguration, values) {
+    var index;
+    try{
+        index = getExperimentConfigurationIndex(idConfiguration);
+        if (index!=-1){
+            for (var i = 0; i < values.length; i++) {
+                expConfList[index].add_feature(expConfList[index].get_features.length + 1, values[i]);
+            }
+
+        }
+    }catch (e){
+        console.log('error: ' + e);
+    }
+
+};
+
+exports.setDataSetName = function(idConfiguration, dsName) {
+    var index;
+    try{
+        index = getExperimentConfigurationIndex(idConfiguration);
+        if (index!=-1){
+            expConfList[index].get_dataset.set_name = dsName;
+        }
+    }catch (e){
+        console.log('error: ' + e);
+    }
+
+};
+
+exports.setSoftwareImplementation = function(idConfiguration, software, version) {
+    var index;
+    try{
+        index = getExperimentConfigurationIndex(idConfiguration);
+        if (index!=-1){
+            expConfList[index].get_implementation.set_name = software;
+            expConfList[index].get_implementation.set_revision = version;
+        }
+    }catch (e){
+        console.log('error ON setSoftwareImplementation: ' + e);
+    }
+
+};
+
+exports.setSamplingMethod = function(idConfiguration, samplingMethod, train, test) {
+    var index;
+    try{
+        index = getExperimentConfigurationIndex(idConfiguration);
+        if (index!=-1){
+            expConfList[index].get_sampling.set_name = samplingMethod;
+            expConfList[index].get_sampling.set_train_size = train;
+            expConfList[index].get_sampling.set_test_size = test;
+        }
+    }catch (e){
+        console.log('error: ' + e);
+    }
+
+};
+
+exports.addConfiguration = function() {
+    var confID;
+    try{
+        confID = Util.DEF_ID_EXP_CONFIGURATION + (expConfList.length + 1);
+        var expconf = new ExperimentConf(confID);
+        expConfList.push(expconf);
+    }catch(e){
+        console.log('error: ' + e);
+    }
+    return confID;
+};
+
+
+
+/****************************** MEX-ALGO ******************************/
+
+
+
+/****************************** MEX-PERF ******************************/
+
+
+
+/****************************** URIs ******************************/
 var writer = N3.Writer({ prefixes: {'prov':provuri,
-                                    'mexalgo':'http://mex.aksw.org/mex-algo#',
-                                    'mexcore':mexcoreuri,
-                                    'mexperf':'http://mex.aksw.org/mex-perf#',
-                                    'this': thisuri,
-                                    'owl':'http://www.w3.org/2002/07/owl#',
-                                    'xsd':'http://www.w3.org/2001/XMLSchema#',
-                                    'dct': dcturi,
-                                    'doap':'http://usefulinc.com/ns/doap#',
-                                    'dcat':'http://www.w3.org/ns/dcat#',
-                                    'foaf':foafuri,
-                                    'dc':'http://purl.org/dc/elements/1.1/',
-                                    'rdfs':rdfsuri} });
-
-exports.getApplicationContextName = function() {
-    return app.get_name();
-};
-
-exports.setApplicationContextName = function(value) {
-    app.set_name(value);
-};
+    'mexalgo':mexalgouri,
+    'mexcore':mexcoreuri,
+    'mexperf':mexperfuri,
+    'this': thisuri,
+    'owl': owluri,
+    'xsd': xsduri,
+    'dct': dcturi,
+    'doap':doapuri,
+    'dcat':dcaturi,
+    'foaf':foafuri,
+    'dc':dcuri,
+    'rdfs':rdfsuri} });
 
 exports.getApplicationContextEmail = function() {
-    return app.get_email();
-};
+    return app.get_email();};
 
-exports.setApplicationContextEmail = function(value) {
-    app.set_email(value);
-};
+exports.getListOfContext = function() {
+    return enumContext};
 
-exports.parseMEX = function() {
-	return true;
-};
+exports.getApplicationContextName = function() {
+    return app.get_name();};
 
+/* UTIL */
+function parse() {
+    console.log('---------------------------------------------------------');
+    console.log('              checking the mex file...                   ');
+    console.log('---------------------------------------------------------');
+    if (!app.get_name()) {
+        console.log('parsing error: please inform the name of the author');
+        return;
+    }
+    if (!app.get_context()) {
+        console.log('parsing error: please set the context');
+        return;
+    }
+    valid = true;
+    console.log('valid!');
+}
 
 exports.generateMEX = function() {
-	/* app context */
-	var sApp = thisuri + 'app';
-	var today = new Date();
-	writer.addTriple(sApp, rdfsuri + 'type', mexcoreuri + 'ApplicatonContext');
-	writer.addTriple(sApp, rdfsuri + 'type', provuri + 'Person');
-	writer.addTriple(sApp, rdfsuri + 'type', provuri + 'Agent');
-	writer.addTriple(sApp, rdfsuri + 'type', provuri + 'Organization');
-	writer.addTriple({
-	    subject:   sApp,
-	    predicate: dcturi + 'dateCopyrighted',
-	    object:    '"' + today + '"'
-	});
-	writer.addTriple(sApp, foafuri + 'givenName', '"' + app.get_name() + '"');
-	writer.end(function (error, result) { console.log(result); });
+    parse(this);
+	if (valid){
+		console.log('---------------------------------------------------------');
+		console.log('           starting the mex file generation...           ');
+		console.log('---------------------------------------------------------');
+
+		/* variables */
+		var sApp = thisuri + Util.DEF_INSTANCENAME_APPLICATION_CONTEXT;
+		var sAppCont = thisuri + Util.DEF_INSTANCENAME_CONTEXT;
+		var today = new Date();
+
+		/************************************************
+							MEX-CORE
+		*************************************************/
+		/* app context */
+		writer.addTriple(sApp, rdfsuri + 'type', mexcoreuri + 'ApplicatonContext');
+		writer.addTriple(sApp, rdfsuri + 'type', provuri + 'Person');
+		writer.addTriple(sApp, rdfsuri + 'type', provuri + 'Agent');
+		writer.addTriple(sApp, rdfsuri + 'type', provuri + 'Organization');
+
+		writer.addTriple(sApp, dcturi + 'dateCopyrighted', '"' + today + '"');
+		if (app.get_name()){writer.addTriple(sApp, foafuri + 'givenName', '"' + app.get_name() + '"');}
+		if (app.get_email()){writer.addTriple(sApp, foafuri + 'mbox', '"' + app.get_email() + '"');}
+		
+		/* context */
+		writer.addTriple(sAppCont, rdfsuri + 'type', mexcoreuri + 'ApplicatonContext');
+		writer.addTriple(sAppCont, rdfsuri + 'type', provuri + 'Entity');
+
+		/************************************************
+							MEX-ALGO
+		*************************************************/
+
+		/* serialize */
+		writer.end(function (error, result) { console.log(result); });
+
+		console.log('---------------------------------------------------------');
+		console.log('           			 done!                            ');
+		console.log('---------------------------------------------------------');
+
+	}
 };
