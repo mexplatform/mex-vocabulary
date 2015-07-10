@@ -23,7 +23,4 @@ module.exports = function() {
     this.set_name = function(value){
         this.name = value;
     }
-
-
-
 };

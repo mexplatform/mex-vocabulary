@@ -1,15 +1,16 @@
 /**
  * Created by esteves on 09.07.15.
  */
-var instance;
-var id;
-var value;
+
+var className;
+var instanceName;
+var userID;
 var Util = require('../../util/mexconstant.js');
 
-module.exports = function(id, value) {
-
-    this.id = id;
-    this.value = value;
+module.exports = function(instanceName, className, userID) {
+    this.instanceName = instanceName;
+    this.className = className;
+    this.userID = userID;
 
     this.get_id = function() {
         return this.id;
