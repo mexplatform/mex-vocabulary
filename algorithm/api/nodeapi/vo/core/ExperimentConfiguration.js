@@ -23,11 +23,9 @@ module.exports = function(id) {
     this.get_individualName = function() {
         return this._individual;
     }
-
     this.set_individualName = function(value){
         this._individual = value;
     }
-
     this.get_dataset = function() {
         return _dataset;
     }
@@ -37,7 +35,6 @@ module.exports = function(id) {
     this.get_sampling = function() {
         return _sampling;
     }
-
     this.get_feature = function(id) {
         for (var i = 0; i < _featureList.length; i++) {
             if(_featureList[i].get_id() == id){
@@ -49,19 +46,16 @@ module.exports = function(id) {
     this.get_features = function() {
       return _featureList;
     }
-
     this.add_feature = function (id, name) {
         var f = new _feature(id, name);
         _featureList.push(f);
     }
-
     this.add_algorithm = function (algorithm) {
         var instance = util.DEF_INDIVIDUALS.ALGORITHM + (_algorithmList.length + 1);
         var a = new _algorithm(instance, algorithm);
         _algorithmList.push(a);
         return instance;
     }
-
     this.add_execution = function (executiontype, phase, algorithmID, hyperparam) {
         var instance = util.DEF_INDIVIDUALS.EXEC + (_executionList.length + 1);
         var className = executiontype;
