@@ -6,7 +6,7 @@ var Util = require('../../util/mexconstant.js');
 // constructor
 function Hardware() {
     this._individualName = '';
-    this._className = Util.DEF_CLASSES.MEX_CORE.DATASET;
+    this._className = Util.DEF_CLASSES.MEX_CORE.HARDWARE_CONFIGURATION;
     this._os = '';
     this._cpu = '';
     this._memory = '';

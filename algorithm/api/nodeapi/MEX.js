@@ -5,6 +5,8 @@ var clsUtil = require('./util/mexconstant.js');
 var clsAppContext = require('./vo/core/ApplicationContext.js');
 var clsExperiment = require('./vo/core/Experiment.js');
 var clsConfiguration = require('./vo/core/ExperimentConfiguration.js');
+var clsFeature = require('./vo/core/Feature.js');
+var clsAlgorithm = require('./vo/algo/Algorithm.js');
 
 // Constructor
 function MEX() {
@@ -75,7 +77,6 @@ MEX.prototype.Configuration_add = function(description) {
     }
     return identification;
 };
-
 MEX.prototype.Configuration_setDataSet = function(idConfiguration, dsTitle, dsDescription, dsLandingPage) {
     var index;
     try{
@@ -91,6 +92,77 @@ MEX.prototype.Configuration_setDataSet = function(idConfiguration, dsTitle, dsDe
         console.log('error setDataSetName: ' + e);
     }
 };
+MEX.prototype.Configuration_setSoftwareImplementation = function(idConfiguration, name, version) {
+    var index;
+    try{
+        index = getExperimentConfigurationIndex(idConfiguration, this.myConfigurations);
+        if (index!=-1){
+            this.myConfigurations[index].getImplementation().setName(name);
+            this.myConfigurations[index].getImplementation().setRevision(version);
+            this.myConfigurations[index].getImplementation().setIndividualName(clsUtil.DEF_INDIVIDUALS.IMPLEMENTATION + idConfiguration);
 
+        }
+    }catch (e){
+        console.log('error setDataSetName: ' + e);
+    }
+}
+MEX.prototype.Configuration_setSamplingMethod = function(idConfiguration, name, folds, train, test) {
+    var index;
+    try{
+        index = getExperimentConfigurationIndex(idConfiguration, this.myConfigurations);
+        if (index!=-1){
+            this.myConfigurations[index].getSamplingMethod().setTrainSize(train);
+            this.myConfigurations[index].getSamplingMethod().setTestSize(test);
+            this.myConfigurations[index].getSamplingMethod().setFolds(folds);
+            this.myConfigurations[index].getSamplingMethod().setClassName(name);
+            this.myConfigurations[index].getSamplingMethod().setIndividualName(clsUtil.DEF_INDIVIDUALS.SAMPLING_METHOD + idConfiguration);
+
+        }
+    }catch (e){
+        console.log('error setDataSetName: ' + e);
+    }
+}
+MEX.prototype.Configuration_setHardware = function(idConfiguration, os, proc, mb, ssd, cache, video) {
+    var index;
+    try{
+        index = getExperimentConfigurationIndex(idConfiguration, this.myConfigurations);
+        if (index!=-1){
+            this.myConfigurations[index].getHardware().setOperationalSystem(os);
+            this.myConfigurations[index].getHardware().setCPU(proc);
+            this.myConfigurations[index].getHardware().setMemory(mb);
+            this.myConfigurations[index].getHardware().setHD(ssd);
+            this.myConfigurations[index].getHardware().setCPUCache(cache);
+            this.myConfigurations[index].getHardware().setVideo(cache);
+            this.myConfigurations[index].getHardware().setIndividualName(clsUtil.DEF_INDIVIDUALS.HARDWARE + idConfiguration);
+        }
+    }catch (e){
+        console.log('error setDataSetName: ' + e);
+    }
+}
+MEX.prototype.Configuration_addFeatures = function(idConfiguration, features) {
+    var index;
+    try{
+        index = getExperimentConfigurationIndex(idConfiguration, this.myConfigurations);
+        if (index!=-1){
+            for (i=0; i<features.length; i++){
+                this.myConfigurations[index].addFeature(features[i]);
+            }
+        }
+    }catch (e){
+        console.log('error addFeatures: ' + e);
+    }
+};
+MEX.prototype.Configuration_addAlgorithm = function(idConfiguration, algorithm) {
+    var index, alg;
+    try{
+        index = getExperimentConfigurationIndex(idConfiguration, this.myConfigurations);
+        if (index!=-1){
+            alg = this.myConfigurations[index].addAlgorithm(algorithm);
+        }
+        return alg;
+    }catch (e){
+        console.log('error addAlgorithm: ' + e);
+    }
+};
 // export the class
 module.exports = MEX;

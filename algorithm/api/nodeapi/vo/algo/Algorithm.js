@@ -4,8 +4,8 @@
 var Util = require('../../util/mexconstant.js');
 
 // constructor
-function Algorithm(className) {
-    this._individualName = '';
+function Algorithm(ind, className) {
+    this._individualName = ind;
     this._className = className;
 }
 // class methods

@@ -21,9 +21,12 @@ module.exports.DEF_INDIVIDUALS = {
     ALGORITHM : 'algorithm',
     FEATURE : 'feature',
     HYPERPARAMETER : 'hyperparam',
+    HARDWARE : 'hard',
     PHASE_TRAINING : 'training',
     PHASE_TEST : 'test',
-    DATASET : 'ds'
+    DATASET : 'ds',
+    IMPLEMENTATION : 'soft',
+    SAMPLING_METHOD : 'sampling'
 }
 
 //names for classes

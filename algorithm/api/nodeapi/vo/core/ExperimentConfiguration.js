@@ -62,13 +62,14 @@ ExperimentConfiguration.prototype.getFeature = function(id) {
     }
     return null;
 };
-ExperimentConfiguration.prototype.addFeature = function(id, name) {
-    var f = new clsFeature(id, name);
+ExperimentConfiguration.prototype.addFeature = function(id) {
+    var instance = clsUtil.DEF_INDIVIDUALS.FEATURE + (this._featureList.length + 1);
+    var f = new clsFeature(instance, id);
     this._featureList.push(f);
 };
-ExperimentConfiguration.prototype.addAlgorithm = function(algorithm) {
+ExperimentConfiguration.prototype.addAlgorithm = function(className) {
     var instance = clsUtil.DEF_INDIVIDUALS.ALGORITHM + (this._algorithmList.length + 1);
-    var a = new clsAlgorithm(instance, algorithm);
+    var a = new clsAlgorithm(instance, className);
     this._algorithmList.push(a);
     return instance;
 };
