@@ -119,6 +119,14 @@ MEXSerializer.prototype.generateMEX = function(mex) {
                 if (mex.myConfigurations[i].getDataSet() && mex.myConfigurations[i].getDataSet().getIndividualName()){
                     writer.addTriple(thisuri + mex.myConfigurations[i].getDataSet().getIndividualName(), rdfsuri + 'type', mexcoreuri + mex.myConfigurations[i].getDataSet().getClassName());
                     writer.addTriple(thisuri + mex.myConfigurations[i].getDataSet().getIndividualName(), rdfsuri + 'type', provuri + Util.DEF_CLASSES.PROV.ENTITY);
+
+                    if (mex.myConfigurations[i].getDataSet().getTitle()){
+                        writer.addTriple(thisuri + mex.myConfigurations[i].getDataSet().getIndividualName(), dcaturi + 'title', '"' + mex.myConfigurations[i].getDataSet().getTitle() + '"');}
+                    if (mex.myConfigurations[i].getDataSet().getDescription()){
+                        writer.addTriple(thisuri + mex.myConfigurations[i].getDataSet().getIndividualName(), dcturi + 'description', '"' + mex.myConfigurations[i].getDataSet().getDescription() + '"');}
+                    if (mex.myConfigurations[i].getDataSet().getLandingPage()){
+                        writer.addTriple(thisuri + mex.myConfigurations[i].getDataSet().getIndividualName(), dcaturi + 'landingPage', '"' + mex.myConfigurations[i].getDataSet().getLandingPage() + '"');}
+
                 }
                 /* implementation */
                 if (mex.myConfigurations[i].getImplementation() && mex.myConfigurations[i].getImplementation().getIndividualName()){

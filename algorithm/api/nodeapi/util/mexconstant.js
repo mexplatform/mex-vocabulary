@@ -5,7 +5,11 @@
 module.exports.DEF_IDENTIFIERS = {
     EXP : 'MEX_EXPERIMENT',
     EXP_CONFIGURATION : 'MEX_EXP_CONF_D',
-    EXEC : 'MEX_EXEC_D'
+    EXEC : 'MEX_EXEC_D',
+    MEX_PERF : {
+        ACCURACY : 'accuracy',
+        ERROR: 'error'
+    }
 }
 //names (or prefix in case of list) for instances
 module.exports.DEF_INDIVIDUALS = {

@@ -76,13 +76,16 @@ MEX.prototype.Configuration_add = function(description) {
     return identification;
 };
 
-MEX.prototype.Configuration_setDataSetName = function(idConfiguration, dsName) {
+MEX.prototype.Configuration_setDataSet = function(idConfiguration, dsTitle, dsDescription, dsLandingPage) {
     var index;
     try{
         index = getExperimentConfigurationIndex(idConfiguration, this.myConfigurations);
         if (index!=-1){
-            this.myConfigurations[index].getDataSet().setName(dsName);
+            this.myConfigurations[index].getDataSet().setTitle(dsTitle);
+            this.myConfigurations[index].getDataSet().setDescription(dsDescription);
+            this.myConfigurations[index].getDataSet().setLandingPage(dsLandingPage);
             this.myConfigurations[index].getDataSet().setIndividualName(clsUtil.DEF_INDIVIDUALS.DATASET + idConfiguration);
+
         }
     }catch (e){
         console.log('error setDataSetName: ' + e);
