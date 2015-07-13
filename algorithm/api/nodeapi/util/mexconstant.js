@@ -18,7 +18,8 @@ module.exports.DEF_INDIVIDUALS = {
     FEATURE : 'feature',
     HYPERPARAMETER : 'hyperparam',
     PHASE_TRAINING : 'training',
-    PHASE_TEST : 'test'
+    PHASE_TEST : 'test',
+    DATASET : 'ds'
 }
 
 //names for classes
@@ -26,7 +27,6 @@ module.exports.DEF_CLASSES = {
     MEX_CORE : {
         EXP : 'Experiment',
         APPLICATION_CONTEXT : 'ApplicationContext',
-        CONTEXT : "Context",
         MODEL : "Model",
         EXECUTION : {
             SINGLE : "ExecutionSingle",
@@ -90,6 +90,13 @@ module.exports.DEF_CLASSES = {
             CLASSIFICATION : 'ClassificationMeasure',
             CLUSTERING : 'ClusteringMeasure'
         }
+    },
+    PROV : {
+        AGENT : 'Agent',
+        PERSON : 'Person',
+        ORGANIZATION : 'Organization',
+        ENTITY : 'Entity',
+        ACTIVITY : 'Activity'
     }
 }
 

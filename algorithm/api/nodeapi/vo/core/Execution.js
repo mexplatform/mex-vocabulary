@@ -10,7 +10,6 @@ function Execution(individualName, className, phaseID, algorithmID) {
     this._phaseID = phaseID;
     this._algorithmID = algorithmID;
     this._hyperparamIDList = [];
-
 }
 // class methods
 Execution.prototype.getIndividualName = function() {

@@ -1,15 +1,18 @@
 /**
  * Created by esteves on 11.07.15.
  */
+var clsUtil = require('./util/mexconstant.js');
 var clsAppContext = require('./vo/core/ApplicationContext.js');
 var clsExperiment = require('./vo/core/Experiment.js');
-var clsConfiguration = require('./vo/core/experimentconfiguration.js');
+var clsConfiguration = require('./vo/core/ExperimentConfiguration.js');
 
 // Constructor
 function MEX() {
     this.myApplicationContext = new clsAppContext();
     this.myExperiment = new clsExperiment();
-    this.myConfigurations = [];
+    this.myConfigurations = []; //clsExperimentConfiguration -> SamplingMethod, Hardware, DataSet, Feature(s), Execution(s), Implementation
+    //Execution -> Model, Phase, Example(s), Algorithm, Algorithm Parameter(s)
+    //Performance -> Execution
 }
 // class methods
 
@@ -52,24 +55,38 @@ MEX.prototype.Experiment_getDate = function() {
     return this.myExperiment.getDate();
 };
 /* myConfigurations */
-function getExperimentConfigurationIndex(id){
-    for (var i = 0; i < this.myConfigurations.length; i++) {
-        if(this.myConfigurations[i].get_individualName() == id){
+function getExperimentConfigurationIndex(id, configurations){
+    for (var i = 0; i < configurations.length; i++) {
+        if(configurations[i].getIdentification() == id){
             return i;
         }
     }
     return -1;
 }
-MEX.prototype.Configuration_add = function() {
-    var instanceName;
+MEX.prototype.Configuration_add = function(description) {
+    var instanceName, identification;
     try{
-        instanceName = util.DEF_INDIVIDUALS.EXP_CONFIGURATION + (this.myConfigurations.length + 1);
-        var expconf = new clsConfiguration(instanceName);
-        this.myConfigurations.push(expconf);
+        instanceName = clsUtil.DEF_INDIVIDUALS.EXP_CONFIGURATION + (this.myConfigurations.length + 1);
+        identification = clsUtil.DEF_IDENTIFIERS.EXP_CONFIGURATION + (this.myConfigurations.length + 1);
+        var ec = new clsConfiguration(instanceName, identification, description);
+        this.myConfigurations.push(ec);
     }catch(e){
         console.log('error addConfiguration: ' + e);
     }
-    return instanceName;
+    return identification;
+};
+
+MEX.prototype.Configuration_setDataSetName = function(idConfiguration, dsName) {
+    var index;
+    try{
+        index = getExperimentConfigurationIndex(idConfiguration, this.myConfigurations);
+        if (index!=-1){
+            this.myConfigurations[index].getDataSet().setName(dsName);
+            this.myConfigurations[index].getDataSet().setIndividualName(clsUtil.DEF_INDIVIDUALS.DATASET + idConfiguration);
+        }
+    }catch (e){
+        console.log('error setDataSetName: ' + e);
+    }
 };
 
 // export the class

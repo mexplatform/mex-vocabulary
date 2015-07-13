@@ -7,7 +7,6 @@ try {
     mex.setAuthorEmail('esteves@informatik.uni-leipzig.de');
     mex.setContext(util.DEF_CLASSES.MEX_CORE.CONTEXT.FINANCE);
 
-
     mex.setExperimentIdentification('001');
     mex.setExperimentDescription('nodejs wrapper example');
     mex.setExperimentDate(new Date('2014-10-13'));
@@ -26,7 +25,6 @@ try {
 
     var exec1 = mex.addExecution(idconf1, util.DEF_CLASSES.MEX_CORE.EXECUTION.OVERALL, util.DEF_INDIVIDUALS.EXEC.PHASE_TEST, idalgo1, [idh1, idh2]);
     var exec2 = mex.addExecution(idconf1, util.DEF_CLASSES.MEX_CORE.EXECUTION.OVERALL, util.DEF_INDIVIDUALS.EXEC.PHASE_TEST, idalgo2);
-
 
     mex.generateMEX();
 

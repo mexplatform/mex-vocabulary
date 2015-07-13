@@ -2,7 +2,7 @@
  * Created by esteves on 09.07.15.
  */
 var util = require('../../util/mexconstant.js');
-var clsContext = require('./context.js');
+var clsContext = require('./Context.js');
 
 // constructor
 function ApplicationContext(context) {
