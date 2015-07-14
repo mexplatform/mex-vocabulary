@@ -12,5 +12,5 @@
 ###### Yellow classes: interlinking the layers
 
 ###### Blue/Gray classes: state-of-the-art vocabularies
-![Experiment ER](http://dne5.com/images/mex/mexv1.1.png)
+![Experiment ER](http://dne5.com/images/mex/mexv0.7.0.png)
 
