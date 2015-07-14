@@ -8,7 +8,7 @@
   * [examples](https://github.com/dnes85/mexproject/tree/master/proof)
   * [ppt](https://github.com/dnes85/mexproject/tree/master/ppt)
 
-### MEX Vocabulary Snapshot v1.1
+### MEX Vocabulary Snapshot v0.7.0
 ###### Yellow classes: interlinking the layers
 
 ###### Blue/Gray classes: state-of-the-art vocabularies
