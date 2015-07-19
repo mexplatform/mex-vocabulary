@@ -4,13 +4,15 @@ var multer  = require('multer');
 var app = express();
 
 
-/* GET users listing. */
+/* POST user rdf file */
 router.post('/', function(req, res) {
-	 app.use(multer({
-	 onFileUploadComplete: function (file, req, res) {
-     console.log(file.fieldname + ' uploaded to  ' + file.path);
-}}))
-	 
+	app.use(multer({
+		onFileUploadComplete: function (file, req, res) {
+			console.log(file.fieldname + ' uploaded to  ' + file.path);
+		}}))
+	
+	res.send("Whazup!");
+
 });
 
 module.exports = router;
