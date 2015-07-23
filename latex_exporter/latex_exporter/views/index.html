@@ -1,0 +1,56 @@
+<!doctype html>
+<meta charset="utf-8">
+<script src="/javascripts/jquery-1.11.3.min.js">
+</script>
+<script src="/javascripts/jquery.form.min.js">
+</script>
+<script src="javascripts/angular.min.js">
+</script>
+<script src="javascripts/angular-route.min.js">
+</script>
+<script src="javascripts/latex_exporter.js">
+</script>
+<title>MEX RDF to Latex Converter</title>
+<body>
+  <div ng-app="main">
+  
+    <div ng-controller="rootCtrl">
+      <form action="/" method="post" enctype="multipart/form-data" id="uploadForm">
+        <input type="file" name="RDFFILE">
+        <input type="submit" value="Convert!">
+      </form>
+      <input type="button" ng-click="newColumn();" value="New Column">
+      <br />
+      <div style="margin-left: 250px">
+      <!--<div ng-repeat="i in columns" style="float: left" >
+        <input type="text" style="width: 146px" ng-model="title" ng-change="updateTitle(i, title)">
+      </div>-->
+      </div>
+      <div ng-repeat="l in lines" style="clear: left;" >
+        <select ng-model="l.indexLines" 
+          ng-options="s.name for s in l.val" 
+          ng-change="updateTable(l.index, 0, l.indexLines.name)" style="float: left;  width: 250px;">
+          <option value="">Algorithm</option>
+        </select>
+        <div ng-repeat="i in columns" style="float: left; width: 150px; min-width: 150px" >
+          <select ng-model="execution" ng-options="m.prop for m in l.indexLines.measures" 
+             ng-change="updateTable(l.index, i+1, execution.val)"
+            style="float: left; width: 150px; min-width: 150px">
+            <option value="">Measures</option>
+          </select>
+          <!--<div>oi{{execution}}</div>-->
+        </div>
+      </div>
+      <br />
+      <div style="clear: left">
+        <input type="button" ng-click="newLine();" value="New Line">
+      </div>
+    <div>
+      {{latexTableView}}
+    </div>
+    </div>
+    <div ng-view></div>
+  </div>
+</body>
+<!-- extends layout block content p#title #{title} form#uploadForm(action="file", method="post", enctype="multipart/form-data")
+input(type="file", name="RDFFile") input(type='submit',value='Convert!',data-transition='fade', data-theme='c') -->
