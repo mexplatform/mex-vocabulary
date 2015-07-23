@@ -1,5 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 
+### Local tests
+mex-gui/src/main/webapp/tests/
+
 ### Temporary files
 *.*~
 
