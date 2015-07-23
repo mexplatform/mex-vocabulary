@@ -1,5 +1,5 @@
 # My Machine Learning Experiment Vocabulary
-## MEX Vocabulary: A Light-Weight Interchange Format for Machine Learning Experiments
+## MEX Vocabulary: A Lightweight Interchange Format for Machine Learning Experiments
 
 The MEX Vocabulary has been designed to define a **lightweight and flexible schema** for publishing machine learning metadata. 
 
@@ -13,8 +13,10 @@ The MEX Vocabulary has been designed to define a **lightweight and flexible sche
 
 For **semantic web users** 
 ...
+
 For **non-semantic web users** 
 ...
+
 For **general and non-expert users**
 ...
 
