@@ -38,10 +38,10 @@ The current version of the vocabulaty is described as following. We've omitted o
   * `:HardwareConfiguration`
   * `:Dataset`
 
-* **The runs**: here the `:Execution` entity is the central class of the `core` layer and receives the spotlight on our schema definition. It is defined as a hub for linking the three layers (`core`, `algorithm` and `performance`). Concisely one instance of `:Execution` is performed on behalf of an `:Algorithm` and produces one or more `PerformanceMeasure`, represented by the `:ExecutionPerformance` class (e.g.: `:execution prov:used :algorithm` and `:executionperformance :prov:wasGeneratedBy :execution`). Below are listed the related entities.
+* **The runs**: here the `:Execution` entity is the central class of the `core` layer and receives the spotlight on our schema definition. It is defined as a hub for linking the three layers (`core`, `algorithm` and `performance`). Concisely one instance of `:Execution` is performed on behalf of an `:Algorithm` and produces one or more `PerformanceMeasure`, represented by the `:ExecutionPerformance` class (e.g.: `:execution prov:used :algorithm` and `:executionperformance :prov:wasGeneratedBy :execution`). Below are listed the related entities. It is worth noting the abstraction level for modeling the execution process: for representing the set of runs the algorithm has performed over a dataset (or a subset), i.e., an overall execution (`:OverallExecution`) or a single execution (`:SingleExecution`) for representing the run over each `dataset example`, although less appropriate for the abstraction level required for presenting experimental results.
   * `:Model`: basic information regarding the used/generated model
   * `:Phase`: train, validation or test
-  * `:ExampleCollection`: the set of `:Example` instances represent 1 dataset example (also defined as *instance*, or, more technically, a dataset *row*). It is useful when you're describing each execution for each dataset example (e.g.: a test dataset which contains 100 examples [100 rows] is represented by 100 `:ExampleCollection` instances) and want to store the values for some reason.
+  * `:ExampleCollection`: the set of `:Example` instances represent 1 `dataset example` (also defined as *instance*, or, more technically, a dataset *row*). It is useful when you're describing each execution for each dataset example (e.g.: a test dataset which contains 100 examples [100 rows] is represented by 100 `:ExampleCollection` instances) and want to store the values for some reason.
 
 #### mexalgo
 * `:Implementation`
@@ -52,14 +52,14 @@ The current version of the vocabulaty is described as following. We've omitted o
 * `:AlgorithmClass`
 
 #### mexperf
-* `:ExecutionPerformance`: 
-* `:PerformanceMeasure`: 
+* `:ExecutionPerformance`: this class links the `:Execution` and its results, i.e., it's an entity for interlinking the `mexcore` and `mexperf` layers. For each execution you have to define at least one `:PerformanceMeasure` or `ExamplePerformance` or `UserDefinedMeasure` (see details below)
+* `:PerformanceMeasure`: the root for machine learning general measures, grouped into classes. Each described `:Execution` may produces one or more measures. Used for describing `:OverallExecution`. 
   * `:ClassificationMeasure`
   * `:RegressionMeasure`
   * `:ClusteringMeasure`
   * `:StatisticalMeasure`
-* `:ExamplePerformanceCollection`: 
-* `:UserDefinedMeasureCollection`: We know reusing is a key factor for semantic web, but sometimes the number of people would use your metric is quite low, of even zero! So, if you have a very specific measure formula for your business and want to describe use this class! Each `:UserDefinedMeasure` stores a unknown measure value and its formula. Of course we will keep an eye on it for the `measures` updating! 
+* `:ExamplePerformanceCollection`: Useful 
+* `:UserDefinedMeasureCollection`: We know reusing is a key factor for semantic web, but sometimes the number of people would reuse your metric is quite low, of even zero! So, if you have a very specific measure formula for your business and want to describe use this class! Each `:UserDefinedMeasure` stores a unknown measure value and its formula. Of course we will keep an eye on it for the `measures` updating! 
 
 ### I've not found a specific machine learning algorithm! (or any information else)
 Despite efforts for keeping everything up-to-date you might not find your machine learning algorithm into `MEX`, for instance, or even one specific machine learning tool. That's bad, we know! :-( However, we are going to have the pleasure to quickly update the vocabulary to satisfy your desires, just let us know! ;-)
