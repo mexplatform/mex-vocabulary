@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+  <meta charset="utf-8">
+  <script src="/javascripts/jquery-1.11.3.min.js">
+</script>
+  <script src="/javascripts/jquery.form.min.js">
+</script>
+  <script src="javascripts/angular.min.js">
+</script>
+  <script src="javascripts/angular-route.min.js">
+</script>
+  <script src="javascripts/latex_exporter.js">
+</script>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="stylesheets/bootstrap-theme.min.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="javascripts/bootstrap.min.js"></script>
+  <title>MEX RDF to Latex Converter</title>
+  
+  <body>
+    <div class="wrapper">
+      <div ng-app="main" class="container">
+        <div ng-controller="rootCtrl">
+          <h2>Choose your RDF MEX file.</h2>
+          <p>Select your MEX file and click on "Convert"! A sample file can be fund <a href="https://github.com/AKSW/mexproject/blob/master/latex_exporter/latex_exporter/ex.ttl">here</a>.</p>
+          <div style="margin-top:20px">
+            <form action="/" method="post" enctype="multipart/form-data" id="uploadForm">
+              <input type="file" name="RDFFILE">
+              <input type="submit" value="Convert!">
+            </form>
+          </div>
+          <h2>Assembly your table.</h2>
+          <p>Choose here which algorithms and measures will be added to the LaTeX table.</p>
+          <input type="button" ng-click="newColumn();"
+          value="New Measure">
+          <br />
+                <!--<div ng-repeat="i in columns" style="float: left" >
+        <input type="text" style="width: 146px" ng-model="title" ng-change="updateTitle(i, title)">
+      </div>-->
+          <div style="margin-left: 250px; margin-top: 10px"></div>
+          <div ng-repeat="l in lines" style="clear: left;">
+            <select ng-model="l.indexLines" ng-options="s.identifier for s in l.val" ng-change="updateTable(l.index, 0, l.indexLines.name)"
+            style="float: left;  width: 250px;">
+              <option value="">Algorithm</option>
+            </select>
+            <div ng-repeat="i in columns" style="float: left; width: 150px; min-width: 150px">
+              <select ng-model="execution" ng-options="m.prop for m in l.indexLines.measures" ng-change="updateTable(l.index, i+1, execution.val)"
+              style="float: left; width: 150px; min-width: 150px">
+                <option value="">Measures</option>
+              </select>
+            </div>
+          </div>
+          <br />
+          <div style="clear: left; margin-top: 10px">
+            <input type="button" ng-click="newLine();" value="New Algorithm">
+          </div>
+          <div>
+            <h2>Get your LaTeX code.</h2>
+            <p>Copy and paste the following code to your LaTeX document.</p>
+            <pre>{{latexTableView}}</pre>
+          </div>
+        </div>
+        <div ng-view></div>
+      </div>
+    </div>
+  </body>
+
+</html>
+<!-- extends layout block content p#title #{title} form#uploadForm(action="file", method="post", enctype="multipart/form-data")
+input(type="file", name="RDFFile") input(type='submit',value='Convert!',data-transition='fade', data-theme='c') -->

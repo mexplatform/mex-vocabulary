@@ -3,7 +3,14 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Welcome to RDF to LaTeX!' });
+  console.log(req.params);
+  res.render('index.html');
+});
+
+/* POST */
+router.post('/', function(req, res, next) {
+  console.log(req.params);
+  // res.render('index.html', { title: '' });
 });
 
 
