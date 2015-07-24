@@ -1,7 +1,11 @@
 # My Machine Learning Experiment Vocabulary
 ## MEX Vocabulary: A Lightweight Interchange Format for Machine Learning Experiments
 
-The MEX Vocabulary has been designed to define a **lightweight and flexible schema** for publishing machine learning metadata. 
+More than just a **machine readable way** (which is provided by many ML frameworks), the `MEX` Vocabulary has been designed to define a **lightweight and flexible schema** for publishing machine learning metadata, regardless technology (we have been working to provide different programming language *APIs* and integrations with different machine learning tools). We aim to provide a **free-format** for exporting and exchanging machine learning metadata, indifferent to existing **workflow systems** or **frameworks**. As a consequence, the users can benefit of the `mex format` for further analysis in an easiest way.
+
+The first milestone was the [vocabulary definition](http://www.w3.org/standards/semanticweb/ontology), i.e., the `schema definition` to describe and represent each machine learning **algorithm execution** and its **performance measures** in a concise (but comprehensive) way. At this stage, we want to achieve a **high level of interoperability**.
+
+Futhermore, the development of *APIs* and *ML Tools* is a goal in order to support different system architectures. So far, the `java` and `nodejs` APIs have been created. We've planned some ML tool integrations as next step. 
 
 ### This repository
   * [vocabulary](https://github.com/dnes85/mexproject/tree/master/ontology)
@@ -11,10 +15,9 @@ The MEX Vocabulary has been designed to define a **lightweight and flexible sche
 
 ### How to use MEX?
 
-For **semantic web users** the usage is straightforward, once the vocabulary can easily be handled with semantic web technologies, such as [Apache Jena](https://jena.apache.org/). After the generation, the validation process can be executed [here](http://mex.aksw.org/). 
+For **semantic web users** the usage is straightforward, once the vocabulary can easily be handled with semantic web technologies, such as [Apache Jena](https://jena.apache.org/). After the generation, you can semantically validate the serialized file [here](http://mex.aksw.org/). 
 
-For **non-semantic web users**, there are two main proposed ideas to use `MEX`: if you're coding into an *IDE*, you can import an *API*, which defines an interface to be consumed into the user code for directly exporting the metadata in a simple manner, regardless possible semantic web aspects. Alternatively, over existing *machine learning frameworks* (100% transparent process), such as [DL-Learner](http://dl-learner.org/), [WEKA](http://www.cs.waikato.ac.nz/ml/weka/) and [FAMa](https://github.com/duartejulio/fama). 
-Feel free to collaborate ;-)
+For **non-semantic web users**, there are two ways to use `MEX`: if you're coding into an *IDE*, you can import an *API*, which defines an interface to be consumed into the user code for directly exporting the metadata in a simple manner, regardless possible semantic web aspects. Alternatively, over existing *machine learning frameworks* (100% transparent process), such as [DL-Learner](http://dl-learner.org/), [WEKA](http://www.cs.waikato.ac.nz/ml/weka/) and [FAMa](https://github.com/duartejulio/fama). It's a ongoing work, feel free to collaborate ;-)
 
 Finnaly, for **general and non-expert users** we've created an [user interface](http://mex.aksw.org/) for describing the experiment
 
