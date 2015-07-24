@@ -24,7 +24,7 @@
       <div ng-app="main" class="container">
         <div ng-controller="rootCtrl">
           <h2>Choose your RDF MEX file.</h2>
-          <p>Select your MEX file and click on "Covnert"!</p>
+          <p>Select your MEX file and click on "Covnert"! A sample file can be fund on <a href="https://github.com/AKSW/mexproject/blob/master/latex_exporter/latex_exporter/ex.ttl">here</a>.</p>
           <div style="margin-top:20px">
             <form action="/" method="post" enctype="multipart/form-data" id="uploadForm">
               <input type="file" name="RDFFILE">
@@ -34,11 +34,14 @@
           <h2>Assembly your table.</h2>
           <p>Choose here which algorithms and measures will be added to the LaTeX table.</p>
           <input type="button" ng-click="newColumn();"
-          value="New Column">
+          value="New Measure">
           <br />
-          <div style="margin-left: 250px"></div>
+                <!--<div ng-repeat="i in columns" style="float: left" >
+        <input type="text" style="width: 146px" ng-model="title" ng-change="updateTitle(i, title)">
+      </div>-->
+          <div style="margin-left: 250px; margin-top: 10px"></div>
           <div ng-repeat="l in lines" style="clear: left;">
-            <select ng-model="l.indexLines" ng-options="s.name for s in l.val" ng-change="updateTable(l.index, 0, l.indexLines.name)"
+            <select ng-model="l.indexLines" ng-options="s.identifier for s in l.val" ng-change="updateTable(l.index, 0, l.indexLines.name)"
             style="float: left;  width: 250px;">
               <option value="">Algorithm</option>
             </select>
@@ -50,8 +53,8 @@
             </div>
           </div>
           <br />
-          <div style="clear: left">
-            <input type="button" ng-click="newLine();" value="New Line">
+          <div style="clear: left; margin-top: 10px">
+            <input type="button" ng-click="newLine();" value="New Algorithm">
           </div>
           <div>
             <h2>Get your LaTeX code.</h2>

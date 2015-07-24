@@ -91,6 +91,7 @@ var mexCoreURI = "http://mex.aksw.org/mex-core#";
 var mexPerf = "http://mex.aksw.org/mex-perf#";
 var provURI  = "http://www.w3.org/ns/prov#";
 var rdfsURI = "http://www.w3.org/2000/01/rdf-schema#"; 
+var dctURI = "http://purl.org/dc/terms/";
 
 var maxPerfMeasures = [mexPerf+"ClassificationMeasure", 
   mexPerf+"PerformanceMeasure", 
@@ -161,6 +162,7 @@ var experimentConfigurationURI = "ExperimentConfiguration";
 var algorithmURI = mexCoreURI+"Algorithm";
 var wasInformedByURI = provURI + "wasInformedBy";
 var usedURI = provURI + "used";
+var identifierURI = dctURI + "identifier";
 
 var aURI = rdfsURI+"type";
 
@@ -214,6 +216,7 @@ var line = {};
          else{
            line[algorithms[a]] = {}; 
            line[algorithms[a]].name = algorithms[a];
+           line[algorithms[a]].identifier = getAlgorithmIdentifier(algorithms[a]);
            line[algorithms[a]].measures = [];
            
          }
@@ -270,6 +273,10 @@ function getExecutionOfMeasure(measure){
 
 function getAlgorithmsOfExecution(execution){
   return getObjects(store.find(execution, usedURI , null));
+}
+
+function getAlgorithmIdentifier(algorithm){
+  return getObjects(store.find(algorithm, identifierURI , null));
 }
 
 function loadTriples(fileName, callback){

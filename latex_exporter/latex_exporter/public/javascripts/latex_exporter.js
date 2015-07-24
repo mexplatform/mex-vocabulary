@@ -8,21 +8,10 @@ main.config(['$routeProvider',
       templateUrl: '/partial/part1',
       controller: 'partCtrl'
     }).
-    // when('/', {
-    //  templateUrl: '/index.html',
-    //  controller: 'rootCtrl'
-    // }).
       otherwise({
       redirectTo: '/'
     });
   }]);
-
-
-
-
-// main.controller('partCtrl', ['$scope', function ($scope) {
-//   $scope.data2 = 'Hola!';
-// }]);
 
 main.controller('rootCtrl', ['$scope', '$http', function ($scope, $http) {
   $scope.lines = [];
@@ -81,7 +70,6 @@ main.controller('rootCtrl', ['$scope', '$http', function ($scope, $http) {
     }).success(function (data, status, headers, config) {
       $scope.latexTableView = data;
       console.log(data);
-      // $scope.$apply();
     }).error(function (data, status, headers, config) {
     });
   };

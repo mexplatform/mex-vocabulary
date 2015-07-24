@@ -16,7 +16,7 @@ this:execution1
       a       mexcore:Execution , prov:Activity ;
       mexcore:group "true" ;
       prov:id "MEX_EXEC_D1" ;
-      prov:used this:phaseTest , this:algorithm1 , this:algorithm2 ;
+      prov:used this:algorithm1 , this:algorithm2 ;
       prov:wasInformedBy this:configuration2 , this:configuration1 .
 
 this:feature4
