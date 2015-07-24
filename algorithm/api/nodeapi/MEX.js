@@ -164,5 +164,18 @@ MEX.prototype.Configuration_addAlgorithm = function(idConfiguration, algorithm) 
         console.log('error addAlgorithm: ' + e);
     }
 };
+MEX.prototype.Configuration_addAlgorithmParameter = function (idConfiguration, algorithm, param, value){
+    var index, p;
+    try{
+        index = getExperimentConfigurationIndex(idConfiguration, this.myConfigurations);
+        if (index!=-1){
+            p = this.myConfigurations[index].addHyperParameter(param, value);
+
+        }
+        return alg;
+    }catch (e){
+        console.log('error addAlgorithm: ' + e);
+    }
+};
 // export the class
 module.exports = MEX;

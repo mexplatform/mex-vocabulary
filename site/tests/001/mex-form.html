@@ -1,0 +1,15 @@
+<html>
+<head>
+    <script src=/socket.io/socket.io.js></script>
+    <script>
+        var socket = io('http://localhost:8444');
+        socket.on('visits', function(visitas){
+            document.getElementById('visitas').innerHTML = visitas;
+        });
+    </script>
+</head>
+<body>
+<p>Contador de visitas online com Socket.io</p>
+<p>Número de visitas: <span id="visitas">0</span></p>
+</body>
+</html>
