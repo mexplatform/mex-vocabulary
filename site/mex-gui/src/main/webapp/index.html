@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>The MEXP Project &middot; MyExp Ontology</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/mex.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="../js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="../ico/apple-touch-icon-57-precomposed.png">
+    <link rel="shortcut icon" href="../ico/favicon.png">
+
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/960.css" rel="stylesheet" type="text/css" />
+    <!--<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>-->
+
+
+    <!--<script type="text/javascript" src="js/bootstrap.min.js"></script>-->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/cufon-yui.js"></script>
+    <script type="text/javascript" src="js/Copse_400.font.js"></script>
+    <script type="text/javascript" src="js/Gabriola_400.font.js"></script>
+    <script type="text/javascript">
+        Cufon.replace('h1', {fontFamily: 'Copse', hover:true})
+        Cufon.replace('p.info', {fontFamily: 'Gabriola', hover:true})
+    </script>
+
+</head>
+<body>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(function()
+    {
+        $(".jumbotron").load("main.html");
+        document.getElementById('li1').className='active';
+    });
+</script>
+<script type="text/javascript">
+    $('ul.nav-pils li').each(function() {
+        $(this).on("click", function(){
+            $(".jumbotron").load(($this).attr("data-page"));
+        });
+    });
+</script>
+<script>
+   function setMenu(menu){
+       document.getElementById('li1').className='';
+       document.getElementById('li2').className='';
+       document.getElementById('li3').className='';
+       document.getElementById('li4').className='';
+       document.getElementById('li5').className='';
+       document.getElementById('li6').className='';
+       document.getElementById(menu).className='active';
+   }
+</script>
+
+<div class="container">
+    <div class="masthead">
+        <br>
+        <img src="other-img/logo-aksw.png" alt="AKSW Logo"/>
+        <img src="other-img/mexhashtag.png" width="17%" height="17%" alt="MEX" align="right"/>
+
+        <div class="navbar">
+            <div class="navbar-inner">
+                <ul class="nav nav-pils" id="myTab">
+                    <li id="li1"><a href="#home" onclick="javascript:$('.jumbotron').load('main.html');setMenu('li1')">Home</a></li>
+                    <li id="li2"><a href="#" onclick="javascript:$('.jumbotron').load('gaps.html'); setMenu('li2')">Motivation</a></li>
+                    <li id="li3"><a href="#" onclick="javascript:$('.jumbotron').load('vocabulary-documentation.html'); setMenu('li3')">Vocabulary</a></li>
+                    <li id="li4"><a href="#" onclick="javascript:$('.jumbotron').load('mexgenerating.html'); setMenu('li4')">Export</a></li>
+                    <li id="li5"><a href="#" onclick="javascript:$('.jumbotron').load('validator.html'); setMenu('li5')">Validator</a></li>
+                    <li id="li6"><a href="#" onclick="javascript:$('.jumbotron').load('latex-exporter.html'); setMenu('li6')">LaTeX Tables</a></li>
+                </ul>
+            </div>
+        </div><!-- /.navbar -->
+    </div>
+    <!-- Jumbotron -->
+    <div  class="jumbotron"></div>
+    <hr>
+    <!-- Example row of columns -->
+    <div class="row-fluid">
+        <div class="span4">
+            <h2>For a wide range of experiments</h2>
+            <p>For Natural Language Processing, Stock Market Prediction, Semantic Web Algorithms...MEX defines a set of relations and entities (reusing core W3C Ontologies) in order to describe executions of machine learning algorithms, regardless implementation or technology. </p>
+            <!--<p><a class="btn" href="#">View details &raquo;</a></p>-->
+        </div>
+        <div class="span4">
+            <h2>An Interchange Format for Machine Learning</h2>
+            <p>The MEX vocabulary provides a flexible and interoperable format for exporting machine learning output.
+                The metadata information makes the results easier to be understood!</p>
+            <p><br><br><!--<a class="btn" href="#">View details &raquo;</a></p>-->
+        </div>
+        <div class="span4">
+            <h2>Coming soon...<br></h2>
+            <p>
+            <ul>
+                <li><a href="http://aksw.org/Projects/RDFUnit.html">Machine Learning Tools Integrations</a>: Exporting as easy as possible... <a href="../../../../integrations.html">see more &raquo;</a></li>
+                <li><a href="http://aksw.org/Projects/RDFUnit.html">NLP Experiments (NIF Integration)</a>: Extending for <b>Natural Language Processing</b> <a href="http://aksw.org/Projects/NIF.html">see more &raquo;</a></li>
+                <li><a href="http://aksw.org/Projects/GERBIL.html">Benchmark System (Gerbil Integration)</a>: A nice and friendly user-interface and benchmark repository to load your experiments!</li>
+            </ul>
+            </p>
+            <p></p>
+            <!--<div align="right">
+                <a href="team.html">
+                    <img src="other-img/team.png" alt="Team Logo" width="20%" height="20%" style="cursor: pointer;" onmouseover=""></img>
+                </a>
+            </div>
+            -->
+        </div>
+    </div>
+    <hr>
+    <div class="footer">
+        <p><a href="http://aksw.org" target="_blank">&copy; AKSW 2015</a></p>
+    </div>
+</div> <!-- /container -->
+
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap-transition.js"></script>
+<script src="js/bootstrap-alert.js"></script>
+<script src="js/bootstrap-modal.js"></script>
+<script src="js/bootstrap-dropdown.js"></script>
+<script src="js/bootstrap-scrollspy.js"></script>
+<script src="js/bootstrap-tab.js"></script>
+<script src="js/bootstrap-tooltip.js"></script>
+<script src="js/bootstrap-popover.js"></script>
+<script src="js/bootstrap-button.js"></script>
+<script src="js/bootstrap-collapse.js"></script>
+<script src="js/bootstrap-carousel.js"></script>
+<script src="js/bootstrap-typeahead.js"></script>
+</body>
+</html>
+

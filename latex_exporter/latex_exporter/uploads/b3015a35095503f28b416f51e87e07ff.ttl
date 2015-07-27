@@ -1,0 +1,112 @@
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix this:    <http://mex.aksw.org/examples/002/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix mexcore:  <http://mex.aksw.org/mex-core#> .
+@prefix doap:    <http://usefulinc.com/ns/doap#> .
+@prefix mexperf:  <http://mex.aksw.org/mex-perf#> .
+@prefix mexalgo:  <http://mex.aksw.org/mex-algo#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+
+this:execution1
+      a       mexcore:Execution , prov:Activity ;
+      mexcore:group "true" ;
+      prov:id "MEX_EXEC_D1" ;
+      prov:used this:algorithm1 , this:algorithm2 ;
+      prov:wasInformedBy this:configuration2 , this:configuration1 .
+
+this:feature4
+      a       mexcore:Feature , prov:Entity ;
+      rdfs:label "clo" ;
+      dct:identifier "4" .
+
+this:feature3
+      a       mexcore:Feature , prov:Entity ;
+      rdfs:label "ope" ;
+      dct:identifier "3" .
+
+this:feature2
+      a       mexcore:Feature , prov:Entity ;
+      rdfs:label "max" ;
+      dct:identifier "2" .
+
+this:application
+      a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
+      dct:dateCopyrighted "2015.07.03 20:46:59 CEST" ;
+      foaf:givenName "D Esteves" ;
+      foaf:mbox "esteves@informatik.uni-leipzig.de" .
+
+this:feature1
+      a       mexcore:Feature , prov:Entity ;
+      rdfs:label "min" ;
+      dct:identifier "1" .
+
+this:configuration2
+      a       mexcore:ExperimentConfiguration , prov:Activity ;
+      dct:identifier "MEX_EXP_CONF_D2" ;
+      prov:used this:samplingmethod2 , this:dataset , this:feature2 , this:feature1 .
+
+this:configuration1
+      a       mexcore:ExperimentConfiguration , prov:Activity ;
+      dct:identifier "MEX_EXP_CONF_D1" ;
+      prov:used this:samplingmethod1 , this:feature4 , this:dataset , this:feature3 , this:feature2 , this:feature1 .
+
+this:phaseTest
+      a       mexcore:Test , prov:Entity .
+
+this:experiment-header
+      a       prov:Entity , mexcore:Experiment ;
+      dct:identifier "MEX_EXPERIMENT" ;
+      prov:wasAttributedTo
+              this:application .
+
+this:samplingmethod1
+      a       prov:Entity , mexcore:Holdout ;
+      mexcore:testSize "0.2" ;
+      mexcore:trainSize "0.8" .
+
+this:samplingmethod2
+      a       prov:Entity , mexcore:Holdout ;
+      mexcore:testSize "0.2" ;
+      mexcore:trainSize "0.8" .
+
+this:dataset
+      a       prov:Entity , mexcore:Dataset ;
+      dct:title "mydataset.csv" .
+
+this:algorithm1
+      a       prov:Entity , mexcore:NaiveBayes, mexcore:Algorithm;
+      dct:identifier "algorithm1" .
+
+this:measure1_4
+      a       prov:Entity , mexperf:ClassificationMeasure ;
+      mexperf:truePositive "3143.0" ;
+      prov:wasInformedBy this:execution1 .
+
+this:measure1_3
+      a       prov:Entity , mexperf:ClassificationMeasure ;
+      mexperf:truePositive "3534.0" ;
+      prov:wasInformedBy this:execution1 .
+
+this:context
+      a       prov:Entity , mexcore:NotInformed ;
+      prov:wasAttributedTo this:application .
+
+this:measure1_2
+      a       mexperf:StatisticalMeasure , prov:Entity ;
+      mexperf:error "0.14" ;
+      prov:wasInformedBy this:execution1 .
+
+this:measure1_1
+      a       prov:Entity , mexperf:ClassificationMeasure ;
+      mexperf:accuracy "0.86" ;
+      prov:wasInformedBy this:execution1 .
+
+this:algorithm2
+      a       prov:Entity , mexcore:RegressionAnalysis, mexcore:Algorithm ;
+      dct:identifier "algorithm2" .
+
