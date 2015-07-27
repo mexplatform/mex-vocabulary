@@ -1,7 +1,7 @@
-<style type="text/css">
       body {
         padding-top: 20px;
         padding-bottom: 60px;
+        background: #fafafa;
       }
 
       /* Custom container */
@@ -30,10 +30,6 @@
         font-size: 21px;
         padding: 14px 24px;
       }
-
-
-
-
 
       .jumbotron2 {
         margin: 20px 0;
@@ -89,4 +85,44 @@
         border-radius: 0 3px 3px 0;
       }
 
-    </style>
+
+      .panel {
+          margin-bottom: 20px;
+          background-color: #fff;
+          border: 1px solid transparent;
+          border-radius: 4px;
+          -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+      }
+      .panel-body {
+          padding: 15px;
+      }
+      .panel-heading {
+          padding: 10px 15px;
+          border-bottom: 1px solid transparent;
+          border-top-left-radius: 3px;
+          border-top-right-radius: 3px;
+      }
+      .panel-heading > .dropdown .dropdown-toggle {
+          color: inherit;
+      }
+
+      .panel-primary {
+          border-color: #337ab7;
+      }
+      .panel-primary > .panel-heading {
+          color: #fff;
+          background-color: #337ab7;
+          border-color: #337ab7;
+      }
+      .panel-primary > .panel-heading + .panel-collapse > .panel-body {
+          border-top-color: #337ab7;
+      }
+      .panel-primary > .panel-heading .badge {
+          color: #337ab7;
+          background-color: #fff;
+      }
+      .panel-primary > .panel-footer + .panel-collapse > .panel-body {
+          border-bottom-color: #337ab7;
+      }
+
