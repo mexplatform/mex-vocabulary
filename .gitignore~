@@ -3,8 +3,10 @@ ontology/catalog-v001.xml
 mex-tryitout/
 node-apps/
 nodetest/
+site/tests/
 algorithm/api/nodeapi/node_modules/*.*
 algorithm/api/nodejs/.idea/
 algorithm/api/nodeapi/node_modules/
 .idea
+.gitignore~
 
