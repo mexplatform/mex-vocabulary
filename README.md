@@ -1,5 +1,4 @@
-# My Machine Learning Experiment Vocabulary
-## MEX Vocabulary: A Lightweight Interchange Format for Machine Learning Experiments
+## [MEX Vocabulary](http://mex.aksw.org/): A Lightweight Interchange Format for Machine Learning Experiments
 
 More than just a **machine readable way** (which is provided by many ML frameworks), the `MEX` Vocabulary has been designed to define a **lightweight and flexible schema** for publishing machine learning metadata, regardless technology (we have been working to provide different programming language *APIs* and integrations with different machine learning tools). We aim to provide a **free-format** for exporting and exchanging machine learning metadata, indifferent to existing **workflow systems** or **frameworks**. As a consequence, the users can benefit of the `mex format` for further analysis and integrations in an easiest way.
 
