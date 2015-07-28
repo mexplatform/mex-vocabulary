@@ -23,19 +23,19 @@
                                
                                dct:modified "2014-04-05"^^xsd:date ;
                                
-                               owl:versionInfo "1.0.0" ;
-                               
                                dc:publisher "AKSW Research Group - Leipzig University"@en ;
                                
                                dct:title "MEX Core (mex-core) is an ontology with the goal of describing the core process for machine learning problems (MEX Platform)"@en ;
                                
+                               rdfs:comment "MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-core representa a principal informacao obtida de um experimento de aprendizado de maquina."@pt ;
+                               
                                rdf:about "http://mex.aksw.org/mex-doc-core#" ;
+                               
+                               owl:versionInfo "1.0.1" ;
                                
                                rdfs:comment "MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-core layer represents the core information gathered from a basic machine learning experiment design."@en ;
                                
                                dc:publisher "AKSW Grupo de Pesquisa - Universidade de Leipzig"@pt ;
-                               
-                               rdfs:comment "MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-core representa a principal informacao obtida de um experimento de aprendizado de maquina."@pt ;
                                
                                rdfs:isDefinedBy : ;
                                
@@ -66,7 +66,7 @@
 
 :endsAt rdf:type owl:ObjectProperty ;
         
-        rdfs:domain :DatasetInputExampleCollection ;
+        rdfs:domain :ExampleCollection ;
         
         rdfs:range rdfs:Literal .
 
@@ -80,20 +80,12 @@
 
 
 
-###  http://mex.aksw.org/mex-core#hasContext
-
-:hasContext rdf:type owl:ObjectProperty ;
-            
-            rdfs:range :Context .
-
-
-
 ###  http://mex.aksw.org/mex-core#hasPhase
 
 :hasPhase rdf:type owl:FunctionalProperty ,
                    owl:ObjectProperty ;
           
-          rdfs:domain :DatasetInputExampleCollection ;
+          rdfs:domain :ExampleCollection ;
           
           rdfs:range :Phase .
 
@@ -112,7 +104,7 @@
 
 :startsAt rdf:type owl:ObjectProperty ;
           
-          rdfs:domain :DatasetInputExampleCollection ;
+          rdfs:domain :ExampleCollection ;
           
           rdfs:range rdfs:Literal .
 
@@ -249,13 +241,13 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 
 
 
-###  http://mex.aksw.org/mex-core#cpu-cache
+###  http://mex.aksw.org/mex-core#cpuCache
 
-:cpu-cache rdf:type owl:DatatypeProperty ;
-           
-           rdfs:domain :HardwareConfiguration ;
-           
-           rdfs:range xsd:string .
+:cpuCache rdf:type owl:DatatypeProperty ;
+          
+          rdfs:domain :HardwareConfiguration ;
+          
+          rdfs:range xsd:string .
 
 
 
@@ -272,6 +264,16 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 ###  http://mex.aksw.org/mex-core#endsAt
 
 :endsAt rdf:type owl:DatatypeProperty .
+
+
+
+###  http://mex.aksw.org/mex-core#endsAtPosition
+
+:endsAtPosition rdf:type owl:DatatypeProperty ;
+                
+                rdfs:domain :Execution ;
+                
+                rdfs:range xsd:string .
 
 
 
@@ -351,6 +353,12 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 
 
 
+###  http://mex.aksw.org/mex-core#startsAtPosition
+
+:startsAtPosition rdf:type owl:DatatypeProperty .
+
+
+
 ###  http://mex.aksw.org/mex-core#testSize
 
 :testSize rdf:type owl:DatatypeProperty ;
@@ -371,9 +379,14 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 
 
 
-###  http://mex.aksw.org/mex-core#trustyURI
+###  http://mex.aksw.org/mex-core#trustyURIHash
 
-:trustyURI rdf:type owl:DatatypeProperty .
+:trustyURIHash rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+               
+               rdfs:domain :ApplicationContext ;
+               
+               rdfs:range xsd:string .
 
 
 
@@ -396,6 +409,22 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 #################################################################
 
 
+###  http://mex.aksw.org/mex-core#AdaptativeWebSites
+
+:AdaptativeWebSites rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#AffectiveComputing
+
+:AffectiveComputing rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf :Context .
+
+
+
 ###  http://mex.aksw.org/mex-core#ApplicationContext
 
 :ApplicationContext rdf:type owl:Class ;
@@ -409,11 +438,67 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 
 
 
+###  http://mex.aksw.org/mex-core#Bioinformatics
+
+:Bioinformatics rdf:type owl:Class ;
+                
+                rdfs:subClassOf :Context .
+
+
+
 ###  http://mex.aksw.org/mex-core#Bootstrapping
 
 :Bootstrapping rdf:type owl:Class ;
                
                rdfs:subClassOf :SamplingMethod .
+
+
+
+###  http://mex.aksw.org/mex-core#BrainMachineInterfaces
+
+:BrainMachineInterfaces rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#Cheminformatics
+
+:Cheminformatics rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#ClassifyingDNAsequences
+
+:ClassifyingDNAsequences rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#ComputationalAdversiting
+
+:ComputationalAdversiting rdf:type owl:Class ;
+                          
+                          rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#ComputationalFinance
+
+:ComputationalFinance rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#ComputerVision
+
+:ComputerVision rdf:type owl:Class ;
+                
+                rdfs:subClassOf :Context .
 
 
 
@@ -445,20 +530,11 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 
 
 
-###  http://mex.aksw.org/mex-core#DatasetInputExample
+###  http://mex.aksw.org/mex-core#DetectingCreditCardFrauds
 
-:DatasetInputExample rdf:type owl:Class ;
-                     
-                     rdfs:subClassOf :DomainConceptSpace .
-
-
-
-###  http://mex.aksw.org/mex-core#DatasetInputExampleCollection
-
-:DatasetInputExampleCollection rdf:type owl:Class ;
-                               
-                               rdfs:subClassOf :DomainConceptSpace ,
-                                               prov:Collection .
+:DetectingCreditCardFrauds rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf :Context .
 
 
 
@@ -467,6 +543,23 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 :DomainConceptSpace rdf:type owl:Class ;
                     
                     owl:disjointWith :ValuePartition .
+
+
+
+###  http://mex.aksw.org/mex-core#Example
+
+:Example rdf:type owl:Class ;
+         
+         rdfs:subClassOf prov:Entity .
+
+
+
+###  http://mex.aksw.org/mex-core#ExampleCollection
+
+:ExampleCollection rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :DomainConceptSpace ,
+                                   prov:Collection .
 
 
 
@@ -488,6 +581,47 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 
 
 
+###  http://mex.aksw.org/mex-core#ExperimentConfiguration
+
+:ExperimentConfiguration rdf:type owl:Class ;
+                         
+                         rdfs:subClassOf :DomainConceptSpace ,
+                                         prov:Activity .
+
+
+
+###  http://mex.aksw.org/mex-core#FactPrediction
+
+:FactPrediction rdf:type owl:Class ;
+                
+                rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#Feature
+
+:Feature rdf:type owl:Class ;
+         
+         rdfs:subClassOf prov:Entity .
+
+
+
+###  http://mex.aksw.org/mex-core#FeatureCollection
+
+:FeatureCollection rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf prov:Collection .
+
+
+
+###  http://mex.aksw.org/mex-core#GamePlaying
+
+:GamePlaying rdf:type owl:Class ;
+             
+             rdfs:subClassOf :Context .
+
+
+
 ###  http://mex.aksw.org/mex-core#HardwareConfiguration
 
 :HardwareConfiguration rdf:type owl:Class ;
@@ -506,11 +640,59 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 
 
 
+###  http://mex.aksw.org/mex-core#InformationRetrieval
+
+:InformationRetrieval rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#InternetFraudDetection
+
+:InternetFraudDetection rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf :Context .
+
+
+
 ###  http://mex.aksw.org/mex-core#LeaveOneOut
 
 :LeaveOneOut rdf:type owl:Class ;
              
              rdfs:subClassOf :SamplingMethod .
+
+
+
+###  http://mex.aksw.org/mex-core#LinkDiscovery
+
+:LinkDiscovery rdf:type owl:Class ;
+               
+               rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#MachinePerception
+
+:MachinePerception rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#MedicalDiagnosis
+
+:MedicalDiagnosis rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#Metaheuristics
+
+:Metaheuristics rdf:type owl:Class ;
+                
+                rdfs:subClassOf :Context .
 
 
 
@@ -531,6 +713,38 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 
 
 
+###  http://mex.aksw.org/mex-core#NaturalLanguageProcessing
+
+:NaturalLanguageProcessing rdf:type owl:Class ;
+                           
+                           rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#ObjectRecognition
+
+:ObjectRecognition rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#Optimization
+
+:Optimization rdf:type owl:Class ;
+              
+              rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#OverallExecution
+
+:OverallExecution rdf:type owl:Class ;
+                  
+                  rdfs:subClassOf :Execution .
+
+
+
 ###  http://mex.aksw.org/mex-core#Phase
 
 :Phase rdf:type owl:Class ;
@@ -542,7 +756,24 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
                                          )
                            ] ;
        
-       rdfs:subClassOf :ValuePartition .
+       rdfs:subClassOf :ValuePartition ,
+                       prov:Entity .
+
+
+
+###  http://mex.aksw.org/mex-core#RecomenderSystems
+
+:RecomenderSystems rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#Robotics
+
+:Robotics rdf:type owl:Class ;
+          
+          rdfs:subClassOf :Context .
 
 
 
@@ -550,7 +781,40 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 
 :SamplingMethod rdf:type owl:Class ;
                 
-                rdfs:subClassOf :DomainConceptSpace .
+                rdfs:subClassOf :DomainConceptSpace ,
+                                prov:Entity .
+
+
+
+###  http://mex.aksw.org/mex-core#SearchEngines
+
+:SearchEngines rdf:type owl:Class ;
+               
+               rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#SentimentAnalysis
+
+:SentimentAnalysis rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#SequenceMining
+
+:SequenceMining rdf:type owl:Class ;
+                
+                rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#SingleExecution
+
+:SingleExecution rdf:type owl:Class ;
+                 
+                 rdfs:subClassOf :Execution .
 
 
 
@@ -559,6 +823,46 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 :SlidingCrossValidation rdf:type owl:Class ;
                         
                         rdfs:subClassOf :SamplingMethod .
+
+
+
+###  http://mex.aksw.org/mex-core#SoftwareEngineering
+
+:SoftwareEngineering rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#SpeechAndHandwritingRecognition
+
+:SpeechAndHandwritingRecognition rdf:type owl:Class ;
+                                 
+                                 rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#StockMarketAnalysis
+
+:StockMarketAnalysis rdf:type owl:Class ;
+                     
+                     rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#StructuralHealthMonitoring
+
+:StructuralHealthMonitoring rdf:type owl:Class ;
+                            
+                            rdfs:subClassOf :Context .
+
+
+
+###  http://mex.aksw.org/mex-core#SyntacticLanguageProcessing
+
+:SyntacticLanguageProcessing rdf:type owl:Class ;
+                             
+                             rdfs:subClassOf :Context .
 
 
 
@@ -646,223 +950,6 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 ###  http://lattes.cnpq.br/9591256136167135
 
 <http://lattes.cnpq.br/9591256136167135> rdf:type owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#AdaptativeWebsite
-
-:AdaptativeWebsite rdf:type :Context ,
-                            owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#AffectiveComputing
-
-:AffectiveComputing rdf:type :Context ,
-                             owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#Bioinformatics
-
-:Bioinformatics rdf:type :Context ,
-                         owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#BrainMachineInterfaces
-
-:BrainMachineInterfaces rdf:type :Context ,
-                                 owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#Cheminformatics
-
-:Cheminformatics rdf:type :Context ,
-                          owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#ClassifyingDNAsequences
-
-:ClassifyingDNAsequences rdf:type :Context ,
-                                  owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#ComputationalAdversiting
-
-:ComputationalAdversiting rdf:type :Context ,
-                                   owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#ComputationalFinance
-
-:ComputationalFinance rdf:type :Context ,
-                               owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#ComputerVision
-
-:ComputerVision rdf:type :Context ,
-                         owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#DetectingCreditCardFrauds
-
-:DetectingCreditCardFrauds rdf:type :Context ,
-                                    owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#FactPrediction
-
-:FactPrediction rdf:type :Context ,
-                         owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#GamePlaying
-
-:GamePlaying rdf:type :Context ,
-                      owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#InformationRetrieval
-
-:InformationRetrieval rdf:type :Context ,
-                               owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#InternetFraudDetection
-
-:InternetFraudDetection rdf:type :Context ,
-                                 owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#LinkDiscovery
-
-:LinkDiscovery rdf:type :Context ,
-                        owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#MachinePerception
-
-:MachinePerception rdf:type :Context ,
-                            owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#MedicalDiagnosis
-
-:MedicalDiagnosis rdf:type :Context ,
-                           owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#Metaheuristics
-
-:Metaheuristics rdf:type :Context ,
-                         owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#NaturalLanguageProcessing
-
-:NaturalLanguageProcessing rdf:type :Context ,
-                                    owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#ObjectRecognition
-
-:ObjectRecognition rdf:type :Context ,
-                            owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#Optimization
-
-:Optimization rdf:type :Context ,
-                       owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#RecomenderSystems
-
-:RecomenderSystems rdf:type :Context ,
-                            owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#Robotics
-
-:Robotics rdf:type :Context ,
-                   owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#SearchEngines
-
-:SearchEngines rdf:type :Context ,
-                        owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#SentimentAnalysis
-
-:SentimentAnalysis rdf:type :Context ,
-                            owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#SequenceMining
-
-:SequenceMining rdf:type :Context ,
-                         owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#SoftwareEnginnering
-
-:SoftwareEnginnering rdf:type :Context ,
-                              owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#SpeechAndHandwritingRecognition
-
-:SpeechAndHandwritingRecognition rdf:type :Context ,
-                                          owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#StockMarketAnalysis
-
-:StockMarketAnalysis rdf:type :Context ,
-                              owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#StructuralHealthMonitoring
-
-:StructuralHealthMonitoring rdf:type :Context ,
-                                     owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#SyntacticLanguageProcessing
-
-:SyntacticLanguageProcessing rdf:type :Context ,
-                                      owl:NamedIndividual .
 
 
 
@@ -1006,3 +1093,4 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 
 
 ###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
+
