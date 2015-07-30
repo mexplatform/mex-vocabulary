@@ -1,8 +1,0 @@
-extends layout
-
-block content
-  
-  p#title #{title}
-  form#uploadForm(action="file", method="post", enctype="multipart/form-data")
-    input(type="file", name="RDFFile")
-    input(type='submit',value='Convert!',data-transition='fade', data-theme='c')
