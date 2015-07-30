@@ -1,0 +1,98 @@
+div#content {
+    width: 940px;
+    height: 304px;
+    margin: 0 auto;
+    clear: both;
+    position: relative;
+    top: -152px;
+    position: static;
+}
+
+
+h1.logo{
+    width: 715px;
+    padding-left: 225px;
+    margin: 0 auto;
+    height: 110px;
+    margin-bottom: 20px;
+    background: url(../img/divider.png) bottom left no-repeat;
+}
+
+
+h1.logo span.two{
+    font-size: 72px;
+    color: #4e4d4d;
+    float: left;
+}
+
+h1.logo span.one{
+    font-size: 36px;
+    background: #4e4d4d;
+    padding: 8px 10px 8px 10px;
+    margin: 8px 10px 0 0;
+    float: left;
+    color: #fff;
+    line-height: normal;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+}
+
+
+
+h1.logo span.one{
+    font-size: 36px;
+    background: #4e4d4d;
+    padding: 8px 10px 8px 10px;
+    margin: 8px 10px 0 0;
+    float: left;
+    color: #fff;
+    line-height: normal;
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius: 15px;
+}
+
+h1.logo span.two{
+    font-size: 72px;
+    color: #4e4d4d;
+    float: left;
+}
+
+p.info{
+    font-size: 38px;
+    color: #4d4d4d;
+    text-align: center;
+    margin: 0 0 30px 0;
+    padding: 0;
+}
+
+p.info span{
+    font-size: 18px;
+}
+
+p.links{
+    width: 274px;
+    margin: 0 auto;
+}
+
+a.tw{
+    width: 54px;
+    color: #ffffff;
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 22px;
+    height: 22px;
+    text-decoration: none;
+    background: url(../img/social.png) -85px top no-repeat;
+    float: left;
+    margin-right: 10px;
+    padding: 0 0 0 25px;
+}
+
+a.tw:hover{
+    background: url(../img/social.png) -85px bottom no-repeat;
+    color: #33ccff;
+}
+

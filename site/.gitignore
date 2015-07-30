@@ -1,5 +1,8 @@
 # Created by .ignore support plugin (hsz.mobi)
 
+### Local tests
+tests/
+
 ### Temporary files
 *.*~
 
