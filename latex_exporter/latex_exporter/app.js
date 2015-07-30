@@ -143,7 +143,7 @@ var measuresProp = [
   mexPerf+"falsePositive",
   mexPerf+"truePositive",
   mexPerf+"trueNegative",
-  mexPerf+  "precision",
+  mexPerf+ "precision",
   mexPerf+"fmeasure",
   mexPerf+"recall",
   mexPerf+"roc",
@@ -205,24 +205,30 @@ var line = {};
      
      executions = getExecutionOfMeasure(measures[m]); 
      
-     for (var e in executions){ 
-       
+     for (var e in executions) {
+
        algorithms = getAlgorithmsOfExecution(executions[e]);
-       
-       for (var a in algorithms){
-         if(typeof line[algorithms[a]] != 'undefined'){
-           line[algorithms[a]].measures.push (measureObjValues);
+
+       for (var a in algorithms) {
+
+         if (typeof line[executions[e]] == 'undefined') {
+           line[executions[e]] = {};
          }
-         else{
-           line[algorithms[a]] = {}; 
-           line[algorithms[a]].name = algorithms[a];
-           line[algorithms[a]].identifier = getAlgorithmIdentifier(algorithms[a]);
-           line[algorithms[a]].measures = [];
-           
+         if (typeof line[executions[e]][algorithms[a]] == 'undefined') {
+           console.log(executions[e]);
+           line[executions[e]].name = executions[e] ;
+           line[executions[e]][algorithms[a]] = {};
+           line[executions[e]][algorithms[a]].name = algorithms[a];
+           line[executions[e]][algorithms[a]].identifier = getAlgorithmIdentifier(algorithms[a]);
+           line[executions[e]][algorithms[a]].measures = [];
          }
+         
+          line[executions[e]][algorithms[a]].measures.push (measureObjValues);
+         
        } 
      }
    }
+   console.log(line);
    return line;
 }
 
