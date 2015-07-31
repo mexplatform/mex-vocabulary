@@ -53,124 +53,43 @@ this:experiment-header
 this:configuration1
      a mexcore:ExperimentConfiguration, prov:Activity ;
      dct:identifier "conf1" ;
+     rdfs:label "PETR4";
      prov:used 	this:algParameterCollectionSVM1, 
      			this:samplingmethod1, 
      			this:dataset1, 
      			this:hardware1, 
-     			this:implementation1,
-     			this:feature1, this:feature2, this:feature3, this:feature4, this:feature5;
+     			this:implementation1;
 .
 this:configuration2
      a mexcore:ExperimentConfiguration, prov:Activity ;
-     dct:identifier "conf2" ;
+     dct:identifier "conf2";
+     rdfs:label "ALLL11";
      prov:used 	this:algParameterCollectionSVM1, 
      			this:samplingmethod1, 
-     			this:dataset1, 
+     			this:dataset2, 
      			this:hardware1, 
-     			this:implementation1,
-     			this:feature1, this:feature2, this:feature3, this:feature4, this:feature6;
+     			this:implementation1;
 .
 this:configuration3
      a mexcore:ExperimentConfiguration, prov:Activity ;
      dct:identifier "conf3" ;
+     rdfs:label "ELET6";
      prov:used 	this:algParameterCollectionSVM1, 
      			this:samplingmethod1, 
-     			this:dataset1, 
+     			this:dataset3, 
      			this:hardware1, 
-     			this:implementation1,
-     			this:feature1, this:feature2, this:feature3, this:feature4, this:feature7;
+     			this:implementation1;
 .
 this:configuration4
      a mexcore:ExperimentConfiguration, prov:Activity ;
      dct:identifier "conf4" ;
-     prov:used 	this:algParameterCollectionSVM1, 
-     			this:samplingmethod1, 
-     			this:dataset2, 
-     			this:hardware1, 
-     			this:implementation1,
-     			this:feature1, this:feature2, this:feature3, this:feature4, this:feature5;
-.
-this:configuration5
-     a mexcore:ExperimentConfiguration, prov:Activity ;
-     dct:identifier "conf5" ;
-     prov:used 	this:algParameterCollectionSVM1, 
-     			this:samplingmethod1, 
-     			this:dataset2, 
-     			this:hardware1, 
-     			this:implementation1,
-     			this:feature1, this:feature2, this:feature3, this:feature4, this:feature6;
-.
-this:configuration6
-     a mexcore:ExperimentConfiguration, prov:Activity ;
-     dct:identifier "conf6" ;
-     prov:used 	this:algParameterCollectionSVM1, 
-     			this:samplingmethod1, 
-     			this:dataset2, 
-     			this:hardware1, 
-     			this:implementation1,
-     			this:feature1, this:feature2, this:feature3, this:feature4, this:feature7;
-.
-this:configuration7
-     a mexcore:ExperimentConfiguration, prov:Activity ;
-     dct:identifier "conf7" ;
-     prov:used 	this:algParameterCollectionSVM1, 
-     			this:samplingmethod1, 
-     			this:dataset3, 
-     			this:hardware1, 
-     			this:implementation1,
-     			this:feature1, this:feature2, this:feature3, this:feature4, this:feature5;
-.
-this:configuration8
-     a mexcore:ExperimentConfiguration, prov:Activity ;
-     dct:identifier "conf8" ;
-     prov:used 	this:algParameterCollectionSVM1, 
-     			this:samplingmethod1, 
-     			this:dataset3, 
-     			this:hardware1, 
-     			this:implementation1,
-     			this:feature1, this:feature2, this:feature3, this:feature4, this:feature6;
-.
-this:configuration9
-     a mexcore:ExperimentConfiguration, prov:Activity ;
-     dct:identifier "conf9" ;
-     prov:used 	this:algParameterCollectionSVM1, 
-     			this:samplingmethod1, 
-     			this:dataset3, 
-     			this:hardware1, 
-     			this:implementation1,
-     			this:feature1, this:feature2, this:feature3, this:feature4, this:feature7;
-.
-this:configuration10
-     a mexcore:ExperimentConfiguration, prov:Activity ;
-     dct:identifier "conf10" ;
+     rdfs:label "CSNA3";
      prov:used 	this:algParameterCollectionSVM1, 
      			this:samplingmethod1, 
      			this:dataset4, 
      			this:hardware1, 
-     			this:implementation1,
-     			this:feature1, this:feature2, this:feature3, this:feature4, this:feature5;
+     			this:implementation1;
 .
-this:configuration11
-     a mexcore:ExperimentConfiguration, prov:Activity ;
-     dct:identifier "conf11" ;
-     prov:used 	this:algParameterCollectionSVM1, 
-     			this:samplingmethod1, 
-     			this:dataset4, 
-     			this:hardware1, 
-     			this:implementation1,
-     			this:feature1, this:feature2, this:feature3, this:feature4, this:feature6;
-.
-this:configuration12
-     a mexcore:ExperimentConfiguration, prov:Activity ;
-     dct:identifier "conf12" ;
-     prov:used 	this:algParameterCollectionSVM1, 
-     			this:samplingmethod1, 
-     			this:dataset4, 
-     			this:hardware1, 
-     			this:implementation1,
-     			this:feature1, this:feature2, this:feature3, this:feature4, this:feature7;
-.
-
 
 ################### variables for the execution grouped into a logical entity ###################
 this:feature1
@@ -260,7 +179,7 @@ this:implementation1
 .
 this:algParameterCollectionSVM1
  	a mexalgo:AlgorithmParameterCollection, prov:Colection ;
- 	prov:hadMember this:svmParam1, svmParam2; 
+ 	prov:hadMember this:svmParam1, this:svmParam2; 
 .
 this:svmParam1
 	a mexalgo:AlgorithmParameter, prov:Entity;
@@ -280,9 +199,11 @@ this:test
 
 this:exec1
       a prov:Activity, mexcore:Execution;
+      rdfs:label "$SVM(att_{b}+d_{3})$";
       prov:used this:test,
       			this:algSVM1,
-      			this:algParameterCollectionSVM1;
+      			this:algParameterCollectionSVM1,
+      			this:feature1, this:feature2, this:feature3, this:feature4, this:feature5;
 	  prov:wasInformedBy this:configuration1;
       dcterms:identifier "exec001"^^xsd:string;
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
@@ -290,9 +211,11 @@ this:exec1
 .
 this:exec2
       a prov:Activity, mexcore:Execution;
+      rdfs:label "$SVM(att_{b}+d_{5})$";
       prov:used this:test,
       			this:algSVM1,
-      			this:algParameterCollectionSVM1;
+      			this:algParameterCollectionSVM1,
+      			this:feature1, this:feature2, this:feature3, this:feature4, this:feature6;
 	  prov:wasInformedBy this:configuration1;
       dcterms:identifier "exec002"^^xsd:string;
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
@@ -300,19 +223,27 @@ this:exec2
 .
 this:exec3
       a prov:Activity, mexcore:Execution;
+      rdfs:label "$SVM(att_{b}+d_{10})$";
       prov:used this:test,
       			this:algSVM1,
-      			this:algParameterCollectionSVM1;
+      			this:algParameterCollectionSVM1,
+      			this:feature1, this:feature2, this:feature3, this:feature4, this:feature7;
 	  prov:wasInformedBy this:configuration1;
       dcterms:identifier "exec003"^^xsd:string;
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
       prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
 .
+
+
+
+
 this:exec4
       a prov:Activity, mexcore:Execution;
+      rdfs:label "$SVM(att_{b}+d_{3})$";
       prov:used this:test,
       			this:algSVM1,
-      			this:algParameterCollectionSVM1;
+      			this:algParameterCollectionSVM1,
+       			this:feature1, this:feature2, this:feature3, this:feature4, this:feature5;
 	  prov:wasInformedBy this:configuration2;
       dcterms:identifier "exec001"^^xsd:string;
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
@@ -320,9 +251,11 @@ this:exec4
 .
 this:exec5
       a prov:Activity, mexcore:Execution;
+      rdfs:label "$SVM(att_{b}+d_{5})$";
       prov:used this:test,
       			this:algSVM1,
-      			this:algParameterCollectionSVM1;
+      			this:algParameterCollectionSVM1,
+      			this:feature1, this:feature2, this:feature3, this:feature4, this:feature6;
 	  prov:wasInformedBy this:configuration2;
       dcterms:identifier "exec002"^^xsd:string;
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
@@ -330,19 +263,27 @@ this:exec5
 .
 this:exec6
       a prov:Activity, mexcore:Execution;
+      rdfs:label "$SVM(att_{b}+d_{10})$";
       prov:used this:test,
       			this:algSVM1,
-      			this:algParameterCollectionSVM1;
+      			this:algParameterCollectionSVM1,
+      			this:feature1, this:feature2, this:feature3, this:feature4, this:feature7;
 	  prov:wasInformedBy this:configuration2;
       dcterms:identifier "exec003"^^xsd:string;
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
       prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
 .
+
+
+
+
 this:exec7
       a prov:Activity, mexcore:Execution;
+      rdfs:label "$SVM(att_{b}+d_{3})$";
       prov:used this:test,
       			this:algSVM1,
-      			this:algParameterCollectionSVM1;
+      			this:algParameterCollectionSVM1,
+      			this:feature1, this:feature2, this:feature3, this:feature4, this:feature5;
 	  prov:wasInformedBy this:configuration3;
       dcterms:identifier "exec001"^^xsd:string;
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
@@ -350,9 +291,11 @@ this:exec7
 .
 this:exec8
       a prov:Activity, mexcore:Execution;
+      rdfs:label "$SVM(att_{b}+d_{5})$";
       prov:used this:test,
       			this:algSVM1,
-      			this:algParameterCollectionSVM1;
+      			this:algParameterCollectionSVM1,
+      			this:feature1, this:feature2, this:feature3, this:feature4, this:feature6;
 	  prov:wasInformedBy this:configuration3;
       dcterms:identifier "exec002"^^xsd:string;
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
@@ -360,19 +303,27 @@ this:exec8
 .
 this:exec9
       a prov:Activity, mexcore:Execution;
+      rdfs:label "$SVM(att_{b}+d_{10})$";
       prov:used this:test,
       			this:algSVM1,
-      			this:algParameterCollectionSVM1;
+      			this:algParameterCollectionSVM1,
+      			this:feature1, this:feature2, this:feature3, this:feature4, this:feature7;
 	  prov:wasInformedBy this:configuration3;
       dcterms:identifier "exec003"^^xsd:string;
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
       prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
 .
+
+
+
+
 this:exec10
       a prov:Activity, mexcore:Execution;
+      rdfs:label "$SVM(att_{b}+d_{3})$";
       prov:used this:test,
       			this:algSVM1,
-      			this:algParameterCollectionSVM1;
+      			this:algParameterCollectionSVM1,
+      			this:feature1, this:feature2, this:feature3, this:feature4, this:feature5;
 	  prov:wasInformedBy this:configuration4;
       dcterms:identifier "exec001"^^xsd:string;
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
@@ -380,9 +331,11 @@ this:exec10
 .
 this:exec11
       a prov:Activity, mexcore:Execution;
+      rdfs:label "$SVM(att_{b}+d_{5})$";
       prov:used this:test,
       			this:algSVM1,
-      			this:algParameterCollectionSVM1;
+      			this:algParameterCollectionSVM1,
+      			this:feature1, this:feature2, this:feature3, this:feature4, this:feature6;
 	  prov:wasInformedBy this:configuration4;
       dcterms:identifier "exec002"^^xsd:string;
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
@@ -390,9 +343,11 @@ this:exec11
 .
 this:exec12
       a prov:Activity, mexcore:Execution;
+      rdfs:label "$SVM(att_{b}+d_{10})$";
       prov:used this:test,
       			this:algSVM1,
-      			this:algParameterCollectionSVM1;
+      			this:algParameterCollectionSVM1,
+      			this:feature1, this:feature2, this:feature3, this:feature4, this:feature7;
 	  prov:wasInformedBy this:configuration4;
       dcterms:identifier "exec003"^^xsd:string;
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
@@ -404,7 +359,7 @@ this:exec12
 #	 Version Label: mexalgo-semantics-2015
 ##################################################################
 this:algSVM1
-	a mexalgo:C-SVM;
+	a mexalgo:C-SVM, mexalgo:Algorithm;
 	dcterms:identifier "FAMaSVM"^^xsd:string;
 	dcterms:description "support vector machines"^^xsd:string;
 	mexalgo:acronym "C-SVM";
@@ -431,74 +386,74 @@ this:algSVM1
 
 this:ep1
 	a prov:Activity, mexperf:ExecutionPerformance;
-	prov:wasInformedBy :exec1;
-	prov:generated :m1;
+	prov:wasInformedBy this:exec1;
+	prov:generated this:m1;
 .
 
 this:ep2
 	a prov:Activity, mexperf:ExecutionPerformance;
-	prov:wasInformedBy :exec2;
-	prov:generated :m2;
+	prov:wasInformedBy this:exec2;
+	prov:generated this:m2;
 .
 
 this:ep3
 	a prov:Activity, mexperf:ExecutionPerformance;
-	prov:wasInformedBy :exec3;
-	prov:generated :m3;
+	prov:wasInformedBy this:exec3;
+	prov:generated this:m3;
 .
 
 this:ep4
 	a prov:Activity, mexperf:ExecutionPerformance;
-	prov:wasInformedBy :exec4;
-	prov:generated :m4;
+	prov:wasInformedBy this:exec4;
+	prov:generated this:m4;
 .
 
 this:ep5
 	a prov:Activity, mexperf:ExecutionPerformance;
-	prov:wasInformedBy :exec5;
-	prov:generated :m5;
+	prov:wasInformedBy this:exec5;
+	prov:generated this:m5;
 .
 
 this:ep6
 	a prov:Activity, mexperf:ExecutionPerformance;
-	prov:wasInformedBy :exec6;
-	prov:generated :m6;
+	prov:wasInformedBy this:exec6;
+	prov:generated this:m6;
 .
 
 this:ep7
 	a prov:Activity, mexperf:ExecutionPerformance;
-	prov:wasInformedBy :exec7;
-	prov:generated :m7;
+	prov:wasInformedBy this:exec7;
+	prov:generated this:m7;
 .
 
 this:ep8
 	a prov:Activity, mexperf:ExecutionPerformance;
-	prov:wasInformedBy :exec8;
-	prov:generated :m8;
+	prov:wasInformedBy this:exec8;
+	prov:generated this:m8;
 .
 
 this:ep9
 	a prov:Activity, mexperf:ExecutionPerformance;
-	prov:wasInformedBy :exec9;
-	prov:generated :m9;
+	prov:wasInformedBy this:exec9;
+	prov:generated this:m9;
 .
 
 this:ep10
 	a prov:Activity, mexperf:ExecutionPerformance;
-	prov:wasInformedBy :exec10;
-	prov:generated :m10;
+	prov:wasInformedBy this:exec10;
+	prov:generated this:m10;
 .
 
 this:ep11
 	a prov:Activity, mexperf:ExecutionPerformance;
-	prov:wasInformedBy :exec11;
-	prov:generated :m11;
+	prov:wasInformedBy this:exec11;
+	prov:generated this:m11;
 .
 
 this:ep12
 	a prov:Activity, mexperf:ExecutionPerformance;
-	prov:wasInformedBy :exec12;
-	prov:generated :m12;
+	prov:wasInformedBy this:exec12;
+	prov:generated this:m12;
 .
 
 
@@ -506,82 +461,82 @@ this:m1
 	a prov:Entity, mexperf:ClassificationMeasure, mexperf:StatisticalMeasure;
 	mexperf:accuracy "0.65"^^xsd:float;
 	mexperf:error "0.35"^^xsd:float;
-	prov:wasGeneratedBy :ep1;
+	prov:wasGeneratedBy this:ep1;
 .
 
 this:m2
     a prov:Entity, mexperf:ClassificationMeasure, mexperf:StatisticalMeasure;
 	mexperf:accuracy "0.71"^^xsd:float;
 	mexperf:error "0.29"^^xsd:float;
-	prov:wasGeneratedBy :ep2;
+	prov:wasGeneratedBy this:ep2;
 .
 
 this:m3
     a prov:Entity, mexperf:ClassificationMeasure, mexperf:StatisticalMeasure;
 	mexperf:accuracy "0.77"^^xsd:float;
 	mexperf:error "0.23"^^xsd:float;
-	prov:wasGeneratedBy :ep3;
+	prov:wasGeneratedBy this:ep3;
 .
 
 this:m4
     a prov:Entity, mexperf:ClassificationMeasure, mexperf:StatisticalMeasure;
 	mexperf:accuracy "0.73"^^xsd:float;
 	mexperf:error "0.27"^^xsd:float;
-	prov:wasGeneratedBy :ep4;
+	prov:wasGeneratedBy this:ep4;
 .
 
 this:m5
     a prov:Entity, mexperf:ClassificationMeasure, mexperf:StatisticalMeasure;
 	mexperf:accuracy "0.69"^^xsd:float;
 	mexperf:error "0.31"^^xsd:float;
-	prov:wasGeneratedBy :ep5;
+	prov:wasGeneratedBy this:ep5;
 .
 
 this:m6
     a prov:Entity, mexperf:ClassificationMeasure, mexperf:StatisticalMeasure;
 	mexperf:accuracy "0.79"^^xsd:float;
 	mexperf:error "0.21"^^xsd:float;
-	prov:wasGeneratedBy :ep6;
+	prov:wasGeneratedBy this:ep6;
 .
 
 this:m7
     a prov:Entity, mexperf:ClassificationMeasure, mexperf:StatisticalMeasure;
 	mexperf:accuracy "0.86"^^xsd:float;
 	mexperf:error "0.24"^^xsd:float;	
-	prov:wasGeneratedBy :ep7;
+	prov:wasGeneratedBy this:ep7;
 .
 
 this:m8
     a prov:Entity, mexperf:ClassificationMeasure, mexperf:StatisticalMeasure;
 	mexperf:accuracy "0.87"^^xsd:float;
 	mexperf:error "0.23"^^xsd:float;	
-	prov:wasGeneratedBy :ep8;
+	prov:wasGeneratedBy this:ep8;
 .
 
 this:m9
     a prov:Entity, mexperf:ClassificationMeasure, mexperf:StatisticalMeasure;
 	mexperf:accuracy "0.89"^^xsd:float;
 	mexperf:error "0.11"^^xsd:float;	
-	prov:wasGeneratedBy :ep9;
+	prov:wasGeneratedBy this:ep9;
 .
 
 this:m10
     a prov:Entity, mexperf:ClassificationMeasure, mexperf:StatisticalMeasure;
 	mexperf:accuracy "0.80"^^xsd:float;
 	mexperf:error "0.20"^^xsd:float;	
-	prov:wasGeneratedBy :ep10;
+	prov:wasGeneratedBy this:ep10;
 .
 
 this:m11
     a prov:Entity, mexperf:ClassificationMeasure, mexperf:StatisticalMeasure;
 	mexperf:accuracy "0.68"^^xsd:float;
 	mexperf:error "0.32"^^xsd:float;	
-	prov:wasGeneratedBy :ep11;
+	prov:wasGeneratedBy this:ep11;
 .
 
 this:m12
     a prov:Entity, mexperf:ClassificationMeasure, mexperf:StatisticalMeasure;
 	mexperf:accuracy "0.76"^^xsd:float;
 	mexperf:error "0.24"^^xsd:float;	
-	prov:wasGeneratedBy :ep12;
+	prov:wasGeneratedBy this:ep12;
 .
