@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>EasyRdf_Http_Client | </title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href=".html"></a>EasyRdf_Http_Client</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EasyRdf_Http_Client</strong></p>
+
+            <div class="description">
+            <p>This class is an implemetation of an HTTP client in PHP.</p>
+            <p>It supports basic HTTP 1.0 and 1.1 requests. For a more complete
+implementation try Zend<em>Http</em>Client.</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(string $uri = null, array $config = null)
+                    <p>Constructor method.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setUri">setUri</a>(string $uri)
+                    <p>Set the URI for the next request</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getUri">getUri</a>($asString = true)
+                    <p>Get the URI for the next request</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setConfig">setConfig</a>(array $config = array())
+                    <p>Set configuration parameters for this HTTP client</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setHeaders">setHeaders</a>(string $name, string $value = null)
+                    <p>Set a request header</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setMethod">setMethod</a>(string $method)
+                    <p>Set the next request's method</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getMethod">getMethod</a>()
+                    <p>Get the method for the next request</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string|array|null
+                </td>
+                <td class="last">
+                    <a href="#method_getHeader">getHeader</a>(string $key)
+                    <p>Get the value of a specific header</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_setParameterGet">setParameterGet</a>(string $name, string $value = null)
+                    <p>Set a GET parameter for the request.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getParameterGet">getParameterGet</a>(string $name)
+                    <p>Get a GET parameter for the request.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_getParametersGet">getParametersGet</a>()
+                    <p>Get all the GET parameters</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int
+                </td>
+                <td class="last">
+                    <a href="#method_getRedirectionsCount">getRedirectionsCount</a>()
+                    <p>Get the number of redirections done on the last request</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <abbr title="Zend_Http_Client">Zend_Http_Client</abbr>
+                </td>
+                <td class="last">
+                    <a href="#method_setRawData">setRawData</a>(string|resource $data)
+                    <p>Set the raw (already encoded) POST data.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getRawData">getRawData</a>()
+                    <p>Get the raw (already encoded) POST data.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_resetParameters">resetParameters</a>(bool $clearAll = false)
+                    <p>Clear all GET and POST parameters</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="EasyRdf_Http_Response.html"><abbr title="EasyRdf_Http_Response">EasyRdf_Http_Response</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_request">request</a>($method = null)
+                    <p>Send the HTTP request and return an HTTP response object</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 111</div>
+        <code>            public            
+    <strong>__construct</strong>(string $uri = null, array $config = null)</code>
+    </h3>
+    <div class="details">
+        <p>Constructor method.</p>
+        <p>Will create a new HTTP client. Accepts the target
+URL and optionally configuration array.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$uri</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$config</td>
+                <td>Configuration key-value pairs.</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setUri">
+        <div class="location">at line 127</div>
+        <code>            public            <a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a>
+    <strong>setUri</strong>(string $uri)</code>
+    </h3>
+    <div class="details">
+        <p>Set the URI for the next request</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$uri</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getUri">
+        <div class="location">at line 149</div>
+        <code>            public            string
+    <strong>getUri</strong>($asString = true)</code>
+    </h3>
+    <div class="details">
+        <p>Get the URI for the next request</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$asString</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setConfig">
+        <div class="location">at line 161</div>
+        <code>            public            <a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a>
+    <strong>setConfig</strong>(array $config = array())</code>
+    </h3>
+    <div class="details">
+        <p>Set configuration parameters for this HTTP client</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$config</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/InvalidArgumentException"><abbr title="InvalidArgumentException">InvalidArgumentException</abbr></a></td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setHeaders">
+        <div class="location">at line 183</div>
+        <code>            public            <a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a>
+    <strong>setHeaders</strong>(string $name, string $value = null)</code>
+    </h3>
+    <div class="details">
+        <p>Set a request header</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>Header name (e.g. 'Accept')</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$value</td>
+                <td>Header value or null</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setMethod">
+        <div class="location">at line 207</div>
+        <code>            public            <a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a>
+    <strong>setMethod</strong>(string $method)</code>
+    </h3>
+    <div class="details">
+        <p>Set the next request's method</p>
+        <p>Validated the passed method and sets it.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$method</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/InvalidArgumentException"><abbr title="InvalidArgumentException">InvalidArgumentException</abbr></a></td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMethod">
+        <div class="location">at line 223</div>
+        <code>            public            string
+    <strong>getMethod</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the method for the next request</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHeader">
+        <div class="location">at line 237</div>
+        <code>            public            string|array|null
+    <strong>getHeader</strong>(string $key)</code>
+    </h3>
+    <div class="details">
+        <p>Get the value of a specific header</p>
+        <p>Note that if the header has more than one value, an array
+will be returned.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$key</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|array|null</td>
+            <td>The header value or null if it is not set</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setParameterGet">
+        <div class="location">at line 254</div>
+        <code>            public            <a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a>
+    <strong>setParameterGet</strong>(string $name, string $value = null)</code>
+    </h3>
+    <div class="details">
+        <p>Set a GET parameter for the request.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$value</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getParameterGet">
+        <div class="location">at line 273</div>
+        <code>            public            string
+    <strong>getParameterGet</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Get a GET parameter for the request.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>value</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getParametersGet">
+        <div class="location">at line 287</div>
+        <code>            public            array
+    <strong>getParametersGet</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get all the GET parameters</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRedirectionsCount">
+        <div class="location">at line 297</div>
+        <code>            public            int
+    <strong>getRedirectionsCount</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the number of redirections done on the last request</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setRawData">
+        <div class="location">at line 315</div>
+        <code>            public            <abbr title="Zend_Http_Client">Zend_Http_Client</abbr>
+    <strong>setRawData</strong>(string|resource $data)</code>
+    </h3>
+    <div class="details">
+        <p>Set the raw (already encoded) POST data.</p>
+        <p>This function is here for two reasons:
+1. For advanced user who would like to set their own data, already encoded
+2. For backwards compatibilty: If someone uses the old post($data) method.
+   this method will be used to set the encoded data.</p>
+
+<p>$data can also be stream (such as file) from which the data will be read.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string|resource</td>
+                <td>$data</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><abbr title="Zend_Http_Client">Zend_Http_Client</abbr></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRawData">
+        <div class="location">at line 326</div>
+        <code>            public            string
+    <strong>getRawData</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the raw (already encoded) POST data.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_resetParameters">
+        <div class="location">at line 343</div>
+        <code>            public            <a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a>
+    <strong>resetParameters</strong>(bool $clearAll = false)</code>
+    </h3>
+    <div class="details">
+        <p>Clear all GET and POST parameters</p>
+        <p>Should be used to reset the request parameters if the client is
+used for several concurrent requests.</p>
+
+<p>clearAll parameter controls if we clean just parameters or also
+headers</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>bool</td>
+                <td>$clearAll</td>
+                <td>Should all data be cleared?</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="EasyRdf_Http_Client.html"><abbr title="EasyRdf_Http_Client">EasyRdf_Http_Client</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_request">
+        <div class="location">at line 371</div>
+        <code>            public            <a href="EasyRdf_Http_Response.html"><abbr title="EasyRdf_Http_Response">EasyRdf_Http_Response</abbr></a>
+    <strong>request</strong>($method = null)</code>
+    </h3>
+    <div class="details">
+        <p>Send the HTTP request and return an HTTP response object</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$method</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="EasyRdf_Http_Response.html"><abbr title="EasyRdf_Http_Response">EasyRdf_Http_Response</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="EasyRdf_Exception.html"><abbr title="EasyRdf_Exception">EasyRdf_Exception</abbr></a></td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

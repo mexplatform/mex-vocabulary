@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:doap="http://usefulinc.com/ns/doap#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/">
+
+  <doap:Project rdf:about="http://www.easyrdf.org/doap.rdf#easyrdf">
+    <doap:name>EasyRDF</doap:name>
+    <doap:shortname>easyrdf</doap:shortname>
+    <doap:revision>0.8.0</doap:revision>
+    <doap:shortdesc xml:lang="en">EasyRdf is a PHP library designed to make it easy to consume and produce RDF.</doap:shortdesc>
+    <doap:homepage rdf:resource="http://www.easyrdf.org/"/>
+    <doap:programming-language>PHP</doap:programming-language>
+    <doap:description xml:lang="en">EasyRdf is a PHP library designed to make it easy to consume and produce RDF. It was designed for use in mixed teams of experienced and inexperienced RDF developers. It is written in Object Oriented PHP and has been tested extensively using PHPUnit.</doap:description>
+    <doap:license rdf:resource="http://usefulinc.com/doap/licenses/bsd"/>
+    <doap:download-page rdf:resource="http://github.com/njh/easyrdf/downloads"/>
+    <doap:bug-database rdf:resource="http://github.com/njh/easyrdf/issues"/>
+    <doap:mailing-list rdf:resource="http://groups.google.com/group/easyrdf"/>
+    <doap:category rdf:resource="http://dbpedia.org/resource/Resource_Description_Framework"/>
+    <doap:category rdf:resource="http://dbpedia.org/resource/PHP"/>
+    <doap:category rdf:resource="http://www.dbpedialite.org/things/24131#id"/>
+    <doap:category rdf:resource="http://www.dbpedialite.org/things/53847#id"/>
+    <doap:repository>
+      <doap:GitRepository>
+        <doap:browse rdf:resource="http://github.com/njh/easyrdf"/>
+        <doap:location rdf:resource="git://github.com/njh/easyrdf.git"/>
+      </doap:GitRepository>
+    </doap:repository>
+
+    <doap:maintainer rdf:resource="http://njh.me/"/>
+    <doap:developer rdf:resource="http://njh.me/"/>
+    <foaf:maker rdf:resource="http://njh.me/"/>
+  </doap:Project>
+
+  <foaf:Person rdf:about="http://njh.me/">
+    <foaf:name>Nicholas J Humfrey</foaf:name>
+    <foaf:homepage rdf:resource="http://www.aelius.com/njh/"/>
+  </foaf:Person>
+
+</rdf:RDF>

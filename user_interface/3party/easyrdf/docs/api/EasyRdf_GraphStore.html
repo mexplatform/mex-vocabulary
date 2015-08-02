@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>EasyRdf_GraphStore | </title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href=".html"></a>EasyRdf_GraphStore</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EasyRdf_GraphStore</strong></p>
+
+            <div class="description">
+            <p>A class for fetching, saving and deleting graphs to a Graph Store.</p>
+            <p>Implementation of the SPARQL 1.1 Graph Store HTTP Protocol.</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(string $uri)
+                    <p>Create a new SPARQL Graph Store client</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getUri">getUri</a>()
+                    <p>Get the URI of the graph store</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_get">get</a>(string $uriRef)
+                    <p>Fetch a named graph from the graph store</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_replace">replace</a>(object $graph, string $uriRef = null, string $format = &#039;ntriples&#039;)
+                    <p>Replace the contents of a graph in the graph store with new data</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_insert">insert</a>(object $graph, string $uriRef = null, string $format = &#039;ntriples&#039;)
+                    <p>Add data to a graph in the graph store</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_delete">delete</a>(string $uriRef)
+                    <p>Delete a graph from the graph store</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method___toString">__toString</a>()
+                    <p>Magic method to return URI of the graph store when casted to string</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 57</div>
+        <code>            public            
+    <strong>__construct</strong>(string $uri)</code>
+    </h3>
+    <div class="details">
+        <p>Create a new SPARQL Graph Store client</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$uri</td>
+                <td>The address of the graph store endpoint</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getUri">
+        <div class="location">at line 67</div>
+        <code>            public            string
+    <strong>getUri</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the URI of the graph store</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The URI of the graph store</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_get">
+        <div class="location">at line 80</div>
+        <code>            public            object
+    <strong>get</strong>(string $uriRef)</code>
+    </h3>
+    <div class="details">
+        <p>Fetch a named graph from the graph store</p>
+        <p>The URI can either be a full absolute URI or
+a URI relative to the URI of the graph store.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$uriRef</td>
+                <td>The URI of graph desired</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf_Graph The graph requested</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_replace">
+        <div class="location">at line 143</div>
+        <code>            public            object
+    <strong>replace</strong>(object $graph, string $uriRef = null, string $format = &#039;ntriples&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Replace the contents of a graph in the graph store with new data</p>
+        <p>The $graph parameter is the EasyRdf_Graph object to be sent to the
+graph store. Alternatively it can be a string, already serialised.</p>
+
+<p>The URI can either be a full absolute URI or
+a URI relative to the URI of the graph store.</p>
+
+<p>The $format parameter can be given to specify the serialisation
+used to send the graph data to the graph store.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>object</td>
+                <td>$graph</td>
+                <td>EasyRdfGraph $graph The URI of graph desired</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$uriRef</td>
+                <td>The URI of graph to be replaced</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$format</td>
+                <td>The format of the data to send to the graph store</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf<em>Http</em>Response The response from the graph store</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_insert">
+        <div class="location">at line 164</div>
+        <code>            public            object
+    <strong>insert</strong>(object $graph, string $uriRef = null, string $format = &#039;ntriples&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Add data to a graph in the graph store</p>
+        <p>The $graph parameter is the EasyRdf_Graph object to be sent to the
+graph store. Alternatively it can be a string, already serialised.</p>
+
+<p>The URI can either be a full absolute URI or
+a URI relative to the URI of the graph store.</p>
+
+<p>The $format parameter can be given to specify the serialisation
+used to send the graph data to the graph store.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>object</td>
+                <td>$graph</td>
+                <td>EasyRdfGraph $graph The URI of graph desired</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$uriRef</td>
+                <td>The URI of graph to be added to</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$format</td>
+                <td>The format of the data to send to the graph store</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf<em>Http</em>Response The response from the graph store</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_delete">
+        <div class="location">at line 177</div>
+        <code>            public            object
+    <strong>delete</strong>(string $uriRef)</code>
+    </h3>
+    <div class="details">
+        <p>Delete a graph from the graph store</p>
+        <p>The URI can either be a full absolute URI or
+a URI relative to the URI of the graph store.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$uriRef</td>
+                <td>The URI of graph to be added to</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf<em>Http</em>Response The response from the graph store</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___toString">
+        <div class="location">at line 211</div>
+        <code>            public            string
+    <strong>__toString</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Magic method to return URI of the graph store when casted to string</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The URI of the graph store</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

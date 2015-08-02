@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>EasyRdf_Isomorphic | </title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href=".html"></a>EasyRdf_Isomorphic</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EasyRdf_Isomorphic</strong></p>
+
+            <div class="description">
+            <p>Functions for comparing two graphs with each other</p>
+            <p>Based on rdf-isomorphic.rb by Ben Lavender:
+https://github.com/ruby-rdf/rdf-isomorphic</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    static&nbsp;boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isomorphic">isomorphic</a>(object $graphA, object $graphB)
+                    <p>Check if one graph is isomorphic (equal) to another graph</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;array
+                </td>
+                <td class="last">
+                    <a href="#method_bijectionBetween">bijectionBetween</a>(object $graphA, object $graphB)
+                    <p>Returns an associative array of bnode identifiers representing an isomorphic bijection of one EasyRdf<em>Graph to another EasyRdf</em>Graph's blank nodes or null if a bijection cannot be found.</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_isomorphic">
+        <div class="location">at line 62</div>
+        <code>        static    public            boolean
+    <strong>isomorphic</strong>(object $graphA, object $graphB)</code>
+    </h3>
+    <div class="details">
+        <p>Check if one graph is isomorphic (equal) to another graph</p>
+        <p>For example:
+   $graphA = EasyRdf<em>Graph::newAndLoad('http://example.com/a.ttl');
+   $graphB = EasyRdf</em>Graph::newAndLoad('http://example.com/b.ttl');
+   if (EasyRdf_Isomorphic::isomorphic($graphA, $graphB)) print "Equal!";</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>object</td>
+                <td>$graphA</td>
+                <td>EasyRdf_Graph  $graphA  The first graph to be compared</td>
+            </tr>
+                    <tr>
+                <td>object</td>
+                <td>$graphB</td>
+                <td>EasyRdf_Graph  $graphB  The second graph to be compared</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>True if the two graphs are isomorphic</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_bijectionBetween">
+        <div class="location">at line 76</div>
+        <code>        static    public            array
+    <strong>bijectionBetween</strong>(object $graphA, object $graphB)</code>
+    </h3>
+    <div class="details">
+        <p>Returns an associative array of bnode identifiers representing an isomorphic bijection of one EasyRdf<em>Graph to another EasyRdf</em>Graph's blank nodes or null if a bijection cannot be found.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>object</td>
+                <td>$graphA</td>
+                <td>EasyRdf_Graph  $graphA  The first graph to be compared</td>
+            </tr>
+                    <tr>
+                <td>object</td>
+                <td>$graphB</td>
+                <td>EasyRdf_Graph  $graphB  The second graph to be compared</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>bnode mapping from $graphA to $graphB</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

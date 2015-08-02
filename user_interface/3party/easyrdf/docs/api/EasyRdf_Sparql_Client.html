@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>EasyRdf_Sparql_Client | </title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href=".html"></a>EasyRdf_Sparql_Client</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EasyRdf_Sparql_Client</strong></p>
+
+            <div class="description">
+            <p>Class for making SPARQL queries using the SPARQL 1.1 Protocol</p>
+            <p>
+</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(string $queryUri, string $updateUri = null)
+                    <p>Create a new SPARQL endpoint client</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getQueryUri">getQueryUri</a>()
+                    <p>Get the URI of the SPARQL query endpoint</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getUpdateUri">getUpdateUri</a>()
+                    <p>Get the URI of the SPARQL update endpoint</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_getUri">getUri</a>()
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_query">query</a>(string $query)
+                    <p>Make a query to the SPARQL endpoint</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_countTriples">countTriples</a>(string $condition = &#039;?s ?p ?o&#039;)
+                    <p>Count the number of triples in a SPARQL 1.1 endpoint</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_listNamedGraphs">listNamedGraphs</a>(string $limit = null)
+                    <p>Get a list of named graphs from a SPARQL 1.1 endpoint</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_update">update</a>(string $query)
+                    <p>Make an update request to the SPARQL endpoint</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_insert">insert</a>($data, $graphUri = null)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_clear">clear</a>($graphUri, $silent = false)
+                    <p>
+</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 65</div>
+        <code>            public            
+    <strong>__construct</strong>(string $queryUri, string $updateUri = null)</code>
+    </h3>
+    <div class="details">
+        <p>Create a new SPARQL endpoint client</p>
+        <p>If the query and update endpoints are the same, then you
+only need to give a single URI.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$queryUri</td>
+                <td>The address of the SPARQL Query Endpoint</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$updateUri</td>
+                <td>Optional address of the SPARQL Update Endpoint</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getQueryUri">
+        <div class="location">at line 79</div>
+        <code>            public            string
+    <strong>getQueryUri</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the URI of the SPARQL query endpoint</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The query URI of the SPARQL endpoint</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getUpdateUri">
+        <div class="location">at line 88</div>
+        <code>            public            string
+    <strong>getUpdateUri</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the URI of the SPARQL update endpoint</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The query URI of the SPARQL endpoint</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getUri">
+        <div class="location">at line 97</div>
+        <code>            public            
+    <strong>getUri</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_query">
+        <div class="location">at line 113</div>
+        <code>            public            object
+    <strong>query</strong>(string $query)</code>
+    </h3>
+    <div class="details">
+        <p>Make a query to the SPARQL endpoint</p>
+        <p>SELECT and ASK queries will return an object of type
+EasyRdf<em>Sparql</em>Result.</p>
+
+<p>CONSTRUCT and DESCRIBE queries will return an object
+of type EasyRdf_Graph.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$query</td>
+                <td>The query string to be executed</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf<em>Sparql</em>Result|EasyRdf_Graph Result of the query.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_countTriples">
+        <div class="location">at line 128</div>
+        <code>            public            integer
+    <strong>countTriples</strong>(string $condition = &#039;?s ?p ?o&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Count the number of triples in a SPARQL 1.1 endpoint</p>
+        <p>Performs a SELECT query to estriblish the total number of triples.</p>
+
+<p>Counts total number of triples by default but a conditional triple pattern
+can be given to count of a subset of all triples.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$condition</td>
+                <td>Triple-pattern condition for the count query</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td>The number of triples</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_listNamedGraphs">
+        <div class="location">at line 147</div>
+        <code>            public            array
+    <strong>listNamedGraphs</strong>(string $limit = null)</code>
+    </h3>
+    <div class="details">
+        <p>Get a list of named graphs from a SPARQL 1.1 endpoint</p>
+        <p>Performs a SELECT query to get a list of the named graphs</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$limit</td>
+                <td>Optional limit to the number of results</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>Array of EasyRdf_Resource objects for each named graph</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_update">
+        <div class="location">at line 172</div>
+        <code>            public            object
+    <strong>update</strong>(string $query)</code>
+    </h3>
+    <div class="details">
+        <p>Make an update request to the SPARQL endpoint</p>
+        <p>Successful responses will return the HTTP response object</p>
+
+<p>Unsuccessful responses will throw an exception</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$query</td>
+                <td>The update query string to be executed</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf<em>Http</em>Response HTTP response</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_insert">
+        <div class="location">at line 177</div>
+        <code>            public            
+    <strong>insert</strong>($data, $graphUri = null)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$data</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$graphUri</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_clear">
+        <div class="location">at line 206</div>
+        <code>            public            
+    <strong>clear</strong>($graphUri, $silent = false)</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$graphUri</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$silent</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>EasyRdf_Sparql_Result | </title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href=".html"></a>EasyRdf_Sparql_Result</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EasyRdf_Sparql_Result</strong>        extends <a href="http://php.net/ArrayIterator"><abbr title="ArrayIterator">ArrayIterator</abbr></a></p>
+
+            <div class="description">
+            <p>Class for returned for SPARQL SELECT and ASK query responses.</p>
+            <p>
+</p>
+        </div>
+    
+            <h2>Constants</h2>
+
+            <table>
+                    <tr>
+                <td>SPARQL_XML_RESULTS_NS</td>
+                <td class="last">
+                    <p><em>A constant for the SPARQL Query Results XML Format namespace</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(string $data, string $mimeType)
+                    <p>Create a new SPARQL Result object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getType">getType</a>()
+                    <p>Get the query result type (boolean/bindings)</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_getBoolean">getBoolean</a>()
+                    <p>Return the boolean value of the query result</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isTrue">isTrue</a>()
+                    <p>Return true if the result of the query was true.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isFalse">isFalse</a>()
+                    <p>Return false if the result of the query was false.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_numFields">numFields</a>()
+                    <p>Return the number of fields in a query result of type bindings.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_numRows">numRows</a>()
+                    <p>Return the number of rows in a query result of type bindings.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_getFields">getFields</a>()
+                    <p>Get the field names in a query result of type bindings.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_dump">dump</a>(string $format = &#039;html&#039;)
+                    <p>Return a human readable view of the query result.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method___toString">__toString</a>()
+                    <p>Magic method to return value of the result to string</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 66</div>
+        <code>            public            
+    <strong>__construct</strong>(string $data, string $mimeType)</code>
+    </h3>
+    <div class="details">
+        <p>Create a new SPARQL Result object</p>
+        <p>You should not normally need to create a SPARQL result
+object directly - it will be constructed automatically
+for you by EasyRdf<em>Sparql</em>Client.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$data</td>
+                <td>The SPARQL result body</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$mimeType</td>
+                <td>The MIME type of the result</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getType">
+        <div class="location">at line 86</div>
+        <code>            public            string
+    <strong>getType</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the query result type (boolean/bindings)</p>
+        <p>ASK queries return a result of type 'boolean'.
+SELECT query return a result of type 'bindings'.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The query result type.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getBoolean">
+        <div class="location">at line 99</div>
+        <code>            public            boolean
+    <strong>getBoolean</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Return the boolean value of the query result</p>
+        <p>If the query was of type boolean then this method will
+return either true or false. If the query was of some other
+type then this method will return null.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>The result of the query.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isTrue">
+        <div class="location">at line 108</div>
+        <code>            public            boolean
+    <strong>isTrue</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Return true if the result of the query was true.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>True if the query result was true.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isFalse">
+        <div class="location">at line 117</div>
+        <code>            public            boolean
+    <strong>isFalse</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Return false if the result of the query was false.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>True if the query result was false.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_numFields">
+        <div class="location">at line 126</div>
+        <code>            public            integer
+    <strong>numFields</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Return the number of fields in a query result of type bindings.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td>The number of fields.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_numRows">
+        <div class="location">at line 135</div>
+        <code>            public            integer
+    <strong>numRows</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Return the number of rows in a query result of type bindings.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td>The number of rows.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFields">
+        <div class="location">at line 144</div>
+        <code>            public            array
+    <strong>getFields</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the field names in a query result of type bindings.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>The names of the fields in the result.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_dump">
+        <div class="location">at line 156</div>
+        <code>            public            
+    <strong>dump</strong>(string $format = &#039;html&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Return a human readable view of the query result.</p>
+        <p>This method is intended to be a debugging aid and will
+return a pretty-print view of the query result.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$format</td>
+                <td>Either 'text' or 'html'</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___toString">
+        <div class="location">at line 376</div>
+        <code>            public            string
+    <strong>__toString</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Magic method to return value of the result to string</p>
+        <p>If this is a boolean result then it will return 'true' or 'false'.
+If it is a bindings type, then it will dump as a text based table.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>A string representation of the result.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

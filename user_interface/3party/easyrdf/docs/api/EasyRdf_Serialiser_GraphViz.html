@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>EasyRdf_Serialiser_GraphViz | </title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href=".html"></a>EasyRdf_Serialiser_GraphViz</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EasyRdf_Serialiser_GraphViz</strong>        extends <a href="EasyRdf_Serialiser.html"><abbr title="EasyRdf_Serialiser">EasyRdf_Serialiser</abbr></a></p>
+
+            <div class="description">
+            <p>Class to serialise an EasyRdf_Graph to GraphViz</p>
+            <p>Depends upon the GraphViz 'dot' command line tools to render images.</p>
+
+<p>See http://www.graphviz.org/ for more information.</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>()
+                    <p>Constructor</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_serialise">serialise</a>(<a href="EasyRdf_Graph.html"><abbr title="EasyRdf_Graph">EasyRdf_Graph</abbr></a> $graph, string $format, array $options = array())
+                    <p>Serialise an EasyRdf_Graph into a GraphViz dot document.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_setDotCommand">setDotCommand</a>(string $cmd)
+                    <p>Set the path to the GraphViz 'dot' command</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getDotCommand">getDotCommand</a>()
+                    <p>Get the path to the GraphViz 'dot' command</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_setUseLabels">setUseLabels</a>(bool $useLabels)
+                    <p>Turn on/off the option to display labels instead of URIs.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    bool
+                </td>
+                <td class="last">
+                    <a href="#method_getUseLabels">getUseLabels</a>()
+                    <p>Get the state of the use labels option</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_setOnlyLabelled">setOnlyLabelled</a>(bool $onlyLabelled)
+                    <p>Turn on/off the option to only display nodes and edges with labels</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    bool
+                </td>
+                <td class="last">
+                    <a href="#method_getOnlyLabelled">getOnlyLabelled</a>()
+                    <p>Get the state of the only Only Labelled option</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_setAttribute">setAttribute</a>(string $name, string $value)
+                    <p>Set an attribute on the GraphViz graph</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getAttribute">getAttribute</a>(string $name)
+                    <p>Get an attribute of the GraphViz graph</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_renderImage">renderImage</a>($graph, $format = &#039;png&#039;)
+                    <p>Internal function to render a graph into an image</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 61</div>
+        <code>            public            object
+    <strong>__construct</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Constructor</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf<em>Serialiser</em>GraphViz</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_serialise">
+        <div class="location">at line 375</div>
+        <code>            public            string
+    <strong>serialise</strong>(<a href="EasyRdf_Graph.html"><abbr title="EasyRdf_Graph">EasyRdf_Graph</abbr></a> $graph, string $format, array $options = array())</code>
+    </h3>
+    <div class="details">
+        <p>Serialise an EasyRdf_Graph into a GraphViz dot document.</p>
+        <p>Supported output format names: dot, gif, png, svg</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="EasyRdf_Graph.html"><abbr title="EasyRdf_Graph">EasyRdf_Graph</abbr></a></td>
+                <td>$graph</td>
+                <td>An EasyRdf_Graph object.</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$format</td>
+                <td>The name of the format to convert to.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$options</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The RDF in the new desired format.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="EasyRdf_Exception.html"><abbr title="EasyRdf_Exception">EasyRdf_Exception</abbr></a></td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setDotCommand">
+        <div class="location">at line 73</div>
+        <code>            public            object
+    <strong>setDotCommand</strong>(string $cmd)</code>
+    </h3>
+    <div class="details">
+        <p>Set the path to the GraphViz 'dot' command</p>
+        <p>Default is to search PATH for the command 'dot'.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$cmd</td>
+                <td>The path to the 'dot' command.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf<em>Serialiser</em>GraphViz</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getDotCommand">
+        <div class="location">at line 86</div>
+        <code>            public            string
+    <strong>getDotCommand</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the path to the GraphViz 'dot' command</p>
+        <p>The default value is simply 'dot'</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The path to the 'dot' command.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setUseLabels">
+        <div class="location">at line 104</div>
+        <code>            public            object
+    <strong>setUseLabels</strong>(bool $useLabels)</code>
+    </h3>
+    <div class="details">
+        <p>Turn on/off the option to display labels instead of URIs.</p>
+        <p>When this option is turned on, then labels for resources will
+be displayed instead of the full URI of a resource. This makes
+it simpler to create friendly diagrams that non-technical people
+can understand.</p>
+
+<p>This option is turned off by default.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>bool</td>
+                <td>$useLabels</td>
+                <td>A boolean value to turn labels on and off</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf<em>Serialiser</em>GraphViz</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getUseLabels">
+        <div class="location">at line 115</div>
+        <code>            public            bool
+    <strong>getUseLabels</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the state of the use labels option</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>The current state of the use labels option</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setOnlyLabelled">
+        <div class="location">at line 133</div>
+        <code>            public            object
+    <strong>setOnlyLabelled</strong>(bool $onlyLabelled)</code>
+    </h3>
+    <div class="details">
+        <p>Turn on/off the option to only display nodes and edges with labels</p>
+        <p>When this option is turned on, then only nodes (resources and literals)
+and edges (properties) will only be displayed if they have a label. You
+can use this option, to create concise, diagrams of your data, rather than
+the RDF.</p>
+
+<p>This option is turned off by default.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>bool</td>
+                <td>$onlyLabelled</td>
+                <td>A boolean value to enable/display only labelled items</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf<em>Serialiser</em>GraphViz</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getOnlyLabelled">
+        <div class="location">at line 144</div>
+        <code>            public            bool
+    <strong>getOnlyLabelled</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the state of the only Only Labelled option</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>The current state of the Only Labelled option</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setAttribute">
+        <div class="location">at line 162</div>
+        <code>            public            object
+    <strong>setAttribute</strong>(string $name, string $value)</code>
+    </h3>
+    <div class="details">
+        <p>Set an attribute on the GraphViz graph</p>
+        <p>Example:
+    $serialiser->setAttribute('rotate', 90);</p>
+
+<p>See the GraphViz tool documentation for information about the
+available attributes.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of the attribute</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$value</td>
+                <td>The value for the attribute</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf<em>Serialiser</em>GraphViz</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getAttribute">
+        <div class="location">at line 174</div>
+        <code>            public            string
+    <strong>getAttribute</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Get an attribute of the GraphViz graph</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>Attribute name</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The value of the graph attribute</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_renderImage">
+        <div class="location">at line 353</div>
+        <code>            public            
+    <strong>renderImage</strong>($graph, $format = &#039;png&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Internal function to render a graph into an image</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$graph</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$format</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

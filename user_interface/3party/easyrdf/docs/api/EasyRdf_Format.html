@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>EasyRdf_Format | </title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href=".html"></a>EasyRdf_Format</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EasyRdf_Format</strong></p>
+
+            <div class="description">
+            <p>Class the represents an RDF file format.</p>
+            <p>For each format, the name, label, URIs and associated MIME Types are
+stored. A single parser and serialiser can also be registered to each
+format.</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    static&nbsp;array
+                </td>
+                <td class="last">
+                    <a href="#method_getNames">getNames</a>()
+                    <p>Get a list of format names</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;array
+                </td>
+                <td class="last">
+                    <a href="#method_getFormats">getFormats</a>()
+                    <p>Get a list of all the registered formats</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_getHttpAcceptHeader">getHttpAcceptHeader</a>(array $extraTypes = array())
+                    <p>Generates an HTTP Accept header string</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;boolean
+                </td>
+                <td class="last">
+                    <a href="#method_formatExists">formatExists</a>(string $name)
+                    <p>Check if a named graph exists</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;object
+                </td>
+                <td class="last">
+                    <a href="#method_getFormat">getFormat</a>(string $query)
+                    <p>Get a EasyRdf_Format from a name, uri or mime type</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;object
+                </td>
+                <td class="last">
+                    <a href="#method_register">register</a>(string $name, string $label = null, string $uri = null, string $mimeTypes = array(), string $extensions = array())
+                    <p>Register a new format</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;
+                </td>
+                <td class="last">
+                    <a href="#method_unregister">unregister</a>(string $name)
+                    <p>Remove a format from the registry</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;
+                </td>
+                <td class="last">
+                    <a href="#method_registerParser">registerParser</a>(string $name, string $class)
+                    <p>Class method to register a parser class to a format name</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;
+                </td>
+                <td class="last">
+                    <a href="#method_registerSerialiser">registerSerialiser</a>(string $name, string $class)
+                    <p>Class method to register a serialiser class to a format name</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;object
+                </td>
+                <td class="last">
+                    <a href="#method_guessFormat">guessFormat</a>(string $data, string $filename = null)
+                    <p>Attempt to guess the document format from some content.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(string $name)
+                    <p>This constructor is for internal use only.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getName">getName</a>()
+                    <p>Get the name of a format object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getLabel">getLabel</a>()
+                    <p>Get the label for a format object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setLabel">setLabel</a>(string $label)
+                    <p>Set the label for a format object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getUri">getUri</a>()
+                    <p>Get the URI for a format object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setUri">setUri</a>(string $uri)
+                    <p>Set the URI for a format object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getDefaultMimeType">getDefaultMimeType</a>()
+                    <p>Get the default registered mime type for a format object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_getMimeTypes">getMimeTypes</a>()
+                    <p>Get all the registered mime types for a format object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setMimeTypes">setMimeTypes</a>(array $mimeTypes)
+                    <p>Set the MIME Types for a format object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getDefaultExtension">getDefaultExtension</a>()
+                    <p>Get the default registered file extension (filename suffix) for a format object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_getExtensions">getExtensions</a>()
+                    <p>Get all the registered file extensions (filename suffix) for a format object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setExtensions">setExtensions</a>(mixed $extensions)
+                    <p>Set the file format extensions (filename suffix) for a format object</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setParserClass">setParserClass</a>(string $class)
+                    <p>Set the parser to use for a format</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getParserClass">getParserClass</a>()
+                    <p>Get the name of the class to use to parse the format</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_newParser">newParser</a>()
+                    <p>Create a new parser to parse this format</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setSerialiserClass">setSerialiserClass</a>(string $class)
+                    <p>Set the serialiser to use for a format</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getSerialiserClass">getSerialiserClass</a>()
+                    <p>Get the name of the class to use to serialise the format</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_newSerialiser">newSerialiser</a>()
+                    <p>Create a new serialiser to parse this format</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method___toString">__toString</a>()
+                    <p>Magic method to return the name of the format when casted to string</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_getNames">
+        <div class="location">at line 65</div>
+        <code>        static    public            array
+    <strong>getNames</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get a list of format names</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>An array of formats name</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFormats">
+        <div class="location">at line 74</div>
+        <code>        static    public            array
+    <strong>getFormats</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get a list of all the registered formats</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>An array of format objects</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHttpAcceptHeader">
+        <div class="location">at line 92</div>
+        <code>        static    public            string
+    <strong>getHttpAcceptHeader</strong>(array $extraTypes = array())</code>
+    </h3>
+    <div class="details">
+        <p>Generates an HTTP Accept header string</p>
+        <p>The string will contain all of the MIME Types that we
+are able to parse.</p>
+
+<p>It is also possible to specify additional MIME types
+in the form array('text/plain' => 0.5) where 0.5 is the
+q value for that type. The types are sorted by q value
+before constructing the string.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$extraTypes</td>
+                <td>extra MIME types to add</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>list of supported MIME types</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_formatExists">
+        <div class="location">at line 121</div>
+        <code>        static    public            boolean
+    <strong>formatExists</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Check if a named graph exists</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>the name of the format</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>true if the format exists</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFormat">
+        <div class="location">at line 132</div>
+        <code>        static    public            object
+    <strong>getFormat</strong>(string $query)</code>
+    </h3>
+    <div class="details">
+        <p>Get a EasyRdf_Format from a name, uri or mime type</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$query</td>
+                <td>a query string to search for</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>the first EasyRdf_Format that matches the query</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="EasyRdf_Exception.html"><abbr title="EasyRdf_Exception">EasyRdf_Exception</abbr></a></td>
+                <td>if no format is found</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_register">
+        <div class="location">at line 164</div>
+        <code>        static    public            object
+    <strong>register</strong>(string $name, string $label = null, string $uri = null, string $mimeTypes = array(), string $extensions = array())</code>
+    </h3>
+    <div class="details">
+        <p>Register a new format</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of the format (e.g. ntriples)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$label</td>
+                <td>The label for the format (e.g. N-Triples)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$uri</td>
+                <td>The URI for the format</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$mimeTypes</td>
+                <td>One or more mime types for the format</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$extensions</td>
+                <td>One or more extensions (file suffix)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>The new EasyRdf_Format object</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_unregister">
+        <div class="location">at line 192</div>
+        <code>        static    public            
+    <strong>unregister</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Remove a format from the registry</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of the format (e.g. ntriples)</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_registerParser">
+        <div class="location">at line 202</div>
+        <code>        static    public            
+    <strong>registerParser</strong>(string $name, string $class)</code>
+    </h3>
+    <div class="details">
+        <p>Class method to register a parser class to a format name</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of the format (e.g. ntriples)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$class</td>
+                <td>The name of the class (e.g. EasyRdf<em>Parser</em>Ntriples)</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_registerSerialiser">
+        <div class="location">at line 215</div>
+        <code>        static    public            
+    <strong>registerSerialiser</strong>(string $name, string $class)</code>
+    </h3>
+    <div class="details">
+        <p>Class method to register a serialiser class to a format name</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of the format (e.g. ntriples)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$class</td>
+                <td>The name of the class (e.g. EasyRdf<em>Serialiser</em>Ntriples)</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_guessFormat">
+        <div class="location">at line 233</div>
+        <code>        static    public            object
+    <strong>guessFormat</strong>(string $data, string $filename = null)</code>
+    </h3>
+    <div class="details">
+        <p>Attempt to guess the document format from some content.</p>
+        <p>If $filename is given, then the suffix is first used to guess the format.</p>
+
+<p>If the document format is not recognised, null is returned.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$data</td>
+                <td>The document data</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$filename</td>
+                <td>Optional filename</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf_Format The format object</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___construct">
+        <div class="location">at line 279</div>
+        <code>            public            
+    <strong>__construct</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>This constructor is for internal use only.</p>
+        <p>To create a new format, use the register method.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of the format</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>EasyRdf_Format::register()</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_getName">
+        <div class="location">at line 289</div>
+        <code>            public            string
+    <strong>getName</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the name of a format object</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The name of the format (e.g. rdfxml)</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getLabel">
+        <div class="location">at line 298</div>
+        <code>            public            string
+    <strong>getLabel</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the label for a format object</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The format label (e.g. RDF/XML)</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setLabel">
+        <div class="location">at line 307</div>
+        <code>            public            
+    <strong>setLabel</strong>(string $label)</code>
+    </h3>
+    <div class="details">
+        <p>Set the label for a format object</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$label</td>
+                <td>The new label for the format</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getUri">
+        <div class="location">at line 325</div>
+        <code>            public            string
+    <strong>getUri</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the URI for a format object</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The format URI</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setUri">
+        <div class="location">at line 334</div>
+        <code>            public            
+    <strong>setUri</strong>(string $uri)</code>
+    </h3>
+    <div class="details">
+        <p>Set the URI for a format object</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$uri</td>
+                <td>The new URI for the format</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getDefaultMimeType">
+        <div class="location">at line 352</div>
+        <code>            public            string
+    <strong>getDefaultMimeType</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the default registered mime type for a format object</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The default mime type as a string.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMimeTypes">
+        <div class="location">at line 365</div>
+        <code>            public            array
+    <strong>getMimeTypes</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get all the registered mime types for a format object</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>One or more MIME types in an array with the mime type as the key and q value as the value</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setMimeTypes">
+        <div class="location">at line 374</div>
+        <code>            public            
+    <strong>setMimeTypes</strong>(array $mimeTypes)</code>
+    </h3>
+    <div class="details">
+        <p>Set the MIME Types for a format object</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>array</td>
+                <td>$mimeTypes</td>
+                <td>One or more mime types</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getDefaultExtension">
+        <div class="location">at line 390</div>
+        <code>            public            string
+    <strong>getDefaultExtension</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the default registered file extension (filename suffix) for a format object</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The default extension as a string.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getExtensions">
+        <div class="location">at line 401</div>
+        <code>            public            array
+    <strong>getExtensions</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get all the registered file extensions (filename suffix) for a format object</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>One or more extensions as an array</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setExtensions">
+        <div class="location">at line 410</div>
+        <code>            public            
+    <strong>setExtensions</strong>(mixed $extensions)</code>
+    </h3>
+    <div class="details">
+        <p>Set the file format extensions (filename suffix) for a format object</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>mixed</td>
+                <td>$extensions</td>
+                <td>One or more file extensions</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setParserClass">
+        <div class="location">at line 426</div>
+        <code>            public            
+    <strong>setParserClass</strong>(string $class)</code>
+    </h3>
+    <div class="details">
+        <p>Set the parser to use for a format</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$class</td>
+                <td>The name of the class</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getParserClass">
+        <div class="location">at line 444</div>
+        <code>            public            string
+    <strong>getParserClass</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the name of the class to use to parse the format</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The name of the class</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_newParser">
+        <div class="location">at line 453</div>
+        <code>            public            object
+    <strong>newParser</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Create a new parser to parse this format</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>The new parser object</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setSerialiserClass">
+        <div class="location">at line 468</div>
+        <code>            public            
+    <strong>setSerialiserClass</strong>(string $class)</code>
+    </h3>
+    <div class="details">
+        <p>Set the serialiser to use for a format</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$class</td>
+                <td>The name of the class</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getSerialiserClass">
+        <div class="location">at line 486</div>
+        <code>            public            string
+    <strong>getSerialiserClass</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the name of the class to use to serialise the format</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The name of the class</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_newSerialiser">
+        <div class="location">at line 495</div>
+        <code>            public            object
+    <strong>newSerialiser</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Create a new serialiser to parse this format</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>The new serialiser object</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___toString">
+        <div class="location">at line 510</div>
+        <code>            public            string
+    <strong>__toString</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Magic method to return the name of the format when casted to string</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The name of the format</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>EasyRdf_Namespace | </title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href=".html"></a>EasyRdf_Namespace</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EasyRdf_Namespace</strong></p>
+
+            <div class="description">
+            <p>A namespace registry and manipulation class.</p>
+            <p>
+</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    static&nbsp;array
+                </td>
+                <td class="last">
+                    <a href="#method_namespaces">namespaces</a>()
+                    <p>Return all the namespaces registered</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_get">get</a>(string $prefix)
+                    <p>Return a namespace given its prefix.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;
+                </td>
+                <td class="last">
+                    <a href="#method_set">set</a>(string $prefix, string $long)
+                    <p>Register a new namespace.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_getDefault">getDefault</a>()
+                    <p>Get the default namespace</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;
+                </td>
+                <td class="last">
+                    <a href="#method_setDefault">setDefault</a>(string $namespace)
+                    <p>Set the default namespace</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;
+                </td>
+                <td class="last">
+                    <a href="#method_delete">delete</a>(string $prefix)
+                    <p>Delete an existing namespace.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;
+                </td>
+                <td class="last">
+                    <a href="#method_reset">reset</a>()
+                    <p>Delete the anonymous namespaces and reset the counter to 0</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;array
+                </td>
+                <td class="last">
+                    <a href="#method_splitUri">splitUri</a>(string $uri, bool $createNamespace = false)
+                    <p>Try and breakup a URI into a prefix and local part</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_prefixOfUri">prefixOfUri</a>(string $uri)
+                    <p>Return the prefix namespace that a URI belongs to.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_shorten">shorten</a>(string $uri, bool $createNamespace = false)
+                    <p>Shorten a URI by substituting in the namespace prefix.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_expand">expand</a>(string $shortUri)
+                    <p>Expand a shortened URI (qname) back into a full URI.</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_namespaces">
+        <div class="location">at line 105</div>
+        <code>        static    public            array
+    <strong>namespaces</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Return all the namespaces registered</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>Associative array of all the namespaces.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_get">
+        <div class="location">at line 116</div>
+        <code>        static    public            string
+    <strong>get</strong>(string $prefix)</code>
+    </h3>
+    <div class="details">
+        <p>Return a namespace given its prefix.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$prefix</td>
+                <td>The namespace prefix (eg 'foaf')</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The namespace URI (eg 'http://xmlns.com/foaf/0.1/')</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_set">
+        <div class="location">at line 144</div>
+        <code>        static    public            
+    <strong>set</strong>(string $prefix, string $long)</code>
+    </h3>
+    <div class="details">
+        <p>Register a new namespace.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$prefix</td>
+                <td>The namespace prefix (eg 'foaf')</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$long</td>
+                <td>The namespace URI (eg 'http://xmlns.com/foaf/0.1/')</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getDefault">
+        <div class="location">at line 176</div>
+        <code>        static    public            string
+    <strong>getDefault</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the default namespace</p>
+        <p>Returns the URI of the default namespace or null
+if no default namespace is defined.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The URI of the default namespace</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setDefault">
+        <div class="location">at line 192</div>
+        <code>        static    public            
+    <strong>setDefault</strong>(string $namespace)</code>
+    </h3>
+    <div class="details">
+        <p>Set the default namespace</p>
+        <p>Set the default namespace to either a URI or the prefix of
+an already defined namespace.</p>
+
+<p>Example:
+  EasyRdf_Namespace::setDefault('http://schema.org/');</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$namespace</td>
+                <td>The URI or prefix of a namespace (eg 'og')</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_delete">
+        <div class="location">at line 214</div>
+        <code>        static    public            
+    <strong>delete</strong>(string $prefix)</code>
+    </h3>
+    <div class="details">
+        <p>Delete an existing namespace.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$prefix</td>
+                <td>The namespace prefix (eg 'foaf')</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_reset">
+        <div class="location">at line 231</div>
+        <code>        static    public            
+    <strong>reset</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Delete the anonymous namespaces and reset the counter to 0</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_splitUri">
+        <div class="location">at line 252</div>
+        <code>        static    public            array
+    <strong>splitUri</strong>(string $uri, bool $createNamespace = false)</code>
+    </h3>
+    <div class="details">
+        <p>Try and breakup a URI into a prefix and local part</p>
+        <p>If $createNamespace is true, and the URI isn't part of an existing
+namespace, then EasyRdf will attempt to create a new namespace and
+return the name of the new prefix (for example 'ns0', 'term').</p>
+
+<p>If it isn't possible to split the URI, then null will be returned.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$uri</td>
+                <td>The full URI (eg 'http://xmlns.com/foaf/0.1/name')</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$createNamespace</td>
+                <td>If true, a new namespace will be created</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>The split URI (eg 'foaf', 'name') or null</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_prefixOfUri">
+        <div class="location">at line 293</div>
+        <code>        static    public            string
+    <strong>prefixOfUri</strong>(string $uri)</code>
+    </h3>
+    <div class="details">
+        <p>Return the prefix namespace that a URI belongs to.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$uri</td>
+                <td>A full URI (eg 'http://xmlns.com/foaf/0.1/name')</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The prefix namespace that it is a part of(eg 'foaf')</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_shorten">
+        <div class="location">at line 313</div>
+        <code>        static    public            string
+    <strong>shorten</strong>(string $uri, bool $createNamespace = false)</code>
+    </h3>
+    <div class="details">
+        <p>Shorten a URI by substituting in the namespace prefix.</p>
+        <p>If $createNamespace is true, and the URI isn't part of an existing
+namespace, then EasyRdf will attempt to create a new namespace and
+use that namespace to shorten the URI (for example ns0:term).</p>
+
+<p>If it isn't possible to shorten the URI, then null will be returned.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$uri</td>
+                <td>The full URI (eg 'http://xmlns.com/foaf/0.1/name')</td>
+            </tr>
+                    <tr>
+                <td>bool</td>
+                <td>$createNamespace</td>
+                <td>If true, a new namespace will be created</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The shortened URI (eg 'foaf:name') or null</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_expand">
+        <div class="location">at line 329</div>
+        <code>        static    public            string
+    <strong>expand</strong>(string $shortUri)</code>
+    </h3>
+    <div class="details">
+        <p>Expand a shortened URI (qname) back into a full URI.</p>
+        <p>If it isn't possible to expand the qname, for example if the namespace
+isn't registered, then the original string will be returned.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$shortUri</td>
+                <td>The short URI (eg 'foaf:name')</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The full URI (eg 'http://xmlns.com/foaf/0.1/name')</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>
