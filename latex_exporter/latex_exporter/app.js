@@ -222,13 +222,15 @@ var loadRDF2 = function(){
   for (var experimentConfigurationURL in getExperimentsConfiguration()){
     var experimentConfiguration = {};
     experimentConfiguration.URL=getExperimentsConfiguration()[experimentConfigurationURL];
-    experimentConfiguration.label = getObjects(store.find(experimentConfiguration.URL, labelURI, null)); 
+    experimentConfiguration.label = getObjects(store.find(experimentConfiguration.URL, labelURI, null))[0]; 
     experimentConfiguration.executions = [];
     
     for(var executionOfExperimentURL in getExecutionsOfExperiment(experimentConfiguration.URL)){
       var executionExperiment = {}; 
       executionExperiment.executionPerformance = getSubjects(store.find(null, wasInformedByURI, getExecutionsOfExperiment(experimentConfiguration.URL)[executionOfExperimentURL]))[0]; 
+      executionExperiment.label = getObjects(store.find(getExecutionsOfExperiment(experimentConfiguration.URL)[executionOfExperimentURL], labelURI,null))[0]; 
       executionExperiment.measureURI = getSubjects(store.find(null, wasGeneratedByURI , executionExperiment.executionPerformance))[0]; 
+      // executionExperiment.label = getObjects(store.find(null, wasGeneratedByURI , executionExperiment.executionPerformance))[0]; 
       executionExperiment.measures = [];
       
       for(var measure in measuresProp){
@@ -246,7 +248,7 @@ var loadRDF2 = function(){
     }
     
     
-    experimentsConfiguration.push(JSON.stringify(experimentConfiguration));
+    experimentsConfiguration.push(experimentConfiguration);
     
   }
   

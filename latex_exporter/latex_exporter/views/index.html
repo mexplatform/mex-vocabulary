@@ -32,26 +32,27 @@
               <input type="submit" value="Convert!">
             </form>
           </div>
-          <h2>Choose the execution.</h2>
-          <select ng-model="execution" ng-options="k.name for k in response" ng-change="makeFirstLine(execution)">
-            <option value="">Execution</option>
+          
+          <h2>Choose the configuration.</h2>
+          <select ng-model="configuration" ng-options="k.label for k in response" ng-change="makeFirstLine(configuration)">
+            <option value="">Configuration</option>
           </select>
           <h2>Assembly your table.</h2>
-          <p>Choose here which algorithms and measures will be added to the LaTeX table.</p>
+          <p>Choose here which executions and measures will be added to the LaTeX table.</p>
           <div style="clear: left; margin-top: 10px">
-            <input type="button" ng-click="newLine();" value="Add Algorithm">
+            <input type="button" ng-click="newLine();" value="Add Execution">
           <input type="button" ng-click="newColumn();" value="Add Measure">
           </div>
           <br />
           <div style="margin-left: 250px; margin-top: 10px">
             <div ng-repeat="i in columns" style="float: left; width: 150px; min-width: 150px">
-              <select ng-model="measure" ng-options="m for m in measures" ng-change="updateTableColumns(i, measure)" style="float: left; width: 150px; min-width: 150px">
+              <select ng-model="measure" ng-options="m.prop for m in configuration.executions[0].measures" ng-change="updateTableColumns(i, measure)" style="float: left; width: 150px; min-width: 150px">
                 <option value="">Measures</option>
               </select>
             </div>
           </div>
           <div ng-repeat="l in lines" style="clear: left;">
-            <select ng-model="l.indexLines" ng-options="s.identifier for s in l.val" ng-change="updateTableLines(l.index, l.indexLines.name)"
+            <select ng-model="execution" ng-options="s.label for s in configuration.executions" ng-change="updateTableLines(l, execution)"
             style="float: left;  width: 250px;">
               <option value="">Algorithm</option>
             </select>
