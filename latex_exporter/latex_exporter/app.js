@@ -92,6 +92,7 @@ var mexPerf = "http://mex.aksw.org/mex-perf#";
 var provURI  = "http://www.w3.org/ns/prov#";
 var rdfsURI = "http://www.w3.org/2000/01/rdf-schema#"; 
 var dctURI = "http://purl.org/dc/terms/";
+var rdfURI = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
 
 var maxPerfMeasures = [mexPerf+"ClassificationMeasure", 
   mexPerf+"PerformanceMeasure", 
@@ -158,13 +159,15 @@ var measuresProp = [
   
   
 
-var experimentConfigurationURI = "ExperimentConfiguration";
+var experimentConfigurationURI = mexCoreURI+ "ExperimentConfiguration";
 var algorithmURI = mexCoreURI+"Algorithm";
 var wasInformedByURI = provURI + "wasInformedBy";
 var usedURI = provURI + "used";
 var identifierURI = dctURI + "identifier";
 
-var aURI = rdfsURI+"type";
+var aURI = rdfURI+"type";
+var labelURI = rdfsURI+"label";
+var wasGeneratedByURI = provURI+"wasGeneratedBy"; 
 
 
 
@@ -173,64 +176,6 @@ var aURI = rdfsURI+"type";
 
 var RDFFilePath;
 var tableTitle;
-
-
-
-function loadRDF(){
-  
-  var algorithms;
-var executions = []; 
-var measures = [];
-var wasInformedBy = [];
-
-var line = {};
-  
-  // get all measures
-   measures = (getSubjects(findTriplesBasedOnObjects(maxPerfMeasures)));
-   
-   for(var m in measures){
-     
-     var measureObj = findTriplesBasedOnSubjectAndPredicates(measures[m], measuresProp);
-     // var measureObjValues = [];
-     var measureObjValues;
-     
-     // store measure values
-     for(var mv in measureObj){
-       var measureObjValuesTmp = {};
-       measureObjValuesTmp.prop = measureObj[mv].predicate;
-       measureObjValuesTmp.val = measureObj[mv].object;
-       // measureObjValues.push(measureObjValuesTmp);
-       measureObjValues =measureObjValuesTmp;
-     }
-     
-     executions = getExecutionOfMeasure(measures[m]); 
-     
-     for (var e in executions) {
-
-       algorithms = getAlgorithmsOfExecution(executions[e]);
-
-       for (var a in algorithms) {
-
-         if (typeof line[executions[e]] == 'undefined') {
-           line[executions[e]] = {};
-         }
-         if (typeof line[executions[e]][algorithms[a]] == 'undefined') {
-           console.log(executions[e]);
-           line[executions[e]].name = executions[e] ;
-           line[executions[e]][algorithms[a]] = {};
-           line[executions[e]][algorithms[a]].name = algorithms[a];
-           line[executions[e]][algorithms[a]].identifier = getAlgorithmIdentifier(algorithms[a]);
-           line[executions[e]][algorithms[a]].measures = [];
-         }
-         
-          line[executions[e]][algorithms[a]].measures.push (measureObjValues);
-         
-       } 
-     }
-   }
-   console.log(line);
-   return line;
-}
 
 
 function getSubjects(triples){
@@ -249,41 +194,6 @@ function getObjects(triples){
   return objects;
 }
 
-function findTriplesBasedOnObjects(objects){
-  var triples = [];
-  var triplesTMP;
-  for (var i in objects){
-    triplesTMP = store.find(null, null , objects[i]);
-    for(var v in triplesTMP){
-      triples.push(triplesTMP[v]);
-    }
-  }
-  return triples; 
-}
-
-function findTriplesBasedOnSubjectAndPredicates(subject, predicates){
-  var triples = [];
-  var triplesTMP;
-  for (var i in predicates){
-    triplesTMP = store.find(subject, predicates[i] , null);
-    for(var v in triplesTMP){
-      triples.push(triplesTMP[v]);
-    }
-  }
-  return triples; 
-}
-
-function getExecutionOfMeasure(measure){
-  return getObjects(store.find(measure, wasInformedByURI , null));
-}
-
-function getAlgorithmsOfExecution(execution){
-  return getObjects(store.find(execution, usedURI , null));
-}
-
-function getAlgorithmIdentifier(algorithm){
-  return getObjects(store.find(algorithm, identifierURI , null));
-}
 
 function loadTriples(fileName, callback){
    fs.readFile(fileName, "utf8", function (err, data) {
@@ -294,7 +204,7 @@ function loadTriples(fileName, callback){
               store.addTriple(triple.subject, triple.predicate, triple.object);
             }
             else{
-              return callback(loadRDF());
+              return callback(loadRDF2());
             }
           });
              
@@ -303,28 +213,59 @@ function loadTriples(fileName, callback){
 }
 
 
+//=============================
+
+var loadRDF2 = function(){
+  
+  
+  var experimentsConfiguration = []; 
+  for (var experimentConfigurationURL in getExperimentsConfiguration()){
+    var experimentConfiguration = {};
+    experimentConfiguration.URL=getExperimentsConfiguration()[experimentConfigurationURL];
+    experimentConfiguration.label = getObjects(store.find(experimentConfiguration.URL, labelURI, null)); 
+    experimentConfiguration.executions = [];
+    
+    for(var executionOfExperimentURL in getExecutionsOfExperiment(experimentConfiguration.URL)){
+      var executionExperiment = {}; 
+      executionExperiment.executionPerformance = getSubjects(store.find(null, wasInformedByURI, getExecutionsOfExperiment(experimentConfiguration.URL)[executionOfExperimentURL]))[0]; 
+      executionExperiment.measureURI = getSubjects(store.find(null, wasGeneratedByURI , executionExperiment.executionPerformance))[0]; 
+      executionExperiment.measures = [];
+      
+      for(var measure in measuresProp){
+        var measureTMP = getObjects(store.find(executionExperiment.measureURI,measuresProp[measure], null))[0]; 
+        if (typeof measureTMP != 'undefined'){
+        // console.log(measureTMP);
+          var measureTMP2 = {};
+          measureTMP2.prop = measuresProp[measure]; 
+          measureTMP2.val = measureTMP;
+          executionExperiment.measures.push(measureTMP2);
+        }
+      }
+      experimentConfiguration.executions.push(executionExperiment);
+       
+    }
+    
+    
+    experimentsConfiguration.push(JSON.stringify(experimentConfiguration));
+    
+  }
+  
+  return experimentsConfiguration; 
+  
+  
+};
 
 
 
 
+function getExecutionsOfExperiment(experiment){
+  return getSubjects(store.find(null, wasInformedByURI, experiment)); 
+};
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function getExperimentsConfiguration(){
+  return getSubjects(store.find(null, aURI, experimentConfigurationURI)); 
+}; 
 
 
 module.exports = app;
