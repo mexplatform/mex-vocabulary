@@ -20,6 +20,8 @@ main.controller('rootCtrl', ['$scope', '$http', function ($scope, $http) {
   $scope.columns = [];
   $scope.table = [[]];
   $scope.title = [];
+  $scope.thumbsUp = false;
+  $scope.thumbsDown = false;
   
   var indexLines = 0;
   var indexColumns = 0;
@@ -127,9 +129,23 @@ main.controller('rootCtrl', ['$scope', '$http', function ($scope, $http) {
     $(this).ajaxSubmit({
       error: function (xhr) {
         status('Error: ' + xhr.status);
+          $scope.thumbsDown = true;
+          $scope.thumbsUp = false;
+
       },
       success: function (response) {
         $scope.response = $.parseJSON(response);
+        
+        if(typeof $scope.response[0] != 'undefined'){
+          
+          $scope.thumbsUp = true;
+          $scope.thumbsDown = false;
+        }
+        else{
+          $scope.thumbsDown = true;
+          $scope.thumbsUp = false;
+        }
+
         indexLines = 0;
         indexColumns = 0;
         $scope.$apply();

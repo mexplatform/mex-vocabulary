@@ -20,24 +20,59 @@
   <title>MEX RDF to Latex Converter</title>
   
   <body>
-    <div class="wrapper">
+        
+<div class="navbar navbar-fixed-top" role="navigation" style="margin-top:15px">
+    <div class="container">
+        <div class="navbar-header">
+          
+            <a href="http://mex.aksw.org/index.html" class="logo"><img src="http://aksw.org/extensions/site/sites//local/images/logo-aksw.png" /></a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="http://mex.aksw.org/index.html" style="color:black">
+                        MEX project webpage
+                    </a>
+                </li>
+                <li>
+                    <a href="http://aksw.org/About.html" style="color:black">
+                         AKSW Group
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+
+
+    <div class="wrapper" style="margin-top: 75px">
       <div ng-app="main" class="container">
+        
+        
+        
         <div ng-controller="rootCtrl">
-          <h2>Choose your RDF MEX file.</h2>
+          <h1>MEX to LaTeX exporter</h1>
+          <p>
+            MEX is a vocabulary (schema) for describing and sharing metadata of machine learning experiments using Linked Data technologies. Here you can use this service to your convert MEX RDF file to LaTeX tables. For more information about MEX, please visit our <a href="http://mex.aksw.org/index.html">website</a>.
+          </p>
+          <h2 style="margin-top: 35px">Step 1. Choose your RDF MEX file.</h2>
           <p>Select your MEX file and click on "Convert"! A sample file can be found
             <a href="https://github.com/AKSW/mexproject/blob/master/latex_exporter/latex_exporter/ex.ttl">here</a>.</p>
           <div style="margin-top:20px">
             <form action="/" method="post" enctype="multipart/form-data" id="uploadForm">
               <input type="file" name="RDFFILE">
-              <input type="submit" value="Convert!">
+              <input type="submit" value="Convert!"> <span ng-show="thumbsUp" style="color: green; margin-left: 35px"><i class="glyphicon glyphicon-thumbs-up"></i> Great! Your file was successfully converted.</span><span ng-show="thumbsDown" style="color: red; margin-left: 35px"><i class="glyphicon glyphicon-thumbs-down"></i> Sorry, we could not parse your file. Are you sure it is a valid RDF file?</span>
             </form>
           </div>
           
-          <h2>Choose the configuration.</h2>
+          <h2 style="margin-top: 35px">Step 2. Choose the configuration.</h2>
+          <p>Now, pick one configuration of your results.</p>
           <select ng-model="configuration" ng-options="k.label for k in response" ng-change="makeFirstLine(configuration)">
             <option value="">Configuration</option>
           </select>
-          <h2>Assembly your table.</h2>
+          <h2 style="margin-top: 35px">Step 3. Assembly your table.</h2>
           <p>Choose here which executions and measures will be added to the LaTeX table.</p>
           <div style="clear: left; margin-top: 10px">
             <input type="button" ng-click="newLine();" value="Add Execution">
@@ -57,9 +92,9 @@
               <option value="">Algorithm</option>
             </select>
           </div>
-          <br />
+          
           <div>
-            <h2>Get your LaTeX code.</h2>
+            <h2 style="margin-top: 35px">Step 4. Get your LaTeX code.</h2>
             <p>Copy and paste the following code to your LaTeX document.</p>
             <pre>{{latexTableView}}</pre>
           </div>
