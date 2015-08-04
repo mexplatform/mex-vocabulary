@@ -117,12 +117,23 @@ main.controller('rootCtrl', ['$scope', '$http', function ($scope, $http) {
   };
 
   $scope.makeFirstLine = function (execution) {
+    clearTable();
     indexLines = 1;
     indexColumns = 1;
     $scope.execution = execution; 
     $scope.lines.push(0);
     $scope.columns.push(0);
   };
+  
+  function clearTable(){
+            indexLines = 0;
+        indexColumns = 0;
+        $scope.columns = [];
+        $scope.lines = [];        
+          $scope.table = [[]];
+            $scope.latexTableView = "";
+          
+  }
 
 
   $('#uploadForm').submit(function () {
@@ -148,6 +159,7 @@ main.controller('rootCtrl', ['$scope', '$http', function ($scope, $http) {
 
         indexLines = 0;
         indexColumns = 0;
+        clearTable();
         $scope.$apply();
       }
     });
