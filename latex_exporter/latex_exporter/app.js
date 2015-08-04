@@ -222,13 +222,13 @@ var loadRDF2 = function(){
   for (var experimentConfigurationURL in getExperimentsConfiguration()){
     var experimentConfiguration = {};
     experimentConfiguration.URL=getExperimentsConfiguration()[experimentConfigurationURL];
-    experimentConfiguration.label = getObjects(store.find(experimentConfiguration.URL, labelURI, null))[0]; 
+    experimentConfiguration.label = getObjects(store.find(experimentConfiguration.URL, labelURI, null))[0].replace(/\"/g, ""); 
     experimentConfiguration.executions = [];
     
     for(var executionOfExperimentURL in getExecutionsOfExperiment(experimentConfiguration.URL)){
       var executionExperiment = {}; 
       executionExperiment.executionPerformance = getSubjects(store.find(null, wasInformedByURI, getExecutionsOfExperiment(experimentConfiguration.URL)[executionOfExperimentURL]))[0]; 
-      executionExperiment.label = getObjects(store.find(getExecutionsOfExperiment(experimentConfiguration.URL)[executionOfExperimentURL], labelURI,null))[0]; 
+      executionExperiment.label = getObjects(store.find(getExecutionsOfExperiment(experimentConfiguration.URL)[executionOfExperimentURL], labelURI,null))[0].replace(/\"/g, ""); 
       executionExperiment.measureURI = getSubjects(store.find(null, wasGeneratedByURI , executionExperiment.executionPerformance))[0]; 
       // executionExperiment.label = getObjects(store.find(null, wasGeneratedByURI , executionExperiment.executionPerformance))[0]; 
       executionExperiment.measures = [];
@@ -238,8 +238,8 @@ var loadRDF2 = function(){
         if (typeof measureTMP != 'undefined'){
         // console.log(measureTMP);
           var measureTMP2 = {};
-          measureTMP2.prop = measuresProp[measure]; 
-          measureTMP2.val = measureTMP;
+          measureTMP2.prop = measuresProp[measure].replace("http://mex.aksw.org/mex-perf#", ""); 
+          measureTMP2.val = measureTMP.replace("^^http://www.w3.org/2001/XMLSchema#float","");
           executionExperiment.measures.push(measureTMP2);
         }
       }
