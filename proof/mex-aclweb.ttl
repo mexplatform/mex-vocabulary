@@ -1,0 +1,357 @@
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix prov:     <http://www.w3.org/ns/prov#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix dcat:     <http://www.w3.org/ns/dcat#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: 	  <http://purl.org/dc/terms/> .
+@prefix doap:     <http://usefulinc.com/ns/doap#> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix mexcore: <http://mex.aksw.org/mex-core#> .
+@prefix mexalgo: <http://mex.aksw.org/mex-algo#> .
+@prefix mexperf: <http://mex.aksw.org/mex-perf#> .
+@prefix this:  <http://mex.aksw.org/example/001/> .
+
+[ rdf:type owl:Ontology ;
+  owl:imports <http://www.w3.org/ns/prov-o-20130430>
+] .
+
+
+####################################################################################################################################
+#	 Layer        : mex core (mexcore)
+#    Version      : 1.0.1
+#	 Version Label: mexperf-semantics-2015
+####################################################################################################################################
+
+################### basic provenence for authoring ###################
+this:application
+   a prov:Agent, prov:Person, prov:Organization, mexcore:ApplicationContext;
+   rdfs:seeAlso        <http://aclweb.org/aclwiki/index.php?title=POS_Tagging_(State_of_the_art)>;
+   dct:dateCopyrighted "2014.08.01 12:30:00 CEST";
+   foaf:givenName "D.Esteves" 
+.
+this:context
+	a prov:Entity, mexcore:NaturalLanguageProcessing;
+	prov:wasAttributedTo this:application
+.
+this:experiment-header
+	a prov:Entity, mexcore:Experiment;
+	dct:identifier "ACL Benchmarking"^^xsd:string;
+	dcterms:title "ACL Benchmarking - The POS Tagging state of the art"^^xsd:string;
+	dcterms:date "2015-08-01"^^xsd:date;
+	dcterms:description "the ACL wikipedia - French TreeBank."^^xsd:string;
+	prov:wasAttributedTo this:application;
+.
+################### configurations ###################
+this:conf1
+     a mexcore:ExperimentConfiguration, prov:Activity ;
+     prov:used this:sm1, this:ds1;
+     dct:identifier "EC-FTB" ;
+     rdfs:label "FTB";
+.
+################### variables for the execution grouped into a logical entity ###################
+this:sm1
+	a mexcore:CrossValidation, prov:Entity;
+	mexcore:trainSize "0.8"^^xsd:double;
+	mexcore:testSize "0.1"^^xsd:double;
+  mexcore:validationSize "0.1"^^xsd:double;
+	mexcore:folds "1"^^xsd:integer;
+	mexcore:sequential "true"^^xsd:boolean;
+.
+this:ds1
+	a mexcore:Dataset, prov:Entity;
+	dcterms:title "FTB"^^xsd:string;
+	dcterms:description "French TreeBank"^^xsd:string;
+	dcat:landingPage <http://www.llf.cnrs.fr/fr/Gens/Abeille/French-Treebank-fr.php>;
+.
+this:imp1
+	a mexalgo:Implementation;
+	rdfs:label "Morfette"^^xsd:string;
+  doap:homepage "https://sites.google.com/site/morfetteweb/"
+.
+this:imp2
+  a mexalgo:Implementation;
+  rdfs:label "SEM"^^xsd:string;
+  doap:homepage "http://www.lattice.cnrs.fr/sites/itellier/SEM.html"
+.
+this:imp3
+  a mexalgo:Implementation;
+  rdfs:label "Alpage linguistic workbench"^^xsd:string;
+  doap:homepage "https://gforge.inria.fr/projects/lingwb/"
+.
+################### execution and its directed linked variables ###################
+this:test
+	a prov:Entity, mexcore:Test;
+.	
+this:exec1
+      a prov:Activity, mexcore:OverallExecution;
+      rdfs:label "exec-morfette01";
+      mexcore:startsAtPosition "1"^^xsd:string;
+      mexcore:endsAtPosition "1235"^^xsd:string;
+      prov:used this:test,
+      			this:imp1,
+      			this:alg1;
+	    prov:wasInformedBy this:conf1;
+      dcterms:identifier "exec001"^^xsd:string;
+.
+this:exec2
+      a prov:Activity, mexcore:OverallExecution;
+      rdfs:label "exec-SEM01";
+      mexcore:startsAtPosition "1"^^xsd:string;
+      mexcore:endsAtPosition "1235"^^xsd:string;
+      prov:used this:test,
+      			this:imp2,
+      			this:alg2;
+	    prov:wasInformedBy this:conf1;
+      dcterms:identifier "exec002"^^xsd:string;
+.
+this:exec3
+      a prov:Activity, mexcore:OverallExecution;
+      rdfs:label "exec-MElt01";
+      mexcore:startsAtPosition "1"^^xsd:string;
+      mexcore:endsAtPosition "1235"^^xsd:string;
+      prov:used this:test,
+      			this:imp3,
+      			this:alg3;
+	    prov:wasInformedBy this:conf1;
+      dcterms:identifier "exec003"^^xsd:string;
+.
+##################################################################
+#	 Layer        : mex algorithm (mexalgo)
+#    Version      : 1.0.1
+#	 Version Label: mexalgo-semantics-2015
+##################################################################
+this:alg1
+	a mexalgo:Morfette, mexalgo:Algorithm;
+	dcterms:identifier "Morfette"^^xsd:string;
+	dcterms:description "Perceptron with external lexical information"^^xsd:string;
+.
+this:alg2
+  a mexalgo:SEM, mexalgo:Algorithm;
+  dcterms:identifier "SEM"^^xsd:string;
+  dcterms:description "CRF with external lexical information"^^xsd:string;
+.
+this:alg3
+  a mexalgo:MElt, mexalgo:Algorithm;
+  dcterms:identifier "Morfette"^^xsd:string;
+  dcterms:description "MEMM with external lexical information"^^xsd:string;
+.
+##################################################################
+#	 Layer        : mex performance (mexperf)
+#    Version      : 1.0.1
+#	 Version Label: mexperf-semantics-2015
+##################################################################
+
+this:ep1
+	a prov:Activity, mexperf:ExecutionPerformance;
+	prov:wasInformedBy this:exec1;
+	prov:generated this:m11, this:m12;
+.
+this:ep2
+	a prov:Activity, mexperf:ExecutionPerformance;
+	prov:wasInformedBy this:exec2;
+	prov:generated this:m21, this:m22;
+.
+this:ep3
+	a prov:Activity, mexperf:ExecutionPerformance;
+	prov:wasInformedBy this:exec3;
+	prov:generated this:m31, this:m32;
+.
+this:m11
+	a prov:Entity, mexperf:ClassificationMeasure;
+	mexperf:accuracy "0.9768"^^xsd:float;
+	prov:wasGeneratedBy this:ep1;
+.
+this:m12
+  a prov:Entity, mexperf:UserDefinedMeasure;
+  dct:description "Accuracy of Unknown Words";
+  dct:identifier "UnknownWordsAcc";
+  prov:value "0.9052"^^xsd:float;
+  prov:wasGeneratedBy this:ep1;
+.
+this:m21
+  a prov:Entity, mexperf:ClassificationMeasure;
+  mexperf:accuracy "0.9770"^^xsd:float;
+  prov:wasGeneratedBy this:ep2;
+.
+this:m22
+  a prov:Entity, mexperf:UserDefinedMeasure;
+  dct:description "Accuracy of Unknown Words";
+  dct:identifier "UnknownWordsAcc";
+  prov:value "";
+  prov:wasGeneratedBy this:ep2;
+.
+this:m31
+  a prov:Entity, mexperf:ClassificationMeasure;
+  mexperf:accuracy "0.9780"^^xsd:float;
+  prov:wasGeneratedBy this:ep3;
+.
+this:m32
+  a prov:Entity, mexperf:UserDefinedMeasure;
+  dct:description "Accuracy of Unknown Words";
+  dct:identifier "UnknownWordsAcc";
+  prov:value "0.9177"^^xsd:float;
+  prov:wasGeneratedBy this:ep3;
+.
+
+
+
+
+###  http://www.w3.org/ns/prov#Activity
+
+prov:Activity rdf:type owl:Class .
+
+
+
+###  http://www.w3.org/ns/prov#Agent
+
+prov:Agent rdf:type owl:Class .
+
+
+
+###  http://www.w3.org/ns/prov#Entity
+
+prov:Entity rdf:type owl:Class .
+
+
+
+###  http://www.w3.org/ns/prov#Organization
+
+prov:Organization rdf:type owl:Class .
+
+
+
+###  http://www.w3.org/ns/prov#Person
+
+prov:Person rdf:type owl:Class .
+
+
+
+mexcore:endsAtPosition rdf:type owl:AnnotationProperty .
+
+
+
+###  http://mex.aksw.org/mex-core#folds
+
+mexcore:folds rdf:type owl:AnnotationProperty .
+
+
+
+###  http://mex.aksw.org/mex-core#sequential
+
+mexcore:sequential rdf:type owl:AnnotationProperty .
+
+
+
+###  http://mex.aksw.org/mex-core#startsAtPosition
+
+mexcore:startsAtPosition rdf:type owl:AnnotationProperty .
+
+
+
+###  http://mex.aksw.org/mex-core#testSize
+
+mexcore:testSize rdf:type owl:AnnotationProperty .
+
+
+
+###  http://mex.aksw.org/mex-core#trainSize
+
+mexcore:trainSize rdf:type owl:AnnotationProperty .
+
+
+
+###  http://mex.aksw.org/mex-core#validationSize
+
+mexcore:validationSize rdf:type owl:AnnotationProperty .
+
+
+
+###  http://mex.aksw.org/mex-perf#accuracy
+
+mexperf:accuracy rdf:type owl:AnnotationProperty .
+
+
+
+###  http://purl.org/dc/terms/date
+
+dct:date rdf:type owl:AnnotationProperty .
+
+
+
+###  http://purl.org/dc/terms/dateCopyrighted
+
+dct:dateCopyrighted rdf:type owl:AnnotationProperty .
+
+
+
+###  http://purl.org/dc/terms/description
+
+dct:description rdf:type owl:AnnotationProperty .
+
+
+
+###  http://purl.org/dc/terms/identifier
+
+dct:identifier rdf:type owl:AnnotationProperty .
+
+
+
+###  http://purl.org/dc/terms/title
+
+dct:title rdf:type owl:AnnotationProperty .
+
+
+
+###  http://usefulinc.com/ns/doap#homepage
+
+doap:homepage rdf:type owl:AnnotationProperty .
+
+
+
+###  http://www.w3.org/ns/dcat#landingPage
+
+dcat:landingPage rdf:type owl:AnnotationProperty .
+
+
+
+###  http://www.w3.org/ns/prov#generated
+
+prov:generated rdf:type owl:AnnotationProperty .
+
+
+
+###  http://www.w3.org/ns/prov#used
+
+prov:used rdf:type owl:AnnotationProperty .
+
+
+
+###  http://www.w3.org/ns/prov#value
+
+prov:value rdf:type owl:AnnotationProperty .
+
+
+
+###  http://www.w3.org/ns/prov#wasAttributedTo
+
+prov:wasAttributedTo rdf:type owl:AnnotationProperty .
+
+
+
+###  http://www.w3.org/ns/prov#wasGeneratedBy
+
+prov:wasGeneratedBy rdf:type owl:AnnotationProperty .
+
+
+
+###  http://www.w3.org/ns/prov#wasInformedBy
+
+prov:wasInformedBy rdf:type owl:AnnotationProperty .
+
+
+
+###  http://xmlns.com/foaf/0.1/givenName
+
+foaf:givenName rdf:type owl:AnnotationProperty .
