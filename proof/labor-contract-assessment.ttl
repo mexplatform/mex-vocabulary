@@ -13,12 +13,9 @@
 @prefix mex-perf:    <http://mex.aksw.org/mex-perf#> .
 @prefix :  <http://mex.aksw.org/example/labour-neg#> .
 
-<http://mex.aksw.org/example/labour-neg> 
-  a owl:Ontology ;
-  owl:versionInfo "0.5" ;
-  dct:created "2014-04-29"^^xsd:date ;
-  dct:modified "2014-05-07"^^xsd:date ;
-  owl:imports mex-core:, mex-perf:, mex-algo: .
+[ rdf:type owl:Ontology ;
+  owl:imports <http://www.w3.org/ns/prov-o-20130430>
+] .
 
 :applicationContext 
   a mex-core:ApplicationContext ;
@@ -82,7 +79,7 @@
   prov:used :trainingSplit-A, :testSplit-A ;
   prov:used :hardware ;
   prov:used :wekaLADTree, :alternatingDecisionTree, :adtTreeModel ;
-  prov:startedBy :exp ;
+  prov:wasInformedBy :experiment ;
   dct:indentifer "labor-neg-exec-A" ;
   prov:startedAtTime "2014-04-19T14:22:00+00:00"^^xsd:dateTime ;
   prov:endedAtTime "2014-04-19T14:23:30+00:00"^^xsd:dateTime .
