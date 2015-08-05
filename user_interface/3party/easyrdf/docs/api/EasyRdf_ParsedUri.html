@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>EasyRdf_ParsedUri | </title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href=".html"></a>EasyRdf_ParsedUri</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EasyRdf_ParsedUri</strong></p>
+
+            <div class="description">
+            <p>A RFC3986 compliant URI parser</p>
+            <p>
+</p>
+        </div>
+    
+            <h2>Constants</h2>
+
+            <table>
+                    <tr>
+                <td>URI_REGEX</td>
+                <td class="last">
+                    <p><em>
+</em></p>
+                    <p>
+</p>
+                </td>
+            </tr>
+            </table>
+
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(mixed $uri = null)
+                    <p>Constructor for creating a new parsed URI</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isAbsolute">isAbsolute</a>()
+                    <p>Returns true if this is an absolute (complete) URI</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isRelative">isRelative</a>()
+                    <p>Returns true if this is an relative (partial) URI</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getScheme">getScheme</a>()
+                    <p>Returns the scheme of the URI (e.g.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setScheme">setScheme</a>(string $scheme)
+                    <p>Sets the scheme of the URI (e.g.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getAuthority">getAuthority</a>()
+                    <p>Returns the authority of the URI (e.g.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setAuthority">setAuthority</a>(string $authority)
+                    <p>Sets the authority of the URI (e.g.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getPath">getPath</a>()
+                    <p>Returns the path of the URI (e.g.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setPath">setPath</a>(string $path)
+                    <p>Set the path of the URI (e.g.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getQuery">getQuery</a>()
+                    <p>Returns the query string part of the URI (e.g.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setQuery">setQuery</a>(string $query)
+                    <p>Set the query string of the URI (e.g.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getFragment">getFragment</a>()
+                    <p>Returns the fragment part of the URI (i.e.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_setFragment">setFragment</a>(string $fragment)
+                    <p>Set the fragment of the URI (i.e.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_normalise">normalise</a>()
+                    <p>Normalises the path of this URI if it has one.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_resolve">resolve</a>($relUri)
+                    <p>Resolves a relative URI using this URI as the base URI.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_toString">toString</a>()
+                    <p>Convert the parsed URI back into a string</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method___toString">__toString</a>()
+                    <p>Magic method to convert the URI, when casted, back to a string</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 69</div>
+        <code>            public            object
+    <strong>__construct</strong>(mixed $uri = null)</code>
+    </h3>
+    <div class="details">
+        <p>Constructor for creating a new parsed URI</p>
+        <p>The $uri parameter can either be a string or an
+associative array with the following keys:
+scheme, authority, path, query, fragment</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>mixed</td>
+                <td>$uri</td>
+                <td>The URI as a string or an array</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf_ParsedUri</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isAbsolute">
+        <div class="location">at line 100</div>
+        <code>            public            boolean
+    <strong>isAbsolute</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns true if this is an absolute (complete) URI</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isRelative">
+        <div class="location">at line 108</div>
+        <code>            public            boolean
+    <strong>isRelative</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns true if this is an relative (partial) URI</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getScheme">
+        <div class="location">at line 116</div>
+        <code>            public            string
+    <strong>getScheme</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the scheme of the URI (e.g.</p>
+        <p>http)</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setScheme">
+        <div class="location">at line 124</div>
+        <code>            public            
+    <strong>setScheme</strong>(string $scheme)</code>
+    </h3>
+    <div class="details">
+        <p>Sets the scheme of the URI (e.g.</p>
+        <p>http)</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$scheme</td>
+                <td>The new value for the scheme of the URI</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getAuthority">
+        <div class="location">at line 132</div>
+        <code>            public            string
+    <strong>getAuthority</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the authority of the URI (e.g.</p>
+        <p>www.example.com:8080)</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setAuthority">
+        <div class="location">at line 140</div>
+        <code>            public            
+    <strong>setAuthority</strong>(string $authority)</code>
+    </h3>
+    <div class="details">
+        <p>Sets the authority of the URI (e.g.</p>
+        <p>www.example.com:8080)</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$authority</td>
+                <td>The new value for the authority component of the URI</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getPath">
+        <div class="location">at line 148</div>
+        <code>            public            string
+    <strong>getPath</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the path of the URI (e.g.</p>
+        <p>/foo/bar)</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setPath">
+        <div class="location">at line 156</div>
+        <code>            public            
+    <strong>setPath</strong>(string $path)</code>
+    </h3>
+    <div class="details">
+        <p>Set the path of the URI (e.g.</p>
+        <p>/foo/bar)</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$path</td>
+                <td>The new value for the path component of the URI</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getQuery">
+        <div class="location">at line 164</div>
+        <code>            public            string
+    <strong>getQuery</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the query string part of the URI (e.g.</p>
+        <p>foo=bar)</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setQuery">
+        <div class="location">at line 172</div>
+        <code>            public            
+    <strong>setQuery</strong>(string $query)</code>
+    </h3>
+    <div class="details">
+        <p>Set the query string of the URI (e.g.</p>
+        <p>foo=bar)</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$query</td>
+                <td>The new value for the query string component of the URI</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getFragment">
+        <div class="location">at line 180</div>
+        <code>            public            string
+    <strong>getFragment</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the fragment part of the URI (i.e.</p>
+        <p>after the #)</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setFragment">
+        <div class="location">at line 188</div>
+        <code>            public            
+    <strong>setFragment</strong>(string $fragment)</code>
+    </h3>
+    <div class="details">
+        <p>Set the fragment of the URI (i.e.</p>
+        <p>after the #)</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$fragment</td>
+                <td>The new value for the fragment component of the URI</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_normalise">
+        <div class="location">at line 202</div>
+        <code>            public            object
+    <strong>normalise</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Normalises the path of this URI if it has one.</p>
+        <p>Normalising a path means
+that any unnecessary '.' and '..' segments are removed. For example, the
+URI http://example.com/a/b/../c/./d would be normalised to
+http://example.com/a/c/d</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf_ParsedUri</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_resolve">
+        <div class="location">at line 254</div>
+        <code>            public            
+    <strong>resolve</strong>($relUri)</code>
+    </h3>
+    <div class="details">
+        <p>Resolves a relative URI using this URI as the base URI.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$relUri</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_toString">
+        <div class="location">at line 313</div>
+        <code>            public            string
+    <strong>toString</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Convert the parsed URI back into a string</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The URI as a string</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___toString">
+        <div class="location">at line 336</div>
+        <code>            public            string
+    <strong>__toString</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Magic method to convert the URI, when casted, back to a string</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The URI as a string</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

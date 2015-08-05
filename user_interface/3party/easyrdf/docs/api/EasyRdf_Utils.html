@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>EasyRdf_Utils | </title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href=".html"></a>EasyRdf_Utils</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EasyRdf_Utils</strong></p>
+
+            <div class="description">
+            <p>Class containing static utility functions</p>
+            <p>
+</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_camelise">camelise</a>(string $str)
+                    <p>Convert a string into CamelCase</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;bool
+                </td>
+                <td class="last">
+                    <a href="#method_isAssociativeArray">isAssociativeArray</a>(mixed $param)
+                    <p>Check if something is an associative array</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_removeFragmentFromUri">removeFragmentFromUri</a>(mixed $uri)
+                    <p>Remove the fragment from a URI (if it has one)</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_dumpResourceValue">dumpResourceValue</a>(mixed $resource, string $format = &#039;html&#039;, string $color = &#039;blue&#039;)
+                    <p>Return pretty-print view of a resource URI</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_dumpLiteralValue">dumpLiteralValue</a>(mixed $literal, string $format = &#039;html&#039;, string $color = &#039;black&#039;)
+                    <p>Return pretty-print view of a literal</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;array
+                </td>
+                <td class="last">
+                    <a href="#method_parseMimeType">parseMimeType</a>(string $mimeType)
+                    <p>Clean up and split a mime-type up into its parts</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_execCommandPipe">execCommandPipe</a>(string $command, array $args = null, string $input = null, string $dir = null)
+                    <p>Execute a command as a pipe</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_camelise">
+        <div class="location">at line 61</div>
+        <code>        static    public            string
+    <strong>camelise</strong>(string $str)</code>
+    </h3>
+    <div class="details">
+        <p>Convert a string into CamelCase</p>
+        <p>A capital letter is inserted for any non-letter (including userscore).
+For example:
+'hello world' becomes HelloWorld
+'rss-tag-soup' becomes RssTagSoup
+'FOO//BAR' becomes FooBar</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$str</td>
+                <td>The input string</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The input string converted to CamelCase</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isAssociativeArray">
+        <div class="location">at line 78</div>
+        <code>        static    public            bool
+    <strong>isAssociativeArray</strong>(mixed $param)</code>
+    </h3>
+    <div class="details">
+        <p>Check if something is an associative array</p>
+        <p>Note: this method only checks the key of the first value in the array.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>mixed</td>
+                <td>$param</td>
+                <td>The variable to check</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>true if the variable is an associative array</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_removeFragmentFromUri">
+        <div class="location">at line 98</div>
+        <code>        static    public            string
+    <strong>removeFragmentFromUri</strong>(mixed $uri)</code>
+    </h3>
+    <div class="details">
+        <p>Remove the fragment from a URI (if it has one)</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>mixed</td>
+                <td>$uri</td>
+                <td>A URI</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The same URI with the fragment removed</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_dumpResourceValue">
+        <div class="location">at line 119</div>
+        <code>        static    public            string
+    <strong>dumpResourceValue</strong>(mixed $resource, string $format = &#039;html&#039;, string $color = &#039;blue&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Return pretty-print view of a resource URI</p>
+        <p>This method is mainly intended for internal use and is used by
+EasyRdf<em>Graph and EasyRdf</em>Sparql_Result to format a resource
+for display.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>mixed</td>
+                <td>$resource</td>
+                <td>An EasyRdf_Resource object or an associative array</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$format</td>
+                <td>Either 'html' or 'text'</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$color</td>
+                <td>The colour of the text</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_dumpLiteralValue">
+        <div class="location">at line 166</div>
+        <code>        static    public            string
+    <strong>dumpLiteralValue</strong>(mixed $literal, string $format = &#039;html&#039;, string $color = &#039;black&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Return pretty-print view of a literal</p>
+        <p>This method is mainly intended for internal use and is used by
+EasyRdf<em>Graph and EasyRdf</em>Sparql_Result to format a literal
+for display.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>mixed</td>
+                <td>$literal</td>
+                <td>An EasyRdf_Literal object or an associative array</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$format</td>
+                <td>Either 'html' or 'text'</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$color</td>
+                <td>The colour of the text</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_parseMimeType">
+        <div class="location">at line 207</div>
+        <code>        static    public            array
+    <strong>parseMimeType</strong>(string $mimeType)</code>
+    </h3>
+    <div class="details">
+        <p>Clean up and split a mime-type up into its parts</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$mimeType</td>
+                <td>A MIME Type, optionally with parameters</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>$type, $parameters</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_execCommandPipe">
+        <div class="location">at line 233</div>
+        <code>        static    public            string
+    <strong>execCommandPipe</strong>(string $command, array $args = null, string $input = null, string $dir = null)</code>
+    </h3>
+    <div class="details">
+        <p>Execute a command as a pipe</p>
+        <p>The proc_open() function is used to open a pipe to a
+a command line process, writing $input to STDIN, returning STDOUT
+and throwing an exception if anything is written to STDERR or the
+process returns non-zero.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$command</td>
+                <td>The command to execute</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$args</td>
+                <td>Optional list of arguments to pass to the command</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$input</td>
+                <td>Optional buffer to send to the command</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$dir</td>
+                <td>Path to directory to run command in (defaults to /tmp)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The result of the command, printed to STDOUT</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>EasyRdf_Http_Response | </title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href=".html"></a>EasyRdf_Http_Response</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EasyRdf_Http_Response</strong></p>
+
+            <div class="description">
+            <p>Class that represents an HTTP 1.0 / 1.1 response message.</p>
+            <p>
+</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(int $status, array $headers, string $body = null, string $version = &#039;1.1&#039;, string $message = null)
+                    <p>Constructor.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isSuccessful">isSuccessful</a>()
+                    <p>Check whether the response in successful</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isError">isError</a>()
+                    <p>Check whether the response is an error</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isRedirect">isRedirect</a>()
+                    <p>Check whether the response is a redirection</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int
+                </td>
+                <td class="last">
+                    <a href="#method_getStatus">getStatus</a>()
+                    <p>Get the HTTP response status code</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getMessage">getMessage</a>()
+                    <p>Return a message describing the HTTP response code (Eg.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getBody">getBody</a>()
+                    <p>Get the response body as string</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getRawBody">getRawBody</a>()
+                    <p>Get the raw response body (as transfered "on wire") as string</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getVersion">getVersion</a>()
+                    <p>Get the HTTP version of the response</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_getHeaders">getHeaders</a>()
+                    <p>Get the response headers</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string|array|null
+                </td>
+                <td class="last">
+                    <a href="#method_getHeader">getHeader</a>(<abbr title="string$header">string$header</abbr> $header)
+                    <p>Get a specific header as string, or null if it is not set</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getHeadersAsString">getHeadersAsString</a>(boolean $statusLine = true, string $br = &#039;
+&#039;)
+                    <p>Get all headers as string</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;<a href="EasyRdf_Http_Response.html"><abbr title="EasyRdf_Http_Response">EasyRdf_Http_Response</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_fromString">fromString</a>(string $responseStr)
+                    <p>Create an EasyRdf<em>Http</em>Response object from a HTTP response string</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_decodeChunkedBody">decodeChunkedBody</a>(string $body)
+                    <p>Decode a "chunked" transfer-encoded body and return the decoded text</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_asString">asString</a>(string $br = &#039;
+&#039;)
+                    <p>Get the entire response as string</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method___toString">__toString</a>()
+                    <p>Implements magic __toString()</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 91</div>
+        <code>            public            object
+    <strong>__construct</strong>(int $status, array $headers, string $body = null, string $version = &#039;1.1&#039;, string $message = null)</code>
+    </h3>
+    <div class="details">
+        <p>Constructor.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>int</td>
+                <td>$status</td>
+                <td>HTTP Status code</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$headers</td>
+                <td>The HTTP response headers</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$body</td>
+                <td>The content of the response</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$version</td>
+                <td>The HTTP Version (1.0 or 1.1)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$message</td>
+                <td>The HTTP response Message</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf<em>Http</em>Response</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isSuccessful">
+        <div class="location">at line 114</div>
+        <code>            public            boolean
+    <strong>isSuccessful</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Check whether the response in successful</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isError">
+        <div class="location">at line 124</div>
+        <code>            public            boolean
+    <strong>isError</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Check whether the response is an error</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isRedirect">
+        <div class="location">at line 134</div>
+        <code>            public            boolean
+    <strong>isRedirect</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Check whether the response is a redirection</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getStatus">
+        <div class="location">at line 144</div>
+        <code>            public            int
+    <strong>getStatus</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the HTTP response status code</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getMessage">
+        <div class="location">at line 155</div>
+        <code>            public            string
+    <strong>getMessage</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Return a message describing the HTTP response code (Eg.</p>
+        <p>"OK", "Not Found", "Moved Permanently")</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getBody">
+        <div class="location">at line 165</div>
+        <code>            public            string
+    <strong>getBody</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the response body as string</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getRawBody">
+        <div class="location">at line 190</div>
+        <code>            public            string
+    <strong>getRawBody</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the raw response body (as transfered "on wire") as string</p>
+        <p>If the body is encoded (with Transfer-Encoding, not content-encoding -
+IE "chunked" body), gzip compressed, etc. it will not be decoded.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getVersion">
+        <div class="location">at line 200</div>
+        <code>            public            string
+    <strong>getVersion</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the HTTP version of the response</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHeaders">
+        <div class="location">at line 210</div>
+        <code>            public            array
+    <strong>getHeaders</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the response headers</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHeader">
+        <div class="location">at line 221</div>
+        <code>            public            string|array|null
+    <strong>getHeader</strong>(<abbr title="string$header">string$header</abbr> $header)</code>
+    </h3>
+    <div class="details">
+        <p>Get a specific header as string, or null if it is not set</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><abbr title="string$header">string$header</abbr></td>
+                <td>$header</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string|array|null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getHeadersAsString">
+        <div class="location">at line 238</div>
+        <code>            public            string
+    <strong>getHeadersAsString</strong>(boolean $statusLine = true, string $br = &#039;
+&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Get all headers as string</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>boolean</td>
+                <td>$statusLine</td>
+                <td>Whether to return the first status line (ie "HTTP 200 OK")</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$br</td>
+                <td>Line breaks (eg. "\n", "\r\n", "<br />")</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_fromString">
+        <div class="location">at line 266</div>
+        <code>        static    public            <a href="EasyRdf_Http_Response.html"><abbr title="EasyRdf_Http_Response">EasyRdf_Http_Response</abbr></a>
+    <strong>fromString</strong>(string $responseStr)</code>
+    </h3>
+    <div class="details">
+        <p>Create an EasyRdf<em>Http</em>Response object from a HTTP response string</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$responseStr</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="EasyRdf_Http_Response.html"><abbr title="EasyRdf_Http_Response">EasyRdf_Http_Response</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_decodeChunkedBody">
+        <div class="location">at line 319</div>
+        <code>        static    public            string
+    <strong>decodeChunkedBody</strong>(string $body)</code>
+    </h3>
+    <div class="details">
+        <p>Decode a "chunked" transfer-encoded body and return the decoded text</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$body</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_asString">
+        <div class="location">at line 346</div>
+        <code>            public            string
+    <strong>asString</strong>(string $br = &#039;
+&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Get the entire response as string</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$br</td>
+                <td>Line breaks (eg. "\n", "\r\n", "<br />")</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___toString">
+        <div class="location">at line 356</div>
+        <code>            public            string
+    <strong>__toString</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Implements magic __toString()</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

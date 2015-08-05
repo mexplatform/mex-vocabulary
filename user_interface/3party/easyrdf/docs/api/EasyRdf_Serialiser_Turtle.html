@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>EasyRdf_Serialiser_Turtle | </title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href=".html"></a>EasyRdf_Serialiser_Turtle</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EasyRdf_Serialiser_Turtle</strong>        extends <a href="EasyRdf_Serialiser.html"><abbr title="EasyRdf_Serialiser">EasyRdf_Serialiser</abbr></a></p>
+
+            <div class="description">
+            <p>Class to serialise an EasyRdf_Graph to Turtle with no external dependancies.</p>
+            <p>http://www.w3.org/TR/turtle/</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>()
+                    <p>
+</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Serialiser.html#method___construct"><abbr title="EasyRdf_Serialiser">EasyRdf_Serialiser</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_serialise">serialise</a>(<a href="EasyRdf_Graph.html"><abbr title="EasyRdf_Graph">EasyRdf_Graph</abbr></a> $graph, string $format, array $options = array())
+                    <p>Serialise an EasyRdf_Graph to Turtle.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_escapeIri">escapeIri</a>(string $resourceIri)
+                    <p>Given a IRI string, escape and enclose in angle brackets.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_quotedString">quotedString</a>(string $value)
+                    <p>Given a string, enclose in quotes and escape any quotes in the string.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_serialiseResource">serialiseResource</a>(<a href="EasyRdf_Resource.html"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> $resource, boolean $createNamespace = false)
+                    <p>Given a an EasyRdf_Resource or URI, convert it into a string, suitable to be written to a Turtle document.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_serialiseLiteral">serialiseLiteral</a>(<a href="EasyRdf_Literal.html"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a> $literal)
+                    <p>Given an EasyRdf_Literal object, convert it into a string, suitable to be written to a Turtle document.</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_serialiseObject">serialiseObject</a>(<a href="EasyRdf_Resource.html"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a>|<a href="EasyRdf_Literal.html"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a> $object)
+                    <p>Convert an EasyRdf object into a string suitable to be written to a Turtle document.</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">in <a href="EasyRdf_Serialiser.html#method___construct"><abbr title="EasyRdf_Serialiser">EasyRdf_Serialiser</abbr></a> at line 49</div>
+        <code>            public            
+    <strong>__construct</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>
+</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_serialise">
+        <div class="location">at line 337</div>
+        <code>            public            string
+    <strong>serialise</strong>(<a href="EasyRdf_Graph.html"><abbr title="EasyRdf_Graph">EasyRdf_Graph</abbr></a> $graph, string $format, array $options = array())</code>
+    </h3>
+    <div class="details">
+        <p>Serialise an EasyRdf_Graph to Turtle.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="EasyRdf_Graph.html"><abbr title="EasyRdf_Graph">EasyRdf_Graph</abbr></a></td>
+                <td>$graph</td>
+                <td>An EasyRdf_Graph object.</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$format</td>
+                <td>The name of the format to convert to.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$options</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The RDF in the new desired format.</td>
+        </tr>
+    </table>
+
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="EasyRdf_Exception.html"><abbr title="EasyRdf_Exception">EasyRdf_Exception</abbr></a></td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_escapeIri">
+        <div class="location">at line 58</div>
+        <code>        static    public            string
+    <strong>escapeIri</strong>(string $resourceIri)</code>
+    </h3>
+    <div class="details">
+        <p>Given a IRI string, escape and enclose in angle brackets.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$resourceIri</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_quotedString">
+        <div class="location">at line 72</div>
+        <code>        static    public            string
+    <strong>quotedString</strong>(string $value)</code>
+    </h3>
+    <div class="details">
+        <p>Given a string, enclose in quotes and escape any quotes in the string.</p>
+        <p>Strings containing tabs, linefeeds or carriage returns will be
+enclosed in three double quotes (""").</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$value</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_serialiseResource">
+        <div class="location">at line 92</div>
+        <code>            public            string
+    <strong>serialiseResource</strong>(<a href="EasyRdf_Resource.html"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> $resource, boolean $createNamespace = false)</code>
+    </h3>
+    <div class="details">
+        <p>Given a an EasyRdf_Resource or URI, convert it into a string, suitable to be written to a Turtle document.</p>
+        <p>URIs will be shortened into CURIES
+where possible.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="EasyRdf_Resource.html"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></td>
+                <td>$resource</td>
+                <td>The resource to convert to a Turtle string</td>
+            </tr>
+                    <tr>
+                <td>boolean</td>
+                <td>$createNamespace</td>
+                <td>If true, a new namespace may be created</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_serialiseLiteral">
+        <div class="location">at line 119</div>
+        <code>            public            string
+    <strong>serialiseLiteral</strong>(<a href="EasyRdf_Literal.html"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a> $literal)</code>
+    </h3>
+    <div class="details">
+        <p>Given an EasyRdf_Literal object, convert it into a string, suitable to be written to a Turtle document.</p>
+        <p>Supports multiline literals and literals with
+datatypes or languages.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="EasyRdf_Literal.html"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a></td>
+                <td>$literal</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_serialiseObject">
+        <div class="location">at line 151</div>
+        <code>            public            string
+    <strong>serialiseObject</strong>(<a href="EasyRdf_Resource.html"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a>|<a href="EasyRdf_Literal.html"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a> $object)</code>
+    </h3>
+    <div class="details">
+        <p>Convert an EasyRdf object into a string suitable to be written to a Turtle document.</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="EasyRdf_Resource.html"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a>|<a href="EasyRdf_Literal.html"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a></td>
+                <td>$object</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

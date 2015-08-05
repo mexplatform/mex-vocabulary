@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>EasyRdf_Literal_Integer | </title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href=".html"></a>EasyRdf_Literal_Integer</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EasyRdf_Literal_Integer</strong>        extends <a href="EasyRdf_Literal.html"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a></p>
+
+            <div class="description">
+            <p>Class that represents an RDF Literal of datatype xsd:integer</p>
+            <p>
+</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    static&nbsp;object
+                </td>
+                <td class="last">
+                    <a href="#method_create">create</a>(mixed $value, string $lang = null, string $datatype = null)
+                    <p>Create a new literal object</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Literal.html#method_create"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;
+                </td>
+                <td class="last">
+                    <a href="#method_setDatatypeMapping">setDatatypeMapping</a>(string $datatype, string $class)
+                    <p>Register an RDF datatype with a PHP class name</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Literal.html#method_setDatatypeMapping"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;
+                </td>
+                <td class="last">
+                    <a href="#method_deleteDatatypeMapping">deleteDatatypeMapping</a>(string $datatype)
+                    <p>Remove the mapping between an RDF datatype and a PHP class name</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Literal.html#method_deleteDatatypeMapping"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    static&nbsp;string
+                </td>
+                <td class="last">
+                    <a href="#method_getDatatypeForValue">getDatatypeForValue</a>($value)
+                    <p>Get datatype URI for a PHP value.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Literal.html#method_getDatatypeForValue"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>(mixed $value, string $lang = null, string $datatype = null)
+                    <p>Constructor for creating a new integer literal</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    double
+                </td>
+                <td class="last">
+                    <a href="#method_getValue">getValue</a>()
+                    <p>Return the value of the literal cast to a PHP int</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getDatatypeUri">getDatatypeUri</a>()
+                    <p>Returns the full datatype URI of the literal.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Literal.html#method_getDatatypeUri"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getDatatype">getDatatype</a>()
+                    <p>Returns the shortened datatype URI of the literal.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Literal.html#method_getDatatype"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getLang">getLang</a>()
+                    <p>Returns the language of the literal.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Literal.html#method_getLang"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_toRdfPhp">toRdfPhp</a>()
+                    <p>Returns the properties of the literal as an associative array</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Literal.html#method_toRdfPhp"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method___toString">__toString</a>()
+                    <p>Magic method to return the value of a literal as a string</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Literal.html#method___toString"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_dumpValue">dumpValue</a>(string $format = &#039;html&#039;, string $color = &#039;black&#039;)
+                    <p>Return pretty-print view of the literal</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Literal.html#method_dumpValue"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a></small></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method_create">
+        <div class="location">in <a href="EasyRdf_Literal.html#method_create"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a> at line 79</div>
+        <code>        static    public            object
+    <strong>create</strong>(mixed $value, string $lang = null, string $datatype = null)</code>
+    </h3>
+    <div class="details">
+        <p>Create a new literal object</p>
+        <p>PHP values of type bool, int or float, will automatically be converted
+to the corresponding datatype and PHP sub-class.</p>
+
+<p>If a registered datatype is given, then the registered subclass of EasyRdf_Literal
+will instantiated.</p>
+
+<p>Note that literals are not required to have a language or datatype.
+Literals cannot have both a language and a datatype.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td>The value of the literal or an associative array</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$lang</td>
+                <td>The natural language of the literal or null (e.g. 'en')</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$datatype</td>
+                <td>The datatype of the literal or null (e.g. 'xsd:integer')</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf<em>Literal (or subclass of EasyRdf</em>Literal)</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setDatatypeMapping">
+        <div class="location">in <a href="EasyRdf_Literal.html#method_setDatatypeMapping"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a> at line 128</div>
+        <code>        static    public            
+    <strong>setDatatypeMapping</strong>(string $datatype, string $class)</code>
+    </h3>
+    <div class="details">
+        <p>Register an RDF datatype with a PHP class name</p>
+        <p>When parsing registered class will be used whenever the datatype
+is seen.</p>
+
+<p>When serialising a registered class, the mapping will be used to
+set the datatype in the RDF.</p>
+
+<p>Example:
+EasyRdf<em>Literal::registerDatatype('xsd:dateTime', 'My</em>DateTime_Class');</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$datatype</td>
+                <td>The RDF datatype (e.g. xsd:dateTime)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$class</td>
+                <td>The PHP class name (e.g. My<em>DateTime</em>Class)</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_deleteDatatypeMapping">
+        <div class="location">in <a href="EasyRdf_Literal.html#method_deleteDatatypeMapping"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a> at line 151</div>
+        <code>        static    public            
+    <strong>deleteDatatypeMapping</strong>(string $datatype)</code>
+    </h3>
+    <div class="details">
+        <p>Remove the mapping between an RDF datatype and a PHP class name</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$datatype</td>
+                <td>The RDF datatype (e.g. xsd:dateTime)</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getDatatypeForValue">
+        <div class="location">in <a href="EasyRdf_Literal.html#method_getDatatypeForValue"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a> at line 176</div>
+        <code>        static    public            string
+    <strong>getDatatypeForValue</strong>($value)</code>
+    </h3>
+    <div class="details">
+        <p>Get datatype URI for a PHP value.</p>
+        <p>This static function is intended for internal use.
+Given a PHP value, it will return an XSD datatype
+URI for that value, for example:
+http://www.w3.org/2001/XMLSchema#integer</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$value</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>A URI for the datatype of $value.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___construct">
+        <div class="location">at line 55</div>
+        <code>            public            object
+    <strong>__construct</strong>(mixed $value, string $lang = null, string $datatype = null)</code>
+    </h3>
+    <div class="details">
+        <p>Constructor for creating a new integer literal</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td>The value of the literal</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$lang</td>
+                <td>Should be null (literals with a datatype can't have a language)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$datatype</td>
+                <td>Optional datatype (default 'xsd:integer')</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf<em>Literal</em>Integer</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getValue">
+        <div class="location">at line 64</div>
+        <code>            public            double
+    <strong>getValue</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Return the value of the literal cast to a PHP int</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>double</td>
+            <td>Value of this literal.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getDatatypeUri">
+        <div class="location">in <a href="EasyRdf_Literal.html#method_getDatatypeUri"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a> at line 243</div>
+        <code>            public            string
+    <strong>getDatatypeUri</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the full datatype URI of the literal.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>Datatype URI of this literal.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getDatatype">
+        <div class="location">in <a href="EasyRdf_Literal.html#method_getDatatype"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a> at line 252</div>
+        <code>            public            string
+    <strong>getDatatype</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the shortened datatype URI of the literal.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>Datatype of this literal (e.g. xsd:integer).</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getLang">
+        <div class="location">in <a href="EasyRdf_Literal.html#method_getLang"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a> at line 265</div>
+        <code>            public            string
+    <strong>getLang</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the language of the literal.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>Language of this literal.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_toRdfPhp">
+        <div class="location">in <a href="EasyRdf_Literal.html#method_toRdfPhp"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a> at line 277</div>
+        <code>            public            array
+    <strong>toRdfPhp</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the properties of the literal as an associative array</p>
+        <p>For example:
+array('type' => 'literal', 'value' => 'string value')</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>The properties of the literal</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___toString">
+        <div class="location">in <a href="EasyRdf_Literal.html#method___toString"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a> at line 299</div>
+        <code>            public            string
+    <strong>__toString</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Magic method to return the value of a literal as a string</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The value of the literal</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_dumpValue">
+        <div class="location">in <a href="EasyRdf_Literal.html#method_dumpValue"><abbr title="EasyRdf_Literal">EasyRdf_Literal</abbr></a> at line 310</div>
+        <code>            public            string
+    <strong>dumpValue</strong>(string $format = &#039;html&#039;, string $color = &#039;black&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Return pretty-print view of the literal</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$format</td>
+                <td>Either 'html' or 'text'</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$color</td>
+                <td>The colour of the text</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>

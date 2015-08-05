@@ -1,0 +1,281 @@
+@prefix datid: <http://dataid.dbpedia.org/ns/core2#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix void: <http://rdfs.org/ns/void#> . 
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix sd: <http://www.w3.org/ns/sparql-service-description#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<>
+    a owl:Ontology ;
+    rdfs:comment "DBpedia Data ID is an ontology with the goal of describing LOD datasets via RDF files in a uniform way. Established vocabularies like DCAT, VoID, Prov-O and SPARQL Service Description are used for maximum compatibility."@en ;
+    rdfs:label "DataID"@en .
+
+datid:Dataset
+    a rdfs:Class, owl:Class ;
+    rdfs:subClassOf dcat:Dataset, void:Dataset, sd:Dataset, prov:Entity ;
+    rdfs:label "Dataset"@en ;
+	rdfs:subClassOf [
+		a owl:Restriction ;
+		rdfs:comment "Name of the dataset"@en ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dct:title
+	] , [
+		a owl:Restriction ;
+		rdfs:comment "Short title of the dataset"@en ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty rdfs:label
+	] , [
+		a owl:Restriction ;
+		rdfs:comment "Other description of the dataset"@en ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dct:description
+	] , [
+		a owl:Restriction ;
+		rdfs:comment "An agent that can be contacted for maintenance or other questions regarding the dataset"@en ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dcat:contactPoint
+	] , [
+		a owl:Restriction ;
+		rdfs:comment "An index resource or entry point of the dataset."@en ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:rootResource
+	] , [
+		a owl:Restriction ;
+		rdfs:comment "The language of this dataset. Linking to established resources would be favourable, but this is not defined yet."@en ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dct:language
+	] , [
+		a owl:Restriction ;
+		rdfs:comment "A distribution where this dataset can be obtained."@en ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dcat:distribution
+	] , [
+		a owl:Restriction ;
+		rdfs:comment "The homepage of this dataset."@en ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dcat:landingPage
+	] , [
+		a owl:Restriction ;
+		rdfs:comment "A resource describing the license of this dataset."@en ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dct:license
+	] , [
+		a owl:Restriction ;
+		rdfs:comment "The name of the license of this dataset."@en ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty datid:licenseName
+	] , [
+		a owl:Restriction ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty datid:ontologyLocation
+	] .
+
+datid:Distribution
+    a rdfs:Class, owl:Class ;
+    rdfs:subClassOf dcat:Distribution ;
+    rdfs:comment "A way to access a dataset, like a dump file, an endpoint, an API etc."@en ;
+    rdfs:label "Distribution"@en ;
+    rdfs:subClassOf  [
+        a owl:Restriction ;
+		rdfs:comment "The name of the distribution. In most cases the filename or the service name."@en ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dct:title
+    ] , [
+		a owl:Restriction ;
+		rdfs:comment "A resource describing the license of this distribution."@en ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dct:license
+	] , [
+		a owl:Restriction ;
+		rdfs:comment "The URL denoting where to access this distribution."@en ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dcat:accessURL
+	] , [
+		a owl:Restriction ;
+		rdfs:comment "The file format/ MIME-type of this distribution."@en ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dcat:mediaType
+	] .
+
+datid:Agent
+	a rdfs:Class, owl:Class ;
+	rdfs:subClassOf prov:Agent, foaf:Agent ;
+	rdfs:label "Agent"@en ;
+	rdfs:subClassOf  [
+        a owl:Restriction ;
+		rdfs:comment "Short name of the agent."@en ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty rdfs:label
+    ] , [
+        a owl:Restriction ;
+		rdfs:comment "Name of the agent."@en ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty foaf:name
+    ] , [
+        a owl:Restriction ;
+		rdfs:comment "Email adress of the agent."@en ;
+        owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty foaf:mbox
+    ] .
+	
+datid:Activity
+	a rdfs:Class, owl:Class ;
+	rdfs:subClassOf prov:Activity ;
+	rdfs:label "Activity"@en ;
+	rdfs:subClassOf  [
+        a owl:Restriction ;
+		rdfs:comment "Name of the activity"@en ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dct:title
+    ] .
+	
+datid:Entity
+	a rdfs:Class, owl:Class ;
+	rdfs:subClassOf prov:Entity ;
+	rdfs:label "Entity"@en ;
+	rdfs:subClassOf  [
+        a owl:Restriction ;
+		rdfs:comment "Name of the entity"@en ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty dct:title
+    ] .
+
+datid:Linkset
+	a rdfs:Class, owl:Class ;
+	rdfs:label "Linkset"@en ;
+	rdfs:subClassOf  [
+        a owl:Restriction ;
+		rdfs:comment "The subject dataset of the links in this linkset."@en ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:subjectTarget
+    ] , [
+		a owl:Restriction ;
+		rdfs:comment "The object dataset of the links in this linkset."@en ;
+        owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:objectTarget
+	] , [
+		a owl:Restriction ;
+		rdfs:comment "The number of triples (=links) in this linkset."@en ;
+        owl:cardinality "1"^^xsd:nonNegativeInteger ;
+        owl:onProperty void:triples
+	] .
+	
+void:sparqlEndpoint
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "SPARQL endpoint"@en ;
+	rdfs:domain datid:Dataset ;
+	rdfs:range datid:Distribution .
+	
+dcat:distribution
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "Distribution"@en ;
+	rdfs:comment "Distribution of the dataset"@en ;
+	rdfs:domain datid:Dataset ;
+	rdfs:range datid:Distribution .
+	
+dcat:contactPoint
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "Contact point"@en ;
+	rdfs:comment "Agent to be contacted for questions and maintenance"@en ;
+	rdfs:domain datid:Dataset ;
+	rdfs:range datid:Agent .
+	
+dct:publisher
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "Publisher"@en ;
+	rdfs:comment "Publisher of the dataset"@en ;
+	rdfs:range datid:Agent .
+	
+dct:creator
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "Creator"@en ;
+	rdfs:comment "Creator of the dataset"@en ;
+	rdfs:range datid:Agent .
+	
+prov:wasDerivedFrom
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "was derived from"@en ;
+	rdfs:comment "Entity the dataset was derived from"@en ;
+	rdfs:domain datid:Dataset ;
+	rdfs:range datid:Entity .
+	
+prov:wasGeneratedBy
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "was generated by"@en ;
+	rdfs:comment "Activity used to generate the dataset"@en ;
+	rdfs:domain datid:Dataset ;
+	rdfs:range datid:Activity .
+	
+prov:used
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "was generated by"@en ;
+	rdfs:comment "Entity used by the Activity to generate the dataset"@en ;
+	rdfs:domain datid:Activity ;
+	rdfs:range datid:Entity .
+	
+sd:defaultDataset
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "Default dataset"@en ;
+	rdfs:comment "Default dataset this distribution delivers"@en ;
+	rdfs:domain datid:Distribution ;
+	rdfs:range datid:Dataset .
+
+void:subset
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "Subset of the dataset"@en ;
+	rdfs:comment "A dataset contained in the parent dataset"@en ;
+	rdfs:domain datid:Dataset ;
+	rdfs:range datid:Dataset .
+
+datid:version
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "Version of the dataset"@en ;
+	rdfs:comment "A different version of this dataset"@en ;
+	rdfs:domain datid:Dataset ;
+	rdfs:range datid:Dataset .
+
+datid:latestVersion
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "Latest version of the dataset"@en ;
+	rdfs:comment "The latest version dataset of this dataset"@en ;
+	rdfs:domain datid:Dataset ;
+	rdfs:range datid:Dataset .
+
+datid:ontologyLocation
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "Ontology Location"@en ;
+	rdfs:comment "Links to the ontology or vocabulary this dataset uses"@en ;
+	rdfs:domain datid:Dataset .
+
+datid:containsLinks
+	a rdf:Property, owl:ObjectProperty ;
+	rdfs:label "contains links"@en ;
+	rdfs:comment "Set of links to another dataset contained in this dataset"@en ;
+	rdfs:domain datid:Dataset ;
+	rdfs:range datid:Linkset .
+
+datid:versionInfo
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:label "Version Information"@en ;
+	rdfs:comment "A string denoting the version of this dataset"@en ;
+	rdfs:domain datid:Dataset ;
+    rdfs:range xsd:string .
+
+datid:licenseName
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:label "Name of the license"@en ;
+	rdfs:comment "A string denoting the name of the license of this dataset"@en ;
+	rdfs:domain datid:Dataset ;
+    rdfs:range xsd:string .
+
+datid:graphName
+	a rdf:Property, owl:DatatypeProperty ;
+	rdfs:label "Graph name"@en ;
+	rdfs:comment "The name of the graph of this distribution in a SPARQL endpoint"@en ;
+	rdfs:domain dcat:Distribution ;
+    rdfs:range xsd:string .

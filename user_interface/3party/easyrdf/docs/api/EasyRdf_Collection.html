@@ -1,0 +1,2468 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="index, follow, all" />
+        <title>EasyRdf_Collection | </title>
+                    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+                            </head>
+        <body id="class">
+            <div class="header">
+        <ul>
+            <li><a href="classes.html">Classes</a></li>
+                        <li><a href="interfaces.html">Interfaces</a></li>
+            <li><a href="traits.html">Traits</a></li>
+            <li><a href="doc-index.html">Index</a></li>
+            
+        </ul>
+
+        <div id="title"></div>
+
+            <div class="type">Class</div>
+    <h1><a href=".html"></a>EasyRdf_Collection</h1>
+    </div>
+        <div class="content">
+                <p>    class
+    <strong>EasyRdf_Collection</strong>        extends <a href="EasyRdf_Resource.html"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a>        implements
+        <a href="http://php.net/ArrayAccess"><abbr title="ArrayAccess">ArrayAccess</abbr></a>, <a href="http://php.net/Countable"><abbr title="Countable">Countable</abbr></a>, <a href="http://php.net/SeekableIterator"><abbr title="SeekableIterator">SeekableIterator</abbr></a></p>
+
+            <div class="description">
+            <p>Sub-class of EasyRdf_Resource that represents an RDF collection (rdf:List)</p>
+            <p>This class can be used to iterate through a collection of items.</p>
+
+<p>Note that items are numbered from 1 (not 0) for consistency with RDF Containers.</p>
+        </div>
+    
+    
+    
+            <h2>Methods</h2>
+
+            <table>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___construct">__construct</a>($uri, $graph)
+                    <p>Create a new collection - do not use this directly</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="EasyRdf_Graph.html"><abbr title="EasyRdf_Graph">EasyRdf_Graph</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_getGraph">getGraph</a>()
+                    <p>Return the graph that this resource belongs to</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_getGraph"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getUri">getUri</a>()
+                    <p>Returns the URI for the resource.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_getUri"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    bool
+                </td>
+                <td class="last">
+                    <a href="#method_isBNode">isBNode</a>()
+                    <p>Check to see if a resource is a blank node.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_isBNode"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_getBNodeId">getBNodeId</a>()
+                    <p>Get the identifier for a blank node</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_getBNodeId"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_prefix">prefix</a>()
+                    <p>Get a the prefix of the namespace that this resource is part of</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_prefix"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_shorten">shorten</a>()
+                    <p>Get a shortened version of the resources URI.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_shorten"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_localName">localName</a>()
+                    <p>Gets the local name of the URI of this resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_localName"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="EasyRdf_ParsedUri.html"><abbr title="EasyRdf_ParsedUri">EasyRdf_ParsedUri</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_parseUri">parseUri</a>()
+                    <p>Parse the URI of the resource and return as a ParsedUri object</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_parseUri"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_htmlLink">htmlLink</a>(string $text = null, array $options = array())
+                    <p>Generates an HTML anchor tag, linking to this resource.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_htmlLink"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_toRdfPhp">toRdfPhp</a>()
+                    <p>Returns the properties of the resource as an RDF/PHP associative array</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_toRdfPhp"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_dumpValue">dumpValue</a>(string $format = &#039;html&#039;, string $color = &#039;blue&#039;)
+                    <p>Return pretty-print view of the resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_dumpValue"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method___toString">__toString</a>()
+                    <p>Magic method to return URI of resource when casted to string</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method___toString"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_load">load</a>(string $format = null)
+                    <p>Perform a load (download of remote URI) of the resource into the graph</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_load"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    null
+                </td>
+                <td class="last">
+                    <a href="#method_delete">delete</a>(string $property, object $value = null)
+                    <p>Delete a property (or optionally just a specific value)</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_delete"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_add">add</a>(mixed $property, mixed $value)
+                    <p>Add values to for a property of the resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_add"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_addLiteral">addLiteral</a>(mixed $property, mixed $values, string $lang = null)
+                    <p>Add a literal value as a property of the resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_addLiteral"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_addResource">addResource</a>(mixed $property, mixed $resource2)
+                    <p>Add a resource as a property of the resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_addResource"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_set">set</a>(string $property, mixed $value)
+                    <p>Set value for a property</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_set"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_get">get</a>(string|array $property, string $type = null, string $lang = null)
+                    <p>Get a single value for a property</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_get"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_getLiteral">getLiteral</a>(string|array $property, string $lang = null)
+                    <p>Get a single literal value for a property of the resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_getLiteral"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    object
+                </td>
+                <td class="last">
+                    <a href="#method_getResource">getResource</a>(string|array $property)
+                    <p>Get a single resource value for a property of the resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_getResource"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_all">all</a>(string $property, string $type = null, string $lang = null)
+                    <p>Get all values for a property</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_all"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_allLiterals">allLiterals</a>(string $property, string $lang = null)
+                    <p>Get all literal values for a property of the resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_allLiterals"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_allResources">allResources</a>(string $property)
+                    <p>Get all resources for a property of the resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_allResources"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_countValues">countValues</a>(string $property, string $type = null, string $lang = null)
+                    <p>Count the number of values for a property of a resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_countValues"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_join">join</a>(string $property, string $glue = &#039; &#039;, string $lang = null)
+                    <p>Concatenate all values for a property into a string.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_join"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_propertyUris">propertyUris</a>()
+                    <p>Get a list of the full URIs for the properties of this resource.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_propertyUris"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_properties">properties</a>()
+                    <p>Get a list of all the shortened property names (qnames) for a resource.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_properties"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_reversePropertyUris">reversePropertyUris</a>()
+                    <p>Get a list of the full URIs for the properties that point to this resource.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_reversePropertyUris"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    bool
+                </td>
+                <td class="last">
+                    <a href="#method_hasProperty">hasProperty</a>(string $property, mixed $value = null)
+                    <p>Check to see if a property exists for this resource.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_hasProperty"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_types">types</a>()
+                    <p>Get a list of types for a resource.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_types"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_type">type</a>()
+                    <p>Get a single type for a resource.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_type"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="EasyRdf_Resource.html"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_typeAsResource">typeAsResource</a>()
+                    <p>Get a single type for a resource, as a resource.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_typeAsResource"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    boolean
+                </td>
+                <td class="last">
+                    <a href="#method_isA">isA</a>(string $type)
+                    <p>Check if a resource is of the specified type</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_isA"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_addType">addType</a>(string $types)
+                    <p>Add one or more rdf:type properties to the resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_addType"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_setType">setType</a>(string $type)
+                    <p>Change the rdf:type property for the resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_setType"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    <a href="EasyRdf_Resource.html"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a>
+                </td>
+                <td class="last">
+                    <a href="#method_primaryTopic">primaryTopic</a>()
+                    <p>Get the primary topic of this resource.</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_primaryTopic"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_label">label</a>($lang = null)
+                    <p>Get a human readable label for this resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_label"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method_dump">dump</a>(string $format = &#039;html&#039;)
+                    <p>Return a human readable view of the resource and its properties</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method_dump"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    string
+                </td>
+                <td class="last">
+                    <a href="#method___get">__get</a>(string $name)
+                    <p>Magic method to get a property of a resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method___get"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___set">__set</a>(string $name, string $value)
+                    <p>Magic method to set the value for a property of a resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method___set"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___isset">__isset</a>(string $name)
+                    <p>Magic method to check if a property exists</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method___isset"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method___unset">__unset</a>(string $name)
+                    <p>Magic method to delete a property of the resource</p>
+                </td>
+                <td><small>from&nbsp;<a href="EasyRdf_Resource.html#method___unset"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></small></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_seek">seek</a>(integer $position)
+                    <p>Seek to a specific position in the container</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_rewind">rewind</a>()
+                    <p>Rewind the iterator back to the start of the collection</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    mixed
+                </td>
+                <td class="last">
+                    <a href="#method_current">current</a>()
+                    <p>Return the current item in the collection</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    int
+                </td>
+                <td class="last">
+                    <a href="#method_key">key</a>()
+                    <p>Return the key / current position in the collection</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_next">next</a>()
+                    <p>Move forward to next item in the collection</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    bool
+                </td>
+                <td class="last">
+                    <a href="#method_valid">valid</a>()
+                    <p>Checks if current position is valid</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    array
+                </td>
+                <td class="last">
+                    <a href="#method_getCollectionNode">getCollectionNode</a>(integer $offset)
+                    <p>Get a node for a particular offset into the collection</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_count">count</a>()
+                    <p>Counts the number of items in the collection</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    integer
+                </td>
+                <td class="last">
+                    <a href="#method_append">append</a>(mixed $value)
+                    <p>Append an item to the end of the collection</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_offsetExists">offsetExists</a>($offset)
+                    <p>Array Access: check if a position exists in collection using array syntax</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_offsetGet">offsetGet</a>($offset)
+                    <p>Array Access: get an item at a specified position in collection using array syntax</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_offsetSet">offsetSet</a>($offset, $value)
+                    <p>Array Access: set an item at a positon in collection using array syntax</p>
+                </td>
+                <td></td>
+            </tr>
+                    <tr>
+                <td class="type">
+                    
+                </td>
+                <td class="last">
+                    <a href="#method_offsetUnset">offsetUnset</a>($offset)
+                    <p>Array Access: delete an item at a specific postion using array syntax</p>
+                </td>
+                <td></td>
+            </tr>
+            </table>
+
+
+        <h2>Details</h2>
+
+                        <h3 id="method___construct">
+        <div class="location">at line 59</div>
+        <code>            public            
+    <strong>__construct</strong>($uri, $graph)</code>
+    </h3>
+    <div class="details">
+        <p>Create a new collection - do not use this directly</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$uri</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$graph</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getGraph">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_getGraph"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 87</div>
+        <code>            public            <a href="EasyRdf_Graph.html"><abbr title="EasyRdf_Graph">EasyRdf_Graph</abbr></a>
+    <strong>getGraph</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Return the graph that this resource belongs to</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="EasyRdf_Graph.html"><abbr title="EasyRdf_Graph">EasyRdf_Graph</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getUri">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_getUri"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 96</div>
+        <code>            public            string
+    <strong>getUri</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the URI for the resource.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>URI of this resource.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isBNode">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_isBNode"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 105</div>
+        <code>            public            bool
+    <strong>isBNode</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Check to see if a resource is a blank node.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>True if this resource is a blank node.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getBNodeId">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_getBNodeId"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 120</div>
+        <code>            public            string
+    <strong>getBNodeId</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the identifier for a blank node</p>
+        <p>Returns null if the resource is not a blank node.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The identifer for the bnode</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_prefix">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_prefix"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 136</div>
+        <code>            public            string
+    <strong>prefix</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get a the prefix of the namespace that this resource is part of</p>
+        <p>This method will return null the resource isn't part of any
+registered namespace.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The namespace prefix of the resource (e.g. foaf)</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_shorten">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_shorten"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 148</div>
+        <code>            public            string
+    <strong>shorten</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get a shortened version of the resources URI.</p>
+        <p>This method will return the full URI if the resource isn't part of any
+registered namespace.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The shortened URI of this resource (e.g. foaf:name)</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_localName">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_localName"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 160</div>
+        <code>            public            string
+    <strong>localName</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Gets the local name of the URI of this resource</p>
+        <p>The local name is defined as the part of the URI string
+after the last occurrence of the '#', ':' or '/' character.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The local name</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_parseUri">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_parseUri"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 171</div>
+        <code>            public            <a href="EasyRdf_ParsedUri.html"><abbr title="EasyRdf_ParsedUri">EasyRdf_ParsedUri</abbr></a>
+    <strong>parseUri</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Parse the URI of the resource and return as a ParsedUri object</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="EasyRdf_ParsedUri.html"><abbr title="EasyRdf_ParsedUri">EasyRdf_ParsedUri</abbr></a></td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_htmlLink">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_htmlLink"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 184</div>
+        <code>            public            string
+    <strong>htmlLink</strong>(string $text = null, array $options = array())</code>
+    </h3>
+    <div class="details">
+        <p>Generates an HTML anchor tag, linking to this resource.</p>
+        <p>If no text is given, then the URI also uses as the link text.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$text</td>
+                <td>Text for the link.</td>
+            </tr>
+                    <tr>
+                <td>array</td>
+                <td>$options</td>
+                <td>Associative array of attributes for the anchor tag</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The HTML link string</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_toRdfPhp">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_toRdfPhp"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 214</div>
+        <code>            public            array
+    <strong>toRdfPhp</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Returns the properties of the resource as an RDF/PHP associative array</p>
+        <p>For example:
+array('type' => 'uri', 'value' => 'http://www.example.com/')</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>The properties of the resource</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_dumpValue">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_dumpValue"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 229</div>
+        <code>            public            string
+    <strong>dumpValue</strong>(string $format = &#039;html&#039;, string $color = &#039;blue&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Return pretty-print view of the resource</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$format</td>
+                <td>Either 'html' or 'text'</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$color</td>
+                <td>The colour of the text</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___toString">
+        <div class="location">in <a href="EasyRdf_Resource.html#method___toString"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 238</div>
+        <code>            public            string
+    <strong>__toString</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Magic method to return URI of resource when casted to string</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>The URI of the resource</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_load">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_load"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 264</div>
+        <code>            public            
+    <strong>load</strong>(string $format = null)</code>
+    </h3>
+    <div class="details">
+        <p>Perform a load (download of remote URI) of the resource into the graph</p>
+        <p>The document type is optional but should be specified if it
+can't be guessed or got from the HTTP headers.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$format</td>
+                <td>Optional format of the data (eg. rdfxml)</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_delete">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_delete"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 276</div>
+        <code>            public            null
+    <strong>delete</strong>(string $property, object $value = null)</code>
+    </h3>
+    <div class="details">
+        <p>Delete a property (or optionally just a specific value)</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$property</td>
+                <td>The name of the property (e.g. foaf:name)</td>
+            </tr>
+                    <tr>
+                <td>object</td>
+                <td>$value</td>
+                <td>The value to delete (null to delete all values)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>null</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_add">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_add"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 291</div>
+        <code>            public            integer
+    <strong>add</strong>(mixed $property, mixed $value)</code>
+    </h3>
+    <div class="details">
+        <p>Add values to for a property of the resource</p>
+        <p>Example:
+  $resource->add('prefix:property', 'value');</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>mixed</td>
+                <td>$property</td>
+                <td>The property name</td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td>The value for the property</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td>The number of values added (1 or 0)</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_addLiteral">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_addLiteral"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 309</div>
+        <code>            public            integer
+    <strong>addLiteral</strong>(mixed $property, mixed $values, string $lang = null)</code>
+    </h3>
+    <div class="details">
+        <p>Add a literal value as a property of the resource</p>
+        <p>The value can either be a single value or an array of values.</p>
+
+<p>Example:
+  $resource->add('dc:title', 'Title of Page');</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>mixed</td>
+                <td>$property</td>
+                <td>The property name</td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$values</td>
+                <td>The value or values for the property</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$lang</td>
+                <td>The language of the literal</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td>The number of values added</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_addResource">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_addResource"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 324</div>
+        <code>            public            integer
+    <strong>addResource</strong>(mixed $property, mixed $resource2)</code>
+    </h3>
+    <div class="details">
+        <p>Add a resource as a property of the resource</p>
+        <p>Example:
+  $bob->add('foaf:knows', 'http://example.com/alice');</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>mixed</td>
+                <td>$property</td>
+                <td>The property name</td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$resource2</td>
+                <td>The resource to be the value of the property</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td>The number of values added (1 or 0)</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_set">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_set"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 341</div>
+        <code>            public            integer
+    <strong>set</strong>(string $property, mixed $value)</code>
+    </h3>
+    <div class="details">
+        <p>Set value for a property</p>
+        <p>The new value(s) will replace the existing values for the property.
+The name of the property should be a string.
+If you set a property to null or an empty array, then the property
+will be deleted.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$property</td>
+                <td>The name of the property (e.g. foaf:name)</td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td>The value for the property.</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td>The number of values added (1 or 0)</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_get">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_get"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 362</div>
+        <code>            public            mixed
+    <strong>get</strong>(string|array $property, string $type = null, string $lang = null)</code>
+    </h3>
+    <div class="details">
+        <p>Get a single value for a property</p>
+        <p>If multiple values are set for a property then the value returned
+may be arbitrary.</p>
+
+<p>If $property is an array, then the first item in the array that matches
+a property that exists is returned.</p>
+
+<p>This method will return null if the property does not exist.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string|array</td>
+                <td>$property</td>
+                <td>The name of the property (e.g. foaf:name)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$type</td>
+                <td>The type of value to filter by (e.g. literal or resource)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$lang</td>
+                <td>The language to filter by (e.g. en)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>A value associated with the property</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getLiteral">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_getLiteral"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 380</div>
+        <code>            public            object
+    <strong>getLiteral</strong>(string|array $property, string $lang = null)</code>
+    </h3>
+    <div class="details">
+        <p>Get a single literal value for a property of the resource</p>
+        <p>If multiple values are set for a property then the value returned
+may be arbitrary.</p>
+
+<p>This method will return null if there is not literal value for the
+property.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string|array</td>
+                <td>$property</td>
+                <td>The name of the property (e.g. foaf:name)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$lang</td>
+                <td>The language to filter by (e.g. en)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf_Literal Literal value associated with the property</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getResource">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_getResource"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 397</div>
+        <code>            public            object
+    <strong>getResource</strong>(string|array $property)</code>
+    </h3>
+    <div class="details">
+        <p>Get a single resource value for a property of the resource</p>
+        <p>If multiple values are set for a property then the value returned
+may be arbitrary.</p>
+
+<p>This method will return null if there is not resource for the
+property.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string|array</td>
+                <td>$property</td>
+                <td>The name of the property (e.g. foaf:name)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>object</td>
+            <td>EasyRdf_Resource Resource associated with the property</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_all">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_all"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 412</div>
+        <code>            public            array
+    <strong>all</strong>(string $property, string $type = null, string $lang = null)</code>
+    </h3>
+    <div class="details">
+        <p>Get all values for a property</p>
+        <p>This method will return an empty array if the property does not exist.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$property</td>
+                <td>The name of the property (e.g. foaf:name)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$type</td>
+                <td>The type of value to filter by (e.g. literal)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$lang</td>
+                <td>The language to filter by (e.g. en)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>An array of values associated with the property</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_allLiterals">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_allLiterals"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 427</div>
+        <code>            public            array
+    <strong>allLiterals</strong>(string $property, string $lang = null)</code>
+    </h3>
+    <div class="details">
+        <p>Get all literal values for a property of the resource</p>
+        <p>This method will return an empty array if the resource does not
+has any literal values for that property.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$property</td>
+                <td>The name of the property (e.g. foaf:name)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$lang</td>
+                <td>The language to filter by (e.g. en)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>An array of values associated with the property</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_allResources">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_allResources"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 441</div>
+        <code>            public            array
+    <strong>allResources</strong>(string $property)</code>
+    </h3>
+    <div class="details">
+        <p>Get all resources for a property of the resource</p>
+        <p>This method will return an empty array if the resource does not
+has any resources for that property.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$property</td>
+                <td>The name of the property (e.g. foaf:name)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>An array of values associated with the property</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_countValues">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_countValues"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 456</div>
+        <code>            public            integer
+    <strong>countValues</strong>(string $property, string $type = null, string $lang = null)</code>
+    </h3>
+    <div class="details">
+        <p>Count the number of values for a property of a resource</p>
+        <p>This method will return 0 if the property does not exist.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$property</td>
+                <td>The name of the property (e.g. foaf:name)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$type</td>
+                <td>The type of value to filter by (e.g. literal)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$lang</td>
+                <td>The language to filter by (e.g. en)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td>The number of values associated with the property</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_join">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_join"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 472</div>
+        <code>            public            string
+    <strong>join</strong>(string $property, string $glue = &#039; &#039;, string $lang = null)</code>
+    </h3>
+    <div class="details">
+        <p>Concatenate all values for a property into a string.</p>
+        <p>The default is to join the values together with a space character.
+This method will return an empty string if the property does not exist.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$property</td>
+                <td>The name of the property (e.g. foaf:name)</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$glue</td>
+                <td>The string to glue the values together with.</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$lang</td>
+                <td>The language to filter by (e.g. en)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>Concatenation of all the values.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_propertyUris">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_propertyUris"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 484</div>
+        <code>            public            array
+    <strong>propertyUris</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get a list of the full URIs for the properties of this resource.</p>
+        <p>This method will return an empty array if the resource has no properties.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>Array of full URIs</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_properties">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_properties"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 496</div>
+        <code>            public            array
+    <strong>properties</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get a list of all the shortened property names (qnames) for a resource.</p>
+        <p>This method will return an empty array if the resource has no properties.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>Array of shortened URIs</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_reversePropertyUris">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_reversePropertyUris"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 506</div>
+        <code>            public            array
+    <strong>reversePropertyUris</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get a list of the full URIs for the properties that point to this resource.</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>Array of full property URIs</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_hasProperty">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_hasProperty"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 522</div>
+        <code>            public            bool
+    <strong>hasProperty</strong>(string $property, mixed $value = null)</code>
+    </h3>
+    <div class="details">
+        <p>Check to see if a property exists for this resource.</p>
+        <p>This method will return true if the property exists.
+If the value parameter is given, then it will only return true
+if the value also exists for that property.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$property</td>
+                <td>The name of the property (e.g. foaf:name)</td>
+            </tr>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td>An optional value of the property</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>True if value the property exists.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_types">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_types"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 535</div>
+        <code>            public            array
+    <strong>types</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get a list of types for a resource.</p>
+        <p>The types will each be a shortened URI as a string.
+This method will return an empty array if the resource has no types.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>All types assocated with the resource (e.g. foaf:Person)</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_type">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_type"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 550</div>
+        <code>            public            string
+    <strong>type</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get a single type for a resource.</p>
+        <p>The type will be a shortened URI as a string.
+If the resource has multiple types then the type returned
+may be arbitrary.
+This method will return null if the resource has no type.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>A type assocated with the resource (e.g. foaf:Person)</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_typeAsResource">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_typeAsResource"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 565</div>
+        <code>            public            <a href="EasyRdf_Resource.html"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a>
+    <strong>typeAsResource</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get a single type for a resource, as a resource.</p>
+        <p>The type will be returned as an EasyRdf_Resource.
+If the resource has multiple types then the type returned
+may be arbitrary.
+This method will return null if the resource has no type.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="EasyRdf_Resource.html"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></td>
+            <td>A type assocated with the resource.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_isA">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_isA"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 575</div>
+        <code>            public            boolean
+    <strong>isA</strong>(string $type)</code>
+    </h3>
+    <div class="details">
+        <p>Check if a resource is of the specified type</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$type</td>
+                <td>The type to check (e.g. foaf:Person)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>boolean</td>
+            <td>True if resource is of specified type.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_addType">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_addType"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 586</div>
+        <code>            public            integer
+    <strong>addType</strong>(string $types)</code>
+    </h3>
+    <div class="details">
+        <p>Add one or more rdf:type properties to the resource</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$types</td>
+                <td>One or more types to add (e.g. foaf:Person)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td>The number of types added</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_setType">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_setType"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 599</div>
+        <code>            public            integer
+    <strong>setType</strong>(string $type)</code>
+    </h3>
+    <div class="details">
+        <p>Change the rdf:type property for the resource</p>
+        <p>Note that the PHP class of the resource will not change.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$type</td>
+                <td>The new type (e.g. foaf:Person)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td>The number of types added</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_primaryTopic">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_primaryTopic"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 611</div>
+        <code>            public            <a href="EasyRdf_Resource.html"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a>
+    <strong>primaryTopic</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Get the primary topic of this resource.</p>
+        <p>Returns null if no primary topic is available.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td><a href="EasyRdf_Resource.html"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a></td>
+            <td>The primary topic of this resource.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_label">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_label"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 626</div>
+        <code>            public            string
+    <strong>label</strong>($lang = null)</code>
+    </h3>
+    <div class="details">
+        <p>Get a human readable label for this resource</p>
+        <p>This method will check a number of properties for the resource
+(in the order: skos:prefLabel, rdfs:label, foaf:name, dc:title)
+and return an approriate first that is available. If no label
+is available then it will return null.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$lang</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>A label for the resource.</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_dump">
+        <div class="location">in <a href="EasyRdf_Resource.html#method_dump"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 640</div>
+        <code>            public            string
+    <strong>dump</strong>(string $format = &#039;html&#039;)</code>
+    </h3>
+    <div class="details">
+        <p>Return a human readable view of the resource and its properties</p>
+        <p>This method is intended to be a debugging aid and will
+print a resource and its properties.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$format</td>
+                <td>Either 'html' or 'text'</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>
+</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method___get">
+        <div class="location">in <a href="EasyRdf_Resource.html#method___get"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 657</div>
+        <code>            public            string
+    <strong>__get</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Magic method to get a property of a resource</p>
+        <p>Note that only properties in the default namespace can be accessed in this way.</p>
+
+<p>Example:
+  $value = $resource->title;</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of the property</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>string</td>
+            <td>A single value for the named property</td>
+        </tr>
+    </table>
+
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>EasyRdf_Namespace::setDefault()</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method___set">
+        <div class="location">in <a href="EasyRdf_Resource.html#method___set"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 673</div>
+        <code>            public            
+    <strong>__set</strong>(string $name, string $value)</code>
+    </h3>
+    <div class="details">
+        <p>Magic method to set the value for a property of a resource</p>
+        <p>Note that only properties in the default namespace can be accessed in this way.</p>
+
+<p>Example:
+  $resource->title = 'Title';</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of the property</td>
+            </tr>
+                    <tr>
+                <td>string</td>
+                <td>$value</td>
+                <td>The value for the property</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>EasyRdf_Namespace::setDefault()</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method___isset">
+        <div class="location">in <a href="EasyRdf_Resource.html#method___isset"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 688</div>
+        <code>            public            
+    <strong>__isset</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Magic method to check if a property exists</p>
+        <p>Note that only properties in the default namespace can be accessed in this way.</p>
+
+<p>Example:
+  if (isset($resource->title)) { blah(); }</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of the property</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>EasyRdf_Namespace::setDefault()</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method___unset">
+        <div class="location">in <a href="EasyRdf_Resource.html#method___unset"><abbr title="EasyRdf_Resource">EasyRdf_Resource</abbr></a> at line 703</div>
+        <code>            public            
+    <strong>__unset</strong>(string $name)</code>
+    </h3>
+    <div class="details">
+        <p>Magic method to delete a property of the resource</p>
+        <p>Note that only properties in the default namespace can be accessed in this way.</p>
+
+<p>Example:
+  unset($resource->title);</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>string</td>
+                <td>$name</td>
+                <td>The name of the property</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                            <h4>See also</h4>
+
+                    <table>
+                    <tr>
+                <td>EasyRdf_Namespace::setDefault()</td>
+                <td></td>
+            </tr>
+            </table>
+
+                    </div>
+    </div>
+
+                <h3 id="method_seek">
+        <div class="location">at line 73</div>
+        <code>            public            
+    <strong>seek</strong>(integer $position)</code>
+    </h3>
+    <div class="details">
+        <p>Seek to a specific position in the container</p>
+        <p>The first item is postion 1</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>integer</td>
+                <td>$position</td>
+                <td>The position in the container to seek to</td>
+            </tr>
+            </table>
+
+            
+            
+                            <h4>Exceptions</h4>
+
+                    <table>
+                    <tr>
+                <td><a href="http://php.net/OutOfBoundsException"><abbr title="OutOfBoundsException">OutOfBoundsException</abbr></a></td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+                    </div>
+    </div>
+
+                <h3 id="method_rewind">
+        <div class="location">at line 95</div>
+        <code>            public            
+    <strong>rewind</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Rewind the iterator back to the start of the collection</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_current">
+        <div class="location">at line 105</div>
+        <code>            public            mixed
+    <strong>current</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Return the current item in the collection</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>mixed</td>
+            <td>The current item</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_key">
+        <div class="location">at line 120</div>
+        <code>            public            int
+    <strong>key</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Return the key / current position in the collection</p>
+        <p>Note: the first item is number 1</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>int</td>
+            <td>The current position</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_next">
+        <div class="location">at line 128</div>
+        <code>            public            
+    <strong>next</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Move forward to next item in the collection</p>
+        <p>
+</p>
+        <div class="tags">
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_valid">
+        <div class="location">at line 142</div>
+        <code>            public            bool
+    <strong>valid</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Checks if current position is valid</p>
+        <p>
+</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>bool</td>
+            <td>True if the current position is valid</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_getCollectionNode">
+        <div class="location">at line 165</div>
+        <code>            public            array
+    <strong>getCollectionNode</strong>(integer $offset)</code>
+    </h3>
+    <div class="details">
+        <p>Get a node for a particular offset into the collection</p>
+        <p>This function may not return the item you requested, if
+it does not exist. Please check the $postion parameter
+returned.</p>
+
+<p>If the offset is null, then the last node in the
+collection (before rdf:nil) will be returned.</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>integer</td>
+                <td>$offset</td>
+                <td>The offset into the collection (or null)</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>array</td>
+            <td>$node, $postion  The node object and postion of the node</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_count">
+        <div class="location">at line 184</div>
+        <code>            public            integer
+    <strong>count</strong>()</code>
+    </h3>
+    <div class="details">
+        <p>Counts the number of items in the collection</p>
+        <p>Note that this is an slow method - it is more efficient to use
+the iterator interface, if you can.</p>
+        <div class="tags">
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td>The number of items in the collection</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_append">
+        <div class="location">at line 200</div>
+        <code>            public            integer
+    <strong>append</strong>(mixed $value)</code>
+    </h3>
+    <div class="details">
+        <p>Append an item to the end of the collection</p>
+        <p>
+</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td>mixed</td>
+                <td>$value</td>
+                <td>The value to append</td>
+            </tr>
+            </table>
+
+            
+                            <h4>Return Value</h4>
+
+                    <table>
+        <tr>
+            <td>integer</td>
+            <td>The number of values appended (1 or 0)</td>
+        </tr>
+    </table>
+
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_offsetExists">
+        <div class="location">at line 223</div>
+        <code>            public            
+    <strong>offsetExists</strong>($offset)</code>
+    </h3>
+    <div class="details">
+        <p>Array Access: check if a position exists in collection using array syntax</p>
+        <p>Example: isset($list[2])</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$offset</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_offsetGet">
+        <div class="location">at line 239</div>
+        <code>            public            
+    <strong>offsetGet</strong>($offset)</code>
+    </h3>
+    <div class="details">
+        <p>Array Access: get an item at a specified position in collection using array syntax</p>
+        <p>Example: $item = $list[2];</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$offset</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_offsetSet">
+        <div class="location">at line 258</div>
+        <code>            public            
+    <strong>offsetSet</strong>($offset, $value)</code>
+    </h3>
+    <div class="details">
+        <p>Array Access: set an item at a positon in collection using array syntax</p>
+        <p>Example: $list[2] = $item;</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$offset</td>
+                <td>
+</td>
+            </tr>
+                    <tr>
+                <td></td>
+                <td>$value</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+                <h3 id="method_offsetUnset">
+        <div class="location">at line 293</div>
+        <code>            public            
+    <strong>offsetUnset</strong>($offset)</code>
+    </h3>
+    <div class="details">
+        <p>Array Access: delete an item at a specific postion using array syntax</p>
+        <p>Example: unset($seq[2]);</p>
+        <div class="tags">
+                            <h4>Parameters</h4>
+
+                    <table>
+                    <tr>
+                <td></td>
+                <td>$offset</td>
+                <td>
+</td>
+            </tr>
+            </table>
+
+            
+            
+            
+                    </div>
+    </div>
+
+    
+            </div>
+            <div id="footer">
+        Generated by <a href="http://sami.sensiolabs.org/" target="_top">Sami, the API Documentation Generator</a>.
+    </div>
+    </body>
+</html>
