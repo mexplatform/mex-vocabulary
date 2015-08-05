@@ -233,10 +233,6 @@ this:exec3
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
       prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
 .
-
-
-
-
 this:exec4
       a prov:Activity, mexcore:Execution;
       rdfs:label "$SVM(att_{b}+d_{3})$";
@@ -273,10 +269,6 @@ this:exec6
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
       prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
 .
-
-
-
-
 this:exec7
       a prov:Activity, mexcore:Execution;
       rdfs:label "$SVM(att_{b}+d_{3})$";
@@ -313,10 +305,6 @@ this:exec9
       prov:startedAtTime "2012-04-15T13:00:00-04:00"^^xsd:dateTime;
       prov:endedAtTime   "2012-04-15T13:05:00-04:00"^^xsd:dateTime;
 .
-
-
-
-
 this:exec10
       a prov:Activity, mexcore:Execution;
       rdfs:label "$SVM(att_{b}+d_{3})$";
