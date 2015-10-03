@@ -27,8 +27,10 @@ public class Example01 {
             String[] features = {"min", "max", "ope", "clo"};
             mex.Configuration(confID).addFeature(features);
             /* (4) the algorithms and hyperparameters */
-            String alg01ID = mex.Configuration(confID).addAlgorithm(EnumAlgorithm.NaiveBayes);
+            String alg01ID = mex.Configuration(confID).addAlgorithm(EnumAlgorithm.NaiveBayes).getIdentifier();
             /* (5) the executions */
+
+
             String execID = mex.Configuration(confID).addExecution(EnumExecutionType.OVERALL, EnumPhase.TEST);
             {
                 //your models call here !

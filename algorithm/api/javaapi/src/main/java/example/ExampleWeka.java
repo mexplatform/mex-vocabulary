@@ -100,10 +100,10 @@ public class ExampleWeka {
 
             /* (2.4) the algorithms and hyperparameters */
             String[] algIDs = new String[4];
-            algIDs[0] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.J48);
-            algIDs[1] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.PART);
-            algIDs[2] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.DecisionTable);
-            algIDs[3] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.DecisionStump);
+            algIDs[0] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.J48).getIndividualName();
+            algIDs[1] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.PART).getIndividualName();
+            algIDs[2] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.DecisionTable).getIndividualName();
+            algIDs[3] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.DecisionStump).getIndividualName();
 
             /* (2.5) the executions */
             String[] execIDs = new String[models.length];

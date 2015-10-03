@@ -59,6 +59,8 @@ public class MyMEX_10 {
     private UserDefinedMeasure userDefinedMeasure;
     private ExecutionPerformance executionPerformance;
 
+    private boolean withoutConfiguration = false;
+
     //logic purpouse
     private boolean automatic;
 
@@ -71,6 +73,9 @@ public class MyMEX_10 {
         automatic=true;
     }
 
+    public boolean isWithoutConfiguration(){
+        return withoutConfiguration;
+    }
     //MEX
     public void setAuthorName(String value){this.applicationContext.setAuthorName(value);}
     public void setAuthorEmail(String value){this.applicationContext.setMailBox(value);}
@@ -91,23 +96,30 @@ public class MyMEX_10 {
                 = Collections2.filter(this.experimentConfigurationList, experimentConfigurationVO -> experimentConfigurationVO.getId().equals(value));
         if (t != null && t.size() >0){
             return Iterables.get(t, 0);
-        }else {return null;}
+        }else {
+            return null;
+        }
     }
     public ExperimentConfigurationVO Configuration(){
+        if (this.experimentConfigurationList.size() == 0){
+            withoutConfiguration = true;
+            this.experimentConfigurationList.add(
+                    new ExperimentConfigurationVO(MEXConstant.DEFAULT_EXP_CONFIGURATION_ID + "1"));
+        }
         Collection<ExperimentConfigurationVO> t
                 = Collections2.filter(this.experimentConfigurationList, experimentConfigurationVO -> experimentConfigurationVO.getId().equals(MEXConstant.DEFAULT_EXP_CONFIGURATION_ID + "1"));
         if (t != null && t.size()>0){
             return Iterables.get(t, 0);
         }else {return null;}
     }
-
-
-
     private String addConf(String value) throws Exception{
         String ret="";
         String valueaux="";
 
         try {
+            if (withoutConfiguration == true){
+                throw new Exception("You can not define a new configuration for an experiment without previous configuration");
+            }
             if (this.experimentConfigurationList ==null){
                 throw new Exception("fatal error: experiment config list is null!");
             }
@@ -173,6 +185,10 @@ public class MyMEX_10 {
         String ret;
         try
         {
+            if (withoutConfiguration == true){
+                throw new Exception("You can not define a new configuration for an experiment without previous configuration");
+            }
+
             ret=addConf(StringUtils.EMPTY);
             MEXController.getInstance().addExperimentConfigurationCounter();
         }catch (Exception e){
@@ -184,13 +200,16 @@ public class MyMEX_10 {
         String ret;
         try
         {
+            if (withoutConfiguration == true){
+                throw new Exception("You can not define a new configuration for an experiment without previous configuration");
+            }
+
             ret=addConf(value);
         }catch (Exception e){
            throw new Exception(e);
         }
         return ret;
     }
-
     public ContextVO getContext() {
         return context;
     }
@@ -326,5 +345,78 @@ public class MyMEX_10 {
     public void setExecutionPerformance(ExecutionPerformance executionPerformance) {
         this.executionPerformance = executionPerformance;
     }
+
+    /****************************************************************************************
+     * Lightweight Component - No need to set up a configuration
+     ****************************************************************************************/
+    /*public String addExecutionLWC(String type, String value) throws Exception{
+        try{
+            withoutConfiguration = true;
+            if (this.experimentConfigurationList == null){
+                this.addConf("");
+            }
+            String ret = this.experimentConfigurationList.get(0).addExecution(type, value);
+            return ret;
+        }catch (Exception e){
+            throw (e);
+        }
+    }
+    public String addAlgorithmLWC(String algorithmClass) throws Exception{
+        try{
+            withoutConfiguration = true;
+            if (this.experimentConfigurationList == null){
+                this.addConf("");
+            }
+            String ret = this.experimentConfigurationList.get(0).addAlgorithm(algorithmClass);
+            return ret;
+        }catch (Exception e){
+            throw (e);
+        }
+    }
+    public void addSamplingMethodLWC(String className, Double train, Double test) throws Exception{
+        try{
+            withoutConfiguration = true;
+            if (this.experimentConfigurationList == null){
+                this.addConf("");
+            }
+            this.experimentConfigurationList.get(0).addSamplingMethod(className, train, test);
+        }catch (Exception e){
+            throw (e);
+        }
+    }
+    public void addSamplingMethodLWC(String className, Integer folds) throws Exception{
+        try{
+            withoutConfiguration = true;
+            if (this.experimentConfigurationList == null){
+                this.addConf("");
+            }
+            this.experimentConfigurationList.get(0).addSamplingMethod(className, folds);
+        }catch (Exception e){
+            throw (e);
+        }
+    }
+    public void addFeatureLWC(String[] featuresName) throws Exception{
+        try{
+            withoutConfiguration = true;
+            if (this.experimentConfigurationList == null){
+                this.addConf("");
+            }
+            this.experimentConfigurationList.get(0).addFeature(featuresName);
+        }catch (Exception e){
+            throw (e);
+        }
+    }
+    public void addFeatureLWC(String featuresName) throws Exception{
+        try{
+            withoutConfiguration = true;
+            if (this.experimentConfigurationList == null){
+                this.addConf("");
+            }
+            this.experimentConfigurationList.get(0).addFeature(featuresName);
+        }catch (Exception e){
+            throw (e);
+        }
+    }
+    */
 
 }
