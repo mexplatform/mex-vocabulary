@@ -76,6 +76,9 @@ Of course we will keep an eye on it for the `vocabulary measures` updating proce
 Despite efforts for keeping everything up-to-date you might not find your machine learning algorithm (`mexalgo:Algorithm`) into `MEX`, for instance, or even one specific machine learning tool (`mexalgo:Implementation`). That's bad, we know! :-( However, we are going to have the pleasure to quickly update the vocabulary to satisfy your desires, just let us know! ;-)
 (also feel free for contributing)
 
+### Coming Soon (OpenML Integration)
+![OpenML](http://dne5.com/mex/diagram/openML.png)
+
 ### MEX Vocabulary - Snapshot v1.0.1
 ![Experiment ER](http://dne5.com/mex/diagram/mex-1.0.1.png)
 
