@@ -20,9 +20,11 @@ The definition of an `ontology` can be a complex and never-ending task, even mor
 
 For **semantic web users** the usage is straightforward, once the vocabulary can easily be handled with semantic web technologies, such as [Apache Jena](https://jena.apache.org/). After the generation, you can semantically validate the serialized file [here](http://mex.aksw.org/). 
 
-For **non-semantic web users**, there are two ways to use `MEX`: if you're coding into an *IDE*, you can import an *API*, which defines an interface to be consumed into the user code for directly exporting the metadata in a simple manner, regardless possible semantic web aspects. Alternatively, over existing *machine learning frameworks* (100% transparent process), such as [DL-Learner](http://dl-learner.org/), [WEKA](http://www.cs.waikato.ac.nz/ml/weka/) and [FAMa](https://github.com/duartejulio/fama). It's a ongoing work, feel free to collaborate ;-)
+![LOG4MEX](http://dne5.com/mex/diagram/log4mex-small.png)
 
-Finnaly, for **general and non-expert users** we've created an [user interface](http://mex.aksw.org/) for describing the experiment
+For **non-semantic web users**, there are two ways to use `MEX`: if you're coding, you can import an *API* (**log4mex**), which implements an interface to be consumed into the user code for directly exporting the metadata in a simple manner, regardless possible semantic web aspects. Alternatively, over existing *machine learning frameworks* (100% transparent process), such as [DL-Learner](http://dl-learner.org/), [WEKA](http://www.cs.waikato.ac.nz/ml/weka/) and [FAMa](https://github.com/duartejulio/fama). It's a ongoing work, feel free to collaborate ;-)
+
+Finnaly, for **general and non-expert users** we've created an [user interface](http://mex.aksw.org/) for exporting the ML experiment metadata.
 
 ### The Vocabulary
 
