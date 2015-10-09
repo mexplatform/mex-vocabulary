@@ -53,7 +53,7 @@
 </div>
 <div class="panel panel-default">
     <div class="panel-heading">   
-        <div class="panel-title"> Features</div>
+        <div class="panel-title"> Performance Information</div>
         <div class="pull-right">
            <!--<span class="help-button" popover-placement="bottom" popover="You can add here new contacts for your subset." popover-title="New Contact" >?</span>-->
         </div>

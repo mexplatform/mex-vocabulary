@@ -8,7 +8,7 @@
     <div class="panel-body">
         <table class="table"><tr>
                 <th>Identifier</th>
-                <th>Identifier</th>
+                <th></th>
                 <th style="width: 15px">Edit</th> 
                 <th style="width: 15px">Remove</th>
             </tr>
@@ -17,7 +17,7 @@
                     <span> {{expeconf.iden}} </span> <br> 
                 </td>
                    <td>
-                    <span> {{expeconf.softwareName}} </span> <br> 
+                    <span></span> <br> 
                 </td>
                 <td>
                     <a class="glyphicon glyphicon-edit" href="" ng-click="editExpConf(expeconf)"></a>

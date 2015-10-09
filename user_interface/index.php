@@ -7,7 +7,7 @@
       <br>
 				  <div class="tabbable">
 				  <ul class="nav nav-tabs">
-				  <li class="active">
+				  <li>
 				<a href="#1" data-toggle="tab">Context</a>
 				   </li>
 			   <li>

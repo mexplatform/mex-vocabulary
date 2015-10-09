@@ -28,12 +28,12 @@
       <br>
 	  <label style="margin-top: 10px">Label</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> rdfs:label </a>    <br/> 
-    <input class="input-modal-md"  placeholder="Contact Point Label" ng-model="agent.label"> <br/>
+    <input class="form-control"  placeholder="Contact Point Label" ng-model="agent.label"> <br/>
 	<br>
     <label>Name</label> 
     <a class="desc2" target="_blank" href='http://xmlns.com/foaf/spec/#term_name'> foaf:name </a>    
     <br/> 
-    <input class="input-modal-md"  placeholder="Contact Point Name"  ng-model="agent.name"> <br/>
+    <input class="form-control"  placeholder="Contact Point Name"  ng-model="agent.name"> <br/>
     </div>
     </div>
     <div class="modal-footer">
@@ -58,82 +58,85 @@
     <div class="modal-body">
     <div class="row">
     <div class="col-md-11">
+	<label style="margin-top: 10px">Description</label> 
+    <a style="margin-top: 10px" class="desc2" target="_blank" href='http://purl.org/dc/terms/'> dct:description </a>    <br/> 
+    <input class="form-control"   ng-model="expeconf.desc"> <br/>
       <br>
 	  <h2>Hardware Configuration</h2>
 	  <label style="margin-top: 10px">Os</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://usefulinc.com/ns/doap#Project'> doap:os </a>    <br/> 
-    <input class="input-modal-md"   ng-model="expeconf.os"> <br/>
+    <input class="form-control"   ng-model="expeconf.os"> <br/>
 	<br>
-   <label>Cpu<span style="color: red">*</span></label> 
+   <label>Cpu</label> 
             <a class="desc2" target="_blank" href='http://usefulinc.com/ns/doap#Project'> mex:cpu </a>     
     <br/> 
-    <input class="input-modal-md"  ng-model="expeconf.cpu"> <br/>
+    <input class="form-control"  ng-model="expeconf.cpu"> <br/>
 	<br>
-	   <label>Memory <span style="color: red">*</span> </label>  		
+	   <label>Memory</label>  		
 	<a class="desc2" target="_blank" href='http://usefulinc.com/ns/doap#homepage'> mex:memory </a>    
-    <input class="input-modal-md"  ng-model="expeconf.memory"> <br/>
+    <input class="form-control"  ng-model="expeconf.memory"> <br/>
 	<br>
-	<label>HdType<span style="color: red">*</span> </label> 
+	<label>HdType</label> 
     <a class="desc2" target="_blank" href='http://usefulinc.com/ns/doap#description'> mex:hdType </a>    <br/> 
-    <input class="input-modal-md"  ng-model="expeconf.hdType"> <br/>
+    <input class="form-control"  ng-model="expeconf.hdType"> <br/>
 	<br>
-	<label>VideoGraphs<span style="color: red">*</span> </label>   
+	<label>VideoGraphs</label>   
     <a class="desc2" target="_blank" href='http://dublincore.org/documents/dcmi-terms/#terms-publisher'> mex:videoGraphs</a>    <br/> 
-    <input class="input-modal-md"  ng-model="expeconf.videoGraphs"> <br/>
+    <input class="form-control"  ng-model="expeconf.videoGraphs"> <br/>
 	<br>
-	  <label>Cache<span style="color: red">*</span></label> 
+	  <label>Cache</label> 
      <a class="desc2" target="_blank" href='http://usefulinc.com/ns/doap#Project'> mex:cache </a>    <br/> 
-    <input class="input-modal-md"  ng-model="expeconf.cache"> <br/>
+    <input class="form-control"  ng-model="expeconf.cache"> <br/>
 	<br>
 	      <br>
 	  <h2>DataSet</h2>
-	 <label>Title <span style="color: red">*</span> </label>  
+	 <label>Title</label>  
       <a class="desc2" target="_blank" href='http://xmlns.com/foaf/spec/#term_mbox'> dcterms:title</a>     <br/> 
-    <input class="input-modal-md"   ng-model="expeconf.titleDset"> <br/>
+    <input class="form-control"   ng-model="expeconf.titleDset"> <br/>
 	<br>
-   <label>Description<span style="color: red">*</span> </label>  
+   <label>Description</label>  
    <a class="desc2" target="_blank" href='http://usefulinc.com/ns/doap#homepage'>dcterms:description</a>    
     <br/> 
-    <input class="input-modal-md"  ng-model="expeconf.descriDset"> <br/>
+    <input class="form-control"  ng-model="expeconf.descriDset"> <br/>
 	<br>
-	<label>Homepage <span style="color: red">*</span> </label>  
+	<label>Homepage</label>  
     <a class="desc2" target="_blank" href='http://www.w3.org/TR/vocab-dcat/#Property:dataset_landingpage'> dcat:landingPage </a>    
-    <input class="input-modal-md"  ng-model="expeconf.landingPage"> <br/>
+    <input class="form-control"  ng-model="expeconf.landingPage"> <br/>
 	<br>
 	<h2>Sampling Method</h2>
 	<br>
 	  <label style="margin-top: 10px">Train Size</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> mexcore:trainSize </a>    <br/> 
-    <input class="input-modal-md"   ng-model="expeconf.train"> <br/>
+    <input class="form-control"   ng-model="expeconf.train"> <br/>
 	<br>
     <label>Test Size</label> 
     <a class="desc2" target="_blank" href='http://xmlns.com/foaf/spec/#term_name'>mexcore:testSize </a>    
     <br/> 
-    <input class="input-modal-md"  ng-model="expeconf.test"> <br/>
+    <input class="form-control"  ng-model="expeconf.test"> <br/>
 	<br>
 	 <label style="margin-top: 10px">Folds</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> mexcore:folds</a>    <br/> 
-    <input class="input-modal-md"  ng-model="expeconf.folds"> <br/>
+    <input class="form-control"  ng-model="expeconf.folds"> <br/>
 	<br>
 	 <label style="margin-top: 10px">Sequential</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> mexcore:sequential:</a>    <br/> 
-    <input class="input-modal-md"  ng-model="expeconf.sequential"> <br/>
+    <input class="form-control"  ng-model="expeconf.sequential"> <br/>
 	<br>
 	<h2>Implementation</h2>
-	 <label class="control-label col-xs-1">Software Name<span style="color: red">*</span> </label>  
+	 <label style="margin-top: 10px">Software Name</label>  
             <a class="desc2" target="_blank" href='http://usefulinc.com/ns/doap#name'> doap:name</a>     <br/> 
-	    <div class="col-xs-9">
                 <select class="form-control" ng-model="expeconf.softwareName">
                     <option>Weka</option>
                      <option>FAMa</option>
                       <option>LibSVM</option>
                 </select>
-            </div>
 	<br>
-  <label class="control-label col-xs-1">Software Version<span style="color: red">*</span> </label>  
+	<br>
+	<br>
+   <label style="margin-top: 10px">Software Version</label>  
             <a class="desc2" target="_blank" href='http://usefulinc.com/ns/doap#revision'> doap:revision</a>     
     <br/> 
-    <input class="input-modal-md"  ng-model="expeconf.softwareVersion"> <br/>
+    <input class="form-control"  ng-model="expeconf.softwareVersion"> <br/>
 	<br>
     </div>
     </div>
@@ -165,20 +168,20 @@
       <br>
 	  <label style="margin-top: 10px">Train Size</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> mexcore:trainSize </a>    <br/> 
-    <input class="input-modal-md"   ng-model="expe.train"> <br/>
+    <input class="form-control"   ng-model="expe.train"> <br/>
 	<br>
     <label>Test Size</label> 
     <a class="desc2" target="_blank" href='http://xmlns.com/foaf/spec/#term_name'>mexcore:testSize </a>    
     <br/> 
-    <input class="input-modal-md"  ng-model="expe.test"> <br/>
+    <input class="form-control"  ng-model="expe.test"> <br/>
 	<br>
 	 <label style="margin-top: 10px">Folds</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> mexcore:folds</a>    <br/> 
-    <input class="input-modal-md"  ng-model="expe.folds"> <br/>
+    <input class="form-control"  ng-model="expe.folds"> <br/>
 	<br>
 	 <label style="margin-top: 10px">Sequential</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> mexcore:sequential:</a>    <br/> 
-    <input class="input-modal-md"  ng-model="expe.sequential"> <br/>
+    <input class="form-control"  ng-model="expe.sequential"> <br/>
 	<br>
     </div>
     </div>
@@ -219,7 +222,7 @@
     <label>Value</label> 
     <a class="desc2" target="_blank" href='http://xmlns.com/foaf/spec/#term_name'>rdfs:label </a>    
     <br/> 
-    <input class="input-modal-md"   ng-model="feature.value"> <br/>
+    <input class="form-control"   ng-model="feature.value"> <br/>
 	<br>
     </div>
     </div>
@@ -250,14 +253,18 @@
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> dcterms:identifier</a>    <br/> 
      <label style="margin-top: 10px">{{active.prop}}</label><br/>
 	<br>
+	<label style="margin-top: 10px">Description</label> 
+    <a style="margin-top: 10px" class="desc2" target="_blank" href='http://purl.org/dc/terms/'> dct:description </a>    <br/> 
+    <input class="form-control"   ng-model="active.desc"> <br/>
+	<br>
     <label>StartedAtTime</label> 
     <a class="desc2" target="_blank" href='http://xmlns.com/foaf/spec/#term_name'>prov:startedAtTime </a>    
     <br/> 
-    <input class="input-modal-md"   ng-model="active.start"> <br/>
+    <input class="form-control"   ng-model="active.start"> <br/>
 	<br>
 	 <label style="margin-top: 10px">EndAtTime</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> prov:endAtTime</a>    <br/> 
-    <input class="input-modal-md" ng-model="active.end"> <br/>
+    <input class="form-control" ng-model="active.end"> <br/>
 		<br>
 	</br>
     </div>
@@ -295,10 +302,10 @@
     <label style="margin-top: 10px">{{active.modeliden}}</label><br>
 	  <label style="margin-top: 10px">Description</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> dcterms:description</a>    <br/> 
-    <input class="input-modal-md"  ng-model="active.modeldesc"> <br/>
+    <input class="form-control"  ng-model="active.modeldesc"> <br/>
 		  <label style="margin-top: 10px">Date</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> dcterms:date</a>    <br/> 
-    <input class="input-modal-md"  ng-model="active.modeldate"> <br/>
+    <input class="form-control"  ng-model="active.modeldate"> <br/>
 	</div>
     </div>
     <div class="modal-footer">
@@ -333,7 +340,7 @@
    <label style="margin-top: 10px">{{parameter.prop}} </label> <br/>
 	  <label style="margin-top: 10px">Value</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> prop:value</a>    <br/> 
-    <input class="input-modal-md"  ng-model="parameter.value"> <br/>
+    <input class="form-control"  ng-model="parameter.value"> <br/>
 	<br>
     </div>
     </div>
@@ -365,7 +372,7 @@
   <label style="margin-top: 10px">{{perfomance.iden}}</label> <br/>
 	  <label style="margin-top: 10px">Description</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> dcterms:description</a>    <br/> 
-    <input class="input-modal-md"  ng-model="perfomance.desc"> <br/>
+    <input class="form-control"  ng-model="perfomance.desc"> <br/>
     <label style="margin-top: 10px">Type</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> mexperf</a>    <br/> 
     	   <select class="form-control" ng-model="perfomance.type">
@@ -408,10 +415,10 @@
       <br>
 	  <label style="margin-top: 10px">Execution</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> Execution</a>    <br/> 
-    <input class="input-modal-md"  ng-model="phase.exec"> <br/>
+    <input class="form-control"  ng-model="phase.exec"> <br/>
 	<label style="margin-top: 10px">Identifier</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'>Phase</a>    <br/> 
-    <input class="input-modal-md"  ng-model="phase.iden"> <br/>
+    <input class="form-control"  ng-model="phase.iden"> <br/>
 	<br>
     </div>
     </div>
@@ -480,10 +487,10 @@
       <br>
 	 <label style="margin-top: 10px">Algorithm</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'>Algorithm</a>    <br/> 
-    <input class="input-modal-md"  ng-model="algoc.algo"> <br/>
+    <input class="form-control"  ng-model="algoc.algo"> <br/>
 	  <label style="margin-top: 10px">Identifier</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> dctemrs:identifier</a><br/> 
-    <input class="input-modal-md"  ng-model="algoc.iden"> <br/>
+    <input class="form-control"  ng-model="algoc.iden"> <br/>
 
 	
 	<br>
@@ -514,22 +521,22 @@
       <br>
 	 <label style="margin-top: 10px">Algorithm</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'>Algorithm</a>    <br/> 
-    <input class="input-modal-md"  ng-model="algop.algo"> <br/>
+    <input class="form-control"  ng-model="algop.algo"> <br/>
 	  <label style="margin-top: 10px">Name</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> doap:name</a><br/> 
-    <input class="input-modal-md"  ng-model="algop.name"> <br/>
+    <input class="form-control"  ng-model="algop.name"> <br/>
 	<label style="margin-top: 10px">HomePage</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> doap:homepage</a><br/> 
-    <input class="input-modal-md"  ng-model="algop.homePage"> <br/>
+    <input class="form-control"  ng-model="algop.homePage"> <br/>
 	<label style="margin-top: 10px">Revision</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> doap:revision</a><br/> 
-    <input class="input-modal-md"  ng-model="algop.revision"> <br/>
+    <input class="form-control"  ng-model="algop.revision"> <br/>
 	<label style="margin-top: 10px">Description</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> doap:description</a><br/> 
-    <input class="input-modal-md"  ng-model="algop.desc"> <br/>
+    <input class="form-control"  ng-model="algop.desc"> <br/>
 	<label style="margin-top: 10px">Program Language</label> 
     <a style="margin-top: 10px" class="desc2" target="_blank" href='http://www.w3.org/TR/rdf-schema/#ch_label'> doap:programming-language</a><br/> 
-    <input class="input-modal-md"  ng-model="algop.lang"> <br/>
+    <input class="form-control"  ng-model="algop.lang"> <br/>
 	<br>
     </div>
     </div>

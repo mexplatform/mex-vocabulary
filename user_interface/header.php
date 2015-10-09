@@ -94,7 +94,7 @@
             }
 
             .panel-heading{
-                height: 23px;
+                height: 30px;
             }
             .panel-title{
                 margin-top: -7px;
