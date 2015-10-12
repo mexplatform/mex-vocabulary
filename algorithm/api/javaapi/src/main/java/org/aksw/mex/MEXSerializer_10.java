@@ -455,7 +455,7 @@ public class MEXSerializer_10 {
                         if (e != null) {
 
                             //EXECUTION
-                            _exec = model.createResource(URIbase + "execution" + String.valueOf(auxe))
+                            _exec = model.createResource(URIbase + "execution_" + String.valueOf(e.getId()))
                                     .addProperty(RDF.type, provActivity)
                                     .addProperty(RDF.type, mexcore_EXEC)
                                     .addProperty(PROVO.id, e.getId());
@@ -566,7 +566,7 @@ public class MEXSerializer_10 {
 
                                         mexperf = model.createResource(MEXPERF_10.NS + auxType);
 
-                                        _mea = model.createResource(URIbase + "measure" + String.valueOf(auxe) + "_" + String.valueOf(auxmea))
+                                        _mea = model.createResource(URIbase + "measure" + String.valueOf(e.getId()) + "_" + String.valueOf(auxmea))
                                                 .addProperty(RDF.type, provEntity)
                                                 .addProperty(RDF.type, mexperf);
 

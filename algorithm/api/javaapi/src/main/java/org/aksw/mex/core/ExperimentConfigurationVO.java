@@ -32,6 +32,7 @@ public class ExperimentConfigurationVO {
     private List<Execution> _executions;
     private List<FeatureVO> _features;
     private List<AlgorithmVO> _algorithms;
+    private Integer _seq;
 
     public ExperimentConfigurationVO(String id, String description) {
         this._id = id;
@@ -43,6 +44,14 @@ public class ExperimentConfigurationVO {
     }
     public ExperimentConfigurationVO(String id) {
         this._id = id;
+        this._executions = new ArrayList<>();
+        this._features = new ArrayList<>();
+        this._algorithms = new ArrayList<>();
+        this._ds = new DataSetVO();
+    }
+    public ExperimentConfigurationVO(String id, Integer nextid) {
+        this._id = id;
+        this._seq = nextid;
         this._executions = new ArrayList<>();
         this._features = new ArrayList<>();
         this._algorithms = new ArrayList<>();
@@ -148,14 +157,17 @@ public class ExperimentConfigurationVO {
 
         Integer total = this._executions.size() + 1;
 
-
         switch (type){
             case MEXEnum.EnumExecutionType.SINGLE:
-                this._executions.add(new ExecutionIndividualVO(this, MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
+                this._executions.add(new ExecutionIndividualVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
             case MEXEnum.EnumExecutionType.OVERALL:
-                this._executions.add(new ExecutionSetVO(this, MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
+                this._executions.add(new ExecutionSetVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
         }
-        return MEXConstant.DEFAULT_EXEC_ID + total.toString();
+
+        System.out.println("C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + total.toString());
+
+        return "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + total.toString();
+
     }
     public void addFeature(String featureName){
         if (this._features == null) {
