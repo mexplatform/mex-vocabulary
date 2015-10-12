@@ -143,14 +143,138 @@ public abstract class Execution {
                     case "cla":
                         ret = addClassificationPerformance(p,v);
                         break;
+                        /*
+                        ClassificationMeasureVO mc = new ClassificationMeasureVO();
+                        if (p.equals("accuracy")){
+                            mc.set_accuracy(v);
+                        }else if (p.equals("fMeasure")) {
+                            mc.set_fMeasure(v);
+                        }else if (p.equals("precision")) {
+                            mc.set_precision(v);
+                        }else if (p.equals("recall")) {
+                            mc.set_recall(v);
+                        }else if (p.equals("roc")) {
+                            mc.set_roc(v);
+                        }else if (p.equals("sensitivity")) {
+                            mc.set_sensitivity(v);
+                        }else if (p.equals("specificity")) {
+                            mc.set_specificity(v);
+                        }else if (p.equals("trueNegative")) {
+                            mc.set_trueNegative((int)v);
+                        }else if (p.equals("truePositive")) {
+                            mc.set_truePositive((int)v);
+                        }else if (p.equals("falseNegative")) {
+                            mc.set_falseNegative((int)v);
+                        }else if (p.equals("falsePositive")) {
+                            mc.set_falsePositive((int)v);
+                        }else if (p.equals("falseNegativeRate")) {
+                            mc.set_falseNegativeRate(v);
+                        }else if (p.equals("falsePositiveRate")) {
+                            mc.set_falsePositiveRate(v);
+                        }else if (p.equals("trueNegativeRate")) {
+                            mc.set_trueNegativeRate(v);
+                        }else if (p.equals("truePositiveRate")) {
+                            mc.set_truePositiveRate(v);
+                        }else{
+                            throw new Exception("sorry, the measure has not been found!");
+                        }
+                        this._performances.add(mc);
+                        */
+
+
                     case "reg":
-                        ret = addRegressionPerformance(p, v);
+
+                       /* RegressionMeasureVO mr = new RegressionMeasureVO();
+                        if (p.equals("meanAbsoluteDeviation")){
+                            mr.setMeanAbsoluteDeviation(v);
+                        }else if (p.equals("meanSquareError")) {
+                            mr.setMeanSquareError(v);
+                        }else if (p.equals("residual")) {
+                            mr.setResidual(v);
+                        }else if (p.equals("totalError")) {
+                            mr.setTotalError(v);
+                        }else if (p.equals("relativeAbsoluteError")) {
+                            mr.setRelativeAbsoluteError(v);
+                        }else if (p.equals("rootRelativeSquaredError")) {
+                            mr.setRootRelativeSquaredError(v);
+                        }else if (p.equals("rootMeanSquaredError")) {
+                            mr.setRootMeanSquaredError(v);
+                        }else if (p.equals("correlationCoefficient")) {
+                            mr.setCorrelationCoefficient(v);
+                        }else{
+                            throw new Exception("measure has not been found");
+                        }
+                        this._performances.add(mr);
+                        */
+
+                        ret =  addRegressionPerformance(p,v);
                         break;
                     case "sta":
-                        ret = addStatisticalPerformance(p, v);
+
+                        /*StatisticalMeasureVO ms = new StatisticalMeasureVO();
+
+                        if (p.equals("pearsonCorrelation")){
+                            ms.setPearsonCorrelation(v);
+                        }else if (p.equals("chiSquare")) {
+                            ms.setChiSquare(v);
+                        }else if (p.equals("error")) {
+                            ms.setError(v);
+                        }else if (p.equals("kolmogorovSmirnov")) {
+                            ms.setKolmogorovSmirnov(v);
+                        }else if (p.equals("mean")) {
+                            ms.setMean(v);
+                        }else if (p.equals("nemenyi")) {
+                            ms.setNemenyi(v);
+                        }else if (p.equals("standardDeviation")) {
+                            ms.setStandardDeviation(v);
+                        }else if (p.equals("wilcoxon")) {
+                            ms.setWilcoxon(v);
+                        }else if (p.equals("variance")) {
+                            ms.setVariance(v);
+                        }else if (p.equals("friedman")) {
+                            ms.setFriedman(v);
+                        }else if (p.equals("median")) {
+                            ms.setMedian(v);
+                        }else if (p.equals("kappaStatistics")) {
+                            ms.setKappaStatistics(v);
+                        }else if (p.equals("mode")) {
+                            ms.setMode(v);
+                        }else if (p.equals("L2norm")) {
+                            ms.setL2norm(v);
+                        }else if (p.equals("L1norm")) {
+                            ms.setL1norm(v);
+                        }else if (p.equals("Linfnorm")) {
+                            ms.setLinfnorm(v);
+                        }else{
+                            throw new Exception("the measure has not been found");
+                        }
+
+                        this._performances.add(ms);*/
+
+
+                        ret = addStatisticalPerformance(p,v);
                         break;
                     case "clu":
-                        ret = addClusteringPerformance(p, v);
+
+                       /* ClusteringMeasureVO mcl = new ClusteringMeasureVO();
+
+                        if (p.equals("chebyschevDistance")){
+                            mcl.set_chebyschevDistance(v);
+                        }else if (p.equals("hammingDistance")) {
+                            mcl.set_hammingDistance(v);
+                        }else if (p.equals("euclideanDistance")) {
+                            mcl.set_euclideanDistance(v);
+                        }else if (p.equals("manhattanDistance")) {
+                            mcl.set_manhattanDistance(v);
+                        }else if (p.equals("genSimilarityCoefficient")) {
+                            mcl.set_genSimilarityCoerfficient(v);
+                        }else{
+                            throw new Exception("the measure has not been found");
+                        }
+
+                        this._performances.add(mcl);*/
+
+                        ret = addClusteringPerformance(p,v);
                         break;
                     default:
                         ret = false;

@@ -15,6 +15,9 @@ public class Example01 {
 
     public static void main(String[] args) {
 
+
+        System.out.println("starting example 01...");
+
         MyMEX_10 mex = new MyMEX_10();
 
         try{
@@ -42,10 +45,17 @@ public class Example01 {
             /* (7) parsing the mex file */
             MEXSerializer_10.getInstance().parse(mex);
             /* (8) saving the mex file */
-            MEXSerializer_10.getInstance().saveToDisk("ex001.ttl","http://mex.aksw.org/examples/001/", mex);
+            MEXSerializer_10.getInstance().saveToDisk("/home/esteves/iswcdemo/ex001.ttl","http://mex.aksw.org/examples/001/", mex);
+
+            System.out.println("The MEX file [ex001.ttl] has been successfully created: share it ;-)");
+
+            System.exit(0);
+
         }catch (Exception e){
             System.out.println(e.toString());
         }
+
+
 
     }
 }

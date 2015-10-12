@@ -268,6 +268,9 @@ public class MyMEX_10 {
         this.phase = phase;
     }
     public SamplingMethodVO getSamplingMethod() {
+        if (samplingMethod==null){
+            this.samplingMethod = new SamplingMethodVO("sm1", MEXEnum.EnumSamplingMethod.Holdout);
+        }
         return samplingMethod;
     }
     public void setSamplingMethod(SamplingMethodVO samplingMethod) {

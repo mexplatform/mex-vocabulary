@@ -92,6 +92,9 @@ public class ExperimentConfigurationVO {
         return this._hard;
     }
     public DataSetVO DataSet() {
+        if (_ds == null) {
+            this._ds = new DataSetVO();
+        }
         return this._ds;
     }
     public AlgorithmVO Algorithm(String algorithmName){
