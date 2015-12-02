@@ -4,8 +4,6 @@ package example;
  * Created by esteves on 03.07.15.
  */
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.InputStreamReader;
 
 import org.aksw.mex.MEXSerializer_10;
@@ -21,14 +19,14 @@ import weka.classifiers.trees.J48;
 import weka.core.FastVector;
 import weka.core.Instances;
 
-public class ExampleWeka {
+public class Example05_weka {
     public static BufferedReader readDataFile(String filename) {
 
         BufferedReader bReader = null;
 
         try {
             bReader = new BufferedReader(new InputStreamReader(
-                    ExampleWeka.class.getResourceAsStream("/" + filename)));
+                    Example05_weka.class.getResourceAsStream("/" + filename)));
 
         } catch (Exception ex) {
             System.err.println("File not found: " + filename);
@@ -67,6 +65,8 @@ public class ExampleWeka {
     }
 
     public static void main(String[] args) throws Exception {
+
+        System.out.println("starting example 05...");
 
         MyMEX_10 mex = new MyMEX_10();
 
@@ -129,9 +129,11 @@ public class ExampleWeka {
             /* (2.7) parsing the mex file */
             MEXSerializer_10.getInstance().parse(mex);
             /* (2.8) saving the mex file */
-            MEXSerializer_10.getInstance().saveToDisk("exweka.ttl", "http://mex.aksw.org/examples/Weka/", mex);
+            MEXSerializer_10.getInstance().saveToDisk("/home/esteves/iswcdemo/ex005.ttl", "http://mex.aksw.org/examples/Weka/", mex);
 
-            System.out.println("The MEX file has been successfully created: share it ;-)");
+            System.out.println("The MEX file [ex005.ttl] has been successfully created: share it ;-)");
+
+            System.exit(0);
 
         } catch (Exception e) {
             System.out.println(e.toString());

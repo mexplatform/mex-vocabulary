@@ -23,17 +23,16 @@ public class ExperimentConfigurationVO {
 
     private String _id;
     private String _description;
-
     private ModelVO _model;
     private SamplingMethodVO _sampling;
     private HardwareConfigurationVO _hard;
     private DataSetVO _ds;
     //private ExperimentVO _exp;
     private ImplementationVO _implementation;
-
     private List<Execution> _executions;
     private List<FeatureVO> _features;
     private List<AlgorithmVO> _algorithms;
+    private Integer _seq;
 
     public ExperimentConfigurationVO(String id, String description) {
         this._id = id;
@@ -43,7 +42,6 @@ public class ExperimentConfigurationVO {
         this._algorithms = new ArrayList<>();
         this._ds = new DataSetVO();
     }
-
     public ExperimentConfigurationVO(String id) {
         this._id = id;
         this._executions = new ArrayList<>();
@@ -51,7 +49,14 @@ public class ExperimentConfigurationVO {
         this._algorithms = new ArrayList<>();
         this._ds = new DataSetVO();
     }
-
+    public ExperimentConfigurationVO(String id, Integer nextid) {
+        this._id = id;
+        this._seq = nextid;
+        this._executions = new ArrayList<>();
+        this._features = new ArrayList<>();
+        this._algorithms = new ArrayList<>();
+        this._ds = new DataSetVO();
+    }
 
     public String getId() {
         return _id;
@@ -65,7 +70,6 @@ public class ExperimentConfigurationVO {
     public void setDescription(String _description) {
         this._description = _description;
     }
-
     public void setModel(ModelVO model) {
         this._model = model;
     }
@@ -81,14 +85,15 @@ public class ExperimentConfigurationVO {
     //public void setExperiment(ExperimentVO value) {
     //    this._exp = value;
     //}
-
     public ModelVO Model() {
+        if (this._model == null){
+            this._model = new ModelVO();
+        }
         return this._model;
     }
     public void setSamplingMethod(String classname, String name) {
         this._sampling = new SamplingMethodVO(classname, name) ;
     }
-
     public SamplingMethodVO SamplingMethod() {
         return this._sampling ;
     }
@@ -96,6 +101,9 @@ public class ExperimentConfigurationVO {
         return this._hard;
     }
     public DataSetVO DataSet() {
+        if (_ds == null) {
+            this._ds = new DataSetVO();
+        }
         return this._ds;
     }
     public AlgorithmVO Algorithm(String algorithmName){
@@ -142,26 +150,25 @@ public class ExperimentConfigurationVO {
         }
         return ret;
     }
-
     public void addExecutionOverall(String expID, String id, String phase){
         this._executions.add(new ExecutionSetVO(this, id, new PhaseVO(phase)));
     }
-
     public String addExecution(String type, String phase){
 
         Integer total = this._executions.size() + 1;
 
-
         switch (type){
             case MEXEnum.EnumExecutionType.SINGLE:
-                this._executions.add(new ExecutionIndividualVO(this, MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
+                this._executions.add(new ExecutionIndividualVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
             case MEXEnum.EnumExecutionType.OVERALL:
-                this._executions.add(new ExecutionSetVO(this, MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
+                this._executions.add(new ExecutionSetVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
         }
-        return MEXConstant.DEFAULT_EXEC_ID + total.toString();
+
+        System.out.println("C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + total.toString());
+
+        return "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + total.toString();
+
     }
-
-
     public void addFeature(String featureName){
         if (this._features == null) {
             this._features = new ArrayList<>();}
@@ -176,7 +183,6 @@ public class ExperimentConfigurationVO {
             System.out.println(e.toString());
         }
     }
-
     public void addFeature(String[] featuresName){
         if (this._features == null) {
             this._features = new ArrayList<>();}
@@ -198,7 +204,6 @@ public class ExperimentConfigurationVO {
 
 
     }
-
     public void addSamplingMethod(String className, Double train, Double test) throws Exception{
 
         try{
@@ -218,7 +223,6 @@ public class ExperimentConfigurationVO {
         }
 
     }
-
     public void addSamplingMethod(String className, Integer folds) throws Exception{
 
         try{
@@ -241,11 +245,44 @@ public class ExperimentConfigurationVO {
         }
 
     }
+    public void addModel(String id, String description, Date date){
+        if (this._model == null){
+            this._model = new ModelVO();
+        }
+        this._model.setDate(date);
+        this._model.setDescription(description);
+        this._model.setId(id);
+    }
+    public void addHardwareConfiguration(String os, String cpu, String mb, String hd, String cache){
+        if (this._hard == null){
+            this._hard = new HardwareConfigurationVO();
+        }
+        this._hard.setCache(cache);
+        this._hard.setOperationalSystem(os);
+        this._hard.setCPU(cpu);
+        this._hard.setMemory(mb);
+        this._hard.setHD(hd);
 
+    }
+    public void addDataSet(String URI, String description, String name){
+        if (this._ds == null){
+            this._ds = new DataSetVO();
+        }
+        this._ds.setDescription(description);
+        this._ds.setName(name);
+        this._ds.setURI(URI);
+    }
+    public void addImplementation(String name, String version){
+        if (this._implementation == null){
+            this._implementation = new ImplementationVO();
+        }
+        this._implementation.setRevision(version);
+        this._implementation.setName(name);
+    }
 
-    public String addAlgorithm(String algorithmClass) throws Exception{
+    public AlgorithmVO addAlgorithm(String algorithmClass) throws Exception{
 
-        String ret = "";
+        AlgorithmVO algo = null;
         try{
             if (this._algorithms == null) {
                 this._algorithms = new ArrayList<>();}
@@ -253,7 +290,8 @@ public class ExperimentConfigurationVO {
             String individualName = MEXALGO_10.ClasseTypes.ALGORITHM.toLowerCase() +
                     String.valueOf(MEXController.getInstance().getNumberOfAlgorithms() + 1);
 
-            this._algorithms.add(new AlgorithmVO(algorithmClass, individualName, individualName));
+            algo = new AlgorithmVO(algorithmClass.toString(), individualName, individualName);
+            this._algorithms.add(algo);
 
             MEXController.getInstance().addAlgorithmCounter();
 
@@ -261,7 +299,7 @@ public class ExperimentConfigurationVO {
             System.out.println(e.toString());
         }
 
-        return ret;
+        return algo;
     }
     public List<AlgorithmVO> getAlgorithms(){
         return this._algorithms;
@@ -278,7 +316,6 @@ public class ExperimentConfigurationVO {
     public FeatureVO getFeature(Integer index){
         return this._features.get(index);
     }
-
     public void setExecutionStartTime(String executionId, Date value){
         try {
             Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(executionId));

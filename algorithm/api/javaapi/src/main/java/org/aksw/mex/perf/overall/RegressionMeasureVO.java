@@ -41,6 +41,7 @@ public class RegressionMeasureVO extends Measure {
         this._correlationCoefficient = _correlationCoefficient;
     }
 
+
     private Double _meanAbsoluteDeviation;
     private Double _meanSquareError;
     private Double _residual;

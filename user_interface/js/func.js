@@ -599,12 +599,12 @@ $scope.editFeatureExp = function(feature) {
             size: size,
             resolve: {
                 expeconf: function() {
-                    return {expeconf: {iden: 'expconf'+config, resource: '', os:'', cpu:'', memory:'', hdType:'', videoGraphs:'', cache:'', titleDset:'', descriDset:'', landingPage:'', trainsize:'', trainsize: '', testsize: '', folds: '',sequential:'', softwareName:'', softwareVersion:''}, messages: $scope.messages};
+                    return {expeconf: {iden: 'configuration'+config, resource: '', desc:'', os:'', cpu:'', memory:'', hdType:'', videoGraphs:'', cache:'', titleDset:'', descriDset:'', landingPage:'', trainsize:'', trainsize: '', testsize: '', folds: '',sequential:'', softwareName:'', softwareVersion:''}, messages: $scope.messages};
                 }
             }
         });
         modalDistInstance.result.then(function(expeconf) {
-            if (expeconf.resource != '' || expeconf.iden !=  '' || expeconf.os != '' || expeconf.cpu != '' || expeconf.memory != '' || expeconf.hdType != ''|| expeconf.videoGraphs != '' || expeconf.cache != '' || expeconf.titleDset != '' || expeconf.descriDset != ''|| expeconf.landingPage != ''|| expeconf.train != '' || expeconf.test != '' || expeconf.folds != '' || expeconf.sequential != ''|| expeconf.softwareName != '' || expeconf.softwareVersion != '')
+            if (expeconf.resource != '' || expeconf.iden !=  '' || expeconf.desc != '' || expeconf.os != '' || expeconf.cpu != '' || expeconf.memory != '' || expeconf.hdType != ''|| expeconf.videoGraphs != '' || expeconf.cache != '' || expeconf.titleDset != '' || expeconf.descriDset != ''|| expeconf.landingPage != ''|| expeconf.train != '' || expeconf.test != '' || expeconf.folds != '' || expeconf.sequential != ''|| expeconf.softwareName != '' || expeconf.softwareVersion != '')
                 $scope.ds.expeconf.push(expeconf);
 
         });
@@ -619,12 +619,12 @@ $scope.openActiveExec = function(size) {
             size: size,
             resolve: {
                 active: function() {
-                    return {active: {prop: 'exec'+number, resource: '', expe: '', algo:'', startedattime: '', endattime:'', phase:'', modeliden:'model'+number, modeldesc:'', modeldate:'', expeconf: $scope.ds.expeconf, algos: $scope.ds.algo}, messages: $scope.messages};
+                    return {active: {prop: 'exec'+number, resource: '', desc: '', expe: '', algo:'', startedattime: '', endattime:'', phase:'', modeliden:'model'+number, modeldesc:'', modeldate:'', expeconf: $scope.ds.expeconf, algos: $scope.ds.algo}, messages: $scope.messages};
                 }
             }
         });
         modalDistInstance.result.then(function(active) {
-            if (active.resource != ''|| active.prop!= ''|| active.expe !=  '' || active.algo !=  '' || active.start != '' || active.end != '' || active.phase != '' || active.modeliden != '' || active.modeldesc != '' || active.modeldate != '')
+            if (active.resource != ''|| active.prop!= ''|| active.desc != ''|| active.expe !=  '' || active.algo !=  '' || active.start != '' || active.end != '' || active.phase != '' || active.modeliden != '' || active.modeldesc != '' || active.modeldate != '')
                 $scope.ds.active.push(active);
         });
 		number++;

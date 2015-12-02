@@ -15,6 +15,8 @@ public class Example02 {
 
         MyMEX_10 mex = new MyMEX_10();
 
+        System.out.println("starting example 02...");
+
         try{
             /* (1) basic authoring provenance */
             mex.setAuthorName("D Esteves");
@@ -35,8 +37,8 @@ public class Example02 {
             mex.Configuration(conf02ID).addSamplingMethod(EnumSamplingMethod.Holdout, 0.8, 0.2);
 
             /* (2.4) the algorithms and hyperparameters */
-            String alg01ID = mex.Configuration(conf01ID).addAlgorithm(EnumAlgorithm.NaiveBayes);
-            String alg02ID = mex.Configuration(conf02ID).addAlgorithm(EnumAlgorithm.RegressionAnalysis);
+            String alg01ID = mex.Configuration(conf01ID).addAlgorithm(EnumAlgorithm.NaiveBayes).getIdentifier();
+            String alg02ID = mex.Configuration(conf02ID).addAlgorithm(EnumAlgorithm.RegressionAnalysis).getIdentifier();
             /* (2.5) the executions */
             String exec01ID = mex.Configuration(conf01ID).addExecution(EnumExecutionType.OVERALL, EnumPhase.TEST);
             String exec02ID = mex.Configuration(conf02ID).addExecution(EnumExecutionType.OVERALL, EnumPhase.TEST);
@@ -44,20 +46,24 @@ public class Example02 {
                 //your models call here !
             }
             /* (2.6) the performances for the executions */
-            mex.Configuration(conf01ID).Execution(exec01ID).setAlgorithm(alg01ID);
-            mex.Configuration(conf01ID).Execution(exec01ID).addPerformance(EnumMeasures.ACCURACY.toString(), .86);
-            mex.Configuration(conf01ID).Execution(exec01ID).addPerformance(EnumMeasures.ERROR.toString(), .14);
-            mex.Configuration(conf01ID).Execution(exec01ID).addPerformance(EnumMeasures.TRUEPOSITIVE.toString(), 3534);
+            mex.Configuration(conf01ID).ExecutionOverall(exec01ID).setAlgorithm(alg01ID);
+            mex.Configuration(conf01ID).ExecutionOverall(exec01ID).addPerformance(EnumMeasures.ACCURACY.toString(), .86);
+            mex.Configuration(conf01ID).ExecutionOverall(exec01ID).addPerformance(EnumMeasures.ERROR.toString(), .14);
+            mex.Configuration(conf01ID).ExecutionOverall(exec01ID).addPerformance(EnumMeasures.TRUEPOSITIVE.toString(), 3534);
 
-            mex.Configuration(conf02ID).Execution(exec02ID).setAlgorithm(alg02ID);
-            mex.Configuration(conf02ID).Execution(exec02ID).addPerformance(EnumMeasures.ACCURACY.toString(), .80);
-            mex.Configuration(conf02ID).Execution(exec02ID).addPerformance(EnumMeasures.ERROR.toString(), .20);
-            mex.Configuration(conf01ID).Execution(exec01ID).addPerformance(EnumMeasures.TRUEPOSITIVE.toString(), 3143);
+            mex.Configuration(conf02ID).ExecutionOverall(exec02ID).setAlgorithm(alg02ID);
+            mex.Configuration(conf02ID).ExecutionOverall(exec02ID).addPerformance(EnumMeasures.ACCURACY.toString(), .80);
+            mex.Configuration(conf02ID).ExecutionOverall(exec02ID).addPerformance(EnumMeasures.ERROR.toString(), .20);
+            mex.Configuration(conf01ID).ExecutionOverall(exec02ID).addPerformance(EnumMeasures.TRUEPOSITIVE.toString(), 3143);
 
             /* (2.7) parsing the mex file */
             MEXSerializer_10.getInstance().parse(mex);
             /* (2.8) saving the mex file */
-            MEXSerializer_10.getInstance().saveToDisk("ex002.ttl", "http://mex.aksw.org/examples/002/", mex);
+            MEXSerializer_10.getInstance().saveToDisk("/home/esteves/iswcdemo/ex002.ttl", "http://mex.aksw.org/examples/002/", mex);
+
+            System.out.println("The MEX file [ex002.ttl] has been successfully created: share it ;-)");
+
+            System.exit(0);
 
         }catch (Exception e){
             System.out.println(e.toString());

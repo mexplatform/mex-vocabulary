@@ -15,19 +15,18 @@ import org.aksw.mex.util.MEXEnum.*;
 /**
  * Created by esteves on 09.06.15.
  */
-public class Exampleold2 {
+public class old2 {
 
     public static void main(String[] args) {
 
         MyMEX_10 mex = null;
 
-        MEXSerializer_10.getInstance().saveToDisk("d.ttl", "http://aksw.org/sample/", mex);
-        System.exit(0);
+
 
         //ajustar no loop de busca das subclasses...tem que ser metodo recursivo para pegar todos os filhos!
 
         /***************************************************************
-         * MyMEX_10 Wrapper org.aksw.mex.example.Exampleold
+         * MyMEX_10 Wrapper org.aksw.mex.example.old1
          ***************************************************************/
         /* step 1: author and context */
 
@@ -134,7 +133,7 @@ public class Exampleold2 {
 
 
         //MEXSerializer_10.getInstance().parse(mex);
-        MEXSerializer_10.getInstance().saveToDisk("/home/esteves/Desktop/mexfile1.ttl", "url.com", mex);
+        MEXSerializer_10.getInstance().saveToDisk("/home/esteves/iswcdemo/old2.ttl", "url.com", mex);
 
 
 

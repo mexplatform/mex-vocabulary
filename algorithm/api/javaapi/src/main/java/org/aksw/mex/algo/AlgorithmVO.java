@@ -76,6 +76,17 @@ public class AlgorithmVO {
         return _parameters.add(param);
     }
 
+    public boolean addParameter(String[] param){
+        int i=0;
+        for (String p: param){
+            if (i%2==0){
+                _parameters.add(new AlgorithmParameterVO(p,param[i+1]));
+            }
+            i++;
+        }
+        return true;
+    }
+
     public boolean addParameter(String param, String value){
         return _parameters.add(new AlgorithmParameterVO(param, value));
     }

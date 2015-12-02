@@ -4,18 +4,20 @@ set_include_path(get_include_path() . PATH_SEPARATOR . '../lib/');
 require_once "./lib/EasyRdf.php";
 
 $ns = new EasyRdf_Namespace();
+$ns->set("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
+$ns->set("xsd", "http://www.w3.org/2001/XMLSchema#");
+$ns->set("owl", "http://www.w3.org/2002/07/owl#");
+$ns->set("prov", "http://www.w3.org/ns/prov#");
 $ns->set("dcterms", "http://purl.org/dc/terms/");
 $ns->set("dcat", "http://www.w3.org/ns/dcat#");
+$ns->set("dc", "http://purl.org/dc/elements/1.1/");
+$ns->set("dct", "http://purl.org/dc/terms/");
+$ns->set("doap", "http://usefulinc.com/ns/doap#");
 $ns->set("foaf", "http://xmlns.com/foaf/0.1/");
-$ns->set("sd", "http://www.w3.org/ns/sparql-service-description#");
-$ns->set("void", "http://rdfs.org/ns/void#");
-$ns->set("owl", "http://www.w3.org/2002/07/owl#");
-$ns->set("xsd", "http://www.w3.org/2001/XMLSchema#");
-$ns->set("rdfs", "http://www.w3.org/2000/01/rdf-schema#");
-$ns->set("prov", "http://www.w3.org/ns/prov#");
-$ns->set("mexcore", "http://www.ui.dne5.com/core#");
-$ns->set("odrl", "http://www.w3.org/ns/odrl/2#");
-$ns->set("rdf", "http://www.w3.org/1999/02/22-rdf-syntax-ns#");
+$ns->set("mexcore", "http://mex.aksw.org/mex-core#");
+$ns->set("mexalgo", "http://mex.aksw.org/mex-algo#");
+$ns->set("mexperf", "http://mex.aksw.org/mex-perf#");
+$ns->set("this", "http://mex.aksw.org/example/001/");
 
 $mainDataset = true;
 
@@ -34,45 +36,30 @@ function generate($ds, $graph, &$data) {
             echo " - Dataset Title: " . $ds['title'];
         return;
     }
-    $rdf = $graph->resource('#application', array('mexcore:ApplicationContext','prov:Agent','prov:Person', 'prov:Organization', 'doap:Project'));
-	
+    $rdf = $graph->resource('this:application', array('mexcore:ApplicationContext','prov:Agent','prov:Person', 'prov:Organization'));
+	   if (isset($ds['seeAlso']) && $ds['seeAlso'] != '')
+        $rdf->set('rdfs:seeAlso', $graph->resource($ds['seeAlso']));	
+		
+		if (isset($ds['copyDate']) && $ds['copyDate'] != '')
+        $rdf->set('dct:dateCopyrigthed', $ds['copyDate']);
+		
 	  if (isset($ds['givenName']) && $ds['givenName'] != '')
         $rdf->set('foaf:givenName', $ds['givenName']);
+		
 	  if (isset($ds['mbox']) && $ds['mbox'] != '')
         $rdf->set('foaf:mbox', $graph->resource($ds['mbox']));
+		
 	  if (isset($ds['fHomePage']) && $ds['fHomePage'] != '')
         $rdf->set('foaf:homePage', $graph->resource($ds['fHomePage']));
+		
     if (isset($ds['homePage']) && $ds['homePage'] != '')
         $rdf->set('doap:homePage', $graph->resource($ds['homePage']));
-    if (isset($ds['ddescription']) && $ds['ddescription'] != '')
-        $rdf->set('doap:description', $ds['ddescription']);
-    if (isset($ds['category']) && $ds['category']!= '')
-        $rdf->set('doap:category', $ds['category']);
-    if (isset($ds['seeAlso']) && $ds['seeAlso'] != '')
-        $rdf->set('rdfs:seeAlso', $graph->resource($ds['seeAlso']));
-    if (isset($ds['location']) && $ds['location']!= '')
-        $rdf->set('doap:location', $graph->resource($ds['location']));		
-	if (isset($ds["agent"])) {
-        foreach ($ds["agent"] as $l) {
-            $r;
-            if (isset($l['resource']) && $l['resource'] != '') {
-                $r = $graph->resource($l['resource']);
-                $graph->add($rdf, $l["prop"], $r);
 
-                if (isset($l['label']) || isset($l['name']) ) {
-                    $r = $graph->resource($l['resource'], array('a prov:Agent','prov:Organization'));
-                }
-            } else {
-                $r = $graph->newBNode(array('prov:Agent','prov:Organization'));
-                $graph->add($rdf, $l["prop"], $r);
-            }
-            if (isset($l['name']) && $l['name'] != '')
-                $r->set('foaf:name', $l['name']);
-        }
-    }
+ $rdf = $graph->resource( "this:context", array('prov:Entity','mexcore:'.$ds['context']));
+ 		$rdf->set('prov:wasAttributedTo', 'this:application');
 
-//EXP started 
-    $rdf = $graph->resource("#exp", array('prov:Entity','mexcore:Experiment'));
+//Experiment Data 
+    $rdf = $graph->resource("this:experiment-header", array('prov:Entity','mexcore:Experiment'));
 	
 	  if (isset($ds['idenExp']) && $ds['idenExp'] != '')
         $rdf->set('dcterms:identifier', $ds['idenExp']);
@@ -90,80 +77,180 @@ function generate($ds, $graph, &$data) {
         $rdf->set('mexcore:noiseRemovedDescription', $ds['noiseRemoDes']);
     if (isset($ds['attSelecDes']) && $ds['attSelecDes']!= '')
         $rdf->set('mexcore:attributeSelectionDescription', $ds['attSelecDes']);
-        $rdf->set('prov:wasAttributedTo:',  $graph->resource('#application'));
-        $rdf->set('mexcore:hasSamplingMethod',  $graph->resource('#sampling'));
+        $rdf->set('prov:wasAttributedTo:',  $graph->resource('this:application'));
 		
 
-$rdf = $graph->resource("#sampling", array('prov:Entity','mexcore:SamplingMethod'));	
-		if (isset($ds["expe"])) {
-          foreach ($ds["expe"] as $l) {
-			  if (isset($l['train']) && $l['train'] != '')
-                $rdf->set('mexcore:trainSize', $l['train']);
-				  if (isset($l['test']) && $l['test'] != '')
-                $rdf->set('mexcore:testSize', $l['test']);
-				  if (isset($l['folds']) && $l['folds'] != '')
-                $rdf->set('mexcore:folds', $l['folds']);
-				  if (isset($l['sequential']) && $l['sequential'] != '')
-                $rdf->set('mexcore:sequential', $l['sequential']);
-                $rdf->set('prov:wasDerivedFrom',  $graph->resource("#exp"));
-				
-		  }
-		}
-		
-$rdf = $graph->resource("#dset", array('prov:Entity','mexcore:Dataset'));
-	
-	if (isset($ds['titleDset']) && $ds['titleDset'] != '')
-        $rdf->set('dcterms:title', $ds['titleDset']);
-    if (isset($ds['descriDset']) && $ds['descriDset'] != '')
-        $rdf->set('dcterms:description', $ds['descriDset']);
-    if (isset($ds['landingPage']) && $ds['landingPage'] != '')
-        $rdf->set('dcat:landingPage', $graph->resource($ds['landingPage']));
-		
-$rdf = $graph->resource("#hardware", array('prov:Entity','doap:Project','mexcore:HardwareConfiguration'));
-	
-	if (isset($ds['os']) && $ds['os'] != '')
-        $rdf->set('doap:os', $ds['os']);
-    if (isset($ds['cpu']) && $ds['cpu'] != '')
-        $rdf->set('mexcore:cpu', $ds['cpu']);
-    if (isset($ds['memory']) && $ds['memory'] != '')
-        $rdf->set('mexcore:memory', $ds['memory']);
-    if (isset($ds['hdType']) && $ds['hdType'] != '')
-        $rdf->set('mexcore:hdType', $ds['hdType']);
-    if (isset($ds['cache']) && $ds['cache'] != '')
-        $rdf->set('mexcore:cpu-cache', $ds['cache']);
-	if (isset($ds['videoGraphs']) && $ds['videoGraphs'] != '')
-        $rdf->set('mexcore:video-graphs', $ds['videoGraphs']);
+#ExperimentConf
 
-//execution
-	$parameter = array();
-	 if (isset($ds["active"])) {
-		 $k=0;
-        foreach ($ds["active"] as $m) {
+	 if (isset($ds["expeconf"])) {
+		 $k=1;
+		 $w=0;
+        foreach ($ds["expeconf"] as $m) {
 		 
             // if there is a resource
-            if (isset($m['resource']) && $m['resource'] != '') {
-                $rdf = $graph->resource("#".$m['prop'], array('prov:Activity', 'mexcore:Execution'));
-                $lastword = strlen($m['prop']) -1;
-                if (isset($m['iden']) || isset($m['start']) || isset($m['end'])) {
-                    $rdf = $graph->resource("#".$m['prop'], array('prov:Activity', 'mexcore:Execution'));
-					$lastword = strlen($m['prop']) -1;
-                }
-            } else {
-					$rdf = $graph->resource("#".$m['prop'], array('prov:Activity', 'mexcore:Execution'));
-					$lastword = strlen($m['prop']) -1;
-					$k++;
-					
-            }
-			    $rdf->set('prov:used', $graph->resource(" #algparam".$k." #execparam".$k." #model".$k." #alg".$k." #phase"." #dset"." #hardware"));
-            if (isset($m['iden']) && $m['iden'] != '')
-                $rdf->set('dcterms:identifier', $m['iden']);
-            if (isset($m['start']) && $m['start'] != '')
-                $rdf->set('prov:startedAtTime', $m['start']);
-            if (isset($m['end']) && $m['end'] != '')
-                $rdf->set('prov:endAtTime', $m['end']);
+            if (isset($m['iden']) && $m['iden'] != '') {
+                $rdf = $graph->resource("this:".$m['iden'], array('prov:Activity', 'mexcore:ExperimentConfiguration'));
+                $lastword = strlen($m['iden']) -1;
+				$rdf->set('dcterms:identifier', $m['iden']);
+                $rdf->set('dct:description', $m['desc']);
+			    $rdf->set('prov:used', $graph->resource(" this:samplingmehtod".$k." this:dataset".$k." this:hardware".$k." this:implementation".$k." this:featureCollection".$k));
+		}
+				$k++;
+				$w++;
         }	
     }
 	
+
+
+#Features
+
+	 if (isset($ds["feature"])) {
+		 $k=1;
+        foreach ($ds["feature"] as $m) {
+		 
+            // if there is a resource
+            if (isset($m['iden']) && $m['iden'] != '') {
+                $rdf = $graph->resource("this:".$m['iden'], array('mexcore:Feature', 'prov:Entity'));
+				$rdf->set('dcterms:identifier', $m['iden']);
+                $rdf->set('rdfs:label', $m['value']);
+		}
+				$k++;
+        }	
+    }
+	
+
+#FeatureCollection
+
+	 if (isset($ds["feature"])) {
+		 $k=1;
+        foreach ($ds["feature"] as $m) {
+		 
+            // if there is a resource
+            if($m['expe'] == "configuration".$k){
+                $rdf = $graph->resource("this:featureCollection".$k, array('mexcore:Feature', 'prov:Entity'));
+					 if (isset($ds["feature"])) {
+					foreach ($ds["feature"] as $w) {
+						if($w['expe'] == "configuration".$k ) {
+							$rdf->set('prov:used', "this:".$w['iden']);
+		}
+			}
+			}
+			}
+		$k++;
+			}
+        }	
+#SamplingMethod
+
+	 if (isset($ds["expeconf"])) {
+		 $k=1;
+        foreach ($ds["expeconf"] as $m) {
+		 
+            // if there is a resource
+            if (isset($m['iden']) && $m['iden'] != '') {
+                $rdf = $graph->resource("this:samplingmethod".$k, array('prov:Entity', 'mexcore:SlidingValidation'));
+						 $rdf->set('mexcore:trainSize', $m['train']);
+						 $rdf->set('mexcore:testSize', $m['test']);
+						 $rdf->set('mexcore:folds', $m['folds']);
+						 $rdf->set('mexcore:sequential', $m['sequential']);
+
+		}
+				$k++;
+        }	
+    }
+#Dataset
+
+	 if (isset($ds["expeconf"])) {
+		 $k=1;
+        foreach ($ds["expeconf"] as $m) {
+		 
+            // if there is a resource
+            if (isset($m['iden']) && $m['iden'] != '') {
+                $rdf = $graph->resource("this:dataset".$k, array('prov:Entity','mexcore:Dataset'));
+						 $rdf->set('dcterms:title', $m['titleDset']);
+						 $rdf->set('dcterms:description', $m['descriDset']);
+						 $rdf->set('dcat:landingPage', $m['landingPage']);
+
+		}
+				$k++;
+        }	
+    }
+#Hardware
+
+	 if (isset($ds["expeconf"])) {
+		 $k=1;
+        foreach ($ds["expeconf"] as $m) {
+		 
+            // if there is a resource
+            if (isset($m['iden']) && $m['iden'] != '') {
+                $rdf = $graph->resource("this:hardware".$k, array('prov:Entity','doap:Project','mexcore:HardwareConfiguration'));
+						$rdf->set('doap:os', $m['os']);
+						$rdf->set('mexcore:cpu', $m['cpu']);
+						$rdf->set('mexcore:memory', $m['memory']);
+						$rdf->set('mexcore:hdType', $m['hdType']);
+						$rdf->set('mexcore:cpu-cache', $m['cache']);
+						$rdf->set('mexcore:video-graphs', $m['videoGraphs']);
+
+		}
+				$k++;
+        }	
+    }
+
+#Implementation
+
+	 if (isset($ds["expeconf"])) {
+		 $k=1;
+        foreach ($ds["expeconf"] as $m) {
+		 
+            // if there is a resource
+            if (isset($m['iden']) && $m['iden'] != '') {
+                $rdf = $graph->resource("this:implementation".$k, array('mexalgo:'.$m['softwareName']));
+						$rdf->set('doap:name', $m['softwareName']);
+						$rdf->set('doap:revision', $m['softwareVersion']);
+		}
+				$k++;
+        }	
+    }
+	
+//execution
+
+	 if (isset($ds["active"])) {
+		 $k=1;
+        foreach ($ds["active"] as $m) {
+		 
+            // if there is a resource
+            if (isset($m['prop']) && $m['prop'] != '') {
+                $rdf = $graph->resource("this:".$m['prop'], array('prov:Activity', 'mexcore:Execution'));
+                $rdf->set('dct:description', $m['desc']);         
+                $rdf->set('prov:startedAtTime', $m['start']);
+                $rdf->set('prov:endAtTime', $m['end']);
+				$rdf->set('dcterms:identifier', $m['modeliden']);
+				$rdf->set('dcterms:description', $m['modeldesc']);
+				$rdf->set('dcterms:date', $m['modeldate']);
+				$rdf->set('prov:used', ('this:'.$m['expe'].'  '.'this:'.$m['algo'].'  '.'this:'.$m['phase']));
+			}
+				$k++;
+        }	
+    }
+
+	
+#Perfomance
+
+	 if (isset($ds["perfomance"])) {
+		 $k=1;
+        foreach ($ds["perfomance"] as $m) {
+		 
+            // if there is a resource
+            if (isset($m['iden']) && $m['iden'] != '') {
+                $rdf = $graph->resource("this:".$m['iden'], array('prov:Activity', 'mexperf:ExecutionPerformance'));
+                $rdf->set('prov:value', $m['desc']);         
+                $rdf->set('mexperf:formula', $m['type']);
+                $rdf->set('prov:wasInformedBy', $m['exec']);
+			}
+				$k++;
+        }	
+    }
+	
+/*	
 //execparameter
 	$i=0;
 	 if (isset($ds["active"])) {
@@ -191,6 +278,7 @@ $rdf = $graph->resource("#hardware", array('prov:Entity','doap:Project','mexcore
 .*/
 //parameter execution 
 	
+/*
 	if (isset($ds["parameter"])) {
         foreach ($ds["parameter"] as $l) {
             // if there is a resource
@@ -210,7 +298,7 @@ $rdf = $graph->resource("#hardware", array('prov:Entity','doap:Project','mexcore
     }
 	
 
-//model
+/*model
 
 	 if (isset($ds["model"])) {
 		 $k=0;
@@ -238,8 +326,8 @@ $rdf = $graph->resource("#hardware", array('prov:Entity','doap:Project','mexcore
 			 $rdf->set('prov:used', $graph->resource(" #exec".$k));
         }	
     }
-	
-	//phase
+	*/
+//phase
 
 //dataid
   
