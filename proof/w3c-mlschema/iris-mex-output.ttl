@@ -1,0 +1,206 @@
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl:      <http://www.w3.org/2002/07/owl#> .
+@prefix prov:     <http://www.w3.org/ns/prov#> .
+@prefix dcterms:  <http://purl.org/dc/terms/> .
+@prefix dcat:     <http://www.w3.org/ns/dcat#> .
+@prefix dc: 	  <http://purl.org/dc/elements/1.1/> .
+@prefix dct: 	  <http://purl.org/dc/terms/> .
+@prefix doap:     <http://usefulinc.com/ns/doap#> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix mexcore:  <http://mex.aksw.org/mex-core#> .
+@prefix mexalgo:  <http://mex.aksw.org/mex-algo#> .
+@prefix mexperf:  <http://mex.aksw.org/mex-perf#> .
+@prefix this:     <http://mex.aksw.org/example/weka/iris/001> .
+
+##################################################################
+#	 Layer        : mex core (mexcore)
+#    Version      : 1.0.1
+#	 Version Label: mexcore-iswc2015
+##################################################################
+
+# authoring 
+
+this:app
+   a prov:Agent, prov:Person, prov:Organization, mexcore:ApplicationContext;
+   rdfs:seeAlso        <https://github.com/ML-Schema/core/wiki/Example-process>;
+   dct:dateCopyrighted "2015.12.01 12:30:00 CEST";
+   foaf:givenName "Esteves" 
+.
+this:context
+	a prov:Entity, mexcore:Bioinformatics;
+	prov:wasAttributedTo this:application
+.
+
+this:experiment-header
+	a prov:Entity, mexcore:Experiment;
+	dct:identifier "W3C_MEX_IRIS_001"^^xsd:string;
+	dcterms:title "W3C Schema Group - MEX Weka Iris Example"^^xsd:string;
+	dcterms:date "2015-12-01"^^xsd:date;
+	dcterms:description "a very simple example of MEX representing the output of Weka J48 on iris dataset"^^xsd:string;
+	prov:wasAttributedTo this:app;
+.
+
+# configurations 
+
+this:conf1
+     a mexcore:ExperimentConfiguration, prov:Activity ;
+     prov:used this:sm1, this:ds1, this:features, this:imp1;
+     dct:identifier "EC001" ;
+.
+
+this:sm1
+	a mexcore:CrossValidation, prov:Entity;
+	mexcore:trainSize "1.0"^^xsd:double;
+	mexcore:testSize "1.0"^^xsd:double;
+	mexcore:folds "1"^^xsd:integer;
+	rdfs:label "Evaluation on training set"^^xsd:string;
+.
+this:ds1
+	a mexcore:Dataset, prov:Entity;
+	dcterms:title "Iris"^^xsd:string;
+	dcterms:description "Iris dataset"^^xsd:string;
+	dcat:landingPage <http://storm.cis.fordham.edu/~gweiss/data-mining/weka-data/iris.arff>;
+.
+
+this:imp1
+	a mexalgo:Implementation;
+	rdfs:label "Weka"^^xsd:string;
+    doap:homepage "http://www.cs.waikato.ac.nz/ml/weka/";
+    doap:revision "3.6.6";
+.
+
+this:features
+	a mexcore:FeatureCollection, prov:Collection ;
+	prov:hadMember this:f1, this:f2, this:f3, this:f4 ;
+.
+
+this:f1
+      a mexcore:Feature , prov:Entity ;
+      dct:identifier "sepallength"; 
+.
+this:f2
+      a mexcore:Feature , prov:Entity ;
+      dct:identifier "sepalwidth"; 
+.
+this:f3
+      a mexcore:Feature , prov:Entity ;
+      dct:identifier "petallength"; 
+.
+this:f4
+      a mexcore:Feature , prov:Entity ;
+      dct:identifier "petalwidth"; 
+.
+
+
+# executions
+
+this:train
+	a prov:Entity, mexcore:Training;
+.	
+
+this:exec1
+      a prov:Activity, mexcore:OverallExecution;
+      rdfs:label "exec-training";
+      mexcore:startsAtPosition "1"^^xsd:string;
+      mexcore:endsAtPosition "150"^^xsd:string;
+      prov:startedAtTime "2015-12-02T21:00:00"^^xsd:dateTime;
+      prov:endedAtTime   "2015-12-02T21:00:03"^^xsd:dateTime;
+      prov:used this:train,
+      			this:alg1,
+      			this:algParameterCollectionJ48;
+	  prov:wasInformedBy this:conf1;
+      dcterms:identifier "exec001"^^xsd:string;
+.
+
+this:model 
+	a prov:Entity, mexcore:Model;
+	dct:identifier "j48-iris.model";
+	prov:wasGeneratedBy this:exec1;
+.
+
+##################################################################
+#	 Layer        : mex algorithm (mexalgo)
+#    Version      : 1.0.1
+#	 Version Label: mexcore-iswc2015
+##################################################################
+this:alg1
+	a mexalgo:J48, mexalgo:Algorithm;
+	dcterms:identifier "J48"^^xsd:string;
+.
+
+this:algParameterCollectionJ48
+ 	a mexalgo:AlgorithmParameterCollection, prov:Colection ;
+ 	prov:hadMember this:j48p1, this:j48p2; 
+.
+this:j48p1
+	a mexalgo:AlgorithmParameter, prov:Entity;
+	dct:identifier "C";
+	prov:value "0.25"^^xsd:double;
+.
+this:j48p2
+	a mexalgo:AlgorithmParameter, prov:Entity;
+	dct:identifier "M";
+	prov:value "2"^^xsd:double;
+.
+
+##################################################################
+#	 Layer        : mex performance (mexperf)
+#    Version      : 1.0.1
+#	 Version Label: mexcore-iswc2015
+##################################################################
+
+this:ep1
+	a prov:Activity, mexperf:ExecutionPerformance;
+	prov:wasInformedBy this:exec1;
+	prov:generated this:m11, this:m12, this:m13, this:m14;
+.
+this:m11
+	a prov:Entity, mexperf:ClassificationMeasure, mexperf:RegressionMeasure;
+	dct:identifier "SummaryReport";
+	mexperf:accuracy "0.9768"^^xsd:float;
+	mexperf:truePositive "147"^^xsd:integer;
+	mexperf:falsePositive "3"^^xsd:integer;
+	mexperf:kappaStatistics "0.97"^^xsd:float;
+	mexperf:meanAbsoluteError "0.0233"^^xsd:float;
+	mexperf:rootMeanSquaredError "0.108"^^xsd:float;
+	mexperf:relativeAbsoluteError "0.052482"^^xsd:float;
+	mexperf:rootRelativeSquaredError  "0.0229089"^^xsd:float;
+	prov:wasGeneratedBy this:ep1;
+.
+                 
+this:m12
+  a prov:Entity, mexperf:ClassificationMeasure;
+  dct:identifier "Iris-setosa";
+  mexperf:truePositiveRate "1.0"^^xsd:float;
+  mexperf:falsePositiveRate "0"^^xsd:float;
+  mexperf:precision "1"^^xsd:float;
+  mexperf:recall "1"^^xsd:float;
+  mexperf:f1Measure "1"^^xsd:float;
+  mexperf:roc "1"^^xsd:float;
+  prov:wasGeneratedBy this:ep1;
+.
+
+this:m13
+  a prov:Entity, mexperf:ClassificationMeasure;
+  dct:identifier "Iris-versicolor";
+  mexperf:truePositiveRate "0.98"^^xsd:float;
+  mexperf:falsePositiveRate "0.02"^^xsd:float;
+  mexperf:precision "0.961"^^xsd:float;
+  mexperf:recall "0.98"^^xsd:float;
+  mexperf:f1Measure "0.97"^^xsd:float;
+  mexperf:roc "0.99"^^xsd:float;
+  prov:wasGeneratedBy this:ep1;
+.
+
+this:m14
+  a prov:Entity, mexperf:ClassificationMeasure;
+  dct:identifier "Iris-virginica";
+  mexperf:truePositiveRate "0.96"^^xsd:float;
+  mexperf:falsePositiveRate "0.01"^^xsd:float;
+  mexperf:precision "0.98"^^xsd:float;
+  mexperf:recall "0.96"^^xsd:float;
+  mexperf:f1Measure "0.97"^^xsd:float;
+  mexperf:roc "0.99"^^xsd:float;
+  prov:wasGeneratedBy this:ep1;
+.
