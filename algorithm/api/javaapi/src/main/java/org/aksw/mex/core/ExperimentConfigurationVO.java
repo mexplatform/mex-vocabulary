@@ -32,7 +32,7 @@ public class ExperimentConfigurationVO {
     private List<Execution> _executions;
     private List<FeatureVO> _features;
     private List<AlgorithmVO> _algorithms;
-    private Integer _seq;
+    private Integer _seq = 0;
 
     public ExperimentConfigurationVO(String id, String description) {
         this._id = id;
