@@ -184,6 +184,73 @@ public class MEXEnum {
         public static final String VALIDATION = "Validation";
     }
 
+    public enum EnumAlgorithms {
+        PART(EnumAlgorithm.PART.toString()),
+        J48Graft(EnumAlgorithm.J48Graft.toString()),
+        AverageOneDependenceEstimators(EnumAlgorithm.AverageOneDependenceEstimators.toString()),
+        MARS(EnumAlgorithm.MARS.toString()),
+        REPTree(EnumAlgorithm.REPTree.toString()),
+        INDUCE(EnumAlgorithm.INDUCE.toString()),
+        SupportVectorMachines(EnumAlgorithm.SupportVectorMachines.toString()),
+        ProbabilisticSoftLogic(EnumAlgorithm.ProbabilisticSoftLogic.toString()),
+        AutoregressiveMovingAverage(EnumAlgorithm.AutoregressiveMovingAverage.toString()),
+        DecisionTable(EnumAlgorithm.DecisionTable.toString()),
+        FP(EnumAlgorithm.FP.toString()),
+        OPTICS(EnumAlgorithm.OPTICS.toString()),
+        AutoregressiveIntegratedMovingAverage(EnumAlgorithm.AutoregressiveIntegratedMovingAverage.toString()),
+        Apriori(EnumAlgorithm.Apriori.toString()),
+        J48(EnumAlgorithm.J48.toString()),
+        AQ(EnumAlgorithm.AQ.toString()),
+        CHAMELEON(EnumAlgorithm.CHAMELEON.toString()),
+        CART(EnumAlgorithm.CART.toString()),
+        SequentialMinimalOptimization(EnumAlgorithm.SequentialMinimalOptimization.toString()),
+        C45(EnumAlgorithm.C45.toString()),
+        MultilayerPerceptron(EnumAlgorithm.MultilayerPerceptron.toString()),
+        BackPropagation(EnumAlgorithm.BackPropagation.toString()),
+        NBTree(EnumAlgorithm.NBTree.toString()),
+        CLARANS(EnumAlgorithm.CLARANS.toString()),
+        UserClassifier(EnumAlgorithm.UserClassifier.toString()),
+        RandomTree(EnumAlgorithm.RandomTree.toString()),
+        NaiveBayes(EnumAlgorithm.NaiveBayes.toString()),
+        BFTree(EnumAlgorithm.BFTree.toString()),
+        SimpleCart(EnumAlgorithm.SimpleCart.toString()),
+        ADTree(EnumAlgorithm.ADTree.toString()),
+        LMT(EnumAlgorithm.LMT.toString()),
+        BIRCH(EnumAlgorithm.BIRCH.toString()),
+        CHAID(EnumAlgorithm.CHAID.toString()),
+        Kmeans(EnumAlgorithm.Kmeans.toString()),
+        CLARA(EnumAlgorithm.CLARA.toString()),
+        Markov(EnumAlgorithm.Markov.toString()),
+        DecisionStump(EnumAlgorithm.DecisionStump.toString()),
+        RandomForest(EnumAlgorithm.RandomForest.toString()),
+        Baseline(EnumAlgorithm.Baseline.toString()),
+        HybridAlgorithm(EnumAlgorithm.HybridAlgorithm.toString()),
+        NearestNeigbour(EnumAlgorithm.NearestNeigbour.toString()),
+        CURE(EnumAlgorithm.CURE.toString()),
+        ID3(EnumAlgorithm.ID3.toString()),
+        LADTree(EnumAlgorithm.LADTree.toString()),
+        ELTL(EnumAlgorithm.ELTL.toString()),
+        AdaptativeBoost(EnumAlgorithm.AdaptativeBoost.toString()),
+        RegressionAnalysis(EnumAlgorithm.RegressionAnalysis.toString());
+
+
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumAlgorithms(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+
+    }
+
     public enum EnumMeasures {
 
         /*regression*/
@@ -255,6 +322,8 @@ public class MEXEnum {
         public String toString() {return text;}
 
     }
+
+
     public enum EnumRegressionMeasure {
 
         MEAN_ABSOLUTE_DEVIATION("meanAbsoluteDeviation"),
