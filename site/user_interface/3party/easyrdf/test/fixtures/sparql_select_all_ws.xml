@@ -25,7 +25,7 @@
         <uri>http://xmlns.com/foaf/0.1/homepage</uri>
       </binding>
       <binding name="o">
-        <uri>http://www.example.com/project</uri>
+        <uri>http://www.examples.com/project</uri>
       </binding>
     </result>
     <result>
@@ -41,29 +41,29 @@
     </result>
     <result>
       <binding name="s">
-        <uri>http://www.example.com/joe/foaf.rdf</uri>
+        <uri>http://www.examples.com/joe/foaf.rdf</uri>
       </binding>
       <binding name="p">
         <uri>http://xmlns.com/foaf/0.1/primaryTopic</uri>
       </binding>
       <binding name="o">
-        <uri>http://www.example.com/joe#me</uri>
+        <uri>http://www.examples.com/joe#me</uri>
       </binding>
     </result>
     <result>
       <binding name="s">
-        <uri>http://www.example.com/joe/foaf.rdf</uri>
+        <uri>http://www.examples.com/joe/foaf.rdf</uri>
       </binding>
       <binding name="p">
         <uri>http://xmlns.com/foaf/0.1/maker</uri>
       </binding>
       <binding name="o">
-        <uri>http://www.example.com/joe#me</uri>
+        <uri>http://www.examples.com/joe#me</uri>
       </binding>
     </result>
     <result>
       <binding name="s">
-        <uri>http://www.example.com/joe/foaf.rdf</uri>
+        <uri>http://www.examples.com/joe/foaf.rdf</uri>
       </binding>
       <binding name="p">
         <uri>http://www.w3.org/2000/01/rdf-schema#label</uri>
@@ -74,7 +74,7 @@
     </result>
     <result>
       <binding name="s">
-        <uri>http://www.example.com/joe/foaf.rdf</uri>
+        <uri>http://www.examples.com/joe/foaf.rdf</uri>
       </binding>
       <binding name="p">
         <uri>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</uri>
@@ -85,7 +85,7 @@
     </result>
     <result>
       <binding name="s">
-        <uri>http://www.example.com/joe#me</uri>
+        <uri>http://www.examples.com/joe#me</uri>
       </binding>
       <binding name="p">
         <uri>http://xmlns.com/foaf/0.1/title</uri>
@@ -96,7 +96,7 @@
     </result>
     <result>
       <binding name="s">
-        <uri>http://www.example.com/joe#me</uri>
+        <uri>http://www.examples.com/joe#me</uri>
       </binding>
       <binding name="p">
         <uri>http://xmlns.com/foaf/0.1/name</uri>
@@ -107,18 +107,18 @@
     </result>
     <result>
       <binding name="s">
-        <uri>http://www.example.com/joe#me</uri>
+        <uri>http://www.examples.com/joe#me</uri>
       </binding>
       <binding name="p">
         <uri>http://xmlns.com/foaf/0.1/homepage</uri>
       </binding>
       <binding name="o">
-        <uri>http://www.example.com/joe/</uri>
+        <uri>http://www.examples.com/joe/</uri>
       </binding>
     </result>
     <result>
       <binding name="s">
-        <uri>http://www.example.com/joe#me</uri>
+        <uri>http://www.examples.com/joe#me</uri>
       </binding>
       <binding name="p">
         <uri>http://xmlns.com/foaf/0.1/firstName</uri>
@@ -129,7 +129,7 @@
     </result>
     <result>
       <binding name="s">
-        <uri>http://www.example.com/joe#me</uri>
+        <uri>http://www.examples.com/joe#me</uri>
       </binding>
       <binding name="p">
         <uri>http://xmlns.com/foaf/0.1/family_name</uri>
@@ -140,7 +140,7 @@
     </result>
     <result>
       <binding name="s">
-        <uri>http://www.example.com/joe#me</uri>
+        <uri>http://www.examples.com/joe#me</uri>
       </binding>
       <binding name="p">
         <uri>http://xmlns.com/foaf/0.1/currentProject</uri>
@@ -151,7 +151,7 @@
     </result>
     <result>
       <binding name="s">
-        <uri>http://www.example.com/joe#me</uri>
+        <uri>http://www.examples.com/joe#me</uri>
       </binding>
       <binding name="p">
         <uri>http://www.w3.org/1999/02/22-rdf-syntax-ns#type</uri>
