@@ -13,10 +13,10 @@ Futhermore, the development of *APIs* and *ML Tools* is a goal in order to suppo
 The definition of an `ontology` can be a complex and never-ending task, even more for a highly complex environment such as machine learning. The `MEX` vocabulary has been designed to serve as an ally in the metadata exporting process, focusing in practical and important aspects concerning the publication of the achieved results, i.e.: the needed `input parameters` for an `model` which produces `measures`. More sophisticated variables and procedures (e.g.: optimizations and feature selection) are not covered, simply because they go beyond the a logical threshold of simplicity we want to achieve here. In the end, people are more interested in find out, compare and share `methodologies` and their `performances` than to have deep understanding of performed sub tasks. 
 
 ### This repository
-  * [vocabulary](https://github.com/dnes85/mexproject/tree/master/ontology)
-  * [APIs](https://github.com/dnes85/mexproject/tree/master/algorithm)
-  * [examples](https://github.com/dnes85/mexproject/tree/master/proof)
-  * [ppt](https://github.com/dnes85/mexproject/tree/master/ppt)
+  * [Framework](https://github.com/dnes85/mexproject/tree/master)
+  * [Vocabulary](https://github.com/dnes85/mexproject/tree/master/ontology)
+  * [Examples](https://github.com/dnes85/mexproject/tree/master/proof)
+  * [Google Group](mex-project@googlegroups.com)
 
 ### How to use MEX?
 
@@ -25,6 +25,8 @@ For **semantic web users** the usage is straightforward, once the vocabulary can
 ![LOG4MEX](http://dne5.com/mex/diagram/log4mex-small.png)
 
 For **non-semantic web users**, there are two ways to use `MEX`: if you're coding, you can import an *API* (**log4mex**), which implements an interface to be consumed into the user code for directly exporting the metadata in a simple manner, regardless possible semantic web aspects. Alternatively, over existing *machine learning frameworks* (100% transparent process), such as [DL-Learner](http://dl-learner.org/), [WEKA](http://www.cs.waikato.ac.nz/ml/weka/) and [FAMa](https://github.com/duartejulio/fama). It's a ongoing work, feel free to collaborate ;-)
+
+Most recently, we have introduced a novel approach to generate metadata out of ML runs: MEX Framework: A Java Framework for Generating Machine Learning Metadata
 
 Finnaly, for **general and non-expert users** we've created an [user interface](http://mex.aksw.org/) for exporting the ML experiment metadata.
 
