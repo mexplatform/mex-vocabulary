@@ -1,5 +1,7 @@
 ## [MEX Vocabulary](http://mex.aksw.org/): A Lightweight Interchange Format for Machine Learning Experiments
 
+[![Join the chat at https://gitter.im/AKSW/mexproject](https://badges.gitter.im/AKSW/mexproject.svg)](https://gitter.im/AKSW/mexproject?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 More than just a **machine readable way** (which is provided by many ML frameworks), the `MEX` Vocabulary has been designed to define a **lightweight and flexible schema** for publishing machine learning metadata, regardless technology (we have been working to provide different programming language *APIs* and integrations with different machine learning tools). We aim to provide a **free-format** for exporting and exchanging machine learning metadata, indifferent to existing **workflow systems** or **frameworks**. As a consequence, the users can benefit of the `mex format` for further analysis and integrations in an easiest way.
 
 The first milestone was the [vocabulary definition](http://www.w3.org/standards/semanticweb/ontology), i.e., the `schema definition` to describe and represent each machine learning **algorithm execution** and its **performance measures** in a concise (but comprehensive) way. At this stage, we want to achieve a **high level of interoperability**.
