@@ -1,0 +1,5 @@
+.idea
+target/
+javaapi.iml
+/src/main/java/example/tests/
+demoApplication.log
