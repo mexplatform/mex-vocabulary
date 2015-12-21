@@ -1,4 +1,4 @@
-package org.aksw.mex.tests.framework.algo;
+package org.aksw.mex.framework.annotations.algo;
 
 /**
  * Created by dnes on 16/12/15.

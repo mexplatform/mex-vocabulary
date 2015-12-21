@@ -2,13 +2,14 @@ package org.aksw.mex.tests.framework;
 
 
 import examples.framework.ExampleJSAT;
+import org.aksw.mex.framework.annotations.Start;
 import org.aksw.mex.tests.Execution;
 import org.aksw.mex.tests.MethodAnnotation;
-import org.aksw.mex.tests.framework.core.Dataset;
-import org.aksw.mex.tests.framework.core.ExperimentInfo;
-import org.aksw.mex.tests.framework.core.Features;
-import org.aksw.mex.tests.framework.core.Hardware;
-import org.aksw.mex.tests.framework.perf.Measure;
+import org.aksw.mex.framework.annotations.core.Dataset;
+import org.aksw.mex.framework.annotations.core.ExperimentInfo;
+import org.aksw.mex.framework.annotations.core.Features;
+import org.aksw.mex.framework.annotations.core.Hardware;
+import org.aksw.mex.framework.annotations.perf.Measure;
 import org.aksw.mex.tests.mex.MEXCORE_Feature;
 import org.aksw.mex.tests.mex.types.FieldAnnotation;
 import org.aksw.mex.tests.mex.types.ParameterAnnotation;
@@ -284,7 +285,7 @@ public class MEXService {
             int pass = 0;
             int fail = 0;
             for (Method method : methods) {
-                if (method.isAnnotationPresent(org.aksw.mex.tests.framework.core.Execution.class)) {
+                if (method.isAnnotationPresent(org.aksw.mex.framework.annotations.core.Execution.class)) {
                     Execution ex = method.getAnnotation(Execution.class);
                     Boolean enable = ex.enabled();
                     try {

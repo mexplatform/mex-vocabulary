@@ -1,13 +1,14 @@
 package org.aksw.mex.tests.framework;
 
-import org.aksw.mex.tests.framework.core.Execution;
-import org.aksw.mex.tests.framework.core.ExperimentInfo;
+import org.aksw.mex.framework.annotations.Start;
+import org.aksw.mex.framework.annotations.core.Execution;
+import org.aksw.mex.framework.annotations.core.ExperimentInfo;
 import org.aksw.mex.tests.InterfaceLocalVariable;
-import org.aksw.mex.tests.framework.algo.Algorithm;
-import org.aksw.mex.tests.framework.core.Dataset;
-import org.aksw.mex.tests.framework.perf.Measure;
-import org.aksw.mex.tests.framework.core.ExecutionEndTime;
-import org.aksw.mex.tests.framework.core.ExecutionStartTime;
+import org.aksw.mex.framework.annotations.algo.Algorithm;
+import org.aksw.mex.framework.annotations.core.Dataset;
+import org.aksw.mex.framework.annotations.perf.Measure;
+import org.aksw.mex.framework.annotations.core.ExecutionEndTime;
+import org.aksw.mex.framework.annotations.core.ExecutionStartTime;
 import org.aksw.mex.tests.repeating.Test;
 import org.aksw.mex.util.MEXEnum;
 import weka.classifiers.trees.J48;

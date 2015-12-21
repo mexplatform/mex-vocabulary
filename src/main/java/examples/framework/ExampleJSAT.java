@@ -1,9 +1,9 @@
 package examples.framework;
 
-import org.aksw.mex.tests.framework.Start;
-import org.aksw.mex.tests.framework.algo.Algorithm;
-import org.aksw.mex.tests.framework.core.*;
-import org.aksw.mex.tests.framework.perf.Measure;
+import org.aksw.mex.framework.annotations.Start;
+import org.aksw.mex.framework.annotations.algo.Algorithm;
+import org.aksw.mex.framework.annotations.core.*;
+import org.aksw.mex.framework.annotations.perf.Measure;
 import jsat.ARFFLoader;
 import jsat.DataSet;
 import jsat.classifiers.CategoricalResults;

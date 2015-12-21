@@ -5,8 +5,8 @@ package org.aksw.mex.tests;
  */
 
 
-import org.aksw.mex.tests.framework.core.ExperimentInfo;
-import org.aksw.mex.tests.framework.perf.Measure;
+import org.aksw.mex.framework.annotations.core.ExperimentInfo;
+import org.aksw.mex.framework.annotations.perf.Measure;
 import org.aksw.mex.tests.framework.AnnotatedClass01;
 import org.aksw.mex.tests.repeating.Test;
 

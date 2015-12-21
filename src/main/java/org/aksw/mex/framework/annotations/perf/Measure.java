@@ -1,4 +1,4 @@
-package org.aksw.mex.tests.framework.perf;
+package org.aksw.mex.framework.annotations.perf;
 
 import org.aksw.mex.util.MEXEnum;
 

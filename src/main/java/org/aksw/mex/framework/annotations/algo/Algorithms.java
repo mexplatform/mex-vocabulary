@@ -1,4 +1,4 @@
-package org.aksw.mex.tests.framework.algo;
+package org.aksw.mex.framework.annotations.algo;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

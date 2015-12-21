@@ -1,4 +1,4 @@
-package org.aksw.mex.tests.framework.core;
+package org.aksw.mex.framework.annotations.core;
 
 /**
  * Created by dnes on 12/12/15.
