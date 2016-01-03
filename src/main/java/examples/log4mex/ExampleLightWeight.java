@@ -1,7 +1,7 @@
 package examples.log4mex;
 
-import org.aksw.mex.log4mex.MEXSerializer_10;
-import org.aksw.mex.log4mex.MyMEX_10;
+import org.aksw.mex.log4mex.MEXSerializer;
+import org.aksw.mex.log4mex.MyMEXVO;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.util.MEXEnum.*;
@@ -16,7 +16,7 @@ public class ExampleLightWeight {
     public static void main(String[] args) {
 
         //the MEX wrapper!
-        MyMEX_10 mex = new MyMEX_10();
+        MyMEXVO mex = new MyMEXVO();
 
         try{
 
@@ -99,9 +99,9 @@ public class ExampleLightWeight {
 
             //exporting your ML experiment
 
-            MEXSerializer_10.getInstance().parse(mex);
+            MEXSerializer.getInstance().parse(mex);
 
-            MEXSerializer_10.getInstance().saveToDisk("exlightweight.ttl","http://mex.aksw.org/examples/001/", mex);
+            MEXSerializer.getInstance().saveToDisk("exlightweight.ttl","http://mex.aksw.org/examples/001/", mex);
 
             System.out.println("The mex file has been generated!");
 

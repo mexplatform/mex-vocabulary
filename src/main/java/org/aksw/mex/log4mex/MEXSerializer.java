@@ -30,20 +30,20 @@ import java.util.List;
 /**
  * Created by esteves on 25.06.15.
  */
-public class MEXSerializer_10 {
+public class MEXSerializer {
     private boolean _valid;
 
-    private static MEXSerializer_10 instance = null;
-    protected MEXSerializer_10() {
+    private static MEXSerializer instance = null;
+    protected MEXSerializer() {
         _valid=false;
     }
-    public static MEXSerializer_10 getInstance() {
+    public static MEXSerializer getInstance() {
         if(instance == null) {
-            instance = new MEXSerializer_10();
+            instance = new MEXSerializer();
         }
         return instance;
     }
-    public boolean parse(MyMEX_10 mex) throws Exception{
+    public boolean parse(MyMEXVO mex) throws Exception{
         _valid=false;
 
             /* minimal set of classes to be implemented */
@@ -103,7 +103,7 @@ public class MEXSerializer_10 {
 
     }
 
-    public void saveToDisk(String filename, String URIbase, MyMEX_10 mex){
+    public void saveToDisk(String filename, String URIbase, MyMEXVO mex){
         try{
             if (_valid){
                 writeJena(filename, URIbase, mex);
@@ -133,7 +133,7 @@ public class MEXSerializer_10 {
 
 
     //go back here later...
-    private void cleanUpTheResources(MyMEX_10 mex) {
+    private void cleanUpTheResources(MyMEXVO mex) {
 
         //EXPERIMENT CONFIGURATION
         if (mex.getExperimentConfigurations() != null) {
@@ -168,7 +168,7 @@ public class MEXSerializer_10 {
     }
 
 
-    private void writeJena(String filename, String URIbase, MyMEX_10 mex) throws Exception{
+    private void writeJena(String filename, String URIbase, MyMEXVO mex) throws Exception{
 
         //cleanUpTheResources(mex);
 

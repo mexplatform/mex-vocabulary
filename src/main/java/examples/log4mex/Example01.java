@@ -1,7 +1,7 @@
 package examples.log4mex;
 
-import org.aksw.mex.log4mex.MEXSerializer_10;
-import org.aksw.mex.log4mex.MyMEX_10;
+import org.aksw.mex.log4mex.MEXSerializer;
+import org.aksw.mex.log4mex.MyMEXVO;
 import org.aksw.mex.util.MEXEnum.*;
 
 /**
@@ -15,7 +15,7 @@ public class Example01 {
 
         System.out.println("starting example 01...");
 
-        MyMEX_10 mex = new MyMEX_10();
+        MyMEXVO mex = new MyMEXVO();
 
         try{
             /* (1) basic authoring provenance */
@@ -40,9 +40,9 @@ public class Example01 {
             mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
             mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ERROR.toString(), .04);
             /* (7) parsing the mex file */
-            MEXSerializer_10.getInstance().parse(mex);
+            MEXSerializer.getInstance().parse(mex);
             /* (8) saving the mex file */
-            MEXSerializer_10.getInstance().saveToDisk("/home/esteves/iswcdemo/ex001.ttl","http://mex.aksw.org/examples/001/", mex);
+            MEXSerializer.getInstance().saveToDisk("/home/esteves/iswcdemo/ex001.ttl","http://mex.aksw.org/examples/001/", mex);
 
             System.out.println("The MEX file [ex001.ttl] has been successfully created: share it ;-)");
 

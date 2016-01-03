@@ -1,7 +1,7 @@
 package examples.log4mex;
 
-import org.aksw.mex.log4mex.MEXSerializer_10;
-import org.aksw.mex.log4mex.MyMEX_10;
+import org.aksw.mex.log4mex.MEXSerializer;
+import org.aksw.mex.log4mex.MyMEXVO;
 import org.aksw.mex.log4mex.algo.ImplementationVO;
 import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.log4mex.perf.overall.ClassificationMeasureVO;
@@ -17,14 +17,14 @@ public class old2 {
 
     public static void main(String[] args) {
 
-        MyMEX_10 mex = null;
+        MyMEXVO mex = null;
 
 
 
         //ajustar no loop de busca das subclasses...tem que ser metodo recursivo para pegar todos os filhos!
 
         /***************************************************************
-         * MyMEX_10 Wrapper org.aksw.mex.example.old1
+         * MyMEXVO Wrapper org.aksw.mex.example.old1
          ***************************************************************/
         /* step 1: author and context */
 
@@ -130,8 +130,8 @@ public class old2 {
         /* save the file */
 
 
-        //MEXSerializer_10.getInstance().parse(mex);
-        MEXSerializer_10.getInstance().saveToDisk("/home/esteves/iswcdemo/old2.ttl", "url.com", mex);
+        //MEXSerializer.getInstance().parse(mex);
+        MEXSerializer.getInstance().saveToDisk("/home/esteves/iswcdemo/old2.ttl", "url.com", mex);
 
 
 

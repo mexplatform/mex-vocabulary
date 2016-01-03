@@ -1,7 +1,7 @@
 package examples.log4mex;
 
-import org.aksw.mex.log4mex.MEXSerializer_10;
-import org.aksw.mex.log4mex.MyMEX_10;
+import org.aksw.mex.log4mex.MEXSerializer;
+import org.aksw.mex.log4mex.MyMEXVO;
 import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.util.MEXEnum.*;
 
@@ -15,7 +15,7 @@ public class ExampleMedium {
     public static void main(String[] args) {
 
         //the MEX wrapper!
-        MyMEX_10 mex = new MyMEX_10();
+        MyMEXVO mex = new MyMEXVO();
 
         try{
 
@@ -113,11 +113,11 @@ public class ExampleMedium {
 
         //exporting your ML experiment
 
-            MEXSerializer_10.getInstance().parse(mex);
+            MEXSerializer.getInstance().parse(mex);
 
 
 
-        MEXSerializer_10.getInstance().saveToDisk("teste.ttl","http://mex.aksw.org/examples/001/", mex);
+        MEXSerializer.getInstance().saveToDisk("teste.ttl","http://mex.aksw.org/examples/001/", mex);
 
         System.exit(0);
 

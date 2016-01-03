@@ -1,7 +1,7 @@
 package examples.log4mex;
 
-import org.aksw.mex.log4mex.MEXSerializer_10;
-import org.aksw.mex.log4mex.MyMEX_10;
+import org.aksw.mex.log4mex.MEXSerializer;
+import org.aksw.mex.log4mex.MyMEXVO;
 import org.aksw.mex.util.MEXEnum.*;
 
 /**
@@ -12,7 +12,7 @@ public class Example02 {
 
     public static void main(String[] args) {
 
-        MyMEX_10 mex = new MyMEX_10();
+        MyMEXVO mex = new MyMEXVO();
 
         System.out.println("starting example 02...");
 
@@ -56,9 +56,9 @@ public class Example02 {
             mex.Configuration(conf01ID).ExecutionOverall(exec02ID).addPerformance(EnumMeasures.TRUEPOSITIVE.toString(), 3143);
 
             /* (2.7) parsing the mex file */
-            MEXSerializer_10.getInstance().parse(mex);
+            MEXSerializer.getInstance().parse(mex);
             /* (2.8) saving the mex file */
-            MEXSerializer_10.getInstance().saveToDisk("/home/esteves/iswcdemo/ex002.ttl", "http://mex.aksw.org/examples/002/", mex);
+            MEXSerializer.getInstance().saveToDisk("/home/esteves/iswcdemo/ex002.ttl", "http://mex.aksw.org/examples/002/", mex);
 
             System.out.println("The MEX file [ex002.ttl] has been successfully created: share it ;-)");
 

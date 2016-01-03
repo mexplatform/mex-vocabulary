@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * Created by esteves on 26.06.15.
  */
-public class MyMEX_10 {
+public class MyMEXVO {
 
     //mex-core->experiment
     private ApplicationContextVO applicationContext;
@@ -64,7 +64,7 @@ public class MyMEX_10 {
     //logic purpouse
     private boolean automatic;
 
-    public MyMEX_10(){
+    public MyMEXVO(){
         this.applicationContext = new ApplicationContextVO();
         this.experiment = new ExperimentVO(MEXConstant.DEFAULT_EXP_ID);
         this.experimentConfigurationList = new ArrayList<>();

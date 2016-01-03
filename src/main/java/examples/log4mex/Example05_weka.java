@@ -3,8 +3,8 @@ package examples.log4mex;
 /**
  * Created by esteves on 03.07.15.
  */
-import org.aksw.mex.log4mex.MEXSerializer_10;
-import org.aksw.mex.log4mex.MyMEX_10;
+import org.aksw.mex.log4mex.MEXSerializer;
+import org.aksw.mex.log4mex.MyMEXVO;
 import org.aksw.mex.util.MEXEnum;
 import weka.classifiers.Classifier;
 import weka.classifiers.Evaluation;
@@ -68,7 +68,7 @@ public class Example05_weka {
 
         System.out.println("starting example 05...");
 
-        MyMEX_10 mex = new MyMEX_10();
+        MyMEXVO mex = new MyMEXVO();
 
         String ds = "weather.arff";
 
@@ -126,9 +126,9 @@ public class Example05_weka {
             }
 
             /* (2.7) parsing the mex file */
-            MEXSerializer_10.getInstance().parse(mex);
+            MEXSerializer.getInstance().parse(mex);
             /* (2.8) saving the mex file */
-            MEXSerializer_10.getInstance().saveToDisk("/home/esteves/iswcdemo/ex005.ttl", "http://mex.aksw.org/examples/Weka/", mex);
+            MEXSerializer.getInstance().saveToDisk("/home/esteves/iswcdemo/ex005.ttl", "http://mex.aksw.org/examples/Weka/", mex);
 
             System.out.println("The MEX file [ex005.ttl] has been successfully created: share it ;-)");
 

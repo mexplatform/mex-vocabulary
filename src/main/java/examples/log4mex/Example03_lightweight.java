@@ -1,7 +1,7 @@
 package examples.log4mex;
 
-import org.aksw.mex.log4mex.MEXSerializer_10;
-import org.aksw.mex.log4mex.MyMEX_10;
+import org.aksw.mex.log4mex.MEXSerializer;
+import org.aksw.mex.log4mex.MyMEXVO;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.util.MEXEnum.*;
@@ -18,7 +18,7 @@ public class Example03_lightweight {
         System.out.println("starting example 03...");
 
         //the MEX wrapper!
-        MyMEX_10 mex = new MyMEX_10();
+        MyMEXVO mex = new MyMEXVO();
 
         try{
 
@@ -101,9 +101,9 @@ public class Example03_lightweight {
 
             //exporting your ML experiment
 
-            MEXSerializer_10.getInstance().parse(mex);
+            MEXSerializer.getInstance().parse(mex);
 
-            MEXSerializer_10.getInstance().saveToDisk("/home/esteves/iswcdemo/ex003.ttl","http://mex.aksw.org/examples/001/", mex);
+            MEXSerializer.getInstance().saveToDisk("/home/esteves/iswcdemo/ex003.ttl","http://mex.aksw.org/examples/001/", mex);
 
             System.out.println("The MEX file [ex003.ttl] has been successfully created: share it ;-)");
 
