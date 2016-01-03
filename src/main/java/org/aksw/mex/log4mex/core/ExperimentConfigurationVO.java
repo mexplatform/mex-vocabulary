@@ -157,10 +157,10 @@ public class ExperimentConfigurationVO {
 
         Integer total = this._executions.size() + 1;
 
-        switch (type){
-            case MEXEnum.EnumExecutionType.SINGLE:
-                this._executions.add(new ExecutionIndividualVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
-            case MEXEnum.EnumExecutionType.OVERALL:
+        if (type.equals(MEXEnum.EnumExecutionsType.SINGLE.toString())) {
+            this._executions.add(new ExecutionIndividualVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
+        }
+        if (type.equals(MEXEnum.EnumExecutionsType.OVERALL.toString())) {
                 this._executions.add(new ExecutionSetVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
         }
 
@@ -278,6 +278,28 @@ public class ExperimentConfigurationVO {
         }
         this._implementation.setRevision(version);
         this._implementation.setName(name);
+    }
+
+    public AlgorithmVO addAlgorithm(String algorithmClass, String id) throws Exception{
+
+        AlgorithmVO algo = null;
+        try{
+            if (this._algorithms == null) {
+                this._algorithms = new ArrayList<>();}
+
+            String individualName = MEXALGO_10.ClasseTypes.ALGORITHM.toLowerCase() +
+                    String.valueOf(MEXController.getInstance().getNumberOfAlgorithms() + 1);
+
+            algo = new AlgorithmVO(algorithmClass.toString(), individualName, id);
+            this._algorithms.add(algo);
+
+            MEXController.getInstance().addAlgorithmCounter();
+
+        }catch (Exception e){
+            System.out.println(e.toString());
+        }
+
+        return algo;
     }
 
     public AlgorithmVO addAlgorithm(String algorithmClass) throws Exception{

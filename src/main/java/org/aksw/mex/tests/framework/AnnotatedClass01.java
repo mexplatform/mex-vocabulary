@@ -1,14 +1,10 @@
 package org.aksw.mex.tests.framework;
 
 import org.aksw.mex.framework.annotations.Start;
-import org.aksw.mex.framework.annotations.core.Execution;
-import org.aksw.mex.framework.annotations.core.ExperimentInfo;
-import org.aksw.mex.tests.InterfaceLocalVariable;
 import org.aksw.mex.framework.annotations.algo.Algorithm;
-import org.aksw.mex.framework.annotations.core.Dataset;
+import org.aksw.mex.framework.annotations.core.*;
 import org.aksw.mex.framework.annotations.perf.Measure;
-import org.aksw.mex.framework.annotations.core.ExecutionEndTime;
-import org.aksw.mex.framework.annotations.core.ExecutionStartTime;
+import org.aksw.mex.tests.InterfaceLocalVariable;
 import org.aksw.mex.tests.repeating.Test;
 import org.aksw.mex.util.MEXEnum;
 import weka.classifiers.trees.J48;
@@ -30,13 +26,13 @@ import java.io.InputStreamReader;
 
 public class AnnotatedClass01 {
 
-    @Measure(idMeasure = MEXEnum.EnumMeasures.ACCURACY, idExecution = "1") public double _accuracy1;
-    @Measure(idMeasure = MEXEnum.EnumMeasures.ACCURACY, idExecution = "2") public double _accuracy2;
-    @ExecutionStartTime public long _startTime;
-    @ExecutionEndTime public long _endTime;
-    @Dataset public String _ds = "weather.txt";
-    @Algorithm(idAlgorithm = MEXEnum.EnumAlgorithms.J48, idExecution = "1") public J48 _wekaAlg1;
-    @Algorithm(idAlgorithm = MEXEnum.EnumAlgorithms.PART, idExecution = "2") public J48 _wekaAlg2;
+    @Measure(idMeasure = MEXEnum.EnumMeasures.ACCURACY, algorithmID = "1") public double _accuracy1;
+    @Measure(idMeasure = MEXEnum.EnumMeasures.ACCURACY, algorithmID = "2") public double _accuracy2;
+    @ExecutionStartTime public long[] _startTime;
+    @ExecutionEndTime public long[] _endTime;
+    @DatasetName public String _ds = "weather.arff";
+    @Algorithm(algorithmType = MEXEnum.EnumAlgorithms.J48, algorithmID = "1", idExecution = "1") public J48 _wekaAlg1;
+    @Algorithm(algorithmType = MEXEnum.EnumAlgorithms.PART, algorithmID = "2", idExecution = "2") public J48 _wekaAlg2;
 
     public static void main(String[] args) {
 
@@ -51,13 +47,13 @@ public class AnnotatedClass01 {
     @Start
     public double runProcess(){
 
-        this._startTime = System.currentTimeMillis();
+        this._startTime[0] = System.currentTimeMillis();
 
         this._accuracy1 = 56.9;
 
         this._accuracy2 = 66.1;
 
-        this._endTime = System.currentTimeMillis();
+        this._endTime[0] = System.currentTimeMillis();
 
         return 10.8d;
     }

@@ -39,8 +39,8 @@ public class Example02 {
             String alg01ID = mex.Configuration(conf01ID).addAlgorithm(EnumAlgorithm.NaiveBayes).getIdentifier();
             String alg02ID = mex.Configuration(conf02ID).addAlgorithm(EnumAlgorithm.RegressionAnalysis).getIdentifier();
             /* (2.5) the executions */
-            String exec01ID = mex.Configuration(conf01ID).addExecution(EnumExecutionType.OVERALL, EnumPhase.TEST);
-            String exec02ID = mex.Configuration(conf02ID).addExecution(EnumExecutionType.OVERALL, EnumPhase.TEST);
+            String exec01ID = mex.Configuration(conf01ID).addExecution(EnumExecutionsType.OVERALL.name(), EnumPhases.TEST.name());
+            String exec02ID = mex.Configuration(conf02ID).addExecution(EnumExecutionsType.OVERALL.name(), EnumPhases.TEST.name());
             {
                 //your models call here !
             }

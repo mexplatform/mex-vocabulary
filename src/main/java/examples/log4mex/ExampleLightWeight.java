@@ -67,7 +67,7 @@ public class ExampleLightWeight {
             String ex2 = "EX002";
             //associate your run x each algorithm
             {
-                mex.Configuration().addExecutionOverall(eid, ex1, EnumPhase.TRAIN);
+                mex.Configuration().addExecutionOverall(eid, ex1, EnumPhases.TRAIN.name());
                 mex.Configuration().ExecutionOverall(ex1).setStartDate(new Date());
                 mex.Configuration().ExecutionOverall(ex1).setAlgorithm(alg1);
                 mex.Configuration().ExecutionOverall(ex1).setStartsAtPosition("1233");
@@ -77,7 +77,7 @@ public class ExampleLightWeight {
                 //your models call here !
                 mex.Configuration().ExecutionOverall(ex1).setEndDate(new Date());
 
-                mex.Configuration().addExecutionOverall(eid, ex2, EnumPhase.TEST);
+                mex.Configuration().addExecutionOverall(eid, ex2, EnumPhases.TEST.name());
                 mex.Configuration().ExecutionOverall(ex2).setStartDate(new Date());
                 mex.Configuration().ExecutionOverall(ex2).setAlgorithm(alg2);
                 mex.Configuration().ExecutionOverall(ex2).setStartsAtPosition("1377");

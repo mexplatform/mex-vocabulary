@@ -13,6 +13,8 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.FIELD)
 public @interface Algorithm {
-    String idExecution() default "";
-    MEXEnum.EnumAlgorithms idAlgorithm();
+    String algorithmID() default "";
+    MEXEnum.EnumAlgorithms algorithmType();
+    String idExecution() default ""; //not required, could be set to control individually instead of by array
+
 }

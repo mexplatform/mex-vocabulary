@@ -81,7 +81,7 @@ public class ExampleMedium {
         String ex2 = "EX002";
         //associate your run x each algorithm
         {
-            mex.Configuration(eid).addExecutionOverall(eid, ex1, EnumPhase.TRAIN);
+            mex.Configuration(eid).addExecutionOverall(eid, ex1, EnumPhases.TRAIN.name());
             mex.Configuration(eid).ExecutionOverall(ex1).setStartDate(new Date());
             mex.Configuration(eid).ExecutionOverall(ex1).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithm.SupportVectorMachines));
             mex.Configuration(eid).ExecutionOverall(ex1).setStartsAtPosition("1233");
@@ -91,7 +91,7 @@ public class ExampleMedium {
                 //your models call here !
             mex.Configuration(eid).ExecutionOverall(ex1).setEndDate(new Date());
 
-            mex.Configuration(eid).addExecutionOverall(eid, ex2, EnumPhase.TEST);
+            mex.Configuration(eid).addExecutionOverall(eid, ex2, EnumPhases.TEST.name());
             mex.Configuration(eid).ExecutionOverall(ex2).setStartDate(new Date());
             mex.Configuration(eid).ExecutionOverall(ex2).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithm.SupportVectorMachines));
             mex.Configuration(eid).ExecutionOverall(ex2).setStartsAtPosition("1377");

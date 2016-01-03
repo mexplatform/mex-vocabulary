@@ -4,6 +4,12 @@ package org.aksw.mex.util; /**
 
 public class MEXEnum {
 
+    public class EnumAnnotationInterfaceStyle {
+        public static final String M1 = "M1"; //a @start method to start with
+        public static final String M2 = "M2"; //@training and @test methods to seek for
+        public static final String M3 = "M3";
+    }
+
     public class EnumImplementation {
         public static final String H2O = "H2O";
         public static final String DLLearner = "DLLearner";
@@ -143,6 +149,7 @@ public class MEXEnum {
         public static final String RegressionAnalysis = "RegressionAnalysis";
     }
     public class EnumSamplingMethod{
+        public static final String EvaluatingOnTrainingData = "EvaluatingOnTrainingData";
         public static final String LeaveOneOut = "LeaveOneOut";
         public static final String Bootstrapping = "Bootstrapping";
         public static final String Holdout = "Holdout";
@@ -178,11 +185,33 @@ public class MEXEnum {
         public static final String CACHE_2MB = "Cache 2MB";
         public static final String CACHE_3MB = "Cache 3MB";
     }
-    public class EnumPhase{
+    private class EnumPhase{
         public static final String TRAIN = "Train";
         public static final String TEST = "Test";
         public static final String VALIDATION = "Validation";
     }
+
+    public enum EnumPhases{
+        TRAIN(EnumPhase.TRAIN.toString()),
+        TEST(EnumPhase.TEST.toString()),
+        VALIDATION(EnumPhase.VALIDATION.toString());
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumPhases(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+    }
+
+
 
     public enum EnumAlgorithms {
         PART(EnumAlgorithm.PART.toString()),
@@ -438,9 +467,31 @@ public class MEXEnum {
 
     }
 
-    public class EnumExecutionType{
+    private class EnumExecutionType{
         public static final String SINGLE = "single";
         public static final String OVERALL = "overall";
+    }
+
+    public enum EnumExecutionsType{
+
+        SINGLE(EnumExecutionType.SINGLE.toString()),
+        OVERALL(EnumExecutionType.OVERALL.toString());
+
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumExecutionsType(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+
     }
 
 

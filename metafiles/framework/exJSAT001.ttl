@@ -1,0 +1,99 @@
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix this:    <http://mex.aksw.org/examples/ESWC/001/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix mexcore:  <http://mex.aksw.org/mex-core#> .
+@prefix doap:    <http://usefulinc.com/ns/doap#> .
+@prefix mexperf:  <http://mex.aksw.org/mex-perf#> .
+@prefix mexalgo:  <http://mex.aksw.org/mex-algo#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+
+this:application
+      a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
+      dct:dateCopyrighted "2016.01.03 00:20:21 CET" ;
+      foaf:givenName "Esteves" ;
+      foaf:mbox "esteves@informatik.uni-leipzig.de" .
+
+this:experiment-header
+      a       prov:Entity , mexcore:Experiment ;
+      dct:title "JSAT Lib Example" ;
+      prov:wasAttributedTo
+              this:application .
+
+this:model
+      a       prov:Entity , mexcore:Model .
+
+this:hardware
+      a       mexcore:HardwareConfiguration , prov:Entity ;
+      mexcore:cpu "Intel Core i7" ;
+      mexcore:hd "SSD" ;
+      mexcore:memory "8 GB" .
+
+this:EvaluatingOnTrainingData
+      a       prov:Entity , mexcore:EvaluatingOnTrainingData ;
+      mexcore:folds "1" ;
+      mexcore:sequential "true" ;
+      mexcore:testSize "1.0" ;
+      mexcore:trainSize "1.0" .
+
+this:phaseTEST
+      a       prov:Entity , mexcore:TEST .
+
+this:execution_1
+      a       mexcore:Execution , prov:Activity ;
+      mexcore:group "true" ;
+      prov:id "1" ;
+      prov:used this:algorithm1 , this:phaseTEST ;
+      prov:wasInformedBy this:configuration1 .
+
+this:algorithm1
+      a       prov:Entity , mexcore:NaiveBayes ;
+      dct:identifier "1" .
+
+this:configuration1
+      a       mexcore:ExperimentConfiguration , prov:Activity ;
+      dct:identifier "MEX_EXP_CONF_D1" ;
+      prov:used this:dataset , this:feature3 , this:hardware , this:feature4 , this:EvaluatingOnTrainingData , this:feature1 , this:feature2 .
+
+this:dataset
+      a       prov:Entity , mexcore:DatasetName ;
+      dct:title "iris.arff" .
+
+this:feature3
+      a       mexcore:Feature , prov:Entity ;
+      rdfs:label "petallength" ;
+      dct:identifier "3" .
+
+this:feature4
+      a       mexcore:Feature , prov:Entity ;
+      rdfs:label "petalwidth" ;
+      dct:identifier "4" .
+
+this:measure1_1
+      a       mexperf:StatisticalMeasure , prov:Entity ;
+      mexperf:error "4.0" ;
+      prov:wasInformedBy this:execution_1 .
+
+this:context
+      a       prov:Entity , mexcore: ;
+      prov:wasAttributedTo
+              this:application .
+
+this:measure1_2
+      a       prov:Entity , mexperf:ClassificationMeasure ;
+      mexperf:accuracy "96.0" ;
+      prov:wasInformedBy this:execution_1 .
+
+this:feature1
+      a       mexcore:Feature , prov:Entity ;
+      rdfs:label "sepallength" ;
+      dct:identifier "1" .
+
+this:feature2
+      a       mexcore:Feature , prov:Entity ;
+      rdfs:label "sepalwidth" ;
+      dct:identifier "2" .

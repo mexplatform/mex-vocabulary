@@ -68,7 +68,7 @@ public class ExampleWeka {
 
         MyMEX_10 mex = new MyMEX_10();
 
-        String ds = "weather.txt";
+        String ds = "weather.arff";
 
         try {
              /* (1) basic authoring provenance */
@@ -117,7 +117,7 @@ public class ExampleWeka {
                 double accuracy = calculateAccuracy(predictions);
 
                 /* (2.6) the performances for the executions */
-                execIDs[j] = mex.Configuration(confID).addExecution(MEXEnum.EnumExecutionType.OVERALL, MEXEnum.EnumPhase.TEST);
+                execIDs[j] = mex.Configuration(confID).addExecution(MEXEnum.EnumExecutionsType.OVERALL.name(), MEXEnum.EnumPhases.TEST.name());
                 mex.Configuration(confID).Execution(execIDs[j]).setAlgorithm(algIDs[j]);
                 mex.Configuration(confID).Execution(execIDs[j]).addPerformance(MEXEnum.EnumMeasures.ACCURACY.toString(), accuracy);
 

@@ -20,6 +20,7 @@ public @interface ExperimentInfo {
     String identifier() default "";
     String date() default "";
     String description() default "";
+    String title() default "";
 
     String createdBy() default "";
     String email() default "";

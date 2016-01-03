@@ -1,14 +1,14 @@
 package examples.log4mex;
 
-import java.util.Date;
-
 import org.aksw.mex.log4mex.MEXSerializer_10;
 import org.aksw.mex.log4mex.MyMEX_10;
 import org.aksw.mex.log4mex.algo.ImplementationVO;
+import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.log4mex.perf.overall.ClassificationMeasureVO;
 import org.aksw.mex.util.MEXEnum;
-import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.util.MEXEnum.*;
+
+import java.util.Date;
 
 /**
  * Created by esteves on 09.06.15.
@@ -84,12 +84,12 @@ public class Exampleold2 {
         /* step 4: control the executions */
 
         // train
-        ExecutionSetVO exec1 = new ExecutionSetVO(null, "E001", new PhaseVO(EnumPhase.TRAIN));
+        ExecutionSetVO exec1 = new ExecutionSetVO(null, "E001", new PhaseVO(EnumPhases.TRAIN.name()));
         exec1.setExperimentConfiguration(mcExpConf1);
         //exec1.setExamples(new ExampleCollection(0l, 114l));
 
         // test
-        ExecutionSetVO exec2 = new ExecutionSetVO(null, "E002", new PhaseVO(EnumPhase.TEST));
+        ExecutionSetVO exec2 = new ExecutionSetVO(null, "E002", new PhaseVO(EnumPhases.TEST.name()));
         exec2.setExperimentConfiguration(mcExpConf1);
         //exec2.setExamples(new ExampleCollection(115l, 160l));
 

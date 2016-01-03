@@ -3,9 +3,6 @@ package examples.log4mex;
 /**
  * Created by esteves on 03.07.15.
  */
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-
 import org.aksw.mex.log4mex.MEXSerializer_10;
 import org.aksw.mex.log4mex.MyMEX_10;
 import org.aksw.mex.util.MEXEnum;
@@ -18,6 +15,9 @@ import weka.classifiers.trees.DecisionStump;
 import weka.classifiers.trees.J48;
 import weka.core.FastVector;
 import weka.core.Instances;
+
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class Example05_weka {
     public static BufferedReader readDataFile(String filename) {
@@ -70,7 +70,7 @@ public class Example05_weka {
 
         MyMEX_10 mex = new MyMEX_10();
 
-        String ds = "weather.txt";
+        String ds = "weather.arff";
 
         try {
              /* (1) basic authoring provenance */
@@ -97,7 +97,6 @@ public class Example05_weka {
             Instances[] testingSplits = split[1];
 
             Classifier[] models = {new J48(), new PART(), new DecisionTable(), new DecisionStump()};
-
             /* (2.4) the algorithms and hyperparameters */
             String[] algIDs = new String[4];
             algIDs[0] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.J48).getIndividualName();
@@ -119,7 +118,7 @@ public class Example05_weka {
                 double accuracy = calculateAccuracy(predictions);
 
                 /* (2.6) the performances for the executions */
-                execIDs[j] = mex.Configuration(confID).addExecution(MEXEnum.EnumExecutionType.OVERALL, MEXEnum.EnumPhase.TEST);
+                execIDs[j] = mex.Configuration(confID).addExecution(MEXEnum.EnumExecutionsType.OVERALL.name(), MEXEnum.EnumPhases.TEST.name());
                 mex.Configuration(confID).Execution(execIDs[j]).setAlgorithm(algIDs[j]);
                 mex.Configuration(confID).Execution(execIDs[j]).addPerformance(MEXEnum.EnumMeasures.ACCURACY.toString(), accuracy);
 
