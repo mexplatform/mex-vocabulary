@@ -1,6 +1,5 @@
 .idea
 target/
 javaapi.iml
-/src/main/java/org/aksw/mex/tests/*.*
-/src/main/java/org/aksw/mex/tests
+/src/main/java/org/aksw/mex/tests/
 demoApplication.log
