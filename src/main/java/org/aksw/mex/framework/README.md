@@ -11,7 +11,7 @@ A more focused contribution in that sense is when developing ML scripts by impor
 
 Here is where the MEX Framework comes into play: instead of cope with boring tasks as introduced before, what about annotate your Java code a bit? Simple like that! You annotate the code a bit and the framework gives to you the metadata file...
 
-### Let's say we have 4 Weka classifiers (J48, PART, DecisionTable and DecisionStump), you just have to put @Algorithm for each of these =)
+#### Let's say we have 4 Weka classifiers (J48, PART, DecisionTable and DecisionStump), you just have to annotate the variable with @Algorithm =)
 ```java
   @Algorithm(algorithmType = MEXEnum.EnumAlgorithms.J48, algorithmID = "1") 
   public J48 wekaJ48;
@@ -25,7 +25,7 @@ Here is where the MEX Framework comes into play: instead of cope with boring tas
   @Algorithm(algorithmType = MEXEnum.EnumAlgorithms.DecisionStump, algorithmID = "4") 
   public DecisionStump wekaDecisionStump;
 ```
-### Then, you annotate the object with keeps some measures...such as *accuracy* and *error* rates...
+#### In the same way, you annotate the object with keeps some measures...such as *accuracy* and *error* rates...
 ```java
   @Measure(idMeasure = MEXEnum.EnumMeasures.ERROR) 
   public List<Double> errors;
@@ -33,7 +33,7 @@ Here is where the MEX Framework comes into play: instead of cope with boring tas
   @Measure(idMeasure = MEXEnum.EnumMeasures.ACCURACY) 
   public List<Double> accuracies;
 ```
-### You can also say something related with the experiment itself, such as
+#### You can also say something related with the experiment itself, such as
 ```java
 @ExperimentInfo(createdBy = "Esteves", email = "esteves@informatik.uni-leipzig.de", title = "Weka Lib Example", tags = {"WEKA","J48", "DecisionTable", "MEX", "Iris"})
 @Hardware(cpu = "Intel Core i7", memory = "8 GB", hdType = "SSD")
@@ -42,14 +42,14 @@ public class Foo{
   ...
 }
 ```
-### Then, just benefit from the automatic metadata generation process
+#### Then, just benefit from the automatic metadata generation process
 ```java
 java -cp /home/user/mexframework org.aksw.mex.framework.MetaGeneration -uc IrisWekaExample.java -out mymex01.ttl
 java -cp /home/user/mexframework org.aksw.mex.framework.MetaGeneration -uc IrisJSATExample.java -out mymex02.ttl
 ```
 Now you can compare the performance of *Weka* and *JSAT* libs at once! No extra work is needed...
 
-### The output format is super cool (RDF/Turtle) and you can also simply query it! =) 
+#### The output format is super cool (RDF/Turtle) and you can also simply query it! =) 
 ##### Like, "*just give me all the executions (configurations) of C-SVM classifier that have accuracy grather then 0.9*"
 ```SPARQL
   PREFIX  mexcore:  <http://mex.aksw.org/mex-core/>
