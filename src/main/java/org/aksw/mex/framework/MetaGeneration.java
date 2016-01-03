@@ -11,12 +11,6 @@ import org.aksw.mex.log4mex.MyMEXVO;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.log4mex.core.HardwareConfigurationVO;
 import org.aksw.mex.log4mex.core.SamplingMethodVO;
-import org.aksw.mex.tests.Execution;
-import org.aksw.mex.tests.MethodAnnotation;
-import org.aksw.mex.tests.framework.AnnotatedClass01;
-import org.aksw.mex.tests.mex.types.FieldAnnotation;
-import org.aksw.mex.tests.mex.types.ParameterAnnotation;
-import org.aksw.mex.tests.mex.types.TypeAnnotation;
 import org.aksw.mex.util.MEXEnum;
 import org.apache.commons.cli.*;
 import org.apache.log4j.Logger;
@@ -504,79 +498,6 @@ public class MetaGeneration {
         return fields;
     }
 
-    static void setPropertyByAnnotationName(final Object object, final String name, final Object value) throws Exception {
-        final Field[] fields = object.getClass().getDeclaredFields();
-        for (final Field field : fields) {
-            final FieldAnnotation execAnnotation = field.getAnnotation(FieldAnnotation.class);
-            if(execAnnotation!=null && name.equals(execAnnotation.value())){
-                field.set(object, value);
-            }
-        }
-    }
 
-    public boolean isAliased(final Class type) {
-        return (type.getAnnotation(TypeAnnotation.class) != null);
-    }
-
-    static Object callMethodByAnnotation(final Object object, final Object value) throws Exception{
-        Object ret = null;
-        final Method[] methods = object.getClass().getDeclaredMethods();
-        for (final Method method : methods) {
-            final MethodAnnotation methodAnnotation = method.getAnnotation(MethodAnnotation.class);
-            if(methodAnnotation!=null){
-                ret = method.invoke(object, value);
-            }
-        }
-
-        return ret;
-    }
-
-    public static void callMethodByAnnotation(final Object object, final Map map) throws Exception{
-        final Method[] methods = object.getClass().getDeclaredMethods();
-        for (final Method method : methods) {
-            final MethodAnnotation methodAnnotation = method.getAnnotation(MethodAnnotation.class);
-            if (methodAnnotation != null) {
-
-                final Annotation[][] parameterAnnotations = method.getParameterAnnotations();
-                final Object[] parameters = new Object[parameterAnnotations.length];
-                for (int i = 0; i < parameterAnnotations.length; i++) {
-                    parameters[i] = null;
-
-                    final Annotation[] annotations = parameterAnnotations[i];
-                    for (final Annotation annotation : annotations) {
-                        if (annotation instanceof ParameterAnnotation) {
-                            parameters[i] = map.get(((ParameterAnnotation) annotation).value());
-                        }
-                    }
-                }
-                method.invoke(object, parameters);
-            }
-        }
-    }
-
-    public static class ExecutionAnnotationParser {
-        public void parse(Class<?> clazz) throws Exception {
-            Method[] methods = clazz.getMethods();
-            int pass = 0;
-            int fail = 0;
-            for (Method method : methods) {
-                if (method.isAnnotationPresent(org.aksw.mex.framework.annotations.core.Execution.class)) {
-                    Execution ex = method.getAnnotation(Execution.class);
-                    Boolean enable = ex.enabled();
-                    try {
-                        if (enable.equals(true))
-                            method.invoke(AnnotatedClass01.class.newInstance(), enable);
-                        pass++;
-                    } catch (Exception e) {
-                        if (enable) {
-                            fail++;
-                        } else {
-                            pass++;
-                        }
-                    }
-                }
-            }
-        }
-    }
 
 }
