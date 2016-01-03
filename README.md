@@ -13,9 +13,10 @@ Futhermore, the development of *APIs* and *ML Tools* is a goal in order to suppo
 The definition of an `ontology` can be a complex and never-ending task, even more for a highly complex environment such as machine learning. The `MEX` vocabulary has been designed to serve as an ally in the metadata exporting process, focusing in practical and important aspects concerning the publication of the achieved results, i.e.: the needed `input parameters` for an `model` which produces `measures`. More sophisticated variables and procedures (e.g.: optimizations and feature selection) are not covered, simply because they go beyond the a logical threshold of simplicity we want to achieve here. In the end, people are more interested in find out, compare and share `methodologies` and their `performances` than to have deep understanding of performed sub tasks. 
 
 ### This repository
-  * [Framework](https://github.com/dnes85/mexproject/tree/master)
-  * [Vocabulary](https://github.com/dnes85/mexproject/tree/master/ontology)
-  * [Examples](https://github.com/dnes85/mexproject/tree/master/proof)
+  * [Framework](https://github.com/AKSW/mexproject/tree/master/src/main/java/org/aksw/mex/framework)
+  * [Vocabulary](https://github.com/AKSW/mexproject/tree/master/ontology)
+  * [LOG4MEX](https://github.com/AKSW/mexproject/tree/master/src/main/java/org/aksw/mex/log4mex)
+  * [Examples](https://github.com/AKSW/mexproject/tree/master/src/main/java/examples)
   * [Google Group](mex-project@googlegroups.com)
 
 ### How to use MEX?
@@ -79,6 +80,9 @@ Of course we will keep an eye on it for the `vocabulary measures` updating proce
 ### I've not found a specific machine learning entity!
 Despite efforts for keeping everything up-to-date you might not find your machine learning algorithm (`mexalgo:Algorithm`) into `MEX`, for instance, or even one specific machine learning tool (`mexalgo:Implementation`). That's bad, we know! :-( However, we are going to have the pleasure to quickly update the vocabulary to satisfy your desires, just let us know! ;-)
 (also feel free for contributing)
+
+### The Framework: A new way to generate ML metadada for Java code
+See more information [here](https://github.com/AKSW/mexproject/tree/master/src/main/java/org/aksw/mex/framework)
 
 ### Coming Soon (OpenML Integration)
 ![OpenML](http://dne5.com/mex/diagram/openML.png)
