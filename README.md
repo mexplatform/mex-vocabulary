@@ -87,9 +87,6 @@ Despite efforts for keeping everything up-to-date you might not find your machin
 ### The Framework: A new way to generate ML metadada for Java code
 See more information [here](https://github.com/AKSW/mexproject/tree/master/src/main/java/org/aksw/mex/framework)
 
-### Coming Soon (OpenML Integration)
-![OpenML](http://dne5.com/mex/diagram/openML.png)
-
 ### MEX Vocabulary - Snapshot v1.0.1
 ![Experiment ER](http://dne5.com/mex/diagram/mex-1.0.1.png)
 
