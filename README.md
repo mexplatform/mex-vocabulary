@@ -1,21 +1,20 @@
-## [MEX Vocabulary](http://mex.aksw.org/): A Lightweight Interchange Format for Machine Learning Experiments
+## [MEX](http://mex.aksw.org/): Metadata for Machine Learning Outputs
 
 [![Join the chat at https://gitter.im/AKSW/mexproject](https://badges.gitter.im/AKSW/mexproject.svg)](https://gitter.im/AKSW/mexproject?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Build Status](https://travis-ci.org/AKSW/mexproject.svg?branch=master)](https://travis-ci.org/AKSW/mexproject)
 
-More than just a **machine readable way** (which is provided by many ML frameworks), the `MEX` Vocabulary has been designed to define a **lightweight and flexible schema** for publishing machine learning metadata, regardless technology (we have been working to provide different programming language *APIs* and integrations with different machine learning tools). We aim to provide a **free-format** for exporting and exchanging machine learning metadata, indifferent to existing **workflow systems** or **frameworks**. As a consequence, the users can benefit of the `mex format` for further analysis and integrations in an easiest way.
+More than just a **machine readable way**, the `MEX` Vocabulary has been designed to define a **lightweight and flexible schema** for publishing machine learning outputs metadata, regardless technology (we have been working to provide different programming language *APIs* and integrations with different machine learning tools). We aim to provide a **free-format** for exporting and exchanging machine learning metadata, indifferent to existing **workflow systems** or **frameworks**. As a consequence, the users can benefit of the `mex format` for further analysis and integrations in an easiest way.
 
 The first milestone was the [vocabulary definition](http://www.w3.org/standards/semanticweb/ontology), i.e., the `schema definition` to describe and represent each machine learning **algorithm execution** and its **performance measures** in a concise (but comprehensive) way. At this stage, we want to achieve a **high level of interoperability**.
 
-Futhermore, the development of *APIs* and *ML Tools* is a goal in order to support different system architectures. So far, the `java` and `nodejs` APIs have been created. We've planned some ML tool integrations as next step. 
+Futhermore, the development of *APIs* and the integration with *ML Tools* are goals in order to support different system architectures. 
 
-## The schema definition: a philosophical task.
-
-The definition of an `ontology` can be a complex and never-ending task, even more for a highly complex environment such as machine learning. The `MEX` vocabulary has been designed to serve as an ally in the metadata exporting process, focusing in practical and important aspects concerning the publication of the achieved results, i.e.: the needed `input parameters` for an `model` which produces `measures`. More sophisticated variables and procedures (e.g.: optimizations and feature selection) are not covered, simply because they go beyond the a logical threshold of simplicity we want to achieve here. In the end, people are more interested in find out, compare and share `methodologies` and their `performances` than to have deep understanding of performed sub tasks. 
+Recently, we have started the framework's development, which aims to automatize the task of generating metadata for ``Java`` classes based on the concepts of ``reflection``, ``annotation`` and ``generics``.  
 
 ### This repository
-  * [Framework](https://github.com/AKSW/mexproject/tree/master/src/main/java/org/aksw/mex/framework)
-  * [Vocabulary](https://github.com/AKSW/mexproject/tree/master/ontology)
-  * [LOG4MEX](https://github.com/AKSW/mexproject/tree/master/src/main/java/org/aksw/mex/log4mex)
+  * [Vocabulary: *A Lightweight Interchange Format for Machine Learning Experiments*](https://github.com/AKSW/mexproject/tree/master/ontology)
+  * [LOG4MEX: *A ML Logger for Java*](https://github.com/AKSW/mexproject/tree/master/src/main/java/org/aksw/mex/log4mex)
+  * [Framework: *A new way to generate ML metadada for Java code*](https://github.com/AKSW/mexproject/tree/master/src/main/java/org/aksw/mex/framework)
   * [Examples](https://github.com/AKSW/mexproject/tree/master/src/main/java/examples)
   * [Google Group](mex-project@googlegroups.com)
 
@@ -32,6 +31,10 @@ Most recently, we have introduced a novel approach to generate metadata out of M
 Finnaly, for **general and non-expert users** we've created an [user interface](http://mex.aksw.org/) for exporting the ML experiment metadata.
 
 ### The Vocabulary
+
+#### The schema definition: a philosophical task.
+
+The definition of an `ontology` can be a complex and never-ending task, even more for a highly complex environment such as machine learning. The `MEX` vocabulary has been designed to serve as an ally in the metadata exporting process, focusing in practical and important aspects concerning the publication of the achieved results, i.e.: the needed `input parameters` for an `model` which produces `measures`. More sophisticated variables and procedures (e.g.: optimizations and feature selection) are not covered, simply because they go beyond the a logical threshold of simplicity we want to achieve here. In the end, people are more interested in find out, compare and share `methodologies` and their `performances` than to have deep understanding of performed sub tasks. 
 
 The current version of the vocabulaty is described (per layer) as following. We've omitted obvious information for brevity.
 
@@ -83,9 +86,6 @@ Despite efforts for keeping everything up-to-date you might not find your machin
 
 ### The Framework: A new way to generate ML metadada for Java code
 See more information [here](https://github.com/AKSW/mexproject/tree/master/src/main/java/org/aksw/mex/framework)
-
-### Coming Soon (OpenML Integration)
-![OpenML](http://dne5.com/mex/diagram/openML.png)
 
 ### MEX Vocabulary - Snapshot v1.0.1
 ![Experiment ER](http://dne5.com/mex/diagram/mex-1.0.1.png)
