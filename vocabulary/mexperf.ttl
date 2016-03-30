@@ -19,43 +19,27 @@
 <http://mex.aksw.org/mex-perf> rdf:type owl:Ontology ;
                                
                                rdfs:label "The MEX Vocabulary (mex-perf)"@en ,
-                                          "Vocabulario MEX (mex-perf)"@pt ;
-                               
+                                          "Vocabulario MEX (mex-perf)"@pt ;                  
                                dct:created "2014-02-02"^^xsd:date ;
-                               
-                               dct:modified "2014-04-05"^^xsd:date ;
-                               
+                               dct:modified "2016-04-01"^^xsd:date ;
                                rdf:about "http://mex.aksw.org/mex-doc-perf#" ;
-                               
-                               owl:versionInfo "1.0.1" ;
-                               
+                               owl:versionInfo "1.0.2" ;
                                dc:publisher "AKSW Research Group - Leipzig University"@en ;
-                               
                                dct:title "MEX Performance (mex-perf) is an ontology with the goal of describing performance values for machine learning problems (MEX Platform)"@en ;
-                               
                                rdfs:comment "MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-perf layer is the 3rd level of the MEX for representing the machine learning algorithm's performances."@en ;
-                               
                                dc:publisher "AKSW Grupo de Pesquisa - Universidade de Leipzig"@pt ;
-                               
                                rdfs:comment "MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-perf e o 3o. nivel na abordagem MEX para representar performances de algoritmos de aprendizado de maquinas"@pt ;
-                               
-                               dct:contributor mex-core:ackermann ,
-                                               mex-core:duarte ;
-                               
                                dct:creator mex-core:esteves ;
-                               
                                dct:contributor mex-core:hellmann ,
                                                mex-core:lehmann ,
+                                               mex-core:duarte ,
                                                mex-core:moussallem ,
                                                mex-core:usbeck ,
                                                mex-core:yoko ;
-                               
                                rdfs:isDefinedBy : ;
-                               
                                owl:imports doap: ,
                                            rdfs: ,
                                            prov: .
-
 
 #################################################################
 #

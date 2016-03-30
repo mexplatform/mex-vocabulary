@@ -17,45 +17,28 @@
 @base <http://mex.aksw.org/mex-algo> .
 
 <http://mex.aksw.org/mex-algo> rdf:type owl:Ontology ;
-                               
                                rdfs:label "The MEX Vocabulary (mex-algo)"@en ,
                                           "Vocabulario MEX (mex-algo)"@pt ;
-                               
                                dct:created "2014-02-02"^^xsd:date ;
-                               
-                               dct:modified "2014-04-05"^^xsd:date ;
-                               
+                               dct:modified "2016-04-01"^^xsd:date ;
                                dc:publisher "AKSW Research Group - Leipzig University"@en ;
-                               
                                rdf:about "http://mex.aksw.org/mex-doc-algo#" ;
-                               
-                               owl:versionInfo "1.0.1" ;
-                               
+                               owl:versionInfo "1.0.2" ;
                                dct:title "MEX Algorithm Ontology (mex-algo)"@en ;
-                               
                                rdfs:comment "MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-algo layer represents the algorithm information existing into a basic machine learning experiment."@en ;
-                               
                                dc:publisher "AKSW Grupo de Pesquisa - Universidade de Leipzig"@pt ;
-                               
                                rdfs:comment "MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-algo representa informacaos de algoritmos existentes em um experimento de aprendizado de maquina."@pt ;
-                               
                                rdfs:isDefinedBy : ;
-                               
-                               dct:contributor mex-core:ackermann ,
-                                               mex-core:duarte ;
-                               
-                               dct:creator mex-core:esteves ;
-                               
+                               dct:creator mex-core:esteves ;                               
                                dct:contributor mex-core:hellmann ,
                                                mex-core:lehmann ,
                                                mex-core:moussallem ,
                                                mex-core:usbeck ,
+                                               mex-core:duarte ,
                                                mex-core:yoko ;
-                               
                                owl:imports doap: ,
                                            rdfs: ,
                                            prov: .
-
 
 #################################################################
 #
@@ -226,33 +209,6 @@
                      owl:inverseOf :hasLearningProblem ;
                      
                      rdfs:subPropertyOf :isAlgorithmConfigurationOf .
-
-
-
-###  http://www.w3.org/ns/prov#hadMember
-
-prov:hadMember rdf:type owl:ObjectProperty ;
-               
-               rdfs:label "had member"@en ;
-               
-               rdfs:domain prov:Collection ;
-               
-               rdfs:range prov:Entity .
-
-
-
-###  http://www.w3.org/ns/prov#wasDerivedFrom
-
-prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
-                    
-                    rdfs:label "was derived from"@en ;
-                    
-                    rdfs:comment "Entity the experiment was derived from"@en ;
-                    
-                    rdfs:range prov:Entity ;
-                    
-                    rdfs:domain prov:Entity .
-
 
 
 

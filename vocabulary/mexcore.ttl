@@ -15,41 +15,25 @@
 @base <http://mex.aksw.org/mex-core> .
 
 <http://mex.aksw.org/mex-core> rdf:type owl:Ontology ;
-                               
                                rdfs:label "The MEX Vocabulary (mex-core)"@en ,
                                           "Vocabulario MEX (mex-core)"@pt ;
-                               
                                dct:created "2014-02-02"^^xsd:date ;
-                               
-                               dct:modified "2014-04-05"^^xsd:date ;
-                               
-                               dc:publisher "AKSW Research Group - Leipzig University"@en ;
-                               
-                               dct:title "MEX Core (mex-core) is an ontology with the goal of describing the core process for machine learning problems (MEX Platform)"@en ;
-                               
-                               rdfs:comment "MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-core representa a principal informacao obtida de um experimento de aprendizado de maquina."@pt ;
-                               
-                               rdf:about "http://mex.aksw.org/mex-doc-core#" ;
-                               
-                               owl:versionInfo "1.0.1" ;
-                               
-                               rdfs:comment "MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-core layer represents the core information gathered from a basic machine learning experiment design."@en ;
-                               
-                               dc:publisher "AKSW Grupo de Pesquisa - Universidade de Leipzig"@pt ;
-                               
+                               dct:modified "2016-04-01"^^xsd:date ;                               
+                               dc:publisher "AKSW Research Group - Leipzig University"@en ;                               
+                               dct:title "MEX Core (mex-core) is an ontology with the goal of describing the core process for machine learning problems (MEX Platform)"@en ;                               
+                               rdfs:comment "MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-core representa a principal informacao obtida de um experimento de aprendizado de maquina."@pt ;                               
+                               rdf:about "http://mex.aksw.org/mex-doc-core#" ;                               
+                               owl:versionInfo "1.0.2" ;                               
+                               rdfs:comment "MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-core layer represents the core information gathered from a basic machine learning experiment design."@en ;                          
+                               dc:publisher "AKSW Grupo de Pesquisa - Universidade de Leipzig"@pt ;                               
                                rdfs:isDefinedBy : ;
-                               
-                               dct:contributor :ackermann ,
-                                               :duarte ;
-                               
                                dct:creator :esteves ;
-                               
-                               dct:contributor :hellmann ,
+                               dct:contributor :duarte ,
+                                               :hellmann ,
                                                :lehmann ,
                                                :moussallem ,
                                                :usbeck ,
                                                :yoko ;
-                               
                                owl:imports doap: ,
                                            rdfs: ,
                                            prov: .
@@ -64,155 +48,34 @@
 
 ###  http://mex.aksw.org/mex-core#endsAt
 
-:endsAt rdf:type owl:ObjectProperty ;
-        
+:endsAt rdf:type owl:ObjectProperty ;        
         rdfs:domain :ExampleCollection ;
-        
         rdfs:range rdfs:Literal .
 
-
-
 ###  http://mex.aksw.org/mex-core#hasApplicationContext
-
 :hasApplicationContext rdf:type owl:ObjectProperty ;
-                       
                        rdfs:range :ApplicationContext .
 
-
-
 ###  http://mex.aksw.org/mex-core#hasPhase
-
 :hasPhase rdf:type owl:FunctionalProperty ,
                    owl:ObjectProperty ;
-          
           rdfs:domain :ExampleCollection ;
-          
           rdfs:range :Phase .
 
-
-
 ###  http://mex.aksw.org/mex-core#hasSamplingMethod
-
 :hasSamplingMethod rdf:type owl:FunctionalProperty ,
                             owl:ObjectProperty ;
-                   
                    rdfs:domain :Experiment .
 
-
-
 ###  http://mex.aksw.org/mex-core#startsAt
-
 :startsAt rdf:type owl:ObjectProperty ;
-          
           rdfs:domain :ExampleCollection ;
-          
           rdfs:range rdfs:Literal .
 
-
-
 ###  http://mex.aksw.org/mex-core#trustyURI
-
-:trustyURI rdf:type owl:ObjectProperty ;
-           
+:trustyURI rdf:type owl:ObjectProperty ;           
            rdfs:domain :ApplicationContext ;
-           
            rdfs:range rdfs:Literal .
-
-
-
-###  http://www.w3.org/ns/prov#hadMember
-
-prov:hadMember rdf:type owl:ObjectProperty ;
-               
-               rdfs:label "had member"@en ;
-               
-               rdfs:domain prov:Collection ;
-               
-               rdfs:range prov:Entity .
-
-
-
-###  http://www.w3.org/ns/prov#used
-
-prov:used rdf:type owl:ObjectProperty ;
-          
-          rdfs:label "used"@en ;
-          
-          rdfs:comment "Entity used by the Activity to generate the experiment"@en ;
-          
-          rdfs:domain prov:Activity ;
-          
-          rdfs:range prov:Entity .
-
-
-
-###  http://www.w3.org/ns/prov#wasAttributedTo
-
-prov:wasAttributedTo rdf:type owl:ObjectProperty ;
-                     
-                     rdfs:label "was attributed to"@en ;
-                     
-                     rdfs:range prov:Agent ;
-                     
-                     rdfs:domain prov:Entity .
-
-
-
-###  http://www.w3.org/ns/prov#wasDerivedFrom
-
-prov:wasDerivedFrom rdf:type owl:ObjectProperty ;
-                    
-                    rdfs:label "was derived from"@en ;
-                    
-                    rdfs:comment "Entity the experiment was derived from"@en ;
-                    
-                    rdfs:range prov:Entity ;
-                    
-                    rdfs:domain prov:Entity .
-
-
-
-###  http://www.w3.org/ns/prov#wasGeneratedBy
-
-prov:wasGeneratedBy rdf:type owl:ObjectProperty ;
-                    
-                    rdfs:label "was generated by"@en ;
-                    
-                    rdfs:comment "Activity used to generate the experiment"@en ;
-                    
-                    rdfs:range prov:Activity ;
-                    
-                    rdfs:domain prov:Entity .
-
-
-
-###  http://www.w3.org/ns/prov#wasInformedBy
-
-prov:wasInformedBy rdf:type owl:ObjectProperty ;
-                   
-                   rdfs:label "was started by"@en ;
-                   
-                   rdfs:range prov:Activity ;
-                   
-                   rdfs:domain prov:Activity .
-
-
-
-###  http://www.w3.org/ns/prov#wasStartedBy
-
-prov:wasStartedBy rdf:type owl:ObjectProperty ;
-                  
-                  rdfs:label "was started by"@en ;
-                  
-                  rdfs:comment "Activity used to generate the experiment"@en ;
-                  
-                  rdfs:domain prov:Activity ;
-                  
-                  rdfs:range prov:Entity .
-
-
-
-
 
 #################################################################
 #
@@ -223,58 +86,36 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 
 ###  http://mex.aksw.org/mex-core#attributeSelectionDescription
 
-:attributeSelectionDescription rdf:type owl:DatatypeProperty ;
-                               
+:attributeSelectionDescription rdf:type owl:DatatypeProperty ;                              
                                rdfs:domain :Experiment ;
-                               
                                rdfs:range xsd:string .
 
 
-
 ###  http://mex.aksw.org/mex-core#cpu
-
 :cpu rdf:type owl:DatatypeProperty ;
-     
      rdfs:domain :HardwareConfiguration ;
-     
      rdfs:range xsd:string .
 
 
-
 ###  http://mex.aksw.org/mex-core#cpuCache
-
 :cpuCache rdf:type owl:DatatypeProperty ;
-          
           rdfs:domain :HardwareConfiguration ;
-          
           rdfs:range xsd:string .
 
 
-
 ###  http://mex.aksw.org/mex-core#dataNormalizedDescription
-
 :dataNormalizedDescription rdf:type owl:DatatypeProperty ;
-                           
                            rdfs:domain :Experiment ;
-                           
                            rdfs:range xsd:string .
 
 
-
 ###  http://mex.aksw.org/mex-core#endsAt
-
 :endsAt rdf:type owl:DatatypeProperty .
 
-
-
 ###  http://mex.aksw.org/mex-core#endsAtPosition
-
 :endsAtPosition rdf:type owl:DatatypeProperty ;
-                
                 rdfs:domain :Execution ;
-                
                 rdfs:range xsd:string .
-
 
 
 ###  http://mex.aksw.org/mex-core#folds
@@ -950,22 +791,6 @@ prov:wasStartedBy rdf:type owl:ObjectProperty ;
 ###  http://lattes.cnpq.br/9591256136167135
 
 <http://lattes.cnpq.br/9591256136167135> rdf:type owl:NamedIndividual .
-
-
-
-###  http://mex.aksw.org/mex-core#ackermann
-
-:ackermann rdf:type owl:NamedIndividual ,
-                    foaf:Person ;
-           
-           foaf:familyName "Ackermann"^^rdfs:Literal ;
-           
-           foaf:givenName "Markus"^^rdfs:Literal ;
-           
-           foaf:mbox_sha1sum "cbaa093f6b7de561e5915569f2c78435ee14ad3c"^^rdfs:Literal ;
-           
-           foaf:homepage <http://aksw.org/MarkusAckermann.html> .
-
 
 
 ###  http://mex.aksw.org/mex-core#duarte
