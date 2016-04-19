@@ -4,10 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.aksw.mex</groupId>
-    <artifactId>framework</artifactId>
+    <groupId>org.aksw</groupId>
+    <artifactId>mex</artifactId>
+    <name>mex</name>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-
+    <modules>
+        <module>core</module>
+        <module>log4mex</module>
+        <module>framework</module>
+        <module>site</module>
+        <module>examples</module>
+        <module>tests</module>
+    </modules>
     <build>
         <plugins>
             <plugin>

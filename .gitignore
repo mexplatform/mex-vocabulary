@@ -1,5 +1,5 @@
-.idea
 target/
 javaapi.iml
 demoApplication.log
 /src/main/java/org/aksw/mex/beta/
+/.idea
