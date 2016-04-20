@@ -22,7 +22,7 @@ public final class MEXConstant {
     public static final String DEFAULT_EXP_CONFIGURATION_ID = "MEX_EXP_CONF_D";
     public static final String DEFAULT_EXP_ID = "MEX_EXPERIMENT";
 
-    public class EnumRDFFormat{
+    private class EnumRDFFormat{
         public static final String TURTLE = "TURTLE";
         public static final String TTL = "TTL";
         public static final String NTRIPLES =  "N-TRIPLES";
@@ -33,6 +33,35 @@ public final class MEXConstant {
         public static final String N3 = "N3";
         public static final String JSON_LD = "JSON-LD";
         public static final String RDF_JSON = "RDF/JSON";
+    }
+
+    public enum EnumRDFFormats{
+
+        TURTLE(EnumRDFFormat.TURTLE.toString()),
+        TTL(EnumRDFFormat.TTL.toString()),
+        NTRIPLES(EnumRDFFormat.NTRIPLES.toString()),
+        NTRIPLE(EnumRDFFormat.NTRIPLE.toString()),
+        NT(EnumRDFFormat.NT.toString()),
+        RDF_XML_ABBREV(EnumRDFFormat.RDF_XML_ABBREV.toString()),
+        RDF_XML(EnumRDFFormat.RDF_XML.toString()),
+        N3(EnumRDFFormat.N3.toString()),
+        JSON_LD(EnumRDFFormat.JSON_LD.toString()),
+        RDF_JSON(EnumRDFFormat.RDF_JSON.toString());
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumRDFFormats(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+
     }
 
     private MEXConstant(){

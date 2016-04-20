@@ -14,7 +14,7 @@
 
 this:application
       a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
-      dct:dateCopyrighted "2016.04.20 20:55:17 CEST" ;
+      dct:dateCopyrighted "2016.04.20 21:29:41 CEST" ;
       foaf:givenName "D Esteves" .
 
 this:feature1

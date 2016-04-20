@@ -2,6 +2,7 @@ package log4mex;
 
 import org.aksw.mex.log4mex.MEXSerializer;
 import org.aksw.mex.log4mex.MyMEXVO;
+import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum.*;
 
 /**
@@ -57,12 +58,12 @@ public class Example02 {
 
             /* (2.7) saving the mex file */
             try{
-                MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex002.ttl", "http://mex.aksw.org/examples/", mex);
+                MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex002", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.N3);
             }catch (Exception e){
                 System.out.print(e.toString());
             }
 
-            System.out.println("The MEX file [ex002.ttl] has been successfully created: share it ;-)");
+            System.out.println("The MEX file [ex002] has been successfully created: share it ;-)");
 
             System.exit(0);
 

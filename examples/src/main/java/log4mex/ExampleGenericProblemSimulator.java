@@ -6,6 +6,7 @@ import org.aksw.mex.log4mex.MyMEXVO;
 import org.aksw.mex.log4mex.algo.ImplementationVO;
 import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.log4mex.perf.overall.ClassificationMeasureVO;
+import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum.*;
 
 import java.util.Date;
@@ -129,7 +130,7 @@ public class ExampleGenericProblemSimulator {
 
 
         try{
-            MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex009.ttl", "http://mex.aksw.org/examples/", mex);
+            MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex009.ttl", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
         }catch (Exception e){
             System.out.print(e.toString());
         }

@@ -120,10 +120,11 @@ public class MEXSerializer {
 
     }
 
-    public void saveToDisk(String filename, String URIbase, MyMEXVO mex) throws Exception{
+    public void saveToDisk(String filename, String URIbase,
+                           MyMEXVO mex, MEXConstant.EnumRDFFormats format) throws Exception{
         try{
             if (parse(mex)){
-                writeJena(filename, URIbase, mex);
+                writeJena(filename, URIbase, mex, format);
             }else{
                 throw new Exception("The MEX file could not be generated. Please see the log for more details");
             }
@@ -186,7 +187,7 @@ public class MEXSerializer {
         }
     }
 
-    private void writeJena(String filename, String URIbase, MyMEXVO mex) throws Exception{
+    private void writeJena(String filename, String URIbase, MyMEXVO mex, MEXConstant.EnumRDFFormats format) throws Exception{
 
         //cleanUpTheResources(mex);
 
@@ -792,8 +793,8 @@ public class MEXSerializer {
             FileWriter out;
             try {
 
-                out = new FileWriter(filename);
-                model.write(out, MEXConstant.EnumRDFFormat.TURTLE);
+                out = new FileWriter(filename + "." + format.toString().toLowerCase().replace("/","").replace(".","").replace("-",""));
+                model.write(out, format.toString());
                 out.close();
             } catch (Exception e) {
                 LOGGER.error(e.toString());

@@ -11,6 +11,7 @@ import org.aksw.mex.log4mex.MyMEXVO;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.log4mex.core.HardwareConfigurationVO;
 import org.aksw.mex.log4mex.core.SamplingMethodVO;
+import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum;
 import org.apache.commons.cli.*;
 import org.apache.log4j.Logger;
@@ -289,7 +290,7 @@ public class MetaGeneration {
                 LOG.debug("ret = " + returnValue.toString());
             }
 
-            MEXSerializer.getInstance().saveToDisk(mexfile, "http://mex.aksw.org/examples/ISWC/001/", mex);
+            MEXSerializer.getInstance().saveToDisk(mexfile, "http://mex.aksw.org/examples/ISWC/001/", mex, MEXConstant.EnumRDFFormats.TTL);
             LOG.info("The MEX file has been successfully created: share it ;-)");
 
             END_TIME = System.currentTimeMillis();

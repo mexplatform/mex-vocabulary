@@ -14,7 +14,7 @@
 
 this:application
       a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
-      dct:dateCopyrighted "2016.04.20 20:55:22 CEST" ;
+      dct:dateCopyrighted "2016.04.20 21:31:11 CEST" ;
       foaf:givenName "D Esteves" ;
       foaf:mbox "esteves@informatik.uni-leipzig.de" .
 
