@@ -14,7 +14,7 @@
 
 this:application
       a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
-      dct:dateCopyrighted "2016.04.20 19:30:52 CEST" ;
+      dct:dateCopyrighted "2016.04.20 20:14:11 CEST" ;
       foaf:givenName "D Esteves" .
 
 this:feature1
@@ -30,14 +30,17 @@ this:feature2
       rdfs:label "max" ;
       dct:identifier "2" .
 
+this:dataset
+      a       prov:Entity , mexcore:DatasetName ;
+      dct:title "mydataset.csv" .
+
 this:feature3
       a       mexcore:Feature , prov:Entity ;
       rdfs:label "ope" ;
       dct:identifier "3" .
 
-this:dataset
-      a       prov:Entity , mexcore:DatasetName ;
-      dct:title "mydataset.csv" .
+this:implementation
+      a       prov:Entity , "http://mex.aksw.org/mex-core#NOT_INFORMED" .
 
 this:phaseTEST
       a       prov:Entity , mexcore:TEST .
@@ -45,7 +48,7 @@ this:phaseTEST
 this:configuration1
       a       mexcore:ExperimentConfiguration , prov:Activity ;
       dct:identifier "MEX_EXP_CONF_D1" ;
-      prov:used this:feature1 , this:feature2 , this:feature3 , this:dataset , this:samplingmethod1 , this:feature4 .
+      prov:used this:feature1 , this:feature2 , this:dataset , this:feature3 , this:implementation , this:samplingmethod1 , this:feature4 , this:hardware .
 
 this:feature4
       a       mexcore:Feature , prov:Entity ;
@@ -85,6 +88,15 @@ this:experiment-header
       dct:identifier "MEX_EXPERIMENT" ;
       prov:wasAttributedTo
               this:application .
+
+this:hardware
+      a       mexcore:HardwareConfiguration , prov:Entity ;
+      mexcore:cache "NOT_INFORMED" ;
+      mexcore:cpu "NOT_INFORMED" ;
+      mexcore:memory "NOT_INFORMED" .
+
+this:version
+      dct:hasVersion "1.0-SNAPSHOT" .
 
 this:algorithm1
       a       prov:Entity , mexcore:NaiveBayes ;

@@ -23,12 +23,15 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 
 /**
  * Created by esteves on 25.06.15.
@@ -219,6 +222,7 @@ public class MEXSerializer {
         //mex-core
         Resource _application = null;
         Resource _context;
+        Resource _version;
         Resource _organization;
         Resource _expHeader;
 
@@ -270,6 +274,12 @@ public class MEXSerializer {
                         .addProperty(RDF.type, mexcore_CON)
                         .addProperty(PROVO.wasAttributedTo, _application);
             }
+
+
+            Resource mex_version = model.createResource(MEXCORE_10.NS + "version");
+            _version = model.createResource(URIbase + "version")
+                    .addProperty(DCTerms.hasVersion, this.getVersion());
+
         }
 
         //EXPERIMENT
@@ -790,5 +800,21 @@ public class MEXSerializer {
             }
 
         }
+
+    public String getVersion()
+    {
+        String path = "/version.prop";
+        InputStream stream = getClass().getClass().getResourceAsStream(path);
+        if (stream == null)
+            return "UNKNOWN";
+        Properties props = new Properties();
+        try {
+            props.load(stream);
+            stream.close();
+            return (String) props.get("version");
+        } catch (IOException e) {
+            return "UNKNOWN";
+        }
+    }
 
 }
