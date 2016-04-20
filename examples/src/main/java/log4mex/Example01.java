@@ -39,9 +39,7 @@ public class Example01 {
             mex.Configuration(confID).Execution(execID).setAlgorithm(alg01ID);
             mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
             mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ERROR.toString(), .04);
-            /* (7) parsing the mex file */
-            MEXSerializer.getInstance().parse(mex);
-            /* (8) saving the mex file */
+             /* (7) saving the mex file */
             MEXSerializer.getInstance().saveToDisk("../metafiles/log4mex/ex001.ttl","http://mex.aksw.org/examples/001/", mex);
 
             System.out.println("The MEX file [ex001.ttl] has been successfully created: share it ;-)");

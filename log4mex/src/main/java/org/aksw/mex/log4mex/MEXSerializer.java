@@ -18,6 +18,8 @@ import org.aksw.mex.util.ontology.mex.MEXALGO_10;
 import org.aksw.mex.util.ontology.mex.MEXCORE_10;
 import org.aksw.mex.util.ontology.mex.MEXPERF_10;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.FileWriter;
 import java.text.DateFormat;
@@ -31,20 +33,22 @@ import java.util.List;
  * Created by esteves on 25.06.15.
  */
 public class MEXSerializer {
-    private boolean _valid;
 
     private static MEXSerializer instance = null;
+    private static final Logger LOGGER = LoggerFactory.getLogger(MEXSerializer.class);
+
     protected MEXSerializer() {
-        _valid=false;
     }
+
     public static MEXSerializer getInstance() {
         if(instance == null) {
             instance = new MEXSerializer();
         }
         return instance;
     }
-    public boolean parse(MyMEXVO mex) throws Exception{
-        _valid=false;
+    private boolean parse(MyMEXVO mex) throws Exception{
+
+        try{
 
             /* minimal set of classes to be implemented */
 
@@ -96,16 +100,17 @@ public class MEXSerializer {
 
             }
 
-            _valid=true;
+        }  catch (Exception e){
+            return false;
+        }
 
-
-        return _valid;
+        return true;
 
     }
 
     public void saveToDisk(String filename, String URIbase, MyMEXVO mex){
         try{
-            if (_valid){
+            if (parse(mex)){
                 writeJena(filename, URIbase, mex);
             }
         }catch (Exception e){
@@ -130,7 +135,6 @@ public class MEXSerializer {
         model.setNsPrefix("doap", DOAP.getURI());
         model.setNsPrefix("dcat", DCAT.getURI());
     }
-
 
     //go back here later...
     private void cleanUpTheResources(MyMEXVO mex) {
@@ -166,7 +170,6 @@ public class MEXSerializer {
 
         }
     }
-
 
     private void writeJena(String filename, String URIbase, MyMEXVO mex) throws Exception{
 
@@ -775,4 +778,5 @@ public class MEXSerializer {
             }
 
         }
-    }
+
+}

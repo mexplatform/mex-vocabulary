@@ -124,10 +124,7 @@ public class Example05_weka {
 
                 System.out.println("Accuracy of " + models[j].getClass().getSimpleName() + ": " + String.format("%.2f%%", accuracy));
             }
-
-            /* (2.7) parsing the mex file */
-            MEXSerializer.getInstance().parse(mex);
-            /* (2.8) saving the mex file */
+            /* (2.7) saving the mex file */
             MEXSerializer.getInstance().saveToDisk("/home/esteves/iswcdemo/ex005.ttl", "http://mex.aksw.org/examples/Weka/", mex);
 
             System.out.println("The MEX file [ex005.ttl] has been successfully created: share it ;-)");

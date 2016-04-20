@@ -99,7 +99,6 @@ public class ExampleLightWeight {
 
             //exporting your ML experiment
 
-            MEXSerializer.getInstance().parse(mex);
 
             MEXSerializer.getInstance().saveToDisk("exlightweight.ttl","http://mex.aksw.org/examples/001/", mex);
 

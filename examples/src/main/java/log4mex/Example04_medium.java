@@ -111,8 +111,6 @@ public class Example04_medium {
             mex.Configuration(eid).ExecutionOverall(ex2).addPerformance(EnumMeasures.TRUEPOSITIVERATE.toString(), .61);
         }
 
-        //exporting your ML experiment
-        MEXSerializer.getInstance().parse(mex);
 
         MEXSerializer.getInstance().saveToDisk("/home/esteves/iswcdemo/ex004.ttl", "http://mex.aksw.org/examples/001/", mex);
 

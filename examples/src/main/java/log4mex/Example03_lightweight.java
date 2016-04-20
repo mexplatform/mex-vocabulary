@@ -101,8 +101,6 @@ public class Example03_lightweight {
 
             //exporting your ML experiment
 
-            MEXSerializer.getInstance().parse(mex);
-
             MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mex/metafiles/log4mex/ex003.ttl","http://mex.aksw.org/examples/001/", mex);
 
             System.out.println("The MEX file [ex003.ttl] has been successfully created: share it ;-)");

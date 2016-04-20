@@ -289,7 +289,6 @@ public class MetaGeneration {
                 LOG.debug("ret = " + returnValue.toString());
             }
 
-            MEXSerializer.getInstance().parse(mex);
             MEXSerializer.getInstance().saveToDisk(mexfile, "http://mex.aksw.org/examples/ISWC/001/", mex);
             LOG.info("The MEX file has been successfully created: share it ;-)");
 
