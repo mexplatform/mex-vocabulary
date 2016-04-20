@@ -160,9 +160,9 @@ public class MEXSerializer {
 
                 //SAMPLING
                 String samplingClass = item.SamplingMethod().getIndividualName();
-                String  samplingName   = item.SamplingMethod().getIndividualName();
-                Double  samplingTrain  = item.SamplingMethod().getTrainSize();
-                Double  samplingTest   = item.SamplingMethod().getTestSize();
+                String samplingName   = item.SamplingMethod().getIndividualName();
+                Double samplingTrain  = item.SamplingMethod().getTrainSize();
+                Double samplingTest   = item.SamplingMethod().getTestSize();
                 Integer samplingFolds  = item.SamplingMethod().getFolds();
 
                 MEXEnum.EnumSamplingMethods sm = MEXEnum.EnumSamplingMethods.valueOf(samplingName);

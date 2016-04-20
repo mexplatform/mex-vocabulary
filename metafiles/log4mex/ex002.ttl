@@ -14,7 +14,7 @@
 
 this:application
       a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
-      dct:dateCopyrighted "2016.04.20 19:30:58 CEST" ;
+      dct:dateCopyrighted "2016.04.20 20:55:22 CEST" ;
       foaf:givenName "D Esteves" ;
       foaf:mbox "esteves@informatik.uni-leipzig.de" .
 
@@ -40,18 +40,21 @@ this:feature3
       rdfs:label "ope" ;
       dct:identifier "3" .
 
+this:implementation
+      a       prov:Entity , "http://mex.aksw.org/mex-core#NOT_INFORMED" .
+
 this:phaseTEST
       a       prov:Entity , mexcore:TEST .
 
 this:configuration2
       a       mexcore:ExperimentConfiguration , prov:Activity ;
       dct:identifier "MEX_EXP_CONF_D2" ;
-      prov:used this:feature1 , this:feature2 , this:dataset , this:samplingmethod2 .
+      prov:used this:feature1 , this:feature2 , this:dataset , this:samplingmethod2 , this:implementation , this:hardware .
 
 this:configuration1
       a       mexcore:ExperimentConfiguration , prov:Activity ;
       dct:identifier "MEX_EXP_CONF_D1" ;
-      prov:used this:feature1 , this:feature2 , this:feature3 , this:dataset , this:samplingmethod1 , this:feature4 .
+      prov:used this:feature1 , this:feature2 , this:dataset , this:feature3 , this:implementation , this:samplingmethod1 , this:feature4 , this:hardware .
 
 this:feature4
       a       mexcore:Feature , prov:Entity ;
@@ -86,12 +89,12 @@ this:context
               this:application .
 
 this:samplingmethod2
-      a       prov:Entity , mexcore:HOLDOUT ;
+      a       prov:Entity , mexcore:Holdout ;
       mexcore:testSize "0.2" ;
       mexcore:trainSize "0.8" .
 
 this:samplingmethod1
-      a       prov:Entity , mexcore:HOLDOUT ;
+      a       prov:Entity , mexcore:Holdout ;
       mexcore:testSize "0.2" ;
       mexcore:trainSize "0.8" .
 
@@ -108,9 +111,15 @@ this:experiment-header
       prov:wasAttributedTo
               this:application .
 
+this:hardware
+      a       mexcore:HardwareConfiguration , prov:Entity .
+
 this:algorithm2
       a       prov:Entity , mexcore:RegressionAnalysis ;
       dct:identifier "algorithm2" .
+
+this:version
+      dct:hasVersion "1.0.1" .
 
 this:algorithm1
       a       prov:Entity , mexcore:NaiveBayes ;

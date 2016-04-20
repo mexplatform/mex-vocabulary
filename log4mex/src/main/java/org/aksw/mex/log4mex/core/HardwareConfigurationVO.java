@@ -24,9 +24,9 @@ public class HardwareConfigurationVO {
     }
 
     public HardwareConfigurationVO(MEXEnum.EnumProcessors cpu, MEXEnum.EnumRAM memory, MEXEnum.EnumCaches cache){
-        this._cache =cache.name();
-        this._memory = memory.name();
-        this._cpu=cpu.name();
+        this._cache =cache.toString();
+        this._memory = memory.toString();
+        this._cpu=cpu.toString();
     }
 
     public HardwareConfigurationVO(){
@@ -38,11 +38,11 @@ public class HardwareConfigurationVO {
     }
 
     public void setMemory(MEXEnum.EnumRAM value){
-        this._memory = value.name();
+        this._memory = value.toString();
     }
 
     public void setCPU(MEXEnum.EnumProcessors value){
-        this._cpu = value.name();
+        this._cpu = value.toString();
     }
 
     public void setHD(String value){
@@ -50,7 +50,7 @@ public class HardwareConfigurationVO {
     }
 
     public void setCache(MEXEnum.EnumCaches value){
-        this._cache = value.name();
+        this._cache = value.toString();
     }
 
     public void setVideoGraph(String value){

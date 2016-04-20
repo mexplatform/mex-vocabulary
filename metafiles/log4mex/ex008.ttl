@@ -60,7 +60,7 @@ this:execution_C0_MEX_EXEC_D2
 
 this:application
       a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
-      dct:dateCopyrighted "2016.04.20 20:55:37 CEST" ;
+      dct:dateCopyrighted "2016.04.20 20:55:51 CEST" ;
       foaf:givenName "P.Creek" .
 
 this:feature1

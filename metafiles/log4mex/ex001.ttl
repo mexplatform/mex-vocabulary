@@ -14,7 +14,7 @@
 
 this:application
       a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
-      dct:dateCopyrighted "2016.04.20 20:14:11 CEST" ;
+      dct:dateCopyrighted "2016.04.20 20:55:17 CEST" ;
       foaf:givenName "D Esteves" .
 
 this:feature1
@@ -71,7 +71,7 @@ this:context
               this:application .
 
 this:samplingmethod1
-      a       prov:Entity , mexcore:HOLDOUT ;
+      a       prov:Entity , mexcore:Holdout ;
       mexcore:folds "1" ;
       mexcore:testSize "1.0" ;
       mexcore:trainSize "0.0" .
@@ -90,13 +90,10 @@ this:experiment-header
               this:application .
 
 this:hardware
-      a       mexcore:HardwareConfiguration , prov:Entity ;
-      mexcore:cache "NOT_INFORMED" ;
-      mexcore:cpu "NOT_INFORMED" ;
-      mexcore:memory "NOT_INFORMED" .
+      a       mexcore:HardwareConfiguration , prov:Entity .
 
 this:version
-      dct:hasVersion "1.0-SNAPSHOT" .
+      dct:hasVersion "1.0.1" .
 
 this:algorithm1
       a       prov:Entity , mexcore:NaiveBayes ;

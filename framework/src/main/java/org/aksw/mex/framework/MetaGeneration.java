@@ -376,7 +376,7 @@ public class MetaGeneration {
                                 m, Double.parseDouble(mValue.get(i).toString()));
 
 
-                        LOG.info(m.name() + " of Execution " + idExecution + " : " + mValue.get(i).toString());
+                        LOG.info(m.toString() + " of Execution " + idExecution + " : " + mValue.get(i).toString());
                     }
 
                 }
@@ -434,7 +434,7 @@ public class MetaGeneration {
                             m, Double.parseDouble(mValue.get(0).toString()));
 
 
-                    LOG.info(m.name() + " of Execution " + executionID + " : " + mValue.get(0).toString());
+                    LOG.info(m.toString() + " of Execution " + executionID + " : " + mValue.get(0).toString());
                 }
             }
 

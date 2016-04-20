@@ -27,7 +27,7 @@ public class ImplementationVO {
 
     }
     public ImplementationVO(MEXEnum.EnumImplementations name){
-        this._individualName = name.name();
+        this._individualName = name.toString();
     }
 
     public ImplementationVO(){
@@ -100,7 +100,7 @@ public class ImplementationVO {
     }
 
     public void set(MEXEnum.EnumImplementations value) {
-        this._individualName = value.name();
+        this._individualName = value.toString();
     }
 
     public String getHomepage() {

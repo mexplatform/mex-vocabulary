@@ -211,10 +211,10 @@ public class ExperimentConfigurationVO {
 
         total = this._executions.size() + 1;
 
-        if (type.name().equals(MEXEnum.EnumExecutionsType.SINGLE.toString())) {
+        if (type.toString().equals(MEXEnum.EnumExecutionsType.SINGLE.toString())) {
             this._executions.add(new ExecutionIndividualVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase.name())));
         }
-        if (type.name().equals(MEXEnum.EnumExecutionsType.OVERALL.toString())) {
+        if (type.toString().equals(MEXEnum.EnumExecutionsType.OVERALL.toString())) {
             this._executions.add(new ExecutionSetVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase.name())));
         }
         execCode = "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + total.toString();

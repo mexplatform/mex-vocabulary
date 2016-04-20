@@ -40,18 +40,18 @@ public class SamplingMethodVO {
 
     public SamplingMethodVO(String ind, MEXEnum.EnumSamplingMethods sm) {
         this._individualName = ind;
-        this._className = sm.name();
+        this._className = sm.toString();
     }
 
     public SamplingMethodVO(String ind, MEXEnum.EnumSamplingMethods sm, Double train, Double test) {
         this._individualName = ind;
-        this._className = sm.name();
+        this._className = sm.toString();
         this._trainSize = train;
         this._testSize = test;
     }
 
     public void setClassName(MEXEnum.EnumSamplingMethods value){
-        this._className = value.name();
+        this._className = value.toString();
     }
 
     public void setIndividualName(String value){
