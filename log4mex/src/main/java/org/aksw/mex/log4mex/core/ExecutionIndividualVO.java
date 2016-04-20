@@ -17,6 +17,12 @@ public class ExecutionIndividualVO extends Execution {
         this._expConf = ep;
     }
 
+    @Override
+    public void setStartsAtPosition(String value){}
+
+    @Override
+    public void setEndsAtPosition(String value){}
+
 
 
 }

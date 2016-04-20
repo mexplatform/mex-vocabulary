@@ -1,5 +1,6 @@
 package log4mex;
 
+import log4mex.tests.ModelSimulatorExample;
 import org.aksw.mex.log4mex.MEXSerializer;
 import org.aksw.mex.log4mex.MyMEXVO;
 import org.aksw.mex.log4mex.algo.ImplementationVO;
@@ -13,19 +14,16 @@ import java.util.Date;
 /**
  * Created by esteves on 09.06.15.
  */
-public class Exampleold2 {
+public class ExampleGenericProblemSimulator {
 
     public static void main(String[] args) {
 
         MyMEXVO mex = null;
 
-        MEXSerializer.getInstance().saveToDisk("d.ttl", "http://aksw.org/sample/", mex);
-        System.exit(0);
-
         //ajustar no loop de busca das subclasses...tem que ser metodo recursivo para pegar todos os filhos!
 
         /***************************************************************
-         * MyMEXVO Wrapper org.aksw.mex.example.Exampleold
+         * MyMEXVO Wrapper org.aksw.mex.example.old1
          ***************************************************************/
         /* step 1: author and context */
 
@@ -131,10 +129,11 @@ public class Exampleold2 {
         /* save the file */
 
 
-        //MEXSerializer.getInstance().parse(mex);
-        MEXSerializer.getInstance().saveToDisk("/home/esteves/Desktop/mexfile1.ttl", "url.com", mex);
-
-
+        try{
+            MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex009.ttl", "http://mex.aksw.org/examples/", mex);
+        }catch (Exception e){
+            System.out.print(e.toString());
+        }
 
 
     }

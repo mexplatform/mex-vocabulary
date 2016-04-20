@@ -117,15 +117,19 @@ public class ExampleWeka {
                 double accuracy = calculateAccuracy(predictions);
 
                 /* (2.6) the performances for the executions */
-                execIDs[j] = mex.Configuration(confID).addExecution(MEXEnum.EnumExecutionsType.OVERALL.name(), MEXEnum.EnumPhases.TEST.name());
+                execIDs[j] = mex.Configuration(confID).addExecution(MEXEnum.EnumExecutionsType.OVERALL, MEXEnum.EnumPhases.TEST);
                 mex.Configuration(confID).Execution(execIDs[j]).setAlgorithm(algIDs[j]);
-                mex.Configuration(confID).Execution(execIDs[j]).addPerformance(MEXEnum.EnumMeasures.ACCURACY.toString(), accuracy);
+                mex.Configuration(confID).Execution(execIDs[j]).addPerformance(MEXEnum.EnumMeasures.ACCURACY, accuracy);
 
                 System.out.println("Accuracy of " + models[j].getClass().getSimpleName() + ": " + String.format("%.2f%%", accuracy));
             }
 
             /* (2.7) saving the mex file */
-            MEXSerializer.getInstance().saveToDisk("exweka.ttl", "http://mex.aksw.org/examples/Weka/", mex);
+            try{
+                MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex008.ttl", "http://mex.aksw.org/examples/", mex);
+            }catch (Exception e){
+                System.out.print(e.toString());
+            }
 
             System.out.println("The MEX file has been successfully created: share it ;-)");
 

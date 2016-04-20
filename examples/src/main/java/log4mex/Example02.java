@@ -39,24 +39,28 @@ public class Example02 {
             String alg01ID = mex.Configuration(conf01ID).addAlgorithm(EnumAlgorithm.NaiveBayes).getIdentifier();
             String alg02ID = mex.Configuration(conf02ID).addAlgorithm(EnumAlgorithm.RegressionAnalysis).getIdentifier();
             /* (2.5) the executions */
-            String exec01ID = mex.Configuration(conf01ID).addExecution(EnumExecutionsType.OVERALL.name(), EnumPhases.TEST.name());
-            String exec02ID = mex.Configuration(conf02ID).addExecution(EnumExecutionsType.OVERALL.name(), EnumPhases.TEST.name());
+            String exec01ID = mex.Configuration(conf01ID).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
+            String exec02ID = mex.Configuration(conf02ID).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
             {
                 //your models call here !
             }
             /* (2.6) the performances for the executions */
-            mex.Configuration(conf01ID).ExecutionOverall(exec01ID).setAlgorithm(alg01ID);
-            mex.Configuration(conf01ID).ExecutionOverall(exec01ID).addPerformance(EnumMeasures.ACCURACY.toString(), .86);
-            mex.Configuration(conf01ID).ExecutionOverall(exec01ID).addPerformance(EnumMeasures.ERROR.toString(), .14);
-            mex.Configuration(conf01ID).ExecutionOverall(exec01ID).addPerformance(EnumMeasures.TRUEPOSITIVE.toString(), 3534);
+            mex.Configuration(conf01ID).Execution(exec01ID).setAlgorithm(alg01ID);
+            mex.Configuration(conf01ID).Execution(exec01ID).addPerformance(EnumMeasures.ACCURACY, .86);
+            mex.Configuration(conf01ID).Execution(exec01ID).addPerformance(EnumMeasures.ERROR, .14);
+            mex.Configuration(conf01ID).Execution(exec01ID).addPerformance(EnumMeasures.TRUEPOSITIVE, 3534);
 
-            mex.Configuration(conf02ID).ExecutionOverall(exec02ID).setAlgorithm(alg02ID);
-            mex.Configuration(conf02ID).ExecutionOverall(exec02ID).addPerformance(EnumMeasures.ACCURACY.toString(), .80);
-            mex.Configuration(conf02ID).ExecutionOverall(exec02ID).addPerformance(EnumMeasures.ERROR.toString(), .20);
-            mex.Configuration(conf01ID).ExecutionOverall(exec02ID).addPerformance(EnumMeasures.TRUEPOSITIVE.toString(), 3143);
+            mex.Configuration(conf02ID).Execution(exec02ID).setAlgorithm(alg02ID);
+            mex.Configuration(conf02ID).Execution(exec02ID).addPerformance(EnumMeasures.ACCURACY, .80);
+            mex.Configuration(conf02ID).Execution(exec02ID).addPerformance(EnumMeasures.ERROR, .20);
+            mex.Configuration(conf01ID).Execution(exec02ID).addPerformance(EnumMeasures.TRUEPOSITIVE, 3143);
 
             /* (2.7) saving the mex file */
-            MEXSerializer.getInstance().saveToDisk("/home/esteves/iswcdemo/ex002.ttl", "http://mex.aksw.org/examples/002/", mex);
+            try{
+                MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex002.ttl", "http://mex.aksw.org/examples/", mex);
+            }catch (Exception e){
+                System.out.print(e.toString());
+            }
 
             System.out.println("The MEX file [ex002.ttl] has been successfully created: share it ;-)");
 

@@ -141,8 +141,10 @@ public abstract class Execution {
         this._phase = value;
     }
 
-    public boolean addPerformance(String p, double v){
+    public boolean addPerformance(MEXEnum.EnumMeasures m, double v){
         String type = "";
+        String p = m.toString();
+
         boolean ret = false;
 
             try{
@@ -351,5 +353,9 @@ public abstract class Execution {
     public List<Measure> getPerformances() {
         return _performances;
     }
+
+    public abstract void setStartsAtPosition(String value);
+    public abstract void setEndsAtPosition(String value);
+
 
 }

@@ -19,10 +19,12 @@ public class ExecutionSetVO extends Execution {
         this._expConf = ep;
     }
 
+    @Override
     public void setStartsAtPosition(String value){
         this._startPosition = value;
     }
 
+    @Override
     public void setEndsAtPosition(String value){
         this._endPosition = value;
     }

@@ -356,15 +356,13 @@ public class MetaGeneration {
                     throw new Exception("something is wrong...the number of algorithms (" + algorithms.size() + ") can not be different from the total of executions (" + totalExecutions + ")");
 
                 for (int i=0; i<totalExecutions; i++){
+                    ;
 
-                    int idExecution = i+1;
-
-                    mex.Configuration().addExecutionOverall(mex.getExperiment().get_id(),
-                            String.valueOf(idExecution),
-                            MEXEnum.EnumPhases.TEST.name());
+                    String idExecution = mex.Configuration().addExecution(MEXEnum.EnumExecutionsType.OVERALL,
+                            MEXEnum.EnumPhases.TEST);
 
                     AlgorithmVO algtemp = algorithms.get(i);
-                    mex.Configuration().ExecutionOverall(String.valueOf(i+1)).setAlgorithm(algtemp);
+                    mex.Configuration().Execution(String.valueOf(i+1)).setAlgorithm(algtemp);
 
                     //adding measures
                     for (Field fa : _measures) {
@@ -374,8 +372,8 @@ public class MetaGeneration {
 
                         List<?> mValue = (List) fa.get(ins);
 
-                        mex.Configuration().ExecutionOverall(String.valueOf(idExecution)).addPerformance(
-                                m.name(), Double.parseDouble(mValue.get(i).toString()));
+                        mex.Configuration().Execution(String.valueOf(idExecution)).addPerformance(
+                                m, Double.parseDouble(mValue.get(i).toString()));
 
 
                         LOG.info(m.name() + " of Execution " + idExecution + " : " + mValue.get(i).toString());
@@ -395,7 +393,7 @@ public class MetaGeneration {
                     String k1 = fa.getAnnotation(Measure.class).algorithmID();
                     MEXEnum.EnumPhases k2 = MEXEnum.EnumPhases.values()[fa.getAnnotation(Measure.class).idPhase().ordinal()];
 
-                    ExecutionHelperKey k = new ExecutionHelperKey(k1, k2.name());
+                    ExecutionHelperKey k = new ExecutionHelperKey(k1, k2);
 
                     //TODO: here I have to extend and consider when describing SingleExecutions
                     if (vetExecutions.putIfAbsent(k, executionID) == null) {
@@ -412,12 +410,11 @@ public class MetaGeneration {
                     Integer value = entry.getValue();
                     ExecutionHelperKey key = entry.getKey();
 
-                    mex.Configuration().addExecutionOverall(mex.getExperiment().get_id(),
-                            String.valueOf(value),
+                    mex.Configuration().addExecution(MEXEnum.EnumExecutionsType.OVERALL,
                             key.phaseID());
 
                     AlgorithmVO algtemp = algorithms.get(key.algorithmID());
-                    mex.Configuration().ExecutionOverall(String.valueOf(value)).setAlgorithm(algtemp);
+                    mex.Configuration().Execution(String.valueOf(value)).setAlgorithm(algtemp);
 
                 }
 
@@ -428,12 +425,13 @@ public class MetaGeneration {
                     MEXEnum.EnumMeasures m = MEXEnum.EnumMeasures.values()[fa.getAnnotation(Measure.class).idMeasure().ordinal()];
 
 
-                    executionID = vetExecutions.get(new ExecutionHelperKey(k1, k2.name()));
+                    MEXEnum.EnumPhases phase = MEXEnum.EnumPhases.valueOf(k2.name());
+                    executionID = vetExecutions.get(new ExecutionHelperKey(k1, phase));
                     List<?> mValue = (List) fa.get(ins);
 
                     //TODO: as noticed, so far considering just OverallExecution, therefore .get(0)
-                    mex.Configuration().ExecutionOverall(String.valueOf(executionID)).addPerformance(
-                            m.name(), Double.parseDouble(mValue.get(0).toString()));
+                    mex.Configuration().Execution(String.valueOf(executionID)).addPerformance(
+                            m, Double.parseDouble(mValue.get(0).toString()));
 
 
                     LOG.info(m.name() + " of Execution " + executionID + " : " + mValue.get(0).toString());

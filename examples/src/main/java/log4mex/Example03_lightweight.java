@@ -69,39 +69,48 @@ public class Example03_lightweight {
             String ex2 = "EX002";
             //associate your run x each algorithm
             {
-                mex.Configuration().addExecutionOverall(eid, ex1, EnumPhases.TRAIN.name());
-                mex.Configuration().ExecutionOverall(ex1).setStartDate(new Date());
-                mex.Configuration().ExecutionOverall(ex1).setAlgorithm(alg1);
-                mex.Configuration().ExecutionOverall(ex1).setStartsAtPosition("1233");
-                mex.Configuration().ExecutionOverall(ex1).setEndsAtPosition("1376");
+                mex.Configuration().addExecution(EnumExecutionsType.OVERALL, EnumPhases.TRAIN);
+                mex.Configuration().setExecutionId(0, ex1);
+
+                mex.Configuration().Execution(ex1).setStartDate(new Date());
+                mex.Configuration().Execution(ex1).setAlgorithm(alg1);
+                mex.Configuration().Execution(ex1).setStartsAtPosition("1233");
+                mex.Configuration().Execution(ex1).setEndsAtPosition("1376");
 
 
                 //your models call here !
-                mex.Configuration().ExecutionOverall(ex1).setEndDate(new Date());
+                mex.Configuration().Execution(ex1).setEndDate(new Date());
 
-                mex.Configuration().addExecutionOverall(eid, ex2, EnumPhases.TEST.name());
-                mex.Configuration().ExecutionOverall(ex2).setStartDate(new Date());
-                mex.Configuration().ExecutionOverall(ex2).setAlgorithm(alg2);
-                mex.Configuration().ExecutionOverall(ex2).setStartsAtPosition("1377");
-                mex.Configuration().ExecutionOverall(ex2).setEndsAtPosition("1420");
+                mex.Configuration().addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
+                mex.Configuration().setExecutionId(1, ex2);
+
+                mex.Configuration().Execution(ex2).setStartDate(new Date());
+                mex.Configuration().Execution(ex2).setAlgorithm(alg2);
+                mex.Configuration().Execution(ex2).setStartsAtPosition("1377");
+                mex.Configuration().Execution(ex2).setEndsAtPosition("1420");
+
 
                 //your models call here !
-                mex.Configuration().ExecutionOverall(ex2).setEndDate(new Date());
+                mex.Configuration().Execution(ex2).setEndDate(new Date());
 
             }
 
             //saving performances for each run
             {
-                mex.Configuration().ExecutionOverall(ex1).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
-                mex.Configuration().ExecutionOverall(ex1).addPerformance(EnumMeasures.TRUEPOSITIVERATE.toString(), .70);
-                mex.Configuration().ExecutionOverall(ex2).addPerformance(EnumMeasures.ERROR.toString(), .04);
-                mex.Configuration().ExecutionOverall(ex2).addPerformance(EnumMeasures.ACCURACY.toString(), .83);
-                mex.Configuration().ExecutionOverall(ex2).addPerformance(EnumMeasures.TRUEPOSITIVERATE.toString(), .61);
+                mex.Configuration().Execution(ex1).addPerformance(EnumMeasures.ACCURACY, .96);
+                mex.Configuration().Execution(ex1).addPerformance(EnumMeasures.TRUEPOSITIVERATE, .70);
+                mex.Configuration().Execution(ex2).addPerformance(EnumMeasures.ERROR, .04);
+                mex.Configuration().Execution(ex2).addPerformance(EnumMeasures.ACCURACY, .83);
+                mex.Configuration().Execution(ex2).addPerformance(EnumMeasures.TRUEPOSITIVERATE, .61);
             }
 
             //exporting your ML experiment
 
-            MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mex/metafiles/log4mex/ex003.ttl","http://mex.aksw.org/examples/001/", mex);
+            try{
+                MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex003.ttl", "http://mex.aksw.org/examples/", mex);
+            }catch (Exception e){
+                System.out.print(e.toString());
+            }
 
             System.out.println("The MEX file [ex003.ttl] has been successfully created: share it ;-)");
 

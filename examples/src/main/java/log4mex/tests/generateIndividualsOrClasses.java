@@ -1,4 +1,4 @@
-package log4mex;
+package log4mex.tests;
 
 import com.hp.hpl.jena.ontology.*;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -11,7 +11,7 @@ import java.io.InputStream;
 /**
  * Created by esteves on 26.06.15.
  */
-public class Exampleold3 {
+public class generateIndividualsOrClasses {
 
     public static void main(String[] args){
 

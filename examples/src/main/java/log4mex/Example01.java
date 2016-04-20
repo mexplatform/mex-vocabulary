@@ -31,16 +31,16 @@ public class Example01 {
             /* (5) the executions */
 
 
-            String execID = mex.Configuration(confID).addExecution(EnumExecutionsType.OVERALL.name(), EnumPhases.TEST.name());
+            String execID = mex.Configuration(confID).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
             {
                 //your models call here !
             }
             /* (6) the performances for the executions */
             mex.Configuration(confID).Execution(execID).setAlgorithm(alg01ID);
-            mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
-            mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ERROR.toString(), .04);
+            mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ACCURACY, .96);
+            mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ERROR, .04);
              /* (7) saving the mex file */
-            MEXSerializer.getInstance().saveToDisk("../metafiles/log4mex/ex001.ttl","http://mex.aksw.org/examples/001/", mex);
+            MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex001.ttl","http://mex.aksw.org/examples/", mex);
 
             System.out.println("The MEX file [ex001.ttl] has been successfully created: share it ;-)");
 

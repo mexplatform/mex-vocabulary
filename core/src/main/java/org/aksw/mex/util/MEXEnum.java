@@ -468,8 +468,8 @@ public class MEXEnum {
     }
 
     private class EnumExecutionType{
-        public static final String SINGLE = "single";
-        public static final String OVERALL = "overall";
+        public static final String SINGLE = "SINGLE";
+        public static final String OVERALL = "OVERALL";
     }
 
     public enum EnumExecutionsType{
@@ -494,11 +494,4 @@ public class MEXEnum {
 
     }
 
-
-
-    /*public class EnumMEXPrefixNamespace{
-        public static final String MEX_CORE = "mexcore";
-        public static final String MEX_ALGO = "mexalgo";
-        public static final String MEX_PERF = "mexperf";
-    }*/
 }

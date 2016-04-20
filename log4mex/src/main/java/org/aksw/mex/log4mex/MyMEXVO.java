@@ -2,11 +2,11 @@ package org.aksw.mex.log4mex;
 
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Iterables;
+import org.aksw.mex.log4mex.algo.AlgorithmParameterCollectionVO;
 import org.aksw.mex.log4mex.algo.AlgorithmParameterVO;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.log4mex.algo.ImplementationVO;
 import org.aksw.mex.log4mex.core.*;
-import org.aksw.mex.log4mex.algo.AlgorithmParameterCollectionVO;
 import org.aksw.mex.log4mex.perf.ExecutionPerformance;
 import org.aksw.mex.log4mex.perf.example.ExamplePerformanceCollection;
 import org.aksw.mex.log4mex.perf.example.ExamplePerformanceVO;
@@ -45,7 +45,7 @@ public class MyMEXVO {
     private ExampleCollection exampleCollection;
     private ExampleVO example;
     private DataSetVO dataset;
-    private ExecutionIndividualVO executionIndividual;
+    //private ExecutionIndividualVO executionIndividual;
     private ExecutionSetVO executionSet;
     private List<ExperimentConfigurationVO> experimentConfigurationList;
     //mex-algo
@@ -265,13 +265,13 @@ public class MyMEXVO {
         this.dataset = dataset;
     }
 
-    public ExecutionIndividualVO getExecutionIndividual() {
+    /*public ExecutionIndividualVO getExecutionIndividual() {
         return executionIndividual;
     }
-
-    public void setExecutionIndividual(ExecutionIndividualVO executionIndividual) {
+   */
+    /*public void setExecutionIndividual(ExecutionIndividualVO executionIndividual) {
         this.executionIndividual = executionIndividual;
-    }
+    }*/
 
     public ExecutionSetVO getExecutionSet() {
         return executionSet;

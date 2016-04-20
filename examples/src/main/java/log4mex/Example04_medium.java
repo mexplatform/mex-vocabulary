@@ -80,39 +80,48 @@ public class Example04_medium {
         String ex2 = "EX002";
         //associate your run x each algorithm
         {
-            mex.Configuration(eid).addExecutionOverall(eid, ex1, EnumPhases.TRAIN.name());
-            mex.Configuration(eid).ExecutionOverall(ex1).setStartDate(new Date());
-            mex.Configuration(eid).ExecutionOverall(ex1).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithm.SupportVectorMachines));
-            mex.Configuration(eid).ExecutionOverall(ex1).setStartsAtPosition("1233");
-            mex.Configuration(eid).ExecutionOverall(ex1).setEndsAtPosition("1376");
+            mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TRAIN);
+            mex.Configuration(eid).setExecutionId(0, ex1);
+
+            mex.Configuration(eid).Execution(ex1).setStartDate(new Date());
+            mex.Configuration(eid).Execution(ex1).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithm.SupportVectorMachines));
+            mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
+            mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
 
 
-                //your models call here !
-            mex.Configuration(eid).ExecutionOverall(ex1).setEndDate(new Date());
-
-            mex.Configuration(eid).addExecutionOverall(eid, ex2, EnumPhases.TEST.name());
-            mex.Configuration(eid).ExecutionOverall(ex2).setStartDate(new Date());
-            mex.Configuration(eid).ExecutionOverall(ex2).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithm.SupportVectorMachines));
-            mex.Configuration(eid).ExecutionOverall(ex2).setStartsAtPosition("1377");
-            mex.Configuration(eid).ExecutionOverall(ex2).setEndsAtPosition("1420");
 
                 //your models call here !
-            mex.Configuration(eid).ExecutionOverall(ex2).setEndDate(new Date());
+            mex.Configuration(eid).Execution(ex1).setEndDate(new Date());
+
+            mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
+            mex.Configuration(eid).setExecutionId(1, ex2);
+
+            mex.Configuration(eid).Execution(ex2).setStartDate(new Date());
+            mex.Configuration(eid).Execution(ex2).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithm.SupportVectorMachines));
+            mex.Configuration(eid).Execution(ex2).setStartsAtPosition("1377");
+            mex.Configuration(eid).Execution(ex2).setEndsAtPosition("1420");
+
+                //your models call here !
+            mex.Configuration(eid).Execution(ex2).setEndDate(new Date());
 
         }
 
         //saving performances for each run
         {
 
-            mex.Configuration(eid).ExecutionOverall(ex1).addPerformance(EnumMeasures.ACCURACY.toString(), .96);
-            mex.Configuration(eid).ExecutionOverall(ex1).addPerformance(EnumMeasures.TRUEPOSITIVERATE.toString(), .70);
-            mex.Configuration(eid).ExecutionOverall(ex2).addPerformance(EnumMeasures.ERROR.toString(), .04);
-            mex.Configuration(eid).ExecutionOverall(ex2).addPerformance(EnumMeasures.ACCURACY.toString(), .83);
-            mex.Configuration(eid).ExecutionOverall(ex2).addPerformance(EnumMeasures.TRUEPOSITIVERATE.toString(), .61);
+            mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.ACCURACY, .96);
+            mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.TRUEPOSITIVERATE, .70);
+            mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.ERROR, .04);
+            mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.ACCURACY, .83);
+            mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.TRUEPOSITIVERATE, .61);
         }
 
 
-        MEXSerializer.getInstance().saveToDisk("/home/esteves/iswcdemo/ex004.ttl", "http://mex.aksw.org/examples/001/", mex);
+            try{
+                MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex004.ttl", "http://mex.aksw.org/examples/", mex);
+            }catch (Exception e){
+                System.out.print(e.toString());
+            }
 
             System.out.println("The MEX file [ex004.ttl] has been successfully created: share it ;-)");
 

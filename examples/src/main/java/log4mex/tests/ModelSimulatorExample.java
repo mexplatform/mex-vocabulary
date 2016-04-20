@@ -1,4 +1,4 @@
-package log4mex;
+package log4mex.tests;
 
 /**
  * Created by esteves on 26.06.15.

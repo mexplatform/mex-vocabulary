@@ -9,6 +9,8 @@ import org.aksw.mex.util.MEXController;
 import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.util.ontology.mex.MEXALGO_10;
 import org.aksw.mex.util.ontology.mex.MEXCORE_10;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import java.util.ArrayList;
@@ -33,6 +35,8 @@ public class ExperimentConfigurationVO {
     private List<FeatureVO> _features;
     private List<AlgorithmVO> _algorithms;
     private Integer _seq = 0;
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(ExperimentConfigurationVO.class);
 
     public ExperimentConfigurationVO(String id, String description) {
         this._id = id;
@@ -141,7 +145,7 @@ public class ExperimentConfigurationVO {
         return this._implementation;
     }
 
-    public ExecutionSetVO ExecutionOverall(String id){
+    private ExecutionSetVO ExecutionOverall(String id){
         ExecutionSetVO r = null;
         try {
             Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(id));
@@ -168,24 +172,30 @@ public class ExperimentConfigurationVO {
         return ret;
     }
 
-    public void addExecutionOverall(String expID, String id, String phase){
+    private void addExecutionOverall(String expID, String id, String phase){
         this._executions.add(new ExecutionSetVO(this, id, new PhaseVO(phase)));
     }
 
-    public String addExecution(String type, String phase){
+    public void setExecutionId(Integer index, String id){
+        this._executions.get(index)._id = id;
+    }
 
-        Integer total = this._executions.size() + 1;
+    public String addExecution(MEXEnum.EnumExecutionsType type, MEXEnum.EnumPhases phase) throws Exception{
 
-        if (type.equals(MEXEnum.EnumExecutionsType.SINGLE.toString())) {
-            this._executions.add(new ExecutionIndividualVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
+        Integer total;
+        String execCode;
+
+        total = this._executions.size() + 1;
+
+        if (type.name().equals(MEXEnum.EnumExecutionsType.SINGLE.toString())) {
+            this._executions.add(new ExecutionIndividualVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase.name())));
         }
-        if (type.equals(MEXEnum.EnumExecutionsType.OVERALL.toString())) {
-                this._executions.add(new ExecutionSetVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
+        if (type.name().equals(MEXEnum.EnumExecutionsType.OVERALL.toString())) {
+            this._executions.add(new ExecutionSetVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase.name())));
         }
-
-        System.out.println("C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + total.toString());
-
-        return "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + total.toString();
+        execCode = "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + total.toString();
+        LOGGER.debug(execCode);
+        return execCode;
 
     }
 
@@ -398,5 +408,7 @@ public class ExperimentConfigurationVO {
     public boolean removeExecution(Execution param){
         return _executions.remove(param);
     }
+
+
 
 }
