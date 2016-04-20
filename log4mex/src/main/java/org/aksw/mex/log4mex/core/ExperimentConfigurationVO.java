@@ -105,16 +105,32 @@ public class ExperimentConfigurationVO {
         }
         return this._model;
     }
-    public void setSamplingMethod(String classname, String name) {
+    public void setSamplingMethod(String classname, MEXEnum.EnumSamplingMethods name) {
         this._sampling = new SamplingMethodVO(classname, name) ;
     }
 
-    public SamplingMethodVO SamplingMethod() {
-        return this._sampling ;
+    public SamplingMethodVO SamplingMethod(){
+        try {
+            if (this._sampling == null) {
+                this.addSamplingMethod(MEXEnum.EnumSamplingMethods.HOLDOUT, 1);
+            }
+            return this._sampling;
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 
     public HardwareConfigurationVO HardwareConfiguration() {
-        return this._hard;
+        try {
+            if (this._hard == null) {
+                this.addHardwareConfiguration("", MEXEnum.EnumProcessors.NOT_INFORMED, MEXEnum.EnumRAM.NOT_INFORMED, "", MEXEnum.EnumCaches.NOT_INFORMED);
+            }
+            return this._hard;
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 
     public DataSetVO DataSet() {
@@ -124,13 +140,13 @@ public class ExperimentConfigurationVO {
         return this._ds;
     }
 
-    public AlgorithmVO Algorithm(String algorithmName){
+    public AlgorithmVO Algorithm(MEXEnum.EnumAlgorithms algo){
         if (this._algorithms == null) {
             this._algorithms = new ArrayList<>();}
 
         AlgorithmVO ret  = null;
         try {
-            Collection<AlgorithmVO> t = Collections2.filter(this._algorithms, p -> p.getIndividualName().equals(algorithmName));
+            Collection<AlgorithmVO> t = Collections2.filter(this._algorithms, p -> p.getClassName().equals(algo.name()));
             if (t != null && t.size() > 0){
                 ret = Iterables.get(t, 0);
             }
@@ -142,7 +158,15 @@ public class ExperimentConfigurationVO {
     }
 
     public ImplementationVO Implementation() {
-        return this._implementation;
+        try {
+            if (this._implementation == null) {
+                this.addImplementation(MEXEnum.EnumImplementations.NOT_INFORMED, "");
+            }
+            return this._implementation;
+        }
+        catch (Exception e){
+            return null;
+        }
     }
 
     private ExecutionSetVO ExecutionOverall(String id){
@@ -236,14 +260,15 @@ public class ExperimentConfigurationVO {
 
     }
 
-    public void addSamplingMethod(String className, Double train, Double test) throws Exception{
+    public void addSamplingMethod(MEXEnum.EnumSamplingMethods sm, Double train, Double test) throws Exception{
 
         try{
+
             if (this._sampling == null) {
                 String individualName = MEXCORE_10.ClasseTypes.SAMPLING_METHOD.toLowerCase() +
                         String.valueOf(MEXController.getInstance().getNumberOfSamplingMethods() + 1);
 
-                this._sampling = new SamplingMethodVO(individualName,className, train, test);
+                this._sampling = new SamplingMethodVO(individualName,sm, train, test);
 
                 MEXController.getInstance().addSamplingMethodCounter();
             }
@@ -256,14 +281,15 @@ public class ExperimentConfigurationVO {
 
     }
 
-    public void addSamplingMethod(String className, Integer folds) throws Exception{
+    public void addSamplingMethod(MEXEnum.EnumSamplingMethods sm, Integer folds) throws Exception{
 
         try{
+
             if (this._sampling == null) {
                 String individualName = MEXCORE_10.ClasseTypes.SAMPLING_METHOD.toLowerCase() +
                         String.valueOf(MEXController.getInstance().getNumberOfSamplingMethods() + 1);
 
-                this._sampling = new SamplingMethodVO(individualName,className);
+                this._sampling = new SamplingMethodVO(individualName,sm);
                 this._sampling.setFolds(folds);
                 this._sampling.setTrainSize((double)folds - 1);
                 this._sampling.setTestSize((double)1);
@@ -288,7 +314,8 @@ public class ExperimentConfigurationVO {
         this._model.setId(id);
     }
 
-    public void addHardwareConfiguration(String os, String cpu, String mb, String hd, String cache){
+    public void addHardwareConfiguration(String os, MEXEnum.EnumProcessors cpu,
+                                         MEXEnum.EnumRAM mb, String hd, MEXEnum.EnumCaches cache){
         if (this._hard == null){
             this._hard = new HardwareConfigurationVO();
         }
@@ -309,12 +336,12 @@ public class ExperimentConfigurationVO {
         this._ds.setURI(URI);
     }
 
-    public void addImplementation(String name, String version){
+    public void addImplementation(MEXEnum.EnumImplementations name, String version){
         if (this._implementation == null){
             this._implementation = new ImplementationVO();
         }
         this._implementation.setRevision(version);
-        this._implementation.setName(name);
+        this._implementation.setName(name.name());
     }
 
     public AlgorithmVO addAlgorithm(String algorithmClass, String id) throws Exception{
@@ -339,7 +366,7 @@ public class ExperimentConfigurationVO {
         return algo;
     }
 
-    public AlgorithmVO addAlgorithm(String algorithmClass) throws Exception{
+    public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithm) throws Exception{
 
         AlgorithmVO algo = null;
         try{
@@ -349,7 +376,7 @@ public class ExperimentConfigurationVO {
             String individualName = MEXALGO_10.ClasseTypes.ALGORITHM.toLowerCase() +
                     String.valueOf(MEXController.getInstance().getNumberOfAlgorithms() + 1);
 
-            algo = new AlgorithmVO(algorithmClass.toString(), individualName, individualName);
+            algo = new AlgorithmVO(algorithm.toString(), individualName, individualName);
             this._algorithms.add(algo);
 
             MEXController.getInstance().addAlgorithmCounter();

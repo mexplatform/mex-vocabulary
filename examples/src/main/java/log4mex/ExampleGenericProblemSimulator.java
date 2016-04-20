@@ -6,7 +6,6 @@ import org.aksw.mex.log4mex.MyMEXVO;
 import org.aksw.mex.log4mex.algo.ImplementationVO;
 import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.log4mex.perf.overall.ClassificationMeasureVO;
-import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.util.MEXEnum.*;
 
 import java.util.Date;
@@ -28,7 +27,7 @@ public class ExampleGenericProblemSimulator {
         /* step 1: author and context */
 
         ApplicationContextVO mcContext = new ApplicationContextVO("D Esteves", "esteves@informatik.uni-leipzig.de");
-        mcContext.setContext(MEXEnum.EnumContext.ComputationalFinance);
+        mcContext.setContext(EnumContexts.COMPUTATIONAL_FINANCE);
 
             //adding experimental information
             ExperimentVO mcExp = new ExperimentVO("EXP001", mcContext);
@@ -51,13 +50,13 @@ public class ExampleGenericProblemSimulator {
         mcExpConf1.setModel(new ModelVO("MSVM003201502"));
 
         mcExpConf1.setHardwareConfiguration(new HardwareConfigurationVO(
-                EnumProcessor.INTEL_COREI7,
-                EnumRandomAccessMemory.SIZE_8GB,
-                EnumCache.CACHE_3MB));
+                EnumProcessors.INTEL_COREI7,
+                EnumRAM.SIZE_8GB,
+                EnumCaches.CACHE_3MB));
 
         mcExpConf1.setDataSet(new DataSetVO("BOVESPA_20110101_20131201"));
 
-        mcExpConf1.setSamplingMethod(new SamplingMethodVO("",MEXEnum.EnumSamplingMethod.CrossValidation));
+        mcExpConf1.setSamplingMethod(new SamplingMethodVO("", EnumSamplingMethods.CROSS_VALIDATION));
         mcExpConf1.SamplingMethod().setTrainSize(0.8);
         mcExpConf1.SamplingMethod().setTrainSize(0.2);
         mcExpConf1.SamplingMethod().setFolds(10);
@@ -70,7 +69,7 @@ public class ExampleGenericProblemSimulator {
 
         /* step 3: define the algorithms */
 
-        ImplementationVO software = new ImplementationVO(EnumImplementation.Weka);
+        ImplementationVO software = new ImplementationVO(EnumImplementations.WEKA);
         software.setRevision("3.6.6");
 
         //AlgorithmVO algSVM = new AlgorithmVO(EnumAlgorithm.SupportVectorMachines);

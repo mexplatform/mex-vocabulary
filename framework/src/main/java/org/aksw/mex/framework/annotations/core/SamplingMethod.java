@@ -15,7 +15,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.TYPE) //on class level
 public @interface SamplingMethod {
 
-    String klass() default MEXEnum.EnumSamplingMethod.EvaluatingOnTrainingData;
+    MEXEnum.EnumSamplingMethods klass() default MEXEnum.EnumSamplingMethods.EVALUATION_ON_TRAINING_DATA;
     double trainSize() default 1;
     double testSize() default 1;
     int folds() default 1;

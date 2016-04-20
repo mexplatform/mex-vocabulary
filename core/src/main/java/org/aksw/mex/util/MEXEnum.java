@@ -4,13 +4,14 @@ package org.aksw.mex.util; /**
 
 public class MEXEnum {
 
-    public class EnumAnnotationInterfaceStyle {
+    private class EnumAnnotationInterfaceStyle {
         public static final String M1 = "M1"; //a @start method to start with
         public static final String M2 = "M2"; //@training and @test methods to seek for
         public static final String M3 = "M3";
     }
 
-    public class EnumImplementation {
+    private class EnumImplementation {
+        public static final String NOT_INFORMED = "";
         public static final String H2O = "H2O";
         public static final String DLLearner = "DLLearner";
         public static final String OpenCV = "OpenCV";
@@ -65,7 +66,8 @@ public class MEXEnum {
         public static final String MOA = "MOA";
 
     }
-    public class EnumContext {
+
+    private class EnumContext {
         public static final String Metaheuristics = "Metaheuristics";
         public static final String Bioinformatics = "Bioinformatics";
         public static final String ComputerVision = "ComputerVision";
@@ -99,7 +101,8 @@ public class MEXEnum {
         public static final String SpeechAndHandwritingRecognition = "SpeechAndHandwritingRecognition";
         public static final String NotInformed = "NotInformed";
     }
-    public class EnumAlgorithm {
+
+    private class EnumAlgorithm {
         public static final String PART = "PART";
         public static final String J48Graft = "J48Graft";
         public static final String AverageOneDependenceEstimators = "AverageOneDependenceEstimators";
@@ -148,7 +151,8 @@ public class MEXEnum {
         public static final String AdaptativeBoost = "AdaptativeBoost";
         public static final String RegressionAnalysis = "RegressionAnalysis";
     }
-    public class EnumSamplingMethod{
+
+    private class EnumSamplingMethod{
         public static final String EvaluatingOnTrainingData = "EvaluatingOnTrainingData";
         public static final String LeaveOneOut = "LeaveOneOut";
         public static final String Bootstrapping = "Bootstrapping";
@@ -157,14 +161,17 @@ public class MEXEnum {
         public static final String SlidingCrossValidation = "SlidingCrossValidation";
         public static final String NFoldsCrossValidation = "NFoldsCrossValidation";
     }
-    public class EnumPerformanceMeasure {
+
+    private class EnumPerformanceMeasure {
         public static final String UserDefinedMeasure = "UserDefinedMeasure";
         public static final String StatisticalMeasure = "StatisticalMeasure";
         public static final String RegressionMeasure = "RegressionMeasure";
         public static final String ClusteringMeasure = "ClusteringMeasure";
         public static final String ClassificationMeasure = "ClassificationMeasureVO";
     }
-    public class EnumRandomAccessMemory{
+
+    private class EnumRandomAccessMemory{
+        public static final String NOT_INFORMED = "";
         public static final String SIZE_512MB = "512MB";
         public static final String SIZE_1GB = "1GB";
         public static final String SIZE_2GB = "2GB";
@@ -175,21 +182,34 @@ public class MEXEnum {
         public static final String SIZE_24GB = "24GB";
         public static final String SIZE_32GB = "32GB";
     }
-    public class EnumProcessor{
+
+    private class EnumProcessor{
+        public static final String NOT_INFORMED = "";
         public static final String INTEL_COREI3 = "Intel Core i3";
         public static final String INTEL_COREI5 = "Intel Core i5";
         public static final String INTEL_COREI7 = "Intel Core i7";
     }
-    public class EnumCache{
+
+    private class EnumCache{
+        public static final String NOT_INFORMED = "";
         public static final String CACHE_1MB = "Cache 1MB";
         public static final String CACHE_2MB = "Cache 2MB";
         public static final String CACHE_3MB = "Cache 3MB";
     }
+
     private class EnumPhase{
         public static final String TRAIN = "Train";
         public static final String TEST = "Test";
         public static final String VALIDATION = "Validation";
     }
+
+    private class EnumExecutionType{
+        public static final String SINGLE = "SINGLE";
+        public static final String OVERALL = "OVERALL";
+    }
+
+    /**************** ENUM **************/
+
 
     public enum EnumPhases{
         TRAIN(EnumPhase.TRAIN.toString()),
@@ -211,7 +231,29 @@ public class MEXEnum {
         public String toString() {return text;}
     }
 
+    public enum EnumSamplingMethods{
+        EVALUATION_ON_TRAINING_DATA(EnumSamplingMethod.EvaluatingOnTrainingData.toString()),
+        LEAVE_ONE_OUT(EnumSamplingMethod.LeaveOneOut.toString()),
+        BOOTSTRAPING(EnumSamplingMethod.Bootstrapping.toString()),
+        HOLDOUT(EnumSamplingMethod.Holdout.toString()),
+        CROSS_VALIDATION(EnumSamplingMethod.CrossValidation.toString()),
+        SLIDING_CROSS_VALIDATION(EnumSamplingMethod.SlidingCrossValidation.toString()),
+        N_FOLDS_CROSS_VALIDATION(EnumSamplingMethod.NFoldsCrossValidation.toString());
 
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumSamplingMethods(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+    }
 
     public enum EnumAlgorithms {
         PART(EnumAlgorithm.PART.toString()),
@@ -352,7 +394,6 @@ public class MEXEnum {
 
     }
 
-
     public enum EnumRegressionMeasure {
 
         MEAN_ABSOLUTE_DEVIATION("meanAbsoluteDeviation"),
@@ -380,6 +421,7 @@ public class MEXEnum {
         @Override
         public String toString() {return text;}
     }
+
     public enum EnumClassificationMeasure {
         ACCURACY("accuracy"),
         FMEASURE("fMeasure"),
@@ -411,6 +453,7 @@ public class MEXEnum {
         @Override
         public String toString() {return text;}
     }
+
     public enum EnumStatisticalMeasure {
         PEARSONCORRELATION("pearsonCorrelation"),
         CHISQUARE("chiSquare"),
@@ -443,6 +486,7 @@ public class MEXEnum {
         @Override
         public String toString() {return text;}
     }
+
     public enum EnumClusteringMeasure {
 
         CHEBYSCHEVDISTANCE("chebyschevDistance"),
@@ -467,11 +511,6 @@ public class MEXEnum {
 
     }
 
-    private class EnumExecutionType{
-        public static final String SINGLE = "SINGLE";
-        public static final String OVERALL = "OVERALL";
-    }
-
     public enum EnumExecutionsType{
 
         SINGLE(EnumExecutionType.SINGLE.toString()),
@@ -494,4 +533,234 @@ public class MEXEnum {
 
     }
 
+    public enum EnumContexts{
+
+        ADAPTATIVE_WEBSITE(EnumContext.AdaptativeWebsite.toString()),
+        AFFECTIVE_COMPUTING(EnumContext.AffectiveComputing.toString()),
+        BIOINFORMATICS(EnumContext.Bioinformatics.toString()),
+        BRAIN_MACHINE_INTERFACES(EnumContext.BrainMachineInterfaces.toString()),
+        CHEMINFORMATICS(EnumContext.Cheminformatics.toString()),
+        CLASSIFYING_DNA_SEQUENCES(EnumContext.ClassifyingDNAsequences.toString()),
+        COMPUTATIONAL_ADVERSITING(EnumContext.ComputationalAdversiting.toString()),
+        COMPUTATIONAL_FINANCE(EnumContext.ComputationalFinance.toString()),
+        COMPUTERVISION(EnumContext.ComputerVision.toString()),
+        DETECTING_CREDITCARD_FRAUDS(EnumContext.DetectingCreditCardFrauds.toString()),
+        FACT_PREDICTION(EnumContext.FactPrediction.toString()),
+        GAME_PLAYING(EnumContext.GamePlaying.toString()),
+        INFORMATION_RETRIEVAL(EnumContext.InformationRetrieval.toString()),
+        INTERNET_FRAUD_DETECTION(EnumContext.InternetFraudDetection.toString()),
+        LINK_DISCOVERY(EnumContext.LinkDiscovery.toString()),
+        MACHINE_PERCEPTION(EnumContext.MachinePerception.toString()),
+        MEDICAL_DIAGNOSIS(EnumContext.MedicalDiagnosis.toString()),
+        METAHEURISTICS(EnumContext.Metaheuristics.toString()),
+        NATURAL_LANGUAGE_PROCESSING(EnumContext.NaturalLanguageProcessing.toString()),
+        NOT_INFORMED(EnumContext.NotInformed.toString()),
+        OBJECT_RECOGNITION(EnumContext.ObjectRecognition.toString()),
+        OPTIMIZATION(EnumContext.Optimization.toString()),
+        RECOMENDER_SYSTEMS(EnumContext.RecomenderSystems.toString()),
+        ROBOTICS(EnumContext.Robotics.toString()),
+        SEARCH_ENGINES(EnumContext.SearchEngines.toString()),
+        SENTIMENT_ANALYSIS(EnumContext.SentimentAnalysis.toString()),
+        SEQUENCE_MINING(EnumContext.SequenceMining.toString()),
+        SOFTWARE_ENGINNERING(EnumContext.SoftwareEnginnering.toString()),
+        SPEECH_AND_HANDWRITING_RECOGNITION(EnumContext.SpeechAndHandwritingRecognition.toString()),
+        STOCK_MARKET_ANALYSIS(EnumContext.StockMarketAnalysis.toString()),
+        STRUCTURAL_HEALTH_MONITORING(EnumContext.StructuralHealthMonitoring.toString());
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumContexts(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+
+    }
+
+    public enum EnumProcessors{
+
+        NOT_INFORMED(EnumProcessor.NOT_INFORMED.toString()),
+        INTEL_COREI3(EnumProcessor.INTEL_COREI3.toString()),
+        INTEL_COREI5(EnumProcessor.INTEL_COREI5.toString()),
+        INTEL_COREI7(EnumProcessor.INTEL_COREI7.toString());
+
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumProcessors(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+
+    }
+
+    public enum EnumRAM{
+
+        NOT_INFORMED(EnumRandomAccessMemory.NOT_INFORMED.toString()),
+        SIZE_512MB(EnumRandomAccessMemory.SIZE_512MB.toString()),
+        SIZE_1GB(EnumRandomAccessMemory.SIZE_1GB.toString()),
+        SIZE_2GB(EnumRandomAccessMemory.SIZE_2GB.toString()),
+        SIZE_4GB(EnumRandomAccessMemory.SIZE_4GB.toString()),
+        SIZE_8GB(EnumRandomAccessMemory.SIZE_8GB.toString()),
+        SIZE_16GB(EnumRandomAccessMemory.SIZE_16GB.toString()),
+        SIZE_24GB(EnumRandomAccessMemory.SIZE_24GB.toString()),
+        SIZE_32GB(EnumRandomAccessMemory.SIZE_32GB.toString());
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumRAM(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+
+    }
+
+    public enum EnumCaches{
+
+        NOT_INFORMED(EnumCache.NOT_INFORMED.toString()),
+        CACHE_1MB(EnumCache.CACHE_1MB.toString()),
+        CACHE_2MB(EnumCache.CACHE_2MB.toString()),
+        CACHE_3MB(EnumCache.CACHE_3MB.toString());
+
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumCaches(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+
+    }
+
+    public enum EnumAnnotationInterfaceStyles{
+
+        M1(EnumAnnotationInterfaceStyle.M1.toString()),
+        M2(EnumAnnotationInterfaceStyle.M2.toString()),
+        M3(EnumAnnotationInterfaceStyle.M3.toString());
+
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumAnnotationInterfaceStyles(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+
+    }
+
+    public enum EnumImplementations{
+        NOT_INFORMED(EnumImplementation.NOT_INFORMED.toString()),
+        APACHE_MAHOUT(EnumImplementation.ApacheMahout.toString()),
+        AZURE(EnumImplementation.AZURE.toString()),
+        DL_LEARNER(EnumImplementation.DLLearner.toString()),
+        ELKI(EnumImplementation.ELKI.toString()),
+        ENCOG(EnumImplementation.Encog.toString()),
+        EVIEWS(EnumImplementation.EViews.toString()),
+        FAMa(EnumImplementation.FAMa.toString()),
+        H2O(EnumImplementation.H2O.toString()),
+        IBM_MINER(EnumImplementation.IBMMiner.toString()),
+        JULIA(EnumImplementation.Julia.toString()),
+        KNIME(EnumImplementation.KNIME.toString()),
+        KXEN(EnumImplementation.KXEN.toString()),
+        LIBLINEAR(EnumImplementation.LibLinear.toString()),
+        LIBRARY_C(EnumImplementation.LibraryC.toString()),
+        LIBRARY_CENTURA(EnumImplementation.LibraryCentura.toString()),
+        LIBRARY_CPLUSPLUS(EnumImplementation.LibraryCPlusPlus.toString()),
+        LIBRARY_DOTNET(EnumImplementation.LibraryDotNet.toString()),
+        LIBRARY_JAVA(EnumImplementation.LibraryJava.toString()),
+        LIBRARY_JAVASCRIPT(EnumImplementation.LibraryJavaScript.toString()),
+        LIBRARY_NODEJS(EnumImplementation.LibraryNodeJS.toString()),
+        LIBRARY_OTHER(EnumImplementation.LibraryOther.toString()),
+        LIBRARY_PHP(EnumImplementation.LibraryPHP.toString()),
+        LIBRARY_PYTHON(EnumImplementation.LibraryPython.toString()),
+        LIBRARY_RUBY(EnumImplementation.LibraryRuby.toString()),
+        LIB_SVM(EnumImplementation.LibSVM.toString()),
+        LION_SOLVER(EnumImplementation.LIONsolver.toString()),
+        MATHEMATICA(EnumImplementation.Mathematica.toString()),
+        MATLAB(EnumImplementation.Matlab.toString()),
+        MLPACK(EnumImplementation.MLPACK.toString()),
+        MLPY(EnumImplementation.mlpy.toString()),
+        MOA(EnumImplementation.MOA.toString()),
+        MONTE_CARLO_MACHINE_LEARNING(EnumImplementation.MonteCarloMachineLearning.toString()),
+        NEURO_SOLUTIONS(EnumImplementation.NeuroSolutions.toString()),
+        OCTAVE(EnumImplementation.Octave.toString()),
+        OPEN_CV(EnumImplementation.OpenCV.toString()),
+        OPEN_NN(EnumImplementation.OpenNN.toString()),
+        ORACLE_DATA_MINING(EnumImplementation.OracleDataMining.toString()),
+        ORANGE(EnumImplementation.Orange.toString()),
+        R(EnumImplementation.R.toString()),
+        RAPID_MINER(EnumImplementation.RapidMiner.toString()),
+        R_CASE(EnumImplementation.RCASE.toString()),
+        SAP(EnumImplementation.SAP.toString()),
+        SCIKIT_LEARN(EnumImplementation.scikitlearn.toString()),
+        SHOGUN(EnumImplementation.Shogun.toString()),
+        SPSS(EnumImplementation.SPSS.toString()),
+        SQL_SERVER_ANALYSIS_SERVICES(EnumImplementation.SQLServerAnalysisServices.toString()),
+        STATA(EnumImplementation.Stata.toString()),
+        STATISTICA(EnumImplementation.STATISTICA.toString()),
+        WEKA(EnumImplementation.Weka.toString()),
+        YALE(EnumImplementation.YALE.toString()),
+        YOOREEKA(EnumImplementation.Yooreeka.toString());
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumImplementations(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+

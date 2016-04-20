@@ -14,7 +14,7 @@
 
 this:application
       a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
-      dct:dateCopyrighted "2016.04.20 16:17:04 CEST" ;
+      dct:dateCopyrighted "2016.04.20 19:30:58 CEST" ;
       foaf:givenName "D Esteves" ;
       foaf:mbox "esteves@informatik.uni-leipzig.de" .
 
@@ -86,12 +86,12 @@ this:context
               this:application .
 
 this:samplingmethod2
-      a       prov:Entity , mexcore:Holdout ;
+      a       prov:Entity , mexcore:HOLDOUT ;
       mexcore:testSize "0.2" ;
       mexcore:trainSize "0.8" .
 
 this:samplingmethod1
-      a       prov:Entity , mexcore:Holdout ;
+      a       prov:Entity , mexcore:HOLDOUT ;
       mexcore:testSize "0.2" ;
       mexcore:trainSize "0.8" .
 

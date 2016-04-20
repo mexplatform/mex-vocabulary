@@ -1,5 +1,7 @@
 package org.aksw.mex.log4mex.core;
 
+import org.aksw.mex.util.MEXEnum;
+
 /**
  * Created by esteves on 26.06.15.
  */
@@ -21,10 +23,10 @@ public class HardwareConfigurationVO {
         this._cpu=cpu;
     }
 
-    public HardwareConfigurationVO(String cpu, String memory, String cache){
-        this._cache =cache;
-        this._memory = memory;
-        this._cpu=cpu;
+    public HardwareConfigurationVO(MEXEnum.EnumProcessors cpu, MEXEnum.EnumRAM memory, MEXEnum.EnumCaches cache){
+        this._cache =cache.name();
+        this._memory = memory.name();
+        this._cpu=cpu.name();
     }
 
     public HardwareConfigurationVO(){
@@ -35,20 +37,20 @@ public class HardwareConfigurationVO {
         this._os = value;
     }
 
-    public void setMemory(String value){
-        this._memory = value;
+    public void setMemory(MEXEnum.EnumRAM value){
+        this._memory = value.name();
     }
 
-    public void setCPU(String value){
-        this._cpu = value;
+    public void setCPU(MEXEnum.EnumProcessors value){
+        this._cpu = value.name();
     }
 
     public void setHD(String value){
         this._hd = value;
     }
 
-    public void setCache(String value){
-        this._cache = value;
+    public void setCache(MEXEnum.EnumCaches value){
+        this._cache = value.name();
     }
 
     public void setVideoGraph(String value){

@@ -85,7 +85,7 @@ public class MyMEXVO {
 
     public void setAuthorEmail(String value){this.applicationContext.setMailBox(value);}
 
-    public void setContext(String value){this.applicationContext.setContext(value);}
+    public void setContext(MEXEnum.EnumContexts value){this.applicationContext.setContext(value);}
 
     public void setOrganization(String value){this.applicationContext.setOrganization(value);}
 
@@ -311,7 +311,7 @@ public class MyMEXVO {
 
     public SamplingMethodVO getSamplingMethod() {
         if (samplingMethod==null){
-            this.samplingMethod = new SamplingMethodVO("sm1", MEXEnum.EnumSamplingMethod.Holdout);
+            this.samplingMethod = new SamplingMethodVO("sm1", MEXEnum.EnumSamplingMethods.HOLDOUT);
         }
         return samplingMethod;
     }

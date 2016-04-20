@@ -32,12 +32,12 @@ public class Example02 {
             mex.Configuration(conf01ID).addFeature(features01);
             mex.Configuration(conf02ID).addFeature(features02);
             /* (2.3) the sampling method */
-            mex.Configuration(conf01ID).addSamplingMethod(EnumSamplingMethod.Holdout, 0.8, 0.2);
-            mex.Configuration(conf02ID).addSamplingMethod(EnumSamplingMethod.Holdout, 0.8, 0.2);
+            mex.Configuration(conf01ID).addSamplingMethod(EnumSamplingMethods.HOLDOUT, 0.8, 0.2);
+            mex.Configuration(conf02ID).addSamplingMethod(EnumSamplingMethods.HOLDOUT, 0.8, 0.2);
 
             /* (2.4) the algorithms and hyperparameters */
-            String alg01ID = mex.Configuration(conf01ID).addAlgorithm(EnumAlgorithm.NaiveBayes).getIdentifier();
-            String alg02ID = mex.Configuration(conf02ID).addAlgorithm(EnumAlgorithm.RegressionAnalysis).getIdentifier();
+            String alg01ID = mex.Configuration(conf01ID).addAlgorithm(EnumAlgorithms.NaiveBayes).getIdentifier();
+            String alg02ID = mex.Configuration(conf02ID).addAlgorithm(EnumAlgorithms.RegressionAnalysis).getIdentifier();
             /* (2.5) the executions */
             String exec01ID = mex.Configuration(conf01ID).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
             String exec02ID = mex.Configuration(conf02ID).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);

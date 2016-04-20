@@ -162,7 +162,7 @@ public class MetaGeneration {
 
                 LOG.info("@SamplingMethod - OK");
 
-                SamplingMethodVO s = new SamplingMethodVO(aSM.klass(), aSM.klass());
+                SamplingMethodVO s = new SamplingMethodVO("sm", aSM.klass());
                 s.setTrainSize(aSM.trainSize());
                 s.setTestSize(aSM.testSize());
                 s.setFolds(aSM.folds());

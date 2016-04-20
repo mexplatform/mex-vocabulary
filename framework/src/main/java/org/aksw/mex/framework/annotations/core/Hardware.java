@@ -4,6 +4,8 @@ package org.aksw.mex.framework.annotations.core;
  * Created by dnes on 12/12/15.
  */
 
+import org.aksw.mex.util.MEXEnum;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -14,9 +16,9 @@ import java.lang.annotation.Target;
 public @interface Hardware {
 
     String os() default "";
-    String cpu() default "";
-    String memory() default "";
+    MEXEnum.EnumProcessors cpu() default MEXEnum.EnumProcessors.NOT_INFORMED;
+    MEXEnum.EnumRAM memory() default MEXEnum.EnumRAM.NOT_INFORMED ;
     String hdType() default "";
-    String cpuCache() default "";
+    MEXEnum.EnumCaches cpuCache() default MEXEnum.EnumCaches.NOT_INFORMED;
     String video() default "";
 }

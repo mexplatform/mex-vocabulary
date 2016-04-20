@@ -89,7 +89,7 @@ public class ExampleWeka {
             Instances[][] split = crossValidationSplit(data, 10);
 
             /* (2.3) the sampling method */
-            mex.Configuration(confID).addSamplingMethod(MEXEnum.EnumSamplingMethod.CrossValidation, 10);
+            mex.Configuration(confID).addSamplingMethod(MEXEnum.EnumSamplingMethods.CROSS_VALIDATION, 10);
 
             Instances[] trainingSplits = split[0];
             Instances[] testingSplits = split[1];
@@ -98,10 +98,10 @@ public class ExampleWeka {
 
             /* (2.4) the algorithms and hyperparameters */
             String[] algIDs = new String[4];
-            algIDs[0] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.J48).getIndividualName();
-            algIDs[1] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.PART).getIndividualName();
-            algIDs[2] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.DecisionTable).getIndividualName();
-            algIDs[3] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithm.DecisionStump).getIndividualName();
+            algIDs[0] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithms.J48).getIndividualName();
+            algIDs[1] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithms.PART).getIndividualName();
+            algIDs[2] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithms.DecisionTable).getIndividualName();
+            algIDs[3] = mex.Configuration(confID).addAlgorithm(MEXEnum.EnumAlgorithms.DecisionStump).getIndividualName();
 
             /* (2.5) the executions */
             String[] execIDs = new String[models.length];
@@ -131,7 +131,7 @@ public class ExampleWeka {
                 System.out.print(e.toString());
             }
 
-            System.out.println("The MEX file has been successfully created: share it ;-)");
+            System.out.println("The MEX file [ex008.ttl] has been successfully created: share it ;-)");
 
         } catch (Exception e) {
             System.out.println(e.toString());

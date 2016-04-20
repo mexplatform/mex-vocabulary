@@ -1,5 +1,7 @@
 package org.aksw.mex.framework.annotations;
 
+import org.aksw.mex.util.MEXEnum;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -12,5 +14,5 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)
 public @interface InterfaceVersion {
-    String version() default "M.001";
+    MEXEnum.EnumAnnotationInterfaceStyles version() default MEXEnum.EnumAnnotationInterfaceStyles.M1;
 }

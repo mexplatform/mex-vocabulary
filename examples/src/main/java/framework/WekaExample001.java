@@ -31,9 +31,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ExperimentInfo(createdBy = "Esteves", email = "esteves@informatik.uni-leipzig.de", title = "Weka Lib Example", tags = {"WEKA","J48", "DecisionTable", "MEX", "Iris"})
-@Hardware(cpu = "Intel Core i7", memory = "8 GB", hdType = "SSD")
-@SamplingMethod(klass = MEXEnum.EnumSamplingMethod.CrossValidation, trainSize = 0.5, testSize = 0.5, folds = 10)
-@InterfaceVersion(version = MEXEnum.EnumAnnotationInterfaceStyle.M1)
+@Hardware(cpu = MEXEnum.EnumProcessors.INTEL_COREI7, memory = MEXEnum.EnumRAM.SIZE_8GB, hdType = "SSD")
+@SamplingMethod(klass = MEXEnum.EnumSamplingMethods.CROSS_VALIDATION, trainSize = 0.5, testSize = 0.5, folds = 10)
+@InterfaceVersion(version = MEXEnum.EnumAnnotationInterfaceStyles.M1)
 public class WekaExample001 {
 
     private final static Logger LOG = Logger.getLogger(WekaExample001.class);

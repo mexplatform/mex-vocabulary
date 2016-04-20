@@ -4,6 +4,8 @@ package org.aksw.mex.framework.annotations.core;
  * Created by dnes on 12/12/15.
  */
 
+import org.aksw.mex.util.MEXEnum;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -24,7 +26,7 @@ public @interface ExperimentInfo {
 
     String createdBy() default "";
     String email() default "";
-    String context() default "";
+    MEXEnum.EnumContexts context() default MEXEnum.EnumContexts.NOT_INFORMED;
 
     Priority priority() default Priority.LOW;
     String[] tags() default "";

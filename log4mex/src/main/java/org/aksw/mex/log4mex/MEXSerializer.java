@@ -10,6 +10,7 @@ import org.aksw.mex.log4mex.algo.AlgorithmParameterVO;
 import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.log4mex.perf.overall.*;
 import org.aksw.mex.util.MEXConstant;
+import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.util.ontology.DCAT;
 import org.aksw.mex.util.ontology.DOAP;
 import org.aksw.mex.util.ontology.FOAF;
@@ -161,7 +162,9 @@ public class MEXSerializer {
                 Double  samplingTest   = item.SamplingMethod().getTestSize();
                 Integer samplingFolds  = item.SamplingMethod().getFolds();
 
-                SamplingMethodVO tempSampling = new SamplingMethodVO(samplingClass, samplingName,samplingTrain,samplingTest);
+                MEXEnum.EnumSamplingMethods sm = MEXEnum.EnumSamplingMethods.valueOf(samplingName);
+
+                SamplingMethodVO tempSampling = new SamplingMethodVO(samplingClass, sm, samplingTrain, samplingTest);
                 tempSampling.setFolds(samplingFolds);
 
                 Collection<ExperimentConfigurationVO> t =

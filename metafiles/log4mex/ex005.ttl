@@ -14,12 +14,12 @@
 
 this:application
       a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
-      dct:dateCopyrighted "2016.04.20 19:30:52 CEST" ;
-      foaf:givenName "D Esteves" .
+      dct:dateCopyrighted "2016.04.20 19:31:12 CEST" ;
+      foaf:givenName "P.Creek" .
 
 this:feature1
       a       mexcore:Feature , prov:Entity ;
-      rdfs:label "min" ;
+      rdfs:label "outlook" ;
       dct:identifier "1" .
 
 this:model
@@ -27,17 +27,17 @@ this:model
 
 this:feature2
       a       mexcore:Feature , prov:Entity ;
-      rdfs:label "max" ;
+      rdfs:label "temperature" ;
       dct:identifier "2" .
-
-this:feature3
-      a       mexcore:Feature , prov:Entity ;
-      rdfs:label "ope" ;
-      dct:identifier "3" .
 
 this:dataset
       a       prov:Entity , mexcore:DatasetName ;
-      dct:title "mydataset.csv" .
+      dct:title "weather.arff" .
+
+this:feature3
+      a       mexcore:Feature , prov:Entity ;
+      rdfs:label "humidity" ;
+      dct:identifier "3" .
 
 this:phaseTEST
       a       prov:Entity , mexcore:TEST .
@@ -45,22 +45,37 @@ this:phaseTEST
 this:configuration1
       a       mexcore:ExperimentConfiguration , prov:Activity ;
       dct:identifier "MEX_EXP_CONF_D1" ;
-      prov:used this:feature1 , this:feature2 , this:feature3 , this:dataset , this:samplingmethod1 , this:feature4 .
+      prov:used this:feature1 , this:feature2 , this:dataset , this:feature3 , this:samplingmethod1 , this:feature4 , this:feature5 .
 
 this:feature4
       a       mexcore:Feature , prov:Entity ;
-      rdfs:label "clo" ;
+      rdfs:label "windy" ;
       dct:identifier "4" .
+
+this:feature5
+      a       mexcore:Feature , prov:Entity ;
+      rdfs:label "play" ;
+      dct:identifier "5" .
+
+this:measureC0_MEX_EXEC_D4_1
+      a       prov:Entity , mexperf:ClassificationMeasure ;
+      mexperf:accuracy "21.428571428571427" ;
+      prov:wasInformedBy this:execution_C0_MEX_EXEC_D4 .
 
 this:measureC0_MEX_EXEC_D1_1
       a       prov:Entity , mexperf:ClassificationMeasure ;
-      mexperf:accuracy "0.96" ;
+      mexperf:accuracy "50.0" ;
       prov:wasInformedBy this:execution_C0_MEX_EXEC_D1 .
 
-this:measureC0_MEX_EXEC_D1_2
-      a       mexperf:StatisticalMeasure , prov:Entity ;
-      mexperf:error "0.04" ;
-      prov:wasInformedBy this:execution_C0_MEX_EXEC_D1 .
+this:measureC0_MEX_EXEC_D2_1
+      a       prov:Entity , mexperf:ClassificationMeasure ;
+      mexperf:accuracy "50.0" ;
+      prov:wasInformedBy this:execution_C0_MEX_EXEC_D2 .
+
+this:measureC0_MEX_EXEC_D3_1
+      a       prov:Entity , mexperf:ClassificationMeasure ;
+      mexperf:accuracy "64.28571428571429" ;
+      prov:wasInformedBy this:execution_C0_MEX_EXEC_D3 .
 
 this:context
       a       prov:Entity , mexcore:NotInformed ;
@@ -68,15 +83,22 @@ this:context
               this:application .
 
 this:samplingmethod1
-      a       prov:Entity , mexcore:HOLDOUT ;
-      mexcore:folds "1" ;
+      a       prov:Entity , mexcore:CROSS_VALIDATION ;
+      mexcore:folds "10" ;
       mexcore:testSize "1.0" ;
-      mexcore:trainSize "0.0" .
+      mexcore:trainSize "9.0" .
 
 this:execution_C0_MEX_EXEC_D1
       a       mexcore:Execution , prov:Activity ;
       mexcore:group "true" ;
       prov:id "C0_MEX_EXEC_D1" ;
+      prov:used this:phaseTEST , this:algorithm1 ;
+      prov:wasInformedBy this:configuration1 .
+
+this:execution_C0_MEX_EXEC_D4
+      a       mexcore:Execution , prov:Activity ;
+      mexcore:group "true" ;
+      prov:id "C0_MEX_EXEC_D4" ;
       prov:used this:phaseTEST , this:algorithm1 ;
       prov:wasInformedBy this:configuration1 .
 
@@ -86,6 +108,20 @@ this:experiment-header
       prov:wasAttributedTo
               this:application .
 
+this:execution_C0_MEX_EXEC_D2
+      a       mexcore:Execution , prov:Activity ;
+      mexcore:group "true" ;
+      prov:id "C0_MEX_EXEC_D2" ;
+      prov:used this:phaseTEST , this:algorithm1 ;
+      prov:wasInformedBy this:configuration1 .
+
+this:execution_C0_MEX_EXEC_D3
+      a       mexcore:Execution , prov:Activity ;
+      mexcore:group "true" ;
+      prov:id "C0_MEX_EXEC_D3" ;
+      prov:used this:phaseTEST , this:algorithm1 ;
+      prov:wasInformedBy this:configuration1 .
+
 this:algorithm1
-      a       prov:Entity , mexcore:NaiveBayes ;
+      a       prov:Entity , mexcore:J48 ;
       dct:identifier "algorithm1" .

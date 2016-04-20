@@ -1,5 +1,7 @@
 package org.aksw.mex.log4mex.algo;
 
+import org.aksw.mex.util.MEXEnum;
+
 /**
  * Created by esteves on 08.06.15.
  */
@@ -24,8 +26,8 @@ public class ImplementationVO {
         this.doap_programming_language = programming;
 
     }
-    public ImplementationVO(String name){
-        this._individualName = name;
+    public ImplementationVO(MEXEnum.EnumImplementations name){
+        this._individualName = name.name();
     }
 
     public ImplementationVO(){
@@ -97,8 +99,8 @@ public class ImplementationVO {
         return _individualName;
     }
 
-    public void set(String value) {
-        this._individualName = value;
+    public void set(MEXEnum.EnumImplementations value) {
+        this._individualName = value.name();
     }
 
     public String getHomepage() {

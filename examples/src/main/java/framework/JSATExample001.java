@@ -31,9 +31,9 @@ import java.util.List;
 
 
 @ExperimentInfo(createdBy = "Esteves", email = "esteves@informatik.uni-leipzig.de", title = "JSAT Lib Example", tags = {"JSAT","Naive Bayes", "NB", "MEX", "Iris"})
-@Hardware(cpu = "Intel Core i7", memory = "8 GB", hdType = "SSD")
+@Hardware(cpu = MEXEnum.EnumProcessors.INTEL_COREI7, memory = MEXEnum.EnumRAM.SIZE_8GB, hdType = "SSD")
 @SamplingMethod()
-@InterfaceVersion(version = MEXEnum.EnumAnnotationInterfaceStyle.M1)
+@InterfaceVersion(version = MEXEnum.EnumAnnotationInterfaceStyles.M1)
 public class JSATExample001 {
 
     DataSet ds;

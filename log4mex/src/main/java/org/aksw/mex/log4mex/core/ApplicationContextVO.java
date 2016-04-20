@@ -58,14 +58,14 @@ public class ApplicationContextVO  {
 
     public ApplicationContextVO(){
         this._fileDate = new Date();
-        this._context = new ContextVO(MEXEnum.EnumContext.NotInformed);
+        this._context = new ContextVO(MEXEnum.EnumContexts.NOT_INFORMED);
     }
 
     public ApplicationContextVO(String name, String mbox){
         this._fileDate = new Date();
         this._givenName = name;
         this._mbox = mbox;
-        this._context = new ContextVO(MEXEnum.EnumContext.NotInformed);
+        this._context = new ContextVO(MEXEnum.EnumContexts.NOT_INFORMED);
         this._experiments = new ArrayList<>();
         this._fileDate = new Date();
     }
@@ -87,10 +87,10 @@ public class ApplicationContextVO  {
         this._category = category;
         this._location = location;
         this._trustyURI = trustyURI;
-        this._context = new ContextVO(MEXEnum.EnumContext.NotInformed);
+        this._context = new ContextVO(MEXEnum.EnumContexts.NOT_INFORMED);
     }
 
-    public void setContext(String value){
+    public void setContext(MEXEnum.EnumContexts value){
         this._context.setContext(value);
     }
 

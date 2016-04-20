@@ -1,5 +1,7 @@
 package org.aksw.mex.log4mex.core;
 
+import org.aksw.mex.util.MEXEnum;
+
 /**
  * Created by esteves on 26.06.15.
  */
@@ -36,20 +38,20 @@ public class SamplingMethodVO {
     private Integer _folds;
     private Boolean _sequential;
 
-    public SamplingMethodVO(String ind, String classname) {
+    public SamplingMethodVO(String ind, MEXEnum.EnumSamplingMethods sm) {
         this._individualName = ind;
-        this._className = classname;
+        this._className = sm.name();
     }
 
-    public SamplingMethodVO(String ind, String classname, Double train, Double test) {
+    public SamplingMethodVO(String ind, MEXEnum.EnumSamplingMethods sm, Double train, Double test) {
         this._individualName = ind;
-        this._className = classname;
+        this._className = sm.name();
         this._trainSize = train;
         this._testSize = test;
     }
 
-    public void setClassName(String value){
-        this._className = value;
+    public void setClassName(MEXEnum.EnumSamplingMethods value){
+        this._className = value.name();
     }
 
     public void setIndividualName(String value){
