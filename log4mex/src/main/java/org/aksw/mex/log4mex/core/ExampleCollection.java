@@ -31,6 +31,7 @@ public class ExampleCollection implements IDataSetExample {
     public void setStartIndex(Long i){
         this._startsAt = i;
     }
+
     public void setEndIndex(Long i){
         this._endsAt = i;
     }

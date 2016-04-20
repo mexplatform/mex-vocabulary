@@ -24,9 +24,11 @@ public class DataSetVO {
     public void setName(String value){
         this._name = value;
     }
+
     public void setDescription(String value){
         this._description =value;
     }
+
     public void setURI(String value){
         this._uri = value;
     }

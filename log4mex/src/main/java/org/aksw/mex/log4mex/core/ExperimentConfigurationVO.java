@@ -42,6 +42,7 @@ public class ExperimentConfigurationVO {
         this._algorithms = new ArrayList<>();
         this._ds = new DataSetVO();
     }
+
     public ExperimentConfigurationVO(String id) {
         this._id = id;
         this._executions = new ArrayList<>();
@@ -49,6 +50,7 @@ public class ExperimentConfigurationVO {
         this._algorithms = new ArrayList<>();
         this._ds = new DataSetVO();
     }
+
     public ExperimentConfigurationVO(String id, Integer nextid) {
         this._id = id;
         this._seq = nextid;
@@ -61,27 +63,35 @@ public class ExperimentConfigurationVO {
     public String getId() {
         return _id;
     }
+
     public void setId(String _id) {
         this._id = _id;
     }
+
     public String getDescription() {
         return _description;
     }
+
     public void setDescription(String _description) {
         this._description = _description;
     }
+
     public void setModel(ModelVO model) {
         this._model = model;
     }
+
     public void setSamplingMethod(SamplingMethodVO value) {
         this._sampling = value;
     }
+
     public void setHardwareConfiguration(HardwareConfigurationVO value) {
         this._hard = value;
     }
+
     public void setDataSet(DataSetVO value) {
         this._ds = value;
     }
+
     //public void setExperiment(ExperimentVO value) {
     //    this._exp = value;
     //}
@@ -94,18 +104,22 @@ public class ExperimentConfigurationVO {
     public void setSamplingMethod(String classname, String name) {
         this._sampling = new SamplingMethodVO(classname, name) ;
     }
+
     public SamplingMethodVO SamplingMethod() {
         return this._sampling ;
     }
+
     public HardwareConfigurationVO HardwareConfiguration() {
         return this._hard;
     }
+
     public DataSetVO DataSet() {
         if (_ds == null) {
             this._ds = new DataSetVO();
         }
         return this._ds;
     }
+
     public AlgorithmVO Algorithm(String algorithmName){
         if (this._algorithms == null) {
             this._algorithms = new ArrayList<>();}
@@ -122,9 +136,11 @@ public class ExperimentConfigurationVO {
         }
         return ret;
     }
+
     public ImplementationVO Implementation() {
         return this._implementation;
     }
+
     public ExecutionSetVO ExecutionOverall(String id){
         ExecutionSetVO r = null;
         try {
@@ -139,6 +155,7 @@ public class ExperimentConfigurationVO {
         }
         return r;
     }
+
     public Execution Execution(String id){
         Execution ret  = null;
         try {
@@ -150,9 +167,11 @@ public class ExperimentConfigurationVO {
         }
         return ret;
     }
+
     public void addExecutionOverall(String expID, String id, String phase){
         this._executions.add(new ExecutionSetVO(this, id, new PhaseVO(phase)));
     }
+
     public String addExecution(String type, String phase){
 
         Integer total = this._executions.size() + 1;
@@ -169,6 +188,7 @@ public class ExperimentConfigurationVO {
         return "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + total.toString();
 
     }
+
     public void addFeature(String featureName){
         if (this._features == null) {
             this._features = new ArrayList<>();}
@@ -183,6 +203,7 @@ public class ExperimentConfigurationVO {
             System.out.println(e.toString());
         }
     }
+
     public void addFeature(String[] featuresName){
         if (this._features == null) {
             this._features = new ArrayList<>();}
@@ -204,6 +225,7 @@ public class ExperimentConfigurationVO {
 
 
     }
+
     public void addSamplingMethod(String className, Double train, Double test) throws Exception{
 
         try{
@@ -223,6 +245,7 @@ public class ExperimentConfigurationVO {
         }
 
     }
+
     public void addSamplingMethod(String className, Integer folds) throws Exception{
 
         try{
@@ -245,6 +268,7 @@ public class ExperimentConfigurationVO {
         }
 
     }
+
     public void addModel(String id, String description, Date date){
         if (this._model == null){
             this._model = new ModelVO();
@@ -253,6 +277,7 @@ public class ExperimentConfigurationVO {
         this._model.setDescription(description);
         this._model.setId(id);
     }
+
     public void addHardwareConfiguration(String os, String cpu, String mb, String hd, String cache){
         if (this._hard == null){
             this._hard = new HardwareConfigurationVO();
@@ -264,6 +289,7 @@ public class ExperimentConfigurationVO {
         this._hard.setHD(hd);
 
     }
+
     public void addDataSet(String URI, String description, String name){
         if (this._ds == null){
             this._ds = new DataSetVO();
@@ -272,6 +298,7 @@ public class ExperimentConfigurationVO {
         this._ds.setName(name);
         this._ds.setURI(URI);
     }
+
     public void addImplementation(String name, String version){
         if (this._implementation == null){
             this._implementation = new ImplementationVO();
@@ -323,21 +350,27 @@ public class ExperimentConfigurationVO {
 
         return algo;
     }
+
     public List<AlgorithmVO> getAlgorithms(){
         return this._algorithms;
     }
+
     public List<AlgorithmVO> getAlgorithms(String id){
         return this._algorithms;
     }
+
     public List<FeatureVO> getFeatures(){
         return this._features;
     }
+
     public List<Execution> getExecutions(){
         return this._executions;
     }
+
     public FeatureVO getFeature(Integer index){
         return this._features.get(index);
     }
+
     public void setExecutionStartTime(String executionId, Date value){
         try {
             Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(executionId));
@@ -347,6 +380,7 @@ public class ExperimentConfigurationVO {
             System.out.println(e.toString());
         }
     }
+
     public void setExecutionEndTime(String executionId, Date value){
         try {
             Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(executionId));
@@ -356,9 +390,11 @@ public class ExperimentConfigurationVO {
             System.out.println(e.toString());
         }
     }
+
     public boolean addExecution(Execution param){
         return _executions.add(param);
     }
+
     public boolean removeExecution(Execution param){
         return _executions.remove(param);
     }

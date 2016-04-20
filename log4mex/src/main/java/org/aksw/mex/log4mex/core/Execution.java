@@ -46,61 +46,80 @@ public abstract class Execution {
     public String getId() {
         return _id;
     }
+
     public void set_id(String _id) {
         this._id = _id;
     }
+
     public Boolean getGrouped() {
         return _grouped;
     }
+
     public void set_grouped(Boolean _grouped) {
         this._grouped = _grouped;
     }
+
     public Date getStartedAtTime() {
         return _startedAtTime;
     }
+
     public void set_startedAtTime(Date _startedAtTime) {
         this._startedAtTime = _startedAtTime;
     }
+
     public Date getEndedAtTime() {
         return _endedAtTime;
     }
+
     public void set_endedAtTime(Date _endedAtTime) {
         this._endedAtTime = _endedAtTime;
     }
+
     public ExperimentConfigurationVO get_expConf() {
         return _expConf;
     }
 
+
     public void set_expConf(ExperimentConfigurationVO _expConf) {
         this._expConf = _expConf;
     }
+
     public PhaseVO getPhase() {
         return _phase;
     }
+
     public void set_phase(PhaseVO _phase) {
         this._phase = _phase;
     }
+
     public AlgorithmVO getAlgorithm() {
         return _algo;
     }
+
     public void set_algo(AlgorithmVO _algo) {
         this._algo = _algo;
     }
+
     public void setId(String value){
         this._id = value;
     }
+
     public void setStartDate(Date value){
         this._startedAtTime = value;
     }
+
     public void setEndDate(Date value){
         this._endedAtTime = value;
     }
+
     public void setExperimentConfiguration(ExperimentConfigurationVO value){
         this._expConf = value;
     }
+
     public void setAlgorithm(AlgorithmVO value){
         this._algo = value;
     }
+
     public boolean setAlgorithm(String id) throws Exception{
         try{
             //check whether the algorithm exists into the experiment configuration
@@ -117,9 +136,11 @@ public abstract class Execution {
         }
         return true;
     }
+
     public void setPhase(PhaseVO value){
         this._phase = value;
     }
+
     public boolean addPerformance(String p, double v){
         String type = "";
         boolean ret = false;
@@ -288,30 +309,35 @@ public abstract class Execution {
                 return ret;}
 
     }
+
     private boolean addClassificationPerformance(String p, double value) {
         ClassificationMeasureVO m = new ClassificationMeasureVO();
         m.setValue(value);
         m.setName(p);
         return this._performances.add(m);
     }
+
     private boolean addRegressionPerformance(String p, double value) {
         RegressionMeasureVO m = new RegressionMeasureVO();
         m.setValue(value);
         m.setName(p);
         return this._performances.add(m);
     }
+
     private boolean addStatisticalPerformance(String p, double value) {
         StatisticalMeasureVO m = new StatisticalMeasureVO();
         m.setValue(value);
         m.setName(p);
         return this._performances.add(m);
     }
+
     private boolean addClusteringPerformance(String p, double value) {
         ClusteringMeasureVO m = new ClusteringMeasureVO();
         m.setValue(value);
         m.setName(p);
         return this._performances.add(m);
     }
+
     public List<ClassificationMeasureVO> getClassificationPerformance() {
         List<ClassificationMeasureVO> classifications = null;
         Collection<Measure> t
@@ -321,6 +347,7 @@ public abstract class Execution {
         }
         return classifications;
     }
+
     public List<Measure> getPerformances() {
         return _performances;
     }

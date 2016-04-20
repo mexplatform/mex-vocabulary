@@ -76,23 +76,30 @@ public class ExperimentVO {
     public void setId(String value){
         this._id= value;
     }
+
     public void setDate(Date value){
         this._date = value;
     }
+
     public void setDescription(String value){
         this._description = value;
     }
+
     public void setDataNormalizationDescription(String value){
         this._dataNormalized = value;
     }
+
     public void setOutlierDetectionDescription(String value){
         this._outliersRemoved = value;
     }
+
     public void setNoiseRemovalDescription(String value){
         this._noiseRemoved = value;
     }
+
     public void setAttributeSelectionDescription(String value){
         this._attributeSelection = value;
     }
+
 
 }

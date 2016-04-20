@@ -93,27 +93,35 @@ public class ApplicationContextVO  {
     public void setContext(String value){
         this._context.setContext(value);
     }
+
     public void setAuthorName(String value){
         this._givenName = value;
     }
+
     public void setMailBox(String value){
         this._mbox = value;
     }
+
     public void setHomepage(String value){
         this._homepage = value;
     }
+
     public void setDescription(String value){
         this._description = value;
     }
+
     public void setCategory(String value){
         this._category = value;
     }
+
     public void setLocation(String value){
         this._location = value;
     }
+
     public void setTrustyURI(String value){
         this._trustyURI = value;
     }
+
     public void setOrganization(String value) {this._organization = value;}
 
     public boolean addExperiment(ExperimentVO value){
@@ -123,6 +131,7 @@ public class ApplicationContextVO  {
     public String getClassName(){
         return "ApplicationContext";
     }
+
     public String getMEXPrefixNamespace(){
         return MEXCORE_10.ClasseTypes.APPLICATION_CONTEXT;
     }
@@ -130,6 +139,5 @@ public class ApplicationContextVO  {
     public String getPROVClassName(){
         return PROVO.ClasseTypes.AGENT;
     }
-
 
 }

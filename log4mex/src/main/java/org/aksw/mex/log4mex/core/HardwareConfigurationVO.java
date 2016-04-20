@@ -34,27 +34,37 @@ public class HardwareConfigurationVO {
     public void setOperationalSystem(String value){
         this._os = value;
     }
+
     public void setMemory(String value){
         this._memory = value;
     }
+
     public void setCPU(String value){
         this._cpu = value;
     }
+
     public void setHD(String value){
         this._hd = value;
     }
+
     public void setCache(String value){
         this._cache = value;
     }
+
     public void setVideoGraph(String value){
         this._video = value;
     }
 
     public String getOs() {return _os;}
+
     public String getCPU() {return _cpu;}
+
     public String getMemory() {return _memory;}
+
     public String getHD() {return _hd;}
+
     public String getCache() {return _cache;}
+
     public String getVideo() {return _video;}
 
 

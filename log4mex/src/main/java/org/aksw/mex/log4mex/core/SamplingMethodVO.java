@@ -59,12 +59,15 @@ public class SamplingMethodVO {
     public void setTrainSize(Double value){
         this._trainSize = value;
     }
+
     public void setTestSize(Double value){
         this._testSize = value;
     }
+
     public void setFolds(Integer value){
         this._folds = value;
     }
+
     public void setSequential(Boolean value){
         this._sequential = value;
     }

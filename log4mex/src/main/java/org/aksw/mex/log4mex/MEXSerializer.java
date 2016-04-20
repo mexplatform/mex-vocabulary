@@ -46,7 +46,7 @@ public class MEXSerializer {
         }
         return instance;
     }
-    private boolean parse(MyMEXVO mex) throws Exception{
+    private boolean parse(MyMEXVO mex) {
 
         try{
 
@@ -55,7 +55,8 @@ public class MEXSerializer {
             if (mex.getApplicationContext() == null ||
                     (StringUtils.isEmpty(mex.getApplicationContext().get_givenName()) ||
                     StringUtils.isBlank(mex.getApplicationContext().get_givenName()))) {
-                throw new Exception("[APPLICATION_CONTEXT]: missing the author name!");
+                LOGGER.warn("[APPLICATION_CONTEXT]: missing the author name!");
+                return false;
             }
 
             List<ExperimentConfigurationVO> configurations = mex.getExperimentConfigurations();
@@ -66,41 +67,48 @@ public class MEXSerializer {
                 if (configurations.get(i).DataSet() == null
                         || (StringUtils.isBlank(configurations.get(i).DataSet().getName()) ||
                             StringUtils.isEmpty(configurations.get(i).DataSet().getName()))){
-                    throw new Exception("[EXPERIMENT_CONFIGURATION]: missing basic dataset information: inform at least the dataset/file name!");
+                    LOGGER.warn("[EXPERIMENT_CONFIGURATION]: missing basic dataset information: inform at least the dataset/file name!");
+                    return false;
                 }
 
                 //sampling method
                 if (configurations.get(i).SamplingMethod() != null &&
                         (configurations.get(i).SamplingMethod().getTestSize() == null || configurations.get(i).SamplingMethod().getTrainSize() == null)) {
-                    throw new Exception("[EXPERIMENT_CONFIGURATION]: missing parameters for sampling: inform the train and test size for sampling methods!");
+                    LOGGER.warn("[EXPERIMENT_CONFIGURATION]: missing parameters for sampling: inform the train and test size for sampling methods!");
+                    return false;
                 }
 
                 //minimal set of classes to be implemented
                 if (configurations.get(i).getFeatures() == null
                         || configurations.get(i).getFeatures().size() == 0){
-                    throw new Exception("[EXPERIMENT_CONFIGURATION]: missing feature(s)!");
+                    LOGGER.warn("[EXPERIMENT_CONFIGURATION]: missing feature(s)!");
+                    return false;
                 }
 
                 if (configurations.get(i).getAlgorithms() == null
                         || configurations.get(i).getAlgorithms().size() == 0){
-                    throw new Exception("[EXPERIMENT_CONFIGURATION]: missing algorithm(s)!");
+                    LOGGER.warn("[EXPERIMENT_CONFIGURATION]: missing algorithm(s)!");
+                    return false;
                 }
 
                 if (configurations.get(i).getExecutions() == null
                         || configurations.get(i).getExecutions().size() == 0){
-                    throw new Exception("[EXPERIMENT_CONFIGURATION]: missing execution(s)!");
+                    LOGGER.warn("[EXPERIMENT_CONFIGURATION]: missing execution(s)!");
+                    return false;
                 }
 
                 for (int j = 0; j < configurations.get(i).getExecutions().size(); j++) {
                     if (configurations.get(i).getExecutions().get(j).getPerformances() == null ||
                             configurations.get(i).getExecutions().get(j).getPerformances().size() == 0){
-                                throw new Exception("[PERFORMANCE]: missing execution's performance for the execution index " + String.valueOf(j));
+                                LOGGER.warn("[PERFORMANCE]: missing execution's performance for the execution index " + String.valueOf(j));
+                                return false;
                             }
                 }
 
             }
 
         }  catch (Exception e){
+            LOGGER.error(e.toString());
             return false;
         }
 
@@ -108,15 +116,16 @@ public class MEXSerializer {
 
     }
 
-    public void saveToDisk(String filename, String URIbase, MyMEXVO mex){
+    public void saveToDisk(String filename, String URIbase, MyMEXVO mex) throws Exception{
         try{
             if (parse(mex)){
                 writeJena(filename, URIbase, mex);
+            }else{
+                throw new Exception("The MEX file could not be generated. Please see the log for more details");
             }
         }catch (Exception e){
-            System.out.println(e.toString());
+            LOGGER.error(e.toString());
         }
-
     }
 
     private void setHeaders(Model model, String URIbase){
@@ -774,7 +783,7 @@ public class MEXSerializer {
                 model.write(out, MEXConstant.EnumRDFFormat.TURTLE);
                 out.close();
             } catch (Exception e) {
-                System.out.println("error: " + e.toString());
+                LOGGER.error(e.toString());
             }
 
         }
