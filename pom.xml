@@ -15,7 +15,6 @@
         <module>framework</module>
         <module>site</module>
         <module>examples</module>
-        <module>tests</module>
     </modules>
     <build>
         <plugins>
