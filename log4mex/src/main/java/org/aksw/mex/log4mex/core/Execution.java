@@ -17,18 +17,19 @@ import java.util.List;
  */
 public abstract class Execution {
 
-    protected String _id;
-    protected String _targetClass;
-    protected Boolean _grouped;
-    protected Date _startedAtTime;
-    protected Date _endedAtTime;
+    protected String                    _id;
+    protected String                    _targetClass;
+    protected Boolean                   _grouped;
+    protected Date                      _startedAtTime;
+    protected Date                      _endedAtTime;
+
     protected ExperimentConfigurationVO _expConf;
-    protected PhaseVO _phase;
-    protected AlgorithmVO _algo;
-    //protected ExampleCollection _exampleCollection;
-    protected List<ExampleVO> _examples;
-    protected List<Measure> _performances;
-    protected ModelVO _model;
+    protected PhaseVO                   _phase;
+    protected AlgorithmVO               _algo;
+    protected ModelVO                   _model;
+
+    protected List<ExampleVO>           _examples;
+    protected List<Measure>             _performances;
 
     public Execution(){
         this._performances = new ArrayList<>();

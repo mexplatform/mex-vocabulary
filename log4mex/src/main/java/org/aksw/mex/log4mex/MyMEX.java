@@ -41,7 +41,6 @@ public class MyMEX {
     private PhaseVO phase;
     private SamplingMethodVO samplingMethod;
     //mex-core->execution
-    private ExampleCollection exampleCollection;
     private ExampleVO example;
     private DataSetVO dataset;
     //private ExecutionIndividualVO executionIndividual;
@@ -236,13 +235,6 @@ public class MyMEX {
         return context;
     }
 
-    public ExampleCollection getExampleCollection() {
-        return exampleCollection;
-    }
-
-    public void setExampleCollection(ExampleCollection exampleCollection) {
-        this.exampleCollection = exampleCollection;
-    }
 
     public ExampleVO getExample() {
         return example;
