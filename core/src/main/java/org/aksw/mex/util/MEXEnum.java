@@ -405,7 +405,8 @@ public class MEXEnum {
         MODE(EnumStatisticalMeasure.MODE.toString()),
         L2NORM(EnumStatisticalMeasure.L2NORM.toString()),
         L1NORM(EnumStatisticalMeasure.L1NORM.toString()),
-        LINFNORM(EnumStatisticalMeasure.LINFNORM.toString());
+        LINFNORM(EnumStatisticalMeasure.LINFNORM.toString()),
+        MCC_MATTHEWS_COR_COEF(EnumStatisticalMeasure.MCC_MATTHEWS_COR_COEF.toString());
 
 
         private final String text;
@@ -500,7 +501,8 @@ public class MEXEnum {
         MODE("mode"),
         L2NORM("L2norm"),
         L1NORM("L1norm"),
-        LINFNORM("Linfnorm");
+        LINFNORM("Linfnorm"),
+        MCC_MATTHEWS_COR_COEF("mcc");
 
         private final String text;
         /**
