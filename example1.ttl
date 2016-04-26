@@ -1,0 +1,680 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix this:  <http://mex.aksw.org/examples/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix mexcore: <http://mex.aksw.org/mex-core#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix mexperf: <http://mex.aksw.org/mex-perf#> .
+@prefix mexalgo: <http://mex.aksw.org/mex-algo#> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+
+this:algorithm10  a     mexcore:J48 , prov:Entity ;
+        dct:identifier  "algorithm10" .
+
+this:measureC0_MEX_EXEC_D16_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.9034" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D16 .
+
+this:measureC0_MEX_EXEC_D11_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.68" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D11 .
+
+this:measureC0_MEX_EXEC_D8_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.7371" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D8 .
+
+this:implementation  a  "http://mex.aksw.org/mex-core#NOT_INFORMED" ;
+        a       prov:Entity .
+
+this:measureC0_MEX_EXEC_D3_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.62" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D3 .
+
+this:organization  a    prov:Organization , prov:Agent ;
+        foaf:givenName  "Leipzig University" .
+
+this:measureC0_MEX_EXEC_D15_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.9283" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D15 .
+
+this:execution_C0_MEX_EXEC_D14
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D14" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm14 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:measureC0_MEX_EXEC_D10_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.52" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D10 .
+
+this:measureC0_MEX_EXEC_D7_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.9294" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D7 .
+
+this:measureC0_MEX_EXEC_D2_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.57" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D2 .
+
+this:measureC0_MEX_EXEC_D19_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.9136" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D19 .
+
+this:measureC0_MEX_EXEC_D14_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.9279" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D14 .
+
+this:algorithm8  a      mexcore:NER_OPEN_NLP , prov:Entity ;
+        dct:identifier  "algorithm8" .
+
+this:measureC0_MEX_EXEC_D6_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.7303" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D6 .
+
+this:measureC0_MEX_EXEC_D1_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.52" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D1 .
+
+this:execution_C0_MEX_EXEC_D8
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D8" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm8 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:measureC0_MEX_EXEC_D18_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.9219" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D18 .
+
+this:algorithm15  a     mexcore:AdaBoostM1 , prov:Entity ;
+        dct:identifier  "algorithm15" .
+
+this:measureC0_MEX_EXEC_D13_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.802" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D13 .
+
+this:measureC0_MEX_EXEC_D5_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.8958" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D5 .
+
+this:measureC0_MEX_EXEC_D17_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.7286" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D17 .
+
+this:algorithm2  a      mexcore:SequentialMinimalOptimization , prov:Entity ;
+        dct:identifier  "algorithm2" .
+
+this:measureC0_MEX_EXEC_D12_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.9231" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D12 .
+
+this:measureC0_MEX_EXEC_D9_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.9226" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D9 .
+
+this:execution_C0_MEX_EXEC_D2
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D2" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm2 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:measureC0_MEX_EXEC_D4_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.9286" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D4 .
+
+this:execution_C0_MEX_EXEC_D19
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D19" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm19 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:param2  a          mexcore:HyperParameter , prov:Entity ;
+        dct:identifier  "alpha" ;
+        prov:value      "0.2" .
+
+this:measureC0_MEX_EXEC_D16_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.8809" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D16 .
+
+this:measureC0_MEX_EXEC_D11_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.9034" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D11 .
+
+this:measureC0_MEX_EXEC_D8_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.7441" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D8 .
+
+this:measureC0_MEX_EXEC_D3_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.9134" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D3 .
+
+this:phaseTest  a  mexcore:Test , prov:Entity .
+
+this:measureC0_MEX_EXEC_D15_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.9217" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D15 .
+
+this:execution_C0_MEX_EXEC_D13
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D13" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm13 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:measureC0_MEX_EXEC_D10_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.9284" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D10 .
+
+this:measureC0_MEX_EXEC_D7_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.9216" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D7 .
+
+this:measureC0_MEX_EXEC_D2_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.9201" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D2 .
+
+this:model  a   mexcore:Model , prov:Entity .
+
+this:measureC0_MEX_EXEC_D19_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.9138" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D19 .
+
+this:measureC0_MEX_EXEC_D14_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.9215" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D14 .
+
+this:algorithm7  a      mexcore:LogisticModelTrees , prov:Entity ;
+        dct:identifier  "algorithm7" .
+
+this:measureC0_MEX_EXEC_D6_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.6914" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D6 .
+
+this:measureC0_MEX_EXEC_D1_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.9279" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D1 .
+
+this:execution_C0_MEX_EXEC_D7
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D7" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm7 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:measureC0_MEX_EXEC_D18_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.9356" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D18 .
+
+this:algorithm14  a     mexcore:FunctionalTrees , prov:Entity ;
+        dct:identifier  "algorithm14" .
+
+this:measureC0_MEX_EXEC_D13_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.7811" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D13 .
+
+this:measureC0_MEX_EXEC_D5_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.8617" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D5 .
+
+this:measureC0_MEX_EXEC_D17_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.7081" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D17 .
+
+this:measureC0_MEX_EXEC_D12_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.9249" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D12 .
+
+this:algorithm1  a                      mexcore:BaggingJ48 , prov:Entity ;
+        mexalgo:hasParameterCollection  this:param2 , this:param1 ;
+        dct:identifier                  "algorithm1" .
+
+this:measureC0_MEX_EXEC_D9_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.9322" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D9 .
+
+this:samplingmethod1  a     mexcore:CrossValidation , prov:Entity ;
+        mexcore:folds       "10" ;
+        mexcore:sequential  "true" ;
+        mexcore:testSize    "0.1" ;
+        mexcore:trainSize   "0.9" .
+
+this:execution_C0_MEX_EXEC_D1
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D1" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm1 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:measureC0_MEX_EXEC_D4_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.921" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D4 .
+
+this:context  a               mexcore:NamedEntityRecognition , prov:Entity ;
+        prov:wasAttributedTo  this:application .
+
+this:execution_C0_MEX_EXEC_D18
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D18" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm18 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:param1  a          mexcore:HyperParameter , prov:Entity ;
+        dct:identifier  "C" ;
+        prov:value      "10^3" .
+
+this:measureC0_MEX_EXEC_D16_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.927" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D16 .
+
+this:measureC0_MEX_EXEC_D11_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.8809" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D11 .
+
+this:measureC0_MEX_EXEC_D8_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.7521" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D8 .
+
+this:measureC0_MEX_EXEC_D3_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.9132" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D3 .
+
+this:measureC0_MEX_EXEC_D15_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.9349" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D15 .
+
+this:execution_C0_MEX_EXEC_D12
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D12" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm12 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:measureC0_MEX_EXEC_D10_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.922" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D10 .
+
+this:measureC0_MEX_EXEC_D7_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.9373" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D7 .
+
+this:measureC0_MEX_EXEC_D2_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.919" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D2 .
+
+this:algorithm19  a     mexcore:LogisticRegression , prov:Entity ;
+        dct:identifier  "algorithm19" .
+
+this:measureC0_MEX_EXEC_D14_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.9344" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D14 .
+
+this:measureC0_MEX_EXEC_D6_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.8313" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D6 .
+
+this:algorithm6  a      mexcore:SimpleVoting , prov:Entity ;
+        dct:identifier  "algorithm6" .
+
+this:measureC0_MEX_EXEC_D1_2
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:precision   "0.9249" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D1 .
+
+this:execution_C0_MEX_EXEC_D6
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D6" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm6 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:algorithm13  a     mexcore:NER_ILLINOIS_EXTENDED , prov:Entity ;
+        dct:identifier  "algorithm13" .
+
+this:configuration1  a   mexcore:ExperimentConfiguration , prov:Activity ;
+        dct:description  "analyzing 10-fold cross validation for 15 algorithms" ;
+        dct:identifier   "E001S001" ;
+        prov:used        this:dataset , this:hardware , this:samplingmethod1 , this:implementation .
+
+this:measureC0_MEX_EXEC_D13_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.8243" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D13 .
+
+this:measureC0_MEX_EXEC_D5_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.9336" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D5 .
+
+this:dataset  a           mexcore:DatasetName , prov:Entity ;
+        dct:description   "ataset consists of 20 annotated Web sites" ;
+        dct:title         "web" ;
+        dcat:landingPage  "http://l2r.cs.uiuc.edu/∼cogcomp/software.php" .
+
+this:measureC0_MEX_EXEC_D12_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.9219" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D12 .
+
+this:measureC0_MEX_EXEC_D4_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.9364" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D4 .
+
+this:execution_C0_MEX_EXEC_D17
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D17" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm17 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:version  dct:hasVersion  "1.0.1" .
+
+this:measureC0_MEX_EXEC_D11_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.927" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D11 .
+
+this:measureC0_MEX_EXEC_D3_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.9142" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D3 .
+
+this:execution_C0_MEX_EXEC_D11
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D11" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm11 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:measureC0_MEX_EXEC_D10_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.935" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D10 .
+
+this:measureC0_MEX_EXEC_D2_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.9215" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D2 .
+
+this:algorithm18  a     mexcore:RandomForest , prov:Entity ;
+        dct:identifier  "algorithm18" .
+
+this:algorithm5  a      mexcore:NaiveBayes , prov:Entity ;
+        dct:identifier  "algorithm5" .
+
+this:measureC0_MEX_EXEC_D1_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:recall      "0.9311" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D1 .
+
+this:execution_C0_MEX_EXEC_D5
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D5" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm5 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:algorithm12  a     mexcore:SupportVectorMachines , prov:Entity ;
+        dct:identifier  "algorithm12" .
+
+this:execution_C0_MEX_EXEC_D16
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D16" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm16 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:measureC0_MEX_EXEC_D19_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.63" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D19 .
+
+this:execution_C0_MEX_EXEC_D10
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D10" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm10 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:measureC0_MEX_EXEC_D18_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.51" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D18 .
+
+this:experiment-header
+        a                     mexcore:Experiment , prov:Entity ;
+        dct:description       "Token-based evaluation on 15 ensemble learning algorithms" ;
+        dct:identifier        "E1_token" ;
+        dct:title             "token-based experiment" ;
+        prov:wasAttributedTo  this:application .
+
+this:algorithm17  a     mexcore:NER_BALIE , prov:Entity ;
+        dct:identifier  "algorithm17" .
+
+this:algorithm4  a      mexcore:DecisionTable , prov:Entity ;
+        dct:identifier  "algorithm4" .
+
+this:measureC0_MEX_EXEC_D17_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "1.9" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D17 .
+
+this:measureC0_MEX_EXEC_D9_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.52" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D9 .
+
+this:execution_C0_MEX_EXEC_D4
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D4" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm4 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:algorithm11  a     mexcore:NER_STANFORD , prov:Entity ;
+        dct:identifier  "algorithm11" .
+
+this:measureC0_MEX_EXEC_D16_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.68" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D16 .
+
+this:measureC0_MEX_EXEC_D8_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "2.06" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D8 .
+
+this:hardware  a        mexcore:HardwareConfiguration , prov:Entity ;
+        mexcore:cache   "Cache 3MB" ;
+        mexcore:cpu     "Intel Core i7" ;
+        mexcore:hd      "SSD" ;
+        mexcore:memory  "16GB" ;
+        doap:os         "ubuntu" .
+
+this:measureC0_MEX_EXEC_D15_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.52" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D15 .
+
+this:execution_C0_MEX_EXEC_D15
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D15" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm15 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:measureC0_MEX_EXEC_D7_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.51" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D7 .
+
+this:measureC0_MEX_EXEC_D19_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.9135" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D19 .
+
+this:measureC0_MEX_EXEC_D14_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.52" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D14 .
+
+this:measureC0_MEX_EXEC_D6_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "2.36" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D6 .
+
+this:algorithm9  a      mexcore:MultilayerPerceptron , prov:Entity ;
+        dct:identifier  "algorithm9" .
+
+this:execution_C0_MEX_EXEC_D9
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D9" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm9 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:measureC0_MEX_EXEC_D18_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.9287" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D18 .
+
+this:application  a          mexcore:ApplicationContext , prov:Organization , prov:Person , prov:Agent ;
+        dct:dateCopyrighted  "2016.04.26 23:12:12 CEST" ;
+        foaf:givenName       "René Speck" ;
+        foaf:mbox            "speck@informatik.uni-leipzig.de" .
+
+this:algorithm16  a     mexcore:ClassLevelVoting , prov:Entity ;
+        dct:identifier  "algorithm16" .
+
+this:measureC0_MEX_EXEC_D13_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "1.37" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D13 .
+
+this:measureC0_MEX_EXEC_D5_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.77" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D5 .
+
+this:measureC0_MEX_EXEC_D17_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.7154" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D17 .
+
+this:algorithm3  a      mexcore:AdditiveLogisticRegression , prov:Entity ;
+        dct:identifier  "algorithm3" .
+
+this:measureC0_MEX_EXEC_D12_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.54" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D12 .
+
+this:measureC0_MEX_EXEC_D9_3
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:fMeasure    "0.9273" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D9 .
+
+this:execution_C0_MEX_EXEC_D3
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       "true" ;
+        prov:endedAtTime    "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:id             "C0_MEX_EXEC_D3" ;
+        prov:startedAtTime  "Tue Apr 26 23:12:13 CEST 2016" ;
+        prov:used           this:algorithm3 , this:phaseTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:measureC0_MEX_EXEC_D4_4
+        a                   mexperf:StatisticalMeasure , prov:Entity ;
+        mexperf:error       "0.51" ;
+        prov:wasInformedBy  this:execution_C0_MEX_EXEC_D4 .

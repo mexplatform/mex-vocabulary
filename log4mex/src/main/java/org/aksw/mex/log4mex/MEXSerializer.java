@@ -82,7 +82,7 @@ public class MEXSerializer {
                     LOGGER.warn("[EXPERIMENT_CONFIGURATION]: missing parameters for sampling: inform the train and test size for sampling methods!");
                     return false;
                 }
-                
+
 
                 if (configurations.get(i).getAlgorithms() == null
                         || configurations.get(i).getAlgorithms().size() == 0){
@@ -593,7 +593,7 @@ public class MEXSerializer {
 
                                         if (mea.getName().toLowerCase().equals("accuracy")){
                                             mexprop = MEXPERF_10.accuracy;
-                                        }else if (mea.getName().toLowerCase().equals("fMeasure")) {
+                                        }else if (mea.getName().toLowerCase().equals("fmeasure")) {
                                             mexprop = MEXPERF_10.fMeasure;
                                         }else if (mea.getName().toLowerCase().equals("precision")) {
                                             mexprop = MEXPERF_10.precision;
@@ -679,8 +679,10 @@ public class MEXSerializer {
                                             mexprop = MEXPERF_10.manhattanDistance;
                                         }else if (mea.getName().toLowerCase().equals("gensimilaritycoefficient")) {
                                             mexprop = MEXPERF_10.genSimilarityCoerfficient;
+                                        }else if (mea.getName().toLowerCase().equals("mcc")) {
+                                            mexprop = MEXPERF_10.MCC;
                                         }else{
-                                            throw new Exception("measure has not been founded");
+                                            throw new Exception("measure " + mea.getName().toLowerCase() + " has not been founded");
                                         }
 
                                         _mea.addProperty(mexprop, mea.getValue().toString());

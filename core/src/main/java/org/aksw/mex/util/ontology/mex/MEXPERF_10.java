@@ -34,6 +34,7 @@ public class MEXPERF_10  extends MEXPERF implements IOntology {
     public static final Property L2norm;
     public static final Property L1norm;
     public static final Property Linfnorm;
+    public static final Property MCC;
 
     public static final Property accuracy;
     public static final Property fMeasure;
@@ -92,6 +93,7 @@ public class MEXPERF_10  extends MEXPERF implements IOntology {
         L2norm = m_model.createProperty(NS + "L2norm");
         L1norm = m_model.createProperty(NS + "L1norm");
         Linfnorm = m_model.createProperty(NS + "Linfnorm");
+        MCC = m_model.createProperty(NS + "mcc");
 
         accuracy = m_model.createProperty(NS + "accuracy");
         fMeasure = m_model.createProperty(NS + "fMeasure");
