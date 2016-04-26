@@ -139,7 +139,6 @@ public class MEXEnum {
         public static final String BFTree = "BFTree";
         public static final String SimpleCart = "SimpleCart";
         public static final String ADTree = "ADTree";
-        public static final String LMT = "LMT";
         public static final String BIRCH = "BIRCH";
         public static final String CHAID = "CHAID";
         public static final String Kmeans = "Kmeans";
@@ -305,7 +304,6 @@ public class MEXEnum {
         BFTree(EnumAlgorithm.BFTree.toString()),
         SimpleCart(EnumAlgorithm.SimpleCart.toString()),
         ADTree(EnumAlgorithm.ADTree.toString()),
-        LMT(EnumAlgorithm.LMT.toString()),
         BIRCH(EnumAlgorithm.BIRCH.toString()),
         CHAID(EnumAlgorithm.CHAID.toString()),
         Kmeans(EnumAlgorithm.Kmeans.toString()),

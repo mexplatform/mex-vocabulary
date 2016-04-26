@@ -58,15 +58,6 @@ public class ExperimentConfigurationVO {
         this._ds = new DataSetVO();
     }
 
-    public ExperimentConfigurationVO(String id, Integer nextid) {
-        this._id = id;
-        this._seq = nextid;
-        this._executions = new ArrayList<>();
-        this._features = new ArrayList<>();
-        this._algorithms = new ArrayList<>();
-        this._ds = new DataSetVO();
-    }
-
     /************************************ getters ************************************/
 
     public String getId() {
@@ -96,7 +87,7 @@ public class ExperimentConfigurationVO {
     public SamplingMethodVO SamplingMethod(){
         try {
             if (this._sampling == null) {
-                this.addSamplingMethod(MEXEnum.EnumSamplingMethods.HOLDOUT, 1);
+                this.setSamplingMethod(MEXEnum.EnumSamplingMethods.HOLDOUT, 1);
             }
             return this._sampling;
         }
@@ -153,10 +144,6 @@ public class ExperimentConfigurationVO {
         }
     }
 
-    public FeatureVO getFeature(Integer index){
-        return this._features.get(index);
-    }
-
     public List<AlgorithmVO> getAlgorithms(){
         return this._algorithms;
     }
@@ -203,14 +190,27 @@ public class ExperimentConfigurationVO {
 
     /************************************ setters ************************************/
 
+    /**
+     * set the experiment configuration id
+     * @param _id
+     */
     public void setId(String _id) {
         this._id = _id;
     }
 
+    /**
+     * set the experiment configuration description
+     * @param _description
+     */
     public void setDescription(String _description) {
         this._description = _description;
     }
 
+    /**
+     * set the start time for given execution
+     * @param executionId
+     * @param value
+     */
     public void setExecutionStartTime(String executionId, Date value){
         try {
             Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(executionId));
@@ -221,6 +221,11 @@ public class ExperimentConfigurationVO {
         }
     }
 
+    /**
+     * set the end time for given execution
+     * @param executionId
+     * @param value
+     */
     public void setExecutionEndTime(String executionId, Date value){
         try {
             Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(executionId));
@@ -233,47 +238,52 @@ public class ExperimentConfigurationVO {
 
     /* complex objects */
 
+    /**
+     * set the Model associate to a set of executions
+     * @param model
+     */
     public void setModel(ModelVO model) {
         this._model = model;
     }
 
+    /**
+     * set the Phase associate to a set of executions
+     * @param phase
+     */
     public void setPhase(PhaseVO phase) {
         this._phase = phase;
     }
 
+    /**
+     * set the Sampling Method associated to a set of executions
+     * @param value
+     */
     public void setSamplingMethod(SamplingMethodVO value) {
         this._sampling = value;
     }
 
+    /**
+     * set the Hardware Information associated to a set of executions
+     * @param value
+     */
     public void setHardwareConfiguration(HardwareConfigurationVO value) {
         this._hard = value;
     }
 
+    /**
+     * set the Dataset associated to a set of executions
+     * @param value
+     */
     public void setDataSet(DataSetVO value) {
         this._ds = value;
     }
 
-    public void setSamplingMethod(String classname, MEXEnum.EnumSamplingMethods name) {
-        this._sampling = new SamplingMethodVO(classname, name) ;
-    }
 
     public void setExecutionId(Integer index, String id){
         this._executions.get(index)._id = id;
     }
 
     /************************************ functions ************************************/
-
-    //public boolean addExecution(Execution param){
-    //    return _executions.add(param);
-    //}
-
-    public boolean removeExecution(Execution param){
-        return _executions.remove(param);
-    }
-
-    private void addExecutionOverall(String expID, String id, MEXEnum.EnumPhases phase){
-        this._executions.add(new ExecutionSetVO(this, id, new PhaseVO(phase)));
-    }
 
     public String addExecution(MEXEnum.EnumExecutionsType type, MEXEnum.EnumPhases phase) throws Exception{
 
@@ -322,7 +332,16 @@ public class ExperimentConfigurationVO {
         _addFeatures(featuresName);
     }
 
-    public void addSamplingMethod(MEXEnum.EnumSamplingMethods sm, Double train, Double test) throws Exception{
+    /**
+     * Set the Sampling Method for a given Experiment Configuration.
+     * There is an automatic counter in order to deal with more the 1 experiment configuration grouped in 1 experiment, i.e.,
+     * We would have (for instance) 2 Sampling Methods instances at the same model. Therefore, different id's are required.
+     * @param sm
+     * @param train
+     * @param test
+     * @throws Exception
+     */
+    public void setSamplingMethod(MEXEnum.EnumSamplingMethods sm, Double train, Double test) throws Exception{
 
         try{
 
@@ -343,7 +362,7 @@ public class ExperimentConfigurationVO {
 
     }
 
-    public void addSamplingMethod(MEXEnum.EnumSamplingMethods sm, Integer folds) throws Exception{
+    public void setSamplingMethod(MEXEnum.EnumSamplingMethods sm, Integer folds) throws Exception{
 
         try{
 

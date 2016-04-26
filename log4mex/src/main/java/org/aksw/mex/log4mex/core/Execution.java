@@ -62,8 +62,6 @@ public abstract class Execution {
         this._targetClass = _targetClass;
     }
 
-
-
     public Boolean getGrouped() {
         return _grouped;
     }

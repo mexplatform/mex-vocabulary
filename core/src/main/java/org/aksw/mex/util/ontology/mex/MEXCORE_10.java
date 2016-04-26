@@ -15,8 +15,8 @@ public abstract class MEXCORE_10 extends MEXCORE implements IOntology {
     }
 
     private static Model m_model = ModelFactory.createDefaultModel();
-    public static final String NS = "http://mex.aksw.org/mex-core#";
-    public static final String PREFIX = "mexcore";
+    public static final String   NS = "http://mex.aksw.org/mex-core#";
+    public static final String   PREFIX = "mexcore";
     public static final Resource NAMESPACE;
 
     public static final Property group;
