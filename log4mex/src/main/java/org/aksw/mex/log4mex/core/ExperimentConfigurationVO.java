@@ -294,22 +294,7 @@ public class ExperimentConfigurationVO {
 
     }
 
-    public void addFeature(String featureName){
-        if (this._features == null) {
-            this._features = new ArrayList<>();}
-
-        try {
-            Collection<FeatureVO> t = Collections2.filter(this._features, p -> p.getId().equals(featureName));
-            if (t != null && t.size() > 0){throw new Exception("Features already assigned");}
-            else {
-                this._features.add(new FeatureVO(String.valueOf(this._features.size()+1), featureName));
-            }
-        } catch (Exception e){
-            System.out.println(e.toString());
-        }
-    }
-
-    public void addFeature(String[] featuresName){
+    private void _addFeatures(String[] featuresName){
         if (this._features == null) {
             this._features = new ArrayList<>();}
 
@@ -327,8 +312,14 @@ public class ExperimentConfigurationVO {
                 System.out.println(e.toString());
             }
         }
+    }
 
+    public void addFeature(String featureName){
+       _addFeatures(new String[]{featureName});
+    }
 
+    public void addFeature(String[] featuresName){
+        _addFeatures(featuresName);
     }
 
     public void addSamplingMethod(MEXEnum.EnumSamplingMethods sm, Double train, Double test) throws Exception{
