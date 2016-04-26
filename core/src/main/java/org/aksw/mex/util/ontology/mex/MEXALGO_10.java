@@ -34,8 +34,8 @@ public class MEXALGO_10 extends MEXALGO implements IOntology {
         public static final String ALGORITHM_CLASS = "AlgorithmClass";
         public static final String IMPLEMENTATION = "Implementation";
         public static final String ALGORITHM = "Algorithm";
-        public static final String ALGORITHM_PARAMETER_COLLECTION = "AlgorithmParameterCollection";
-        public static final String ALGORITHM_PARAMETER = "AlgorithmParameter";
+        public static final String ALGORITHM_PARAMETER_COLLECTION = "HyperParameterCollection";
+        public static final String ALGORITHM_PARAMETER = "HyperParameter";
     }
 
     public class Predicates{

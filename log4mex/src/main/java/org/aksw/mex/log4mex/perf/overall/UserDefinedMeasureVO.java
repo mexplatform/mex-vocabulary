@@ -3,7 +3,7 @@ package org.aksw.mex.log4mex.perf.overall;
 /**
  * Created by esteves on 26.06.15.
  */
-public class UserDefinedMeasure{
+public class UserDefinedMeasureVO {
 
     public String get_id() {
         return _id;
@@ -52,12 +52,12 @@ public class UserDefinedMeasure{
 
     private String _creatorName;
 
-    public UserDefinedMeasure(String id, String value){
+    public UserDefinedMeasureVO(String id, String value){
         this._id = id;
         this.value = value;
     }
 
-    public UserDefinedMeasure(){
+    public UserDefinedMeasureVO(){
 
     }
 }

@@ -26,9 +26,9 @@ import java.util.List;
 /**
  * Created by esteves on 26.06.15.
  */
-public class MyMEXVO {
+public class MyMEX {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(MyMEXVO.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(MyMEX.class);
 
     //mex-core->experiment
     private ApplicationContextVO applicationContext;
@@ -68,7 +68,7 @@ public class MyMEXVO {
     //logic purpouse
     private boolean automatic;
 
-    public MyMEXVO(){
+    public MyMEX(){
         this.applicationContext = new ApplicationContextVO();
         this.experiment = new ExperimentVO(MEXConstant.DEFAULT_EXP_ID);
         this.experimentConfigurationList = new ArrayList<>();
