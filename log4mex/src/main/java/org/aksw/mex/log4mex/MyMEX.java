@@ -60,7 +60,6 @@ public class MyMEX {
     private RegressionMeasureVO regressionMeasure;
     private StatisticalMeasureVO statisticalMeasure;
     private UserDefinedMeasureVO userDefinedMeasure;
-
     private boolean withoutConfiguration = false;
 
     //logic purpouse
@@ -78,7 +77,9 @@ public class MyMEX {
     public boolean isWithoutConfiguration(){
         return withoutConfiguration;
     }
-    //MEX
+
+
+    /* mexcore */
     public void setAuthorName(String value){this.applicationContext.setAuthorName(value);}
 
     public void setAuthorEmail(String value){this.applicationContext.setMailBox(value);}
@@ -94,6 +95,9 @@ public class MyMEX {
     public void setExperimentDate(Date value){this.experiment.setDate(value);}
 
     public void setExperimentDescription(String value){this.experiment.setDescription(value);}
+
+
+
 
     public ModelVO getModel() {return model;}
 
@@ -235,10 +239,6 @@ public class MyMEX {
         return context;
     }
 
-    public void setApplicationContext(ApplicationContextVO applicationContext) {
-        this.applicationContext = applicationContext;
-    }
-
     public ExampleCollection getExampleCollection() {
         return exampleCollection;
     }
@@ -262,14 +262,6 @@ public class MyMEX {
     public void setDataset(DataSetVO dataset) {
         this.dataset = dataset;
     }
-
-    /*public ExecutionIndividualVO getExecutionIndividual() {
-        return executionIndividual;
-    }
-   */
-    /*public void setExecutionIndividual(ExecutionIndividualVO executionIndividual) {
-        this.executionIndividual = executionIndividual;
-    }*/
 
     public ExecutionSetVO getExecutionSet() {
         return executionSet;

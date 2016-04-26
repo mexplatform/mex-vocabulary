@@ -18,6 +18,7 @@ import java.util.List;
 public abstract class Execution {
 
     protected String _id;
+    protected String _targetClass;
     protected Boolean _grouped;
     protected Date _startedAtTime;
     protected Date _endedAtTime;
@@ -27,7 +28,7 @@ public abstract class Execution {
     //protected ExampleCollection _exampleCollection;
     protected List<ExampleVO> _examples;
     protected List<Measure> _performances;
-
+    protected ModelVO _model;
 
     public Execution(){
         this._performances = new ArrayList<>();
@@ -49,6 +50,14 @@ public abstract class Execution {
 
     public void set_id(String _id) {
         this._id = _id;
+    }
+
+    public String getTargetClass() {
+        return _targetClass;
+    }
+
+    public void setTargetClass(String _targetClass) {
+        this._targetClass = _targetClass;
     }
 
     public Boolean getGrouped() {
@@ -78,7 +87,6 @@ public abstract class Execution {
     public ExperimentConfigurationVO get_expConf() {
         return _expConf;
     }
-
 
     public void set_expConf(ExperimentConfigurationVO _expConf) {
         this._expConf = _expConf;
@@ -114,6 +122,12 @@ public abstract class Execution {
 
     public void setExperimentConfiguration(ExperimentConfigurationVO value){
         this._expConf = value;
+    }
+
+    public void setModel(ModelVO value){ this._model = value;}
+
+    public ModelVO getModel() {
+        return _model;
     }
 
     public void setAlgorithm(AlgorithmVO value){
@@ -355,7 +369,7 @@ public abstract class Execution {
     }
 
     public abstract void setStartsAtPosition(String value);
-    public abstract void setEndsAtPosition(String value);
 
+    public abstract void setEndsAtPosition(String value);
 
 }
