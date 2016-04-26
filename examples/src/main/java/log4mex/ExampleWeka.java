@@ -90,7 +90,7 @@ public class ExampleWeka {
             Instances[][] split = crossValidationSplit(data, 10);
 
             /* (2.3) the sampling method */
-            mex.Configuration(confID).addSamplingMethod(MEXEnum.EnumSamplingMethods.CROSS_VALIDATION, 10);
+            mex.Configuration(confID).setSamplingMethod(MEXEnum.EnumSamplingMethods.CROSS_VALIDATION, 10);
 
             Instances[] trainingSplits = split[0];
             Instances[] testingSplits = split[1];

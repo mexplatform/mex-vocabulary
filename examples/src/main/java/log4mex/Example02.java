@@ -33,8 +33,8 @@ public class Example02 {
             mex.Configuration(conf01ID).addFeature(features01);
             mex.Configuration(conf02ID).addFeature(features02);
             /* (2.3) the sampling method */
-            mex.Configuration(conf01ID).addSamplingMethod(EnumSamplingMethods.HOLDOUT, 0.8, 0.2);
-            mex.Configuration(conf02ID).addSamplingMethod(EnumSamplingMethods.HOLDOUT, 0.8, 0.2);
+            mex.Configuration(conf01ID).setSamplingMethod(EnumSamplingMethods.HOLDOUT, 0.8, 0.2);
+            mex.Configuration(conf02ID).setSamplingMethod(EnumSamplingMethods.HOLDOUT, 0.8, 0.2);
 
             /* (2.4) the algorithms and hyperparameters */
             String alg01ID = mex.Configuration(conf01ID).addAlgorithm(EnumAlgorithms.NaiveBayes).getIdentifier();

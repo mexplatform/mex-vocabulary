@@ -96,9 +96,6 @@ public class MyMEX {
 
     public void setExperimentDescription(String value){this.experiment.setDescription(value);}
 
-
-
-
     public ModelVO getModel() {return model;}
 
     public void setModel(ModelVO model) {this.model = model;}
@@ -432,7 +429,7 @@ public class MyMEX {
             if (this.experimentConfigurationList == null){
                 this.addConf("");
             }
-            this.experimentConfigurationList.get(0).addSamplingMethod(className, train, test);
+            this.experimentConfigurationList.get(0).setSamplingMethod(className, train, test);
         }catch (Exception e){
             throw (e);
         }
@@ -443,7 +440,7 @@ public class MyMEX {
             if (this.experimentConfigurationList == null){
                 this.addConf("");
             }
-            this.experimentConfigurationList.get(0).addSamplingMethod(className, folds);
+            this.experimentConfigurationList.get(0).setSamplingMethod(className, folds);
         }catch (Exception e){
             throw (e);
         }

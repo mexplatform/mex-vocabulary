@@ -1,6 +1,7 @@
 package org.aksw.mex.log4mex;
 
 import com.google.common.collect.Collections2;
+import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
@@ -472,7 +473,7 @@ public class MEXSerializer {
                         if (e != null) {
 
                             //EXECUTION
-                            _exec = model.createResource(URIbase + "execution_" + String.valueOf(e.getId()))
+                            _exec = model.createResource(URIbase + "EXEC" + String.valueOf(e.getId()))
                                     .addProperty(RDF.type, provActivity)
                                     .addProperty(RDF.type, mexcore_EXEC)
                                     .addProperty(PROVO.id, e.getId());
@@ -491,16 +492,16 @@ public class MEXSerializer {
                                 if (temp.getEndsAtPosition() != null) {
                                     _exec.addProperty(MEXCORE_10.endsAtPosition, temp.getEndsAtPosition());
                                 }
-                                _exec.addProperty(MEXCORE_10.group, "true");
+                                _exec.addProperty(MEXCORE_10.group, model.createTypedLiteral("true", XSDDatatype.XSDboolean));
                             }else{
-                                _exec.addProperty(MEXCORE_10.group, "false");
+                                _exec.addProperty(MEXCORE_10.group, model.createTypedLiteral("false", XSDDatatype.XSDboolean));
                             }
 
                             //PHASE
                             if (e.getPhase() != null){
                                 Resource mexcore_PHASE = model.createResource(MEXCORE_10.NS + e.getPhase().getName());
                                 if (StringUtils.isNotBlank(e.getPhase().getName().toString()) && StringUtils.isNotEmpty(e.getPhase().getName().toString())) {
-                                Resource _phase = model.createResource(URIbase + "phase" + e.getPhase().getName())
+                                Resource _phase = model.createResource(URIbase + "PH" + e.getPhase().getName())
                                         .addProperty(RDF.type, provEntity)
                                         .addProperty(RDF.type, mexcore_PHASE);
                                 _exec.addProperty(PROVO.used, _phase);}
@@ -512,7 +513,7 @@ public class MEXSerializer {
                                 for (Iterator<ExampleVO> iexample = e.getExamples().iterator(); iexample.hasNext(); ) {
                                     ExampleVO example = iexample.next();
                                     if (example != null) {
-                                        Resource _ex = model.createResource(URIbase + "examples" + String.valueOf(auxex))
+                                        Resource _ex = model.createResource(URIbase + "EXAMP" + String.valueOf(auxex))
                                                 .addProperty(RDF.type, provEntity)
                                                 .addProperty(RDF.type, mexcore_EXAMPLE)
                                                 .addProperty(DCTerms.identifier, example.getId())
@@ -547,7 +548,7 @@ public class MEXSerializer {
                                         AlgorithmParameterVO algoParam = iparam.next();
                                         if (algoParam != null) {
                                             Resource _algoParam = null;
-                                            _algoParam = model.createResource(URIbase + "param" + String.valueOf(auxparam))
+                                            _algoParam = model.createResource(URIbase + "PAR" + String.valueOf(auxparam))
                                                     .addProperty(RDF.type, provEntity)
                                                     .addProperty(RDF.type, mexalgo_ALGO_PARAM)
                                                     .addProperty(PROVO.value, algoParam.getValue())
@@ -583,21 +584,16 @@ public class MEXSerializer {
 
                                         mexperf = model.createResource(MEXPERF_10.NS + auxType);
 
-                                        _mea = model.createResource(URIbase + "measure" + String.valueOf(e.getId()) + "_" + String.valueOf(auxmea))
+                                        _mea = model.createResource(URIbase + "M" + String.valueOf(e.getId()) + "_" + String.valueOf(auxmea))
                                                 .addProperty(RDF.type, provEntity)
                                                 .addProperty(RDF.type, mexperf)
                                                 .addProperty(model.createProperty(MEXPERF_10.NS + mea.getName()),model.createTypedLiteral(mea.getValue()));
-
-
-
-
 
                                         _mea.addProperty(PROVO.wasInformedBy, _exec);
                                         auxmea++;}
                                 }
 
                             }
-
 
 
                             /*if (e.getExampleCollection() != null) {
@@ -648,28 +644,6 @@ public class MEXSerializer {
                 }
 
             }
-
-
-            //mex-algo
-
-
-            //mex-perf
-
-       /* Resource context2 = model.createResource(URIbase + "context");
-
-        Resource john = model.createResource( URIbase + "John" );
-        //Property hasSurname = model.createProperty( PROVO.NS + "hasSurname" );
-        model.add( john, PROVO.wasAttributedTo, context2 );
-
-        final Resource clsApplicationContext = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.APPLICATION_CONTEXT );
-        model.add(clsApplicationContext, PROVO.wasAttributedTo,"teste");
-
-        Resource appcontext = model.createResource(URIbase + "xxx")
-                .addProperty(DC.title, "dddddd")
-                .addProperty(PROVO.wasAttributedTo, context2)
-                .addProperty(DC.description, "zzzzzzz");
-                */
-
 
             FileWriter out;
             try {
