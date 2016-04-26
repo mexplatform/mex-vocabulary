@@ -53,39 +53,35 @@ public class Fox {
 
 
             mex.Configuration(eid).DataSet().setName("web");
-            mex.Configuration(eid).DataSet().setDescription("ataset consists\n" +
-"of 20 annotated Web sites");
+            mex.Configuration(eid).DataSet().setDescription("ataset consists of 20 annotated Web sites");
             mex.Configuration(eid).DataSet().setURI("http://l2r.cs.uiuc.edu/∼cogcomp/software.php");
 
         }
 
         //adding algorithms and parameters
-        AlgorithmVO alg1;
+        AlgorithmVO alg1,alg2,alg3,alg4,alg5,alg6,alg7,alg8,alg9,alg10,alg11,alg12,alg13,alg14,alg15,alg16,alg17,alg18,alg19;
         {
-            mex.Configuration(eid).addImplementation(EnumImplementations.FOX, "3.6.6");
+            //mex.Configuration(eid).addImplementation(EnumImplementations., "3.6.6");
 
-            alg1 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SupportVectorMachines);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
+            alg1 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.BaggingJ48);
+            alg2 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SequentialMinimalOptimization);
+            alg3 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.AdditiveLogisticRegression);
+            alg4 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.DecisionTable);
+            alg5 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
+            alg6 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SimpleVoting);
+            alg7 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.LogisticModelTrees);
+            alg8 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_OPEN_NLP);
+            alg9 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.MultilayerPerceptron);
+            alg10 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.J48);
+            alg11 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_STANFORD);
+            alg12 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SupportVectorMachines);
+            alg13 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_ILLINOIS_EXTENDED);
+            alg14 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.FunctionalTrees);
+            alg15 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.AdaBoostM1);
+            alg16 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.ClassLevelVoting);
+            alg17 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_BALIE);
+            alg18 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.RandomForest);
+            alg19 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.LogistcRegression);
 
             String[] param = {"C", "10^3", "alpha", "0.2"};
             alg1.addParameter(param);
