@@ -10,3 +10,6 @@ framework/target
 log4mex/target
 site/target
 /mex.iml
+examples/nb-configuration.xml
+log4mex/nb-configuration.xml
+nb-configuration.xml
