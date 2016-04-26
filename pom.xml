@@ -30,12 +30,7 @@
         </plugins>
     </build>
 
-    <repositories>
-        <repository>
-            <id>edwardraff-repo</id>
-            <url>http://www.edwardraff.com/maven-repo/</url>
-        </repository>
-    </repositories>
+
 
     <dependencies>
         <dependency>
@@ -62,11 +57,6 @@
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
-        </dependency>
-        <dependency>
-            <groupId>com.edwardraff</groupId>
-            <artifactId>JSAT</artifactId>
-            <version>0.0.2</version>
         </dependency>
         <dependency>
             <groupId>commons-cli</groupId>
