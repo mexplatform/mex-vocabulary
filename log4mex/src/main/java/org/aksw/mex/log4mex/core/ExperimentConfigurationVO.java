@@ -263,9 +263,9 @@ public class ExperimentConfigurationVO {
 
     /************************************ functions ************************************/
 
-    public boolean addExecution(Execution param){
-        return _executions.add(param);
-    }
+    //public boolean addExecution(Execution param){
+    //    return _executions.add(param);
+    //}
 
     public boolean removeExecution(Execution param){
         return _executions.remove(param);
@@ -414,7 +414,7 @@ public class ExperimentConfigurationVO {
         this._implementation.setName(name.name());
     }
 
-    public AlgorithmVO addAlgorithm(String algorithmClass, String id) throws Exception{
+    private AlgorithmVO _addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass, String id) throws Exception{
 
         AlgorithmVO algo = null;
         try{
@@ -424,7 +424,9 @@ public class ExperimentConfigurationVO {
             String individualName = MEXALGO_10.ClasseTypes.ALGORITHM.toLowerCase() +
                     String.valueOf(MEXController.getInstance().getNumberOfAlgorithms() + 1);
 
-            algo = new AlgorithmVO(algorithmClass.toString(), individualName, id);
+            if (id == "") id = individualName;
+
+            algo = new AlgorithmVO(algorithmClass.name().toString(), individualName, id);
             this._algorithms.add(algo);
 
             MEXController.getInstance().addAlgorithmCounter();
@@ -434,28 +436,15 @@ public class ExperimentConfigurationVO {
         }
 
         return algo;
+
     }
 
-    public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithm) throws Exception{
+    public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass, String id) throws Exception{
+        return _addAlgorithm(algorithmClass, id);
+    }
 
-        AlgorithmVO algo = null;
-        try{
-            if (this._algorithms == null) {
-                this._algorithms = new ArrayList<>();}
-
-            String individualName = MEXALGO_10.ClasseTypes.ALGORITHM.toLowerCase() +
-                    String.valueOf(MEXController.getInstance().getNumberOfAlgorithms() + 1);
-
-            algo = new AlgorithmVO(algorithm.toString(), individualName, individualName);
-            this._algorithms.add(algo);
-
-            MEXController.getInstance().addAlgorithmCounter();
-
-        }catch (Exception e){
-            System.out.println(e.toString());
-        }
-
-        return algo;
+    public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass) throws Exception{
+        return _addAlgorithm(algorithmClass, "");
     }
 
 }

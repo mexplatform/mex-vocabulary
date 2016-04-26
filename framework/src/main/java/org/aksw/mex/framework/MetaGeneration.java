@@ -270,7 +270,7 @@ public class MetaGeneration {
 
             LOG.info("@Algorithm - OK");
             for (Field fa: _algorithms) {
-                AlgorithmVO alg = mex.Configuration().addAlgorithm(fa.getAnnotation(Algorithm.class).algorithmType().toString(),
+                AlgorithmVO alg = mex.Configuration().addAlgorithm(fa.getAnnotation(Algorithm.class).algorithmType(),
                         fa.getAnnotation(Algorithm.class).algorithmID());
 
                 algorithms.put(fa.getAnnotation(Algorithm.class).algorithmID(), alg);
