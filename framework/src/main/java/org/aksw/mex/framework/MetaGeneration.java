@@ -255,7 +255,7 @@ public class MetaGeneration {
             if (_dataset == null)
                 throw new Exception("error: missing annotation @DatasetName, please see " + javaDocURL + " for more information");
 
-            mex.Configuration().addDataSet("", "", (String)_dataset.get(ins));
+            mex.Configuration().setDataSet("", "", (String)_dataset.get(ins));
 
             LOG.info("@DataSet - OK");
 

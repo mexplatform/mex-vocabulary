@@ -140,7 +140,7 @@ public abstract class Execution {
         try{
             //check whether the algorithm exists into the experiment configuration
             Collection<AlgorithmVO> t
-                    = Collections2.filter(this.get_expConf().getAlgorithms(id), p -> p instanceof AlgorithmVO);
+                    = Collections2.filter(this.get_expConf().getAlgorithms(), p -> (p instanceof AlgorithmVO && p.getIdentifier().equals(id)));
             if (t != null && t.size() > 0){
                 this._algo = Iterables.get(t, 0);
             }else{
