@@ -82,13 +82,7 @@ public class MEXSerializer {
                     LOGGER.warn("[EXPERIMENT_CONFIGURATION]: missing parameters for sampling: inform the train and test size for sampling methods!");
                     return false;
                 }
-
-                //minimal set of classes to be implemented
-                if (configurations.get(i).getFeatures() == null
-                        || configurations.get(i).getFeatures().size() == 0){
-                    LOGGER.warn("[EXPERIMENT_CONFIGURATION]: missing feature(s)!");
-                    return false;
-                }
+                
 
                 if (configurations.get(i).getAlgorithms() == null
                         || configurations.get(i).getAlgorithms().size() == 0){
