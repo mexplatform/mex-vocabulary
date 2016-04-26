@@ -155,10 +155,11 @@ public class MEXEnum {
         public static final String LADTree = "LADTree";
         public static final String ELTL = "ELTL";
         public static final String AdaptativeBoost = "AdaptativeBoost";
-        public static final String RegressionAnalysis = "RegressionAnalysis";
+        public static final String LogisticRegression = "LogisticRegression";
+        public static final String LinearRegression = "LinearRegression";
         public static final String SimpleVoting = "SimpleVoting";
         public static final String LogisticModelTrees = "LogisticModelTrees";
-        public static final String AdaBoost = "AdaBoost";
+        public static final String AdaBoostM1 = "AdaBoostM1";
         public static final String ClassLevelVoting = "ClassLevelVoting";
         public static final String BaggingJ48 = "BaggingJ48";
         public static final String AdditiveLogisticRegression = "AdditiveLogisticRegression";
@@ -322,12 +323,13 @@ public class MEXEnum {
         AdaptativeBoost(EnumAlgorithm.AdaptativeBoost.toString()),
         SimpleVoting(EnumAlgorithm.SimpleVoting.toString()),
         LogisticModelTrees(EnumAlgorithm.LogisticModelTrees.toString()),
-        AdaBoost(EnumAlgorithm.AdaBoost.toString()),
+        AdaBoostM1(EnumAlgorithm.AdaBoostM1.toString()),
         ClassLevelVoting(EnumAlgorithm.ClassLevelVoting.toString()),
         BaggingJ48(EnumAlgorithm.BaggingJ48.toString()),
         AdditiveLogisticRegression(EnumAlgorithm.AdditiveLogisticRegression.toString()),
         FunctionalTrees(EnumAlgorithm.FunctionalTrees.toString()),
-        RegressionAnalysis(EnumAlgorithm.RegressionAnalysis.toString()),
+        LogisticRegression(EnumAlgorithm.LogisticRegression.toString()),
+        LinearRegression(EnumAlgorithm.LinearRegression.toString()),
         NER_STANFORD(EnumAlgorithm.NER_STANFORD.toString()),
         NER_ILLINOIS_EXTENDED(EnumAlgorithm.NER_ILLINOIS_EXTENDED.toString()),
         NER_OPEN_NLP(EnumAlgorithm.NER_OPEN_NLP.toString()),
