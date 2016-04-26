@@ -767,7 +767,8 @@ public class MEXEnum {
         STATISTICA(EnumImplementation.STATISTICA.toString()),
         WEKA(EnumImplementation.Weka.toString()),
         YALE(EnumImplementation.YALE.toString()),
-        YOOREEKA(EnumImplementation.Yooreeka.toString());
+        YOOREEKA(EnumImplementation.Yooreeka.toString()),
+        FOX(EnumImplementation.FOX);
 
         private final String text;
         /**
