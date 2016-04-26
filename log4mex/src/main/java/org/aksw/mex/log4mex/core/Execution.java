@@ -36,83 +36,82 @@ public abstract class Execution {
         this._examples = new ArrayList();
     }
 
-    public List<ExampleVO> getExamples(){
-        return this._examples;
-    }
 
-    /*public ExampleCollection getExampleCollection(){
-        return this._exampleCollection;
-    }
-    */
+    /**********************************************************************************************************************************************
+     *                                                                  getters
+     **********************************************************************************************************************************************/
 
     public String getId() {
         return _id;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
-    }
-
-
     public String getTargetClass() {
         return _targetClass;
-    }
-
-
-    public void setTargetClass(String _targetClass) {
-        this._targetClass = _targetClass;
-    }
-
-    public Boolean getGrouped() {
-        return _grouped;
-    }
-
-    public void set_grouped(Boolean _grouped) {
-        this._grouped = _grouped;
     }
 
     public Date getStartedAtTime() {
         return _startedAtTime;
     }
 
-    public void set_startedAtTime(Date _startedAtTime) {
-        this._startedAtTime = _startedAtTime;
-    }
-
     public Date getEndedAtTime() {
         return _endedAtTime;
     }
 
-    public void set_endedAtTime(Date _endedAtTime) {
-        this._endedAtTime = _endedAtTime;
+    public Boolean getGrouped() {
+        return _grouped;
     }
 
-    public ExperimentConfigurationVO get_expConf() {
-        return _expConf;
-    }
 
-    public void set_expConf(ExperimentConfigurationVO _expConf) {
-        this._expConf = _expConf;
-    }
 
     public PhaseVO getPhase() {
         return _phase;
-    }
-
-    public void set_phase(PhaseVO _phase) {
-        this._phase = _phase;
     }
 
     public AlgorithmVO getAlgorithm() {
         return _algo;
     }
 
-    public void set_algo(AlgorithmVO _algo) {
-        this._algo = _algo;
+    public ModelVO getModel() {
+        return _model;
     }
+
+    public ExperimentConfigurationVO getExpConf() {
+        return _expConf;
+    }
+
+    public List<Measure> getPerformances() {
+        return _performances;
+    }
+
+    public List<ExampleVO> getExamples(){
+        return this._examples;
+    }
+
+    public List<ClassificationMeasureVO> getClassificationPerformance() {
+        List<ClassificationMeasureVO> classifications = null;
+        Collection<Measure> t
+                = Collections2.filter(this._performances, p -> p instanceof ClassificationMeasureVO);
+        if (t != null && t.size() >0){
+            classifications = new ArrayList(t);
+        }
+        return classifications;
+    }
+
+
+    /**********************************************************************************************************************************************
+     *                                                                  setters
+     **********************************************************************************************************************************************/
+
+    public abstract void setStartsAtPosition(String value);
+
+    public abstract void setEndsAtPosition(String value);
 
     public void setId(String value){
         this._id = value;
+    }
+
+    public void setTargetClass(String _targetClass) {
+        this._targetClass = _targetClass;
     }
 
     public void setStartDate(Date value){
@@ -129,10 +128,6 @@ public abstract class Execution {
 
     public void setModel(ModelVO value){ this._model = value;}
 
-    public ModelVO getModel() {
-        return _model;
-    }
-
     public void setAlgorithm(AlgorithmVO value){
         this._algo = value;
     }
@@ -141,7 +136,7 @@ public abstract class Execution {
         try{
             //check whether the algorithm exists into the experiment configuration
             Collection<AlgorithmVO> t
-                    = Collections2.filter(this.get_expConf().getAlgorithms(), p -> (p instanceof AlgorithmVO && p.getIdentifier().equals(id)));
+                    = Collections2.filter(this.getExpConf().getAlgorithms(), p -> (p instanceof AlgorithmVO && p.getIdentifier().equals(id)));
             if (t != null && t.size() > 0){
                 this._algo = Iterables.get(t, 0);
             }else{
@@ -154,9 +149,33 @@ public abstract class Execution {
         return true;
     }
 
+    public void setGrouped(Boolean _grouped) {
+        this._grouped = _grouped;
+    }
+
+    public void setStartedAtTime(Date _startedAtTime) {
+        this._startedAtTime = _startedAtTime;
+    }
+
+    public void setEndedAtTime(Date _endedAtTime) {
+        this._endedAtTime = _endedAtTime;
+    }
+
+    public void setExpConf(ExperimentConfigurationVO _expConf) {
+        this._expConf = _expConf;
+    }
+
+    public void setAlgo(AlgorithmVO _algo) {
+        this._algo = _algo;
+    }
+
     public void setPhase(PhaseVO value){
         this._phase = value;
     }
+
+    /**********************************************************************************************************************************************
+     *                                                                  functions
+     ***********************************************************************************************************************************************/
 
     public boolean addPerformance(MEXEnum.EnumMeasures m, double v){
         String type = "";
@@ -164,25 +183,25 @@ public abstract class Execution {
 
         boolean ret = false;
 
-            try{
-                type = "cla";
-                if (EnumUtils.isValidEnum(MEXEnum.EnumClassificationMeasure.class, p.toUpperCase()) == false){
-                    type = "reg";
-                    if (EnumUtils.isValidEnum(MEXEnum.EnumRegressionMeasure.class, p.toUpperCase()) == false){
-                        type = "sta";
-                        if (EnumUtils.isValidEnum(MEXEnum.EnumStatisticalMeasure.class, p.toUpperCase()) == false){
-                            type = "clu";
-                            if (EnumUtils.isValidEnum(MEXEnum.EnumClusteringMeasure.class, p.toUpperCase()) == false){
-                                return false;}
-                        }
+        try{
+            type = "cla";
+            if (EnumUtils.isValidEnum(MEXEnum.EnumClassificationMeasure.class, p.toUpperCase()) == false){
+                type = "reg";
+                if (EnumUtils.isValidEnum(MEXEnum.EnumRegressionMeasure.class, p.toUpperCase()) == false){
+                    type = "sta";
+                    if (EnumUtils.isValidEnum(MEXEnum.EnumStatisticalMeasure.class, p.toUpperCase()) == false){
+                        type = "clu";
+                        if (EnumUtils.isValidEnum(MEXEnum.EnumClusteringMeasure.class, p.toUpperCase()) == false){
+                            return false;}
                     }
                 }
+            }
 
 
-                switch (type) {
-                    case "cla":
-                        ret = addClassificationPerformance(p,v);
-                        break;
+            switch (type) {
+                case "cla":
+                    ret = addClassificationPerformance(p,v);
+                    break;
                         /*
                         ClassificationMeasureVO mc = new ClassificationMeasureVO();
                         if (p.equals("accuracy")){
@@ -222,7 +241,7 @@ public abstract class Execution {
                         */
 
 
-                    case "reg":
+                case "reg":
 
                        /* RegressionMeasureVO mr = new RegressionMeasureVO();
                         if (p.equals("meanAbsoluteDeviation")){
@@ -247,9 +266,9 @@ public abstract class Execution {
                         this._performances.add(mr);
                         */
 
-                        ret =  addRegressionPerformance(p,v);
-                        break;
-                    case "sta":
+                    ret =  addRegressionPerformance(p,v);
+                    break;
+                case "sta":
 
                         /*StatisticalMeasureVO ms = new StatisticalMeasureVO();
 
@@ -292,9 +311,9 @@ public abstract class Execution {
                         this._performances.add(ms);*/
 
 
-                        ret = addStatisticalPerformance(p,v);
-                        break;
-                    case "clu":
+                    ret = addStatisticalPerformance(p,v);
+                    break;
+                case "clu":
 
                        /* ClusteringMeasureVO mcl = new ClusteringMeasureVO();
 
@@ -314,18 +333,18 @@ public abstract class Execution {
 
                         this._performances.add(mcl);*/
 
-                        ret = addClusteringPerformance(p,v);
-                        break;
-                    default:
-                        ret = false;
-                        break;
-                }
+                    ret = addClusteringPerformance(p,v);
+                    break;
+                default:
+                    ret = false;
+                    break;
+            }
 
-            }catch (Exception e){
-                return false;}
+        }catch (Exception e){
+            return false;}
 
-            finally {
-                return ret;}
+        finally {
+            return ret;}
 
     }
 
@@ -357,22 +376,5 @@ public abstract class Execution {
         return this._performances.add(m);
     }
 
-    public List<ClassificationMeasureVO> getClassificationPerformance() {
-        List<ClassificationMeasureVO> classifications = null;
-        Collection<Measure> t
-                = Collections2.filter(this._performances, p -> p instanceof ClassificationMeasureVO);
-        if (t != null && t.size() >0){
-            classifications = new ArrayList(t);
-        }
-        return classifications;
-    }
-
-    public List<Measure> getPerformances() {
-        return _performances;
-    }
-
-    public abstract void setStartsAtPosition(String value);
-
-    public abstract void setEndsAtPosition(String value);
 
 }
