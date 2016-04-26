@@ -39,9 +39,6 @@ public class ExperimentConfigurationVO {
 
     private static final Logger        LOGGER = LoggerFactory.getLogger(ExperimentConfigurationVO.class);
 
-    /************************************************************************
-     * constructor
-     ************************************************************************/
 
     public ExperimentConfigurationVO(String id, String description) {
         this._id = id;
@@ -60,9 +57,9 @@ public class ExperimentConfigurationVO {
         this._ds = new DataSetVO();
     }
 
-    /************************************************************************
-     * getters
-     ************************************************************************/
+    /**********************************************************************************************************************************************
+     *                                                                  getters
+     **********************************************************************************************************************************************/
 
     /**
      * returns the id of an experiment configuration
@@ -229,9 +226,9 @@ public class ExperimentConfigurationVO {
         return r;
     }
 
-    /************************************************************************
-     * setters
-     ************************************************************************/
+    /**********************************************************************************************************************************************
+     *                                                                  setters
+     **********************************************************************************************************************************************/
 
     /**
      * set the experiment configuration id
@@ -322,9 +319,9 @@ public class ExperimentConfigurationVO {
         this._executions.get(index)._id = id;
     }
 
-    /************************************************************************
-     * functions
-     ************************************************************************/
+    /**********************************************************************************************************************************************
+     *                                                                  functions
+     ***********************************************************************************************************************************************/
 
     /**
      * add one Execution to the List of Executions in the ExecutionConfiguration
@@ -519,6 +516,27 @@ public class ExperimentConfigurationVO {
         this._implementation.setName(name.name());
     }
 
+    /**
+     * add an Algorithm available in an Experiment Configuration
+     * @param algorithmClass
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass, String id) throws Exception{
+        return _addAlgorithm(algorithmClass, id);
+    }
+
+    /**
+     * add an Algorithm available in an Experiment Configuration
+     * @param algorithmClass
+     * @return
+     * @throws Exception
+     */
+    public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass) throws Exception{
+        return _addAlgorithm(algorithmClass, "");
+    }
+
     private AlgorithmVO _addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass, String id) throws Exception{
 
         AlgorithmVO algo = null;
@@ -542,27 +560,6 @@ public class ExperimentConfigurationVO {
 
         return algo;
 
-    }
-
-    /**
-     * add an Algorithm available in an Experiment Configuration
-     * @param algorithmClass
-     * @param id
-     * @return
-     * @throws Exception
-     */
-    public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass, String id) throws Exception{
-        return _addAlgorithm(algorithmClass, id);
-    }
-
-    /**
-     * add an Algorithm available in an Experiment Configuration
-     * @param algorithmClass
-     * @return
-     * @throws Exception
-     */
-    public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass) throws Exception{
-        return _addAlgorithm(algorithmClass, "");
     }
 
 }
