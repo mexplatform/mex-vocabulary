@@ -1,6 +1,6 @@
-package log4mex.fox;
+package log4mex.fox.entity;
 
-import log4mex.*;
+import log4mex.fox.token.*;
 import org.aksw.mex.log4mex.MEXSerializer;
 import org.aksw.mex.log4mex.MyMEX;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
@@ -12,7 +12,7 @@ import java.util.Date;
 /**
  * Created by esteves on 27.06.15.
  */
-public class Fox {
+public class Dataset5 {
 
     public static void main(String[] args) {
 
@@ -81,7 +81,7 @@ public class Fox {
             alg16 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.ClassLevelVoting);
             alg17 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_BALIE);
             alg18 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.RandomForest);
-            alg19 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.LogistcRegression);
+            alg19 =mex.Configuration(eid).addAlgorithm(EnumAlgorithms.LogisticRegression);
 
             String[] param = {"C", "10^3", "alpha", "0.2"};
             alg1.addParameter(param);
@@ -90,21 +90,47 @@ public class Fox {
 
         String ex1 = "EX001";
         String ex2 = "EX002";
+        String ex3 = "EX003";
+        String ex4 = "EX004";
+        String ex5 = "EX005";
+        String ex6 = "EX006";
+        String ex7 = "EX007";
+        String ex8 = "EX008";
+        String ex9 = "EX009";
+        String ex10 = "EX010";
+        String ex11 = "EX011";
+        String ex12 = "EX012";
+        String ex13 = "EX013";
+        String ex14 = "EX014";
+        String ex15 = "EX015";
+        String ex16 = "EX016";
+        String ex17 = "EX017";
+        String ex18 = "EX018";
+        String ex19 = "EX019";
+        
         //associate your run x each algorithm
         {
-            mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TRAIN);
-            mex.Configuration(eid).setExecutionId(0, ex1);
+            mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
+           // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex1).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex1).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithms.SupportVectorMachines));
-            mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
-            mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
+            mex.Configuration(eid).Execution(ex1).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithms.BaggingJ48));
+            //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
+           // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
+            mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.RECALL, .96);
+            mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.PRECISION, .70);
+            mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.FMEASURE, .70);
+            mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.ERROR, .70);
+            mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .70);
 
 
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex1).setEndDate(new Date());
-
+        }
+        
+        
+        {
             mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
             mex.Configuration(eid).setExecutionId(1, ex2);
 
@@ -116,16 +142,11 @@ public class Fox {
                 //your models call here !
             mex.Configuration(eid).Execution(ex2).setEndDate(new Date());
 
-        }
-
-        //saving performances for each run
-        {
-
-            mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.ACCURACY, .96);
-            mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.TRUEPOSITIVERATE, .70);
             mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.ERROR, .04);
             mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.ACCURACY, .83);
             mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.TRUEPOSITIVERATE, .61);
+
+        //saving performances for each run
         }
 
 
