@@ -3,7 +3,6 @@ package org.aksw.mex.log4mex;
 import com.google.common.collect.Collections2;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
-import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.*;
 import org.aksw.mex.log4mex.algo.AlgorithmParameterVO;
@@ -526,7 +525,7 @@ public class MEXSerializer {
                             }
                             //ALGORITHM
                             if (e.getAlgorithm() != null) {
-                                Resource mexalgo_ALGO = model.createResource(MEXCORE_10.NS + e.getAlgorithm().getClassName());
+                                Resource mexalgo_ALGO = model.createResource(MEXALGO_10.NS + e.getAlgorithm().getClassName());
 
                                     Resource _alg = model.createResource(URIbase + e.getAlgorithm().getIndividualName())
                                             .addProperty(RDF.type, provEntity)
@@ -586,127 +585,12 @@ public class MEXSerializer {
 
                                         _mea = model.createResource(URIbase + "measure" + String.valueOf(e.getId()) + "_" + String.valueOf(auxmea))
                                                 .addProperty(RDF.type, provEntity)
-                                                .addProperty(RDF.type, mexperf);
-
-                                        Property mexprop = null;
-
-
-                                        if (mea.getName().toLowerCase().equals("accuracy")){
-                                            mexprop = MEXPERF_10.accuracy;
-                                        }else if (mea.getName().toLowerCase().equals("fmeasure")) {
-                                            mexprop = MEXPERF_10.fMeasure;
-                                        }else if (mea.getName().toLowerCase().equals("precision")) {
-                                            mexprop = MEXPERF_10.precision;
-                                        }else if (mea.getName().toLowerCase().equals("recall")) {
-                                            mexprop = MEXPERF_10.recall;
-                                        }else if (mea.getName().toLowerCase().equals("roc")) {
-                                            mexprop = MEXPERF_10.roc;
-                                        }else if (mea.getName().toLowerCase().equals("sensitivity")) {
-                                            mexprop = MEXPERF_10.sensitivity;
-                                        }else if (mea.getName().toLowerCase().equals("specificity")) {
-                                            mexprop = MEXPERF_10.specificity;
-                                        }else if (mea.getName().toLowerCase().equals("truenegative")) {
-                                            mexprop = MEXPERF_10.trueNegative;
-                                        }else if (mea.getName().toLowerCase().equals("truepositive")) {
-                                            mexprop = MEXPERF_10.truePositive;
-                                        }else if (mea.getName().toLowerCase().equals("falsenegative")) {
-                                            mexprop = MEXPERF_10.falseNegative;
-                                        }else if (mea.getName().toLowerCase().equals("falsepositive")) {
-                                            mexprop = MEXPERF_10.falsePositive;
-                                        }else if (mea.getName().toLowerCase().equals("falsenegativerate")) {
-                                            mexprop = MEXPERF_10.falseNegativeRate;
-                                        }else if (mea.getName().toLowerCase().equals("falsepositiverate")) {
-                                            mexprop = MEXPERF_10.falsePositiveRate;
-                                        }else if (mea.getName().toLowerCase().equals("truenegativerate")) {
-                                            mexprop = MEXPERF_10.trueNegativeRate;
-                                        }else if (mea.getName().toLowerCase().equals("truepositiverate")) {
-                                            mexprop = MEXPERF_10.truePositiveRate;
-                                        }else if (mea.getName().toLowerCase().equals("meanabsolutedeviation")){
-                                            mexprop = MEXPERF_10.meanAbsoluteDeviation;
-                                        }else if (mea.getName().toLowerCase().equals("meansquareerror")) {
-                                            mexprop = MEXPERF_10.meanSquareError;
-                                        }else if (mea.getName().toLowerCase().equals("residual")) {
-                                            mexprop = MEXPERF_10.residual;
-                                        }else if (mea.getName().toLowerCase().equals("totalerror")) {
-                                            mexprop = MEXPERF_10.totalError;
-                                        }else if (mea.getName().toLowerCase().equals("relativeabsoluteerror")) {
-                                            mexprop = MEXPERF_10.relativeAbsoluteError;
-                                        }else if (mea.getName().toLowerCase().equals("rootrelativesquarederror")) {
-                                            mexprop = MEXPERF_10.rootRelativeSquaredError;
-                                        }else if (mea.getName().toLowerCase().equals("rootmeansquarederror")) {
-                                            mexprop = MEXPERF_10.rootMeanSquaredError;
-                                        }else if (mea.getName().toLowerCase().equals("correlationcoefficient")) {
-                                            mexprop = MEXPERF_10.correlationCoefficient;
-                                        }else if  (mea.getName().toLowerCase().equals("pearsoncorrelation")){
-                                            mexprop = MEXPERF_10.pearsonCorrelation;
-                                        }else if (mea.getName().toLowerCase().equals("chisquare")) {
-                                            mexprop = MEXPERF_10.chiSquare;
-                                        }else if (mea.getName().toLowerCase().equals("error")) {
-                                            mexprop = MEXPERF_10.error;
-                                        }else if (mea.getName().toLowerCase().equals("kolmogorovsmirnov")) {
-                                            mexprop = MEXPERF_10.kolmogorovSmirnov;
-                                        }else if (mea.getName().toLowerCase().equals("mean")) {
-                                            mexprop = MEXPERF_10.mean;
-                                        }else if (mea.getName().toLowerCase().equals("nemenyi")) {
-                                            mexprop = MEXPERF_10.nemenyi;
-                                        }else if (mea.getName().toLowerCase().equals("standarddeviation")) {
-                                            mexprop = MEXPERF_10.standardDeviation;
-                                        }else if (mea.getName().toLowerCase().equals("wilcoxon")) {
-                                            mexprop = MEXPERF_10.wilcoxon;
-                                        }else if (mea.getName().toLowerCase().equals("variance")) {
-                                            mexprop = MEXPERF_10.variance;
-                                        }else if (mea.getName().toLowerCase().equals("friedman")) {
-                                            mexprop = MEXPERF_10.friedman;
-                                        }else if (mea.getName().toLowerCase().equals("median")) {
-                                            mexprop = MEXPERF_10.median;
-                                        }else if (mea.getName().toLowerCase().equals("kappastatistics")) {
-                                            mexprop = MEXPERF_10.kappaStatistics;
-                                        }else if (mea.getName().toLowerCase().equals("mode")) {
-                                            mexprop = MEXPERF_10.mode;
-                                        }else if (mea.getName().toLowerCase().equals("l2norm")) {
-                                            mexprop = MEXPERF_10.L2norm;
-                                        }else if (mea.getName().toLowerCase().equals("l1norm")) {
-                                            mexprop = MEXPERF_10.L1norm;
-                                        }else if (mea.getName().toLowerCase().equals("linfnorm")) {
-                                            mexprop = MEXPERF_10.Linfnorm;
-                                        } else if (mea.getName().toLowerCase().equals("chebyschevdistance")){
-                                            mexprop = MEXPERF_10.chebyschevDistance;
-                                        }else if (mea.getName().toLowerCase().equals("hammingdistance")) {
-                                            mexprop = MEXPERF_10.hammingDistance;
-                                        }else if (mea.getName().toLowerCase().equals("euclideandistance")) {
-                                            mexprop = MEXPERF_10.euclideanDistance;
-                                        }else if (mea.getName().toLowerCase().equals("manhattandistance")) {
-                                            mexprop = MEXPERF_10.manhattanDistance;
-                                        }else if (mea.getName().toLowerCase().equals("gensimilaritycoefficient")) {
-                                            mexprop = MEXPERF_10.genSimilarityCoerfficient;
-                                        }else if (mea.getName().toLowerCase().equals("mcc")) {
-                                            mexprop = MEXPERF_10.MCC;
-                                        }else{
-                                            throw new Exception("measure " + mea.getName().toLowerCase() + " has not been founded");
-                                        }
-
-                                        _mea.addProperty(mexprop, mea.getValue().toString());
-
-                                                /*
-                                                create a mapping and implement it later...
-                                                try{
-
-                                                    for (Field f : mea.getClass().getFields()) {
-                                                        f.setAccessible(true);
-                                                        if (f.get(mea) != null) {
-                                                            f.
-                                                            //f.set(mea, getDefaultValueForType(f.getType()));
-                                                        }
-                                                    }
-
-                                                }catch (Exception e){
-
-                                                }
-                                                */
+                                                .addProperty(RDF.type, mexperf)
+                                                .addProperty(model.createProperty(MEXPERF_10.NS + mea.getName()),model.createTypedLiteral(mea.getValue()));
 
 
-                                                //.addProperty(PROVO.value, String.valueOf(mea.getValue()))
-                                                //.addProperty(DCTerms.identifier, mea.getName());
+
+
 
                                         _mea.addProperty(PROVO.wasInformedBy, _exec);
                                         auxmea++;}
