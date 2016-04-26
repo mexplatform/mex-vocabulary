@@ -3,10 +3,10 @@ demoApplication.log
 /src/main/java/org/aksw/mex/beta/
 /.idea
 /tests
-mex.iml
 *.iml
 core/target
 examples/target
 framework/target
 log4mex/target
 site/target
+/mex.iml
