@@ -64,6 +64,11 @@ public class MEXEnum {
         public static final String LibraryJavaScript = "LibraryJavaScript";
         public static final String Shogun = "Shogun";
         public static final String MOA = "MOA";
+        public static final String NER_STANFORD = "NER_STANFORD";
+        public static final String NER_ILLINOIS_EXTENDED = "NER_ILLINOIS_EXTENDED";
+        public static final String NER_OPEN_NLP = "NER_OPEN_NLP";
+        public static final String NER_BALIE = "NER_BALIE";
+        public static final String FOX = "FOX";
 
     }
 
@@ -151,6 +156,18 @@ public class MEXEnum {
         public static final String ELTL = "ELTL";
         public static final String AdaptativeBoost = "AdaptativeBoost";
         public static final String RegressionAnalysis = "RegressionAnalysis";
+        public static final String SimpleVoting = "SimpleVoting";
+        public static final String LogisticModelTrees = "LogisticModelTrees";
+        public static final String AdaBoost = "AdaBoost";
+        public static final String ClassLevelVoting = "ClassLevelVoting";
+        public static final String BaggingJ48 = "BaggingJ48";
+        public static final String AdditiveLogisticRegression = "AdditiveLogisticRegression";
+        public static final String FunctionalTrees = "FunctionalTrees";
+        public static final String NER_STANFORD = "NER_STANFORD";
+        public static final String NER_ILLINOIS_EXTENDED = "NER_ILLINOIS_EXTENDED";
+        public static final String NER_OPEN_NLP = "NER_OPEN_NLP";
+        public static final String NER_BALIE = "NER_BALIE";
+
     }
 
     private class EnumSamplingMethod{
@@ -303,8 +320,18 @@ public class MEXEnum {
         LADTree(EnumAlgorithm.LADTree.toString()),
         ELTL(EnumAlgorithm.ELTL.toString()),
         AdaptativeBoost(EnumAlgorithm.AdaptativeBoost.toString()),
-        RegressionAnalysis(EnumAlgorithm.RegressionAnalysis.toString());
-
+        SimpleVoting(EnumAlgorithm.SimpleVoting.toString()),
+        LogisticModelTrees(EnumAlgorithm.LogisticModelTrees.toString()),
+        AdaBoost(EnumAlgorithm.AdaBoost.toString()),
+        ClassLevelVoting(EnumAlgorithm.ClassLevelVoting.toString()),
+        BaggingJ48(EnumAlgorithm.BaggingJ48.toString()),
+        AdditiveLogisticRegression(EnumAlgorithm.AdditiveLogisticRegression.toString()),
+        FunctionalTrees(EnumAlgorithm.FunctionalTrees.toString()),
+        RegressionAnalysis(EnumAlgorithm.RegressionAnalysis.toString()),
+        NER_STANFORD(EnumAlgorithm.NER_STANFORD.toString()),
+        NER_ILLINOIS_EXTENDED(EnumAlgorithm.NER_ILLINOIS_EXTENDED.toString()),
+        NER_OPEN_NLP(EnumAlgorithm.NER_OPEN_NLP.toString()),
+        NER_BALIE(EnumAlgorithm.NER_BALIE.toString());
 
 
         private final String text;
@@ -717,6 +744,10 @@ public class MEXEnum {
         MLPACK(EnumImplementation.MLPACK.toString()),
         MLPY(EnumImplementation.mlpy.toString()),
         MOA(EnumImplementation.MOA.toString()),
+        NER_STANFORD(EnumImplementation.NER_STANFORD.toString()),
+        NER_ILLINOIS_EXTENDED(EnumImplementation.NER_ILLINOIS_EXTENDED.toString()),
+        NER_OPEN_NLP(EnumImplementation.NER_OPEN_NLP.toString()),
+        NER_BALIE(EnumImplementation.NER_BALIE.toString()),
         MONTE_CARLO_MACHINE_LEARNING(EnumImplementation.MonteCarloMachineLearning.toString()),
         NEURO_SOLUTIONS(EnumImplementation.NeuroSolutions.toString()),
         OCTAVE(EnumImplementation.Octave.toString()),
