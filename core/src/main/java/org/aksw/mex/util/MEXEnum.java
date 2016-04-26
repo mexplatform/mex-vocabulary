@@ -93,6 +93,7 @@ public class MEXEnum {
         public static final String StockMarketAnalysis = "StockMarketAnalysis";
         public static final String NaturalLanguageProcessing = "NaturalLanguageProcessing";
         public static final String RecomenderSystems = "RecomenderSystems";
+        public static final String NamedEntityRecognition = "NamedEntityRecognition";
         public static final String Optimization = "Optimization";
         public static final String FactPrediction = "FactPrediction";
         public static final String AdaptativeWebsite = "AdaptativeWebsite";
@@ -558,6 +559,7 @@ public class MEXEnum {
         OBJECT_RECOGNITION(EnumContext.ObjectRecognition.toString()),
         OPTIMIZATION(EnumContext.Optimization.toString()),
         RECOMENDER_SYSTEMS(EnumContext.RecomenderSystems.toString()),
+        NAMED_ENTITY_RECOGNITION(EnumContext.NamedEntityRecognition.toString()),
         ROBOTICS(EnumContext.Robotics.toString()),
         SEARCH_ENGINES(EnumContext.SearchEngines.toString()),
         SENTIMENT_ANALYSIS(EnumContext.SentimentAnalysis.toString()),
