@@ -506,7 +506,7 @@ public class MEXSerializer {
                             //PHASE
                             if (e.getPhase() != null){
                                 Resource mexcore_PHASE = model.createResource(MEXCORE_10.NS + e.getPhase().getName());
-                                if (StringUtils.isNotBlank(e.getPhase().getName()) && StringUtils.isNotEmpty(e.getPhase().getName())) {
+                                if (StringUtils.isNotBlank(e.getPhase().getName().toString()) && StringUtils.isNotEmpty(e.getPhase().getName().toString())) {
                                 Resource _phase = model.createResource(URIbase + "phase" + e.getPhase().getName())
                                         .addProperty(RDF.type, provEntity)
                                         .addProperty(RDF.type, mexcore_PHASE);
