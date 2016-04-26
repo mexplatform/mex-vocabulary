@@ -7,7 +7,6 @@ import org.aksw.mex.log4mex.algo.AlgorithmParameterVO;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.log4mex.algo.ImplementationVO;
 import org.aksw.mex.log4mex.core.*;
-import org.aksw.mex.log4mex.perf.ExecutionPerformance;
 import org.aksw.mex.log4mex.perf.example.ExamplePerformanceCollection;
 import org.aksw.mex.log4mex.perf.example.ExamplePerformanceVO;
 import org.aksw.mex.log4mex.perf.overall.*;
@@ -60,8 +59,7 @@ public class MyMEX {
     private ClusteringMeasureVO clusteringMeasure;
     private RegressionMeasureVO regressionMeasure;
     private StatisticalMeasureVO statisticalMeasure;
-    private UserDefinedMeasure userDefinedMeasure;
-    private ExecutionPerformance executionPerformance;
+    private UserDefinedMeasureVO userDefinedMeasure;
 
     private boolean withoutConfiguration = false;
 
@@ -400,21 +398,14 @@ public class MyMEX {
         this.statisticalMeasure = statisticalMeasure;
     }
 
-    public UserDefinedMeasure getUserDefinedMeasure() {
+    public UserDefinedMeasureVO getUserDefinedMeasure() {
         return userDefinedMeasure;
     }
 
-    public void setUserDefinedMeasure(UserDefinedMeasure userDefinedMeasure) {
+    public void setUserDefinedMeasure(UserDefinedMeasureVO userDefinedMeasure) {
         this.userDefinedMeasure = userDefinedMeasure;
     }
 
-    public ExecutionPerformance getExecutionPerformance() {
-        return executionPerformance;
-    }
-
-    public void setExecutionPerformance(ExecutionPerformance executionPerformance) {
-        this.executionPerformance = executionPerformance;
-    }
 
     /****************************************************************************************
      * Lightweight Component - No need to set up a configuration

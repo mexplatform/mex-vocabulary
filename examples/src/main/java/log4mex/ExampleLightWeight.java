@@ -1,7 +1,7 @@
 package log4mex;
 
 import org.aksw.mex.log4mex.MEXSerializer;
-import org.aksw.mex.log4mex.MyMEXVO;
+import org.aksw.mex.log4mex.MyMEX;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum.*;
@@ -16,7 +16,7 @@ public class ExampleLightWeight {
     public static void main(String[] args) {
 
         //the MEX wrapper!
-        MyMEXVO mex = new MyMEXVO();
+        MyMEX mex = new MyMEX();
 
         try{
 

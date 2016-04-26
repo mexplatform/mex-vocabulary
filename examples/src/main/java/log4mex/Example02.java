@@ -1,7 +1,7 @@
 package log4mex;
 
 import org.aksw.mex.log4mex.MEXSerializer;
-import org.aksw.mex.log4mex.MyMEXVO;
+import org.aksw.mex.log4mex.MyMEX;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum.*;
 
@@ -13,7 +13,7 @@ public class Example02 {
 
     public static void main(String[] args) {
 
-        MyMEXVO mex = new MyMEXVO();
+        MyMEX mex = new MyMEX();
 
         System.out.println("starting example 02...");
 

@@ -2,7 +2,7 @@ package log4mex;
 
 import log4mex.tests.ModelSimulatorExample;
 import org.aksw.mex.log4mex.MEXSerializer;
-import org.aksw.mex.log4mex.MyMEXVO;
+import org.aksw.mex.log4mex.MyMEX;
 import org.aksw.mex.log4mex.algo.ImplementationVO;
 import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.log4mex.perf.overall.ClassificationMeasureVO;
@@ -18,12 +18,12 @@ public class ExampleGenericProblemSimulator {
 
     public static void main(String[] args) {
 
-        MyMEXVO mex = null;
+        MyMEX mex = null;
 
         //ajustar no loop de busca das subclasses...tem que ser metodo recursivo para pegar todos os filhos!
 
         /***************************************************************
-         * MyMEXVO Wrapper org.aksw.mex.example.old1
+         * MyMEX Wrapper org.aksw.mex.example.old1
          ***************************************************************/
         /* step 1: author and context */
 

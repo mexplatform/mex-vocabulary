@@ -4,7 +4,7 @@ package log4mex;
  * Created by esteves on 03.07.15.
  */
 import org.aksw.mex.log4mex.MEXSerializer;
-import org.aksw.mex.log4mex.MyMEXVO;
+import org.aksw.mex.log4mex.MyMEX;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum;
 import weka.classifiers.Classifier;
@@ -69,7 +69,7 @@ public class Example05_weka {
 
         System.out.println("starting example 05...");
 
-        MyMEXVO mex = new MyMEXVO();
+        MyMEX mex = new MyMEX();
 
         String ds = "weather.arff";
 

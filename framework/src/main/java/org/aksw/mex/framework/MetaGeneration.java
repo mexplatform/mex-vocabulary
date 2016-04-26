@@ -7,7 +7,7 @@ import org.aksw.mex.framework.annotations.algo.Algorithm;
 import org.aksw.mex.framework.annotations.core.*;
 import org.aksw.mex.framework.annotations.perf.Measure;
 import org.aksw.mex.log4mex.MEXSerializer;
-import org.aksw.mex.log4mex.MyMEXVO;
+import org.aksw.mex.log4mex.MyMEX;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.log4mex.core.HardwareConfigurationVO;
 import org.aksw.mex.log4mex.core.SamplingMethodVO;
@@ -29,7 +29,7 @@ public class MetaGeneration {
     /* general */
     private final static String javaDocURL = "http://mex.aksw.org/framework/doc";
     private final static Logger LOG = Logger.getLogger(MetaGeneration.class);
-    private final static MyMEXVO mex = new MyMEXVO();
+    private final static MyMEX mex = new MyMEX();
 
     /* performance issues */
     private static long START_TIME;

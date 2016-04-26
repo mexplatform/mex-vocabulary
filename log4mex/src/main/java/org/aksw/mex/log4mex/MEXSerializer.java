@@ -50,7 +50,8 @@ public class MEXSerializer {
         }
         return instance;
     }
-    private boolean parse(MyMEXVO mex) {
+
+    private boolean parse(MyMEX mex) {
 
         try{
 
@@ -121,7 +122,7 @@ public class MEXSerializer {
     }
 
     public void saveToDisk(String filename, String URIbase,
-                           MyMEXVO mex, MEXConstant.EnumRDFFormats format) throws Exception{
+                           MyMEX mex, MEXConstant.EnumRDFFormats format) throws Exception{
         try{
             if (parse(mex)){
                 writeJena(filename, URIbase, mex, format);
@@ -151,7 +152,7 @@ public class MEXSerializer {
     }
 
     //go back here later...
-    private void cleanUpTheResources(MyMEXVO mex) {
+    private void cleanUpTheResources(MyMEX mex) {
 
         //EXPERIMENT CONFIGURATION
         if (mex.getExperimentConfigurations() != null) {
@@ -187,7 +188,7 @@ public class MEXSerializer {
         }
     }
 
-    private void writeJena(String filename, String URIbase, MyMEXVO mex, MEXConstant.EnumRDFFormats format) throws Exception{
+    private void writeJena(String filename, String URIbase, MyMEX mex, MEXConstant.EnumRDFFormats format) throws Exception{
 
         //cleanUpTheResources(mex);
 

@@ -1,7 +1,7 @@
 package log4mex;
 
 import org.aksw.mex.log4mex.MEXSerializer;
-import org.aksw.mex.log4mex.MyMEXVO;
+import org.aksw.mex.log4mex.MyMEX;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum.*;
@@ -18,7 +18,7 @@ public class Example04_medium {
         System.out.println("starting example 04...");
 
         //the MEX wrapper!
-        MyMEXVO mex = new MyMEXVO();
+        MyMEX mex = new MyMEX();
 
         try{
 

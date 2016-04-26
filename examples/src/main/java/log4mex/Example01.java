@@ -1,7 +1,7 @@
 package log4mex;
 
 import org.aksw.mex.log4mex.MEXSerializer;
-import org.aksw.mex.log4mex.MyMEXVO;
+import org.aksw.mex.log4mex.MyMEX;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum.*;
 
@@ -16,7 +16,7 @@ public class Example01 {
 
         System.out.println("starting example 01...");
 
-        MyMEXVO mex = new MyMEXVO();
+        MyMEX mex = new MyMEX();
 
         try{
             /* (1) basic authoring provenance */
