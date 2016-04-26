@@ -9,7 +9,7 @@ import org.aksw.mex.util.MEXEnum.*;
 import java.util.Date;
 
 /**
- * Created by esteves on 27.06.15.
+ * Created by Moussallem on 26.04.16.
  */
 public class Dataset1 {
 
@@ -51,9 +51,9 @@ public class Dataset1 {
             mex.Configuration(eid).addHardwareConfiguration("ubuntu", EnumProcessors.INTEL_COREI7, EnumRAM.SIZE_16GB, "SSD", EnumCaches.CACHE_3MB);
 
 
-            mex.Configuration(eid).DataSet().setName("web");
-            mex.Configuration(eid).DataSet().setDescription("ataset consists of 20 annotated Web sites");
-            mex.Configuration(eid).DataSet().setURI("http://l2r.cs.uiuc.edu/∼cogcomp/software.php");
+            mex.Configuration(eid).DataSet().setName("News ");
+            mex.Configuration(eid).DataSet().setDescription("consists of text from newspaper articles and was re-annotated manually by the authors to ensure high data quality.");
+            mex.Configuration(eid).DataSet().setURI("https://github.com/AKSW/FOX/tree/master/input/1");
 
         }
 
@@ -447,7 +447,7 @@ public class Dataset1 {
         }
                                                                                                                                        
             try{
-                MEXSerializer.getInstance().saveToDisk("example1", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
+                MEXSerializer.getInstance().saveToDisk("../metafiles/log4mex/fox/token/1", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
             }catch (Exception e){
                 System.out.print(e.toString());
             }
