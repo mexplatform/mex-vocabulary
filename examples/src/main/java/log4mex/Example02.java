@@ -38,7 +38,7 @@ public class Example02 {
 
             /* (2.4) the algorithms and hyperparameters */
             String alg01ID = mex.Configuration(conf01ID).addAlgorithm(EnumAlgorithms.NaiveBayes).getIdentifier();
-            String alg02ID = mex.Configuration(conf02ID).addAlgorithm(EnumAlgorithms.RegressionAnalysis).getIdentifier();
+            String alg02ID = mex.Configuration(conf02ID).addAlgorithm(EnumAlgorithms.LogisticRegression).getIdentifier();
             /* (2.5) the executions */
             String exec01ID = mex.Configuration(conf01ID).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
             String exec02ID = mex.Configuration(conf02ID).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);

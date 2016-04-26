@@ -52,13 +52,19 @@ public abstract class Execution {
         this._id = _id;
     }
 
+
+
+
     public String getTargetClass() {
         return _targetClass;
     }
 
+
     public void setTargetClass(String _targetClass) {
         this._targetClass = _targetClass;
     }
+
+
 
     public Boolean getGrouped() {
         return _grouped;

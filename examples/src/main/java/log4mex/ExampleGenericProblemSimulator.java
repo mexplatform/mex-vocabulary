@@ -82,12 +82,12 @@ public class ExampleGenericProblemSimulator {
         /* step 4: control the executions */
 
         // train
-        ExecutionSetVO exec1 = new ExecutionSetVO(null, "E001", new PhaseVO(EnumPhases.TRAIN.name()));
+        ExecutionSetVO exec1 = new ExecutionSetVO(null, "E001", new PhaseVO(EnumPhases.TRAIN));
         exec1.setExperimentConfiguration(mcExpConf1);
         //exec1.setExamples(new ExampleCollection(0l, 114l));
 
         // test
-        ExecutionSetVO exec2 = new ExecutionSetVO(null, "E002", new PhaseVO(EnumPhases.TEST.name()));
+        ExecutionSetVO exec2 = new ExecutionSetVO(null, "E002", new PhaseVO(EnumPhases.TEST));
         exec2.setExperimentConfiguration(mcExpConf1);
         //exec2.setExamples(new ExampleCollection(115l, 160l));
 

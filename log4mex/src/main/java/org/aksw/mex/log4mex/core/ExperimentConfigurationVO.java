@@ -12,7 +12,6 @@ import org.aksw.mex.util.ontology.mex.MEXCORE_10;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -23,20 +22,24 @@ import java.util.List;
  */
 public class ExperimentConfigurationVO {
 
-    private String _id;
-    private String _description;
-    private ModelVO _model;
-    private SamplingMethodVO _sampling;
-    private HardwareConfigurationVO _hard;
-    private DataSetVO _ds;
-    //private ExperimentVO _exp;
-    private ImplementationVO _implementation;
-    private List<Execution> _executions;
-    private List<FeatureVO> _features;
-    private List<AlgorithmVO> _algorithms;
-    private Integer _seq = 0;
+    private String                     _id;
+    private String                     _description;
+    private Integer                    _seq = 0;
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ExperimentConfigurationVO.class);
+    private ModelVO                    _model;
+    private PhaseVO                    _phase;
+    private SamplingMethodVO           _sampling;
+    private HardwareConfigurationVO    _hard;
+    private DataSetVO                  _ds;
+    private ImplementationVO           _implementation;
+
+    private List<Execution>            _executions;
+    private List<FeatureVO>            _features;
+    private List<AlgorithmVO>          _algorithms;
+
+    private static final Logger        LOGGER = LoggerFactory.getLogger(ExperimentConfigurationVO.class);
+
+    /************************************ constructors ************************************/
 
     public ExperimentConfigurationVO(String id, String description) {
         this._id = id;
@@ -64,49 +67,30 @@ public class ExperimentConfigurationVO {
         this._ds = new DataSetVO();
     }
 
+    /************************************ getters ************************************/
+
     public String getId() {
         return _id;
-    }
-
-    public void setId(String _id) {
-        this._id = _id;
     }
 
     public String getDescription() {
         return _description;
     }
 
-    public void setDescription(String _description) {
-        this._description = _description;
-    }
+    /* complex objects */
 
-    public void setModel(ModelVO model) {
-        this._model = model;
-    }
-
-    public void setSamplingMethod(SamplingMethodVO value) {
-        this._sampling = value;
-    }
-
-    public void setHardwareConfiguration(HardwareConfigurationVO value) {
-        this._hard = value;
-    }
-
-    public void setDataSet(DataSetVO value) {
-        this._ds = value;
-    }
-
-    //public void setExperiment(ExperimentVO value) {
-    //    this._exp = value;
-    //}
     public ModelVO Model() {
         if (this._model == null){
             this._model = new ModelVO();
         }
         return this._model;
     }
-    public void setSamplingMethod(String classname, MEXEnum.EnumSamplingMethods name) {
-        this._sampling = new SamplingMethodVO(classname, name) ;
+
+    public PhaseVO Phase() {
+        if (this._phase == null){
+            this._phase = new PhaseVO(MEXEnum.EnumPhases.TEST); //this is the default one
+        }
+        return this._phase;
     }
 
     public SamplingMethodVO SamplingMethod(){
@@ -169,19 +153,24 @@ public class ExperimentConfigurationVO {
         }
     }
 
-    private ExecutionSetVO ExecutionOverall(String id){
-        ExecutionSetVO r = null;
-        try {
-            Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(id));
-            if (t != null && t.size() >0){
-                if (Iterables.get(t, 0) instanceof ExecutionSetVO) {
-                    r = (ExecutionSetVO) Iterables.get(t, 0);}
-            }
-        }
-        catch (Exception e){
-            System.out.println(e.toString());
-        }
-        return r;
+    public FeatureVO getFeature(Integer index){
+        return this._features.get(index);
+    }
+
+    public List<AlgorithmVO> getAlgorithms(){
+        return this._algorithms;
+    }
+
+    public List<AlgorithmVO> getAlgorithms(String id){
+        return this._algorithms;
+    }
+
+    public List<FeatureVO> getFeatures(){
+        return this._features;
+    }
+
+    public List<Execution> getExecutions(){
+        return this._executions;
     }
 
     public Execution Execution(String id){
@@ -196,12 +185,94 @@ public class ExperimentConfigurationVO {
         return ret;
     }
 
-    private void addExecutionOverall(String expID, String id, String phase){
-        this._executions.add(new ExecutionSetVO(this, id, new PhaseVO(phase)));
+    private ExecutionSetVO ExecutionOverall(String id){
+
+        ExecutionSetVO r = null;
+        try {
+            Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(id));
+            if (t != null && t.size() >0){
+                if (Iterables.get(t, 0) instanceof ExecutionSetVO) {
+                    r = (ExecutionSetVO) Iterables.get(t, 0);}
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+        return r;
+    }
+
+    /************************************ setters ************************************/
+
+    public void setId(String _id) {
+        this._id = _id;
+    }
+
+    public void setDescription(String _description) {
+        this._description = _description;
+    }
+
+    public void setExecutionStartTime(String executionId, Date value){
+        try {
+            Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(executionId));
+            if (t != null && t.size() >0){Iterables.get(t, 0).setStartDate(value);}
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+    }
+
+    public void setExecutionEndTime(String executionId, Date value){
+        try {
+            Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(executionId));
+            if (t != null && t.size() > 0){Iterables.get(t, 0).setEndDate(value);}
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+    }
+
+    /* complex objects */
+
+    public void setModel(ModelVO model) {
+        this._model = model;
+    }
+
+    public void setPhase(PhaseVO phase) {
+        this._phase = phase;
+    }
+
+    public void setSamplingMethod(SamplingMethodVO value) {
+        this._sampling = value;
+    }
+
+    public void setHardwareConfiguration(HardwareConfigurationVO value) {
+        this._hard = value;
+    }
+
+    public void setDataSet(DataSetVO value) {
+        this._ds = value;
+    }
+
+    public void setSamplingMethod(String classname, MEXEnum.EnumSamplingMethods name) {
+        this._sampling = new SamplingMethodVO(classname, name) ;
     }
 
     public void setExecutionId(Integer index, String id){
         this._executions.get(index)._id = id;
+    }
+
+    /************************************ functions ************************************/
+
+    public boolean addExecution(Execution param){
+        return _executions.add(param);
+    }
+
+    public boolean removeExecution(Execution param){
+        return _executions.remove(param);
+    }
+
+    private void addExecutionOverall(String expID, String id, MEXEnum.EnumPhases phase){
+        this._executions.add(new ExecutionSetVO(this, id, new PhaseVO(phase)));
     }
 
     public String addExecution(MEXEnum.EnumExecutionsType type, MEXEnum.EnumPhases phase) throws Exception{
@@ -212,10 +283,10 @@ public class ExperimentConfigurationVO {
         total = this._executions.size() + 1;
 
         if (type.toString().equals(MEXEnum.EnumExecutionsType.SINGLE.toString())) {
-            this._executions.add(new ExecutionIndividualVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase.name())));
+            this._executions.add(new ExecutionIndividualVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
         }
         if (type.toString().equals(MEXEnum.EnumExecutionsType.OVERALL.toString())) {
-            this._executions.add(new ExecutionSetVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase.name())));
+            this._executions.add(new ExecutionSetVO(this, "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + String.valueOf(total), new PhaseVO(phase)));
         }
         execCode = "C" + this._seq.toString() + "_" + MEXConstant.DEFAULT_EXEC_ID + total.toString();
         LOGGER.debug(execCode);
@@ -314,8 +385,7 @@ public class ExperimentConfigurationVO {
         this._model.setId(id);
     }
 
-    public void addHardwareConfiguration(String os, MEXEnum.EnumProcessors cpu,
-                                         MEXEnum.EnumRAM mb, String hd, MEXEnum.EnumCaches cache){
+    public void addHardwareConfiguration(String os, MEXEnum.EnumProcessors cpu, MEXEnum.EnumRAM mb, String hd, MEXEnum.EnumCaches cache){
         if (this._hard == null){
             this._hard = new HardwareConfigurationVO();
         }
@@ -387,55 +457,5 @@ public class ExperimentConfigurationVO {
 
         return algo;
     }
-
-    public List<AlgorithmVO> getAlgorithms(){
-        return this._algorithms;
-    }
-
-    public List<AlgorithmVO> getAlgorithms(String id){
-        return this._algorithms;
-    }
-
-    public List<FeatureVO> getFeatures(){
-        return this._features;
-    }
-
-    public List<Execution> getExecutions(){
-        return this._executions;
-    }
-
-    public FeatureVO getFeature(Integer index){
-        return this._features.get(index);
-    }
-
-    public void setExecutionStartTime(String executionId, Date value){
-        try {
-            Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(executionId));
-            if (t != null && t.size() >0){Iterables.get(t, 0).setStartDate(value);}
-        }
-        catch (Exception e){
-            System.out.println(e.toString());
-        }
-    }
-
-    public void setExecutionEndTime(String executionId, Date value){
-        try {
-            Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(executionId));
-            if (t != null && t.size() > 0){Iterables.get(t, 0).setEndDate(value);}
-        }
-        catch (Exception e){
-            System.out.println(e.toString());
-        }
-    }
-
-    public boolean addExecution(Execution param){
-        return _executions.add(param);
-    }
-
-    public boolean removeExecution(Execution param){
-        return _executions.remove(param);
-    }
-
-
 
 }
