@@ -47,7 +47,7 @@ public class Dataset4 {
                 mex.Configuration(eid).SamplingMethod().setTestSize(0.1);
                 mex.Configuration(eid).SamplingMethod().setSequential(true);
 
-                mex.Configuration(eid).addHardwareConfiguration("ubuntu", EnumProcessors.INTEL_COREI7, EnumRAM.SIZE_16GB, "SSD", EnumCaches.CACHE_3MB);
+                mex.Configuration(eid).setHardwareConfiguration("ubuntu", EnumProcessors.INTEL_COREI7, EnumRAM.SIZE_16GB, "SSD", EnumCaches.CACHE_3MB);
 
                 mex.Configuration(eid).DataSet().setName("Reuters");
                 mex.Configuration(eid).DataSet().setDescription("consists of 50 documents randomly chosen out of the Reuters-215788 corpus");

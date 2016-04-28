@@ -47,7 +47,7 @@ public class Dataset3 {
                 mex.Configuration(eid).SamplingMethod().setTestSize(0.1);
                 mex.Configuration(eid).SamplingMethod().setSequential(true);
 
-                mex.Configuration(eid).addHardwareConfiguration("ubuntu", EnumProcessors.INTEL_COREI7, EnumRAM.SIZE_16GB, "SSD", EnumCaches.CACHE_3MB);
+                mex.Configuration(eid).setHardwareConfiguration("ubuntu", EnumProcessors.INTEL_COREI7, EnumRAM.SIZE_16GB, "SSD", EnumCaches.CACHE_3MB);
 
                 mex.Configuration(eid).DataSet().setName("Web");
                 mex.Configuration(eid).DataSet().setDescription("The Web dataset consists of 20 annotated Web sites");
