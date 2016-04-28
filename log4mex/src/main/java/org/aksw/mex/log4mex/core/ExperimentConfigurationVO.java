@@ -39,7 +39,6 @@ public class ExperimentConfigurationVO {
 
     private static final Logger        LOGGER = LoggerFactory.getLogger(ExperimentConfigurationVO.class);
 
-    /************************************ constructors ************************************/
 
     public ExperimentConfigurationVO(String id, String description) {
         this._id = id;
@@ -58,18 +57,32 @@ public class ExperimentConfigurationVO {
         this._ds = new DataSetVO();
     }
 
-    /************************************ getters ************************************/
+    /**********************************************************************************************************************************************
+     *                                                                  getters
+     **********************************************************************************************************************************************/
 
+    /**
+     * returns the id of an experiment configuration
+     * @return
+     */
     public String getId() {
         return _id;
     }
 
+    /**
+     * returns the description of an experiment configuration
+     * @return
+     */
     public String getDescription() {
         return _description;
     }
 
     /* complex objects */
 
+    /**
+     * gets the Model of a configuration
+     * @return
+     */
     public ModelVO Model() {
         if (this._model == null){
             this._model = new ModelVO();
@@ -77,6 +90,10 @@ public class ExperimentConfigurationVO {
         return this._model;
     }
 
+    /**
+     * gets the Phase of a configuration
+     * @return
+     */
     public PhaseVO Phase() {
         if (this._phase == null){
             this._phase = new PhaseVO(MEXEnum.EnumPhases.TEST); //this is the default one
@@ -84,6 +101,10 @@ public class ExperimentConfigurationVO {
         return this._phase;
     }
 
+    /**
+     * gets the Sampling Method of a configuration
+     * @return
+     */
     public SamplingMethodVO SamplingMethod(){
         try {
             if (this._sampling == null) {
@@ -96,10 +117,14 @@ public class ExperimentConfigurationVO {
         }
     }
 
+    /**
+     * gets the Hardware of a configuration
+     * @return
+     */
     public HardwareConfigurationVO HardwareConfiguration() {
         try {
             if (this._hard == null) {
-                this.addHardwareConfiguration("", MEXEnum.EnumProcessors.NOT_INFORMED, MEXEnum.EnumRAM.NOT_INFORMED, "", MEXEnum.EnumCaches.NOT_INFORMED);
+                this.setHardwareConfiguration("", MEXEnum.EnumProcessors.NOT_INFORMED, MEXEnum.EnumRAM.NOT_INFORMED, "", MEXEnum.EnumCaches.NOT_INFORMED);
             }
             return this._hard;
         }
@@ -108,6 +133,26 @@ public class ExperimentConfigurationVO {
         }
     }
 
+    /**
+     * gets a Software Implementation of a configuration
+     * @return
+     */
+    public ImplementationVO Implementation() {
+        try {
+            if (this._implementation == null) {
+                this.setImplementation(MEXEnum.EnumImplementations.NOT_INFORMED, "");
+            }
+            return this._implementation;
+        }
+        catch (Exception e){
+            return null;
+        }
+    }
+
+    /**
+     * gets the Dataset of a configuration
+     * @return
+     */
     public DataSetVO DataSet() {
         if (_ds == null) {
             this._ds = new DataSetVO();
@@ -115,6 +160,11 @@ public class ExperimentConfigurationVO {
         return this._ds;
     }
 
+    /**
+     * gets a specific algorithm of a configuration based on the algorithm class
+     * @param algo
+     * @return
+     */
     public AlgorithmVO Algorithm(MEXEnum.EnumAlgorithms algo){
         if (this._algorithms == null) {
             this._algorithms = new ArrayList<>();}
@@ -132,23 +182,11 @@ public class ExperimentConfigurationVO {
         return ret;
     }
 
-    public ImplementationVO Implementation() {
-        try {
-            if (this._implementation == null) {
-                this.addImplementation(MEXEnum.EnumImplementations.NOT_INFORMED, "");
-            }
-            return this._implementation;
-        }
-        catch (Exception e){
-            return null;
-        }
-    }
-
+    /**
+     * returns all the algorithms of a configuration
+     * @return
+     */
     public List<AlgorithmVO> getAlgorithms(){
-        return this._algorithms;
-    }
-
-    public List<AlgorithmVO> getAlgorithms(String id){
         return this._algorithms;
     }
 
@@ -188,7 +226,9 @@ public class ExperimentConfigurationVO {
         return r;
     }
 
-    /************************************ setters ************************************/
+    /**********************************************************************************************************************************************
+     *                                                                  setters
+     **********************************************************************************************************************************************/
 
     /**
      * set the experiment configuration id
@@ -271,20 +311,25 @@ public class ExperimentConfigurationVO {
     }
 
     /**
-     * set the Dataset associated to a set of executions
-     * @param value
+     * set the Execution identification
+     * @param index
+     * @param id
      */
-    public void setDataSet(DataSetVO value) {
-        this._ds = value;
-    }
-
-
     public void setExecutionId(Integer index, String id){
         this._executions.get(index)._id = id;
     }
 
-    /************************************ functions ************************************/
+    /**********************************************************************************************************************************************
+     *                                                                  functions
+     ***********************************************************************************************************************************************/
 
+    /**
+     * add one Execution to the List of Executions in the ExecutionConfiguration
+     * @param type
+     * @param phase
+     * @return
+     * @throws Exception
+     */
     public String addExecution(MEXEnum.EnumExecutionsType type, MEXEnum.EnumPhases phase) throws Exception{
 
         Integer total;
@@ -324,10 +369,18 @@ public class ExperimentConfigurationVO {
         }
     }
 
+    /**
+     * add a feature associated to a set of executions
+     * @param featureName
+     */
     public void addFeature(String featureName){
        _addFeatures(new String[]{featureName});
     }
 
+    /**
+     * add recursively a set of features associated to a set of executions
+     * @param featuresName
+     */
     public void addFeature(String[] featuresName){
         _addFeatures(featuresName);
     }
@@ -362,6 +415,14 @@ public class ExperimentConfigurationVO {
 
     }
 
+    /**
+     * Set the Sampling Method for a given Experiment Configuration.
+     * There is an automatic counter in order to deal with more the 1 experiment configuration grouped in 1 experiment, i.e.,
+     * We would have (for instance) 2 Sampling Methods instances at the same model. Therefore, different id's are required.
+     * @param sm
+     * @param folds
+     * @throws Exception
+     */
     public void setSamplingMethod(MEXEnum.EnumSamplingMethods sm, Integer folds) throws Exception{
 
         try{
@@ -378,15 +439,19 @@ public class ExperimentConfigurationVO {
                 MEXController.getInstance().addSamplingMethodCounter();
             }
 
-
-
         }catch (Exception e){
             System.out.println(e.toString());
         }
 
     }
 
-    public void addModel(String id, String description, Date date){
+    /**
+     * set the Model associated to a set of executions
+     * @param id
+     * @param description
+     * @param date
+     */
+    public void setModel(String id, String description, Date date){
         if (this._model == null){
             this._model = new ModelVO();
         }
@@ -395,7 +460,15 @@ public class ExperimentConfigurationVO {
         this._model.setId(id);
     }
 
-    public void addHardwareConfiguration(String os, MEXEnum.EnumProcessors cpu, MEXEnum.EnumRAM mb, String hd, MEXEnum.EnumCaches cache){
+    /**
+     * set the Hardware Configuration associated to a set of executions
+     * @param os
+     * @param cpu
+     * @param mb
+     * @param hd
+     * @param cache
+     */
+    public void setHardwareConfiguration(String os, MEXEnum.EnumProcessors cpu, MEXEnum.EnumRAM mb, String hd, MEXEnum.EnumCaches cache){
         if (this._hard == null){
             this._hard = new HardwareConfigurationVO();
         }
@@ -407,7 +480,13 @@ public class ExperimentConfigurationVO {
 
     }
 
-    public void addDataSet(String URI, String description, String name){
+    /**
+     * set the Dataset associated to a set of executions
+     * @param URI
+     * @param description
+     * @param name
+     */
+    public void setDataset(String URI, String description, String name){
         if (this._ds == null){
             this._ds = new DataSetVO();
         }
@@ -416,12 +495,46 @@ public class ExperimentConfigurationVO {
         this._ds.setURI(URI);
     }
 
-    public void addImplementation(MEXEnum.EnumImplementations name, String version){
+    /**
+     * set the Dataset associated to a set of executions
+     * @param value
+     */
+    public void setDataSet(DataSetVO value) {
+        this._ds = value;
+    }
+
+    /**
+     * set the Software Implementation associated to a set of executions
+     * @param name
+     * @param version
+     */
+    public void setImplementation(MEXEnum.EnumImplementations name, String version){
         if (this._implementation == null){
             this._implementation = new ImplementationVO();
         }
         this._implementation.setRevision(version);
         this._implementation.setName(name.name());
+    }
+
+    /**
+     * add an Algorithm available in an Experiment Configuration
+     * @param algorithmClass
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass, String id) throws Exception{
+        return _addAlgorithm(algorithmClass, id);
+    }
+
+    /**
+     * add an Algorithm available in an Experiment Configuration
+     * @param algorithmClass
+     * @return
+     * @throws Exception
+     */
+    public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass) throws Exception{
+        return _addAlgorithm(algorithmClass, "");
     }
 
     private AlgorithmVO _addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass, String id) throws Exception{
@@ -447,14 +560,6 @@ public class ExperimentConfigurationVO {
 
         return algo;
 
-    }
-
-    public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass, String id) throws Exception{
-        return _addAlgorithm(algorithmClass, id);
-    }
-
-    public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass) throws Exception{
-        return _addAlgorithm(algorithmClass, "");
     }
 
 }
