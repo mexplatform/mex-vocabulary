@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * Created by Moussallem on 26.04.16.
  */
-public class Dataset1 {
+public class Dataset2 {
 
     public static void main(String[] args) {
 
@@ -49,9 +49,9 @@ public class Dataset1 {
 
                 mex.Configuration(eid).addHardwareConfiguration("ubuntu", EnumProcessors.INTEL_COREI7, EnumRAM.SIZE_16GB, "SSD", EnumCaches.CACHE_3MB);
 
-                mex.Configuration(eid).DataSet().setName("News ");
-                mex.Configuration(eid).DataSet().setDescription("consists of text from newspaper articles and was re-annotated manually by the authors to ensure high data quality.");
-                mex.Configuration(eid).DataSet().setURI("https://github.com/AKSW/FOX/tree/master/input/1");
+                mex.Configuration(eid).DataSet().setName("News*");
+                mex.Configuration(eid).DataSet().setDescription("a small subset of the dataset News which consists of text from newspaper articles and was re-annotated manually by the authors to ensure high data quality.");
+                mex.Configuration(eid).DataSet().setURI("https://github.com/AKSW/FOX/tree/master/input/2");
 
             }
 

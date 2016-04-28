@@ -10,7 +10,7 @@ import java.util.Date;
 /**
  * Created by Moussallem on 26.04.16.
  */
-public class Dataset1 {
+public class Dataset5 {
 
     public static void main(String[] args) {
 
@@ -49,9 +49,9 @@ public class Dataset1 {
 
                 mex.Configuration(eid).addHardwareConfiguration("ubuntu", EnumProcessors.INTEL_COREI7, EnumRAM.SIZE_16GB, "SSD", EnumCaches.CACHE_3MB);
 
-                mex.Configuration(eid).DataSet().setName("News ");
-                mex.Configuration(eid).DataSet().setDescription("consists of text from newspaper articles and was re-annotated manually by the authors to ensure high data quality.");
-                mex.Configuration(eid).DataSet().setURI("https://github.com/AKSW/FOX/tree/master/input/1");
+                mex.Configuration(eid).DataSet().setName("All dataset merged");
+                mex.Configuration(eid).DataSet().setDescription("News+News*+Web+Reuter compiled together");
+                mex.Configuration(eid).DataSet().setURI("https://github.com/AKSW/FOX/tree/master/input/5");
 
             }
 
@@ -195,7 +195,7 @@ public class Dataset1 {
 
             }
 
-                        //
+            //
             {
                 {
                     ex9 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -315,7 +315,7 @@ public class Dataset1 {
 
             }
 
-        //
+            //
             {
                 {
                     ex17 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -375,7 +375,7 @@ public class Dataset1 {
 
             }
 
-                   //
+            //
             {
                 {
                     ex21 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -435,7 +435,7 @@ public class Dataset1 {
 
             }
 
-                               //
+            //
             {
                 {
                     ex25 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -495,7 +495,7 @@ public class Dataset1 {
 
             }
 
-                                            //
+            //
             {
                 {
                     ex29 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -555,7 +555,7 @@ public class Dataset1 {
 
             }
 
-                                                                                                   //
+            //
             {
                 {
                     ex33 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -615,7 +615,7 @@ public class Dataset1 {
 
             }
 
-                                                                                                   //
+            //
             {
                 {
                     ex37 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -675,7 +675,7 @@ public class Dataset1 {
 
             }
 
-                                                                                                   //
+            //
             {
                 {
                     ex41 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -735,7 +735,7 @@ public class Dataset1 {
 
             }
 
-                                                                                                   //
+            //
             {
                 {
                     ex45 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -795,7 +795,7 @@ public class Dataset1 {
 
             }
 
-                                                                                                   //
+            //
             {
                 {
                     ex49 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -855,7 +855,7 @@ public class Dataset1 {
 
             }
 
-                                                                                                   //
+            //
             {
                 {
                     ex53 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -915,7 +915,7 @@ public class Dataset1 {
 
             }
 
-                                                                                                   //
+            //
             {
                 {
                     ex57 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -975,7 +975,7 @@ public class Dataset1 {
 
             }
 
-                                                                                                   //
+            //
             {
                 {
                     ex61 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -1035,7 +1035,7 @@ public class Dataset1 {
 
             }
 
-                                                                                                   //
+            //
             {
                 {
                     ex65 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -1095,7 +1095,7 @@ public class Dataset1 {
 
             }
 
-                                                                                                   //
+            //
             {
                 {
                     ex69 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
@@ -1155,7 +1155,7 @@ public class Dataset1 {
 
             }
 
-                                                                                                   //
+            //
             {
                 {
                     ex73 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
