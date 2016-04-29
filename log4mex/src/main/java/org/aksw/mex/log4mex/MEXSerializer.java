@@ -355,11 +355,11 @@ public class MEXSerializer {
 
                 }
                 //IMPLEMENTATION
-                if (item.Implementation() != null) {
-                    if (StringUtils.isNotBlank(item.Implementation().getName()) && StringUtils.isNotEmpty(item.Implementation().getName())) {
-                        Resource _imp = model.createResource(URIbase + "implementation")
+                if (item.Tool() != null) {
+                    if (StringUtils.isNotBlank(item.Tool().getName()) && StringUtils.isNotEmpty(item.Tool().getName())) {
+                        Resource _imp = model.createResource(URIbase + "tool")
                                 .addProperty(RDF.type, provEntity)
-                                .addProperty(RDF.type, MEXCORE_10.NS + item.Implementation().getName());
+                                .addProperty(RDF.type, MEXCORE_10.NS + item.Tool().getName());
                         _expConfiguration.addProperty(PROVO.used, _imp);}
                 }
                 //SAMPLING METHOD

@@ -3,7 +3,7 @@ package org.aksw.mex.log4mex.core;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Iterables;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
-import org.aksw.mex.log4mex.algo.ImplementationVO;
+import org.aksw.mex.log4mex.algo.ToolVO;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXController;
 import org.aksw.mex.util.MEXEnum;
@@ -31,13 +31,14 @@ public class ExperimentConfigurationVO {
     private SamplingMethodVO           _sampling;
     private HardwareConfigurationVO    _hard;
     private DataSetVO                  _ds;
-    private ImplementationVO           _implementation;
+    private ToolVO _implementation;
 
     private List<Execution>            _executions;
     private List<FeatureVO>            _features;
     private List<AlgorithmVO>          _algorithms;
 
     private static final Logger        LOGGER = LoggerFactory.getLogger(ExperimentConfigurationVO.class);
+
 
 
     public ExperimentConfigurationVO(String id, String description) {
@@ -137,10 +138,10 @@ public class ExperimentConfigurationVO {
      * gets a Software Implementation of a configuration
      * @return
      */
-    public ImplementationVO Implementation() {
+    public ToolVO Tool() {
         try {
             if (this._implementation == null) {
-                this.setImplementation(MEXEnum.EnumImplementations.NOT_INFORMED, "");
+                this.setTool(MEXEnum.EnumTools.NOT_INFORMED, "");
             }
             return this._implementation;
         }
@@ -508,9 +509,9 @@ public class ExperimentConfigurationVO {
      * @param name
      * @param version
      */
-    public void setImplementation(MEXEnum.EnumImplementations name, String version){
+    public void setTool(MEXEnum.EnumTools name, String version){
         if (this._implementation == null){
-            this._implementation = new ImplementationVO();
+            this._implementation = new ToolVO();
         }
         this._implementation.setRevision(version);
         this._implementation.setName(name.name());

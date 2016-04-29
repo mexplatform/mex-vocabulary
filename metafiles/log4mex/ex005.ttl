@@ -1,136 +1,128 @@
-@prefix owl:     <http://www.w3.org/2002/07/owl#> .
-@prefix this:    <http://mex.aksw.org/examples/> .
-@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dct:     <http://purl.org/dc/terms/> .
-@prefix mexcore:  <http://mex.aksw.org/mex-core#> .
-@prefix doap:    <http://usefulinc.com/ns/doap#> .
-@prefix mexperf:  <http://mex.aksw.org/mex-perf#> .
-@prefix mexalgo:  <http://mex.aksw.org/mex-algo#> .
-@prefix dcat:    <http://www.w3.org/ns/dcat#> .
-@prefix prov:    <http://www.w3.org/ns/prov#> .
-@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
-@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix this:  <http://mex.aksw.org/examples/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix mexcore: <http://mex.aksw.org/mex-core#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix mexperf: <http://mex.aksw.org/mex-perf#> .
+@prefix mexalgo: <http://mex.aksw.org/mex-algo#> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
-this:model
-      a       prov:Entity , mexcore:Model .
+this:application  a          mexcore:ApplicationContext , prov:Organization , prov:Person , prov:Agent ;
+        dct:dateCopyrighted  "2016.04.27 16:14:13 CEST" ;
+        foaf:givenName       "P.Creek" .
 
-this:feature2
-      a       mexcore:Feature , prov:Entity ;
-      rdfs:label "temperature" ;
-      dct:identifier "2" .
+this:samplingmethod1  a    mexcore:CrossValidation , prov:Entity ;
+        mexcore:folds      "10" ;
+        mexcore:testSize   "1.0" ;
+        mexcore:trainSize  "9.0" .
 
-this:phaseTEST
-      a       prov:Entity , mexcore:TEST .
+this:EXECC0_MEX_EXEC_D2
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       true ;
+        prov:id             "C0_MEX_EXEC_D2" ;
+        prov:used           this:algorithm2 , this:PHTest ;
+        prov:wasInformedBy  this:configuration1 .
 
-this:feature4
-      a       mexcore:Feature , prov:Entity ;
-      rdfs:label "windy" ;
-      dct:identifier "4" .
+this:algorithm4  a      mexalgo:DecisionStump , prov:Entity ;
+        dct:identifier  "algorithm4" .
 
-this:measureC0_MEX_EXEC_D4_1
-      a       prov:Entity , mexperf:ClassificationMeasure ;
-      mexperf:accuracy "21.428571428571427" ;
-      prov:wasInformedBy this:execution_C0_MEX_EXEC_D4 .
+this:model  a   mexcore:Model , prov:Entity .
 
-this:measureC0_MEX_EXEC_D1_1
-      a       prov:Entity , mexperf:ClassificationMeasure ;
-      mexperf:accuracy "50.0" ;
-      prov:wasInformedBy this:execution_C0_MEX_EXEC_D1 .
+this:feature5  a        mexcore:Feature , prov:Entity ;
+        rdfs:label      "play" ;
+        dct:identifier  "5" .
 
-this:execution_C0_MEX_EXEC_D4
-      a       mexcore:Execution , prov:Activity ;
-      mexcore:group "true" ;
-      prov:id "C0_MEX_EXEC_D4" ;
-      prov:used this:phaseTEST , this:algorithm1 ;
-      prov:wasInformedBy this:configuration1 .
+this:hardware  a  mexcore:HardwareConfiguration , prov:Entity .
+
+this:EXECC0_MEX_EXEC_D1
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       true ;
+        prov:id             "C0_MEX_EXEC_D1" ;
+        prov:used           this:algorithm1 , this:PHTest ;
+        prov:wasInformedBy  this:configuration1 .
+
+this:MC0_MEX_EXEC_D4_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:accuracy    "21.428571428571427"^^xsd:double ;
+        prov:wasInformedBy  this:EXECC0_MEX_EXEC_D4 .
+
+this:algorithm3  a      mexalgo:DecisionTable , prov:Entity ;
+        dct:identifier  "algorithm3" .
+
+this:feature4  a        mexcore:Feature , prov:Entity ;
+        rdfs:label      "windy" ;
+        dct:identifier  "4" .
+
+this:context  a               mexcore:NotInformed , prov:Entity ;
+        prov:wasAttributedTo  this:application .
+
+this:dataset  a    mexcore:DatasetName , prov:Entity ;
+        dct:title  "weather.arff" .
+
+this:MC0_MEX_EXEC_D3_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:accuracy    "64.28571428571429"^^xsd:double ;
+        prov:wasInformedBy  this:EXECC0_MEX_EXEC_D3 .
+
+this:algorithm2  a      mexalgo:PART , prov:Entity ;
+        dct:identifier  "algorithm2" .
+
+this:feature3  a        mexcore:Feature , prov:Entity ;
+        rdfs:label      "humidity" ;
+        dct:identifier  "3" .
+
+this:implementation  a  "http://mex.aksw.org/mex-core#NOT_INFORMED" ;
+        a       prov:Entity .
+
+this:MC0_MEX_EXEC_D2_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:accuracy    "50.0"^^xsd:double ;
+        prov:wasInformedBy  this:EXECC0_MEX_EXEC_D2 .
+
+this:algorithm1  a      mexalgo:J48 , prov:Entity ;
+        dct:identifier  "algorithm1" .
+
+this:feature2  a        mexcore:Feature , prov:Entity ;
+        rdfs:label      "temperature" ;
+        dct:identifier  "2" .
 
 this:experiment-header
-      a       prov:Entity , mexcore:Experiment ;
-      dct:identifier "MEX_EXPERIMENT" ;
-      prov:wasAttributedTo
-              this:application .
+        a                     mexcore:Experiment , prov:Entity ;
+        dct:identifier        "MEX_EXPERIMENT" ;
+        prov:wasAttributedTo  this:application .
 
-this:execution_C0_MEX_EXEC_D2
-      a       mexcore:Execution , prov:Activity ;
-      mexcore:group "true" ;
-      prov:id "C0_MEX_EXEC_D2" ;
-      prov:used this:phaseTEST , this:algorithm1 ;
-      prov:wasInformedBy this:configuration1 .
+this:MC0_MEX_EXEC_D1_1
+        a                   mexperf:ClassificationMeasure , prov:Entity ;
+        mexperf:accuracy    "50.0"^^xsd:double ;
+        prov:wasInformedBy  this:EXECC0_MEX_EXEC_D1 .
 
-this:application
-      a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
-      dct:dateCopyrighted "2016.04.20 20:55:37 CEST" ;
-      foaf:givenName "P.Creek" .
+this:EXECC0_MEX_EXEC_D4
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       true ;
+        prov:id             "C0_MEX_EXEC_D4" ;
+        prov:used           this:algorithm4 , this:PHTest ;
+        prov:wasInformedBy  this:configuration1 .
 
-this:feature1
-      a       mexcore:Feature , prov:Entity ;
-      rdfs:label "outlook" ;
-      dct:identifier "1" .
+this:PHTest  a  mexcore:Test , prov:Entity .
 
-this:dataset
-      a       prov:Entity , mexcore:DatasetName ;
-      dct:title "weather.arff" .
+this:configuration1  a  mexcore:ExperimentConfiguration , prov:Activity ;
+        dct:identifier  "MEX_EXP_CONF_D1" ;
+        prov:used       this:samplingmethod1 , this:hardware , this:feature4 , this:feature1 , this:dataset , this:feature2 , this:feature5 , this:feature3 , this:implementation .
 
-this:feature3
-      a       mexcore:Feature , prov:Entity ;
-      rdfs:label "humidity" ;
-      dct:identifier "3" .
+this:feature1  a        mexcore:Feature , prov:Entity ;
+        rdfs:label      "outlook" ;
+        dct:identifier  "1" .
 
-this:implementation
-      a       prov:Entity , "http://mex.aksw.org/mex-core#NOT_INFORMED" .
+this:version  dct:hasVersion  "1.0.1" .
 
-this:configuration1
-      a       mexcore:ExperimentConfiguration , prov:Activity ;
-      dct:identifier "MEX_EXP_CONF_D1" ;
-      prov:used this:feature1 , this:feature2 , this:dataset , this:feature3 , this:implementation , this:samplingmethod1 , this:feature4 , this:hardware , this:feature5 .
-
-this:feature5
-      a       mexcore:Feature , prov:Entity ;
-      rdfs:label "play" ;
-      dct:identifier "5" .
-
-this:measureC0_MEX_EXEC_D2_1
-      a       prov:Entity , mexperf:ClassificationMeasure ;
-      mexperf:accuracy "50.0" ;
-      prov:wasInformedBy this:execution_C0_MEX_EXEC_D2 .
-
-this:measureC0_MEX_EXEC_D3_1
-      a       prov:Entity , mexperf:ClassificationMeasure ;
-      mexperf:accuracy "64.28571428571429" ;
-      prov:wasInformedBy this:execution_C0_MEX_EXEC_D3 .
-
-this:context
-      a       prov:Entity , mexcore:NotInformed ;
-      prov:wasAttributedTo
-              this:application .
-
-this:samplingmethod1
-      a       prov:Entity , mexcore:CrossValidation ;
-      mexcore:folds "10" ;
-      mexcore:testSize "1.0" ;
-      mexcore:trainSize "9.0" .
-
-this:execution_C0_MEX_EXEC_D1
-      a       mexcore:Execution , prov:Activity ;
-      mexcore:group "true" ;
-      prov:id "C0_MEX_EXEC_D1" ;
-      prov:used this:phaseTEST , this:algorithm1 ;
-      prov:wasInformedBy this:configuration1 .
-
-this:hardware
-      a       mexcore:HardwareConfiguration , prov:Entity .
-
-this:version
-      dct:hasVersion "1.0.1" .
-
-this:execution_C0_MEX_EXEC_D3
-      a       mexcore:Execution , prov:Activity ;
-      mexcore:group "true" ;
-      prov:id "C0_MEX_EXEC_D3" ;
-      prov:used this:phaseTEST , this:algorithm1 ;
-      prov:wasInformedBy this:configuration1 .
-
-this:algorithm1
-      a       prov:Entity , mexcore:J48 ;
-      dct:identifier "algorithm1" .
+this:EXECC0_MEX_EXEC_D3
+        a                   mexcore:Execution , prov:Activity ;
+        mexcore:group       true ;
+        prov:id             "C0_MEX_EXEC_D3" ;
+        prov:used           this:algorithm3 , this:PHTest ;
+        prov:wasInformedBy  this:configuration1 .

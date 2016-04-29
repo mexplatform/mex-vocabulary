@@ -67,8 +67,8 @@ public class ExampleMedium {
 
         //adding algorithms and parameters
         {
-            mex.Configuration(eid).Implementation().set(EnumImplementations.WEKA);
-            mex.Configuration(eid).Implementation().setRevision("3.6.6");
+            mex.Configuration(eid).Tool().set(EnumTools.WEKA);
+            mex.Configuration(eid).Tool().setRevision("3.6.6");
 
             mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SupportVectorMachines);
             mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);

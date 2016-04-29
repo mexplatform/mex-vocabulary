@@ -5,7 +5,7 @@ import com.google.common.collect.Iterables;
 import org.aksw.mex.log4mex.algo.AlgorithmParameterCollectionVO;
 import org.aksw.mex.log4mex.algo.AlgorithmParameterVO;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
-import org.aksw.mex.log4mex.algo.ImplementationVO;
+import org.aksw.mex.log4mex.algo.ToolVO;
 import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.log4mex.perf.example.ExamplePerformanceCollection;
 import org.aksw.mex.log4mex.perf.example.ExamplePerformanceVO;
@@ -50,7 +50,7 @@ public class MyMEX {
     private AlgorithmParameterCollectionVO algorithmParameterCollection;
     private AlgorithmParameterVO algorithmParameter;
     private AlgorithmVO algorithm;
-    private ImplementationVO implementation;
+    private ToolVO implementation;
     //mex-perf
     private ExamplePerformanceCollection examplePerformanceCollection;
     private ExamplePerformanceVO examplePerformance;
@@ -323,11 +323,11 @@ public class MyMEX {
         this.algorithm = algorithm;
     }
 
-    public ImplementationVO getImplementation() {
+    public ToolVO getImplementation() {
         return implementation;
     }
 
-    public void setImplementation(ImplementationVO implementation) {
+    public void setImplementation(ToolVO implementation) {
         this.implementation = implementation;
     }
 

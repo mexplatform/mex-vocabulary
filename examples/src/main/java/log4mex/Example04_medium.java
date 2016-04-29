@@ -67,7 +67,7 @@ public class Example04_medium {
         AlgorithmVO alg1;
         {
 
-            mex.Configuration(eid).setImplementation(EnumImplementations.WEKA, "3.6.6");
+            mex.Configuration(eid).setTool(EnumTools.WEKA, "3.6.6");
 
             alg1 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SupportVectorMachines);
             mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);

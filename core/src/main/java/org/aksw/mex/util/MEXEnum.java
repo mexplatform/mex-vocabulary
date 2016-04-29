@@ -10,7 +10,7 @@ public class MEXEnum {
         public static final String M3 = "M3";
     }
 
-    private class EnumImplementation {
+    private class EnumTool {
         public static final String NOT_INFORMED = "";
         public static final String H2O = "H2O";
         public static final String DLLearner = "DLLearner";
@@ -713,70 +713,70 @@ public class MEXEnum {
 
     }
 
-    public enum EnumImplementations{
-        NOT_INFORMED(EnumImplementation.NOT_INFORMED.toString()),
-        APACHE_MAHOUT(EnumImplementation.ApacheMahout.toString()),
-        AZURE(EnumImplementation.AZURE.toString()),
-        DL_LEARNER(EnumImplementation.DLLearner.toString()),
-        ELKI(EnumImplementation.ELKI.toString()),
-        ENCOG(EnumImplementation.Encog.toString()),
-        EVIEWS(EnumImplementation.EViews.toString()),
-        FAMa(EnumImplementation.FAMa.toString()),
-        H2O(EnumImplementation.H2O.toString()),
-        IBM_MINER(EnumImplementation.IBMMiner.toString()),
-        JULIA(EnumImplementation.Julia.toString()),
-        KNIME(EnumImplementation.KNIME.toString()),
-        KXEN(EnumImplementation.KXEN.toString()),
-        LIBLINEAR(EnumImplementation.LibLinear.toString()),
-        LIBRARY_C(EnumImplementation.LibraryC.toString()),
-        LIBRARY_CENTURA(EnumImplementation.LibraryCentura.toString()),
-        LIBRARY_CPLUSPLUS(EnumImplementation.LibraryCPlusPlus.toString()),
-        LIBRARY_DOTNET(EnumImplementation.LibraryDotNet.toString()),
-        LIBRARY_JAVA(EnumImplementation.LibraryJava.toString()),
-        LIBRARY_JAVASCRIPT(EnumImplementation.LibraryJavaScript.toString()),
-        LIBRARY_NODEJS(EnumImplementation.LibraryNodeJS.toString()),
-        LIBRARY_OTHER(EnumImplementation.LibraryOther.toString()),
-        LIBRARY_PHP(EnumImplementation.LibraryPHP.toString()),
-        LIBRARY_PYTHON(EnumImplementation.LibraryPython.toString()),
-        LIBRARY_RUBY(EnumImplementation.LibraryRuby.toString()),
-        LIB_SVM(EnumImplementation.LibSVM.toString()),
-        LION_SOLVER(EnumImplementation.LIONsolver.toString()),
-        MATHEMATICA(EnumImplementation.Mathematica.toString()),
-        MATLAB(EnumImplementation.Matlab.toString()),
-        MLPACK(EnumImplementation.MLPACK.toString()),
-        MLPY(EnumImplementation.mlpy.toString()),
-        MOA(EnumImplementation.MOA.toString()),
-        NER_STANFORD(EnumImplementation.NER_STANFORD.toString()),
-        NER_ILLINOIS_EXTENDED(EnumImplementation.NER_ILLINOIS_EXTENDED.toString()),
-        NER_OPEN_NLP(EnumImplementation.NER_OPEN_NLP.toString()),
-        NER_BALIE(EnumImplementation.NER_BALIE.toString()),
-        MONTE_CARLO_MACHINE_LEARNING(EnumImplementation.MonteCarloMachineLearning.toString()),
-        NEURO_SOLUTIONS(EnumImplementation.NeuroSolutions.toString()),
-        OCTAVE(EnumImplementation.Octave.toString()),
-        OPEN_CV(EnumImplementation.OpenCV.toString()),
-        OPEN_NN(EnumImplementation.OpenNN.toString()),
-        ORACLE_DATA_MINING(EnumImplementation.OracleDataMining.toString()),
-        ORANGE(EnumImplementation.Orange.toString()),
-        R(EnumImplementation.R.toString()),
-        RAPID_MINER(EnumImplementation.RapidMiner.toString()),
-        R_CASE(EnumImplementation.RCASE.toString()),
-        SAP(EnumImplementation.SAP.toString()),
-        SCIKIT_LEARN(EnumImplementation.scikitlearn.toString()),
-        SHOGUN(EnumImplementation.Shogun.toString()),
-        SPSS(EnumImplementation.SPSS.toString()),
-        SQL_SERVER_ANALYSIS_SERVICES(EnumImplementation.SQLServerAnalysisServices.toString()),
-        STATA(EnumImplementation.Stata.toString()),
-        STATISTICA(EnumImplementation.STATISTICA.toString()),
-        WEKA(EnumImplementation.Weka.toString()),
-        YALE(EnumImplementation.YALE.toString()),
-        YOOREEKA(EnumImplementation.Yooreeka.toString()),
-        FOX(EnumImplementation.FOX);
+    public enum EnumTools{
+        NOT_INFORMED(EnumTool.NOT_INFORMED.toString()),
+        APACHE_MAHOUT(EnumTool.ApacheMahout.toString()),
+        AZURE(EnumTool.AZURE.toString()),
+        DL_LEARNER(EnumTool.DLLearner.toString()),
+        ELKI(EnumTool.ELKI.toString()),
+        ENCOG(EnumTool.Encog.toString()),
+        EVIEWS(EnumTool.EViews.toString()),
+        FAMa(EnumTool.FAMa.toString()),
+        H2O(EnumTool.H2O.toString()),
+        IBM_MINER(EnumTool.IBMMiner.toString()),
+        JULIA(EnumTool.Julia.toString()),
+        KNIME(EnumTool.KNIME.toString()),
+        KXEN(EnumTool.KXEN.toString()),
+        LIBLINEAR(EnumTool.LibLinear.toString()),
+        LIBRARY_C(EnumTool.LibraryC.toString()),
+        LIBRARY_CENTURA(EnumTool.LibraryCentura.toString()),
+        LIBRARY_CPLUSPLUS(EnumTool.LibraryCPlusPlus.toString()),
+        LIBRARY_DOTNET(EnumTool.LibraryDotNet.toString()),
+        LIBRARY_JAVA(EnumTool.LibraryJava.toString()),
+        LIBRARY_JAVASCRIPT(EnumTool.LibraryJavaScript.toString()),
+        LIBRARY_NODEJS(EnumTool.LibraryNodeJS.toString()),
+        LIBRARY_OTHER(EnumTool.LibraryOther.toString()),
+        LIBRARY_PHP(EnumTool.LibraryPHP.toString()),
+        LIBRARY_PYTHON(EnumTool.LibraryPython.toString()),
+        LIBRARY_RUBY(EnumTool.LibraryRuby.toString()),
+        LIB_SVM(EnumTool.LibSVM.toString()),
+        LION_SOLVER(EnumTool.LIONsolver.toString()),
+        MATHEMATICA(EnumTool.Mathematica.toString()),
+        MATLAB(EnumTool.Matlab.toString()),
+        MLPACK(EnumTool.MLPACK.toString()),
+        MLPY(EnumTool.mlpy.toString()),
+        MOA(EnumTool.MOA.toString()),
+        NER_STANFORD(EnumTool.NER_STANFORD.toString()),
+        NER_ILLINOIS_EXTENDED(EnumTool.NER_ILLINOIS_EXTENDED.toString()),
+        NER_OPEN_NLP(EnumTool.NER_OPEN_NLP.toString()),
+        NER_BALIE(EnumTool.NER_BALIE.toString()),
+        MONTE_CARLO_MACHINE_LEARNING(EnumTool.MonteCarloMachineLearning.toString()),
+        NEURO_SOLUTIONS(EnumTool.NeuroSolutions.toString()),
+        OCTAVE(EnumTool.Octave.toString()),
+        OPEN_CV(EnumTool.OpenCV.toString()),
+        OPEN_NN(EnumTool.OpenNN.toString()),
+        ORACLE_DATA_MINING(EnumTool.OracleDataMining.toString()),
+        ORANGE(EnumTool.Orange.toString()),
+        R(EnumTool.R.toString()),
+        RAPID_MINER(EnumTool.RapidMiner.toString()),
+        R_CASE(EnumTool.RCASE.toString()),
+        SAP(EnumTool.SAP.toString()),
+        SCIKIT_LEARN(EnumTool.scikitlearn.toString()),
+        SHOGUN(EnumTool.Shogun.toString()),
+        SPSS(EnumTool.SPSS.toString()),
+        SQL_SERVER_ANALYSIS_SERVICES(EnumTool.SQLServerAnalysisServices.toString()),
+        STATA(EnumTool.Stata.toString()),
+        STATISTICA(EnumTool.STATISTICA.toString()),
+        WEKA(EnumTool.Weka.toString()),
+        YALE(EnumTool.YALE.toString()),
+        YOOREEKA(EnumTool.Yooreeka.toString()),
+        FOX(EnumTool.FOX);
 
         private final String text;
         /**
          * @param text
          */
-        private EnumImplementations(final String text) {
+        private EnumTools(final String text) {
             this.text = text;
         }
 

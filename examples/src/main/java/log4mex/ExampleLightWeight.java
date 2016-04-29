@@ -54,7 +54,7 @@ public class ExampleLightWeight {
             AlgorithmVO alg1, alg2;
             //adding algorithms and parameters
             {
-                mex.Configuration().setImplementation(EnumImplementations.WEKA, "3.6.6");
+                mex.Configuration().setTool(EnumTools.WEKA, "3.6.6");
                 String[] param = {"C", "10^3", "alpha", "0.2"};
                 alg1 = mex.Configuration().addAlgorithm(EnumAlgorithms.SupportVectorMachines);
                 alg1.addParameter(param);

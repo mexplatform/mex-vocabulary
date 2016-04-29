@@ -5,7 +5,7 @@ import org.aksw.mex.util.MEXEnum;
 /**
  * Created by esteves on 08.06.15.
  */
-public class ImplementationVO {
+public class ToolVO {
 
     private String _individualName;
     private String rdfs_label;
@@ -16,7 +16,7 @@ public class ImplementationVO {
     private String doap_programming_language;
     //private ArrayList<String> _properties;
 
-    ImplementationVO(String ind, String name, String label, String homepage, String revision, String description, String programming){
+    ToolVO(String ind, String name, String label, String homepage, String revision, String description, String programming){
        this._individualName = ind;
         this.doap_name = name;
         this.rdfs_label = label;
@@ -26,11 +26,11 @@ public class ImplementationVO {
         this.doap_programming_language = programming;
 
     }
-    public ImplementationVO(MEXEnum.EnumImplementations name){
+    public ToolVO(MEXEnum.EnumTools name){
         this._individualName = name.toString();
     }
 
-    public ImplementationVO(){
+    public ToolVO(){
        /* _properties = new ArrayList<String>();
         _properties.add("id");
         _properties.add("doap:name");
@@ -99,7 +99,7 @@ public class ImplementationVO {
         return _individualName;
     }
 
-    public void set(MEXEnum.EnumImplementations value) {
+    public void set(MEXEnum.EnumTools value) {
         this._individualName = value.toString();
     }
 

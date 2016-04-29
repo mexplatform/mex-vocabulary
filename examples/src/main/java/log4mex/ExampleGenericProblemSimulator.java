@@ -3,7 +3,7 @@ package log4mex;
 import log4mex.tests.ModelSimulatorExample;
 import org.aksw.mex.log4mex.MEXSerializer;
 import org.aksw.mex.log4mex.MyMEX;
-import org.aksw.mex.log4mex.algo.ImplementationVO;
+import org.aksw.mex.log4mex.algo.ToolVO;
 import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.log4mex.perf.overall.ClassificationMeasureVO;
 import org.aksw.mex.util.MEXConstant;
@@ -70,7 +70,7 @@ public class ExampleGenericProblemSimulator {
 
         /* step 3: define the algorithms */
 
-        ImplementationVO software = new ImplementationVO(EnumImplementations.WEKA);
+        ToolVO software = new ToolVO(EnumTools.WEKA);
         software.setRevision("3.6.6");
 
         //AlgorithmVO algSVM = new AlgorithmVO(EnumAlgorithm.SupportVectorMachines);
