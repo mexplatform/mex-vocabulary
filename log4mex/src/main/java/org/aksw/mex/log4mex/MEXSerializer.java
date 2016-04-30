@@ -331,20 +331,20 @@ public class MEXSerializer {
                             .addProperty(RDF.type, provEntity)
                             .addProperty(RDF.type, mexcore_MODEL);
 
-                    if (StringUtils.isNotBlank(item.Model().get_id()) &&
-                            StringUtils.isNotEmpty(item.Model().get_id())) {
-                        _model.addProperty(DCTerms.identifier, item.Model().get_id());
+                    if (StringUtils.isNotBlank(item.Model().getId()) &&
+                            StringUtils.isNotEmpty(item.Model().getId())) {
+                        _model.addProperty(DCTerms.identifier, item.Model().getId());
                         atLeastOne=true;
                     }
 
-                    if (StringUtils.isNotBlank(item.Model().get_description()) &&
-                            StringUtils.isNotEmpty(item.Model().get_description())) {
-                        _model.addProperty(DCTerms.description, item.Model().get_description());
+                    if (StringUtils.isNotBlank(item.Model().getDescription()) &&
+                            StringUtils.isNotEmpty(item.Model().getDescription())) {
+                        _model.addProperty(DCTerms.description, item.Model().getDescription());
                         atLeastOne=true;
                     }
 
-                    if (item.Model().get_date() != null) {
-                        _model.addProperty(DCTerms.date, item.Model().get_date().toString());
+                    if (item.Model().getDate() != null) {
+                        _model.addProperty(DCTerms.date, item.Model().getDate().toString());
                         atLeastOne=true;
                     }
 

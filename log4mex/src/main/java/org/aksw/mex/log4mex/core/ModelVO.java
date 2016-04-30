@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class ModelVO {
 
-    public String get_id() {
+    public String getId() {
         return _id;
     }
 
@@ -15,7 +15,7 @@ public class ModelVO {
         this._id = _id;
     }
 
-    public String get_description() {
+    public String getDescription() {
         return _description;
     }
 
@@ -23,7 +23,7 @@ public class ModelVO {
         this._description = _description;
     }
 
-    public Date get_date() {
+    public Date getDate() {
         return _date;
     }
 

@@ -277,39 +277,6 @@ public class ExperimentConfigurationVO {
         }
     }
 
-    /* complex objects */
-
-    /**
-     * set the Model associate to a set of executions
-     * @param model
-     */
-    public void setModel(ModelVO model) {
-        this._model = model;
-    }
-
-    /**
-     * set the Phase associate to a set of executions
-     * @param phase
-     */
-    public void setPhase(PhaseVO phase) {
-        this._phase = phase;
-    }
-
-    /**
-     * set the Sampling Method associated to a set of executions
-     * @param value
-     */
-    public void setSamplingMethod(SamplingMethodVO value) {
-        this._sampling = value;
-    }
-
-    /**
-     * set the Hardware Information associated to a set of executions
-     * @param value
-     */
-    public void setHardwareConfiguration(HardwareConfigurationVO value) {
-        this._hard = value;
-    }
 
     /**
      * set the Execution identification
@@ -458,6 +425,30 @@ public class ExperimentConfigurationVO {
         }
         this._model.setDate(date);
         this._model.setDescription(description);
+        this._model.setId(id);
+    }
+
+    /**
+     * set the Model associated to a set of executions
+     * @param id
+     * @param description
+     */
+    public void setModel(String id, String description){
+        if (this._model == null){
+            this._model = new ModelVO();
+        }
+        this._model.setDescription(description);
+        this._model.setId(id);
+    }
+
+    /**
+     * set the Model associated to a set of executions
+     * @param id
+     */
+    public void setModel(String id){
+        if (this._model == null){
+            this._model = new ModelVO();
+        }
         this._model.setId(id);
     }
 
