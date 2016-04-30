@@ -167,6 +167,7 @@ public class MEXEnum {
         public static final String NER_ILLINOIS_EXTENDED = "NER_ILLINOIS_EXTENDED";
         public static final String NER_OPEN_NLP = "NER_OPEN_NLP";
         public static final String NER_BALIE = "NER_BALIE";
+        public static final String RESCAL = "RESCAL";
 
     }
 
@@ -331,7 +332,8 @@ public class MEXEnum {
         NER_STANFORD(EnumAlgorithm.NER_STANFORD.toString()),
         NER_ILLINOIS_EXTENDED(EnumAlgorithm.NER_ILLINOIS_EXTENDED.toString()),
         NER_OPEN_NLP(EnumAlgorithm.NER_OPEN_NLP.toString()),
-        NER_BALIE(EnumAlgorithm.NER_BALIE.toString());
+        NER_BALIE(EnumAlgorithm.NER_BALIE.toString()),
+        RESCAL(EnumAlgorithm.RESCAL.toString());
 
 
         private final String text;
@@ -404,7 +406,11 @@ public class MEXEnum {
         L2NORM(EnumStatisticalMeasure.L2NORM.toString()),
         L1NORM(EnumStatisticalMeasure.L1NORM.toString()),
         LINFNORM(EnumStatisticalMeasure.LINFNORM.toString()),
-        MCC_MATTHEWS_COR_COEF(EnumStatisticalMeasure.MCC_MATTHEWS_COR_COEF.toString());
+        MATTHEWSCORRELATIONCOEFICIENT(EnumStatisticalMeasure.MATTHEWSCORRELATIONCOEFICIENT.toString()),
+
+        /*hardware*/
+        PROCESSINGTIME(EnumStatisticalMeasure.PROCESSINGTIME.toString());
+
 
 
         private final String text;
@@ -500,7 +506,8 @@ public class MEXEnum {
         L2NORM("L2norm"),
         L1NORM("L1norm"),
         LINFNORM("Linfnorm"),
-        MCC_MATTHEWS_COR_COEF("mcc");
+        MATTHEWSCORRELATIONCOEFICIENT("mcc"),
+        PROCESSINGTIME("processingTime");
 
         private final String text;
         /**

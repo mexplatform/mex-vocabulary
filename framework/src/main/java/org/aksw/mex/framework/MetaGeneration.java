@@ -1,25 +1,8 @@
 package org.aksw.mex.framework;
 
 
-import org.aksw.mex.framework.annotations.InterfaceVersion;
-import org.aksw.mex.framework.annotations.Start;
-import org.aksw.mex.framework.annotations.algo.Algorithm;
-import org.aksw.mex.framework.annotations.core.*;
-import org.aksw.mex.framework.annotations.perf.Measure;
-import org.aksw.mex.log4mex.MEXSerializer;
 import org.aksw.mex.log4mex.MyMEX;
-import org.aksw.mex.log4mex.algo.AlgorithmVO;
-import org.aksw.mex.log4mex.core.HardwareConfigurationVO;
-import org.aksw.mex.log4mex.core.SamplingMethodVO;
-import org.aksw.mex.util.MEXConstant;
-import org.aksw.mex.util.MEXEnum;
-import org.apache.commons.cli.*;
 import org.apache.log4j.Logger;
-
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.util.*;
 
 /**
  * Created by dnes on 13/12/15.
@@ -38,6 +21,7 @@ public class MetaGeneration {
 
     public static void main(String[] args) {
 
+/*
         CommandLineParser parser = new DefaultParser();
 
         try {
@@ -67,8 +51,11 @@ public class MetaGeneration {
             LOG.error("Parsing failed.  Reason: " + exp.getMessage());
         }
 
+        */
+
     }
 
+    /*
     private static void process(String uc, String mexfile){
 
         START_TIME = System.currentTimeMillis();
@@ -106,7 +93,7 @@ public class MetaGeneration {
                 throw new Exception("error: missing annotation @InterfaceVersion, please see " + javaDocURL + " for more information");
             }
 
-            /* EXPERIMENT INFORMATION */
+            *//* EXPERIMENT INFORMATION *//*
 
             if (klass.isAnnotationPresent(ExperimentInfo.class)) {
                 Annotation annotation = klass.getAnnotation(ExperimentInfo.class);
@@ -134,7 +121,7 @@ public class MetaGeneration {
                 LOG.info("@ExperimentInfo - Not Found");
             }
 
-            /* HARDWARE */
+            *//* HARDWARE *//*
             if (klass.isAnnotationPresent(Hardware.class)) {
                 Annotation annotationHard = klass.getAnnotation(Hardware.class);
                 Hardware aHard = (Hardware) annotationHard;
@@ -149,13 +136,13 @@ public class MetaGeneration {
                 h.setOperationalSystem(aHard.os());
                 h.setVideoGraph(aHard.video());
 
-                mex.Configuration().setHardwareConfiguration(h);
+               // mex.Configuration().setHardwareConfiguration(h);
 
             }else{
                 LOG.info("@Hardware - Not Found");
             }
 
-            /* SAMPLING METHOD */
+            *//* SAMPLING METHOD *//*
 
             if (klass.isAnnotationPresent(SamplingMethod.class)) {
                 Annotation annotationSM = klass.getAnnotation(SamplingMethod.class);
@@ -169,7 +156,7 @@ public class MetaGeneration {
                 s.setFolds(aSM.folds());
                 s.setSequential(aSM.sequential());
 
-                mex.Configuration().setSamplingMethod(s);
+                //mex.Configuration().setSamplingMethod(s);
 
             }else{
                 LOG.info("@SamplingMethod - Not Found");
@@ -183,7 +170,7 @@ public class MetaGeneration {
             Object returnValue = _mainMethod.invoke(ins);
 
 
-            /********************* TEST WITH LOCAL VARIABLE ***************************/
+            *//********************* TEST WITH LOCAL VARIABLE ***************************//*
 
             Field _tst = getFieldAnnotatedWith(klass, TestDataSet2.class);
             if (_tst == null)
@@ -197,10 +184,10 @@ public class MetaGeneration {
                 getValueOfPrivatedField("@TestDataSet2", ins);
             }
 
-            /********************* TEST WITH LOCAL VARIABLE ***************************/
+            *//********************* TEST WITH LOCAL VARIABLE ***************************//*
 
 
-            /* FEATURES */
+            *//* FEATURES *//*
             _getFeatures = getMethodAnnotatedWith(klass, Features.class);
             if (_getFeatures == null)
                 throw new Exception("error: missing annotation @Features, please see " + javaDocURL + " for more information");
@@ -249,35 +236,35 @@ public class MetaGeneration {
             }
 
 
-            /* DATASET */
+            *//* DATASET *//*
 
             _dataset = getFieldAnnotatedWith(klass, DatasetName.class);
             if (_dataset == null)
                 throw new Exception("error: missing annotation @DatasetName, please see " + javaDocURL + " for more information");
 
-            mex.Configuration().setDataset("", "", (String)_dataset.get(ins));
+            //mex.Configuration().setDataset("", "", (String)_dataset.get(ins));
 
             LOG.info("@DataSet - OK");
 
-            /* ALGORITHM */
+            *//* ALGORITHM *//*
 
             _algorithms = getFieldsAnnotatedWith(klass, Algorithm.class);
             if (_algorithms == null)
                 throw new Exception("error: missing annotation @Algorithm, please see " + javaDocURL + " for more information");
 
-            HashMap<String, AlgorithmVO> algorithms = new HashMap<>();
+            HashMap<String, String> algorithms = new HashMap<>();
 
 
             LOG.info("@Algorithm - OK");
             for (Field fa: _algorithms) {
-                AlgorithmVO alg = mex.Configuration().addAlgorithm(fa.getAnnotation(Algorithm.class).algorithmType(),
+                String alg = mex.Configuration().addAlgorithm(fa.getAnnotation(Algorithm.class).algorithmType(),
                         fa.getAnnotation(Algorithm.class).algorithmID());
 
                 algorithms.put(fa.getAnnotation(Algorithm.class).algorithmID(), alg);
             }
 
 
-            /* EXECUTIONS and MEASURES */
+            *//* EXECUTIONS and MEASURES *//*
 
             _measures = getFieldsAnnotatedWith(klass, Measure.class);
             if (_measures == null)
@@ -298,7 +285,7 @@ public class MetaGeneration {
             LOG.info("process execution time (s): " + TOTAL_EXECUTION_TIME / 1000);
 
 
-            /*
+            *//*
             MEXCORE_Feature f = new MEXCORE_Feature();
 
             setPropertyByAnnotationName(f, "p1", "novo valor setado");
@@ -310,7 +297,7 @@ public class MetaGeneration {
             callMethodByAnnotation(foo,map);
             ExecutionAnnotationParser parser = new ExecutionAnnotationParser();
             parser.parse(AnnotatedClass01.class);
-            */
+            *//*
 
         } catch (Exception e) {
             LOG.error(e.toString());
@@ -318,9 +305,7 @@ public class MetaGeneration {
 
     }
 
-
-
-    /**
+    *//**
      * Create the executions based on the information mapped into the user class (@Measure)
      * TODO: have to extend this method to consider SingleExecutions as well. So far, just OverallExecution is allowed.
      * @param _measures
@@ -328,8 +313,8 @@ public class MetaGeneration {
      * @param algorithms
      * @return
      * @throws Exception
-     */
-    private static boolean addExecutions(List<Field> _measures, Object ins, HashMap<String, AlgorithmVO> algorithms) throws Exception{
+     *//*
+    private static boolean addExecutions(List<Field> _measures, Object ins, HashMap<String, String> algorithms) throws Exception{
 
 
         HashMap<ExecutionHelperKey, Integer> vetExecutions = new HashMap<>();
@@ -449,7 +434,6 @@ public class MetaGeneration {
 
     }
 
-
     private static Hashtable getValueOfPrivatedField(String fieldName, Object obj){
 
         Hashtable ret = null;
@@ -534,6 +518,6 @@ public class MetaGeneration {
         return fields;
     }
 
-
+*/
 
 }

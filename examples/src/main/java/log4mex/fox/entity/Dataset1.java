@@ -89,7 +89,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.PRECISION, .8066);
                     mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.FMEASURE, .8484);
                     mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.ERROR, .61);
-                    mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .846);
+                    mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .846);
                     mex.Configuration(eid).Execution(ex1).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex1).setTargetClass("LOCATION");
                 }
@@ -103,7 +103,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.PRECISION, .7885);
                     mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.FMEASURE, .8330);
                     mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.ERROR, .96);
-                    mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .829);
+                    mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .829);
                     mex.Configuration(eid).Execution(ex2).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex2).setTargetClass("ORGANIZATION");
                 }
@@ -117,7 +117,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex3).addPerformance(EnumMeasures.PRECISION, .9226);
                     mex.Configuration(eid).Execution(ex3).addPerformance(EnumMeasures.FMEASURE, .9485);
                     mex.Configuration(eid).Execution(ex3).addPerformance(EnumMeasures.ERROR, .018);
-                    mex.Configuration(eid).Execution(ex3).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .948);
+                    mex.Configuration(eid).Execution(ex3).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .948);
                     mex.Configuration(eid).Execution(ex3).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex3).setTargetClass("PERSON");
                 }
@@ -131,7 +131,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex4).addPerformance(EnumMeasures.PRECISION, .9960);
                     mex.Configuration(eid).Execution(ex4).addPerformance(EnumMeasures.FMEASURE, .9927);
                     mex.Configuration(eid).Execution(ex4).addPerformance(EnumMeasures.ERROR, 1.37);
-                    mex.Configuration(eid).Execution(ex4).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, 0.89);
+                    mex.Configuration(eid).Execution(ex4).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, 0.89);
                     mex.Configuration(eid).Execution(ex4).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex4).setTargetClass("NULL");
                 }
@@ -149,7 +149,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex5).addPerformance(EnumMeasures.PRECISION, .9092);
                     mex.Configuration(eid).Execution(ex5).addPerformance(EnumMeasures.FMEASURE, .8986);
                     mex.Configuration(eid).Execution(ex5).addPerformance(EnumMeasures.ERROR, .38);
-                    mex.Configuration(eid).Execution(ex5).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .0897);
+                    mex.Configuration(eid).Execution(ex5).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .0897);
                     mex.Configuration(eid).Execution(ex5).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex5).setTargetClass("LOCATION");
                 }
@@ -163,7 +163,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex6).addPerformance(EnumMeasures.PRECISION, .8012);
                     mex.Configuration(eid).Execution(ex6).addPerformance(EnumMeasures.FMEASURE, .8349);
                     mex.Configuration(eid).Execution(ex6).addPerformance(EnumMeasures.ERROR, .9300);
-                    mex.Configuration(eid).Execution(ex6).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .831);
+                    mex.Configuration(eid).Execution(ex6).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .831);
                     mex.Configuration(eid).Execution(ex6).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex6).setTargetClass("ORGANIZATION");
                 }
@@ -177,7 +177,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex7).addPerformance(EnumMeasures.PRECISION, .9405);
                     mex.Configuration(eid).Execution(ex7).addPerformance(EnumMeasures.FMEASURE, .9571);
                     mex.Configuration(eid).Execution(ex7).addPerformance(EnumMeasures.ERROR, .15);
-                    mex.Configuration(eid).Execution(ex7).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .956);
+                    mex.Configuration(eid).Execution(ex7).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .956);
                     mex.Configuration(eid).Execution(ex7).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex7).setTargetClass("PERSON");
                 }
@@ -191,7 +191,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex8).addPerformance(EnumMeasures.PRECISION, .9953);
                     mex.Configuration(eid).Execution(ex8).addPerformance(EnumMeasures.FMEASURE, .9939);
                     mex.Configuration(eid).Execution(ex8).addPerformance(EnumMeasures.ERROR, 1.13);
-                    mex.Configuration(eid).Execution(ex8).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, 0.906);
+                    mex.Configuration(eid).Execution(ex8).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, 0.906);
                     mex.Configuration(eid).Execution(ex8).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex8).setTargetClass("NULL");
                 }
@@ -209,7 +209,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex9).addPerformance(EnumMeasures.PRECISION, .8136);
                     mex.Configuration(eid).Execution(ex9).addPerformance(EnumMeasures.FMEASURE, .8551);
                     mex.Configuration(eid).Execution(ex9).addPerformance(EnumMeasures.ERROR, .58);
-                    mex.Configuration(eid).Execution(ex9).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .0853);
+                    mex.Configuration(eid).Execution(ex9).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .0853);
                     mex.Configuration(eid).Execution(ex9).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex9).setTargetClass("LOCATION");
                 }
@@ -223,7 +223,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex10).addPerformance(EnumMeasures.PRECISION, .7061);
                     mex.Configuration(eid).Execution(ex10).addPerformance(EnumMeasures.FMEASURE, .7930);
                     mex.Configuration(eid).Execution(ex10).addPerformance(EnumMeasures.ERROR, 1.28);
-                    mex.Configuration(eid).Execution(ex10).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, 0.793);
+                    mex.Configuration(eid).Execution(ex10).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, 0.793);
                     mex.Configuration(eid).Execution(ex10).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex10).setTargetClass("ORGANIZATION");
                 }
@@ -237,7 +237,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex11).addPerformance(EnumMeasures.PRECISION, .9151);
                     mex.Configuration(eid).Execution(ex11).addPerformance(EnumMeasures.FMEASURE, .9421);
                     mex.Configuration(eid).Execution(ex11).addPerformance(EnumMeasures.ERROR, .20);
-                    mex.Configuration(eid).Execution(ex11).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .942);
+                    mex.Configuration(eid).Execution(ex11).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .942);
                     mex.Configuration(eid).Execution(ex11).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex11).setTargetClass("PERSON");
                 }
@@ -251,7 +251,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex12).addPerformance(EnumMeasures.PRECISION, .9965);
                     mex.Configuration(eid).Execution(ex12).addPerformance(EnumMeasures.FMEASURE, .9908);
                     mex.Configuration(eid).Execution(ex12).addPerformance(EnumMeasures.ERROR, 1.72);
-                    mex.Configuration(eid).Execution(ex12).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .868);
+                    mex.Configuration(eid).Execution(ex12).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .868);
                     mex.Configuration(eid).Execution(ex12).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex12).setTargetClass("NULL");
                 }
@@ -269,7 +269,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex13).addPerformance(EnumMeasures.PRECISION, .9008);
                     mex.Configuration(eid).Execution(ex13).addPerformance(EnumMeasures.FMEASURE, .9129);
                     mex.Configuration(eid).Execution(ex13).addPerformance(EnumMeasures.ERROR, .3400);
-                    mex.Configuration(eid).Execution(ex13).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .911);
+                    mex.Configuration(eid).Execution(ex13).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .911);
                     mex.Configuration(eid).Execution(ex13).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex13).setTargetClass("LOCATION");
                 }
@@ -283,7 +283,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex14).addPerformance(EnumMeasures.PRECISION, .8201);
                     mex.Configuration(eid).Execution(ex14).addPerformance(EnumMeasures.FMEASURE, .8521);
                     mex.Configuration(eid).Execution(ex14).addPerformance(EnumMeasures.ERROR, .83);
-                    mex.Configuration(eid).Execution(ex14).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .849);
+                    mex.Configuration(eid).Execution(ex14).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .849);
                     mex.Configuration(eid).Execution(ex14).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex14).setTargetClass("ORGANIZATION");
                 }
@@ -297,7 +297,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex15).addPerformance(EnumMeasures.PRECISION, .9421);
                     mex.Configuration(eid).Execution(ex15).addPerformance(EnumMeasures.FMEASURE, .9574);
                     mex.Configuration(eid).Execution(ex15).addPerformance(EnumMeasures.ERROR, .15);
-                    mex.Configuration(eid).Execution(ex15).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .957);
+                    mex.Configuration(eid).Execution(ex15).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .957);
                     mex.Configuration(eid).Execution(ex15).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex15).setTargetClass("PERSON");
                 }
@@ -311,7 +311,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex16).addPerformance(EnumMeasures.PRECISION, .9962);
                     mex.Configuration(eid).Execution(ex16).addPerformance(EnumMeasures.FMEASURE, .9944);
                     mex.Configuration(eid).Execution(ex16).addPerformance(EnumMeasures.ERROR, 1.04);
-                    mex.Configuration(eid).Execution(ex16).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .914);
+                    mex.Configuration(eid).Execution(ex16).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .914);
                     mex.Configuration(eid).Execution(ex16).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex16).setTargetClass("NULL");
                 }
@@ -329,7 +329,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex17).addPerformance(EnumMeasures.PRECISION, .7500);
                     mex.Configuration(eid).Execution(ex17).addPerformance(EnumMeasures.FMEASURE, .6683);
                     mex.Configuration(eid).Execution(ex17).addPerformance(EnumMeasures.ERROR, 1.13);
-                    mex.Configuration(eid).Execution(ex17).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .667);
+                    mex.Configuration(eid).Execution(ex17).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .667);
                     mex.Configuration(eid).Execution(ex17).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex17).setTargetClass("LOCATION");
                 }
@@ -343,7 +343,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex18).addPerformance(EnumMeasures.PRECISION, .3531);
                     mex.Configuration(eid).Execution(ex18).addPerformance(EnumMeasures.FMEASURE, .5068);
                     mex.Configuration(eid).Execution(ex18).addPerformance(EnumMeasures.ERROR, 4.79);
-                    mex.Configuration(eid).Execution(ex18).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .548);
+                    mex.Configuration(eid).Execution(ex18).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .548);
                     mex.Configuration(eid).Execution(ex18).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex18).setTargetClass("ORGANIZATION");
                 }
@@ -357,7 +357,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex19).addPerformance(EnumMeasures.PRECISION, .7378);
                     mex.Configuration(eid).Execution(ex19).addPerformance(EnumMeasures.FMEASURE, .8380);
                     mex.Configuration(eid).Execution(ex19).addPerformance(EnumMeasures.ERROR, .64);
-                    mex.Configuration(eid).Execution(ex19).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .843);
+                    mex.Configuration(eid).Execution(ex19).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .843);
                     mex.Configuration(eid).Execution(ex19).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex19).setTargetClass("PERSON");
                 }
@@ -371,7 +371,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex20).addPerformance(EnumMeasures.PRECISION, .9963);
                     mex.Configuration(eid).Execution(ex20).addPerformance(EnumMeasures.FMEASURE, .972);
                     mex.Configuration(eid).Execution(ex20).addPerformance(EnumMeasures.ERROR, 5.12);
-                    mex.Configuration(eid).Execution(ex20).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .703);
+                    mex.Configuration(eid).Execution(ex20).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .703);
                     mex.Configuration(eid).Execution(ex20).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex20).setTargetClass("NULL");
                 }
@@ -389,7 +389,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex21).addPerformance(EnumMeasures.PRECISION, .9007);
                     mex.Configuration(eid).Execution(ex21).addPerformance(EnumMeasures.FMEASURE, .9140);
                     mex.Configuration(eid).Execution(ex21).addPerformance(EnumMeasures.ERROR, .33);
-                    mex.Configuration(eid).Execution(ex21).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .912);
+                    mex.Configuration(eid).Execution(ex21).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .912);
                     mex.Configuration(eid).Execution(ex21).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex21).setTargetClass("LOCATION");
                 }
@@ -403,7 +403,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex22).addPerformance(EnumMeasures.PRECISION, .8202);
                     mex.Configuration(eid).Execution(ex22).addPerformance(EnumMeasures.FMEASURE, .8526);
                     mex.Configuration(eid).Execution(ex22).addPerformance(EnumMeasures.ERROR, .83);
-                    mex.Configuration(eid).Execution(ex22).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .849);
+                    mex.Configuration(eid).Execution(ex22).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .849);
                     mex.Configuration(eid).Execution(ex22).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex22).setTargetClass("ORGANIZATION");
                 }
@@ -417,7 +417,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex23).addPerformance(EnumMeasures.PRECISION, .9443);
                     mex.Configuration(eid).Execution(ex23).addPerformance(EnumMeasures.FMEASURE, .9585);
                     mex.Configuration(eid).Execution(ex23).addPerformance(EnumMeasures.ERROR, .14);
-                    mex.Configuration(eid).Execution(ex23).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .958);
+                    mex.Configuration(eid).Execution(ex23).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .958);
                     mex.Configuration(eid).Execution(ex23).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex23).setTargetClass("PERSON");
                 }
@@ -431,7 +431,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex24).addPerformance(EnumMeasures.PRECISION, .9962);
                     mex.Configuration(eid).Execution(ex24).addPerformance(EnumMeasures.FMEASURE, .9945);
                     mex.Configuration(eid).Execution(ex24).addPerformance(EnumMeasures.ERROR, 1.04);
-                    mex.Configuration(eid).Execution(ex24).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .915);
+                    mex.Configuration(eid).Execution(ex24).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .915);
                     mex.Configuration(eid).Execution(ex24).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex24).setTargetClass("NULL");
                 }
@@ -449,7 +449,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex25).addPerformance(EnumMeasures.PRECISION, .9014);
                     mex.Configuration(eid).Execution(ex25).addPerformance(EnumMeasures.FMEASURE, .9126);
                     mex.Configuration(eid).Execution(ex25).addPerformance(EnumMeasures.ERROR, .34);
-                    mex.Configuration(eid).Execution(ex25).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .911);
+                    mex.Configuration(eid).Execution(ex25).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .911);
                     mex.Configuration(eid).Execution(ex25).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex25).setTargetClass("LOCATION");
                 }
@@ -463,7 +463,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex26).addPerformance(EnumMeasures.PRECISION, .8186);
                     mex.Configuration(eid).Execution(ex26).addPerformance(EnumMeasures.FMEASURE, .8519);
                     mex.Configuration(eid).Execution(ex26).addPerformance(EnumMeasures.ERROR, .84);
-                    mex.Configuration(eid).Execution(ex26).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .848);
+                    mex.Configuration(eid).Execution(ex26).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .848);
                     mex.Configuration(eid).Execution(ex26).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex26).setTargetClass("ORGANIZATION");
                 }
@@ -477,7 +477,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex27).addPerformance(EnumMeasures.PRECISION, .9446);
                     mex.Configuration(eid).Execution(ex27).addPerformance(EnumMeasures.FMEASURE, .9591);
                     mex.Configuration(eid).Execution(ex27).addPerformance(EnumMeasures.ERROR, .14);
-                    mex.Configuration(eid).Execution(ex27).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .958);
+                    mex.Configuration(eid).Execution(ex27).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .958);
                     mex.Configuration(eid).Execution(ex27).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex27).setTargetClass("PERSON");
                 }
@@ -491,7 +491,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex28).addPerformance(EnumMeasures.PRECISION, .9963);
                     mex.Configuration(eid).Execution(ex28).addPerformance(EnumMeasures.FMEASURE, .9945);
                     mex.Configuration(eid).Execution(ex28).addPerformance(EnumMeasures.ERROR, 1.03);
-                    mex.Configuration(eid).Execution(ex28).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, 0.915);
+                    mex.Configuration(eid).Execution(ex28).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, 0.915);
                     mex.Configuration(eid).Execution(ex28).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex28).setTargetClass("NULL");
                 }
@@ -509,7 +509,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex29).addPerformance(EnumMeasures.PRECISION, .7753);
                     mex.Configuration(eid).Execution(ex29).addPerformance(EnumMeasures.FMEASURE, .7826);
                     mex.Configuration(eid).Execution(ex29).addPerformance(EnumMeasures.ERROR, .83);
-                    mex.Configuration(eid).Execution(ex29).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .778);
+                    mex.Configuration(eid).Execution(ex29).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .778);
                     mex.Configuration(eid).Execution(ex29).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex29).setTargetClass("LOCATION");
                 }
@@ -523,7 +523,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex30).addPerformance(EnumMeasures.PRECISION, .6264);
                     mex.Configuration(eid).Execution(ex30).addPerformance(EnumMeasures.FMEASURE, .6836);
                     mex.Configuration(eid).Execution(ex30).addPerformance(EnumMeasures.ERROR, 1.89);
-                    mex.Configuration(eid).Execution(ex30).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .677);
+                    mex.Configuration(eid).Execution(ex30).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .677);
                     mex.Configuration(eid).Execution(ex30).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex30).setTargetClass("ORGANIZATION");
                 }
@@ -537,7 +537,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex31).addPerformance(EnumMeasures.PRECISION, .7734);
                     mex.Configuration(eid).Execution(ex31).addPerformance(EnumMeasures.FMEASURE, .8351);
                     mex.Configuration(eid).Execution(ex31).addPerformance(EnumMeasures.ERROR, .61);
-                    mex.Configuration(eid).Execution(ex31).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .835);
+                    mex.Configuration(eid).Execution(ex31).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .835);
                     mex.Configuration(eid).Execution(ex31).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex31).setTargetClass("PERSON");
                 }
@@ -551,7 +551,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex32).addPerformance(EnumMeasures.PRECISION, .9940);
                     mex.Configuration(eid).Execution(ex32).addPerformance(EnumMeasures.FMEASURE, .9893);
                     mex.Configuration(eid).Execution(ex32).addPerformance(EnumMeasures.ERROR, 1.99);
-                    mex.Configuration(eid).Execution(ex32).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .844);
+                    mex.Configuration(eid).Execution(ex32).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .844);
                     mex.Configuration(eid).Execution(ex32).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex32).setTargetClass("NULL");
                 }
@@ -569,7 +569,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex33).addPerformance(EnumMeasures.PRECISION, .8066);
                     mex.Configuration(eid).Execution(ex33).addPerformance(EnumMeasures.FMEASURE, .8484);
                     mex.Configuration(eid).Execution(ex33).addPerformance(EnumMeasures.ERROR, .61);
-                    mex.Configuration(eid).Execution(ex33).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .846);
+                    mex.Configuration(eid).Execution(ex33).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .846);
                     mex.Configuration(eid).Execution(ex33).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex33).setTargetClass("LOCATION");
                 }
@@ -583,7 +583,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex34).addPerformance(EnumMeasures.PRECISION, .7885);
                     mex.Configuration(eid).Execution(ex34).addPerformance(EnumMeasures.FMEASURE, .8330);
                     mex.Configuration(eid).Execution(ex34).addPerformance(EnumMeasures.ERROR, .96);
-                    mex.Configuration(eid).Execution(ex34).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .8290);
+                    mex.Configuration(eid).Execution(ex34).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .8290);
                     mex.Configuration(eid).Execution(ex34).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex34).setTargetClass("ORGANIZATION");
                 }
@@ -597,7 +597,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex35).addPerformance(EnumMeasures.PRECISION, .9226);
                     mex.Configuration(eid).Execution(ex35).addPerformance(EnumMeasures.FMEASURE, .9485);
                     mex.Configuration(eid).Execution(ex35).addPerformance(EnumMeasures.ERROR, .18);
-                    mex.Configuration(eid).Execution(ex35).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .948);
+                    mex.Configuration(eid).Execution(ex35).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .948);
                     mex.Configuration(eid).Execution(ex35).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex35).setTargetClass("PERSON");
                 }
@@ -611,7 +611,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex36).addPerformance(EnumMeasures.PRECISION, .9960);
                     mex.Configuration(eid).Execution(ex36).addPerformance(EnumMeasures.FMEASURE, .9927);
                     mex.Configuration(eid).Execution(ex36).addPerformance(EnumMeasures.ERROR, 1.37);
-                    mex.Configuration(eid).Execution(ex36).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .89);
+                    mex.Configuration(eid).Execution(ex36).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .89);
                     mex.Configuration(eid).Execution(ex36).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex36).setTargetClass("NULL");
                 }
@@ -629,7 +629,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex37).addPerformance(EnumMeasures.PRECISION, .9015);
                     mex.Configuration(eid).Execution(ex37).addPerformance(EnumMeasures.FMEASURE, .9127);
                     mex.Configuration(eid).Execution(ex37).addPerformance(EnumMeasures.ERROR, .34);
-                    mex.Configuration(eid).Execution(ex37).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .911);
+                    mex.Configuration(eid).Execution(ex37).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .911);
                     mex.Configuration(eid).Execution(ex37).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex37).setTargetClass("LOCATION");
                 }
@@ -643,7 +643,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex38).addPerformance(EnumMeasures.PRECISION, .8186);
                     mex.Configuration(eid).Execution(ex38).addPerformance(EnumMeasures.FMEASURE, .8518);
                     mex.Configuration(eid).Execution(ex38).addPerformance(EnumMeasures.ERROR, .84);
-                    mex.Configuration(eid).Execution(ex38).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .848);
+                    mex.Configuration(eid).Execution(ex38).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .848);
                     mex.Configuration(eid).Execution(ex38).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex38).setTargetClass("ORGANIZATION");
                 }
@@ -657,7 +657,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex39).addPerformance(EnumMeasures.PRECISION, .9446);
                     mex.Configuration(eid).Execution(ex39).addPerformance(EnumMeasures.FMEASURE, .9591);
                     mex.Configuration(eid).Execution(ex39).addPerformance(EnumMeasures.ERROR, .14);
-                    mex.Configuration(eid).Execution(ex39).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .958);
+                    mex.Configuration(eid).Execution(ex39).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .958);
                     mex.Configuration(eid).Execution(ex39).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex39).setTargetClass("PERSON");
                 }
@@ -671,7 +671,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex40).addPerformance(EnumMeasures.PRECISION, .9963);
                     mex.Configuration(eid).Execution(ex40).addPerformance(EnumMeasures.FMEASURE, .9945);
                     mex.Configuration(eid).Execution(ex40).addPerformance(EnumMeasures.ERROR, 1.03);
-                    mex.Configuration(eid).Execution(ex40).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .915);
+                    mex.Configuration(eid).Execution(ex40).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .915);
                     mex.Configuration(eid).Execution(ex40).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex40).setTargetClass("NULL");
                 }
@@ -689,7 +689,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex41).addPerformance(EnumMeasures.PRECISION, .9040);
                     mex.Configuration(eid).Execution(ex41).addPerformance(EnumMeasures.FMEASURE, .9128);
                     mex.Configuration(eid).Execution(ex41).addPerformance(EnumMeasures.ERROR, .33);
-                    mex.Configuration(eid).Execution(ex41).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .9110);
+                    mex.Configuration(eid).Execution(ex41).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .9110);
                     mex.Configuration(eid).Execution(ex41).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex41).setTargetClass("LOCATION");
                 }
@@ -703,7 +703,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex42).addPerformance(EnumMeasures.PRECISION, .8186);
                     mex.Configuration(eid).Execution(ex42).addPerformance(EnumMeasures.FMEASURE, .8523);
                     mex.Configuration(eid).Execution(ex42).addPerformance(EnumMeasures.ERROR, .83);
-                    mex.Configuration(eid).Execution(ex42).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .849);
+                    mex.Configuration(eid).Execution(ex42).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .849);
                     mex.Configuration(eid).Execution(ex42).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex42).setTargetClass("ORGANIZATION");
                 }
@@ -717,7 +717,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex43).addPerformance(EnumMeasures.PRECISION, .9460);
                     mex.Configuration(eid).Execution(ex43).addPerformance(EnumMeasures.FMEASURE, .9599);
                     mex.Configuration(eid).Execution(ex43).addPerformance(EnumMeasures.ERROR, .14);
-                    mex.Configuration(eid).Execution(ex43).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .959);
+                    mex.Configuration(eid).Execution(ex43).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .959);
                     mex.Configuration(eid).Execution(ex43).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex43).setTargetClass("PERSON");
                 }
@@ -731,7 +731,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex44).addPerformance(EnumMeasures.PRECISION, .9962);
                     mex.Configuration(eid).Execution(ex44).addPerformance(EnumMeasures.FMEASURE, .9945);
                     mex.Configuration(eid).Execution(ex44).addPerformance(EnumMeasures.ERROR, 1.03);
-                    mex.Configuration(eid).Execution(ex44).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .915);
+                    mex.Configuration(eid).Execution(ex44).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .915);
                     mex.Configuration(eid).Execution(ex44).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex44).setTargetClass("NULL");
                 }
@@ -749,7 +749,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex45).addPerformance(EnumMeasures.PRECISION, .8676);
                     mex.Configuration(eid).Execution(ex45).addPerformance(EnumMeasures.FMEASURE, .7995);
                     mex.Configuration(eid).Execution(ex45).addPerformance(EnumMeasures.ERROR, .71);
-                    mex.Configuration(eid).Execution(ex45).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .798);
+                    mex.Configuration(eid).Execution(ex45).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .798);
                     mex.Configuration(eid).Execution(ex45).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex45).setTargetClass("LOCATION");
                 }
@@ -763,7 +763,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex46).addPerformance(EnumMeasures.PRECISION, .3982);
                     mex.Configuration(eid).Execution(ex46).addPerformance(EnumMeasures.FMEASURE, .5226);
                     mex.Configuration(eid).Execution(ex46).addPerformance(EnumMeasures.ERROR, 3.76);
-                    mex.Configuration(eid).Execution(ex46).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .534);
+                    mex.Configuration(eid).Execution(ex46).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .534);
                     mex.Configuration(eid).Execution(ex46).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex46).setTargetClass("ORGANIZATION");
                 }
@@ -777,7 +777,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex47).addPerformance(EnumMeasures.PRECISION, .7529);
                     mex.Configuration(eid).Execution(ex47).addPerformance(EnumMeasures.FMEASURE, .7146);
                     mex.Configuration(eid).Execution(ex47).addPerformance(EnumMeasures.ERROR, .92);
-                    mex.Configuration(eid).Execution(ex47).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .711);
+                    mex.Configuration(eid).Execution(ex47).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .711);
                     mex.Configuration(eid).Execution(ex47).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex47).setTargetClass("PERSON");
                 }
@@ -791,7 +791,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex48).addPerformance(EnumMeasures.PRECISION, .9860);
                     mex.Configuration(eid).Execution(ex48).addPerformance(EnumMeasures.FMEASURE, .9752);
                     mex.Configuration(eid).Execution(ex48).addPerformance(EnumMeasures.ERROR, 4.6);
-                    mex.Configuration(eid).Execution(ex48).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .699);
+                    mex.Configuration(eid).Execution(ex48).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .699);
                     mex.Configuration(eid).Execution(ex48).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex48).setTargetClass("NULL");
                 }
@@ -809,7 +809,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex49).addPerformance(EnumMeasures.PRECISION, .9099);
                     mex.Configuration(eid).Execution(ex49).addPerformance(EnumMeasures.FMEASURE, .8961);
                     mex.Configuration(eid).Execution(ex49).addPerformance(EnumMeasures.ERROR, .39);
-                    mex.Configuration(eid).Execution(ex49).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .894);
+                    mex.Configuration(eid).Execution(ex49).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .894);
                     mex.Configuration(eid).Execution(ex49).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex49).setTargetClass("LOCATION");
                 }
@@ -823,7 +823,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex50).addPerformance(EnumMeasures.PRECISION, .7912);
                     mex.Configuration(eid).Execution(ex50).addPerformance(EnumMeasures.FMEASURE, .8267);
                     mex.Configuration(eid).Execution(ex50).addPerformance(EnumMeasures.ERROR, .98);
-                    mex.Configuration(eid).Execution(ex50).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .823);
+                    mex.Configuration(eid).Execution(ex50).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .823);
                     mex.Configuration(eid).Execution(ex50).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex50).setTargetClass("ORGANIZATION");
                 }
@@ -837,7 +837,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex51).addPerformance(EnumMeasures.PRECISION, .9338);
                     mex.Configuration(eid).Execution(ex51).addPerformance(EnumMeasures.FMEASURE, .9537);
                     mex.Configuration(eid).Execution(ex51).addPerformance(EnumMeasures.ERROR, .16);
-                    mex.Configuration(eid).Execution(ex51).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .953);
+                    mex.Configuration(eid).Execution(ex51).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .953);
                     mex.Configuration(eid).Execution(ex51).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex51).setTargetClass("PERSON");
                 }
@@ -851,7 +851,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex52).addPerformance(EnumMeasures.PRECISION, .9949);
                     mex.Configuration(eid).Execution(ex52).addPerformance(EnumMeasures.FMEASURE, .9935);
                     mex.Configuration(eid).Execution(ex52).addPerformance(EnumMeasures.ERROR, 1.22);
-                    mex.Configuration(eid).Execution(ex52).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .899);
+                    mex.Configuration(eid).Execution(ex52).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .899);
                     mex.Configuration(eid).Execution(ex52).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex52).setTargetClass("NULL");
                 }
@@ -869,7 +869,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex53).addPerformance(EnumMeasures.PRECISION, .9179);
                     mex.Configuration(eid).Execution(ex53).addPerformance(EnumMeasures.FMEASURE, .9026);
                     mex.Configuration(eid).Execution(ex53).addPerformance(EnumMeasures.ERROR, .36);
-                    mex.Configuration(eid).Execution(ex53).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .901);
+                    mex.Configuration(eid).Execution(ex53).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .901);
                     mex.Configuration(eid).Execution(ex53).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex53).setTargetClass("LOCATION");
                 }
@@ -883,7 +883,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex54).addPerformance(EnumMeasures.PRECISION, .8175);
                     mex.Configuration(eid).Execution(ex54).addPerformance(EnumMeasures.FMEASURE, .8495);
                     mex.Configuration(eid).Execution(ex54).addPerformance(EnumMeasures.ERROR, .85);
-                    mex.Configuration(eid).Execution(ex54).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .846);
+                    mex.Configuration(eid).Execution(ex54).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .846);
                     mex.Configuration(eid).Execution(ex54).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex54).setTargetClass("ORGANIZATION");
                 }
@@ -897,7 +897,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex55).addPerformance(EnumMeasures.PRECISION, .9413);
                     mex.Configuration(eid).Execution(ex55).addPerformance(EnumMeasures.FMEASURE, .9578);
                     mex.Configuration(eid).Execution(ex55).addPerformance(EnumMeasures.ERROR, .15);
-                    mex.Configuration(eid).Execution(ex55).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .957);
+                    mex.Configuration(eid).Execution(ex55).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .957);
                     mex.Configuration(eid).Execution(ex55).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex55).setTargetClass("PERSON");
                 }
@@ -911,7 +911,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex56).addPerformance(EnumMeasures.PRECISION, .9954);
                     mex.Configuration(eid).Execution(ex56).addPerformance(EnumMeasures.FMEASURE, .9943);
                     mex.Configuration(eid).Execution(ex56).addPerformance(EnumMeasures.ERROR, 1.07);
-                    mex.Configuration(eid).Execution(ex56).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .911);
+                    mex.Configuration(eid).Execution(ex56).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .911);
                     mex.Configuration(eid).Execution(ex56).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex56).setTargetClass("NULL");
                 }
@@ -929,7 +929,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex57).addPerformance(EnumMeasures.PRECISION, .8999);
                     mex.Configuration(eid).Execution(ex57).addPerformance(EnumMeasures.FMEASURE, .9124);
                     mex.Configuration(eid).Execution(ex57).addPerformance(EnumMeasures.ERROR, .34);
-                    mex.Configuration(eid).Execution(ex57).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .911);
+                    mex.Configuration(eid).Execution(ex57).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .911);
                     mex.Configuration(eid).Execution(ex57).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex57).setTargetClass("LOCATION");
                 }
@@ -943,7 +943,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex58).addPerformance(EnumMeasures.PRECISION, .8177);
                     mex.Configuration(eid).Execution(ex58).addPerformance(EnumMeasures.FMEASURE, .8513);
                     mex.Configuration(eid).Execution(ex58).addPerformance(EnumMeasures.ERROR, .84);
-                    mex.Configuration(eid).Execution(ex58).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .848);
+                    mex.Configuration(eid).Execution(ex58).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .848);
                     mex.Configuration(eid).Execution(ex58).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex58).setTargetClass("ORGANIZATION");
                 }
@@ -957,7 +957,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex59).addPerformance(EnumMeasures.PRECISION, .9459);
                     mex.Configuration(eid).Execution(ex59).addPerformance(EnumMeasures.FMEASURE, .9596);
                     mex.Configuration(eid).Execution(ex59).addPerformance(EnumMeasures.ERROR, .14);
-                    mex.Configuration(eid).Execution(ex59).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .959);
+                    mex.Configuration(eid).Execution(ex59).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .959);
                     mex.Configuration(eid).Execution(ex59).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex59).setTargetClass("PERSON");
                 }
@@ -971,7 +971,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex60).addPerformance(EnumMeasures.PRECISION, .9963);
                     mex.Configuration(eid).Execution(ex60).addPerformance(EnumMeasures.FMEASURE, .9945);
                     mex.Configuration(eid).Execution(ex60).addPerformance(EnumMeasures.ERROR, 1.03);
-                    mex.Configuration(eid).Execution(ex60).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .915);
+                    mex.Configuration(eid).Execution(ex60).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .915);
                     mex.Configuration(eid).Execution(ex60).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex60).setTargetClass("NULL");
                 }
@@ -989,7 +989,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex61).addPerformance(EnumMeasures.PRECISION, .8972);
                     mex.Configuration(eid).Execution(ex61).addPerformance(EnumMeasures.FMEASURE, .9114);
                     mex.Configuration(eid).Execution(ex61).addPerformance(EnumMeasures.ERROR, .34);
-                    mex.Configuration(eid).Execution(ex61).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .9100);
+                    mex.Configuration(eid).Execution(ex61).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .9100);
                     mex.Configuration(eid).Execution(ex61).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex61).setTargetClass("LOCATION");
                 }
@@ -1003,7 +1003,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex62).addPerformance(EnumMeasures.PRECISION, .8201);
                     mex.Configuration(eid).Execution(ex62).addPerformance(EnumMeasures.FMEASURE, .8517);
                     mex.Configuration(eid).Execution(ex62).addPerformance(EnumMeasures.ERROR, .84);
-                    mex.Configuration(eid).Execution(ex62).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .848);
+                    mex.Configuration(eid).Execution(ex62).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .848);
                     mex.Configuration(eid).Execution(ex62).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex62).setTargetClass("ORGANIZATION");
                 }
@@ -1017,7 +1017,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex63).addPerformance(EnumMeasures.PRECISION, .9433);
                     mex.Configuration(eid).Execution(ex63).addPerformance(EnumMeasures.FMEASURE, .9579);
                     mex.Configuration(eid).Execution(ex63).addPerformance(EnumMeasures.ERROR, .15);
-                    mex.Configuration(eid).Execution(ex63).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .957);
+                    mex.Configuration(eid).Execution(ex63).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .957);
                     mex.Configuration(eid).Execution(ex63).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex63).setTargetClass("PERSON");
                 }
@@ -1031,7 +1031,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex64).addPerformance(EnumMeasures.PRECISION, .9962);
                     mex.Configuration(eid).Execution(ex64).addPerformance(EnumMeasures.FMEASURE, .9944);
                     mex.Configuration(eid).Execution(ex64).addPerformance(EnumMeasures.ERROR, .15);
-                    mex.Configuration(eid).Execution(ex64).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .957);
+                    mex.Configuration(eid).Execution(ex64).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .957);
                     mex.Configuration(eid).Execution(ex64).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex64).setTargetClass("NULL");
                 }
@@ -1049,7 +1049,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex65).addPerformance(EnumMeasures.PRECISION, .8992);
                     mex.Configuration(eid).Execution(ex65).addPerformance(EnumMeasures.FMEASURE, .9124);
                     mex.Configuration(eid).Execution(ex65).addPerformance(EnumMeasures.ERROR, .34);
-                    mex.Configuration(eid).Execution(ex65).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .911);
+                    mex.Configuration(eid).Execution(ex65).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .911);
                     mex.Configuration(eid).Execution(ex65).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex65).setTargetClass("LOCATION");
                 }
@@ -1063,7 +1063,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex66).addPerformance(EnumMeasures.PRECISION, .8206);
                     mex.Configuration(eid).Execution(ex66).addPerformance(EnumMeasures.FMEASURE, .8524);
                     mex.Configuration(eid).Execution(ex66).addPerformance(EnumMeasures.ERROR, .83);
-                    mex.Configuration(eid).Execution(ex66).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .849);
+                    mex.Configuration(eid).Execution(ex66).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .849);
                     mex.Configuration(eid).Execution(ex66).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex66).setTargetClass("ORGANIZATION");
                 }
@@ -1077,7 +1077,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex67).addPerformance(EnumMeasures.PRECISION, .9465);
                     mex.Configuration(eid).Execution(ex67).addPerformance(EnumMeasures.FMEASURE, .9600);
                     mex.Configuration(eid).Execution(ex67).addPerformance(EnumMeasures.ERROR, .14);
-                    mex.Configuration(eid).Execution(ex67).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .959);
+                    mex.Configuration(eid).Execution(ex67).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .959);
                     mex.Configuration(eid).Execution(ex67).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex67).setTargetClass("PERSON");
                 }
@@ -1091,7 +1091,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex68).addPerformance(EnumMeasures.PRECISION, .9961);
                     mex.Configuration(eid).Execution(ex68).addPerformance(EnumMeasures.FMEASURE, .9944);
                     mex.Configuration(eid).Execution(ex68).addPerformance(EnumMeasures.ERROR, 1.05);
-                    mex.Configuration(eid).Execution(ex68).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .914);
+                    mex.Configuration(eid).Execution(ex68).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .914);
                     mex.Configuration(eid).Execution(ex68).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex68).setTargetClass("NULL");
                 }
@@ -1109,7 +1109,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex69).addPerformance(EnumMeasures.PRECISION, .7511);
                     mex.Configuration(eid).Execution(ex69).addPerformance(EnumMeasures.FMEASURE, .6958);
                     mex.Configuration(eid).Execution(ex69).addPerformance(EnumMeasures.ERROR, 1.08);
-                    mex.Configuration(eid).Execution(ex69).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .692);
+                    mex.Configuration(eid).Execution(ex69).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .692);
                     mex.Configuration(eid).Execution(ex69).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex69).setTargetClass("LOCATION");
                 }
@@ -1123,7 +1123,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex70).addPerformance(EnumMeasures.PRECISION, .5384);
                     mex.Configuration(eid).Execution(ex70).addPerformance(EnumMeasures.FMEASURE, .6069);
                     mex.Configuration(eid).Execution(ex70).addPerformance(EnumMeasures.ERROR, 2.44);
-                    mex.Configuration(eid).Execution(ex70).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .600);
+                    mex.Configuration(eid).Execution(ex70).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .600);
                     mex.Configuration(eid).Execution(ex70).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex70).setTargetClass("ORGANIZATION");
                 }
@@ -1137,7 +1137,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex71).addPerformance(EnumMeasures.PRECISION, .7707);
                     mex.Configuration(eid).Execution(ex71).addPerformance(EnumMeasures.FMEASURE, .7869);
                     mex.Configuration(eid).Execution(ex71).addPerformance(EnumMeasures.ERROR, .74);
-                    mex.Configuration(eid).Execution(ex71).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .783);
+                    mex.Configuration(eid).Execution(ex71).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .783);
                     mex.Configuration(eid).Execution(ex71).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex71).setTargetClass("PERSON");
                 }
@@ -1151,7 +1151,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex72).addPerformance(EnumMeasures.PRECISION, .9869);
                     mex.Configuration(eid).Execution(ex72).addPerformance(EnumMeasures.FMEASURE, .9836);
                     mex.Configuration(eid).Execution(ex72).addPerformance(EnumMeasures.ERROR, 3.07);
-                    mex.Configuration(eid).Execution(ex72).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .752);
+                    mex.Configuration(eid).Execution(ex72).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .752);
                     mex.Configuration(eid).Execution(ex72).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex72).setTargetClass("NULL");
                 }
@@ -1169,7 +1169,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex73).addPerformance(EnumMeasures.PRECISION, .9149);
                     mex.Configuration(eid).Execution(ex73).addPerformance(EnumMeasures.FMEASURE, .8997);
                     mex.Configuration(eid).Execution(ex73).addPerformance(EnumMeasures.ERROR, .37);
-                    mex.Configuration(eid).Execution(ex73).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .898);
+                    mex.Configuration(eid).Execution(ex73).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .898);
                     mex.Configuration(eid).Execution(ex73).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex73).setTargetClass("LOCATION");
                 }
@@ -1183,7 +1183,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex74).addPerformance(EnumMeasures.PRECISION, .7906);
                     mex.Configuration(eid).Execution(ex74).addPerformance(EnumMeasures.FMEASURE, .8236);
                     mex.Configuration(eid).Execution(ex74).addPerformance(EnumMeasures.ERROR, 1.0);
-                    mex.Configuration(eid).Execution(ex74).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .819);
+                    mex.Configuration(eid).Execution(ex74).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .819);
                     mex.Configuration(eid).Execution(ex74).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex74).setTargetClass("ORGANIZATION");
                 }
@@ -1197,7 +1197,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex75).addPerformance(EnumMeasures.PRECISION, .9372);
                     mex.Configuration(eid).Execution(ex75).addPerformance(EnumMeasures.FMEASURE, .9544);
                     mex.Configuration(eid).Execution(ex75).addPerformance(EnumMeasures.ERROR, .15);
-                    mex.Configuration(eid).Execution(ex75).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .955);
+                    mex.Configuration(eid).Execution(ex75).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .955);
                     mex.Configuration(eid).Execution(ex75).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex75).setTargetClass("PERSON");
                 }
@@ -1211,7 +1211,7 @@ public class Dataset1 {
                     mex.Configuration(eid).Execution(ex76).addPerformance(EnumMeasures.PRECISION, .9947);
                     mex.Configuration(eid).Execution(ex76).addPerformance(EnumMeasures.FMEASURE, .9935);
                     mex.Configuration(eid).Execution(ex76).addPerformance(EnumMeasures.ERROR, 1.22);
-                    mex.Configuration(eid).Execution(ex76).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .898);
+                    mex.Configuration(eid).Execution(ex76).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .898);
                     mex.Configuration(eid).Execution(ex76).setEndDate(new Date());
                     mex.Configuration(eid).Execution(ex76).setTargetClass("NULL");
                 }

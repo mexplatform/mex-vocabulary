@@ -521,6 +521,7 @@ public class ExperimentConfigurationVO {
      * @throws Exception
      */
     public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass, String id) throws Exception{
+        //return _addAlgorithm(algorithmClass, id).getIndividualName();
         return _addAlgorithm(algorithmClass, id);
     }
 
@@ -531,6 +532,7 @@ public class ExperimentConfigurationVO {
      * @throws Exception
      */
     public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass) throws Exception{
+        //return _addAlgorithm(algorithmClass, "").getIndividualName();
         return _addAlgorithm(algorithmClass, "");
     }
 

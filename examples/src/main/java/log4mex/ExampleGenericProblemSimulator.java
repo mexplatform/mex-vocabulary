@@ -20,6 +20,9 @@ public class ExampleGenericProblemSimulator {
 
         MyMEX mex = null;
 
+        try{
+
+
         //ajustar no loop de busca das subclasses...tem que ser metodo recursivo para pegar todos os filhos!
 
         /***************************************************************
@@ -48,16 +51,17 @@ public class ExampleGenericProblemSimulator {
         ExperimentConfigurationVO mcExpConf1 = new ExperimentConfigurationVO("EXP001", "grouping desc");
         //mcExpConf1.setExperiment(mcExp);
 
-        mcExpConf1.setModel(new ModelVO("MSVM003201502"));
+        mcExpConf1.setModel("MSVM003201502");
 
-        mcExpConf1.setHardwareConfiguration(new HardwareConfigurationVO(
+        mcExpConf1.setHardwareConfiguration("ubuntu",
                 EnumProcessors.INTEL_COREI7,
                 EnumRAM.SIZE_8GB,
-                EnumCaches.CACHE_3MB));
+                "SSD 128GB",
+                EnumCaches.CACHE_3MB);
 
-        mcExpConf1.setDataSet(new DataSetVO("BOVESPA_20110101_20131201"));
+        mcExpConf1.setDataSet("", "BOVESPA_20110101_20131201");
 
-        mcExpConf1.setSamplingMethod(new SamplingMethodVO("", EnumSamplingMethods.CROSS_VALIDATION));
+        mcExpConf1.setSamplingMethod(EnumSamplingMethods.CROSS_VALIDATION, 10);
         mcExpConf1.SamplingMethod().setTrainSize(0.8);
         mcExpConf1.SamplingMethod().setTrainSize(0.2);
         mcExpConf1.SamplingMethod().setFolds(10);
@@ -134,6 +138,11 @@ public class ExampleGenericProblemSimulator {
         }catch (Exception e){
             System.out.print(e.toString());
         }
+
+        }catch (Exception e){
+
+        }
+
 
 
     }

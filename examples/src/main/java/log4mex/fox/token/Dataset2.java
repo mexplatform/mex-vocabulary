@@ -118,7 +118,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.PRECISION, .7245);
             mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.FMEASURE, .6749);
             mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.ERROR, 3.57);
-            mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, 0.659);
+            mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, 0.659);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex1).setEndDate(new Date());
@@ -137,7 +137,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.PRECISION, .7748);
             mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.FMEASURE, .6757);
             mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.ERROR, 3.4);
-            mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .665);
+            mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .665);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex2).setEndDate(new Date());
@@ -155,7 +155,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex3).addPerformance(EnumMeasures.PRECISION, .7418);
             mex.Configuration(eid).Execution(ex3).addPerformance(EnumMeasures.FMEASURE, .6785);
             mex.Configuration(eid).Execution(ex3).addPerformance(EnumMeasures.ERROR, 3.43);
-            mex.Configuration(eid).Execution(ex3).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .664);
+            mex.Configuration(eid).Execution(ex3).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .664);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex3).setEndDate(new Date());
@@ -173,7 +173,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex4).addPerformance(EnumMeasures.PRECISION, .6342);
             mex.Configuration(eid).Execution(ex4).addPerformance(EnumMeasures.FMEASURE, .6688);
             mex.Configuration(eid).Execution(ex4).addPerformance(EnumMeasures.ERROR, 4.42);
-            mex.Configuration(eid).Execution(ex4).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .647);
+            mex.Configuration(eid).Execution(ex4).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .647);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex4).setEndDate(new Date());
@@ -191,7 +191,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex5).addPerformance(EnumMeasures.PRECISION, .5475);
             mex.Configuration(eid).Execution(ex5).addPerformance(EnumMeasures.FMEASURE, .5859);
             mex.Configuration(eid).Execution(ex5).addPerformance(EnumMeasures.ERROR, 6.02);
-            mex.Configuration(eid).Execution(ex5).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .567);
+            mex.Configuration(eid).Execution(ex5).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .567);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex5).setEndDate(new Date());
@@ -209,7 +209,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex6).addPerformance(EnumMeasures.PRECISION, .7483);
             mex.Configuration(eid).Execution(ex6).addPerformance(EnumMeasures.FMEASURE, .6904);
             mex.Configuration(eid).Execution(ex6).addPerformance(EnumMeasures.ERROR, 3.38);
-            mex.Configuration(eid).Execution(ex6).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .675);
+            mex.Configuration(eid).Execution(ex6).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .675);
           
                 //your models call here !
             mex.Configuration(eid).Execution(ex6).setEndDate(new Date());
@@ -227,7 +227,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex7).addPerformance(EnumMeasures.PRECISION, .7619);
             mex.Configuration(eid).Execution(ex7).addPerformance(EnumMeasures.FMEASURE, .6746);
             mex.Configuration(eid).Execution(ex7).addPerformance(EnumMeasures.ERROR, 3.34);
-            mex.Configuration(eid).Execution(ex7).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .663);
+            mex.Configuration(eid).Execution(ex7).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .663);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex7).setEndDate(new Date());
@@ -245,7 +245,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex8).addPerformance(EnumMeasures.PRECISION, .6056);
             mex.Configuration(eid).Execution(ex8).addPerformance(EnumMeasures.FMEASURE, .6444);
             mex.Configuration(eid).Execution(ex8).addPerformance(EnumMeasures.ERROR, 5.09);
-            mex.Configuration(eid).Execution(ex8).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .621);
+            mex.Configuration(eid).Execution(ex8).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .621);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex8).setEndDate(new Date());
@@ -263,7 +263,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex9).addPerformance(EnumMeasures.PRECISION, .7424);
             mex.Configuration(eid).Execution(ex9).addPerformance(EnumMeasures.FMEASURE, .6804);
             mex.Configuration(eid).Execution(ex9).addPerformance(EnumMeasures.ERROR, 3.43);
-            mex.Configuration(eid).Execution(ex9).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, 0.666);
+            mex.Configuration(eid).Execution(ex9).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, 0.666);
                 //your models call here !
             mex.Configuration(eid).Execution(ex9).setEndDate(new Date());
         }
@@ -280,7 +280,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex10).addPerformance(EnumMeasures.PRECISION, .5881);
             mex.Configuration(eid).Execution(ex10).addPerformance(EnumMeasures.FMEASURE, .4918);
             mex.Configuration(eid).Execution(ex10).addPerformance(EnumMeasures.ERROR, 5.93);
-            mex.Configuration(eid).Execution(ex10).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, 0.477);
+            mex.Configuration(eid).Execution(ex10).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, 0.477);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex10).setEndDate(new Date());
@@ -298,7 +298,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex11).addPerformance(EnumMeasures.PRECISION, .7511);
             mex.Configuration(eid).Execution(ex11).addPerformance(EnumMeasures.FMEASURE, .6881);
             mex.Configuration(eid).Execution(ex11).addPerformance(EnumMeasures.ERROR, 3.31);
-            mex.Configuration(eid).Execution(ex11).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, 0.674);
+            mex.Configuration(eid).Execution(ex11).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, 0.674);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex11).setEndDate(new Date());
@@ -316,7 +316,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex12).addPerformance(EnumMeasures.PRECISION, .7354);
             mex.Configuration(eid).Execution(ex12).addPerformance(EnumMeasures.FMEASURE, .6766);
             mex.Configuration(eid).Execution(ex12).addPerformance(EnumMeasures.ERROR, 3.49);
-            mex.Configuration(eid).Execution(ex12).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .662);
+            mex.Configuration(eid).Execution(ex12).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .662);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex12).setEndDate(new Date());
@@ -334,7 +334,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex13).addPerformance(EnumMeasures.PRECISION, .7378);
             mex.Configuration(eid).Execution(ex13).addPerformance(EnumMeasures.FMEASURE, .6721);
             mex.Configuration(eid).Execution(ex13).addPerformance(EnumMeasures.ERROR, 3.49);
-            mex.Configuration(eid).Execution(ex13).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .658);
+            mex.Configuration(eid).Execution(ex13).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .658);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex13).setEndDate(new Date());
@@ -352,7 +352,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex14).addPerformance(EnumMeasures.PRECISION, .7219);
             mex.Configuration(eid).Execution(ex14).addPerformance(EnumMeasures.FMEASURE, .6581);
             mex.Configuration(eid).Execution(ex14).addPerformance(EnumMeasures.ERROR, 3.51);
-            mex.Configuration(eid).Execution(ex14).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .643);
+            mex.Configuration(eid).Execution(ex14).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .643);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex14).setEndDate(new Date());
@@ -370,7 +370,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex15).addPerformance(EnumMeasures.PRECISION, .7345);
             mex.Configuration(eid).Execution(ex15).addPerformance(EnumMeasures.FMEASURE, .676);
             mex.Configuration(eid).Execution(ex15).addPerformance(EnumMeasures.ERROR, 3.49);
-            mex.Configuration(eid).Execution(ex15).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .661);
+            mex.Configuration(eid).Execution(ex15).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .661);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex15).setEndDate(new Date());
@@ -388,7 +388,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex16).addPerformance(EnumMeasures.PRECISION, .4383);
             mex.Configuration(eid).Execution(ex16).addPerformance(EnumMeasures.FMEASURE, .4015);
             mex.Configuration(eid).Execution(ex16).addPerformance(EnumMeasures.ERROR, 7.02);
-            mex.Configuration(eid).Execution(ex16).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .371);
+            mex.Configuration(eid).Execution(ex16).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .371);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex16).setEndDate(new Date());
@@ -406,7 +406,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex17).addPerformance(EnumMeasures.PRECISION, .7547);
             mex.Configuration(eid).Execution(ex17).addPerformance(EnumMeasures.FMEASURE, .6825);
             mex.Configuration(eid).Execution(ex17).addPerformance(EnumMeasures.ERROR, 3.33);
-            mex.Configuration(eid).Execution(ex17).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, 0.67);
+            mex.Configuration(eid).Execution(ex17).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, 0.67);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex17).setEndDate(new Date());
@@ -423,7 +423,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex18).addPerformance(EnumMeasures.PRECISION, .7457);
             mex.Configuration(eid).Execution(ex18).addPerformance(EnumMeasures.FMEASURE, .6893);
             mex.Configuration(eid).Execution(ex18).addPerformance(EnumMeasures.ERROR, 3.338);
-            mex.Configuration(eid).Execution(ex18).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .674);
+            mex.Configuration(eid).Execution(ex18).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .674);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex18).setEndDate(new Date());
@@ -440,7 +440,7 @@ public class Dataset2 {
             mex.Configuration(eid).Execution(ex19).addPerformance(EnumMeasures.PRECISION, .7789);
             mex.Configuration(eid).Execution(ex19).addPerformance(EnumMeasures.FMEASURE, .675);
             mex.Configuration(eid).Execution(ex19).addPerformance(EnumMeasures.ERROR, 3.39);
-            mex.Configuration(eid).Execution(ex19).addPerformance(EnumMeasures.MCC_MATTHEWS_COR_COEF, .666);
+            mex.Configuration(eid).Execution(ex19).addPerformance(EnumMeasures.MATTHEWSCORRELATIONCOEFICIENT, .666);
 
                 //your models call here !
             mex.Configuration(eid).Execution(ex19).setEndDate(new Date());
