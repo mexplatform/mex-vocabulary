@@ -19,10 +19,44 @@
     </section>
 
     <section class="main-content">
-      <h3>
-<a id="welcome-to-the-mex-project" class="anchor" href="#welcome-to-the-mex-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to the MEX Project</h3>
+      <h1>
+<a id="integrating-machine-learning-outputs" class="anchor" href="#integrating-machine-learning-outputs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Integrating Machine Learning Outputs</h1>
 
-<p>-&gt; to be updated</p>
+<h2>
+<a id="applications-of-log4mex" class="anchor" href="#applications-of-log4mex" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Applications of <a href="http://dne5.com/mex/diagram/log4mex-small.png">LOG4MEX</a>
+</h2>
+
+<h3>
+<a id="fox" class="anchor" href="#fox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FOX</h3>
+
+<hr>
+
+<h3>
+<a id="sml-bench" class="anchor" href="#sml-bench" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SML-Bench</h3>
+
+<hr>
+
+<h3>
+<a id="federated-query-engines" class="anchor" href="#federated-query-engines" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Federated Query Engines</h3>
+
+<hr>
+
+<p>A <a href="http://mex.aksw.org/mex-core#Execution">query</a> that collects <a href="http://mex.aksw.org/mex-perf#ExecutionPerformance">results</a> from more than one data sources is called <strong>federated query</strong>. The engines that allow executing federated queries are called <strong>federated engines</strong>. In SPARQL endpoint <a href="http://mex.aksw.org/mex-core#Experiment">federation engines evaluation</a>, the <a href="http://mex.aksw.org/mex-core#endsAt">query runtime</a> is the central <a href="http://mex.aksw.org/mex-perf#PerformanceMeasure">performance measure</a>. In addition, the number of data sources selected, the source selection time, the number of intermediate results, the <a href="http://mex.aksw.org/mex-perf#precision">precision</a> and <a href="http://mex.aksw.org/mex-perf#recall">recall</a> are also important measures to pinpoint the limitations of the <strong>federated engines</strong>. </p>
+
+<p>We have two type of configurations to run the experiments: 1) we specify the specification (<a href="http://mex.aksw.org/mex-core#memory">RAM</a>, <a href="http://mex.aksw.org/mex-core#hdType">Hard disk</a>, <a href="http://mex.aksw.org/mex-core#cpu">Processor</a>, etc..) of all the machines running the SPARQL endpoints, 2) the specification of the machine running the <strong>federation engines</strong>. In this use case, we exported the <a href="https://github.com/AKSW/largerdfbench">LargeRDFBench</a> results in to <code>mex</code> machine readable format. The selected <strong>federated engines</strong> can be directly compared using simple SPARQL queries over <code>mex</code> results, optimizing the results analysis process.</p>
+
+<h3>
+<a id="wasota" class="anchor" href="#wasota" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WASOTA</h3>
+
+<hr>
+
+<h2>
+<a id="more-information" class="anchor" href="#more-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>More information</h2>
+
+<ul>
+<li><a href="https://github.com/AKSW/mexproject/tree/master/vocabulary">MEX Vocabulary</a></li>
+<li><a href="https://github.com/AKSW/mexproject/tree/master/log4mex">LOG4MEX Library</a></li>
+</ul>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/AKSW/mexproject">MEX</a> is maintained by <a href="https://github.com/AKSW">AKSW</a>.</span>
