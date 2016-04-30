@@ -79,6 +79,12 @@ public class MyMEX {
 
 
     /* mexcore */
+
+    public void setAuthor(String name, String email){
+        this.applicationContext.setAuthorName(name);
+        this.applicationContext.setMailBox(email);
+    }
+
     public void setAuthorName(String value){this.applicationContext.setAuthorName(value);}
 
     public void setAuthorEmail(String value){this.applicationContext.setMailBox(value);}

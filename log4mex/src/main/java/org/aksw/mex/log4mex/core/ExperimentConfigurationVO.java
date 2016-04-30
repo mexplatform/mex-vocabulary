@@ -478,7 +478,7 @@ public class ExperimentConfigurationVO {
      * @param description
      * @param name
      */
-    public void setDataset(String URI, String description, String name){
+    public void setDataSet(String URI, String description, String name){
         if (this._ds == null){
             this._ds = new DataSetVO();
         }
@@ -489,10 +489,15 @@ public class ExperimentConfigurationVO {
 
     /**
      * set the Dataset associated to a set of executions
-     * @param value
+     * @param URI
+     * @param name
      */
-    public void setDataSet(DataSetVO value) {
-        this._ds = value;
+    public void setDataSet(String URI, String name){
+        if (this._ds == null){
+            this._ds = new DataSetVO();
+        }
+        this._ds.setName(name);
+        this._ds.setURI(URI);
     }
 
     /**
