@@ -1,8 +1,23 @@
-# MEX APIs
+# LOG4MEX
 
 * Exporting the machine learning iterations and its performances through the MEX APIs
 
-# A Java Wrapper
+##Requirements
+Java 8, Maven 3, graphviz (for JavaDoc only)
+
+##License
+LOG4MEX is licensed under the [Creative Commons Non-Commercial](http://creativecommons.org/licenses/by-nc/2.0/).
+
+##Demo and Documentation
+Project Page: [http://aksw.github.io/mexproject/]
+SPARQL Endpoint: [http://mex.aksw.org/sparql]
+
+##Bugs
+Found a :bug: bug? [Open an issue](https://github.com/AKSW/fox/issues/new) 
+
+##Changelog
+### [v1.0.0]
+* Initial version
 
 ## Usage
 
