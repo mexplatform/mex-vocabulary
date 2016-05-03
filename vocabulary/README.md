@@ -1,6 +1,4 @@
-# MEX Vocabulary
-
-* Lightweight and Flexible Schema for Machine Learning Iterations
+# MEX Vocabulary: Lightweight and Flexible Schema for Machine Learning Experiments
 
 More than just a **machine readable way**, the `MEX` Vocabulary has been designed to define a **lightweight and flexible schema** for publishing machine learning outputs metadata, regardless technology (we have been working to provide different programming language *APIs* and integrations with different machine learning tools). We aim to provide a **free-format** for exporting and exchanging machine learning metadata, indifferent to existing **workflow systems** or **frameworks**. As a consequence, the users can benefit of the `mex format` for further analysis and integrations in an easiest way.
 
