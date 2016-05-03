@@ -1,15 +1,16 @@
-# LOG4MEX
+# Exporting Machine Learning Outputs through LOG4MEX!
 
-* Exporting the machine learning iterations and its performances through the MEX APIs
+* Do you need an API to manage machine learning metadata? 
 
 ##Requirements
-Java 8, Maven 3, graphviz (for JavaDoc only)
+Java 8, Maven 3
 
 ##License
 LOG4MEX is licensed under the [Creative Commons Non-Commercial](http://creativecommons.org/licenses/by-nc/2.0/).
 
 ##Demo and Documentation
 Project Page: [http://aksw.github.io/mexproject/]
+
 SPARQL Endpoint: [http://mex.aksw.org/sparql]
 
 ##Bugs
