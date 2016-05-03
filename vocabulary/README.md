@@ -7,6 +7,19 @@ More than just a **machine readable way**, the `MEX` Vocabulary has been designe
 
 The definition of an `ontology` can be a complex and never-ending task, even more for a highly complex environment such as machine learning. The `MEX` vocabulary has been designed to serve as an ally in the metadata exporting process, focusing in practical and important aspects concerning the publication of the achieved results, i.e.: the needed `input parameters` for an `model` which produces `measures`. More sophisticated variables and procedures (e.g.: optimizations and feature selection) are not covered, simply because they go beyond the a logical threshold of simplicity we want to achieve here. In the end, people are more interested in find out, compare and share `methodologies` and their `performances` than to have deep understanding of performed sub tasks.
 
+
+## How to cite
+```Tex
+@inproceedings{esteves2015mexvoc,
+  title={MEX vocabulary: a lightweight interchange format for machine learning experiments},
+  author={Esteves, Diego and Moussallem, Diego and Neto, Ciro Baron and Soru, Tommaso and Usbeck, Ricardo and Ackermann, Markus and Lehmann, Jens},
+  booktitle={Proceedings of the 11th International Conference on Semantic Systems},
+  pages={169--176},
+  year={2015},
+  organization={ACM}
+}
+```
+
 ## Schema
 
 The current version of the vocabulaty is described (per layer) as following. We've omitted obvious information for brevity.
