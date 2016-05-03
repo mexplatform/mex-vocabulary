@@ -14,11 +14,11 @@ Recently, we have started the framework's development, which aims to automatize 
 For more information, please see the sub projects listed bellow:
 
 ### Projects
-  * [Vocabulary: *A Lightweight Interchange Format for Machine Learning Experiments*](https://github.com/AKSW/mexproject/tree/master/ontology)
-  * [LOG4MEX: *A ML Logger for Java*](https://github.com/AKSW/mexproject/tree/master/src/main/java/org/aksw/mex/log4mex)
-  * [Framework: *A new way to generate ML metadada for Java code*](https://github.com/AKSW/mexproject/tree/master/src/main/java/org/aksw/mex/framework)
-  * [Examples](https://github.com/AKSW/mexproject/tree/master/src/main/java/examples)
-  * [Google Group](mex-project@googlegroups.com)
+  * [Vocabulary: A Lightweight Interchange Format for Machine Learning Experiments](https://github.com/AKSW/mexproject/tree/master/vocabulary)
+  * [LOG4MEX: Logging with Java](https://github.com/AKSW/mexproject/tree/master/log4mex)
+  * [Framework: A new way to generate ML metadada for Java code](https://github.com/AKSW/mexproject/tree/master/framework)
+  * [Examples](https://github.com/AKSW/mexproject/tree/master/examples)
+  * [Get in touch! Google Group](mex-project@googlegroups.com)
 
 ### How to use MEX?
 
