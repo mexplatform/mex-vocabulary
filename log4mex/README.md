@@ -1,8 +1,29 @@
-# MEX APIs
+# LOG4MEX API
 
-* Exporting the machine learning iterations and its performances through the MEX APIs
+## Do you need an API to manage machine learning metadata? 
 
-# A Java Wrapper
+* We aim to provide an API to help developers to manage ML metadata, improving interoperability and adding provenance information to the experiment.
+* No need to create scripts to manage the outputs
+* No need to create wrappers to save outputs into SGBD's
+* Exporting clear information about your executions! Others do not need to guess what you did! (LOG4MEX is based on [MEX Vocabulary](https://github.com/AKSW/mexproject/tree/master/vocabulary))
+
+##Requirements
+Java 8, Maven 3
+
+##License
+LOG4MEX is licensed under the [Creative Commons Non-Commercial](http://creativecommons.org/licenses/by-nc/2.0/).
+
+##Demo and Documentation
+Project Page: [http://aksw.github.io/mexproject/]
+
+SPARQL Endpoint: [http://mex.aksw.org/sparql]
+
+##Bugs
+Found a :bug: bug? [Open an issue](https://github.com/AKSW/fox/issues/new) 
+
+##Changelog
+### [v1.0.0]
+* Initial version
 
 ## Usage
 
