@@ -1,6 +1,11 @@
-# Exporting Machine Learning Outputs through LOG4MEX!
+# LOG4MEX API
 
-* Do you need an API to manage machine learning metadata? 
+## Do you need an API to manage machine learning metadata? 
+
+* We aim to provide an API to help developers to manage ML metadata, improving interoperability and adding provenance information to the experiment.
+* No need to create scripts to manage the outputs
+* No need to create wrappers to save outputs into SGBD's
+* Exporting clear information about your executions! Others do not need to guess what you did! (LOG4MEX is based on [MEX Vocabulary](https://github.com/AKSW/mexproject/tree/master/vocabulary))
 
 ##Requirements
 Java 8, Maven 3
