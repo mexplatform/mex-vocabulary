@@ -174,7 +174,7 @@ public class MyMEX {
                 LOGGER.warn(logmsg);
                 throw new Exception(logmsg);
             }
-            
+
         }catch (Exception e){
             LOGGER.error(e.toString());
         }
@@ -192,14 +192,15 @@ public class MyMEX {
             if (withoutConfiguration == true){
                 logmessage = "You defined a SINGLE Configuration before and now are trying add a MULTIPLE Configuration. It's not allowed, sorry!"
                 + " Please change your method calls in order to have either [Configuration()] calls (just ONE configuration) or [addConfiguration(id) and Configuration(id)] (MORE THAN ONE configuration)";
-                LOGGER.error(logmessage);
+                LOGGER.warn(logmessage);
                 throw new Exception(logmessage);
             }
-            if (this.experimentConfigurationList ==null){
-                throw new Exception("fatal error: experiment config list is null!");
+            else if (this.experimentConfigurationList ==null){
+                logmessage = "fatal error: experiment config list is null!";
+                LOGGER.warn(logmessage);
+                throw new Exception(logmessage);
             }
-            else
-            {
+            else {
                 /* if (StringUtils.isNotEmpty(value) || StringUtils.isNotBlank(value)) {
                     //user wants to control it, first insertion...
                     if (this.experimentConfigurationList.size() == 1){
@@ -258,34 +259,41 @@ public class MyMEX {
     }
 
     public String addConfiguration() throws Exception{
-        String ret;
-        try
-        {
-            if (withoutConfiguration == true){
-                throw new Exception("You can not define a new configuration for an experiment without previous configuration");
-            }
 
-            ret=addConf(StringUtils.EMPTY);
+        String ret = "";
+
+        try {
+
+            ret = addConf(StringUtils.EMPTY);
+
             MEXController.getInstance().addExperimentConfigurationCounter();
-        }catch (Exception e){
-            throw new Exception(e);
+
+        } catch (Exception e){
+
+            LOGGER.error(e.toString());
+            throw(e);
         }
+
         return ret;
     }
 
     public String addConfiguration(String value) throws Exception{
-        String ret;
-        try
-        {
-            if (withoutConfiguration == true){
-                throw new Exception("You can not define a new configuration for an experiment without previous configuration");
-            }
 
-            ret=addConf(value);
+        String ret = "";
+
+        try {
+
+            ret = addConf(value);
+
         }catch (Exception e){
-           throw new Exception(e);
+
+            LOGGER.error(e.toString());
+            throw(e);
+
         }
+
         return ret;
+
     }
 
     public ContextVO getContext() {
