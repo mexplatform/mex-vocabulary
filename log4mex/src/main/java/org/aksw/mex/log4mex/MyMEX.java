@@ -134,29 +134,47 @@ public class MyMEX {
 
     public ExperimentConfigurationVO Configuration() throws Exception{
 
-        final String id = MEXConstant.DEFAULT_EXP_CONFIGURATION_ID + "1";
         ExperimentConfigurationVO ret = null;
 
         try{
 
+            final String id = MEXConstant.DEFAULT_EXP_CONFIGURATION_ID + "1";
+            String logmsg;
+
+            //bug 1
             if (this.experimentConfigurationList == null) {
-                LOGGER.error("Humm...the configuration list is empty!");
-                throw new Exception("We got a problem accessing the configurations! It looks like a bug!");
+                logmsg = "We got a problem accessing the configurations (rule 1)! It looks like a bug! Please report it!";
+                LOGGER.warn(logmsg);
+                throw new Exception(logmsg);
             }
-
-            if (this.experimentConfigurationList.size() != 0){
-                throw new Exception("It is not possible to get a default Configuration! The current MyMEX has "
-                        + this.experimentConfigurationList.size() + " configurations defined. Please inform the ExpConfID");
+            else if (withoutConfiguration == false && this.experimentConfigurationList.size() > 0){
+                logmsg = "You defined a MULTIPLE Configuration (by calling addConfiguration(id) method) before and now are trying add a SINGLE Configuration (by calling Configuration() method). It's not allowed, sorry!";
+                LOGGER.warn(logmsg);
+                throw new Exception(logmsg);
             }
-
-            withoutConfiguration = true;
-
-            LOGGER.info("Adding new components without explicit ExperimentConfiguration in MyMEX");
-
-            ret = new ExperimentConfigurationVO(id);
-
-            this.experimentConfigurationList.add(ret);
-
+            //bug2
+            else if (withoutConfiguration == true && this.experimentConfigurationList.size() == 0){
+                logmsg = "We got a problem accessing the configurations (rule 2)! It looks like a bug! Please report it!";
+                LOGGER.warn(logmsg);
+                throw new Exception(logmsg);
+            }
+            //first access to Configuration()
+            else if (withoutConfiguration == false && this.experimentConfigurationList.size() == 0){
+                withoutConfiguration = true;
+                ExperimentConfigurationVO conf = new ExperimentConfigurationVO(id);
+                this.experimentConfigurationList.add(conf);
+                ret = conf;
+            }
+            //recurrent access to Configuration()
+            else if (withoutConfiguration == true && this.experimentConfigurationList.size() == 1){
+                ret = this.experimentConfigurationList.get(0);
+            }
+            else {
+                logmsg = "We got a problem accessing the configurations (rule 3)! It looks like a bug! Please report it!";
+                LOGGER.warn(logmsg);
+                throw new Exception(logmsg);
+            }
+            
         }catch (Exception e){
             LOGGER.error(e.toString());
         }
@@ -165,13 +183,17 @@ public class MyMEX {
 
     }
 
-    private String addConf(String value) throws Exception{
+    private String addConf(String value) throws Exception {
         String ret="";
         String valueaux="";
+        String logmessage;
 
         try {
             if (withoutConfiguration == true){
-                throw new Exception("You can not define a new configuration for an experiment without previous configuration");
+                logmessage = "You defined a SINGLE Configuration before and now are trying add a MULTIPLE Configuration. It's not allowed, sorry!"
+                + " Please change your method calls in order to have either [Configuration()] calls (just ONE configuration) or [addConfiguration(id) and Configuration(id)] (MORE THAN ONE configuration)";
+                LOGGER.error(logmessage);
+                throw new Exception(logmessage);
             }
             if (this.experimentConfigurationList ==null){
                 throw new Exception("fatal error: experiment config list is null!");
