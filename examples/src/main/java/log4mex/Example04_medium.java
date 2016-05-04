@@ -64,7 +64,7 @@ public class Example04_medium {
         }
 
         //adding algorithms and parameters
-        AlgorithmVO alg1;
+        String alg1;
         {
 
             mex.Configuration(eid).setTool(EnumTools.WEKA, "3.6.6");
@@ -73,7 +73,8 @@ public class Example04_medium {
             mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
 
             String[] param = {"C", "10^3", "alpha", "0.2"};
-            alg1.addParameter(param);
+            mex.Configuration(eid).Algorithm(alg1).addParameter(param);
+
         }
 
         String ex1 = "EX001";

@@ -58,7 +58,7 @@ public class Dataset2 {
         }
 
         //adding algorithms and parameters
-        AlgorithmVO alg1,alg2,alg3,alg4,alg5,alg6,alg7,alg8,alg9,alg10,alg11,alg12,alg13,alg14,alg15,alg16,alg17,alg18,alg19;
+        String alg1,alg2,alg3,alg4,alg5,alg6,alg7,alg8,alg9,alg10,alg11,alg12,alg13,alg14,alg15,alg16,alg17,alg18,alg19;
         {
             //mex.Configuration(eid).setImplementation(EnumImplementations., "3.6.6");
 
@@ -83,7 +83,10 @@ public class Dataset2 {
             alg19 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.LogisticRegression);
 
             String[] param = {"C", "10^3", "alpha", "0.2"};
-            alg1.addParameter(param);
+
+            mex.Configuration(eid).Algorithm(alg1).addParameter(param);
+
+
         }
 
         String ex1;

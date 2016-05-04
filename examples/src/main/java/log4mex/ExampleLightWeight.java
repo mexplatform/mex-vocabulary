@@ -2,7 +2,6 @@ package log4mex;
 
 import org.aksw.mex.log4mex.MEXSerializer;
 import org.aksw.mex.log4mex.MyMEX;
-import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum.*;
 
@@ -51,13 +50,13 @@ public class ExampleLightWeight {
 
             }
 
-            AlgorithmVO alg1, alg2;
+            String alg1, alg2;
             //adding algorithms and parameters
             {
                 mex.Configuration().setTool(EnumTools.WEKA, "3.6.6");
                 String[] param = {"C", "10^3", "alpha", "0.2"};
                 alg1 = mex.Configuration().addAlgorithm(EnumAlgorithms.SupportVectorMachines);
-                alg1.addParameter(param);
+                mex.Configuration().Algorithm(alg1).addParameter(param);
 
                 alg2 = mex.Configuration().addAlgorithm(EnumAlgorithms.NaiveBayes);
 

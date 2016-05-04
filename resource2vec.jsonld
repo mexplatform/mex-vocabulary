@@ -9,7 +9,7 @@
   }, {
     "@id" : "this:MC0_MEX_EXEC_D1_1",
     "@type" : [ "mexperf:StatisticalMeasure", "prov:Entity" ],
-    "mexperf:error" : 3245.0,
+    "mexperf:processingTime" : 3245.0,
     "wasInformedBy" : "this:EXECC0_MEX_EXEC_D1"
   }, {
     "@id" : "this:PAR1",
@@ -27,7 +27,7 @@
   }, {
     "@id" : "this:application",
     "@type" : [ "mexcore:ApplicationContext", "prov:Organization", "prov:Person", "prov:Agent" ],
-    "dateCopyrighted" : "2016.05.01 01:16:44 CEST",
+    "dateCopyrighted" : "2016.05.01 01:31:54 CEST",
     "givenName" : "Tommaso Soru",
     "mbox" : "tsoru@informatik.uni-leipzig.de"
   }, {
@@ -103,8 +103,8 @@
       "@type" : "@id"
     },
     "value" : "http://www.w3.org/ns/prov#value",
-    "error" : {
-      "@id" : "http://mex.aksw.org/mex-perf#error",
+    "processingTime" : {
+      "@id" : "http://mex.aksw.org/mex-perf#processingTime",
       "@type" : "http://www.w3.org/2001/XMLSchema#double"
     },
     "hasParameterCollection" : {

@@ -50,6 +50,10 @@ public class SamplingMethodVO {
         this._testSize = test;
     }
 
+    public SamplingMethodVO(){
+
+    }
+
     public void setClassName(MEXEnum.EnumSamplingMethods value){
         this._className = value.toString();
     }
@@ -74,5 +78,14 @@ public class SamplingMethodVO {
         this._sequential = value;
     }
 
+    public boolean hasValue(){
+
+        if (this._individualName.equals("") && this._className.equals("") && this._folds.equals(0)){
+            return false;
+        }else{
+            return true;
+        }
+
+    }
 
 }

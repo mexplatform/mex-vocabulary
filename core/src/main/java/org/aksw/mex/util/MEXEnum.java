@@ -4,6 +4,11 @@ package org.aksw.mex.util; /**
 
 public class MEXEnum {
 
+
+    private class EnumUtil {
+        public static final String NOT_INFORMED = "";
+    }
+
     private class EnumAnnotationInterfaceStyle {
         public static final String M1 = "M1"; //a @start method to start with
         public static final String M2 = "M2"; //@training and @test methods to seek for
@@ -105,7 +110,7 @@ public class MEXEnum {
         public static final String ComputationalAdversiting = "ComputationalAdversiting";
         public static final String Cheminformatics = "Cheminformatics";
         public static final String SpeechAndHandwritingRecognition = "SpeechAndHandwritingRecognition";
-        public static final String NotInformed = "NotInformed";
+        public static final String NotInformed = "";
     }
 
     private class EnumAlgorithm {
@@ -179,6 +184,7 @@ public class MEXEnum {
         public static final String CrossValidation = "CrossValidation";
         public static final String SlidingCrossValidation = "SlidingCrossValidation";
         public static final String NFoldsCrossValidation = "NFoldsCrossValidation";
+        public static final String NOT_INFORMED = "";
     }
 
     private class EnumPerformanceMeasure {
@@ -220,6 +226,8 @@ public class MEXEnum {
         public static final String TRAIN = "Train";
         public static final String TEST = "Test";
         public static final String VALIDATION = "Validation";
+        public static final String NOT_INFORMED = "";
+
     }
 
     private class EnumExecutionType{
@@ -233,7 +241,8 @@ public class MEXEnum {
     public enum EnumPhases{
         TRAIN(EnumPhase.TRAIN.toString()),
         TEST(EnumPhase.TEST.toString()),
-        VALIDATION(EnumPhase.VALIDATION.toString());
+        VALIDATION(EnumPhase.VALIDATION.toString()),
+        NOT_INFORMED(EnumPhase.NOT_INFORMED.toString());
 
         private final String text;
         /**
@@ -257,7 +266,8 @@ public class MEXEnum {
         HOLDOUT(EnumSamplingMethod.Holdout.toString()),
         CROSS_VALIDATION(EnumSamplingMethod.CrossValidation.toString()),
         SLIDING_CROSS_VALIDATION(EnumSamplingMethod.SlidingCrossValidation.toString()),
-        N_FOLDS_CROSS_VALIDATION(EnumSamplingMethod.NFoldsCrossValidation.toString());
+        N_FOLDS_CROSS_VALIDATION(EnumSamplingMethod.NFoldsCrossValidation.toString()),
+        NOT_INFORMED(EnumSamplingMethod.NOT_INFORMED);
 
         private final String text;
         /**
@@ -794,6 +804,27 @@ public class MEXEnum {
         public String toString() {return text;}
 
     }
+
+    public enum EnumUtils{
+
+        NOT_INFORMED(EnumUtil.NOT_INFORMED.toString());
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumUtils(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+
+    }
+
 }
 
 

@@ -97,7 +97,7 @@ public class ExperimentConfigurationVO {
      */
     public PhaseVO Phase() {
         if (this._phase == null){
-            this._phase = new PhaseVO(MEXEnum.EnumPhases.TEST); //this is the default one
+            this._phase = new PhaseVO(MEXEnum.EnumPhases.NOT_INFORMED);
         }
         return this._phase;
     }
@@ -109,7 +109,7 @@ public class ExperimentConfigurationVO {
     public SamplingMethodVO SamplingMethod(){
         try {
             if (this._sampling == null) {
-                this.setSamplingMethod(MEXEnum.EnumSamplingMethods.HOLDOUT, 1);
+                this.setSamplingMethod(MEXEnum.EnumSamplingMethods.NOT_INFORMED, 0);
             }
             return this._sampling;
         }
@@ -173,6 +173,28 @@ public class ExperimentConfigurationVO {
         AlgorithmVO ret  = null;
         try {
             Collection<AlgorithmVO> t = Collections2.filter(this._algorithms, p -> p.getClassName().equals(algo.name()));
+            if (t != null && t.size() > 0){
+                ret = Iterables.get(t, 0);
+            }
+        }
+        catch (Exception e){
+            System.out.println(e.toString());
+        }
+        return ret;
+    }
+
+    /**
+     * gets a specific algorithm of a configuration based on the algorithm class
+     * @param algoInstanceName
+     * @return
+     */
+    public AlgorithmVO Algorithm(String algoInstanceName){
+        if (this._algorithms == null) {
+            this._algorithms = new ArrayList<>();}
+
+        AlgorithmVO ret  = null;
+        try {
+            Collection<AlgorithmVO> t = Collections2.filter(this._algorithms, p -> p.getIndividualName().equals(algoInstanceName));
             if (t != null && t.size() > 0){
                 ret = Iterables.get(t, 0);
             }
@@ -517,23 +539,23 @@ public class ExperimentConfigurationVO {
      * add an Algorithm available in an Experiment Configuration
      * @param algorithmClass
      * @param id
-     * @return
+     * @return algorithm's instance name
      * @throws Exception
      */
-    public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass, String id) throws Exception{
-        //return _addAlgorithm(algorithmClass, id).getIndividualName();
-        return _addAlgorithm(algorithmClass, id);
+    public String addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass, String id) throws Exception {
+        return _addAlgorithm(algorithmClass, id).getIndividualName();
+        //return _addAlgorithm(algorithmClass, id);
     }
 
     /**
      * add an Algorithm available in an Experiment Configuration
      * @param algorithmClass
-     * @return
+     * @return algorithm's instance name
      * @throws Exception
      */
-    public AlgorithmVO addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass) throws Exception{
-        //return _addAlgorithm(algorithmClass, "").getIndividualName();
-        return _addAlgorithm(algorithmClass, "");
+    public String addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass) throws Exception {
+        return _addAlgorithm(algorithmClass, "").getIndividualName();
+        //return _addAlgorithm(algorithmClass, "");
     }
 
     private AlgorithmVO _addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass, String id) throws Exception{

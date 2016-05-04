@@ -14,32 +14,12 @@ public class ToolVO {
     private String doap_revision;
     private String doap_description;
     private String doap_programming_language;
-    //private ArrayList<String> _properties;
 
-    ToolVO(String ind, String name, String label, String homepage, String revision, String description, String programming){
-       this._individualName = ind;
-        this.doap_name = name;
-        this.rdfs_label = label;
-        this.doap_homepage = homepage;
-        this.doap_revision = revision;
-        this.doap_description = description;
-        this.doap_programming_language = programming;
-
-    }
     public ToolVO(MEXEnum.EnumTools name){
         this._individualName = name.toString();
     }
 
-    public ToolVO(){
-       /* _properties = new ArrayList<String>();
-        _properties.add("id");
-        _properties.add("doap:name");
-        _properties.add("doap:homepage");
-        _properties.add("doap:revision");
-        _properties.add("doap:description");
-        _properties.add("doap:programming-language");
-        _properties.add("rdfs:label"); */
-    }
+    public ToolVO(){}
 
     public String getLabel() {
         return rdfs_label;
@@ -134,6 +114,16 @@ public class ToolVO {
 
     public void setProgrammingLanguage(String value) {
         this.doap_programming_language = value;
+    }
+
+    public boolean hasValue(){
+
+        if (this.doap_name.equals("") && this.doap_revision.equals("")){
+            return false;
+        }else{
+            return true;
+        }
+
     }
 
 }

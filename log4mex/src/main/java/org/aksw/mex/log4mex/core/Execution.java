@@ -228,19 +228,19 @@ public abstract class Execution {
 
     public boolean addPerformance(MEXEnum.EnumMeasures m, double v){
         String type = "";
-        String p = m.toString();
+        String p = m.toString().replace("_","").toUpperCase();
 
         boolean ret = false;
 
         try{
             type = "cla";
-            if (EnumUtils.isValidEnum(MEXEnum.EnumClassificationMeasure.class, p.toUpperCase()) == false){
+            if (EnumUtils.isValidEnum(MEXEnum.EnumClassificationMeasure.class, p) == false){
                 type = "reg";
-                if (EnumUtils.isValidEnum(MEXEnum.EnumRegressionMeasure.class, p.toUpperCase()) == false){
+                if (EnumUtils.isValidEnum(MEXEnum.EnumRegressionMeasure.class, p) == false){
                     type = "sta";
-                    if (EnumUtils.isValidEnum(MEXEnum.EnumStatisticalMeasure.class, p.toUpperCase()) == false){
+                    if (EnumUtils.isValidEnum(MEXEnum.EnumStatisticalMeasure.class, p) == false){
                         type = "clu";
-                        if (EnumUtils.isValidEnum(MEXEnum.EnumClusteringMeasure.class, p.toUpperCase()) == false){
+                        if (EnumUtils.isValidEnum(MEXEnum.EnumClusteringMeasure.class, p) == false){
                             return false;}
                     }
                 }

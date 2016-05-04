@@ -14,14 +14,6 @@ public class HardwareConfigurationVO {
     private String _cache;
     private String _video;
 
-    public HardwareConfigurationVO(String cpu, String memory, String hd, String cache, String OS, String video){
-        this._os = OS;
-        this._cache =cache;
-        this._memory = memory;
-        this._hd=hd;
-        this._video=video;
-        this._cpu=cpu;
-    }
 
     public HardwareConfigurationVO(MEXEnum.EnumProcessors cpu, MEXEnum.EnumRAM memory, MEXEnum.EnumCaches cache){
         this._cache =cache.toString();
@@ -69,5 +61,18 @@ public class HardwareConfigurationVO {
 
     public String getVideo() {return _video;}
 
+    public boolean hasValue(){
+
+        if (this._os.equals("") && this._video.equals("") &&
+                this._cpu.equals(MEXEnum.EnumProcessors.NOT_INFORMED) &&
+                this._memory.equals(MEXEnum.EnumRAM.NOT_INFORMED) &&
+                this._hd.equals("") &&
+                this._cache.equals(MEXEnum.EnumCaches.NOT_INFORMED)){
+            return false;
+        }else{
+            return true;
+        }
+
+    }
 
 }

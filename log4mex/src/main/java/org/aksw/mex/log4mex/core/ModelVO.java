@@ -7,6 +7,12 @@ import java.util.Date;
  */
 public class ModelVO {
 
+    private String _id;
+    private String _description;
+    private Date _date;
+
+
+
     public String getId() {
         return _id;
     }
@@ -31,10 +37,6 @@ public class ModelVO {
         this._date = _date;
     }
 
-    private String _id;
-    private String _description;
-    private Date _date;
-
     public ModelVO(String id, String description, Date date) {
         this._id = id;
         this._description = description;
@@ -46,6 +48,16 @@ public class ModelVO {
     }
 
     public ModelVO() {
+
+    }
+
+    public boolean hasValue(){
+
+        if (this._id.equals("") && this._description.equals("")){
+            return false;
+        }else{
+            return true;
+        }
 
     }
 

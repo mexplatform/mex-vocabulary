@@ -33,4 +33,16 @@ public class DataSetVO {
         this._uri = value;
     }
 
+    public boolean hasValue(){
+
+        if (this._name.equals("") &&
+                this._description.equals("") &&
+                this._uri.equals("")) {
+            return false;
+        }else{
+            return true;
+        }
+
+    }
+
 }

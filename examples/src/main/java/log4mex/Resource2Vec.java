@@ -2,7 +2,6 @@ package log4mex;
 
 import org.aksw.mex.log4mex.MEXSerializer;
 import org.aksw.mex.log4mex.MyMEX;
-import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum;
 
@@ -19,7 +18,7 @@ public class Resource2Vec {
 
             mex.setAuthor("Tommaso Soru", "tsoru@informatik.uni-leipzig.de");
 
-            AlgorithmVO idAlgo =  mex.Configuration().addAlgorithm(MEXEnum.EnumAlgorithms.RESCAL);
+            String idAlgo =  mex.Configuration().addAlgorithm(MEXEnum.EnumAlgorithms.RESCAL);
             mex.Configuration().setDataSet("tmp/resource2vec/datasets/yagoSchema.ttl", "yagoSchema");
             mex.Configuration().Algorithm(MEXEnum.EnumAlgorithms.RESCAL).addParameter("rank", "2");
             mex.Configuration().addFeature("http://w3id.org/resource2vec/embeddings/" + "justanexampleofhash".hashCode());
