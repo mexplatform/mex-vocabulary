@@ -232,9 +232,9 @@ public class MEXSerializer {
             //gets
             if (mex.getApplicationContext() != null) {
                 _application = model.createResource(URIbase + "application")
-                        .addProperty(RDF.type, provAgent)
-                        .addProperty(RDF.type, provPerson)
-                        .addProperty(RDF.type, provOrganization)
+                        //.addProperty(RDF.type, provAgent)
+                        //.addProperty(RDF.type, provPerson)
+                        //.addProperty(RDF.type, provOrganization)
                         .addProperty(RDF.type, mexcore_APC)
                         .addProperty(DCTerms.dateCopyrighted, new SimpleDateFormat("yyyy.MM.dd HH:mm:ss z").format(mex.getApplicationContext().get_fileDate()));
 
@@ -273,7 +273,7 @@ public class MEXSerializer {
                 if (mex.getApplicationContext().getContext() != null) {
                     Resource mexcore_CON = model.createResource(MEXCORE_10.NS + mex.getApplicationContext().getContext().get_context());
                     _context = model.createResource(URIbase + "context")
-                            .addProperty(RDF.type, provEntity)
+                            //.addProperty(RDF.type, provEntity)
                             .addProperty(RDF.type, mexcore_CON)
                             .addProperty(PROVO.wasAttributedTo, _application);
                 }
@@ -288,7 +288,7 @@ public class MEXSerializer {
             //EXPERIMENT
             if (mex.getExperiment() != null) {
                 _expHeader = model.createResource(URIbase + "experiment-header")
-                        .addProperty(RDF.type, provEntity)
+                        //.addProperty(RDF.type, provEntity)
                         .addProperty(RDF.type, mexcore_EXP_HEADER);
                         if(StringUtils.isNotEmpty(mex.getExperiment().get_id()) && StringUtils.isNotBlank(mex.getExperiment().get_id())) {
                             _expHeader.addProperty(DCTerms.identifier, mex.getExperiment().get_id());
@@ -320,7 +320,7 @@ public class MEXSerializer {
                     ExperimentConfigurationVO item = i.next();
 
                     Resource _expConfiguration = model.createResource(URIbase + "configuration" + aux)
-                            .addProperty(RDF.type, provActivity)
+                            //.addProperty(RDF.type, provActivity)
                             .addProperty(RDF.type, mexcore_EXP_CONF);
                     if(StringUtils.isNotEmpty(item.getId()) && StringUtils.isNotBlank(item.getId())) {
                         _expConfiguration.addProperty(DCTerms.identifier, item.getId());
@@ -335,7 +335,7 @@ public class MEXSerializer {
                         boolean atLeastOne = false;
 
                         Resource _model = model.createResource(URIbase + "model")
-                                .addProperty(RDF.type, provEntity)
+                                //.addProperty(RDF.type, provEntity)
                                 .addProperty(RDF.type, mexcore_MODEL);
 
                         if (StringUtils.isNotBlank(item.Model().getId()) &&
@@ -361,11 +361,11 @@ public class MEXSerializer {
                         }
 
                     }
-                    //IMPLEMENTATION
+                    //TOOL
                     if (item.Tool() != null) {
                         if (StringUtils.isNotBlank(item.Tool().getName()) && StringUtils.isNotEmpty(item.Tool().getName())) {
                             Resource _imp = model.createResource(URIbase + "tool")
-                                    .addProperty(RDF.type, provEntity)
+                                    //.addProperty(RDF.type, provEntity)
                                     .addProperty(RDF.type, MEXCORE_10.NS + item.Tool().getName());
                             _expConfiguration.addProperty(PROVO.used, _imp);}
                     }
@@ -374,7 +374,7 @@ public class MEXSerializer {
                         Resource mexcore_SAMPLING_METHOD = model.createResource(MEXCORE_10.NS + item.SamplingMethod().getClassName());
 
                         Resource _sampling = model.createResource(URIbase + item.SamplingMethod().getIndividualName())
-                                .addProperty(RDF.type, provEntity)
+                                //.addProperty(RDF.type, provEntity)
                                 .addProperty(RDF.type, mexcore_SAMPLING_METHOD);
 
                         if (item.SamplingMethod().getFolds() != null && StringUtils.isNotBlank(item.SamplingMethod().getFolds().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getFolds().toString())) {
@@ -400,7 +400,7 @@ public class MEXSerializer {
                     if (item.HardwareConfiguration() != null) {
 
                         Resource _hardware = model.createResource(URIbase + "hardware")
-                                .addProperty(RDF.type, provEntity)
+                                //.addProperty(RDF.type, provEntity)
                                 .addProperty(RDF.type, mexcore_HARDWARE);
 
                         if (StringUtils.isNotBlank(item.HardwareConfiguration().getOs()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getOs())) {
@@ -434,7 +434,7 @@ public class MEXSerializer {
                     if (item.DataSet() != null) {
 
                         Resource _dataset = model.createResource(URIbase + "dataset")
-                                .addProperty(RDF.type, provEntity)
+                                //.addProperty(RDF.type, provEntity)
                                 .addProperty(RDF.type, mexcore_DATASET);
 
                         if (StringUtils.isNotBlank(item.DataSet().getName()) && StringUtils.isNotEmpty(item.DataSet().getName())) {
@@ -456,7 +456,7 @@ public class MEXSerializer {
                         FeatureVO f = ifeature.next();
                         if (f != null) {
                             Resource _feature = model.createResource(URIbase + "feature" + String.valueOf(auxf))
-                                    .addProperty(RDF.type, provEntity)
+                                    //.addProperty(RDF.type, provEntity)
                                     .addProperty(RDF.type, mexcore_FEATURE);
 
                             if (StringUtils.isNotBlank(f.getId()) && StringUtils.isNotEmpty(f.getId())) {
@@ -482,7 +482,7 @@ public class MEXSerializer {
 
                                 //EXECUTION
                                 _exec = model.createResource(URIbase + "EXEC" + String.valueOf(e.getId()))
-                                        .addProperty(RDF.type, provActivity)
+                                        //.addProperty(RDF.type, provActivity)
                                         .addProperty(RDF.type, mexcore_EXEC)
                                         .addProperty(PROVO.id, e.getId());
                                 if (e.getStartedAtTime() != null) {
@@ -518,7 +518,7 @@ public class MEXSerializer {
                                     Resource mexcore_PHASE = model.createResource(MEXCORE_10.NS + e.getPhase().getName());
                                     if (StringUtils.isNotBlank(e.getPhase().getName().toString()) && StringUtils.isNotEmpty(e.getPhase().getName().toString())) {
                                     Resource _phase = model.createResource(URIbase + "PH" + e.getPhase().getName())
-                                            .addProperty(RDF.type, provEntity)
+                                            //.addProperty(RDF.type, provEntity)
                                             .addProperty(RDF.type, mexcore_PHASE);
                                     _exec.addProperty(PROVO.used, _phase);}
                                 }
@@ -530,7 +530,7 @@ public class MEXSerializer {
                                         ExampleVO example = iexample.next();
                                         if (example != null) {
                                             Resource _ex = model.createResource(URIbase + "EXAMP" + String.valueOf(auxex))
-                                                    .addProperty(RDF.type, provEntity)
+                                                    //.addProperty(RDF.type, provEntity)
                                                     .addProperty(RDF.type, mexcore_EXAMPLE)
                                                     .addProperty(DCTerms.identifier, example.getId())
                                                     .addProperty(PROVO.value, example.getValue());
@@ -545,7 +545,7 @@ public class MEXSerializer {
                                     Resource mexalgo_ALGO = model.createResource(MEXALGO_10.NS + e.getAlgorithm().getClassName());
 
                                         Resource _alg = model.createResource(URIbase + e.getAlgorithm().getIndividualName())
-                                                .addProperty(RDF.type, provEntity)
+                                                //.addProperty(RDF.type, provEntity)
                                                 .addProperty(RDF.type, mexalgo_ALGO);
                                         _exec.addProperty(PROVO.used, _alg);
                                     if (StringUtils.isNotBlank(e.getAlgorithm().getIdentifier()) && StringUtils.isNotEmpty(e.getAlgorithm().getIdentifier())) {
@@ -565,7 +565,7 @@ public class MEXSerializer {
                                             if (algoParam != null) {
                                                 Resource _algoParam = null;
                                                 _algoParam = model.createResource(URIbase + "PAR" + String.valueOf(auxparam))
-                                                        .addProperty(RDF.type, provEntity)
+                                                        //.addProperty(RDF.type, provEntity)
                                                         .addProperty(RDF.type, mexalgo_ALGO_PARAM)
                                                         .addProperty(PROVO.value, algoParam.getValue())
                                                         .addProperty(DCTerms.identifier, algoParam.getIdentifier());
