@@ -219,6 +219,8 @@ public class MEXSerializer {
 
             Resource mexalgo_ALGO_PARAM = model.createResource(MEXCORE_10.NS + MEXALGO_10.ClasseTypes.ALGORITHM_PARAMETER);
 
+            Resource mexperf_EXECUTION_PERFORMANCE = model.createResource(MEXPERF_10.NS + MEXPERF_10.ClasseTypes.EXECUTION_PERFORMANCE);
+
 
             //mex-core
             Resource _application = null;
@@ -471,6 +473,7 @@ public class MEXSerializer {
 
                     //EXECUTIONS (e)
                     if (item.getExecutions()!= null && item.getExecutions().size() >0){
+
                         int auxe = 1;
                         for (Iterator<Execution> iexec = item.getExecutions().iterator(); iexec.hasNext(); ) {
                             Execution e = iexec.next();
@@ -501,6 +504,14 @@ public class MEXSerializer {
                                 }else{
                                     _exec.addProperty(MEXCORE_10.group, model.createTypedLiteral("false", XSDDatatype.XSDboolean));
                                 }
+
+                                //EXECUTION PERFORMANCE
+                                Resource _execPerformance = null;
+                                _execPerformance = model.createResource(URIbase + "execPerformance")
+                                        //.addProperty(RDF.type, provActivity)
+                                        .addProperty(RDF.type, mexperf_EXECUTION_PERFORMANCE)
+                                        .addProperty(PROVO.wasInformedBy, _exec);
+
 
                                 //PHASE
                                 if (e.getPhase() != null){
@@ -568,34 +579,67 @@ public class MEXSerializer {
                                 }
                                 //PERFORMANCES
                                 if (e.getPerformances() != null && e.getPerformances().size() > 0) {
-                                    Integer auxmea = 1;
+                                    //Integer auxmea = 1;
+
+
+
                                     for(Iterator<Measure> imea = e.getPerformances().iterator(); imea.hasNext(); ) {
                                         Measure mea = imea.next();
                                         if (mea != null) {
-                                            Resource _mea = null;
 
-                                            Resource mexperf;
-                                            String auxType = null;
+                                            Resource mexperf_klass = null, mexperf_cla = null,     mexperf_reg = null,     mexperf_clu = null,     mexperf_sta = null;
+                                            Resource mexperf_ins = null,   mexperf_cla_ins = null, mexperf_reg_ins = null, mexperf_clu_ins = null, mexperf_sta_ins = null;
 
                                             if (mea instanceof ClassificationMeasureVO){
-                                                auxType=MEXPERF_10.ClasseTypes.CLASSIFICATION_MEASURE;
+
+                                                if (mexperf_cla == null){
+                                                    mexperf_cla_ins = model.createResource(URIbase + "measure_classification_" + String.valueOf(e.getId())); //+ "_" + String.valueOf(auxmea));
+                                                    mexperf_cla = model.createResource(MEXPERF_10.NS + MEXPERF_10.ClasseTypes.CLASSIFICATION_MEASURE);
+                                                }
+
+                                                mexperf_klass = mexperf_cla;
+                                                mexperf_ins = mexperf_cla_ins;
+
                                             }else if (mea instanceof RegressionMeasureVO){
-                                                auxType=MEXPERF_10.ClasseTypes.REGRESSION_MEASURE;
+
+                                                if (mexperf_reg == null){
+                                                    mexperf_reg_ins = model.createResource(URIbase + "measure_regression_" + String.valueOf(e.getId())); // + "_" + String.valueOf(auxmea));
+                                                    mexperf_reg = model.createResource(MEXPERF_10.NS + MEXPERF_10.ClasseTypes.REGRESSION_MEASURE);
+                                                }
+
+                                                mexperf_klass = mexperf_reg;
+                                                mexperf_ins = mexperf_reg_ins;
+
                                             }else if (mea instanceof ClusteringMeasureVO){
-                                                auxType=MEXPERF_10.ClasseTypes.CLUSTERING_MEASURE;
+
+                                                if (mexperf_clu == null){
+                                                    mexperf_clu_ins = model.createResource(URIbase + "measure_clustering_" + String.valueOf(e.getId())); // + "_" + String.valueOf(auxmea));
+                                                    mexperf_clu = model.createResource(MEXPERF_10.NS + MEXPERF_10.ClasseTypes.CLUSTERING_MEASURE);
+                                                }
+
+                                                mexperf_klass = mexperf_clu;
+                                                mexperf_ins = mexperf_clu_ins;
+
                                             }else if (mea instanceof StatisticalMeasureVO){
-                                                auxType=MEXPERF_10.ClasseTypes.STATISTICAL_MEASURE;
+
+                                                if (mexperf_sta == null){
+                                                    mexperf_sta_ins = model.createResource(URIbase + "measure_statistical_" + String.valueOf(e.getId())); // + "_" + String.valueOf(auxmea));
+                                                    mexperf_sta = model.createResource(MEXPERF_10.NS + MEXPERF_10.ClasseTypes.STATISTICAL_MEASURE);
+                                                }
+
+                                                mexperf_klass = mexperf_sta;
+                                                mexperf_ins = mexperf_sta_ins;
+
                                             }
 
-                                            mexperf = model.createResource(MEXPERF_10.NS + auxType);
 
-                                            _mea = model.createResource(URIbase + "M" + String.valueOf(e.getId()) + "_" + String.valueOf(auxmea))
-                                                    .addProperty(RDF.type, provEntity)
-                                                    .addProperty(RDF.type, mexperf)
-                                                    .addProperty(model.createProperty(MEXPERF_10.NS + mea.getName()),model.createTypedLiteral(mea.getValue()));
+                                            //mexperf_ins.addProperty(RDF.type, provEntity);
+                                            mexperf_ins.addProperty(RDF.type, mexperf_klass);
+                                            mexperf_ins.addProperty(model.createProperty(MEXPERF_10.NS + mea.getName()), model.createTypedLiteral(mea.getValue()));
+                                            mexperf_ins.addProperty(PROVO.wasInformedBy, _exec);
 
-                                            _mea.addProperty(PROVO.wasInformedBy, _exec);
-                                            auxmea++;}
+                                            //auxmea++;
+                                        }
                                     }
 
                                 }
