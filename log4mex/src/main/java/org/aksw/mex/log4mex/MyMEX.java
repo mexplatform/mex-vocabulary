@@ -113,27 +113,56 @@ public class MyMEX {
 
     public ApplicationContextVO getApplicationContext() {return applicationContext;}
 
-    public ExperimentConfigurationVO Configuration(String value){
-        Collection<ExperimentConfigurationVO> t
-                = Collections2.filter(this.experimentConfigurationList, experimentConfigurationVO -> experimentConfigurationVO.getId().equals(value));
-        if (t != null && t.size() >0){
-            return Iterables.get(t, 0);
-        }else {
-            return null;
+    public ExperimentConfigurationVO Configuration(String value) throws Exception{
+
+        ExperimentConfigurationVO ret = null;
+        try{
+            Collection<ExperimentConfigurationVO> t
+                    = Collections2.filter(this.experimentConfigurationList, experimentConfigurationVO -> experimentConfigurationVO.getId().equals(value));
+            if (t != null && t.size() >0){
+                ret =  Iterables.get(t, 0);
+            }else {
+                throw new Exception("Configuration ID has not been found: " + value);
+            }
+        }catch (Exception e){
+            LOGGER.error(e.toString());
         }
+
+        return ret;
+
     }
 
-    public ExperimentConfigurationVO Configuration(){
-        if (this.experimentConfigurationList.size() == 0){
+    public ExperimentConfigurationVO Configuration() throws Exception{
+
+        final String id = MEXConstant.DEFAULT_EXP_CONFIGURATION_ID + "1";
+        ExperimentConfigurationVO ret = null;
+
+        try{
+
+            if (this.experimentConfigurationList == null) {
+                LOGGER.error("Humm...the configuration list is empty!");
+                throw new Exception("We got a problem accessing the configurations! It looks like a bug!");
+            }
+
+            if (this.experimentConfigurationList.size() != 0){
+                throw new Exception("It is not possible to get a default Configuration! The current MyMEX has "
+                        + this.experimentConfigurationList.size() + " configurations defined. Please inform the ExpConfID");
+            }
+
             withoutConfiguration = true;
-            this.experimentConfigurationList.add(
-                    new ExperimentConfigurationVO(MEXConstant.DEFAULT_EXP_CONFIGURATION_ID + "1"));
+
+            LOGGER.info("Adding new components without explicit ExperimentConfiguration in MyMEX");
+
+            ret = new ExperimentConfigurationVO(id);
+
+            this.experimentConfigurationList.add(ret);
+
+        }catch (Exception e){
+            LOGGER.error(e.toString());
         }
-        Collection<ExperimentConfigurationVO> t
-                = Collections2.filter(this.experimentConfigurationList, experimentConfigurationVO -> experimentConfigurationVO.getId().equals(MEXConstant.DEFAULT_EXP_CONFIGURATION_ID + "1"));
-        if (t != null && t.size()>0){
-            return Iterables.get(t, 0);
-        }else {return null;}
+
+        return ret;
+
     }
 
     private String addConf(String value) throws Exception{
