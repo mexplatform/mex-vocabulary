@@ -62,25 +62,25 @@ public class Dataset3 {
         {
             //mex.Configuration(eid).setImplementation(EnumImplementations., "3.6.6");
 
-            alg1 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.BaggingJ48);
-            alg2 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SequentialMinimalOptimization);
-            alg3 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.AdditiveLogisticRegression);
-            alg4 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.DecisionTable);
-            alg5 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            alg6 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SimpleVoting);
-            alg7 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.LogisticModelTrees);
-            alg8 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_OPEN_NLP);
-            alg9 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.MultilayerPerceptron);
-            alg10 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.J48);
-            alg11 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_STANFORD);
-            alg12 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SupportVectorMachines);
-            alg13 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_ILLINOIS_EXTENDED);
-            alg14 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.FunctionalTrees);
-            alg15 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.AdaBoostM1);
-            alg16 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.ClassLevelVoting);
-            alg17 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_BALIE);
-            alg18 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.RandomForest);
-            alg19 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.LogisticRegression);
+            alg1 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.BaggingJ48);
+            alg2 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SequentialMinimalOptimization);
+            alg3 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.AdditiveLogisticRegression);
+            alg4 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.DecisionTable);
+            alg5 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NaiveBayes);
+            alg6 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SimpleVoting);
+            alg7 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.LogisticModelTrees);
+            alg8 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_OPEN_NLP);
+            alg9 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.MultilayerPerceptron);
+            alg10 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.J48);
+            alg11 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_STANFORD);
+            alg12 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SupportVectorMachines);
+            alg13 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_ILLINOIS_EXTENDED);
+            alg14 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.FunctionalTrees);
+            alg15 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.AdaBoostM1);
+            alg16 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.ClassLevelVoting);
+            alg17 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_BALIE);
+            alg18 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.RandomForest);
+            alg19 = mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.LogisticRegression);
 
             String[] param = {"C", "10^3", "alpha", "0.2"};
             alg1.addParameter(param);
@@ -111,7 +111,7 @@ public class Dataset3 {
             ex1 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
             mex.Configuration(eid).Execution(ex1).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex1).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SequentialMinimalOptimization));
+            mex.Configuration(eid).Execution(ex1).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SequentialMinimalOptimization));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.RECALL, .9401);
@@ -130,7 +130,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex2).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex2).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.AdditiveLogisticRegression));
+            mex.Configuration(eid).Execution(ex2).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.AdditiveLogisticRegression));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.RECALL, .9354);
@@ -148,7 +148,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex3).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex3).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.DecisionTable));
+            mex.Configuration(eid).Execution(ex3).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.DecisionTable));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex3).addPerformance(EnumMeasures.RECALL, .9463);
@@ -166,7 +166,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex4).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex4).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes));
+            mex.Configuration(eid).Execution(ex4).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NaiveBayes));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex4).addPerformance(EnumMeasures.RECALL, .9461);
@@ -184,7 +184,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex5).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex5).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SimpleVoting));
+            mex.Configuration(eid).Execution(ex5).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SimpleVoting));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex5).addPerformance(EnumMeasures.RECALL, .8998);
@@ -202,7 +202,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex6).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex6).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.AdaBoostM1));
+            mex.Configuration(eid).Execution(ex6).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.AdaBoostM1));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex6).addPerformance(EnumMeasures.RECALL, .9482);
@@ -220,7 +220,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex7).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex7).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.BaggingJ48));
+            mex.Configuration(eid).Execution(ex7).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.BaggingJ48));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex7).addPerformance(EnumMeasures.RECALL, .9476);
@@ -238,7 +238,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex8).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex8).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.LogisticModelTrees));
+            mex.Configuration(eid).Execution(ex8).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.LogisticModelTrees));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex8).addPerformance(EnumMeasures.RECALL, .9468);
@@ -256,7 +256,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex9).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex9).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_OPEN_NLP));
+            mex.Configuration(eid).Execution(ex9).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_OPEN_NLP));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex9).addPerformance(EnumMeasures.RECALL, .7142);
@@ -273,7 +273,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex10).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex10).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.MultilayerPerceptron));
+            mex.Configuration(eid).Execution(ex10).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.MultilayerPerceptron));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex10).addPerformance(EnumMeasures.RECALL, .9519);
@@ -291,7 +291,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex11).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex11).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.J48));
+            mex.Configuration(eid).Execution(ex11).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.J48));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex11).addPerformance(EnumMeasures.RECALL, .9478);
@@ -309,7 +309,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex12).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex12).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_STANFORD));
+            mex.Configuration(eid).Execution(ex12).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_STANFORD));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex12).addPerformance(EnumMeasures.RECALL, .9236);
@@ -327,7 +327,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex13).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex13).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SupportVectorMachines));
+            mex.Configuration(eid).Execution(ex13).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SupportVectorMachines));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex13).addPerformance(EnumMeasures.RECALL, .9486);
@@ -345,7 +345,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex14).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex14).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_BALIE));
+            mex.Configuration(eid).Execution(ex14).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_BALIE));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex14).addPerformance(EnumMeasures.RECALL, .7768);
@@ -363,7 +363,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex15).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex15).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.FunctionalTrees));
+            mex.Configuration(eid).Execution(ex15).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.FunctionalTrees));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex15).addPerformance(EnumMeasures.RECALL, .943);
@@ -381,7 +381,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex16).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex16).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.ClassLevelVoting));
+            mex.Configuration(eid).Execution(ex16).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.ClassLevelVoting));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex16).addPerformance(EnumMeasures.RECALL, .9202);
@@ -399,7 +399,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex17).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex17).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.RandomForest));
+            mex.Configuration(eid).Execution(ex17).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.RandomForest));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex17).addPerformance(EnumMeasures.RECALL, .9515);
@@ -416,7 +416,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex18).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex18).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.LogisticRegression));
+            mex.Configuration(eid).Execution(ex18).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.LogisticRegression));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex18).addPerformance(EnumMeasures.RECALL, .9405);
@@ -433,7 +433,7 @@ public class Dataset3 {
            // mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex19).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex19).setAlgorithm(mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_ILLINOIS_EXTENDED));
+            mex.Configuration(eid).Execution(ex19).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_ILLINOIS_EXTENDED));
             //mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
            // mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
             mex.Configuration(eid).Execution(ex19).addPerformance(EnumMeasures.RECALL, .8279);

@@ -2,7 +2,6 @@ package log4mex;
 
 import org.aksw.mex.log4mex.MEXSerializer;
 import org.aksw.mex.log4mex.MyMEX;
-import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum.*;
 
@@ -69,8 +68,8 @@ public class Example04_medium {
 
             mex.Configuration(eid).setTool(EnumTools.WEKA, "3.6.6");
 
-            alg1 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SupportVectorMachines);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
+            alg1 = mex.Configuration(eid).addAlgorithm("svm", EnumAlgorithms.SupportVectorMachines);
+            mex.Configuration(eid).addAlgorithm("nb", EnumAlgorithms.NaiveBayes);
 
             String[] param = {"C", "10^3", "alpha", "0.2"};
             mex.Configuration(eid).Algorithm(alg1).addParameter(param);

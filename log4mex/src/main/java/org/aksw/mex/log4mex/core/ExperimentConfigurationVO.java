@@ -12,6 +12,7 @@ import org.aksw.mex.util.ontology.mex.MEXCORE_10;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -537,28 +538,101 @@ public class ExperimentConfigurationVO {
 
     /**
      * add an Algorithm available in an Experiment Configuration
-     * @param algorithmClass
-     * @param id
+     * @param algorithmId
+     * @param algorithmURI
      * @return algorithm's instance name
      * @throws Exception
      */
-    public String addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass, String id) throws Exception {
-        return _addAlgorithm(algorithmClass, id).getIndividualName();
+    public String addAlgorithm(String algorithmId, URI algorithmURI) throws Exception {
+        return _addAlgorithm(algorithmId, null, null, algorithmURI, null).getIndividualName();
         //return _addAlgorithm(algorithmClass, id);
     }
 
     /**
      * add an Algorithm available in an Experiment Configuration
+     * @param algorithmId
+     * @param algorithmName
+     * @param algorithmURI
+     * @return algorithm's instance name
+     * @throws Exception
+     */
+    public String addAlgorithm(String algorithmId, String algorithmName, URI algorithmURI) throws Exception {
+        return _addAlgorithm(algorithmId, algorithmName, null, algorithmURI, null).getIndividualName();
+    }
+
+    /**
+     * add an Algorithm available in an Experiment Configuration
+     * @param algorithmId
+     * @param algorithmName
+     * @return algorithm's instance name
+     * @throws Exception
+     */
+    public String addAlgorithm(String algorithmId, String algorithmName) throws Exception {
+        return _addAlgorithm(algorithmId, algorithmName, null, null, null).getIndividualName();
+    }
+    /**
+     * add an Algorithm available in an Experiment Configuration
+     * @param algorithmId
      * @param algorithmClass
      * @return algorithm's instance name
      * @throws Exception
      */
-    public String addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass) throws Exception {
-        return _addAlgorithm(algorithmClass, "").getIndividualName();
-        //return _addAlgorithm(algorithmClass, "");
+    public String addAlgorithm(String algorithmId, MEXEnum.EnumAlgorithms algorithmClass) throws Exception {
+        return _addAlgorithm(algorithmId, null, algorithmClass, null, null).getIndividualName();
     }
 
-    private AlgorithmVO _addAlgorithm(MEXEnum.EnumAlgorithms algorithmClass, String id) throws Exception{
+    /**
+     * add an Algorithm available in an Experiment Configuration
+     * @param algorithmId
+     * @param algorithmName
+     * @param algorithmClass
+     * @return algorithm's instance name
+     * @throws Exception
+     */
+    public String addAlgorithm(String algorithmId, String algorithmName, MEXEnum.EnumAlgorithms algorithmClass) throws Exception {
+        return _addAlgorithm(algorithmId, algorithmName, algorithmClass, null, null).getIndividualName();
+    }
+
+    /**
+     * add an Algorithm available in an Experiment Configuration
+     * @param algorithmId
+     * @param algorithmName
+     * @param algorithmClass
+     * @param algorithmURI
+     * @return algorithm's instance name
+     * @throws Exception
+     */
+    public String addAlgorithm(String algorithmId, String algorithmName, MEXEnum.EnumAlgorithms algorithmClass, URI algorithmURI) throws Exception {
+        return _addAlgorithm(algorithmId, algorithmName, algorithmClass, algorithmURI, null).getIndividualName();
+    }
+
+    /**
+     * add an Algorithm available in an Experiment Configuration
+     * @param algorithmId
+     * @param algorithmName
+     * @param algorithmClass
+     * @param algorithmURI
+     * @param algorithmLabel
+     * @return algorithm's instance name
+     * @throws Exception
+     */
+    public String addAlgorithm(String algorithmId, String algorithmName, MEXEnum.EnumAlgorithms algorithmClass, URI algorithmURI, String algorithmLabel) throws Exception {
+        return _addAlgorithm(algorithmId, algorithmName, algorithmClass, algorithmURI, algorithmLabel).getIndividualName();
+    }
+
+    /**
+     * add an Algorithm available in an Experiment Configuration
+     * @param algorithmId
+     * @param algorithmClass
+     * @param algorithmURI
+     * @return algorithm's instance name
+     * @throws Exception
+     */
+    public String addAlgorithm(String algorithmId, URI algorithmURI, MEXEnum.EnumAlgorithms algorithmClass) throws Exception {
+        return _addAlgorithm(algorithmId, null, algorithmClass, algorithmURI, null).getIndividualName();
+    }
+
+    private AlgorithmVO _addAlgorithm(String id, String algorithmLabel, MEXEnum.EnumAlgorithms algorithmClass, URI algorithmURI, String algorithmAcronym) throws Exception{
 
         AlgorithmVO algo = null;
         try{
@@ -570,7 +644,9 @@ public class ExperimentConfigurationVO {
 
             if (id == "") id = individualName;
 
-            algo = new AlgorithmVO(algorithmClass.name().toString(), individualName, id);
+            if (algorithmLabel == null || algorithmLabel =="") algorithmLabel = id;
+
+            algo = new AlgorithmVO(individualName, id, algorithmAcronym, algorithmLabel, algorithmURI,  algorithmClass.name().toString());
             this._algorithms.add(algo);
 
             MEXController.getInstance().addAlgorithmCounter();

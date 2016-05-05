@@ -1,5 +1,6 @@
 package org.aksw.mex.log4mex.algo;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,35 +10,33 @@ import java.util.List;
 public class AlgorithmVO {
 
     private String _individualName;
+
     private String _dct_identifier;
-    private String _dct_description;
+    private String _rdfs_label;
     private String _acroynm;
-    private List<AlgorithmParameterVO> _parameters;
     private String _className;
+    private URI _uri;
+
+    private List<AlgorithmParameterVO> _parameters;
 
     public List<AlgorithmParameterVO> getParameters(){
         return this._parameters;
     }
 
-    public AlgorithmVO(String mexclass, String ind, String _dct_identifier, String _dct_description, String _acroynm){
+    public AlgorithmVO(String ind, String _dct_identifier, String _acroynm, String _rdfs_label, URI _uri, String klass){
         this._individualName = ind;
+
         this._dct_identifier = _dct_identifier;
-        this._dct_description = _dct_description;
+        this._rdfs_label = _rdfs_label;
         this._acroynm = _acroynm;
+        this._uri = _uri;
+
         this._parameters = new ArrayList<>();
-        this._className = mexclass;
-    }
-    public AlgorithmVO(String mexclass, String ind) {
-        this._individualName = ind;
-        this._parameters = new ArrayList<>();
-        this._className = mexclass;
+        this._className = klass;
     }
 
-    public AlgorithmVO(String mexclass, String ind, String identifier) {
-        this._individualName = ind;
-        this._dct_identifier = identifier;
-        this._parameters = new ArrayList<>();
-        this._className = mexclass;
+    public String getLabel(){
+        return this._rdfs_label;
     }
 
     public String getClassName(){
@@ -56,15 +55,15 @@ public class AlgorithmVO {
         this._dct_identifier = value;
     }
 
-    public String getDescription() {
-        return _dct_description;
+    public URI getURI() {
+        return _uri;
     }
 
-    public void setDescription(String value) {
-        this._dct_description = value;
+    public void setURI(URI value) {
+        this._uri = value;
     }
 
-    public String getAcroynm() {
+    public String getAcronym() {
         return _acroynm;
     }
 

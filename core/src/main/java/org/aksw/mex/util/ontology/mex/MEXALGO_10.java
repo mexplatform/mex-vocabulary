@@ -17,6 +17,7 @@ public class MEXALGO_10 extends MEXALGO implements IOntology {
     public static final Resource NAMESPACE;
     public static final Property acronym;
     public static final Property hasParameter;
+    public static final Property hasAlgorithmClass;
 
     public MEXALGO_10() {
     }
@@ -26,6 +27,7 @@ public class MEXALGO_10 extends MEXALGO implements IOntology {
         NAMESPACE = m_model.createResource(NS);
         acronym = m_model.createProperty(NS + "acronym");
         hasParameter = m_model.createProperty(NS + Predicates.HAS_PARAMETER);
+        hasAlgorithmClass = m_model.createProperty(NS + Predicates.HAS_ALGORITHM_CLASS);
     }
 
     public class ClasseTypes{
@@ -44,6 +46,7 @@ public class MEXALGO_10 extends MEXALGO implements IOntology {
         public static final String HAS_CLASS = "hasClass";
         public static final String HAS_PARAMETER_COLLECTION = "hasParameterCollection";
         public static final String HAS_PARAMETER = "hasParameterCollection";
+        public static final String HAS_ALGORITHM_CLASS = "hasAlgorithmClass";
     }
 
 }

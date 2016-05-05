@@ -70,8 +70,8 @@ public class ExampleMedium {
             mex.Configuration(eid).Tool().set(EnumTools.WEKA);
             mex.Configuration(eid).Tool().setRevision("3.6.6");
 
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SupportVectorMachines);
-            mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
+            mex.Configuration(eid).addAlgorithm("svm", EnumAlgorithms.SupportVectorMachines);
+            mex.Configuration(eid).addAlgorithm("nb", EnumAlgorithms.NaiveBayes);
 
             mex.Configuration(eid).Algorithm(EnumAlgorithms.SupportVectorMachines).addParameter("C", "10^3");
             mex.Configuration(eid).Algorithm(EnumAlgorithms.SupportVectorMachines).addParameter("alpha", "0.2");

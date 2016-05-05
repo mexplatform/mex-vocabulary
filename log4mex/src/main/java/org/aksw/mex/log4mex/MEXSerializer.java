@@ -547,15 +547,28 @@ public class MEXSerializer {
                                         Resource _alg = model.createResource(URIbase + e.getAlgorithm().getIndividualName() + "_conf_" + auxExpConf)
                                                 //.addProperty(RDF.type, provEntity)
                                                 .addProperty(RDF.type, mexalgo_ALGO)
-                                                .addProperty(RDFS.label, e.getAlgorithm().getAcroynm());
+                                                .addProperty(RDFS.label, e.getAlgorithm().getLabel());
+
+                                    if (StringUtils.isNotBlank(e.getAlgorithm().getClassName()) && StringUtils.isNotEmpty(e.getAlgorithm().getClassName())) {
+                                        _alg.addProperty(MEXALGO_10.hasParameter, e.getAlgorithm().getClassName());
+                                    }
+
 
                                         _exec.addProperty(PROVO.used, _alg);
+
+                                    //id
                                     if (StringUtils.isNotBlank(e.getAlgorithm().getIdentifier()) && StringUtils.isNotEmpty(e.getAlgorithm().getIdentifier())) {
                                         _alg.addProperty(DCTerms.identifier, e.getAlgorithm().getIdentifier());}
-                                    if (StringUtils.isNotBlank(e.getAlgorithm().getDescription()) && StringUtils.isNotEmpty(e.getAlgorithm().getDescription())) {
-                                        _alg.addProperty(DCTerms.description, e.getAlgorithm().getDescription());}
-                                    if (StringUtils.isNotBlank(e.getAlgorithm().getAcroynm()) && StringUtils.isNotEmpty(e.getAlgorithm().getAcroynm())) {
-                                        _alg.addProperty(MEXALGO_10.acronym, e.getAlgorithm().getAcroynm());}
+                                    //label
+                                    if (StringUtils.isNotBlank(e.getAlgorithm().getLabel()) && StringUtils.isNotEmpty(e.getAlgorithm().getLabel())) {
+                                        _alg.addProperty(RDFS.label, e.getAlgorithm().getLabel());}
+                                    //uri
+                                    if (StringUtils.isNotBlank(e.getAlgorithm().getURI().toURL().toString()) && StringUtils.isNotEmpty(e.getAlgorithm().getURI().toURL().toString())) {
+                                        _alg.addProperty(DCAT.landingPage, e.getAlgorithm().getURI().toURL().toString());}
+                                    //acronym
+                                    if (StringUtils.isNotBlank(e.getAlgorithm().getAcronym()) && StringUtils.isNotEmpty(e.getAlgorithm().getAcronym())) {
+                                        _alg.addProperty(MEXALGO_10.acronym, e.getAlgorithm().getAcronym());}
+
 
                                     _exec.addProperty(PROVO.used, _alg);
 

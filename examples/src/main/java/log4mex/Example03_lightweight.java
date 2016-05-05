@@ -58,10 +58,10 @@ public class Example03_lightweight {
             {
                 mex.Configuration().setTool(EnumTools.WEKA, "3.6.6");
                 String[] param = {"C", "10^3", "alpha", "0.2"};
-                alg1 = mex.Configuration().addAlgorithm(EnumAlgorithms.SupportVectorMachines);
+                alg1 = mex.Configuration().addAlgorithm("svm", EnumAlgorithms.SupportVectorMachines);
                 mex.Configuration().Algorithm(alg1).addParameter(param);
 
-                alg2 = mex.Configuration().addAlgorithm(EnumAlgorithms.NaiveBayes);
+                alg2 = mex.Configuration().addAlgorithm("nb", EnumAlgorithms.NaiveBayes);
                 mex.Configuration().Algorithm(alg2).addParameter(param);
             }
 

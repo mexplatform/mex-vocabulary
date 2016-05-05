@@ -2,7 +2,6 @@ package log4mex.fox.token;
 
 import org.aksw.mex.log4mex.MEXSerializer;
 import org.aksw.mex.log4mex.MyMEX;
-import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum.*;
 
@@ -62,25 +61,25 @@ public class Dataset1 {
         {
             //mex.Configuration(eid).setImplementation(EnumImplementations., "3.6.6");
 
-            alg1 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.BaggingJ48);
-            alg2 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SequentialMinimalOptimization);
-            alg3 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.AdditiveLogisticRegression);
-            alg4 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.DecisionTable);
-            alg5 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NaiveBayes);
-            alg6 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SimpleVoting);
-            alg7 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.LogisticModelTrees);
-            alg8 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_OPEN_NLP);
-            alg9 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.MultilayerPerceptron);
-            alg10 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.J48);
-            alg11 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_STANFORD);
-            alg12 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.SupportVectorMachines);
-            alg13 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_ILLINOIS_EXTENDED);
-            alg14 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.FunctionalTrees);
-            alg15 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.AdaBoostM1);
-            alg16 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.ClassLevelVoting);
-            alg17 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.NER_BALIE);
-            alg18 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.RandomForest);
-            alg19 = mex.Configuration(eid).addAlgorithm(EnumAlgorithms.LogisticRegression);
+            alg1 = mex.Configuration(eid).addAlgorithm("J48", EnumAlgorithms.BaggingJ48);
+            alg2 = mex.Configuration(eid).addAlgorithm("SMO", EnumAlgorithms.SequentialMinimalOptimization);
+            alg3 = mex.Configuration(eid).addAlgorithm("ALR", EnumAlgorithms.AdditiveLogisticRegression);
+            alg4 = mex.Configuration(eid).addAlgorithm("DT", EnumAlgorithms.DecisionTable);
+            alg5 = mex.Configuration(eid).addAlgorithm("NB", EnumAlgorithms.NaiveBayes);
+            alg6 = mex.Configuration(eid).addAlgorithm("SV", EnumAlgorithms.SimpleVoting);
+            alg7 = mex.Configuration(eid).addAlgorithm("LMT", EnumAlgorithms.LogisticModelTrees);
+            alg8 = mex.Configuration(eid).addAlgorithm("NER", EnumAlgorithms.NER_OPEN_NLP);
+            alg9 = mex.Configuration(eid).addAlgorithm("MP", EnumAlgorithms.MultilayerPerceptron);
+            alg10 = mex.Configuration(eid).addAlgorithm("J48", EnumAlgorithms.J48);
+            alg11 = mex.Configuration(eid).addAlgorithm("NER", EnumAlgorithms.NER_STANFORD);
+            alg12 = mex.Configuration(eid).addAlgorithm("SVM", EnumAlgorithms.SupportVectorMachines);
+            alg13 = mex.Configuration(eid).addAlgorithm("NER", EnumAlgorithms.NER_ILLINOIS_EXTENDED);
+            alg14 = mex.Configuration(eid).addAlgorithm("FT", EnumAlgorithms.FunctionalTrees);
+            alg15 = mex.Configuration(eid).addAlgorithm("ADA", EnumAlgorithms.AdaBoostM1);
+            alg16 = mex.Configuration(eid).addAlgorithm("CLV", EnumAlgorithms.ClassLevelVoting);
+            alg17 = mex.Configuration(eid).addAlgorithm("NER", EnumAlgorithms.NER_BALIE);
+            alg18 = mex.Configuration(eid).addAlgorithm("RF", EnumAlgorithms.RandomForest);
+            alg19 = mex.Configuration(eid).addAlgorithm("LR", EnumAlgorithms.LogisticRegression);
 
             String[] param = {"C", "10^3", "alpha", "0.2"};
             mex.Configuration(eid).Algorithm(alg1).addParameter(param);

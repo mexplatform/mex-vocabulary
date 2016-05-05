@@ -5,6 +5,8 @@ import org.aksw.mex.log4mex.MyMEX;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum;
 
+import java.net.URI;
+
 /**
  * Created by dnes on 01/05/16.
  */
@@ -18,7 +20,7 @@ public class Resource2Vec {
 
             mex.setAuthor("Tommaso Soru", "tsoru@informatik.uni-leipzig.de");
 
-            String idAlgo =  mex.Configuration().addAlgorithm(MEXEnum.EnumAlgorithms.RESCAL);
+            String idAlgo =  mex.Configuration().addAlgorithm("alg rescal", new URI("https://github.com/nzhiltsov/Ext-RESCAL"),  MEXEnum.EnumAlgorithms.RESCAL);
             mex.Configuration().setDataSet("tmp/resource2vec/datasets/yagoSchema.ttl", "yagoSchema");
             mex.Configuration().Algorithm(MEXEnum.EnumAlgorithms.RESCAL).addParameter("rank", "2");
             mex.Configuration().addFeature("http://w3id.org/resource2vec/embeddings/" + "justanexampleofhash".hashCode());
