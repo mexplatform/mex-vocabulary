@@ -206,7 +206,8 @@ public class MEXSerializer {
             Resource mexcore_MODEL = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.MODEL);
             Resource mexcore_HARDWARE = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.HARDWARE_CONFIGURATION);
             Resource mexcore_DATASET = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.DATASET);
-            Resource mexcore_EXEC = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXECUTION);
+
+
             Resource mexcore_FEATURE = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.FEATURE);
             Resource mexcore_EXAMPLE = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXAMPLE);
             Resource mexcore_EXAMPLE_COLLECTION = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXAMPLE_COLLECTION);
@@ -478,11 +479,22 @@ public class MEXSerializer {
                             Resource _exec = null;
                             if (e != null) {
 
+                                _exec = model.createResource(URIbase + "exec_" + String.valueOf(e.getId().toLowerCase()) + "_conf_" + auxExpConf);
+
                                 //EXECUTION
-                                _exec = model.createResource(URIbase + "exec_" + String.valueOf(e.getId().toLowerCase()) + "_conf_" + auxExpConf)
-                                        //.addProperty(RDF.type, provActivity)
-                                        .addProperty(RDF.type, mexcore_EXEC)
-                                        .addProperty(PROVO.id, e.getId());
+                                Resource mexcore_EXEC = null;
+
+                                if (iexec instanceof ExecutionIndividualVO){
+                                    mexcore_EXEC = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXECUTION_SINGLE);
+                                    _exec.addProperty(RDF.type, mexcore_EXEC);
+                                }else{
+                                    mexcore_EXEC = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXECUTION_OVERALL);
+                                    _exec.addProperty(RDF.type, mexcore_EXEC);
+                                }
+
+                                _exec.addProperty(PROVO.id, e.getId());
+
+
                                 if (e.getStartedAtTime() != null) {
                                     _exec.addProperty(PROVO.startedAtTime, e.getStartedAtTime().toString());
                                 }

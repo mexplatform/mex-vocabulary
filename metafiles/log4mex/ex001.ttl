@@ -44,7 +44,7 @@ this:measure_statistical_C0_MEX_EXEC_D1_conf_1
 this:version  dct:hasVersion  "1.0.2" .
 
 this:application  a          mexcore:ApplicationContext ;
-        dct:dateCopyrighted  "2016.05.06 17:11:12 CEST" ;
+        dct:dateCopyrighted  "2016.05.06 18:00:44 CEST" ;
         foaf:givenName       "D Esteves" .
 
 this:feature_3_conf_1
@@ -67,7 +67,7 @@ this:dataset_conf_1  a  mexcore:Dataset ;
         dct:title  "mydataset.csv" .
 
 this:exec_c0_mex_exec_d1_conf_1
-        a                   mexcore:Execution ;
+        a                   mexcore:ExecutionOverall ;
         mexcore:group       true ;
         prov:id             "C0_MEX_EXEC_D1" ;
         prov:used           this:algorithm1_conf_1 , this:phase_Test_conf_1 ;
