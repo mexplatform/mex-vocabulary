@@ -1,9 +1,8 @@
 # MEX Vocabulary: Lightweight and Flexible Schema for Machine Learning Experiments
 
-More than just a **machine readable way**, the `MEX` Vocabulary has been designed to define a **lightweight and flexible schema** for publishing machine learning outputs metadata, regardless technology (we have been working to provide different programming language *APIs* and integrations with different machine learning tools). We aim to provide a **free-format** for exporting and exchanging machine learning metadata, indifferent to existing **workflow systems** or **frameworks**. As a consequence, the users can benefit of the `mex format` for further analysis and integrations in an easiest way.
+More than just a **machine readable way**, the `MEX` Vocabulary has been designed to define a **lightweight and flexible schema** for publishing machine learning outputs metadata. We aim at providing a **free-format** to export and share machine learning metadata, indifferent to existing **workflow systems** or **frameworks**. As an immediate advantage, users can benefit of the `mex format` for further analysis and integrations more easily.
 
-
-The definition of an `ontology` can be a complex and never-ending task, even more for a highly complex environment such as machine learning. The `MEX` vocabulary has been designed to serve as an ally in the metadata exporting process, focusing in practical and important aspects concerning the publication of the achieved results, i.e.: the needed `input parameters` for an `model` which produces `measures`. More sophisticated variables and procedures (e.g.: optimizations and feature selection) are not covered, simply because they go beyond the a logical threshold of simplicity we want to achieve here. In the end, people are more interested in find out, compare and share `methodologies` and their `performances` than to have deep understanding of performed sub tasks.
+The definition of an `ontology` can be a complex and never-ending task, even more for a highly complex environment such as machine learning. The `MEX` vocabulary has been designed to serve as an ally in the metadata exporting process, focusing in practical and important aspects concerning the publication of the achieved results, i.e.: the needed `input parameters` for an `model` which produces `measures` as output. More sophisticated variables and procedures (e.g.: optimizations and feature selection) are not covered, simply because they go beyond a logical threshold of simplicity we aim to achieve. At first, people are usualy more interested in finding out, comparing and sharing `methodologies` and their achieved `performances` than to have deep understanding of performed sub tasks.
 
 
 ## How to cite
@@ -64,5 +63,5 @@ Additionally, three classes are defined into this layer in order to provide more
 Therefore, if you have a very specific measure formula for your business and want to describe use this class! Each `:UserDefinedMeasure` stores an unknown measure (`prov:value`) value and its formula (`mexperf:formula`).
 Of course we will keep an eye on it for the `vocabulary measures` updating process! ;-)
 
-### MEX Vocabulary - Snapshot v1.0.1
-![Experiment ER](http://dne5.com/mex/diagram/mex-1.0.1.png)
+### MEX Vocabulary - Snapshot v1.0.2
+![Experiment ER](http://dne5.com/mex/diagram/mex-1.0.2.png)
