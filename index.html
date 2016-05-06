@@ -34,8 +34,9 @@ With respect to the introduced drawbacks,Algorithms and their hyperparameters ar
 
 <p>Finally, the link to each dataset associated to each execution (or configuration) isset by mex.Configuration().setDataSet(url, name). Instead of trawling through the directory structure (more than 20.000 files in about 5GB of uncompressed data) and make suppositions,SPARQL queries give the answers much easier. </p>
 
-<p><img src="http://www.dne5.com/mex/architecture.png" alt="Fox architecture">
-Figure 2 depicts an excerpt of code for the generated metadata file. Researchers are able to intuitively understand and absorb the relation of the variables inthe experiment configuration.</p>
+<p><img src="http://www.dne5.com/mex/architecture.png" alt="Fox architecture"></p>
+
+<p>Figure 2 depicts an excerpt of code for the generated metadata file. Researchers are able to intuitively understand and absorb the relation of the variables inthe experiment configuration.</p>
 
 <p><strong>Give me all algorithm which were measured by F-measure.</strong></p>
 
@@ -56,6 +57,195 @@ LIMIT 30
 </code></pre>
 
 <p>Result: </p>
+
+<table border="1" width="100%">
+  <tr>
+    <th>name</th>
+    <th>alg</th>
+    <th>perfn</th>
+    <th>fMeasure</th>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D16"</td>
+    <td><a href="algorithm16">algorithm16</a></td>
+    <td><a href="MC0_MEX_EXEC_D16_3">MC0_MEX_EXEC_D16_3</a></td>
+    <td>0.9968</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D64"</td>
+    <td><a href="algorithm64">algorithm64</a></td>
+    <td><a href="MC0_MEX_EXEC_D64_3">MC0_MEX_EXEC_D64_3</a></td>
+    <td>0.9967</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D68"</td>
+    <td><a href="algorithm68">algorithm68</a></td>
+    <td><a href="MC0_MEX_EXEC_D68_3">MC0_MEX_EXEC_D68_3</a></td>
+    <td>0.9966</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D40"</td>
+    <td><a href="algorithm40">algorithm40</a></td>
+    <td><a href="MC0_MEX_EXEC_D40_3">MC0_MEX_EXEC_D40_3</a></td>
+    <td>0.9965</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D56"</td>
+    <td><a href="algorithm56">algorithm56</a></td>
+    <td><a href="MC0_MEX_EXEC_D56_3">MC0_MEX_EXEC_D56_3</a></td>
+    <td>0.9964</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D76"</td>
+    <td><a href="algorithm76">algorithm76</a></td>
+    <td><a href="MC0_MEX_EXEC_D76_3">MC0_MEX_EXEC_D76_3</a></td>
+    <td>0.9962</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D4"</td>
+    <td><a href="algorithm4">algorithm4</a></td>
+    <td><a href="MC0_MEX_EXEC_D4_3">MC0_MEX_EXEC_D4_3</a></td>
+    <td>0.9959</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D4"</td>
+    <td><a href="algorithm23">algorithm23</a></td>
+    <td><a href="MC0_MEX_EXEC_D4_3">MC0_MEX_EXEC_D4_3</a></td>
+    <td>0.9959</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D8"</td>
+    <td><a href="algorithm8">algorithm8</a></td>
+    <td><a href="MC0_MEX_EXEC_D8_3">MC0_MEX_EXEC_D8_3</a></td>
+    <td>0.9957</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D12"</td>
+    <td><a href="algorithm12">algorithm12</a></td>
+    <td><a href="MC0_MEX_EXEC_D12_3">MC0_MEX_EXEC_D12_3</a></td>
+    <td>0.9954</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D40"</td>
+    <td><a href="algorithm40">algorithm40</a></td>
+    <td><a href="MC0_MEX_EXEC_D40_3">MC0_MEX_EXEC_D40_3</a></td>
+    <td>0.9945</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D16"</td>
+    <td><a href="algorithm16">algorithm16</a></td>
+    <td><a href="MC0_MEX_EXEC_D16_3">MC0_MEX_EXEC_D16_3</a></td>
+    <td>0.9944</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D68"</td>
+    <td><a href="algorithm68">algorithm68</a></td>
+    <td><a href="MC0_MEX_EXEC_D68_3">MC0_MEX_EXEC_D68_3</a></td>
+    <td>0.9944</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D64"</td>
+    <td><a href="algorithm64">algorithm64</a></td>
+    <td><a href="MC0_MEX_EXEC_D64_3">MC0_MEX_EXEC_D64_3</a></td>
+    <td>0.9944</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D56"</td>
+    <td><a href="algorithm56">algorithm56</a></td>
+    <td><a href="MC0_MEX_EXEC_D56_3">MC0_MEX_EXEC_D56_3</a></td>
+    <td>0.9943</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D40"</td>
+    <td><a href="algorithm40">algorithm40</a></td>
+    <td><a href="MC0_MEX_EXEC_D40_3">MC0_MEX_EXEC_D40_3</a></td>
+    <td>0.9943</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D16"</td>
+    <td><a href="algorithm16">algorithm16</a></td>
+    <td><a href="MC0_MEX_EXEC_D16_3">MC0_MEX_EXEC_D16_3</a></td>
+    <td>0.9942</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D68"</td>
+    <td><a href="algorithm68">algorithm68</a></td>
+    <td><a href="MC0_MEX_EXEC_D68_3">MC0_MEX_EXEC_D68_3</a></td>
+    <td>0.9942</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D64"</td>
+    <td><a href="algorithm64">algorithm64</a></td>
+    <td><a href="MC0_MEX_EXEC_D64_3">MC0_MEX_EXEC_D64_3</a></td>
+    <td>0.9942</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D56"</td>
+    <td><a href="algorithm56">algorithm56</a></td>
+    <td><a href="MC0_MEX_EXEC_D56_3">MC0_MEX_EXEC_D56_3</a></td>
+    <td>0.9941</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D8"</td>
+    <td><a href="algorithm8">algorithm8</a></td>
+    <td><a href="MC0_MEX_EXEC_D8_3">MC0_MEX_EXEC_D8_3</a></td>
+    <td>0.9939</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D76"</td>
+    <td><a href="algorithm76">algorithm76</a></td>
+    <td><a href="MC0_MEX_EXEC_D76_3">MC0_MEX_EXEC_D76_3</a></td>
+    <td>0.9935</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D8"</td>
+    <td><a href="algorithm8">algorithm8</a></td>
+    <td><a href="MC0_MEX_EXEC_D8_3">MC0_MEX_EXEC_D8_3</a></td>
+    <td>0.9934</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D76"</td>
+    <td><a href="algorithm76">algorithm76</a></td>
+    <td><a href="MC0_MEX_EXEC_D76_3">MC0_MEX_EXEC_D76_3</a></td>
+    <td>0.9931</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D32"</td>
+    <td><a href="algorithm32">algorithm32</a></td>
+    <td><a href="MC0_MEX_EXEC_D32_3">MC0_MEX_EXEC_D32_3</a></td>
+    <td>0.9929</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D4"</td>
+    <td><a href="algorithm4">algorithm4</a></td>
+    <td><a href="MC0_MEX_EXEC_D4_3">MC0_MEX_EXEC_D4_3</a></td>
+    <td>0.9928</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D4"</td>
+    <td><a href="algorithm23">algorithm23</a></td>
+    <td><a href="MC0_MEX_EXEC_D4_3">MC0_MEX_EXEC_D4_3</a></td>
+    <td>0.9928</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D4"</td>
+    <td><a href="algorithm4">algorithm4</a></td>
+    <td><a href="MC0_MEX_EXEC_D4_3">MC0_MEX_EXEC_D4_3</a></td>
+    <td>0.9927</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D4"</td>
+    <td><a href="algorithm23">algorithm23</a></td>
+    <td><a href="MC0_MEX_EXEC_D4_3">MC0_MEX_EXEC_D4_3</a></td>
+    <td>0.9927</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D56"</td>
+    <td><a href="algorithm56">algorithm56</a></td>
+    <td><a href="MC0_MEX_EXEC_D56_3">MC0_MEX_EXEC_D56_3</a></td>
+    <td>0.9923</td>
+  </tr>
+</table>
 
 <p><strong>Give me the best precision achieved by a given algorithm perfomed over dataset called News*.</strong></p>
 
@@ -79,6 +269,166 @@ ORDER BY DESC (?precision)
 LIMIT 30
 </code></pre>
 
+<p>Result: </p>
+
+<table border="1">
+  <tr>
+    <th>execution</th>
+    <th>algn</th>
+    <th>precision</th>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D12">EXECC0_MEX_EXEC_D12</a></td>
+    <td><a href="NER_STANFORD">NER_STANFORD</a></td>
+    <td>0.9979</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D12">EXECC0_MEX_EXEC_D12</a></td>
+    <td><a href="SimpleVoting">SimpleVoting</a></td>
+    <td>0.9979</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D12">EXECC0_MEX_EXEC_D12</a></td>
+    <td><a href="NaiveBayes">NaiveBayes</a></td>
+    <td>0.9979</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D12">EXECC0_MEX_EXEC_D12</a></td>
+    <td><a href="SupportVectorMachines">SupportVectorMachines</a></td>
+    <td>0.9979</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D20">EXECC0_MEX_EXEC_D20</a></td>
+    <td><a href="SimpleVoting">SimpleVoting</a></td>
+    <td>0.9976</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D20">EXECC0_MEX_EXEC_D20</a></td>
+    <td><a href="SequentialMinimalOptimization">SequentialMinimalOptimization</a></td>
+    <td>0.9976</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D64">EXECC0_MEX_EXEC_D64</a></td>
+    <td><a href="MultilayerPerceptron">MultilayerPerceptron</a></td>
+    <td>0.9976</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D4">EXECC0_MEX_EXEC_D4</a></td>
+    <td><a href="NaiveBayes">NaiveBayes</a></td>
+    <td>0.9975</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D4">EXECC0_MEX_EXEC_D4</a></td>
+    <td><a href="LogisticModelTrees">LogisticModelTrees</a></td>
+    <td>0.9975</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D4">EXECC0_MEX_EXEC_D4</a></td>
+    <td><a href="DecisionTable">DecisionTable</a></td>
+    <td>0.9975</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D4">EXECC0_MEX_EXEC_D4</a></td>
+    <td><a href="NER_STANFORD">NER_STANFORD</a></td>
+    <td>0.9975</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D16">EXECC0_MEX_EXEC_D16</a></td>
+    <td><a href="ClassLevelVoting">ClassLevelVoting</a></td>
+    <td>0.9974</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D16">EXECC0_MEX_EXEC_D16</a></td>
+    <td><a href="RandomForest">RandomForest</a></td>
+    <td>0.9974</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D56">EXECC0_MEX_EXEC_D56</a></td>
+    <td><a href="SupportVectorMachines">SupportVectorMachines</a></td>
+    <td>0.9974</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D40">EXECC0_MEX_EXEC_D40</a></td>
+    <td><a href="J48">J48</a></td>
+    <td>0.9971</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D68">EXECC0_MEX_EXEC_D68</a></td>
+    <td><a href="DecisionTable">DecisionTable</a></td>
+    <td>0.997</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D76">EXECC0_MEX_EXEC_D76</a></td>
+    <td><a href="LogisticRegression">LogisticRegression</a></td>
+    <td>0.997</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D12">EXECC0_MEX_EXEC_D12</a></td>
+    <td><a href="NER_STANFORD">NER_STANFORD</a></td>
+    <td>0.9967</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D12">EXECC0_MEX_EXEC_D12</a></td>
+    <td><a href="SimpleVoting">SimpleVoting</a></td>
+    <td>0.9967</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D12">EXECC0_MEX_EXEC_D12</a></td>
+    <td><a href="NaiveBayes">NaiveBayes</a></td>
+    <td>0.9967</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D12">EXECC0_MEX_EXEC_D12</a></td>
+    <td><a href="SupportVectorMachines">SupportVectorMachines</a></td>
+    <td>0.9967</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D12">EXECC0_MEX_EXEC_D12</a></td>
+    <td><a href="NER_STANFORD">NER_STANFORD</a></td>
+    <td>0.9965</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D12">EXECC0_MEX_EXEC_D12</a></td>
+    <td><a href="SimpleVoting">SimpleVoting</a></td>
+    <td>0.9965</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D12">EXECC0_MEX_EXEC_D12</a></td>
+    <td><a href="NaiveBayes">NaiveBayes</a></td>
+    <td>0.9965</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D12">EXECC0_MEX_EXEC_D12</a></td>
+    <td><a href="SupportVectorMachines">SupportVectorMachines</a></td>
+    <td>0.9965</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D20">EXECC0_MEX_EXEC_D20</a></td>
+    <td><a href="SimpleVoting">SimpleVoting</a></td>
+    <td>0.9963</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D20">EXECC0_MEX_EXEC_D20</a></td>
+    <td><a href="SequentialMinimalOptimization">SequentialMinimalOptimization</a></td>
+    <td>0.9963</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D40">EXECC0_MEX_EXEC_D40</a></td>
+    <td><a href="J48">J48</a></td>
+    <td>0.9963</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D16">EXECC0_MEX_EXEC_D16</a></td>
+    <td><a href="ClassLevelVoting">ClassLevelVoting</a></td>
+    <td>0.9962</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D16">EXECC0_MEX_EXEC_D16</a></td>
+    <td><a href="RandomForest">RandomForest</a></td>
+    <td>0.9962</td>
+  </tr>
+</table>
+
 <p><strong>Give me the sampling method used by a given execution.</strong></p>
 
 <pre><code>PREFIX  mexcore:  &lt;http://mex.aksw.org/mex-core#&gt;
@@ -97,6 +447,259 @@ SELECT DISTINCT ?execution ?sampling ?folds ?sequential ?testSize ?trainSize WHE
 ORDER BY ASC (?execution)
 LIMIT 30
 </code></pre>
+
+<p>Result: </p>
+
+<table border="1">
+  <tr>
+    <th>execution</th>
+    <th>sampling</th>
+    <th>folds</th>
+    <th>sequential</th>
+    <th>testSize</th>
+    <th>trainSize</th>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D1">EXECC0_MEX_EXEC_D1</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D10">EXECC0_MEX_EXEC_D10</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D11">EXECC0_MEX_EXEC_D11</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D12">EXECC0_MEX_EXEC_D12</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D13">EXECC0_MEX_EXEC_D13</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D14">EXECC0_MEX_EXEC_D14</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D15">EXECC0_MEX_EXEC_D15</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D16">EXECC0_MEX_EXEC_D16</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D17">EXECC0_MEX_EXEC_D17</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D18">EXECC0_MEX_EXEC_D18</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D19">EXECC0_MEX_EXEC_D19</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D2">EXECC0_MEX_EXEC_D2</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D20">EXECC0_MEX_EXEC_D20</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D21">EXECC0_MEX_EXEC_D21</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D22">EXECC0_MEX_EXEC_D22</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D23">EXECC0_MEX_EXEC_D23</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D24">EXECC0_MEX_EXEC_D24</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D25">EXECC0_MEX_EXEC_D25</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D26">EXECC0_MEX_EXEC_D26</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D27">EXECC0_MEX_EXEC_D27</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D28">EXECC0_MEX_EXEC_D28</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D29">EXECC0_MEX_EXEC_D29</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D3">EXECC0_MEX_EXEC_D3</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D30">EXECC0_MEX_EXEC_D30</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D31">EXECC0_MEX_EXEC_D31</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D32">EXECC0_MEX_EXEC_D32</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D33">EXECC0_MEX_EXEC_D33</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D34">EXECC0_MEX_EXEC_D34</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D35">EXECC0_MEX_EXEC_D35</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+  <tr>
+    <td><a href="EXECC0_MEX_EXEC_D36">EXECC0_MEX_EXEC_D36</a></td>
+    <td><a href="samplingmethod1">samplingmethod1</a></td>
+    <td>"10"</td>
+    <td>"true"</td>
+    <td>"0.1"</td>
+    <td>"0.9"</td>
+  </tr>
+</table>
 
 <hr>
 
