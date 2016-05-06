@@ -29,25 +29,79 @@
 <h3>
 <a id="fox" class="anchor" href="#fox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FOX</h3>
 
+<p>FOX [13] is a highly accurate open-source framework for named entity recognition.FOX achieves a higher F-measure than state-of-the-art named entity recognition frameworks like Stanford by combining the results of several approaches through ensemble learning technique. 
+With respect to the introduced drawbacks,Algorithms and their hyperparameters are set, respectively, by the methods mex.Configuration().add Algorithm(EnumAlgorithm x)and mex.Configuration().Algorithm (EnumAlgorithm x).addPara-meter(id,value). Analogously,mex.Configuration().setTool(Enum-Tools y, version)generates  the  link  to  the  used  version  of  the  software  andmex.Configuration().setModel(name)can  be  used  to  specify  the  classifier. </p>
+
+<p>Finally, the link to each dataset associated to each execution (or configuration) isset by mex.Configuration().setDataSet(url, name). Instead of trawling through the directory structure (more than 20.000 files in about 5GB of uncompressed data) and make suppositions,SPARQL queries give the answers much easier. </p>
+
+<p><img src="https://github.com/AKSW/mexproject/blob/master/site/architecture.png" alt="Fox architecture">
+Figure 2 depicts an excerpt of code for the generated metadata file. Researchers are able to intuitively understand and absorb the relation of the variables inthe experiment configuration.</p>
+
+<p><strong>Give me all algorithm which were measured by F-measure.</strong></p>
+
+<pre><code>PREFIX  mexcore:  &lt;http://mex.aksw.org/mex-core#&gt;
+PREFIX  mexperf:  &lt;http://mex.aksw.org/mex-perf#&gt;
+PREFIX  mexalgo:  &lt;http://mex.aksw.org/mex-algo#&gt;
+PREFIX  prov:     &lt;http://www.w3.org/ns/prov#&gt;
+PREFIX  rdfs:     &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT DISTINCT ?name ?alg ?perfn ?fMeasure WHERE {
+   ?execution prov:used ?alg;
+             prov:id ?name.
+   ?perfn prov:wasInformedBy  ?execution.
+   ?perfn mexperf:fMeasure ?fMeasure.
+   ?alg (rdf:type/rdfs:subClassOf*) mexalgo:NamedAlgorithm.
+    } 
+ORDER BY DESC (?fMeasure)
+LIMIT 30
+</code></pre>
+
+<p>Result: </p>
+
+<p><strong>Give me the best precision achieved by a given algorithm perfomed over dataset called News*.</strong></p>
+
+<pre><code>PREFIX  mexcore:  &lt;http://mex.aksw.org/mex-core#&gt;
+PREFIX  mexperf:  &lt;http://mex.aksw.org/mex-perf#&gt;
+PREFIX  mexalgo:  &lt;http://mex.aksw.org/mex-algo#&gt;
+PREFIX  prov:     &lt;http://www.w3.org/ns/prov#&gt;
+PREFIX  rdfs:     &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT DISTINCT ?execution ?algn ?precision WHERE {
+  ?execution prov:wasInformedBy ?conf.
+  ?conf prov:used ?dataset.
+  ?dataset dcterms:title "News*".
+  ?perfn prov:wasInformedBy  ?execution.
+  ?perfn mexperf:precision ?precision.
+  ?execution prov:used ?alg.
+  ?alg (rdf:type/rdfs:subClassOf*) mexalgo:NamedAlgorithm.
+  ?alg rdf:type ?algn.
+  } 
+
+ORDER BY DESC (?precision)
+LIMIT 30
+</code></pre>
+
+<p><strong>Give me the sampling method used by a given execution.</strong></p>
+
+<pre><code>PREFIX  mexcore:  &lt;http://mex.aksw.org/mex-core#&gt;
+PREFIX  mexperf:  &lt;http://mex.aksw.org/mex-perf#&gt;
+PREFIX  mexalgo:  &lt;http://mex.aksw.org/mex-algo#&gt;
+PREFIX  prov:     &lt;http://www.w3.org/ns/prov#&gt;
+PREFIX  rdfs:     &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+SELECT DISTINCT ?execution ?sampling ?folds ?sequential ?testSize ?trainSize WHERE {
+  ?execution prov:wasInformedBy ?conf.
+  ?conf prov:used ?sampling.
+  ?sampling mexcore:folds ?folds.
+  ?sampling mexcore:sequential ?sequential.
+  ?sampling mexcore:testSize ?testSize.
+  ?sampling mexcore:trainSize ?trainSize.
+  } 
+ORDER BY ASC (?execution)
+LIMIT 30
+</code></pre>
+
 <hr>
 
 <h3>
 <a id="sml-bench" class="anchor" href="#sml-bench" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SML-Bench</h3>
-
-<p>
-<a href="http://aksw.org/Projects/SMLBench.html">SML-Bench</a> is a benchmark framework for inductive learning tools.
-It currently supports ILP systems like <a href="http://www.cs.ox.ac.uk/activities/machinelearning/Aleph/">Aleph</a>, <a href="http://www.doc.ic.ac.uk/~shm/progol.html">Progol</a> and the <a href="http://www.doc.ic.ac.uk/~jcs06/GILPS/">GILPS</a> implementations, as well as tools for learning on OWL-based ontologies, like the <a href="http://dl-learner.org">DL-Learner</a>.
-SML-Bench is easily extensible with further systems or own prototypes and comes with a set of pre-defined learning scenarios.
-These scenarios define the dataset to learn on, positive and negative examples to inductively derive new knowledge from, and tool settings.
-</p>
-<p>
-To make benchmark results better comparable and also to be able to load and share 'blueprints' for benchmark setups, a MEX import and output feature was added.
-The generation of RDF data describing a benchmark run is established by LOG4MEX annotations inside the SML-Bench Java code.
-As an alternative to a (flat) configuration file, an existing MEX benchmark description can be used to configure SML-Bench.
-A MEX description of a benchmark run comprises the specification of the assessed tools, their configured parameters and the algorithms they are based on using the <a href="http://mex.aksw.org/mex-algo#">mex-algo vocabulary</a>.
-The configuration of the SML-Bench framework is done using elements from <a href="http://mex.aksw.org/mex-core#">mex-core</a> which describe aspects like the overall maximum execution time, the positive and negative examples used, the actual dataset and the utilized hardware.
-<a href="http://mex.aksw.org/mex-perf#">mex-perf</a> was used to express the actual benchmarking results, e.g. the accuracy, F-score values achieved by the benchmarked inductive learning systems, as well as possible failures, e.g. due to timeouts.
-</p>
 
 <hr>
 
