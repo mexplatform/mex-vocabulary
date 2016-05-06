@@ -38,7 +38,7 @@ The current version of the vocabulaty is described (per layer) as following. We'
 
 Besides, each configuration is related to one specific software implementation (`mexalgo:Implementation`)
 
-* **The runs**: here the `:Execution` entity is the central class of the `core` layer and receives the spotlight on our schema definition. It is defined as a hub for linking the three layers (`mexcore`, `mexalgo` and `mexperf`). Concisely one instance of `:Execution` is performed on behalf of an `:Algorithm` and produces one or more `:PerformanceMeasure`, represented by the `:ExecutionPerformance` class (e.g.: `:ex1 prov:used :algA` and `:execperf :prov:wasGeneratedBy :exec1`). It is worth noting the abstraction level for modeling the execution process: for representing **the set of runs** the algorithm has performed over a dataset (or a subset) (i.e.: an overall execution), the appropriete class is the `:ExecutionOverall`, whereas for representing the run over each `dataset example` (i.e.: a single execution), the relevant class is the `:ExecutionSingle`, although less appropriate for the abstraction level required for presenting experimental results.
+* **The runs**: here the `:Execution` entity (super class) is the central class of the `core` layer and receives the spotlight on our schema definition. It is defined as a hub for linking the three layers (`mexcore`, `mexalgo` and `mexperf`). Concisely one instance of `:Execution` is performed on behalf of an `:Algorithm` and produces one or more `:PerformanceMeasure`, represented by the `:ExecutionPerformance` class (e.g.: `:ex1 prov:used :algA` and `:execperf :prov:wasGeneratedBy :exec1`). It is worth noting the abstraction level for modeling the execution process: for representing **the set of runs** the algorithm has performed over a dataset (or a subset) (i.e.: an overall execution), the appropriete class is the `:ExecutionOverall [subClassOf :Execution]`, whereas for representing the run over each `dataset example` (i.e.: a single execution), the relevant class is the `:ExecutionSingle [subClassOf :Execution]`, although less appropriate for the abstraction level required for presenting experimental results.
 Below are listed additional related entities:
   * `:Model`: basic information regarding the used/generated model
   * `:Phase`: train, validation or test
@@ -46,8 +46,9 @@ Below are listed additional related entities:
 
 #### mexalgo
 * `:Tool`: the software tool used by the experiment
+* `:ToolParameter` (`:ToolParameterCollection`): parameters specific defined for the tool 
 * `:Algorithm`: the algorithm
-* `:HyperParameter`: the set of hyperparamters for a given algorithm
+* `:HyperParameter` (`:HyperParameterCollection`): the set of hyperparamters for a given algorithm
 * `:AlgorithmClass`: the class of an algorithm (e.g.: `Decision Trees` or `Support Vector Machines`)
 
 Additionally, two classes are defined into this layer in order to provide more formalism for the algorithm, although not crucial (and are instantiated in a transparent way to the end user) for the execution description `:LearningMethod` and `:LearningProblem` 
