@@ -34,4 +34,9 @@ public class ClusteringMeasureVO extends Measure  {
     public ClusteringMeasureVO(){
 
     }
+
+    @Override
+    public String getLabel(){
+        return "Clustering measures";
+    }
 }

@@ -56,4 +56,10 @@ public class RegressionMeasureVO extends Measure {
     public RegressionMeasureVO(){
 
     }
+
+    @Override
+    public String getLabel(){
+        return "Regression measures";
+    }
+
 }

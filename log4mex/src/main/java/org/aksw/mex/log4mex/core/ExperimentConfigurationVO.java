@@ -38,6 +38,8 @@ public class ExperimentConfigurationVO {
     private List<FeatureVO>            _features;
     private List<AlgorithmVO>          _algorithms;
 
+    private String                     _label="";
+    private int                        _maxLabel = 30;
     private static final Logger        LOGGER = LoggerFactory.getLogger(ExperimentConfigurationVO.class);
 
 
@@ -49,6 +51,10 @@ public class ExperimentConfigurationVO {
         this._features = new ArrayList<>();
         this._algorithms = new ArrayList<>();
         this._ds = new DataSetVO();
+        this._label = _description + "...";
+        if (this._label.length() > _maxLabel){
+            this._label = this._label.substring(0,_maxLabel-1)+ "...";
+        }
     }
 
     public ExperimentConfigurationVO(String id) {
@@ -62,6 +68,14 @@ public class ExperimentConfigurationVO {
     /**********************************************************************************************************************************************
      *                                                                  getters
      **********************************************************************************************************************************************/
+
+    /**
+     * returns the label for an experiment configuration
+     * @return
+     */
+    public String getLabel(){
+        return this._label;
+    }
 
     /**
      * returns the id of an experiment configuration
@@ -268,6 +282,10 @@ public class ExperimentConfigurationVO {
      */
     public void setDescription(String _description) {
         this._description = _description;
+        this._label = _description + "...";
+        if (this._label.length() > _maxLabel){
+            this._label = this._label.substring(0,_maxLabel-1) + "...";
+        }
     }
 
     /**

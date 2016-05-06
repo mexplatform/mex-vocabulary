@@ -7,6 +7,8 @@ import org.aksw.mex.util.MEXEnum;
  */
 public class ContextVO {
 
+    private String _label;
+
     public MEXEnum.EnumContexts get_context() {
         return _context;
     }
@@ -21,4 +23,11 @@ public class ContextVO {
         this._context = value;
     }
 
+    public String getLabel(){
+        return this._label;
+    }
+
+    public void setLabel(String value){
+        this._label = value;
+    }
 }

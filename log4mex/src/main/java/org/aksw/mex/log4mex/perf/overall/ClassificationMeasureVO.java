@@ -27,7 +27,10 @@ public class ClassificationMeasureVO extends Measure {
     public ClassificationMeasureVO(){
     }
 
-
+    @Override
+    public String getLabel(){
+        return "Classification measures";
+    }
 
     public void set_fMeasure(Double _fMeasure) {
         this._fMeasure = _fMeasure;

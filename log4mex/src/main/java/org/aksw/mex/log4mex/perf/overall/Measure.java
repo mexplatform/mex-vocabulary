@@ -8,7 +8,6 @@ public abstract class Measure {
     private String _name;
     private Double _value;
 
-
     public Measure(){}
     public Measure(String measure, Double value){
         this._value = value;
@@ -24,15 +23,19 @@ public abstract class Measure {
     public String getName() {
         return _name;
     }
+
     public void setName(String _name) {
         this._name = _name;
     }
+
     public Double getValue() {
         return _value;
     }
+
     public void setValue(Double _value) {
         this._value = _value;
     }
 
+    public abstract String getLabel();
 
 }

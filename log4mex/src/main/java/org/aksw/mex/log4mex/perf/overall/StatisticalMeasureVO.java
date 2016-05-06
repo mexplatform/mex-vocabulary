@@ -154,5 +154,9 @@ public class StatisticalMeasureVO extends Measure {
 
     }
 
+    @Override
+    public String getLabel(){
+        return "Statistical measures";
+    }
 
 }

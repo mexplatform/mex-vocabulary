@@ -6,10 +6,14 @@ package org.aksw.mex.log4mex.algo;
 public class AlgorithmParameterVO {
     private String _dct_identifier;
     private String _prov_value;
+    private String _label="";
 
     public AlgorithmParameterVO(String _dct_identifier, String _prov_value){
         this._dct_identifier = _dct_identifier;
         this._prov_value = _prov_value;
+        this._label = _dct_identifier;
+        if (_dct_identifier.toString().length() > 2)
+            this._label = _dct_identifier.toString().substring(0, 1).toUpperCase() + _dct_identifier.toString().substring(1);
     }
 
     public String getIdentifier() {
@@ -22,6 +26,10 @@ public class AlgorithmParameterVO {
 
     public String getValue() {
         return _prov_value;
+    }
+
+    public String getLabel() {
+        return _label;
     }
 
     public void setValue(String value) {

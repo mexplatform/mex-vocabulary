@@ -15,11 +15,13 @@ public class SamplingMethodVO {
     private Double _testSize;
     private Integer _folds;
     private Boolean _sequential;
+    private String _label;
 
 
     public SamplingMethodVO(String ind, MEXEnum.EnumSamplingMethods sm) {
         this._individualName = ind;
         this._className = sm.toString();
+
     }
 
     public SamplingMethodVO(String ind, MEXEnum.EnumSamplingMethods sm, Double train, Double test) {
@@ -27,7 +29,10 @@ public class SamplingMethodVO {
         this._className = sm.toString();
         this._trainSize = train;
         this._testSize = test;
+
     }
+
+
 
     public String getIndividualName() {
         return _individualName;
@@ -35,6 +40,14 @@ public class SamplingMethodVO {
 
     public String getClassName() {
         return _className;
+    }
+
+    public String getLabel() {
+        return _label;
+    }
+
+    public void setLabel(String value) {
+        this._label = value;
     }
 
     public Double getTrainSize() {
@@ -55,6 +68,7 @@ public class SamplingMethodVO {
 
     public void setClassName(MEXEnum.EnumSamplingMethods value){
         this._className = value.toString();
+
     }
 
     public void setIndividualName(String value){

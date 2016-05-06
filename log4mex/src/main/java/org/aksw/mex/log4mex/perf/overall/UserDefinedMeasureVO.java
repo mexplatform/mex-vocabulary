@@ -65,4 +65,9 @@ public class UserDefinedMeasureVO extends Measure{
     public UserDefinedMeasureVO(){
 
     }
+
+    @Override
+    public String getLabel(){
+        return "Custom measures defined by user";
+    }
 }

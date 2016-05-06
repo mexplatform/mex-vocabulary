@@ -57,6 +57,7 @@ public class ApplicationContextVO  {
     private ContextVO _context;
     private List<ExperimentVO> _experiments;
 
+
     public ApplicationContextVO(){
         this._fileDate = new Date();
         this._context = new ContextVO(MEXEnum.EnumContexts.NOT_INFORMED);
@@ -90,6 +91,8 @@ public class ApplicationContextVO  {
         this._trustyURI = trustyURI;
         this._context = new ContextVO(MEXEnum.EnumContexts.NOT_INFORMED);
     }
+
+
 
     public void setContext(MEXEnum.EnumContexts value){
         this._context.setContext(value);
@@ -140,6 +143,7 @@ public class ApplicationContextVO  {
     public String getPROVClassName(){
         return PROVO.ClasseTypes.AGENT;
     }
+
 
 
     /**

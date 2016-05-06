@@ -17,4 +17,9 @@ public class ExamplePerformanceMeasureVO extends Measure {
         this._real = realValue;
     }
 
+    @Override
+    public String getLabel(){
+        return "Performance measure for a single run (predicted x real)";
+    }
+
 }
