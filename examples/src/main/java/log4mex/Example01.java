@@ -28,7 +28,7 @@ public class Example01 {
             String[] features = {"min", "max", "ope", "clo"};
             mex.Configuration(confID).addFeature(features);
             /* (4) the algorithms and hyperparameters */
-            String alg01ID = mex.Configuration(confID).addAlgorithm("alg", EnumAlgorithms.NaiveBayes);
+            String alg01ID = mex.Configuration(confID).addAlgorithm("alg", EnumAlgorithmsClasses.NaiveBayes);
             /* (5) the executions */
 
 

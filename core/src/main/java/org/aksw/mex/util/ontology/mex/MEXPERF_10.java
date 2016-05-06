@@ -135,16 +135,21 @@ public class MEXPERF_10  extends MEXPERF implements IOntology {
     }
 
     public class ClasseTypes{
-        public static final String PERFORMANCE_MEASURE = "PerformanceMeasure";
+        public static final String EXECUTION_PERFORMANCE = "ExecutionPerformance";
+
+        //public static final String PERFORMANCE_MEASURE = "PerformanceMeasure"; -> Super Class, defined in MEX Vocabulary
+
         public static final String STATISTICAL_MEASURE = "StatisticalMeasure";
         public static final String REGRESSION_MEASURE = "RegressionMeasure";
         public static final String CLASSIFICATION_MEASURE = "ClassificationMeasure";
         public static final String CLUSTERING_MEASURE = "ClusteringMeasure";
-        public static final String EXAMPLE_PERFORMANCE = "ExamplePerformance";
+
         public static final String EXAMPLE_PERFORMANCE_COLLECTION = "ExamplePerformanceCollection";
-        public static final String USER_DEFINED_MEASURE = "UserDefinedMeasure";
+        public static final String EXAMPLE_PERFORMANCE = "ExamplePerformance";
+
         public static final String USER_DEFINED_MEASURE_COLLECTION = "UserDefinedMeasureCollection";
-        public static final String EXECUTION_PERFORMANCE = "ExecutionPerformance";
+        public static final String USER_DEFINED_MEASURE = "UserDefinedMeasure";
+
     }
 
     public class Predicates{

@@ -8,6 +8,7 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.*;
 import org.aksw.mex.log4mex.algo.AlgorithmParameterVO;
 import org.aksw.mex.log4mex.core.*;
+import org.aksw.mex.log4mex.perf.example.ExamplePerformanceMeasureVO;
 import org.aksw.mex.log4mex.perf.overall.*;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum;
@@ -57,9 +58,7 @@ public class MEXSerializer {
 
             /* minimal set of classes to be implemented */
 
-            if (mex.getApplicationContext() == null ||
-                    (StringUtils.isEmpty(mex.getApplicationContext().get_givenName()) ||
-                    StringUtils.isBlank(mex.getApplicationContext().get_givenName()))) {
+            if (!mex.getApplicationContext().hasValue()) {
                 LOGGER.warn("[APPLICATION_CONTEXT]: missing the author name!");
                 return false;
             }
@@ -69,20 +68,18 @@ public class MEXSerializer {
 
 
                 //dataset
-                if (configurations.get(i).DataSet() == null
-                        || (StringUtils.isBlank(configurations.get(i).DataSet().getName()) ||
-                            StringUtils.isEmpty(configurations.get(i).DataSet().getName()))){
-                    LOGGER.warn("[EXPERIMENT_CONFIGURATION]: missing basic dataset information: inform at least the dataset/file name!");
+                if (!configurations.get(i).DataSet().hasValue()) {
+                    LOGGER.warn("[EXPERIMENT_CONFIGURATION]: missing parameters for dataset!");
                     return false;
                 }
 
+                /*
                 //sampling method
-                if (configurations.get(i).SamplingMethod() != null &&
-                        (configurations.get(i).SamplingMethod().getTestSize() == null || configurations.get(i).SamplingMethod().getTrainSize() == null)) {
-                    LOGGER.warn("[EXPERIMENT_CONFIGURATION]: missing parameters for sampling: inform the train and test size for sampling methods!");
+                if (!configurations.get(i).SamplingMethod().hasValue()) {
+                    LOGGER.warn("[EXPERIMENT_CONFIGURATION]: missing parameters for sampling method!");
                     return false;
                 }
-
+                */
 
                 if (configurations.get(i).getAlgorithms() == null
                         || configurations.get(i).getAlgorithms().size() == 0){
@@ -202,23 +199,24 @@ public class MEXSerializer {
             Resource provActivity = model.createResource(PROVO.NS + PROVO.ClasseTypes.ACTIVITY);
             Resource provCollection = model.createResource(PROVO.NS + PROVO.ClasseTypes.COLLECTION);
 
+            //MEX-CORE
             Resource mexcore_APC = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.APPLICATION_CONTEXT);
             Resource mexcore_EXP_HEADER = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXPERIMENT);
             Resource mexcore_EXP_CONF = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXPERIMENT_CONFIGURATION);
             Resource mexcore_MODEL = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.MODEL);
-
             Resource mexcore_HARDWARE = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.HARDWARE_CONFIGURATION);
             Resource mexcore_DATASET = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.DATASET);
             Resource mexcore_EXEC = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXECUTION);
             Resource mexcore_FEATURE = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.FEATURE);
-
             Resource mexcore_EXAMPLE = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXAMPLE);
             Resource mexcore_EXAMPLE_COLLECTION = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXAMPLE_COLLECTION);
 
-            Resource mexalgo_IMPLEMENTATION = model.createResource(MEXCORE_10.NS + MEXALGO_10.ClasseTypes.IMPLEMENTATION);
+            //MEX-ALGO
+            Resource mexalgo_TOOL= model.createResource(MEXALGO_10.NS + MEXALGO_10.ClasseTypes.TOOL);
+            Resource mexalgo_ALGO_PARAM = model.createResource(MEXALGO_10.NS + MEXALGO_10.ClasseTypes.ALGORITHM_PARAMETER);
+            Resource mexalgo_ALGO = model.createResource(MEXALGO_10.NS + MEXALGO_10.ClasseTypes.ALGORITHM);
 
-            Resource mexalgo_ALGO_PARAM = model.createResource(MEXCORE_10.NS + MEXALGO_10.ClasseTypes.ALGORITHM_PARAMETER);
-
+            //MEX-PERF
             Resource mexperf_EXECUTION_PERFORMANCE = model.createResource(MEXPERF_10.NS + MEXPERF_10.ClasseTypes.EXECUTION_PERFORMANCE);
 
 
@@ -505,12 +503,14 @@ public class MEXSerializer {
                                     _exec.addProperty(MEXCORE_10.group, model.createTypedLiteral("false", XSDDatatype.XSDboolean));
                                 }
 
+
+
                                 //EXECUTION PERFORMANCE
-                                Resource _execPerformance = null;
-                                _execPerformance = model.createResource(URIbase + "execPerformance_" + auxe + "_conf_" + auxExpConf)
+                                Resource _execPerformance = model.createResource(URIbase + "execPerformance_" + auxe + "_conf_" + auxExpConf)
                                         //.addProperty(RDF.type, provActivity)
                                         .addProperty(RDF.type, mexperf_EXECUTION_PERFORMANCE)
                                         .addProperty(PROVO.wasInformedBy, _exec);
+
 
 
                                 //PHASE
@@ -542,15 +542,15 @@ public class MEXSerializer {
                                 }
                                 //ALGORITHM
                                 if (e.getAlgorithm() != null) {
-                                    Resource mexalgo_ALGO = model.createResource(MEXALGO_10.NS + e.getAlgorithm().getClassName());
 
-                                        Resource _alg = model.createResource(URIbase + e.getAlgorithm().getIndividualName() + "_conf_" + auxExpConf)
-                                                //.addProperty(RDF.type, provEntity)
-                                                .addProperty(RDF.type, mexalgo_ALGO)
-                                                .addProperty(RDFS.label, e.getAlgorithm().getLabel());
+                                    Resource _alg = model.createResource(URIbase + e.getAlgorithm().getIndividualName() + "_conf_" + auxExpConf)
+                                            //.addProperty(RDF.type, provEntity)
+                                            .addProperty(RDF.type, mexalgo_ALGO)
+                                            .addProperty(RDFS.label, e.getAlgorithm().getLabel());
 
                                     if (StringUtils.isNotBlank(e.getAlgorithm().getClassName()) && StringUtils.isNotEmpty(e.getAlgorithm().getClassName())) {
-                                        _alg.addProperty(MEXALGO_10.hasParameter, e.getAlgorithm().getClassName());
+                                        Resource _algClass = model.createResource(MEXALGO_10.NS + e.getAlgorithm().getClassName());
+                                        _alg.addProperty(MEXALGO_10.hasAlgorithmClass,_algClass );
                                     }
 
 
@@ -563,7 +563,7 @@ public class MEXSerializer {
                                     if (StringUtils.isNotBlank(e.getAlgorithm().getLabel()) && StringUtils.isNotEmpty(e.getAlgorithm().getLabel())) {
                                         _alg.addProperty(RDFS.label, e.getAlgorithm().getLabel());}
                                     //uri
-                                    if (StringUtils.isNotBlank(e.getAlgorithm().getURI().toURL().toString()) && StringUtils.isNotEmpty(e.getAlgorithm().getURI().toURL().toString())) {
+                                    if (e.getAlgorithm().getURI() != null && StringUtils.isNotBlank(e.getAlgorithm().getURI().toURL().toString()) && StringUtils.isNotEmpty(e.getAlgorithm().getURI().toURL().toString())) {
                                         _alg.addProperty(DCAT.landingPage, e.getAlgorithm().getURI().toURL().toString());}
                                     //acronym
                                     if (StringUtils.isNotBlank(e.getAlgorithm().getAcronym()) && StringUtils.isNotEmpty(e.getAlgorithm().getAcronym())) {
@@ -600,8 +600,8 @@ public class MEXSerializer {
                                         Measure mea = imea.next();
                                         if (mea != null) {
 
-                                            Resource mexperf_klass = null, mexperf_cla = null,     mexperf_reg = null,     mexperf_clu = null,     mexperf_sta = null;
-                                            Resource mexperf_ins = null,   mexperf_cla_ins = null, mexperf_reg_ins = null, mexperf_clu_ins = null, mexperf_sta_ins = null;
+                                            Resource mexperf_klass = null, mexperf_cla = null,     mexperf_reg = null,     mexperf_clu = null,     mexperf_sta = null, mexperf_custom = null , mexperf_example = null;
+                                            Resource mexperf_ins = null,   mexperf_cla_ins = null, mexperf_reg_ins = null, mexperf_clu_ins = null, mexperf_sta_ins = null, mexperf_custom_ins = null, mexperf_example_ins = null;
 
                                             if (mea instanceof ClassificationMeasureVO){
 
@@ -643,13 +643,35 @@ public class MEXSerializer {
                                                 mexperf_klass = mexperf_sta;
                                                 mexperf_ins = mexperf_sta_ins;
 
-                                            }
+                                            }else if (mea instanceof UserDefinedMeasureVO){
 
+                                                if (mexperf_custom == null){
+                                                    mexperf_custom_ins = model.createResource(URIbase + "measure_custom_" + String.valueOf(e.getId()) + "_conf_" + auxExpConf); // + "_" + String.valueOf(auxmea));
+                                                    mexperf_custom = model.createResource(MEXPERF_10.NS + MEXPERF_10.ClasseTypes.USER_DEFINED_MEASURE);
+                                                }
+
+                                                mexperf_klass = mexperf_custom;
+                                                mexperf_ins = mexperf_custom_ins;
+
+                                            }
+                                            else if (mea instanceof ExamplePerformanceMeasureVO){
+
+                                                if (mexperf_example == null){
+                                                    mexperf_example_ins = model.createResource(URIbase + "measure_example_" + String.valueOf(e.getId()) + "_conf_" + auxExpConf); // + "_" + String.valueOf(auxmea));
+                                                    mexperf_example = model.createResource(MEXPERF_10.NS + MEXPERF_10.ClasseTypes.USER_DEFINED_MEASURE);
+                                                }
+
+                                                mexperf_klass = mexperf_example;
+                                                mexperf_ins = mexperf_example_ins;
+
+                                            }
 
                                             //mexperf_ins.addProperty(RDF.type, provEntity);
                                             mexperf_ins.addProperty(RDF.type, mexperf_klass);
                                             mexperf_ins.addProperty(model.createProperty(MEXPERF_10.NS + mea.getName()), model.createTypedLiteral(mea.getValue()));
                                             mexperf_ins.addProperty(PROVO.wasInformedBy, _exec);
+
+                                            _execPerformance.addProperty(PROVO.generated, mexperf_ins);
 
                                             //auxmea++;
                                         }

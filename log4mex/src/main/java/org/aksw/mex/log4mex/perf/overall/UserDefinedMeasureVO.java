@@ -3,7 +3,14 @@ package org.aksw.mex.log4mex.perf.overall;
 /**
  * Created by esteves on 26.06.15.
  */
-public class UserDefinedMeasureVO {
+public class UserDefinedMeasureVO extends Measure{
+
+    private String _id;
+    private String _description;
+    private String _formula;
+    private Double _value;
+
+
 
     public String get_id() {
         return _id;
@@ -29,18 +36,14 @@ public class UserDefinedMeasureVO {
         this._formula = _formula;
     }
 
-    public String getValue() {
-        return value;
+    public Double getValue() {
+        return _value;
     }
 
-    public void setValue(String value) {
-        this.value = value;
+    public void setValue(Double value) {
+        this._value = value;
     }
 
-    private String _id;
-    private String _description;
-    private String _formula;
-    private String value;
 
     public String get_creatorName() {
         return _creatorName;
@@ -52,9 +55,11 @@ public class UserDefinedMeasureVO {
 
     private String _creatorName;
 
-    public UserDefinedMeasureVO(String id, String value){
+    public UserDefinedMeasureVO(String id, String desc, String formula, Double value){
         this._id = id;
-        this.value = value;
+        this._description = desc;
+        this._formula = formula;
+        this._value = value;
     }
 
     public UserDefinedMeasureVO(){

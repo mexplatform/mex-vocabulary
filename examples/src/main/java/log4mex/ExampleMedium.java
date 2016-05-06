@@ -70,11 +70,11 @@ public class ExampleMedium {
             mex.Configuration(eid).Tool().set(EnumTools.WEKA);
             mex.Configuration(eid).Tool().setRevision("3.6.6");
 
-            mex.Configuration(eid).addAlgorithm("svm", EnumAlgorithms.SupportVectorMachines);
-            mex.Configuration(eid).addAlgorithm("nb", EnumAlgorithms.NaiveBayes);
+            mex.Configuration(eid).addAlgorithm("svm", EnumAlgorithmsClasses.SupportVectorMachines);
+            mex.Configuration(eid).addAlgorithm("nb", EnumAlgorithmsClasses.NaiveBayes);
 
-            mex.Configuration(eid).Algorithm(EnumAlgorithms.SupportVectorMachines).addParameter("C", "10^3");
-            mex.Configuration(eid).Algorithm(EnumAlgorithms.SupportVectorMachines).addParameter("alpha", "0.2");
+            mex.Configuration(eid).Algorithm(EnumAlgorithmsClasses.SupportVectorMachines).addParameter("C", "10^3");
+            mex.Configuration(eid).Algorithm(EnumAlgorithmsClasses.SupportVectorMachines).addParameter("alpha", "0.2");
         }
 
         String ex1 = "EX001";
@@ -84,7 +84,7 @@ public class ExampleMedium {
             mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TRAIN);
             mex.Configuration(eid).setExecutionId(0, ex1);
             mex.Configuration(eid).Execution(ex1).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex1).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithms.SupportVectorMachines));
+            mex.Configuration(eid).Execution(ex1).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithmsClasses.SupportVectorMachines));
             mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
             mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
                 //your models call here !
@@ -94,7 +94,7 @@ public class ExampleMedium {
             mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
             mex.Configuration(eid).setExecutionId(1, ex2);
             mex.Configuration(eid).Execution(ex2).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex2).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithms.SupportVectorMachines));
+            mex.Configuration(eid).Execution(ex2).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithmsClasses.SupportVectorMachines));
             mex.Configuration(eid).Execution(ex2).setStartsAtPosition("1377");
             mex.Configuration(eid).Execution(ex2).setEndsAtPosition("1420");
                 //your models call here !

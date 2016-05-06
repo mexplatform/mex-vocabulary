@@ -38,7 +38,7 @@ public class JSATExample001 {
 
     DataSet ds;
     @DatasetName public String filename = "iris.arff"; public ClassificationDataSet cDataSet;
-    @Algorithm(algorithmID = "1" , algorithmType = MEXEnum.EnumAlgorithms.NaiveBayes) public Classifier cNB;
+    @Algorithm(algorithmID = "1" , algorithmType = MEXEnum.EnumAlgorithmsClasses.NaiveBayes) public Classifier cNB;
     @Measure(idMeasure = MEXEnum.EnumMeasures.ERROR,    algorithmID = "1", idPhase = MEXEnum.EnumPhases.TEST, executionType = MEXEnum.EnumExecutionsType.OVERALL) public List<Double> errors; //per execution
     @Measure(idMeasure = MEXEnum.EnumMeasures.ACCURACY, algorithmID = "1", idPhase = MEXEnum.EnumPhases.TEST, executionType = MEXEnum.EnumExecutionsType.OVERALL) public List<Double> accuracies; //per execution
 

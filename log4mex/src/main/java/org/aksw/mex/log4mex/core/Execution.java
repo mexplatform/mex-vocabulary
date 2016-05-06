@@ -3,6 +3,7 @@ package org.aksw.mex.log4mex.core;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Iterables;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
+import org.aksw.mex.log4mex.perf.example.ExamplePerformanceMeasureVO;
 import org.aksw.mex.log4mex.perf.overall.*;
 import org.aksw.mex.util.MEXEnum;
 import org.apache.commons.lang3.EnumUtils;
@@ -181,15 +182,15 @@ public abstract class Execution {
         this._algo = value;
     }
 
-    public boolean setAlgorithm(String id) throws Exception{
+    public boolean setAlgorithm(String instanceName) throws Exception{
         try{
             //check whether the algorithm exists into the experiment configuration
             Collection<AlgorithmVO> t
-                    = Collections2.filter(this.getExpConf().getAlgorithms(), p -> (p instanceof AlgorithmVO && p.getIdentifier().equals(id)));
+                    = Collections2.filter(this.getExpConf().getAlgorithms(), p -> (p instanceof AlgorithmVO && p.getIndividualName().equals(instanceName)));
             if (t != null && t.size() > 0){
                 this._algo = Iterables.get(t, 0);
             }else{
-                throw new Exception("The algorithm (id=" + id + ") does not exists for the experiment");
+                throw new Exception("The algorithm (instanceName = " + instanceName + ") does not exists for the experiment");
             }
 
         }catch (Exception e){
@@ -226,9 +227,43 @@ public abstract class Execution {
      *                                                                  functions
      ***********************************************************************************************************************************************/
 
+
+    /***
+     * add UserDefinedMeasure
+     * @param id
+     * @param description
+     * @param formula
+     * @param value
+     * @return
+     */
+    public boolean addPerformance(String id, String description, String formula, Double value){
+        UserDefinedMeasureVO m = new UserDefinedMeasureVO(id, description, formula, value);
+        return this._performances.add(m);
+    }
+
+
+    /**
+     * add PerformanceMeasure
+     * @param exampleIdentifier
+     * @param predictedValue
+     * @param realValue
+     * @return
+     */
+    public boolean addPerformance(String exampleIdentifier, String predictedValue, String realValue){
+        ExamplePerformanceMeasureVO m = new ExamplePerformanceMeasureVO(exampleIdentifier, predictedValue, realValue);
+        return this._performances.add(m);
+    }
+
+    /***
+     * add PerformanceMeasure (related to OverallExecution)
+     * @param m
+     * @param v
+     * @return
+     */
     public boolean addPerformance(MEXEnum.EnumMeasures m, double v){
         String type = "";
         String p = m.toString().replace("_","").toUpperCase();
+        String paux = m.toString().replace("_","");
 
         boolean ret = false;
 
@@ -248,16 +283,16 @@ public abstract class Execution {
 
             switch (type) {
                 case "cla":
-                    ret = addClassificationPerformance(p,v);
+                    ret = addClassificationPerformance(paux,v);
                     break;
                 case "reg":
-                    ret =  addRegressionPerformance(p,v);
+                    ret =  addRegressionPerformance(paux,v);
                     break;
                 case "sta":
-                    ret = addStatisticalPerformance(p,v);
+                    ret = addStatisticalPerformance(paux,v);
                     break;
                 case "clu":
-                    ret = addClusteringPerformance(p,v);
+                    ret = addClusteringPerformance(paux,v);
                     break;
                 default:
                     ret = false;

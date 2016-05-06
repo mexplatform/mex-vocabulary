@@ -3,6 +3,7 @@ package org.aksw.mex.log4mex.core;
 import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.util.ontology.mex.MEXCORE_10;
 import org.aksw.mex.util.ontology.PROVO;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -138,6 +139,21 @@ public class ApplicationContextVO  {
 
     public String getPROVClassName(){
         return PROVO.ClasseTypes.AGENT;
+    }
+
+
+    /**
+     * must have name or uri
+     * @return
+     */
+    public boolean hasValue(){
+
+        if ((this._givenName != null && !StringUtils.isBlank(this._givenName) && !StringUtils.isEmpty(this._givenName))){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
 }

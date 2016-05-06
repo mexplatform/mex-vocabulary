@@ -32,7 +32,7 @@ public class ExperimentConfigurationVO {
     private SamplingMethodVO           _sampling;
     private HardwareConfigurationVO    _hard;
     private DataSetVO                  _ds;
-    private ToolVO _implementation;
+    private ToolVO                     _tool;
 
     private List<Execution>            _executions;
     private List<FeatureVO>            _features;
@@ -110,7 +110,7 @@ public class ExperimentConfigurationVO {
     public SamplingMethodVO SamplingMethod(){
         try {
             if (this._sampling == null) {
-                this.setSamplingMethod(MEXEnum.EnumSamplingMethods.NOT_INFORMED, 0);
+                this.setSamplingMethod(MEXEnum.EnumSamplingMethods.NOT_INFORMED, null);
             }
             return this._sampling;
         }
@@ -126,7 +126,7 @@ public class ExperimentConfigurationVO {
     public HardwareConfigurationVO HardwareConfiguration() {
         try {
             if (this._hard == null) {
-                this.setHardwareConfiguration("", MEXEnum.EnumProcessors.NOT_INFORMED, MEXEnum.EnumRAM.NOT_INFORMED, "", MEXEnum.EnumCaches.NOT_INFORMED);
+                this.setHardwareConfiguration(null, MEXEnum.EnumProcessors.NOT_INFORMED, MEXEnum.EnumRAM.NOT_INFORMED, null, MEXEnum.EnumCaches.NOT_INFORMED);
             }
             return this._hard;
         }
@@ -141,10 +141,10 @@ public class ExperimentConfigurationVO {
      */
     public ToolVO Tool() {
         try {
-            if (this._implementation == null) {
-                this.setTool(MEXEnum.EnumTools.NOT_INFORMED, "");
+            if (this._tool == null) {
+                this.setTool(null, null);
             }
-            return this._implementation;
+            return this._tool;
         }
         catch (Exception e){
             return null;
@@ -167,7 +167,7 @@ public class ExperimentConfigurationVO {
      * @param algo
      * @return
      */
-    public AlgorithmVO Algorithm(MEXEnum.EnumAlgorithms algo){
+    public AlgorithmVO Algorithm(MEXEnum.EnumAlgorithmsClasses algo){
         if (this._algorithms == null) {
             this._algorithms = new ArrayList<>();}
 
@@ -423,9 +423,7 @@ public class ExperimentConfigurationVO {
                         String.valueOf(MEXController.getInstance().getNumberOfSamplingMethods() + 1);
 
                 this._sampling = new SamplingMethodVO(individualName,sm);
-                this._sampling.setFolds(folds);
-                this._sampling.setTrainSize((double)folds - 1);
-                this._sampling.setTestSize((double)1);
+                if (folds != null) this._sampling.setFolds(folds);
 
                 MEXController.getInstance().addSamplingMethodCounter();
             }
@@ -529,11 +527,11 @@ public class ExperimentConfigurationVO {
      * @param version
      */
     public void setTool(MEXEnum.EnumTools name, String version){
-        if (this._implementation == null){
-            this._implementation = new ToolVO();
+        if (this._tool == null){
+            this._tool = new ToolVO();
         }
-        this._implementation.setRevision(version);
-        this._implementation.setName(name.name());
+        this._tool.setRevision(version);
+        this._tool.setName(name.name());
     }
 
     /**
@@ -577,7 +575,7 @@ public class ExperimentConfigurationVO {
      * @return algorithm's instance name
      * @throws Exception
      */
-    public String addAlgorithm(String algorithmId, MEXEnum.EnumAlgorithms algorithmClass) throws Exception {
+    public String addAlgorithm(String algorithmId, MEXEnum.EnumAlgorithmsClasses algorithmClass) throws Exception {
         return _addAlgorithm(algorithmId, null, algorithmClass, null, null).getIndividualName();
     }
 
@@ -589,7 +587,7 @@ public class ExperimentConfigurationVO {
      * @return algorithm's instance name
      * @throws Exception
      */
-    public String addAlgorithm(String algorithmId, String algorithmName, MEXEnum.EnumAlgorithms algorithmClass) throws Exception {
+    public String addAlgorithm(String algorithmId, String algorithmName, MEXEnum.EnumAlgorithmsClasses algorithmClass) throws Exception {
         return _addAlgorithm(algorithmId, algorithmName, algorithmClass, null, null).getIndividualName();
     }
 
@@ -602,7 +600,7 @@ public class ExperimentConfigurationVO {
      * @return algorithm's instance name
      * @throws Exception
      */
-    public String addAlgorithm(String algorithmId, String algorithmName, MEXEnum.EnumAlgorithms algorithmClass, URI algorithmURI) throws Exception {
+    public String addAlgorithm(String algorithmId, String algorithmName, MEXEnum.EnumAlgorithmsClasses algorithmClass, URI algorithmURI) throws Exception {
         return _addAlgorithm(algorithmId, algorithmName, algorithmClass, algorithmURI, null).getIndividualName();
     }
 
@@ -616,7 +614,7 @@ public class ExperimentConfigurationVO {
      * @return algorithm's instance name
      * @throws Exception
      */
-    public String addAlgorithm(String algorithmId, String algorithmName, MEXEnum.EnumAlgorithms algorithmClass, URI algorithmURI, String algorithmLabel) throws Exception {
+    public String addAlgorithm(String algorithmId, String algorithmName, MEXEnum.EnumAlgorithmsClasses algorithmClass, URI algorithmURI, String algorithmLabel) throws Exception {
         return _addAlgorithm(algorithmId, algorithmName, algorithmClass, algorithmURI, algorithmLabel).getIndividualName();
     }
 
@@ -628,11 +626,11 @@ public class ExperimentConfigurationVO {
      * @return algorithm's instance name
      * @throws Exception
      */
-    public String addAlgorithm(String algorithmId, URI algorithmURI, MEXEnum.EnumAlgorithms algorithmClass) throws Exception {
+    public String addAlgorithm(String algorithmId, URI algorithmURI, MEXEnum.EnumAlgorithmsClasses algorithmClass) throws Exception {
         return _addAlgorithm(algorithmId, null, algorithmClass, algorithmURI, null).getIndividualName();
     }
 
-    private AlgorithmVO _addAlgorithm(String id, String algorithmLabel, MEXEnum.EnumAlgorithms algorithmClass, URI algorithmURI, String algorithmAcronym) throws Exception{
+    private AlgorithmVO _addAlgorithm(String id, String algorithmLabel, MEXEnum.EnumAlgorithmsClasses algorithmClass, URI algorithmURI, String algorithmAcronym) throws Exception{
 
         AlgorithmVO algo = null;
         try{

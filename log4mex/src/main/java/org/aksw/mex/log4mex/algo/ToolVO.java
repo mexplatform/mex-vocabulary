@@ -118,10 +118,14 @@ public class ToolVO {
 
     public boolean hasValue(){
 
-        if (this.doap_name.equals("") && this.doap_revision.equals("")){
-            return false;
-        }else{
+        if ((this.doap_name != null && !this.doap_name.isEmpty()) ||
+                (this.doap_description != null && !this.doap_description.isEmpty()) ||
+                (this.doap_revision != null && !this.doap_revision.isEmpty()) ||
+                (this.doap_programming_language != null && !this.doap_programming_language.isEmpty()) ||
+                (this.doap_homepage != null && !this.doap_homepage.isEmpty())) {
             return true;
+        }else{
+            return false;
         }
 
     }

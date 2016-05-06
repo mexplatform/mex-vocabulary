@@ -68,8 +68,8 @@ public class Example04_medium {
 
             mex.Configuration(eid).setTool(EnumTools.WEKA, "3.6.6");
 
-            alg1 = mex.Configuration(eid).addAlgorithm("svm", EnumAlgorithms.SupportVectorMachines);
-            mex.Configuration(eid).addAlgorithm("nb", EnumAlgorithms.NaiveBayes);
+            alg1 = mex.Configuration(eid).addAlgorithm("svm", EnumAlgorithmsClasses.SupportVectorMachines);
+            mex.Configuration(eid).addAlgorithm("nb", EnumAlgorithmsClasses.NaiveBayes);
 
             String[] param = {"C", "10^3", "alpha", "0.2"};
             mex.Configuration(eid).Algorithm(alg1).addParameter(param);
@@ -84,7 +84,7 @@ public class Example04_medium {
             mex.Configuration(eid).setExecutionId(0, ex1);
 
             mex.Configuration(eid).Execution(ex1).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex1).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithms.SupportVectorMachines));
+            mex.Configuration(eid).Execution(ex1).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithmsClasses.SupportVectorMachines));
             mex.Configuration(eid).Execution(ex1).setStartsAtPosition("1233");
             mex.Configuration(eid).Execution(ex1).setEndsAtPosition("1376");
 
@@ -97,7 +97,7 @@ public class Example04_medium {
             mex.Configuration(eid).setExecutionId(1, ex2);
 
             mex.Configuration(eid).Execution(ex2).setStartDate(new Date());
-            mex.Configuration(eid).Execution(ex2).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithms.SupportVectorMachines));
+            mex.Configuration(eid).Execution(ex2).setAlgorithm(mex.Configuration(eid).Algorithm(EnumAlgorithmsClasses.SupportVectorMachines));
             mex.Configuration(eid).Execution(ex2).setStartsAtPosition("1377");
             mex.Configuration(eid).Execution(ex2).setEndsAtPosition("1420");
 

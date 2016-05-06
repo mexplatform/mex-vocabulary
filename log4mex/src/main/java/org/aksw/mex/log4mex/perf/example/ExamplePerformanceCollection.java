@@ -8,13 +8,13 @@ import java.util.List;
  */
 public class ExamplePerformanceCollection {
 
-    private List<ExamplePerformanceVO> performances;
+    private List<ExamplePerformanceMeasureVO> performances;
 
     public ExamplePerformanceCollection(){
         performances = new ArrayList<>();
     }
 
-    public boolean addExamplePerformance(ExamplePerformanceVO example){
+    public boolean addExamplePerformance(ExamplePerformanceMeasureVO example){
         return this.performances.add(example);
     }
 

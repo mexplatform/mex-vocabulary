@@ -20,9 +20,9 @@ public class Resource2Vec {
 
             mex.setAuthor("Tommaso Soru", "tsoru@informatik.uni-leipzig.de");
 
-            String idAlgo =  mex.Configuration().addAlgorithm("alg rescal", new URI("https://github.com/nzhiltsov/Ext-RESCAL"),  MEXEnum.EnumAlgorithms.RESCAL);
+            String idAlgo =  mex.Configuration().addAlgorithm("alg rescal", new URI("https://github.com/nzhiltsov/Ext-RESCAL"),  MEXEnum.EnumAlgorithmsClasses.RESCAL);
             mex.Configuration().setDataSet("tmp/resource2vec/datasets/yagoSchema.ttl", "yagoSchema");
-            mex.Configuration().Algorithm(MEXEnum.EnumAlgorithms.RESCAL).addParameter("rank", "2");
+            mex.Configuration().Algorithm(MEXEnum.EnumAlgorithmsClasses.RESCAL).addParameter("rank", "2");
             mex.Configuration().addFeature("http://w3id.org/resource2vec/embeddings/" + "justanexampleofhash".hashCode());
 
             String idExec = mex.Configuration().addExecution(MEXEnum.EnumExecutionsType.SINGLE, MEXEnum.EnumPhases.TEST);

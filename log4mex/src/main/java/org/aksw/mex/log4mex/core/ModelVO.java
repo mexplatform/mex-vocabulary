@@ -53,10 +53,11 @@ public class ModelVO {
 
     public boolean hasValue(){
 
-        if (this._id.equals("") && this._description.equals("")){
-            return false;
-        }else{
+        if ((this._id != null && !this._id.isEmpty()) ||
+                (this._description != null && !this._description.isEmpty())) {
             return true;
+        }else{
+            return false;
         }
 
     }

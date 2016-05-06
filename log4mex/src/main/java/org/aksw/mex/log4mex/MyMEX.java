@@ -8,7 +8,7 @@ import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.log4mex.algo.ToolVO;
 import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.log4mex.perf.example.ExamplePerformanceCollection;
-import org.aksw.mex.log4mex.perf.example.ExamplePerformanceVO;
+import org.aksw.mex.log4mex.perf.example.ExamplePerformanceMeasureVO;
 import org.aksw.mex.log4mex.perf.overall.*;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXController;
@@ -53,7 +53,7 @@ public class MyMEX {
     private ToolVO implementation;
     //mex-perf
     private ExamplePerformanceCollection examplePerformanceCollection;
-    private ExamplePerformanceVO examplePerformance;
+    private ExamplePerformanceMeasureVO examplePerformance;
     private ClassificationMeasureVO classificationMeasure;
     private ClusteringMeasureVO clusteringMeasure;
     private RegressionMeasureVO regressionMeasure;
@@ -404,11 +404,11 @@ public class MyMEX {
         this.examplePerformanceCollection = examplePerformanceCollection;
     }
 
-    public ExamplePerformanceVO getExamplePerformance() {
+    public ExamplePerformanceMeasureVO getExamplePerformance() {
         return examplePerformance;
     }
 
-    public void setExamplePerformance(ExamplePerformanceVO examplePerformance) {
+    public void setExamplePerformance(ExamplePerformanceMeasureVO examplePerformance) {
         this.examplePerformance = examplePerformance;
     }
 

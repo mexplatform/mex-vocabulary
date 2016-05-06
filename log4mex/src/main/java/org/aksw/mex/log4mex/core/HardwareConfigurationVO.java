@@ -63,14 +63,18 @@ public class HardwareConfigurationVO {
 
     public boolean hasValue(){
 
-        if (this._os.equals("") && this._video.equals("") &&
-                this._cpu.equals(MEXEnum.EnumProcessors.NOT_INFORMED) &&
-                this._memory.equals(MEXEnum.EnumRAM.NOT_INFORMED) &&
-                this._hd.equals("") &&
-                this._cache.equals(MEXEnum.EnumCaches.NOT_INFORMED)){
-            return false;
-        }else{
+        if ((this._os != null && !this._os.isEmpty()) ||
+            (this._video != null && !this._video.isEmpty()) ||
+                (this._cpu != null && !this._cpu.isEmpty()) ||
+                (this._memory != null && !this._memory.isEmpty()) ||
+                (this._hd != null && !this._hd.isEmpty()) ||
+                (this._cache != null && !this._cache.isEmpty())){
+
             return true;
+
+        }else{
+
+            return false;
         }
 
     }

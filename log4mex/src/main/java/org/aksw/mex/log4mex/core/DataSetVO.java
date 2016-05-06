@@ -1,5 +1,7 @@
 package org.aksw.mex.log4mex.core;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * Created by esteves on 26.06.15.
  */
@@ -33,14 +35,17 @@ public class DataSetVO {
         this._uri = value;
     }
 
+    /**
+     * must have name or uri
+     * @return
+     */
     public boolean hasValue(){
 
-        if (this._name.equals("") &&
-                this._description.equals("") &&
-                this._uri.equals("")) {
-            return false;
-        }else{
+        if ((this._name != null && !StringUtils.isBlank(this._name) && !StringUtils.isEmpty(this._name)) ||
+                (this._uri != null && !StringUtils.isBlank(this._uri) && !StringUtils.isEmpty(this._uri))){
             return true;
+        }else{
+            return false;
         }
 
     }

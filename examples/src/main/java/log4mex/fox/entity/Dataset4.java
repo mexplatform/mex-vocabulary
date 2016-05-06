@@ -81,7 +81,7 @@ public class Dataset4 {
                     ex1 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex1).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex1).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_STANFORD));
+                    mex.Configuration(eid).Execution(ex1).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NER_STANFORD));
                     mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.RECALL, .6963);
                     mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.PRECISION, .7477);
                     mex.Configuration(eid).Execution(ex1).addPerformance(EnumMeasures.FMEASURE, .7211);
@@ -95,7 +95,7 @@ public class Dataset4 {
                     ex2 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex2).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex2).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_STANFORD));
+                    mex.Configuration(eid).Execution(ex2).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NER_STANFORD));
                     mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.RECALL, .7122);
                     mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.PRECISION, .8580);
                     mex.Configuration(eid).Execution(ex2).addPerformance(EnumMeasures.FMEASURE, .7783);
@@ -109,7 +109,7 @@ public class Dataset4 {
                     ex3 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex3).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex3).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_STANFORD));
+                    mex.Configuration(eid).Execution(ex3).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NER_STANFORD));
                     mex.Configuration(eid).Execution(ex3).addPerformance(EnumMeasures.RECALL, .9183);
                     mex.Configuration(eid).Execution(ex3).addPerformance(EnumMeasures.PRECISION, .8656);
                     mex.Configuration(eid).Execution(ex3).addPerformance(EnumMeasures.FMEASURE, .8911);
@@ -123,7 +123,7 @@ public class Dataset4 {
                     ex4 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex4).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex4).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_STANFORD));
+                    mex.Configuration(eid).Execution(ex4).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NER_STANFORD));
                     mex.Configuration(eid).Execution(ex4).addPerformance(EnumMeasures.RECALL, .9950);
                     mex.Configuration(eid).Execution(ex4).addPerformance(EnumMeasures.PRECISION, .9892);
                     mex.Configuration(eid).Execution(ex4).addPerformance(EnumMeasures.FMEASURE, .9921);
@@ -141,7 +141,7 @@ public class Dataset4 {
                     ex5 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex5).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex5).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SequentialMinimalOptimization));
+                    mex.Configuration(eid).Execution(ex5).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.SequentialMinimalOptimization));
                     mex.Configuration(eid).Execution(ex5).addPerformance(EnumMeasures.RECALL, .7178);
                     mex.Configuration(eid).Execution(ex5).addPerformance(EnumMeasures.PRECISION, .7853);
                     mex.Configuration(eid).Execution(ex5).addPerformance(EnumMeasures.FMEASURE, .75);
@@ -155,7 +155,7 @@ public class Dataset4 {
                     ex6 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex6).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex6).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SequentialMinimalOptimization));
+                    mex.Configuration(eid).Execution(ex6).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.SequentialMinimalOptimization));
                     mex.Configuration(eid).Execution(ex6).addPerformance(EnumMeasures.RECALL, .7544);
                     mex.Configuration(eid).Execution(ex6).addPerformance(EnumMeasures.PRECISION, .7750);
                     mex.Configuration(eid).Execution(ex6).addPerformance(EnumMeasures.FMEASURE, .7646);
@@ -169,7 +169,7 @@ public class Dataset4 {
                     ex7 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex7).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex7).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SequentialMinimalOptimization));
+                    mex.Configuration(eid).Execution(ex7).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.SequentialMinimalOptimization));
                     mex.Configuration(eid).Execution(ex7).addPerformance(EnumMeasures.RECALL, .9165);
                     mex.Configuration(eid).Execution(ex7).addPerformance(EnumMeasures.PRECISION, .9361);
                     mex.Configuration(eid).Execution(ex7).addPerformance(EnumMeasures.FMEASURE, .9262);
@@ -183,7 +183,7 @@ public class Dataset4 {
                     ex8 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex8).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex8).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SequentialMinimalOptimization));
+                    mex.Configuration(eid).Execution(ex8).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.SequentialMinimalOptimization));
                     mex.Configuration(eid).Execution(ex8).addPerformance(EnumMeasures.RECALL, .9931);
                     mex.Configuration(eid).Execution(ex8).addPerformance(EnumMeasures.PRECISION, .9900);
                     mex.Configuration(eid).Execution(ex8).addPerformance(EnumMeasures.FMEASURE, .9915);
@@ -201,7 +201,7 @@ public class Dataset4 {
                     ex9 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex9).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex9).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NaiveBayes));
+                    mex.Configuration(eid).Execution(ex9).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NaiveBayes));
                     mex.Configuration(eid).Execution(ex9).addPerformance(EnumMeasures.RECALL, .7421);
                     mex.Configuration(eid).Execution(ex9).addPerformance(EnumMeasures.PRECISION, .6953);
                     mex.Configuration(eid).Execution(ex9).addPerformance(EnumMeasures.FMEASURE, .7179);
@@ -215,7 +215,7 @@ public class Dataset4 {
                     ex10 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex10).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex10).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NaiveBayes));
+                    mex.Configuration(eid).Execution(ex10).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NaiveBayes));
                     mex.Configuration(eid).Execution(ex10).addPerformance(EnumMeasures.RECALL, .8379);
                     mex.Configuration(eid).Execution(ex10).addPerformance(EnumMeasures.PRECISION, .7920);
                     mex.Configuration(eid).Execution(ex10).addPerformance(EnumMeasures.FMEASURE, .8143);
@@ -229,7 +229,7 @@ public class Dataset4 {
                     ex11 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex11).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex11).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NaiveBayes));
+                    mex.Configuration(eid).Execution(ex11).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NaiveBayes));
                     mex.Configuration(eid).Execution(ex11).addPerformance(EnumMeasures.RECALL, .9339);
                     mex.Configuration(eid).Execution(ex11).addPerformance(EnumMeasures.PRECISION, .8430);
                     mex.Configuration(eid).Execution(ex11).addPerformance(EnumMeasures.FMEASURE, .8861);
@@ -243,7 +243,7 @@ public class Dataset4 {
                     ex12 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex12).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex12).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NaiveBayes));
+                    mex.Configuration(eid).Execution(ex12).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NaiveBayes));
                     mex.Configuration(eid).Execution(ex12).addPerformance(EnumMeasures.RECALL, .9883);
                     mex.Configuration(eid).Execution(ex12).addPerformance(EnumMeasures.PRECISION, .9936);
                     mex.Configuration(eid).Execution(ex12).addPerformance(EnumMeasures.FMEASURE, .9909);
@@ -261,7 +261,7 @@ public class Dataset4 {
                     ex13 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex13).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex13).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.RandomForest));
+                    mex.Configuration(eid).Execution(ex13).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.RandomForest));
                     mex.Configuration(eid).Execution(ex13).addPerformance(EnumMeasures.RECALL, .7063);
                     mex.Configuration(eid).Execution(ex13).addPerformance(EnumMeasures.PRECISION, .85);
                     mex.Configuration(eid).Execution(ex13).addPerformance(EnumMeasures.FMEASURE, .7715);
@@ -275,7 +275,7 @@ public class Dataset4 {
                     ex14 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex14).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex14).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.RandomForest));
+                    mex.Configuration(eid).Execution(ex14).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.RandomForest));
                     mex.Configuration(eid).Execution(ex14).addPerformance(EnumMeasures.RECALL, .7760);
                     mex.Configuration(eid).Execution(ex14).addPerformance(EnumMeasures.PRECISION, .8086);
                     mex.Configuration(eid).Execution(ex14).addPerformance(EnumMeasures.FMEASURE, .7920);
@@ -289,7 +289,7 @@ public class Dataset4 {
                     ex15 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex15).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex15).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.RandomForest));
+                    mex.Configuration(eid).Execution(ex15).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.RandomForest));
                     mex.Configuration(eid).Execution(ex15).addPerformance(EnumMeasures.RECALL, .9200);
                     mex.Configuration(eid).Execution(ex15).addPerformance(EnumMeasures.PRECISION, .9248);
                     mex.Configuration(eid).Execution(ex15).addPerformance(EnumMeasures.FMEASURE, .9224);
@@ -303,7 +303,7 @@ public class Dataset4 {
                     ex16 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex16).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex16).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.RandomForest));
+                    mex.Configuration(eid).Execution(ex16).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.RandomForest));
                     mex.Configuration(eid).Execution(ex16).addPerformance(EnumMeasures.RECALL, .9941);
                     mex.Configuration(eid).Execution(ex16).addPerformance(EnumMeasures.PRECISION, .9890);
                     mex.Configuration(eid).Execution(ex16).addPerformance(EnumMeasures.FMEASURE, .9916);
@@ -321,7 +321,7 @@ public class Dataset4 {
                     ex17 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex17).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex17).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SimpleVoting));
+                    mex.Configuration(eid).Execution(ex17).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.SimpleVoting));
                     mex.Configuration(eid).Execution(ex17).addPerformance(EnumMeasures.RECALL, .6332);
                     mex.Configuration(eid).Execution(ex17).addPerformance(EnumMeasures.PRECISION, .8246);
                     mex.Configuration(eid).Execution(ex17).addPerformance(EnumMeasures.FMEASURE, .7164);
@@ -335,7 +335,7 @@ public class Dataset4 {
                     ex18 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex18).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex18).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SimpleVoting));
+                    mex.Configuration(eid).Execution(ex18).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.SimpleVoting));
                     mex.Configuration(eid).Execution(ex18).addPerformance(EnumMeasures.RECALL, .8919);
                     mex.Configuration(eid).Execution(ex18).addPerformance(EnumMeasures.PRECISION, .7305);
                     mex.Configuration(eid).Execution(ex18).addPerformance(EnumMeasures.FMEASURE, .8032);
@@ -349,7 +349,7 @@ public class Dataset4 {
                     ex19 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex19).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex19).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SimpleVoting));
+                    mex.Configuration(eid).Execution(ex19).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.SimpleVoting));
                     mex.Configuration(eid).Execution(ex19).addPerformance(EnumMeasures.RECALL, .8852);
                     mex.Configuration(eid).Execution(ex19).addPerformance(EnumMeasures.PRECISION, .7324);
                     mex.Configuration(eid).Execution(ex19).addPerformance(EnumMeasures.FMEASURE, .8016);
@@ -363,7 +363,7 @@ public class Dataset4 {
                     ex20 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex20).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex20).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SimpleVoting));
+                    mex.Configuration(eid).Execution(ex20).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.SimpleVoting));
                     mex.Configuration(eid).Execution(ex20).addPerformance(EnumMeasures.RECALL, .9853);
                     mex.Configuration(eid).Execution(ex20).addPerformance(EnumMeasures.PRECISION, .9911);
                     mex.Configuration(eid).Execution(ex20).addPerformance(EnumMeasures.FMEASURE, .9882);
@@ -381,7 +381,7 @@ public class Dataset4 {
                     ex21 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex21).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex21).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.LogisticModelTrees));
+                    mex.Configuration(eid).Execution(ex21).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.LogisticModelTrees));
                     mex.Configuration(eid).Execution(ex21).addPerformance(EnumMeasures.RECALL, .7063);
                     mex.Configuration(eid).Execution(ex21).addPerformance(EnumMeasures.PRECISION, .9013);
                     mex.Configuration(eid).Execution(ex21).addPerformance(EnumMeasures.FMEASURE, .7920);
@@ -395,7 +395,7 @@ public class Dataset4 {
                     ex22 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex22).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex22).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.LogisticModelTrees));
+                    mex.Configuration(eid).Execution(ex22).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.LogisticModelTrees));
                     mex.Configuration(eid).Execution(ex22).addPerformance(EnumMeasures.RECALL, .8065);
                     mex.Configuration(eid).Execution(ex22).addPerformance(EnumMeasures.PRECISION, .8121);
                     mex.Configuration(eid).Execution(ex22).addPerformance(EnumMeasures.FMEASURE, .8093);
@@ -409,7 +409,7 @@ public class Dataset4 {
                     ex23 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex23).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex23).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.LogisticModelTrees));
+                    mex.Configuration(eid).Execution(ex23).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.LogisticModelTrees));
                     mex.Configuration(eid).Execution(ex23).addPerformance(EnumMeasures.RECALL, 9113);
                     mex.Configuration(eid).Execution(ex23).addPerformance(EnumMeasures.PRECISION, .9242);
                     mex.Configuration(eid).Execution(ex23).addPerformance(EnumMeasures.FMEASURE, .9177);
@@ -423,7 +423,7 @@ public class Dataset4 {
                     ex24 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex24).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex24).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.LogisticModelTrees));
+                    mex.Configuration(eid).Execution(ex24).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.LogisticModelTrees));
                     mex.Configuration(eid).Execution(ex24).addPerformance(EnumMeasures.RECALL, .9945);
                     mex.Configuration(eid).Execution(ex24).addPerformance(EnumMeasures.PRECISION, .9893);
                     mex.Configuration(eid).Execution(ex24).addPerformance(EnumMeasures.FMEASURE, .9919);
@@ -441,7 +441,7 @@ public class Dataset4 {
                     ex25 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex25).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex25).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.AdaBoostM1));
+                    mex.Configuration(eid).Execution(ex25).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.AdaBoostM1));
                     mex.Configuration(eid).Execution(ex25).addPerformance(EnumMeasures.RECALL, .6984);
                     mex.Configuration(eid).Execution(ex25).addPerformance(EnumMeasures.PRECISION, .9151);
                     mex.Configuration(eid).Execution(ex25).addPerformance(EnumMeasures.FMEASURE, .7899);
@@ -455,7 +455,7 @@ public class Dataset4 {
                     ex26 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex26).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex26).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.AdaBoostM1));
+                    mex.Configuration(eid).Execution(ex26).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.AdaBoostM1));
                     mex.Configuration(eid).Execution(ex26).addPerformance(EnumMeasures.RECALL, .8084);
                     mex.Configuration(eid).Execution(ex26).addPerformance(EnumMeasures.PRECISION, .8006);
                     mex.Configuration(eid).Execution(ex26).addPerformance(EnumMeasures.FMEASURE, .8045);
@@ -469,7 +469,7 @@ public class Dataset4 {
                     ex27 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex27).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex27).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.AdaBoostM1));
+                    mex.Configuration(eid).Execution(ex27).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.AdaBoostM1));
                     mex.Configuration(eid).Execution(ex27).addPerformance(EnumMeasures.RECALL, .9148);
                     mex.Configuration(eid).Execution(ex27).addPerformance(EnumMeasures.PRECISION, .9460);
                     mex.Configuration(eid).Execution(ex27).addPerformance(EnumMeasures.FMEASURE, .9302);
@@ -483,7 +483,7 @@ public class Dataset4 {
                     ex28 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex28).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex28).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.AdaBoostM1));
+                    mex.Configuration(eid).Execution(ex28).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.AdaBoostM1));
                     mex.Configuration(eid).Execution(ex28).addPerformance(EnumMeasures.RECALL, .9943);
                     mex.Configuration(eid).Execution(ex28).addPerformance(EnumMeasures.PRECISION, .9888);
                     mex.Configuration(eid).Execution(ex28).addPerformance(EnumMeasures.FMEASURE, .9915);
@@ -501,7 +501,7 @@ public class Dataset4 {
                     ex29 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex29).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex29).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_ILLINOIS_EXTENDED));
+                    mex.Configuration(eid).Execution(ex29).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NER_ILLINOIS_EXTENDED));
                     mex.Configuration(eid).Execution(ex29).addPerformance(EnumMeasures.RECALL, .7135);
                     mex.Configuration(eid).Execution(ex29).addPerformance(EnumMeasures.PRECISION, .9055);
                     mex.Configuration(eid).Execution(ex29).addPerformance(EnumMeasures.FMEASURE, .7981);
@@ -515,7 +515,7 @@ public class Dataset4 {
                     ex30 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex30).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex30).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_ILLINOIS_EXTENDED));
+                    mex.Configuration(eid).Execution(ex30).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NER_ILLINOIS_EXTENDED));
                     mex.Configuration(eid).Execution(ex30).addPerformance(EnumMeasures.RECALL, .8340);
                     mex.Configuration(eid).Execution(ex30).addPerformance(EnumMeasures.PRECISION, .8465);
                     mex.Configuration(eid).Execution(ex30).addPerformance(EnumMeasures.FMEASURE, .8402);
@@ -529,7 +529,7 @@ public class Dataset4 {
                     ex31 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex31).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex31).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_ILLINOIS_EXTENDED));
+                    mex.Configuration(eid).Execution(ex31).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NER_ILLINOIS_EXTENDED));
                     mex.Configuration(eid).Execution(ex31).addPerformance(EnumMeasures.RECALL, .9357);
                     mex.Configuration(eid).Execution(ex31).addPerformance(EnumMeasures.PRECISION, .8201);
                     mex.Configuration(eid).Execution(ex31).addPerformance(EnumMeasures.FMEASURE, .8741);
@@ -543,7 +543,7 @@ public class Dataset4 {
                     ex32 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex32).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex32).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_ILLINOIS_EXTENDED));
+                    mex.Configuration(eid).Execution(ex32).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NER_ILLINOIS_EXTENDED));
                     mex.Configuration(eid).Execution(ex32).addPerformance(EnumMeasures.RECALL, .9931);
                     mex.Configuration(eid).Execution(ex32).addPerformance(EnumMeasures.PRECISION, .9905);
                     mex.Configuration(eid).Execution(ex32).addPerformance(EnumMeasures.FMEASURE, 0.9918);
@@ -561,7 +561,7 @@ public class Dataset4 {
                     ex33 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex33).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex33).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.ClassLevelVoting));
+                    mex.Configuration(eid).Execution(ex33).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.ClassLevelVoting));
                     mex.Configuration(eid).Execution(ex33).addPerformance(EnumMeasures.RECALL, .7135);
                     mex.Configuration(eid).Execution(ex33).addPerformance(EnumMeasures.PRECISION, .9055);
                     mex.Configuration(eid).Execution(ex33).addPerformance(EnumMeasures.FMEASURE, .7981);
@@ -575,7 +575,7 @@ public class Dataset4 {
                     ex34 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex34).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex34).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.ClassLevelVoting));
+                    mex.Configuration(eid).Execution(ex34).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.ClassLevelVoting));
                     mex.Configuration(eid).Execution(ex34).addPerformance(EnumMeasures.RECALL, .6866);
                     mex.Configuration(eid).Execution(ex34).addPerformance(EnumMeasures.PRECISION, .8137);
                     mex.Configuration(eid).Execution(ex34).addPerformance(EnumMeasures.FMEASURE, .7448);
@@ -589,7 +589,7 @@ public class Dataset4 {
                     ex35 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex35).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex35).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.ClassLevelVoting));
+                    mex.Configuration(eid).Execution(ex35).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.ClassLevelVoting));
                     mex.Configuration(eid).Execution(ex35).addPerformance(EnumMeasures.RECALL, .9357);
                     mex.Configuration(eid).Execution(ex35).addPerformance(EnumMeasures.PRECISION, .8433);
                     mex.Configuration(eid).Execution(ex35).addPerformance(EnumMeasures.FMEASURE, .8871);
@@ -603,7 +603,7 @@ public class Dataset4 {
                     ex36 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex36).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex36).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.ClassLevelVoting));
+                    mex.Configuration(eid).Execution(ex36).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.ClassLevelVoting));
                     mex.Configuration(eid).Execution(ex36).addPerformance(EnumMeasures.RECALL, .9937);
                     mex.Configuration(eid).Execution(ex36).addPerformance(EnumMeasures.PRECISION, .9861);
                     mex.Configuration(eid).Execution(ex36).addPerformance(EnumMeasures.FMEASURE, .9899);
@@ -621,7 +621,7 @@ public class Dataset4 {
                     ex37 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex37).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex37).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.J48));
+                    mex.Configuration(eid).Execution(ex37).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.J48));
                     mex.Configuration(eid).Execution(ex37).addPerformance(EnumMeasures.RECALL, .6948);
                     mex.Configuration(eid).Execution(ex37).addPerformance(EnumMeasures.PRECISION, .9151);
                     mex.Configuration(eid).Execution(ex37).addPerformance(EnumMeasures.FMEASURE, .7899);
@@ -635,7 +635,7 @@ public class Dataset4 {
                     ex38 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex38).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex38).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.J48));
+                    mex.Configuration(eid).Execution(ex38).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.J48));
                     mex.Configuration(eid).Execution(ex38).addPerformance(EnumMeasures.RECALL, .8026);
                     mex.Configuration(eid).Execution(ex38).addPerformance(EnumMeasures.PRECISION, .8073);
                     mex.Configuration(eid).Execution(ex38).addPerformance(EnumMeasures.FMEASURE, .8049);
@@ -649,7 +649,7 @@ public class Dataset4 {
                     ex39 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex39).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex39).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.J48));
+                    mex.Configuration(eid).Execution(ex39).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.J48));
                     mex.Configuration(eid).Execution(ex39).addPerformance(EnumMeasures.RECALL, .9148);
                     mex.Configuration(eid).Execution(ex39).addPerformance(EnumMeasures.PRECISION, .9326);
                     mex.Configuration(eid).Execution(ex39).addPerformance(EnumMeasures.FMEASURE, .9236);
@@ -663,7 +663,7 @@ public class Dataset4 {
                     ex40 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex40).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex40).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.J48));
+                    mex.Configuration(eid).Execution(ex40).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.J48));
                     mex.Configuration(eid).Execution(ex40).addPerformance(EnumMeasures.RECALL, .9943);
                     mex.Configuration(eid).Execution(ex40).addPerformance(EnumMeasures.PRECISION, .9885);
                     mex.Configuration(eid).Execution(ex40).addPerformance(EnumMeasures.FMEASURE, .9914);
@@ -681,7 +681,7 @@ public class Dataset4 {
                     ex41 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex41).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex41).setAlgorithm(mex.Configuration(eid).addAlgorithm("J48", EnumAlgorithms.BaggingJ48));
+                    mex.Configuration(eid).Execution(ex41).setAlgorithm(mex.Configuration(eid).addAlgorithm("J48", EnumAlgorithmsClasses.BaggingJ48));
                     mex.Configuration(eid).Execution(ex41).addPerformance(EnumMeasures.RECALL, .6977);
                     mex.Configuration(eid).Execution(ex41).addPerformance(EnumMeasures.PRECISION, .8838);
                     mex.Configuration(eid).Execution(ex41).addPerformance(EnumMeasures.FMEASURE, .7798);
@@ -695,7 +695,7 @@ public class Dataset4 {
                     ex42 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex42).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex42).setAlgorithm(mex.Configuration(eid).addAlgorithm("J48", EnumAlgorithms.BaggingJ48));
+                    mex.Configuration(eid).Execution(ex42).setAlgorithm(mex.Configuration(eid).addAlgorithm("J48", EnumAlgorithmsClasses.BaggingJ48));
                     mex.Configuration(eid).Execution(ex42).addPerformance(EnumMeasures.RECALL, .8075);
                     mex.Configuration(eid).Execution(ex42).addPerformance(EnumMeasures.PRECISION, .7996);
                     mex.Configuration(eid).Execution(ex42).addPerformance(EnumMeasures.FMEASURE, .8035);
@@ -709,7 +709,7 @@ public class Dataset4 {
                     ex43 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex43).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex43).setAlgorithm(mex.Configuration(eid).addAlgorithm("J48", EnumAlgorithms.BaggingJ48));
+                    mex.Configuration(eid).Execution(ex43).setAlgorithm(mex.Configuration(eid).addAlgorithm("J48", EnumAlgorithmsClasses.BaggingJ48));
                     mex.Configuration(eid).Execution(ex43).addPerformance(EnumMeasures.RECALL, .9113);
                     mex.Configuration(eid).Execution(ex43).addPerformance(EnumMeasures.PRECISION, .9476);
                     mex.Configuration(eid).Execution(ex43).addPerformance(EnumMeasures.FMEASURE, .9291);
@@ -723,7 +723,7 @@ public class Dataset4 {
                     ex44 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex44).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex44).setAlgorithm(mex.Configuration(eid).addAlgorithm("J48", EnumAlgorithms.BaggingJ48));
+                    mex.Configuration(eid).Execution(ex44).setAlgorithm(mex.Configuration(eid).addAlgorithm("J48", EnumAlgorithmsClasses.BaggingJ48));
                     mex.Configuration(eid).Execution(ex44).addPerformance(EnumMeasures.RECALL, .9940);
                     mex.Configuration(eid).Execution(ex44).addPerformance(EnumMeasures.PRECISION, .989);
                     mex.Configuration(eid).Execution(ex44).addPerformance(EnumMeasures.FMEASURE, .9915);
@@ -741,7 +741,7 @@ public class Dataset4 {
                     ex45 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex45).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex45).setAlgorithm(mex.Configuration(eid).addAlgorithm("NER", EnumAlgorithms.NER_OPEN_NLP));
+                    mex.Configuration(eid).Execution(ex45).setAlgorithm(mex.Configuration(eid).addAlgorithm("NER", EnumAlgorithmsClasses.NER_OPEN_NLP));
                     mex.Configuration(eid).Execution(ex45).addPerformance(EnumMeasures.RECALL, .5874);
                     mex.Configuration(eid).Execution(ex45).addPerformance(EnumMeasures.PRECISION, .7579);
                     mex.Configuration(eid).Execution(ex45).addPerformance(EnumMeasures.FMEASURE, .6618);
@@ -755,7 +755,7 @@ public class Dataset4 {
                     ex46 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex46).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex46).setAlgorithm(mex.Configuration(eid).addAlgorithm("NER", EnumAlgorithms.NER_OPEN_NLP));
+                    mex.Configuration(eid).Execution(ex46).setAlgorithm(mex.Configuration(eid).addAlgorithm("NER", EnumAlgorithmsClasses.NER_OPEN_NLP));
                     mex.Configuration(eid).Execution(ex46).addPerformance(EnumMeasures.RECALL, .6650);
                     mex.Configuration(eid).Execution(ex46).addPerformance(EnumMeasures.PRECISION, .7248);
                     mex.Configuration(eid).Execution(ex46).addPerformance(EnumMeasures.FMEASURE, .6936);
@@ -769,7 +769,7 @@ public class Dataset4 {
                     ex47 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex47).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex47).setAlgorithm(mex.Configuration(eid).addAlgorithm("NER", EnumAlgorithms.NER_OPEN_NLP));
+                    mex.Configuration(eid).Execution(ex47).setAlgorithm(mex.Configuration(eid).addAlgorithm("NER", EnumAlgorithmsClasses.NER_OPEN_NLP));
                     mex.Configuration(eid).Execution(ex47).addPerformance(EnumMeasures.RECALL, .7530);
                     mex.Configuration(eid).Execution(ex47).addPerformance(EnumMeasures.PRECISION, .9272);
                     mex.Configuration(eid).Execution(ex47).addPerformance(EnumMeasures.FMEASURE, .8311);
@@ -783,7 +783,7 @@ public class Dataset4 {
                     ex48 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex48).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex48).setAlgorithm(mex.Configuration(eid).addAlgorithm("NER", EnumAlgorithms.NER_OPEN_NLP));
+                    mex.Configuration(eid).Execution(ex48).setAlgorithm(mex.Configuration(eid).addAlgorithm("NER", EnumAlgorithmsClasses.NER_OPEN_NLP));
                     mex.Configuration(eid).Execution(ex48).addPerformance(EnumMeasures.RECALL, .9932);
                     mex.Configuration(eid).Execution(ex48).addPerformance(EnumMeasures.PRECISION, .9824);
                     mex.Configuration(eid).Execution(ex48).addPerformance(EnumMeasures.FMEASURE, .9878);
@@ -801,7 +801,7 @@ public class Dataset4 {
                     ex49 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex49).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex49).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.AdditiveLogisticRegression));
+                    mex.Configuration(eid).Execution(ex49).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.AdditiveLogisticRegression));
                     mex.Configuration(eid).Execution(ex49).addPerformance(EnumMeasures.RECALL, .6991);
                     mex.Configuration(eid).Execution(ex49).addPerformance(EnumMeasures.PRECISION, .7871);
                     mex.Configuration(eid).Execution(ex49).addPerformance(EnumMeasures.FMEASURE, .7405);
@@ -815,7 +815,7 @@ public class Dataset4 {
                     ex50 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex50).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex50).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.AdditiveLogisticRegression));
+                    mex.Configuration(eid).Execution(ex50).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.AdditiveLogisticRegression));
                     mex.Configuration(eid).Execution(ex50).addPerformance(EnumMeasures.RECALL, .7898);
                     mex.Configuration(eid).Execution(ex50).addPerformance(EnumMeasures.PRECISION, .8626);
                     mex.Configuration(eid).Execution(ex50).addPerformance(EnumMeasures.FMEASURE, .8246);
@@ -829,7 +829,7 @@ public class Dataset4 {
                     ex51 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex51).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex51).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.AdditiveLogisticRegression));
+                    mex.Configuration(eid).Execution(ex51).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.AdditiveLogisticRegression));
                     mex.Configuration(eid).Execution(ex51).addPerformance(EnumMeasures.RECALL, .9322);
                     mex.Configuration(eid).Execution(ex51).addPerformance(EnumMeasures.PRECISION, .9371);
                     mex.Configuration(eid).Execution(ex51).addPerformance(EnumMeasures.FMEASURE, .9346);
@@ -843,7 +843,7 @@ public class Dataset4 {
                     ex52 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex52).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex52).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.AdditiveLogisticRegression));
+                    mex.Configuration(eid).Execution(ex52).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.AdditiveLogisticRegression));
                     mex.Configuration(eid).Execution(ex52).addPerformance(EnumMeasures.RECALL, .9958);
                     mex.Configuration(eid).Execution(ex52).addPerformance(EnumMeasures.PRECISION, .9906);
                     mex.Configuration(eid).Execution(ex52).addPerformance(EnumMeasures.FMEASURE, .9932);
@@ -861,7 +861,7 @@ public class Dataset4 {
                     ex53 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex53).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex53).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SupportVectorMachines));
+                    mex.Configuration(eid).Execution(ex53).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.SupportVectorMachines));
                     mex.Configuration(eid).Execution(ex53).addPerformance(EnumMeasures.RECALL, .7092);
                     mex.Configuration(eid).Execution(ex53).addPerformance(EnumMeasures.PRECISION, .9049);
                     mex.Configuration(eid).Execution(ex53).addPerformance(EnumMeasures.FMEASURE, .7952);
@@ -875,7 +875,7 @@ public class Dataset4 {
                     ex54 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex54).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex54).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SupportVectorMachines));
+                    mex.Configuration(eid).Execution(ex54).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.SupportVectorMachines));
                     mex.Configuration(eid).Execution(ex54).addPerformance(EnumMeasures.RECALL, .8173);
                     mex.Configuration(eid).Execution(ex54).addPerformance(EnumMeasures.PRECISION, .8246);
                     mex.Configuration(eid).Execution(ex54).addPerformance(EnumMeasures.FMEASURE, .8209);
@@ -889,7 +889,7 @@ public class Dataset4 {
                     ex55 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex55).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex55).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SupportVectorMachines));
+                    mex.Configuration(eid).Execution(ex55).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.SupportVectorMachines));
                     mex.Configuration(eid).Execution(ex55).addPerformance(EnumMeasures.RECALL, .9148);
                     mex.Configuration(eid).Execution(ex55).addPerformance(EnumMeasures.PRECISION, .9959);
                     mex.Configuration(eid).Execution(ex55).addPerformance(EnumMeasures.FMEASURE, .9252);
@@ -903,7 +903,7 @@ public class Dataset4 {
                     ex56 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex56).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex56).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.SupportVectorMachines));
+                    mex.Configuration(eid).Execution(ex56).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.SupportVectorMachines));
                     mex.Configuration(eid).Execution(ex56).addPerformance(EnumMeasures.RECALL, .995);
                     mex.Configuration(eid).Execution(ex56).addPerformance(EnumMeasures.PRECISION, .9896);
                     mex.Configuration(eid).Execution(ex56).addPerformance(EnumMeasures.FMEASURE, .9923);
@@ -921,7 +921,7 @@ public class Dataset4 {
                     ex57 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex57).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex57).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.FunctionalTrees));
+                    mex.Configuration(eid).Execution(ex57).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.FunctionalTrees));
                     mex.Configuration(eid).Execution(ex57).addPerformance(EnumMeasures.RECALL, .7249);
                     mex.Configuration(eid).Execution(ex57).addPerformance(EnumMeasures.PRECISION, .7530);
                     mex.Configuration(eid).Execution(ex57).addPerformance(EnumMeasures.FMEASURE, .7387);
@@ -935,7 +935,7 @@ public class Dataset4 {
                     ex58 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex58).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex58).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.FunctionalTrees));
+                    mex.Configuration(eid).Execution(ex58).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.FunctionalTrees));
                     mex.Configuration(eid).Execution(ex58).addPerformance(EnumMeasures.RECALL, .7741);
                     mex.Configuration(eid).Execution(ex58).addPerformance(EnumMeasures.PRECISION, .8260);
                     mex.Configuration(eid).Execution(ex58).addPerformance(EnumMeasures.FMEASURE, .7992);
@@ -949,7 +949,7 @@ public class Dataset4 {
                     ex59 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex59).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex59).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.FunctionalTrees));
+                    mex.Configuration(eid).Execution(ex59).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.FunctionalTrees));
                     mex.Configuration(eid).Execution(ex59).addPerformance(EnumMeasures.RECALL, .9009);
                     mex.Configuration(eid).Execution(ex59).addPerformance(EnumMeasures.PRECISION, .9024);
                     mex.Configuration(eid).Execution(ex59).addPerformance(EnumMeasures.FMEASURE, .9017);
@@ -963,7 +963,7 @@ public class Dataset4 {
                     ex60 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex60).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex60).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.FunctionalTrees));
+                    mex.Configuration(eid).Execution(ex60).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.FunctionalTrees));
                     mex.Configuration(eid).Execution(ex60).addPerformance(EnumMeasures.RECALL, .9939);
                     mex.Configuration(eid).Execution(ex60).addPerformance(EnumMeasures.PRECISION, .9910);
                     mex.Configuration(eid).Execution(ex60).addPerformance(EnumMeasures.FMEASURE, .9925);
@@ -981,7 +981,7 @@ public class Dataset4 {
                     ex61 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex61).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex61).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.MultilayerPerceptron));
+                    mex.Configuration(eid).Execution(ex61).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.MultilayerPerceptron));
                     mex.Configuration(eid).Execution(ex61).addPerformance(EnumMeasures.RECALL, .7020);
                     mex.Configuration(eid).Execution(ex61).addPerformance(EnumMeasures.PRECISION, .8362);
                     mex.Configuration(eid).Execution(ex61).addPerformance(EnumMeasures.FMEASURE, .7632);
@@ -995,7 +995,7 @@ public class Dataset4 {
                     ex62 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex62).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex62).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.MultilayerPerceptron));
+                    mex.Configuration(eid).Execution(ex62).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.MultilayerPerceptron));
                     mex.Configuration(eid).Execution(ex62).addPerformance(EnumMeasures.RECALL, .7878);
                     mex.Configuration(eid).Execution(ex62).addPerformance(EnumMeasures.PRECISION, .7870);
                     mex.Configuration(eid).Execution(ex62).addPerformance(EnumMeasures.FMEASURE, .7874);
@@ -1009,7 +1009,7 @@ public class Dataset4 {
                     ex63 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex63).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex63).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.MultilayerPerceptron));
+                    mex.Configuration(eid).Execution(ex63).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.MultilayerPerceptron));
                     mex.Configuration(eid).Execution(ex63).addPerformance(EnumMeasures.RECALL, .9183);
                     mex.Configuration(eid).Execution(ex63).addPerformance(EnumMeasures.PRECISION, .8995);
                     mex.Configuration(eid).Execution(ex63).addPerformance(EnumMeasures.FMEASURE, .9088);
@@ -1023,7 +1023,7 @@ public class Dataset4 {
                     ex64 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex64).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex64).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.MultilayerPerceptron));
+                    mex.Configuration(eid).Execution(ex64).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.MultilayerPerceptron));
                     mex.Configuration(eid).Execution(ex64).addPerformance(EnumMeasures.RECALL, .9928);
                     mex.Configuration(eid).Execution(ex64).addPerformance(EnumMeasures.PRECISION, .9897);
                     mex.Configuration(eid).Execution(ex64).addPerformance(EnumMeasures.FMEASURE, .9913);
@@ -1041,7 +1041,7 @@ public class Dataset4 {
                     ex65 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex65).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex65).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.DecisionTable));
+                    mex.Configuration(eid).Execution(ex65).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.DecisionTable));
                     mex.Configuration(eid).Execution(ex65).addPerformance(EnumMeasures.RECALL, .7120);
                     mex.Configuration(eid).Execution(ex65).addPerformance(EnumMeasures.PRECISION, .8496);
                     mex.Configuration(eid).Execution(ex65).addPerformance(EnumMeasures.FMEASURE, .7747);
@@ -1055,7 +1055,7 @@ public class Dataset4 {
                     ex66 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex66).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex66).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.DecisionTable));
+                    mex.Configuration(eid).Execution(ex66).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.DecisionTable));
                     mex.Configuration(eid).Execution(ex66).addPerformance(EnumMeasures.RECALL, .8065);
                     mex.Configuration(eid).Execution(ex66).addPerformance(EnumMeasures.PRECISION, .7948);
                     mex.Configuration(eid).Execution(ex66).addPerformance(EnumMeasures.FMEASURE, .8006);
@@ -1069,7 +1069,7 @@ public class Dataset4 {
                     ex67 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex67).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex67).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.DecisionTable));
+                    mex.Configuration(eid).Execution(ex67).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.DecisionTable));
                     mex.Configuration(eid).Execution(ex67).addPerformance(EnumMeasures.RECALL, .9148);
                     mex.Configuration(eid).Execution(ex67).addPerformance(EnumMeasures.PRECISION, .9116);
                     mex.Configuration(eid).Execution(ex67).addPerformance(EnumMeasures.FMEASURE, .9132);
@@ -1083,7 +1083,7 @@ public class Dataset4 {
                     ex68 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex68).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex68).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.DecisionTable));
+                    mex.Configuration(eid).Execution(ex68).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.DecisionTable));
                     mex.Configuration(eid).Execution(ex68).addPerformance(EnumMeasures.RECALL, .9936);
                     mex.Configuration(eid).Execution(ex68).addPerformance(EnumMeasures.PRECISION, .9906);
                     mex.Configuration(eid).Execution(ex68).addPerformance(EnumMeasures.FMEASURE, .9921);
@@ -1101,7 +1101,7 @@ public class Dataset4 {
                     ex69 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex69).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex69).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_BALIE));
+                    mex.Configuration(eid).Execution(ex69).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NER_BALIE));
                     mex.Configuration(eid).Execution(ex69).addPerformance(EnumMeasures.RECALL, .6433);
                     mex.Configuration(eid).Execution(ex69).addPerformance(EnumMeasures.PRECISION, .7265);
                     mex.Configuration(eid).Execution(ex69).addPerformance(EnumMeasures.FMEASURE, .6824);
@@ -1115,7 +1115,7 @@ public class Dataset4 {
                     ex70 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex70).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex70).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_BALIE));
+                    mex.Configuration(eid).Execution(ex70).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NER_BALIE));
                     mex.Configuration(eid).Execution(ex70).addPerformance(EnumMeasures.RECALL, .5855);
                     mex.Configuration(eid).Execution(ex70).addPerformance(EnumMeasures.PRECISION, .7367);
                     mex.Configuration(eid).Execution(ex70).addPerformance(EnumMeasures.FMEASURE, .6524);
@@ -1129,7 +1129,7 @@ public class Dataset4 {
                     ex71 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex71).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex71).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_BALIE));
+                    mex.Configuration(eid).Execution(ex71).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NER_BALIE));
                     mex.Configuration(eid).Execution(ex71).addPerformance(EnumMeasures.RECALL, .8383);
                     mex.Configuration(eid).Execution(ex71).addPerformance(EnumMeasures.PRECISION, .6410);
                     mex.Configuration(eid).Execution(ex71).addPerformance(EnumMeasures.FMEASURE, .7265);
@@ -1143,7 +1143,7 @@ public class Dataset4 {
                     ex72 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex72).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex72).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.NER_BALIE));
+                    mex.Configuration(eid).Execution(ex72).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.NER_BALIE));
                     mex.Configuration(eid).Execution(ex72).addPerformance(EnumMeasures.RECALL, .9902);
                     mex.Configuration(eid).Execution(ex72).addPerformance(EnumMeasures.PRECISION, .9867);
                     mex.Configuration(eid).Execution(ex72).addPerformance(EnumMeasures.FMEASURE, .9885);
@@ -1161,7 +1161,7 @@ public class Dataset4 {
                     ex73 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex73).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex73).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.LogisticRegression));
+                    mex.Configuration(eid).Execution(ex73).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.LogisticRegression));
                     mex.Configuration(eid).Execution(ex73).addPerformance(EnumMeasures.RECALL, .7092);
                     mex.Configuration(eid).Execution(ex73).addPerformance(EnumMeasures.PRECISION, .8036);
                     mex.Configuration(eid).Execution(ex73).addPerformance(EnumMeasures.FMEASURE, .7534);
@@ -1175,7 +1175,7 @@ public class Dataset4 {
                     ex74 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex74).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex74).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.LogisticRegression));
+                    mex.Configuration(eid).Execution(ex74).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.LogisticRegression));
                     mex.Configuration(eid).Execution(ex74).addPerformance(EnumMeasures.RECALL, .7800);
                     mex.Configuration(eid).Execution(ex74).addPerformance(EnumMeasures.PRECISION, .8474);
                     mex.Configuration(eid).Execution(ex74).addPerformance(EnumMeasures.FMEASURE, .8123);
@@ -1189,7 +1189,7 @@ public class Dataset4 {
                     ex75 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex75).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex75).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.LogisticRegression));
+                    mex.Configuration(eid).Execution(ex75).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.LogisticRegression));
                     mex.Configuration(eid).Execution(ex75).addPerformance(EnumMeasures.RECALL, .9113);
                     mex.Configuration(eid).Execution(ex75).addPerformance(EnumMeasures.PRECISION, .9145);
                     mex.Configuration(eid).Execution(ex75).addPerformance(EnumMeasures.FMEASURE, .9129);
@@ -1203,7 +1203,7 @@ public class Dataset4 {
                     ex76 = mex.Configuration(eid).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
                     mex.Configuration(eid).Execution(ex76).setStartDate(new Date());
-                    mex.Configuration(eid).Execution(ex76).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithms.LogisticRegression));
+                    mex.Configuration(eid).Execution(ex76).setAlgorithm(mex.Configuration(eid).addAlgorithm("alg", EnumAlgorithmsClasses.LogisticRegression));
                     mex.Configuration(eid).Execution(ex76).addPerformance(EnumMeasures.RECALL, .9957);
                     mex.Configuration(eid).Execution(ex76).addPerformance(EnumMeasures.PRECISION, .9905);
                     mex.Configuration(eid).Execution(ex76).addPerformance(EnumMeasures.FMEASURE, .9931);

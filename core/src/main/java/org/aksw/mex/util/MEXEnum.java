@@ -113,7 +113,7 @@ public class MEXEnum {
         public static final String NotInformed = "";
     }
 
-    private class EnumAlgorithm {
+    private class EnumAlgorithmClass {
         public static final String PART = "PART";
         public static final String J48Graft = "J48Graft";
         public static final String AverageOneDependenceEstimators = "AverageOneDependenceEstimators";
@@ -268,7 +268,7 @@ public class MEXEnum {
         CROSS_VALIDATION(EnumSamplingMethod.CrossValidation.toString()),
         SLIDING_CROSS_VALIDATION(EnumSamplingMethod.SlidingCrossValidation.toString()),
         N_FOLDS_CROSS_VALIDATION(EnumSamplingMethod.NFoldsCrossValidation.toString()),
-        NOT_INFORMED(EnumSamplingMethod.NOT_INFORMED);
+        NOT_INFORMED(EnumSamplingMethod.NOT_INFORMED.toString());
 
         private final String text;
         /**
@@ -285,74 +285,74 @@ public class MEXEnum {
         public String toString() {return text;}
     }
 
-    public enum EnumAlgorithms {
-        PART(EnumAlgorithm.PART.toString()),
-        J48Graft(EnumAlgorithm.J48Graft.toString()),
-        AverageOneDependenceEstimators(EnumAlgorithm.AverageOneDependenceEstimators.toString()),
-        MARS(EnumAlgorithm.MARS.toString()),
-        REPTree(EnumAlgorithm.REPTree.toString()),
-        INDUCE(EnumAlgorithm.INDUCE.toString()),
-        SupportVectorMachines(EnumAlgorithm.SupportVectorMachines.toString()),
-        ProbabilisticSoftLogic(EnumAlgorithm.ProbabilisticSoftLogic.toString()),
-        AutoregressiveMovingAverage(EnumAlgorithm.AutoregressiveMovingAverage.toString()),
-        DecisionTable(EnumAlgorithm.DecisionTable.toString()),
-        FP(EnumAlgorithm.FP.toString()),
-        OPTICS(EnumAlgorithm.OPTICS.toString()),
-        AutoregressiveIntegratedMovingAverage(EnumAlgorithm.AutoregressiveIntegratedMovingAverage.toString()),
-        Apriori(EnumAlgorithm.Apriori.toString()),
-        J48(EnumAlgorithm.J48.toString()),
-        AQ(EnumAlgorithm.AQ.toString()),
-        CHAMELEON(EnumAlgorithm.CHAMELEON.toString()),
-        CART(EnumAlgorithm.CART.toString()),
-        SequentialMinimalOptimization(EnumAlgorithm.SequentialMinimalOptimization.toString()),
-        C45(EnumAlgorithm.C45.toString()),
-        MultilayerPerceptron(EnumAlgorithm.MultilayerPerceptron.toString()),
-        BackPropagation(EnumAlgorithm.BackPropagation.toString()),
-        NBTree(EnumAlgorithm.NBTree.toString()),
-        CLARANS(EnumAlgorithm.CLARANS.toString()),
-        UserClassifier(EnumAlgorithm.UserClassifier.toString()),
-        RandomTree(EnumAlgorithm.RandomTree.toString()),
-        NaiveBayes(EnumAlgorithm.NaiveBayes.toString()),
-        BFTree(EnumAlgorithm.BFTree.toString()),
-        SimpleCart(EnumAlgorithm.SimpleCart.toString()),
-        ADTree(EnumAlgorithm.ADTree.toString()),
-        BIRCH(EnumAlgorithm.BIRCH.toString()),
-        CHAID(EnumAlgorithm.CHAID.toString()),
-        Kmeans(EnumAlgorithm.Kmeans.toString()),
-        CLARA(EnumAlgorithm.CLARA.toString()),
-        Markov(EnumAlgorithm.Markov.toString()),
-        DecisionStump(EnumAlgorithm.DecisionStump.toString()),
-        RandomForest(EnumAlgorithm.RandomForest.toString()),
-        Baseline(EnumAlgorithm.Baseline.toString()),
-        HybridAlgorithm(EnumAlgorithm.HybridAlgorithm.toString()),
-        NearestNeigbour(EnumAlgorithm.NearestNeigbour.toString()),
-        CURE(EnumAlgorithm.CURE.toString()),
-        ID3(EnumAlgorithm.ID3.toString()),
-        LADTree(EnumAlgorithm.LADTree.toString()),
-        ELTL(EnumAlgorithm.ELTL.toString()),
-        AdaptativeBoost(EnumAlgorithm.AdaptativeBoost.toString()),
-        SimpleVoting(EnumAlgorithm.SimpleVoting.toString()),
-        LogisticModelTrees(EnumAlgorithm.LogisticModelTrees.toString()),
-        AdaBoostM1(EnumAlgorithm.AdaBoostM1.toString()),
-        ClassLevelVoting(EnumAlgorithm.ClassLevelVoting.toString()),
-        BaggingJ48(EnumAlgorithm.BaggingJ48.toString()),
-        AdditiveLogisticRegression(EnumAlgorithm.AdditiveLogisticRegression.toString()),
-        FunctionalTrees(EnumAlgorithm.FunctionalTrees.toString()),
-        LogisticRegression(EnumAlgorithm.LogisticRegression.toString()),
-        LinearRegression(EnumAlgorithm.LinearRegression.toString()),
-        NER_STANFORD(EnumAlgorithm.NER_STANFORD.toString()),
-        NER_ILLINOIS_EXTENDED(EnumAlgorithm.NER_ILLINOIS_EXTENDED.toString()),
-        NER_OPEN_NLP(EnumAlgorithm.NER_OPEN_NLP.toString()),
-        NER_BALIE(EnumAlgorithm.NER_BALIE.toString()),
-        RESCAL(EnumAlgorithm.RESCAL.toString()),
-        NOT_INFORMED(EnumAlgorithm.NOT_INFORMED.toString());
+    public enum EnumAlgorithmsClasses {
+        PART(EnumAlgorithmClass.PART.toString()),
+        J48Graft(EnumAlgorithmClass.J48Graft.toString()),
+        AverageOneDependenceEstimators(EnumAlgorithmClass.AverageOneDependenceEstimators.toString()),
+        MARS(EnumAlgorithmClass.MARS.toString()),
+        REPTree(EnumAlgorithmClass.REPTree.toString()),
+        INDUCE(EnumAlgorithmClass.INDUCE.toString()),
+        SupportVectorMachines(EnumAlgorithmClass.SupportVectorMachines.toString()),
+        ProbabilisticSoftLogic(EnumAlgorithmClass.ProbabilisticSoftLogic.toString()),
+        AutoregressiveMovingAverage(EnumAlgorithmClass.AutoregressiveMovingAverage.toString()),
+        DecisionTable(EnumAlgorithmClass.DecisionTable.toString()),
+        FP(EnumAlgorithmClass.FP.toString()),
+        OPTICS(EnumAlgorithmClass.OPTICS.toString()),
+        AutoregressiveIntegratedMovingAverage(EnumAlgorithmClass.AutoregressiveIntegratedMovingAverage.toString()),
+        Apriori(EnumAlgorithmClass.Apriori.toString()),
+        J48(EnumAlgorithmClass.J48.toString()),
+        AQ(EnumAlgorithmClass.AQ.toString()),
+        CHAMELEON(EnumAlgorithmClass.CHAMELEON.toString()),
+        CART(EnumAlgorithmClass.CART.toString()),
+        SequentialMinimalOptimization(EnumAlgorithmClass.SequentialMinimalOptimization.toString()),
+        C45(EnumAlgorithmClass.C45.toString()),
+        MultilayerPerceptron(EnumAlgorithmClass.MultilayerPerceptron.toString()),
+        BackPropagation(EnumAlgorithmClass.BackPropagation.toString()),
+        NBTree(EnumAlgorithmClass.NBTree.toString()),
+        CLARANS(EnumAlgorithmClass.CLARANS.toString()),
+        UserClassifier(EnumAlgorithmClass.UserClassifier.toString()),
+        RandomTree(EnumAlgorithmClass.RandomTree.toString()),
+        NaiveBayes(EnumAlgorithmClass.NaiveBayes.toString()),
+        BFTree(EnumAlgorithmClass.BFTree.toString()),
+        SimpleCart(EnumAlgorithmClass.SimpleCart.toString()),
+        ADTree(EnumAlgorithmClass.ADTree.toString()),
+        BIRCH(EnumAlgorithmClass.BIRCH.toString()),
+        CHAID(EnumAlgorithmClass.CHAID.toString()),
+        Kmeans(EnumAlgorithmClass.Kmeans.toString()),
+        CLARA(EnumAlgorithmClass.CLARA.toString()),
+        Markov(EnumAlgorithmClass.Markov.toString()),
+        DecisionStump(EnumAlgorithmClass.DecisionStump.toString()),
+        RandomForest(EnumAlgorithmClass.RandomForest.toString()),
+        Baseline(EnumAlgorithmClass.Baseline.toString()),
+        HybridAlgorithm(EnumAlgorithmClass.HybridAlgorithm.toString()),
+        NearestNeigbour(EnumAlgorithmClass.NearestNeigbour.toString()),
+        CURE(EnumAlgorithmClass.CURE.toString()),
+        ID3(EnumAlgorithmClass.ID3.toString()),
+        LADTree(EnumAlgorithmClass.LADTree.toString()),
+        ELTL(EnumAlgorithmClass.ELTL.toString()),
+        AdaptativeBoost(EnumAlgorithmClass.AdaptativeBoost.toString()),
+        SimpleVoting(EnumAlgorithmClass.SimpleVoting.toString()),
+        LogisticModelTrees(EnumAlgorithmClass.LogisticModelTrees.toString()),
+        AdaBoostM1(EnumAlgorithmClass.AdaBoostM1.toString()),
+        ClassLevelVoting(EnumAlgorithmClass.ClassLevelVoting.toString()),
+        BaggingJ48(EnumAlgorithmClass.BaggingJ48.toString()),
+        AdditiveLogisticRegression(EnumAlgorithmClass.AdditiveLogisticRegression.toString()),
+        FunctionalTrees(EnumAlgorithmClass.FunctionalTrees.toString()),
+        LogisticRegression(EnumAlgorithmClass.LogisticRegression.toString()),
+        LinearRegression(EnumAlgorithmClass.LinearRegression.toString()),
+        NER_STANFORD(EnumAlgorithmClass.NER_STANFORD.toString()),
+        NER_ILLINOIS_EXTENDED(EnumAlgorithmClass.NER_ILLINOIS_EXTENDED.toString()),
+        NER_OPEN_NLP(EnumAlgorithmClass.NER_OPEN_NLP.toString()),
+        NER_BALIE(EnumAlgorithmClass.NER_BALIE.toString()),
+        RESCAL(EnumAlgorithmClass.RESCAL.toString()),
+        NOT_INFORMED(EnumAlgorithmClass.NOT_INFORMED.toString());
 
 
         private final String text;
         /**
          * @param text
          */
-        private EnumAlgorithms(final String text) {
+        private EnumAlgorithmsClasses(final String text) {
             this.text = text;
         }
 

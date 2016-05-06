@@ -14,7 +14,7 @@ import java.lang.annotation.Target;
 @Target(ElementType.FIELD)
 public @interface Algorithm {
     String algorithmID() default "";
-    MEXEnum.EnumAlgorithms algorithmType();
+    MEXEnum.EnumAlgorithmsClasses algorithmType();
     String idExecution() default ""; //not required, could be set to control individually instead of by array
 
 }

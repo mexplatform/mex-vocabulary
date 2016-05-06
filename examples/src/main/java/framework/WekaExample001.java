@@ -41,10 +41,10 @@ public class WekaExample001 {
 
     @DatasetName
     public String ds = "iris.arff"; Instances data;
-    @Algorithm(algorithmType = MEXEnum.EnumAlgorithms.J48,           algorithmID = "1") public J48 wekaJ48;
-    @Algorithm(algorithmType = MEXEnum.EnumAlgorithms.PART,          algorithmID = "2") public PART wekaPART;
-    @Algorithm(algorithmType = MEXEnum.EnumAlgorithms.DecisionTable, algorithmID = "3") public DecisionTable wekaDecisionTable;
-    @Algorithm(algorithmType = MEXEnum.EnumAlgorithms.DecisionStump, algorithmID = "4") public DecisionStump wekaDecisionStump;
+    @Algorithm(algorithmType = MEXEnum.EnumAlgorithmsClasses.J48,           algorithmID = "1") public J48 wekaJ48;
+    @Algorithm(algorithmType = MEXEnum.EnumAlgorithmsClasses.PART,          algorithmID = "2") public PART wekaPART;
+    @Algorithm(algorithmType = MEXEnum.EnumAlgorithmsClasses.DecisionTable, algorithmID = "3") public DecisionTable wekaDecisionTable;
+    @Algorithm(algorithmType = MEXEnum.EnumAlgorithmsClasses.DecisionStump, algorithmID = "4") public DecisionStump wekaDecisionStump;
     @Measure(idMeasure = MEXEnum.EnumMeasures.ERROR) public List<Double> errors;
     @Measure(idMeasure = MEXEnum.EnumMeasures.ACCURACY) public List<Double> accuracies;
 
