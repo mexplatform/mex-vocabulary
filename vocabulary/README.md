@@ -2,8 +2,7 @@
 
 More than just a **machine readable way**, the `MEX` Vocabulary has been designed to define a **lightweight and flexible schema** for publishing machine learning outputs metadata. We aim at providing a **free-format** to export and share machine learning metadata, indifferent to existing **workflow systems** or **frameworks**. As an immediate advantage, users can benefit of the `mex format` for further analysis and integrations more easily.
 
-The definition of an `ontology` can be a complex and never-ending task, even more for a highly complex environment such as machine learning. The `MEX` vocabulary has been designed to serve as an ally in the metadata exporting process, focusing in practical and important aspects concerning the publication of the achieved results, i.e.: the needed `input parameters` for an `model` which produces `measures` as output. More sophisticated variables and procedures (e.g.: optimizations and feature selection) are not covered, simply because they go beyond a logical threshold of simplicity we aim to achieve. At first, people are usualy more interested in finding out, comparing and sharing `methodologies` and their achieved `performances` than to have deep understanding of performed sub tasks.
-
+The definition of an `ontology` can be a complex and never-ending task, even more for a highly complex environment such as machine learning. The `MEX` vocabulary has been designed to serve as an ally in the metadata exporting process, focusing in practical and important aspects concerning the publication of the achieved results, i.e.: the needed `input parameters` for an `model` which produces `measures` as output. More sophisticated variables and procedures (e.g.: optimizations and feature selection) are not covered, simply because they go beyond a logical threshold of simplicity we aim to achieve. At first, people are usualy more interested in finding out, comparing and sharing `methodologies` and their achieved `performances` than to have deep understanding of performed sub tasks. **MEX** is a **[PROV-O](https://www.w3.org/TR/prov-o/)** based vocabulary.
 
 ## How to cite
 ```Tex
@@ -24,7 +23,7 @@ The definition of an `ontology` can be a complex and never-ending task, even mor
 
 The current version of the vocabulaty is described (per layer) as following. We've omitted obvious information for brevity.
 
-#### mexcore
+#### [mexcore](http://mex.aksw.org/mex-core)
 * **Basic Informations**: stores the basic authoring information and a brief introduction for your experiment setup
   * `:ApplicationContext`
   * `:Context`: the context for the experiment, such as `:Bioinformatics`, `:ComputationalAdversiting`, `:ComputationalFinance`, `:DetectingCreditCardFrauds`, `:FactPrediction` and `:NaturalLanguageProcessing`.
@@ -44,7 +43,7 @@ Below are listed additional related entities:
   * `:Phase`: train, validation or test
   * `:ExampleCollection`: the set of `:Example` instances represent a single `dataset example` (also defined as *instance*, or, more technically, a dataset *row*). It is useful when you're describing each execution for each dataset example (e.g.: a test dataset which contains 100 examples [100 rows] is represented by 100 `:ExampleCollection` instances, each of these representing a *row*) and want to store the values for some reason.
 
-#### mexalgo
+#### [mexalgo](http://mex.aksw.org/mex-algo)
 * `:Tool`: the software tool used by the experiment
 * `:ToolParameter` (`:ToolParameterCollection`): parameters specific defined for the tool 
 * `:Algorithm`: the algorithm
@@ -53,10 +52,10 @@ Below are listed additional related entities:
 
 Additionally, two classes are defined into this layer in order to provide more formalism for the algorithm, although not crucial (and are instantiated in a transparent way to the end user) for the execution description `:LearningMethod` and `:LearningProblem` 
 
-#### mexperf
+#### [mexperf](http://mex.aksw.org/mex-perf)
 * `:ExecutionPerformance`: this class links the `:Execution` and its results, i.e., it's an entity for interlinking the `mexcore` and `mexperf` layers. For each execution you have to define at least one `:PerformanceMeasure` or `:ExamplePerformance` or `:UserDefinedMeasure` (see details below)
 
-* `:PerformanceMeasure`: the root for machine learning general measures, grouped into classes. Each existing `:OverallExecution` yields one or more measures:
+* `:PerformanceMeasure (super class)`: the root for machine learning general measures, grouped into classes. Each existing `:OverallExecution` yields one or more measures:
   * `:ClassificationMeasure`: classification problem measures (e.g.: `accuracy`, `fpp`, `f1`, ...)
   * `:RegressionMeasure`: regression problem measures (e.g: `residual`, `MSE`, ...)
   * `:ClusteringMeasure`: clustering problem measures (e.g.: `hammingDistance`, `manhattanDistance`, ...)
