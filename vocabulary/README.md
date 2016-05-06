@@ -17,6 +17,9 @@ The definition of an `ontology` can be a complex and never-ending task, even mor
 }
 ```
 
+### MEX Vocabulary - Snapshot v1.0.2
+![Experiment ER](http://dne5.com/mex/diagram/mex-1.0.2.png)
+
 ## Schema
 
 The current version of the vocabulaty is described (per layer) as following. We've omitted obvious information for brevity.
@@ -35,18 +38,19 @@ The current version of the vocabulaty is described (per layer) as following. We'
 
 Besides, each configuration is related to one specific software implementation (`mexalgo:Implementation`)
 
-* **The runs**: here the `:Execution` entity is the central class of the `core` layer and receives the spotlight on our schema definition. It is defined as a hub for linking the three layers (`mexcore`, `mexalgo` and `mexperf`). Concisely one instance of `:Execution` is performed on behalf of an `:Algorithm` and produces one or more `:PerformanceMeasure`, represented by the `:ExecutionPerformance` class (e.g.: `:ex1 prov:used :algA` and `:execperf :prov:wasGeneratedBy :exec1`). It is worth noting the abstraction level for modeling the execution process: for representing **the set of runs** the algorithm has performed over a dataset (or a subset) (i.e.: an overall execution), the appropriete class is the `:OverallExecution`, whereas for representing the run over each `dataset example` (i.e.: a single execution), the relevant class is the `:SingleExecution`, although less appropriate for the abstraction level required for presenting experimental results.
+* **The runs**: here the `:Execution` entity is the central class of the `core` layer and receives the spotlight on our schema definition. It is defined as a hub for linking the three layers (`mexcore`, `mexalgo` and `mexperf`). Concisely one instance of `:Execution` is performed on behalf of an `:Algorithm` and produces one or more `:PerformanceMeasure`, represented by the `:ExecutionPerformance` class (e.g.: `:ex1 prov:used :algA` and `:execperf :prov:wasGeneratedBy :exec1`). It is worth noting the abstraction level for modeling the execution process: for representing **the set of runs** the algorithm has performed over a dataset (or a subset) (i.e.: an overall execution), the appropriete class is the `:ExecutionOverall`, whereas for representing the run over each `dataset example` (i.e.: a single execution), the relevant class is the `:ExecutionSingle`, although less appropriate for the abstraction level required for presenting experimental results.
 Below are listed additional related entities:
   * `:Model`: basic information regarding the used/generated model
   * `:Phase`: train, validation or test
   * `:ExampleCollection`: the set of `:Example` instances represent a single `dataset example` (also defined as *instance*, or, more technically, a dataset *row*). It is useful when you're describing each execution for each dataset example (e.g.: a test dataset which contains 100 examples [100 rows] is represented by 100 `:ExampleCollection` instances, each of these representing a *row*) and want to store the values for some reason.
 
 #### mexalgo
-* `:Implementation`: the software implementation used in the experiment
-* `:Algorithm`
-* `:AlgorithmParameter`: the set of hyperparamters
+* `:Tool`: the software tool used by the experiment
+* `:Algorithm`: the algorithm
+* `:HyperParameter`: the set of hyperparamters for a given algorithm
+* `:AlgorithmClass`: the class of an algorithm (e.g.: `Decision Trees` or `Support Vector Machines`)
 
-Additionally, three classes are defined into this layer in order to provide more formalism for the algorithm, although not crucial (and are instantiated in a transparent way to the end user) for the execution description `:LearningMethod`, `:LearningProblem` and `:AlgorithmClass`
+Additionally, two classes are defined into this layer in order to provide more formalism for the algorithm, although not crucial (and are instantiated in a transparent way to the end user) for the execution description `:LearningMethod` and `:LearningProblem` 
 
 #### mexperf
 * `:ExecutionPerformance`: this class links the `:Execution` and its results, i.e., it's an entity for interlinking the `mexcore` and `mexperf` layers. For each execution you have to define at least one `:PerformanceMeasure` or `:ExamplePerformance` or `:UserDefinedMeasure` (see details below)
@@ -62,6 +66,3 @@ Additionally, three classes are defined into this layer in order to provide more
 * `:UserDefinedMeasureCollection`: We know reusing is a key factor for semantic web, but sometimes the number of people would reuse your metric is quite low, of even zero! Besides, extending a vocabulary might be complicated for **non-semantic web users** (e.g.: *how people would use `MEX` for describing a machine learning experiment without semantic web background?*).
 Therefore, if you have a very specific measure formula for your business and want to describe use this class! Each `:UserDefinedMeasure` stores an unknown measure (`prov:value`) value and its formula (`mexperf:formula`).
 Of course we will keep an eye on it for the `vocabulary measures` updating process! ;-)
-
-### MEX Vocabulary - Snapshot v1.0.2
-![Experiment ER](http://dne5.com/mex/diagram/mex-1.0.2.png)
