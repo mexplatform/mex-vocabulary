@@ -39,9 +39,9 @@ this:exec_c0_mex_exec_d19_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D19" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm19_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -49,9 +49,9 @@ this:exec_c0_mex_exec_d9_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D9" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm9_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -59,9 +59,9 @@ this:exec_c0_mex_exec_d1_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D1" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm1_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -77,9 +77,9 @@ this:exec_c0_mex_exec_d11_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D11" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm11_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -144,9 +144,9 @@ this:exec_c0_mex_exec_d6_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D6" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm6_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -162,9 +162,9 @@ this:exec_c0_mex_exec_d16_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D16" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm16_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -236,9 +236,9 @@ this:exec_c0_mex_exec_d2_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D2" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm2_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -254,9 +254,9 @@ this:exec_c0_mex_exec_d12_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D12" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm12_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -314,9 +314,9 @@ this:exec_c0_mex_exec_d7_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D7" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm7_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -332,9 +332,9 @@ this:exec_c0_mex_exec_d17_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D17" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm17_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -397,9 +397,9 @@ this:exec_c0_mex_exec_d13_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D13" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm13_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -407,9 +407,9 @@ this:exec_c0_mex_exec_d3_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D3" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm3_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -483,9 +483,9 @@ this:exec_c0_mex_exec_d18_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D18" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm18_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -495,11 +495,12 @@ this:algorithm16_conf_1
         mexalgo:hasAlgorithmClass  mexalgo:ClassLevelVoting ;
         dct:identifier             "CLV" .
 
-this:exp_config_1  a     mexcore:ExperimentConfiguration ;
-        rdfs:label       "analyzing 10-fold cross valid..." ;
-        dct:description  "analyzing 10-fold cross validation for 15 algorithms" ;
-        dct:identifier   "E001S001" ;
-        prov:used        this:dataset_conf_1 , this:hardware_conf_1 , this:sampling_method_conf_1 .
+this:exp_config_1  a       mexcore:ExperimentConfiguration ;
+        rdfs:label         "analyzing 10-fold cross valid..." , "Experiment Configuration" ;
+        dct:description    "analyzing 10-fold cross validation for 15 algorithms" ;
+        dct:identifier     "E001S001" ;
+        prov:used          this:dataset_conf_1 , this:hardware_conf_1 , this:sampling_method_conf_1 ;
+        prov:wasStartedBy  this:experiment .
 
 this:hardware_conf_1  a  mexcore:HardwareConfiguration ;
         rdfs:label      "Hardware configuration" ;
@@ -545,6 +546,13 @@ this:hyper_param_1_conf_1
         dct:identifier  "C" ;
         prov:value      "10^3" .
 
+this:experiment  a            mexcore:Experiment ;
+        rdfs:label            "Experiment" ;
+        dct:description       "Token-based evaluation on 15 ensemble learning algorithms" ;
+        dct:identifier        "E1_token" ;
+        dct:title             "token-based experiment" ;
+        prov:wasAttributedTo  this:application .
+
 this:measure_classification_C0_MEX_EXEC_D16_conf_1
         a                   mexperf:ClassificationMeasure ;
         rdfs:label          "Classification measures" ;
@@ -557,9 +565,9 @@ this:exec_c0_mex_exec_d14_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D14" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm14_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -567,9 +575,9 @@ this:exec_c0_mex_exec_d4_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D4" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm4_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -605,13 +613,6 @@ this:execPerformance_19_conf_1
         prov:generated      this:measure_statistical_C0_MEX_EXEC_D19_conf_1 , this:measure_classification_C0_MEX_EXEC_D19_conf_1 ;
         prov:wasInformedBy  this:exec_c0_mex_exec_d19_conf_1 .
 
-this:experiment-header
-        a                     mexcore:Experiment ;
-        dct:description       "Token-based evaluation on 15 ensemble learning algorithms" ;
-        dct:identifier        "E1_token" ;
-        dct:title             "token-based experiment" ;
-        prov:wasAttributedTo  this:application .
-
 this:measure_statistical_C0_MEX_EXEC_D4_conf_1
         a                   mexperf:StatisticalMeasure ;
         rdfs:label          "Statistical measures" ;
@@ -630,9 +631,9 @@ this:exec_c0_mex_exec_d10_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D10" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm10_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -640,9 +641,9 @@ this:exec_c0_mex_exec_d8_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D8" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm8_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -716,9 +717,9 @@ this:exec_c0_mex_exec_d15_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D15" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm15_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -726,9 +727,9 @@ this:exec_c0_mex_exec_d5_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sun May 08 00:34:22 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 01:23:15 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D5" ;
-        prov:startedAtTime  "Sun May 08 00:34:22 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 01:23:15 CEST 2016" ;
         prov:used           this:algorithm5_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -741,7 +742,7 @@ this:measure_classification_C0_MEX_EXEC_D6_conf_1
         prov:wasInformedBy  this:exec_c0_mex_exec_d6_conf_1 .
 
 this:application  a          mexcore:ApplicationContext ;
-        dct:dateCopyrighted  "2016.05.08 00:34:21 CEST" ;
+        dct:dateCopyrighted  "2016.05.08 01:23:15 CEST" ;
         foaf:givenName       "René Speck" ;
         foaf:mbox            "speck@informatik.uni-leipzig.de" .
 

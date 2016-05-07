@@ -1,0 +1,861 @@
+<?xml version="1.0"?>
+
+
+<!DOCTYPE rdf:RDF [
+    <!ENTITY dct "http://purl.org/dc/terms/" >
+    <!ENTITY dcat "http://www.w3.org/ns/dcat#" >
+    <!ENTITY foaf "http://xmlns.com/foaf/0.1/" >
+    <!ENTITY prov "http://www.w3.org/ns/prov-o#" >
+    <!ENTITY doap "http://usefulinc.com/ns/doap#" >
+    <!ENTITY mex-core "http://mex.aksw.org/mex-core#" >
+    <!ENTITY owl "http://www.w3.org/2002/07/owl#" >
+    <!ENTITY dc "http://purl.org/dc/elements/1.1/" >
+    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
+    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
+    <!ENTITY skos "http://www.w3.org/2004/02/skos/core#" >
+    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
+    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
+]>
+
+
+<rdf:RDF xmlns="http://mex.aksw.org/mex-core#"
+     xml:base="http://mex.aksw.org/mex-core"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:mex-core="http://mex.aksw.org/mex-core#"
+     xmlns:dct="http://purl.org/dc/terms/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:doap="http://usefulinc.com/ns/doap#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:dcat="http://www.w3.org/ns/dcat#"
+     xmlns:prov="http://www.w3.org/ns/prov-o#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <owl:Ontology rdf:about="http://mex.aksw.org/mex-core">
+        <rdfs:label xml:lang="en">The MEX Vocabulary (mex-core)</rdfs:label>
+        <rdfs:label xml:lang="pt">Vocabulario MEX (mex-core)</rdfs:label>
+        <dct:created rdf:datatype="&xsd;date">2014-02-02</dct:created>
+        <dct:modified rdf:datatype="&xsd;date">2016-05-01</dct:modified>
+        <owl:versionInfo>1.0.2</owl:versionInfo>
+        <dc:publisher xml:lang="en">AKSW Research Group - Leipzig University</dc:publisher>
+        <dct:title xml:lang="en">MEX Core (mex-core) is an ontology with the goal of describing the core process for machine learning problems (MEX Platform)</dct:title>
+        <rdf:about>http://mex.aksw.org/mex-doc-core#</rdf:about>
+        <rdfs:comment xml:lang="en">MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-core layer represents the core information gathered from a basic machine learning experiment design.</rdfs:comment>
+        <dc:publisher xml:lang="pt">AKSW Grupo de Pesquisa - Universidade de Leipzig</dc:publisher>
+        <rdfs:comment xml:lang="pt">MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-core representa a principal informacao obtida de um experimento de aprendizado de maquina.</rdfs:comment>
+        <dct:creator rdf:resource="http://aksw.org/DiegoEsteves.html"/>
+        <dct:contributor rdf:resource="http://aksw.org/DiegoMoussallem.html"/>
+        <dct:contributor rdf:resource="http://aksw.org/JensLehmann.html"/>
+        <owl:imports rdf:resource="http://usefulinc.com/ns/doap#"/>
+        <owl:imports rdf:resource="http://www.w3.org/2000/01/rdf-schema#"/>
+        <owl:imports rdf:resource="http://www.w3.org/ns/prov-o#"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#endsAt -->
+
+    <owl:ObjectProperty rdf:about="&mex-core;endsAt">
+        <rdfs:domain rdf:resource="&mex-core;ExampleCollection"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#hasApplicationContext -->
+
+    <owl:ObjectProperty rdf:about="&mex-core;hasApplicationContext">
+        <rdfs:range rdf:resource="&mex-core;ApplicationContext"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#hasPhase -->
+
+    <owl:ObjectProperty rdf:about="&mex-core;hasPhase">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mex-core;ExampleCollection"/>
+        <rdfs:range rdf:resource="&mex-core;Phase"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#hasSamplingMethod -->
+
+    <owl:ObjectProperty rdf:about="&mex-core;hasSamplingMethod">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mex-core;Experiment"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#startsAt -->
+
+    <owl:ObjectProperty rdf:about="&mex-core;startsAt">
+        <rdfs:domain rdf:resource="&mex-core;ExampleCollection"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#trustyURI -->
+
+    <owl:ObjectProperty rdf:about="&mex-core;trustyURI">
+        <rdfs:domain rdf:resource="&mex-core;ApplicationContext"/>
+        <rdfs:range rdf:resource="&rdfs;Literal"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#attributeSelectionDescription -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;attributeSelectionDescription">
+        <rdfs:domain rdf:resource="&mex-core;Experiment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#cpu -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;cpu">
+        <rdfs:domain rdf:resource="&mex-core;HardwareConfiguration"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#cpuCache -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;cpuCache">
+        <rdfs:domain rdf:resource="&mex-core;HardwareConfiguration"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#dataNormalizedDescription -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;dataNormalizedDescription">
+        <rdfs:domain rdf:resource="&mex-core;Experiment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#endsAt -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;endsAt"/>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#endsAtPosition -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;endsAtPosition">
+        <rdfs:domain rdf:resource="&mex-core;Execution"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#folds -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;folds">
+        <rdfs:domain rdf:resource="&mex-core;SamplingMethod"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#hdType -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;hdType">
+        <rdfs:domain rdf:resource="&mex-core;HardwareConfiguration"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#memory -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;memory">
+        <rdfs:domain rdf:resource="&mex-core;HardwareConfiguration"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#noiseRemovedDescription -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;noiseRemovedDescription">
+        <rdfs:domain rdf:resource="&mex-core;Experiment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#numberOfIteraction -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;numberOfIteraction">
+        <rdfs:domain rdf:resource="&mex-core;SlidingCrossValidation"/>
+        <rdfs:range rdf:resource="&xsd;nonNegativeInteger"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#outliersRemovedDescription -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;outliersRemovedDescription">
+        <rdfs:domain rdf:resource="&mex-core;Experiment"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#sequential -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;sequential">
+        <rdfs:domain rdf:resource="&mex-core;SamplingMethod"/>
+        <rdfs:range rdf:resource="&xsd;boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#startsAt -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;startsAt"/>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#startsAtPosition -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;startsAtPosition"/>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#targetClass -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;targetClass">
+        <rdfs:domain rdf:resource="&mex-core;Execution"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#testSize -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;testSize">
+        <rdfs:domain rdf:resource="&mex-core;SamplingMethod"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#trainSize -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;trainSize">
+        <rdfs:domain rdf:resource="&mex-core;SamplingMethod"/>
+        <rdfs:range rdf:resource="&xsd;double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#trustyURIHash -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;trustyURIHash">
+        <rdf:type rdf:resource="&owl;FunctionalProperty"/>
+        <rdfs:domain rdf:resource="&mex-core;ApplicationContext"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#videoGraphs -->
+
+    <owl:DatatypeProperty rdf:about="&mex-core;videoGraphs">
+        <rdfs:domain rdf:resource="&mex-core;HardwareConfiguration"/>
+        <rdfs:range rdf:resource="&xsd;string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#AdaptativeWebSites -->
+
+    <owl:Class rdf:about="&mex-core;AdaptativeWebSites">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#AffectiveComputing -->
+
+    <owl:Class rdf:about="&mex-core;AffectiveComputing">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#ApplicationContext -->
+
+    <owl:Class rdf:about="&mex-core;ApplicationContext">
+        <rdfs:subClassOf rdf:resource="&mex-core;DomainConceptSpace"/>
+        <rdfs:subClassOf rdf:resource="&prov;Agent"/>
+        <rdfs:subClassOf rdf:resource="&prov;Organization"/>
+        <rdfs:subClassOf rdf:resource="&prov;Person"/>
+        <rdfs:comment xml:lang="en">describes the context of the experiment, such as NLP, Stock Market Forecast, BioInformatics, Text-Retrieval AND contact informations/publication</rdfs:comment>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Bioinformatics -->
+
+    <owl:Class rdf:about="&mex-core;Bioinformatics">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Bootstrapping -->
+
+    <owl:Class rdf:about="&mex-core;Bootstrapping">
+        <rdfs:subClassOf rdf:resource="&mex-core;SamplingMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#BrainMachineInterfaces -->
+
+    <owl:Class rdf:about="&mex-core;BrainMachineInterfaces">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Cheminformatics -->
+
+    <owl:Class rdf:about="&mex-core;Cheminformatics">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#ClassifyingDNAsequences -->
+
+    <owl:Class rdf:about="&mex-core;ClassifyingDNAsequences">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#ComputationalAdversiting -->
+
+    <owl:Class rdf:about="&mex-core;ComputationalAdversiting">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#ComputationalFinance -->
+
+    <owl:Class rdf:about="&mex-core;ComputationalFinance">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#ComputerVision -->
+
+    <owl:Class rdf:about="&mex-core;ComputerVision">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Context -->
+
+    <owl:Class rdf:about="&mex-core;Context">
+        <rdfs:subClassOf rdf:resource="&mex-core;DomainConceptSpace"/>
+        <rdfs:subClassOf rdf:resource="&prov;Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#CrossValidation -->
+
+    <owl:Class rdf:about="&mex-core;CrossValidation">
+        <rdfs:subClassOf rdf:resource="&mex-core;SamplingMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Dataset -->
+
+    <owl:Class rdf:about="&mex-core;Dataset">
+        <rdfs:subClassOf rdf:resource="&mex-core;DomainConceptSpace"/>
+        <rdfs:subClassOf rdf:resource="&prov;Entity"/>
+        <dc:description xml:lang="en">Class that provides a structured dataset</dc:description>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#DetectingCreditCardFrauds -->
+
+    <owl:Class rdf:about="&mex-core;DetectingCreditCardFrauds">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#DomainConceptSpace -->
+
+    <owl:Class rdf:about="&mex-core;DomainConceptSpace">
+        <owl:disjointWith rdf:resource="&mex-core;ValuePartition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Example -->
+
+    <owl:Class rdf:about="&mex-core;Example">
+        <rdfs:subClassOf rdf:resource="&prov;Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#ExampleCollection -->
+
+    <owl:Class rdf:about="&mex-core;ExampleCollection">
+        <rdfs:subClassOf rdf:resource="&mex-core;DomainConceptSpace"/>
+        <rdfs:subClassOf rdf:resource="&prov;Collection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Execution -->
+
+    <owl:Class rdf:about="&mex-core;Execution">
+        <rdfs:subClassOf rdf:resource="&mex-core;DomainConceptSpace"/>
+        <rdfs:subClassOf rdf:resource="&prov;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#ExecutionOverall -->
+
+    <owl:Class rdf:about="&mex-core;ExecutionOverall">
+        <rdfs:subClassOf rdf:resource="&mex-core;Execution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#ExecutionSingle -->
+
+    <owl:Class rdf:about="&mex-core;ExecutionSingle">
+        <rdfs:subClassOf rdf:resource="&mex-core;Execution"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Experiment -->
+
+    <owl:Class rdf:about="&mex-core;Experiment">
+        <rdfs:subClassOf rdf:resource="&mex-core;DomainConceptSpace"/>
+        <rdfs:subClassOf rdf:resource="&prov;Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#ExperimentConfiguration -->
+
+    <owl:Class rdf:about="&mex-core;ExperimentConfiguration">
+        <rdfs:subClassOf rdf:resource="&mex-core;DomainConceptSpace"/>
+        <rdfs:subClassOf rdf:resource="&prov;Activity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#FactPrediction -->
+
+    <owl:Class rdf:about="&mex-core;FactPrediction">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Feature -->
+
+    <owl:Class rdf:about="&mex-core;Feature">
+        <rdfs:subClassOf rdf:resource="&prov;Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#FeatureCollection -->
+
+    <owl:Class rdf:about="&mex-core;FeatureCollection">
+        <rdfs:subClassOf rdf:resource="&prov;Collection"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#GamePlaying -->
+
+    <owl:Class rdf:about="&mex-core;GamePlaying">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#HardwareConfiguration -->
+
+    <owl:Class rdf:about="&mex-core;HardwareConfiguration">
+        <rdfs:subClassOf rdf:resource="&mex-core;DomainConceptSpace"/>
+        <rdfs:subClassOf rdf:resource="&doap;Version"/>
+        <rdfs:subClassOf rdf:resource="&prov;Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Holdout -->
+
+    <owl:Class rdf:about="&mex-core;Holdout">
+        <rdfs:subClassOf rdf:resource="&mex-core;SamplingMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#InformationRetrieval -->
+
+    <owl:Class rdf:about="&mex-core;InformationRetrieval">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#InternetFraudDetection -->
+
+    <owl:Class rdf:about="&mex-core;InternetFraudDetection">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#LeaveOneOut -->
+
+    <owl:Class rdf:about="&mex-core;LeaveOneOut">
+        <rdfs:subClassOf rdf:resource="&mex-core;SamplingMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#LinkDiscovery -->
+
+    <owl:Class rdf:about="&mex-core;LinkDiscovery">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#MachinePerception -->
+
+    <owl:Class rdf:about="&mex-core;MachinePerception">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#MedicalDiagnosis -->
+
+    <owl:Class rdf:about="&mex-core;MedicalDiagnosis">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Metaheuristics -->
+
+    <owl:Class rdf:about="&mex-core;Metaheuristics">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Model -->
+
+    <owl:Class rdf:about="&mex-core;Model">
+        <rdfs:subClassOf rdf:resource="&mex-core;DomainConceptSpace"/>
+        <rdfs:subClassOf rdf:resource="&prov;Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#NFoldsCrossValidation -->
+
+    <owl:Class rdf:about="&mex-core;NFoldsCrossValidation">
+        <rdfs:subClassOf rdf:resource="&mex-core;SamplingMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#NaturalLanguageProcessing -->
+
+    <owl:Class rdf:about="&mex-core;NaturalLanguageProcessing">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#ObjectRecognition -->
+
+    <owl:Class rdf:about="&mex-core;ObjectRecognition">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Optimization -->
+
+    <owl:Class rdf:about="&mex-core;Optimization">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Phase -->
+
+    <owl:Class rdf:about="&mex-core;Phase">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="&mex-core;Test"/>
+                    <rdf:Description rdf:about="&mex-core;Training"/>
+                    <rdf:Description rdf:about="&mex-core;Validation"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="&mex-core;ValuePartition"/>
+        <rdfs:subClassOf rdf:resource="&prov;Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#RecomenderSystems -->
+
+    <owl:Class rdf:about="&mex-core;RecomenderSystems">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Robotics -->
+
+    <owl:Class rdf:about="&mex-core;Robotics">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#SamplingMethod -->
+
+    <owl:Class rdf:about="&mex-core;SamplingMethod">
+        <rdfs:subClassOf rdf:resource="&mex-core;DomainConceptSpace"/>
+        <rdfs:subClassOf rdf:resource="&prov;Entity"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#SearchEngines -->
+
+    <owl:Class rdf:about="&mex-core;SearchEngines">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#SentimentAnalysis -->
+
+    <owl:Class rdf:about="&mex-core;SentimentAnalysis">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#SequenceMining -->
+
+    <owl:Class rdf:about="&mex-core;SequenceMining">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#SlidingCrossValidation -->
+
+    <owl:Class rdf:about="&mex-core;SlidingCrossValidation">
+        <rdfs:subClassOf rdf:resource="&mex-core;SamplingMethod"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#SoftwareEngineering -->
+
+    <owl:Class rdf:about="&mex-core;SoftwareEngineering">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#SpeechAndHandwritingRecognition -->
+
+    <owl:Class rdf:about="&mex-core;SpeechAndHandwritingRecognition">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#StockMarketAnalysis -->
+
+    <owl:Class rdf:about="&mex-core;StockMarketAnalysis">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#StructuralHealthMonitoring -->
+
+    <owl:Class rdf:about="&mex-core;StructuralHealthMonitoring">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#SyntacticLanguageProcessing -->
+
+    <owl:Class rdf:about="&mex-core;SyntacticLanguageProcessing">
+        <rdfs:subClassOf rdf:resource="&mex-core;Context"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Test -->
+
+    <owl:Class rdf:about="&mex-core;Test">
+        <rdfs:subClassOf rdf:resource="&mex-core;Phase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Training -->
+
+    <owl:Class rdf:about="&mex-core;Training">
+        <rdfs:subClassOf rdf:resource="&mex-core;Phase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#Validation -->
+
+    <owl:Class rdf:about="&mex-core;Validation">
+        <rdfs:subClassOf rdf:resource="&mex-core;Phase"/>
+    </owl:Class>
+    
+
+
+    <!-- http://mex.aksw.org/mex-core#ValuePartition -->
+
+    <owl:Class rdf:about="&mex-core;ValuePartition"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-o#Activity -->
+
+    <owl:Class rdf:about="&prov;Activity"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-o#Agent -->
+
+    <owl:Class rdf:about="&prov;Agent"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-o#Collection -->
+
+    <owl:Class rdf:about="&prov;Collection"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-o#Entity -->
+
+    <owl:Class rdf:about="&prov;Entity"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-o#Organization -->
+
+    <owl:Class rdf:about="&prov;Organization"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov-o#Person -->
+
+    <owl:Class rdf:about="&prov;Person"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="&owl;AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="&mex-core;Test"/>
+            <rdf:Description rdf:about="&mex-core;Training"/>
+            <rdf:Description rdf:about="&mex-core;Validation"/>
+        </owl:members>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+

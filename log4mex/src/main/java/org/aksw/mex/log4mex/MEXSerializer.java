@@ -170,7 +170,7 @@ public class MEXSerializer {
             Resource _context;
             Resource _version;
             Resource _organization;
-            Resource _expHeader;
+            Resource _expHeader = null;
 
             //gets
             if (mex.getApplicationContext() != null) {
@@ -234,8 +234,9 @@ public class MEXSerializer {
 
             //EXPERIMENT
             if (mex.getExperiment() != null) {
-                _expHeader = model.createResource(URIbase + "experiment-header")
+                _expHeader = model.createResource(URIbase + "experiment")
                         //.addProperty(RDF.type, provEntity)
+                        .addProperty(RDFS.label, "Experiment")
                         .addProperty(RDF.type, mexcore_EXP_HEADER);
                         if(StringUtils.isNotEmpty(mex.getExperiment().get_id()) && StringUtils.isNotBlank(mex.getExperiment().get_id())) {
                             _expHeader.addProperty(DCTerms.identifier, mex.getExperiment().get_id());
@@ -268,7 +269,9 @@ public class MEXSerializer {
 
                     Resource _expConfiguration = model.createResource(URIbase + "exp_config_" + auxExpConf)
                             //.addProperty(RDF.type, provActivity)
+                            .addProperty(RDFS.label, "Experiment Configuration")
                             .addProperty(RDF.type, mexcore_EXP_CONF)
+                            .addProperty(PROVO.wasStartedBy, _expHeader)
                             .addProperty(RDFS.label, item.getLabel());
                     if(StringUtils.isNotEmpty(item.getId()) && StringUtils.isNotBlank(item.getId())) {
                         _expConfiguration.addProperty(DCTerms.identifier, item.getId());
