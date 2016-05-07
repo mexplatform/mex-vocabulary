@@ -155,4 +155,4 @@ try{
 
 ## More Examples
 
-More basic examples are available [here](https://github.com/AKSW/mexproject/tree/master/examples/src/main/java/log4mex). You can also visit the [project website](http://aksw.github.io/mexproject/) in order to check recent updates and use cases.
+More basic examples are available [here](https://github.com/AKSW/mexproject/tree/master/examples/src/main/java/log4mex). You can also visit the [project website](http://aksw.github.io/mexproject/) in order to check recent updates and further use cases.
