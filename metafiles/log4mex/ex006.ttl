@@ -13,7 +13,7 @@
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
 this:application  a          mexcore:ApplicationContext ;
-        dct:dateCopyrighted  "2016.05.07 12:44:34 CEST" ;
+        dct:dateCopyrighted  "2016.05.08 00:31:55 CEST" ;
         foaf:givenName       "D Esteves" ;
         foaf:mbox            "esteves@informatik.uni-leipzig.de" .
 
@@ -82,9 +82,9 @@ this:exec_c0_mex_exec_d2_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sat May 07 12:44:40 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 00:32:01 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D2" ;
-        prov:startedAtTime  "Sat May 07 12:44:36 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 00:31:57 CEST 2016" ;
         prov:used           this:algorithm1_conf_1 , this:phase_Test_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 
@@ -99,9 +99,9 @@ this:exec_c0_mex_exec_d1_conf_1
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "It represents a set of executions over some examples of given dataset" ;
         mexcore:group       true ;
-        prov:endedAtTime    "Sat May 07 12:44:36 CEST 2016" ;
+        prov:endedAtTime    "Sun May 08 00:31:57 CEST 2016" ;
         prov:id             "C0_MEX_EXEC_D1" ;
-        prov:startedAtTime  "Sat May 07 12:44:34 CEST 2016" ;
+        prov:startedAtTime  "Sun May 08 00:31:55 CEST 2016" ;
         prov:used           this:algorithm1_conf_1 , this:phase_Train_conf_1 ;
         prov:wasInformedBy  this:exp_config_1 .
 

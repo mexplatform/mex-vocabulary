@@ -1217,7 +1217,7 @@ public class Dataset3 {
 
             try {
 
-                MEXSerializer.getInstance().saveToDisk("../metafiles/log4mex/fox/entity/3", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
+                MEXSerializer.getInstance().saveToDisk("./metafiles/log4mex/fox/entity/3", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
             } catch (Exception e) {
                 System.out.print(e.toString());
             }

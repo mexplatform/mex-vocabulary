@@ -21,6 +21,8 @@ public abstract class MEXCORE_10 extends MEXCORE implements IOntology {
 
     public static final Property group;
 
+    public static final Property targetClass;
+
     public static final Property startsAtPosition;
     public static final Property endsAtPosition;
 
@@ -50,6 +52,7 @@ public abstract class MEXCORE_10 extends MEXCORE implements IOntology {
     static {
         NAMESPACE = m_model.createResource(NS);
         group = m_model.createProperty(NS + "group");
+        targetClass = m_model.createProperty(NS + "targetClass");
         startsAtPosition = m_model.createProperty(NS + "startsAtPosition");
         endsAtPosition = m_model.createProperty(NS + "endsAtPosition");
         startsAtTime = m_model.createProperty(NS + "startsAtTime");

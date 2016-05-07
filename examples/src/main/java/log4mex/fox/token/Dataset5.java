@@ -439,7 +439,7 @@ public class Dataset5 {
         }
                                                                                                                                        
             try{
-                MEXSerializer.getInstance().saveToDisk("../metafiles/log4mex/fox/token/5", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
+                MEXSerializer.getInstance().saveToDisk("./metafiles/log4mex/fox/token/5", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
             }catch (Exception e){
                 System.out.print(e.toString());
             }

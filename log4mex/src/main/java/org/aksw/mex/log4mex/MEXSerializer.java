@@ -459,6 +459,9 @@ public class MEXSerializer {
                                 if (e.getEndedAtTime() != null) {
                                     _exec.addProperty(PROVO.endedAtTime, e.getEndedAtTime().toString());
                                 }
+                                if (e.getTargetClass() != null && StringUtils.isNotEmpty(e.getTargetClass())) {
+                                    _exec.addProperty(MEXCORE_10.targetClass, e.getTargetClass());
+                                }
 
                                 if (e instanceof ExecutionSetVO) {
                                     ExecutionSetVO temp = (ExecutionSetVO) e;

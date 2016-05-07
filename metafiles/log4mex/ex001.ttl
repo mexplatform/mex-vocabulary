@@ -48,7 +48,7 @@ this:measure_statistical_C0_MEX_EXEC_D1_conf_1
 this:version  dct:hasVersion  "1.0.2" .
 
 this:application  a          mexcore:ApplicationContext ;
-        dct:dateCopyrighted  "2016.05.07 12:44:04 CEST" ;
+        dct:dateCopyrighted  "2016.05.08 00:31:34 CEST" ;
         foaf:givenName       "D Esteves" .
 
 this:feature_3_conf_1

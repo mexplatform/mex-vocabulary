@@ -13,7 +13,7 @@
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
 this:application  a          mexcore:ApplicationContext ;
-        dct:dateCopyrighted  "2016.05.07 12:44:28 CEST" ;
+        dct:dateCopyrighted  "2016.05.08 00:31:51 CEST" ;
         foaf:givenName       "P.Creek" .
 
 this:algorithm1_conf_1

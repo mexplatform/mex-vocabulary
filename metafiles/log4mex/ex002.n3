@@ -19,7 +19,7 @@ this:measure_statistical_C0_MEX_EXEC_D1_conf_1
         prov:wasInformedBy  this:exec_c0_mex_exec_d1_conf_1 .
 
 this:application  a          mexcore:ApplicationContext ;
-        dct:dateCopyrighted  "2016.05.07 12:44:10 CEST" ;
+        dct:dateCopyrighted  "2016.05.08 00:31:38 CEST" ;
         foaf:givenName       "D Esteves" ;
         foaf:mbox            "esteves@informatik.uni-leipzig.de" .
 

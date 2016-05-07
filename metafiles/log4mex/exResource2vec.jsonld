@@ -10,7 +10,7 @@
   }, {
     "@id" : "this:application",
     "@type" : "mexcore:ApplicationContext",
-    "dateCopyrighted" : "2016.05.07 12:33:02 CEST",
+    "dateCopyrighted" : "2016.05.08 00:32:14 CEST",
     "givenName" : "Tommaso Soru",
     "mbox" : "tsoru@informatik.uni-leipzig.de"
   }, {
