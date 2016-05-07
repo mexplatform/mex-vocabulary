@@ -41,7 +41,7 @@ public class Example01 {
             mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ACCURACY, .96);
             mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ERROR, .04);
              /* (7) saving the mex file */
-            MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex001",
+            MEXSerializer.getInstance().saveToDisk("./metafiles/log4mex/ex001",
                     "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
 
             System.out.println("The MEX file [ex001] has been successfully created: share it ;-)");

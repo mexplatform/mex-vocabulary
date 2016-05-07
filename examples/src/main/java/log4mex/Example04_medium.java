@@ -118,7 +118,7 @@ public class Example04_medium {
 
 
             try{
-                MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex004", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.JSON_LD);
+                MEXSerializer.getInstance().saveToDisk("./metafiles/log4mex/ex004", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.JSON_LD);
             }catch (Exception e){
                 System.out.print(e.toString());
             }

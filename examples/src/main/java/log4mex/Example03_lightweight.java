@@ -107,7 +107,7 @@ public class Example03_lightweight {
             //exporting your ML experiment
 
             try{
-                MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex003", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
+                MEXSerializer.getInstance().saveToDisk("./metafiles/log4mex/ex003", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
             }catch (Exception e){
                 System.out.print(e.toString());
             }

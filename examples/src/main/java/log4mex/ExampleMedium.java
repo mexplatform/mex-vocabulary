@@ -67,8 +67,7 @@ public class ExampleMedium {
 
         //adding algorithms and parameters
         {
-            mex.Configuration(eid).Tool().set(EnumTools.WEKA);
-            mex.Configuration(eid).Tool().setRevision("3.6.6");
+            mex.Configuration(eid).setTool(EnumTools.WEKA,"3.6.6");
 
             mex.Configuration(eid).addAlgorithm("svm", EnumAlgorithmsClasses.SupportVectorMachines);
             mex.Configuration(eid).addAlgorithm("nb", EnumAlgorithmsClasses.NaiveBayes);
@@ -112,7 +111,7 @@ public class ExampleMedium {
         }
 
             try{
-                MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex007", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
+                MEXSerializer.getInstance().saveToDisk("./metafiles/log4mex/ex008", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
                 System.out.println("The MEX file [ex007] has been successfully created: share it ;-)");
             }catch (Exception e){
                 System.out.print(e.toString());

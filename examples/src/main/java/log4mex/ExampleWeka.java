@@ -127,7 +127,7 @@ public class ExampleWeka {
 
             /* (2.7) saving the mex file */
             try{
-                MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex008", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
+                MEXSerializer.getInstance().saveToDisk("./metafiles/log4mex/ex009", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
             }catch (Exception e){
                 System.out.print(e.toString());
             }

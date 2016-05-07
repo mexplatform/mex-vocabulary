@@ -31,7 +31,7 @@ public class Resource2Vec {
             mex.Configuration().Execution(idExec).addPerformance(MEXEnum.EnumMeasures.PROCESSINGTIME, 3245);
 
             MEXSerializer.getInstance().saveToDisk(
-                    "resource2vec","http://w3id.org/resource2vec/", mex, MEXConstant.EnumRDFFormats.JSON_LD);
+                    "./metafiles/log4mex/exResource2vec","http://w3id.org/resource2vec/", mex, MEXConstant.EnumRDFFormats.JSON_LD);
 
             System.out.print("here you go! just share it ;-)");
 

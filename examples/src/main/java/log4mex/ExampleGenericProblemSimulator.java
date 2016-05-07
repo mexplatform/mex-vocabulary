@@ -3,9 +3,6 @@ package log4mex;
 import log4mex.tests.ModelSimulatorExample;
 import org.aksw.mex.log4mex.MEXSerializer;
 import org.aksw.mex.log4mex.MyMEX;
-import org.aksw.mex.log4mex.algo.ToolVO;
-import org.aksw.mex.log4mex.core.*;
-import org.aksw.mex.log4mex.perf.overall.ClassificationMeasureVO;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum.*;
 
@@ -18,123 +15,70 @@ public class ExampleGenericProblemSimulator {
 
     public static void main(String[] args) {
 
-        MyMEX mex = null;
+        MyMEX mex = new MyMEX();
 
         try{
 
+            mex.setAuthorName("D Esteves");
+            mex.setAuthorEmail("esteves@informatik.uni-leipzig.de");
+            mex.setContext(EnumContexts.COMPUTATIONAL_FINANCE);
+            mex.setExperimentDescription("PETR4 stock market prediction");
+            mex.setExperimentId("BOVESPA_PETR4_20150515");
+            mex.setExperimentTitle("BOVESPA PETR4 Analysis");
+            mex.setExperimentDataNormalizationDescription("min-max");
+            mex.setExperimentOutlierDetectionDescription("split and inplit removed");
 
-        //ajustar no loop de busca das subclasses...tem que ser metodo recursivo para pegar todos os filhos!
+            mex.Configuration().setModel("MSVM003201502");
 
-        /***************************************************************
-         * MyMEX Wrapper org.aksw.mex.example.old1
-         ***************************************************************/
-        /* step 1: author and context */
+            mex.Configuration().setHardwareConfiguration("ubuntu", EnumProcessors.INTEL_COREI7, EnumRAM.SIZE_16GB, "SSD", EnumCaches.CACHE_3MB);
 
-        ApplicationContextVO mcContext = new ApplicationContextVO("D Esteves", "esteves@informatik.uni-leipzig.de");
-        mcContext.setContext(EnumContexts.COMPUTATIONAL_FINANCE);
+            mex.Configuration().DataSet().setName("bovespa");
+            mex.Configuration().DataSet().setDescription("brazilian stock market 2013");
+            mex.Configuration().DataSet().setURI("http://www.bmfbovespa.com.br/shared/iframe.aspx?idioma=pt-br&url=http://www.bmfbovespa.com.br/pt-br/cotacoes-historicas/FormSeriesHistoricas.asp");
 
-            //adding experimental information
-            ExperimentVO mcExp = new ExperimentVO("EXP001", mcContext);
-            mcExp.setDescription("PETR4 stock market prediction");
-            mcExp.setDataNormalizationDescription("min-max");
-            mcExp.setOutlierDetectionDescription("split and inplit removed");
-
-            mcContext.addExperiment(mcExp);
-
-        //PAREI: SEGUIR AQUI COM A LOGICA DO CAMINHO, DESDE O APPLICATION_CONTEXT ATE O RESULTADO!
-        //PASSAR ISSO COMO UM VO PARA A CLASSE DE ESCREVER O ARQUIVO TTL
-        // EM JENA
-
-        /* step 2: grouping executions by logical divisions*/
-
-        //creating logical division 01
-        ExperimentConfigurationVO mcExpConf1 = new ExperimentConfigurationVO("EXP001", "grouping desc");
-        //mcExpConf1.setExperiment(mcExp);
-
-        mcExpConf1.setModel("MSVM003201502");
-
-        mcExpConf1.setHardwareConfiguration("ubuntu",
-                EnumProcessors.INTEL_COREI7,
-                EnumRAM.SIZE_8GB,
-                "SSD 128GB",
-                EnumCaches.CACHE_3MB);
-
-        mcExpConf1.setDataSet("", "BOVESPA_20110101_20131201");
-
-        mcExpConf1.setSamplingMethod(EnumSamplingMethods.CROSS_VALIDATION, 10);
-        mcExpConf1.SamplingMethod().setTrainSize(0.8);
-        mcExpConf1.SamplingMethod().setTrainSize(0.2);
-        mcExpConf1.SamplingMethod().setFolds(10);
-        mcExpConf1.SamplingMethod().setSequential(true);
-
-        //mcExpConf1.addFeature(new FeatureVO(1, "open_value"));
-        //mcExpConf1.addFeature(new FeatureVO(2, "close_value"));
-        //mcExpConf1.addFeature(new FeatureVO(3, "min_value"));
-        //mcExpConf1.addFeature(new FeatureVO(4, "max_value"));
-
-        /* step 3: define the algorithms */
-
-        ToolVO software = new ToolVO(EnumTools.WEKA);
-        software.setRevision("3.6.6");
-
-        //AlgorithmVO algSVM = new AlgorithmVO(EnumAlgorithm.SupportVectorMachines);
-        //algSVM.addParameter(new AlgorithmParameterVO("C", "10^2"));
-        //algSVM.addParameter(new AlgorithmParameterVO("alpha", "0.1"));
-
-        //AlgorithmVO algNB = new AlgorithmVO(EnumAlgorithm.NaiveBayes);
-
-        /* step 4: control the executions */
-
-        // train
-        ExecutionSetVO exec1 = new ExecutionSetVO(null, "E001", new PhaseVO(EnumPhases.TRAIN));
-        exec1.setExperimentConfiguration(mcExpConf1);
-        //exec1.setExamples(new ExampleCollection(0l, 114l));
-
-        // test
-        ExecutionSetVO exec2 = new ExecutionSetVO(null, "E002", new PhaseVO(EnumPhases.TEST));
-        exec2.setExperimentConfiguration(mcExpConf1);
-        //exec2.setExamples(new ExampleCollection(115l, 160l));
-
-        /*****************************************************************
-         * YOUR SIMULATION'S RUN - BEGIN
-         *****************************************************************/
-        //simulation for train...
-
-        exec1.setStartDate(new Date());
-        ModelSimulatorExample.getInstance().run("train");
-        exec1.setEndDate(new Date());
-        double accTrain = ModelSimulatorExample.getInstance().getAccuracyTrain();
-        double fMeasureTrain =ModelSimulatorExample.getInstance().getfMeasureTrain();
-
-        //simulation for test...
-        exec2.setStartDate(new Date());
-        ModelSimulatorExample.getInstance().run("test");
-        exec2.setEndDate(new Date());
-        double accTest = ModelSimulatorExample.getInstance().getAccuracyTest();
-        double fMeasureTest =ModelSimulatorExample.getInstance().getfMeasureTest();
+            mex.Configuration().setSamplingMethod(EnumSamplingMethods.CROSS_VALIDATION, 10);
+            mex.Configuration().SamplingMethod().setTrainSize(0.8);
+            mex.Configuration().SamplingMethod().setTestSize(0.2);
+            mex.Configuration().SamplingMethod().setSequential(true);
 
 
-        /*****************************************************************
-         * YOUR SIMULATION'S RUN - END
-         *****************************************************************/
+            mex.Configuration().setTool(EnumTools.WEKA, "3.6.6");
 
-         /* step 5: store the performance */
 
-        ClassificationMeasureVO p1 = new ClassificationMeasureVO();
-        p1.setAccuracy(accTrain);
-        p1.set_fMeasure(fMeasureTrain);
-        //exec1.addPerformance(p1);
+            String alg1 = mex.Configuration().addAlgorithm("nb", EnumAlgorithmsClasses.NaiveBayes);
 
-        ClassificationMeasureVO p2 = new ClassificationMeasureVO();
-        p2.setAccuracy(accTrain);
-        p2.set_fMeasure(fMeasureTest);
-        //exec2.addPerformance(p2);
+            String exec1 = mex.Configuration().addExecution(EnumExecutionsType.OVERALL, EnumPhases.TRAIN);
+            String exec2 = mex.Configuration().addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
 
-        /* save the file */
+            mex.Configuration().Execution(exec1).setAlgorithm(alg1);
+            mex.Configuration().Execution(exec2).setAlgorithm(alg1);
+
+            //simulation for training phase...
+
+            mex.Configuration().Execution(exec1).setStartDate(new Date());
+            ModelSimulatorExample.getInstance().run("train");
+            mex.Configuration().Execution(exec1).setEndDate(new Date());
+            double accTrain = ModelSimulatorExample.getInstance().getAccuracyTrain();
+            double fMeasureTrain =ModelSimulatorExample.getInstance().getfMeasureTrain();
+
+            //simulation for test...
+            mex.Configuration().Execution(exec2).setStartDate(new Date());
+            ModelSimulatorExample.getInstance().run("test");
+            mex.Configuration().Execution(exec2).setEndDate(new Date());
+            double accTest = ModelSimulatorExample.getInstance().getAccuracyTest();
+            double fMeasureTest =ModelSimulatorExample.getInstance().getfMeasureTest();
+
+
+            mex.Configuration().Execution(exec1).addPerformance(EnumMeasures.ACCURACY, accTrain);
+            mex.Configuration().Execution(exec1).addPerformance(EnumMeasures.FMEASURE, fMeasureTrain);
+
+            mex.Configuration().Execution(exec2).addPerformance(EnumMeasures.ACCURACY, accTest);
+            mex.Configuration().Execution(exec2).addPerformance(EnumMeasures.FMEASURE, fMeasureTest);
 
 
         try{
-            MEXSerializer.getInstance().saveToDisk("/Users/dnes/Github/mexproject/metafiles/log4mex/ex009.ttl", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
+            System.out.println("saving the metafile...wait");
+            MEXSerializer.getInstance().saveToDisk("./metafiles/log4mex/ex006", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
         }catch (Exception e){
             System.out.print(e.toString());
         }
@@ -142,7 +86,6 @@ public class ExampleGenericProblemSimulator {
         }catch (Exception e){
 
         }
-
 
 
     }
