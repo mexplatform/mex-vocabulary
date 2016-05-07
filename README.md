@@ -7,7 +7,7 @@ This project aims at facilitating the sharing and data management of machine lea
 
 For more information, please see the sub projects listed bellow:
 
-### MEX Project
+## MEX Projects
   * [MEX Vocabulary: A Lightweight Interchange Format for Machine Learning Experiments](https://github.com/AKSW/mexproject/tree/master/vocabulary)
   * [LOG4MEX Library](https://github.com/AKSW/mexproject/tree/master/log4mex)
   * [MEX Framework](https://github.com/AKSW/mexproject/tree/master/framework)
@@ -15,7 +15,6 @@ For more information, please see the sub projects listed bellow:
   * [Get in touch! Google Group](mex-project@googlegroups.com)
 
 ##LOG4MEX Library: Demo and Documentation
-![LOG4MEX](http://dne5.com/mex/diagram/log4mex-small.png)
 
 [Project Page](http://aksw.github.io/mexproject/)
 
