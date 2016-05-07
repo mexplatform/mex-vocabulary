@@ -22,6 +22,14 @@ SPARQL Endpoint: [http://mex.aksw.org/sparql]
 Found a :bug: bug? [Open an issue](https://github.com/AKSW/fox/issues/new) 
 
 ##Changelog
+### [v1.0.2]
+* MEX vocabulary update
+* Fixing serialization bug
+
+### [v1.0.1]
+* MEX vocabulary update
+* Adding support to more semantic formats
+
 ### [v1.0.0]
 * Initial version
 
