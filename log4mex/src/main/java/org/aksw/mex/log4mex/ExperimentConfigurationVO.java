@@ -1,9 +1,10 @@
-package org.aksw.mex.log4mex.core;
+package org.aksw.mex.log4mex;
 
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Iterables;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.log4mex.algo.ToolVO;
+import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXController;
 import org.aksw.mex.util.MEXEnum;
@@ -27,12 +28,12 @@ public class ExperimentConfigurationVO {
     private String                     _description;
     private Integer                    _seq = 0;
 
-    private ModelVO                    _model;
-    private PhaseVO                    _phase;
-    private SamplingMethodVO           _sampling;
-    private HardwareConfigurationVO    _hard;
-    private DataSetVO                  _ds;
-    private ToolVO                     _tool;
+    private ModelVO _model;
+    private PhaseVO _phase;
+    private SamplingMethodVO _sampling;
+    private HardwareConfigurationVO _hard;
+    private DataSetVO _ds;
+    private ToolVO _tool;
 
     private List<Execution>            _executions;
     private List<FeatureVO>            _features;
@@ -220,22 +221,6 @@ public class ExperimentConfigurationVO {
         return ret;
     }
 
-    /**
-     * returns all the algorithms of a configuration
-     * @return
-     */
-    public List<AlgorithmVO> getAlgorithms(){
-        return this._algorithms;
-    }
-
-    public List<FeatureVO> getFeatures(){
-        return this._features;
-    }
-
-    public List<Execution> getExecutions(){
-        return this._executions;
-    }
-
     public Execution Execution(String id){
         Execution ret  = null;
         try {
@@ -248,20 +233,20 @@ public class ExperimentConfigurationVO {
         return ret;
     }
 
-    private ExecutionSetVO ExecutionOverall(String id){
+    /**
+     * returns all the algorithms of a configuration
+     * @return
+     */
+    protected List<AlgorithmVO> getAlgorithms(){
+        return this._algorithms;
+    }
 
-        ExecutionSetVO r = null;
-        try {
-            Collection<Execution> t = Collections2.filter(this._executions, p -> p._id.equals(id));
-            if (t != null && t.size() >0){
-                if (Iterables.get(t, 0) instanceof ExecutionSetVO) {
-                    r = (ExecutionSetVO) Iterables.get(t, 0);}
-            }
-        }
-        catch (Exception e){
-            System.out.println(e.toString());
-        }
-        return r;
+    protected List<FeatureVO> getFeatures(){
+        return this._features;
+    }
+
+    protected List<Execution> getExecutions(){
+        return this._executions;
     }
 
     /**********************************************************************************************************************************************
@@ -586,6 +571,7 @@ public class ExperimentConfigurationVO {
     public String addAlgorithm(String algorithmId, String algorithmName) throws Exception {
         return _addAlgorithm(algorithmId, algorithmName, null, null, null).getIndividualName();
     }
+
     /**
      * add an Algorithm available in an Experiment Configuration
      * @param algorithmId

@@ -1,8 +1,11 @@
-package org.aksw.mex.log4mex.core;
+package org.aksw.mex.log4mex;
 
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Iterables;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
+import org.aksw.mex.log4mex.core.ExampleVO;
+import org.aksw.mex.log4mex.core.ModelVO;
+import org.aksw.mex.log4mex.core.PhaseVO;
 import org.aksw.mex.log4mex.perf.example.ExamplePerformanceMeasureVO;
 import org.aksw.mex.log4mex.perf.overall.*;
 import org.aksw.mex.util.MEXEnum;
@@ -25,9 +28,9 @@ public abstract class Execution {
     protected Date                      _endedAtTime;
 
     protected ExperimentConfigurationVO _expConf;
-    protected PhaseVO                   _phase;
-    protected AlgorithmVO               _algo;
-    protected ModelVO                   _model;
+    protected PhaseVO _phase;
+    protected AlgorithmVO _algo;
+    protected ModelVO _model;
 
     protected List<ExampleVO>           _examples;
     protected List<Measure>             _performances;

@@ -1,6 +1,5 @@
 package org.aksw.mex.log4mex;
 
-import com.google.common.collect.Collections2;
 import com.hp.hpl.jena.datatypes.xsd.XSDDatatype;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
@@ -11,7 +10,6 @@ import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.log4mex.perf.example.ExamplePerformanceMeasureVO;
 import org.aksw.mex.log4mex.perf.overall.*;
 import org.aksw.mex.util.MEXConstant;
-import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.util.ontology.DCAT;
 import org.aksw.mex.util.ontology.DOAP;
 import org.aksw.mex.util.ontology.FOAF;
@@ -29,7 +27,6 @@ import java.io.InputStream;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
@@ -39,11 +36,10 @@ import java.util.Properties;
  */
 public class MEXSerializer {
 
-    private static MEXSerializer instance = null;
-    private static final Logger LOGGER = LoggerFactory.getLogger(MEXSerializer.class);
+    private static       MEXSerializer instance = null;
+    private static final Logger          LOGGER = LoggerFactory.getLogger(MEXSerializer.class);
 
-    protected MEXSerializer() {
-    }
+    protected MEXSerializer() {}
 
     public static MEXSerializer getInstance() {
         if(instance == null) {
@@ -112,20 +108,6 @@ public class MEXSerializer {
 
     }
 
-    public void saveToDisk(String filename, String URIbase,
-                           MyMEX mex, MEXConstant.EnumRDFFormats format) throws Exception {
-        try{
-            if (parse(mex)){
-                writeJena(filename, URIbase, mex, format);
-            }else{
-                throw new Exception("The MEX file could not be generated. Please see the log for more details");
-            }
-        }catch (Exception e){
-            LOGGER.error(e.toString());
-            throw(e);
-        }
-    }
-
     private void setHeaders(Model model, String URIbase){
         //setting the headers
         model.setNsPrefix(PROVO.PREFIX, PROVO.NS);
@@ -141,43 +123,6 @@ public class MEXSerializer {
         model.setNsPrefix("dct", DCTerms.NS);
         model.setNsPrefix("doap", DOAP.getURI());
         model.setNsPrefix("dcat", DCAT.getURI());
-    }
-
-    //go back here later...
-    private void cleanUpTheResources(MyMEX mex) {
-
-        //EXPERIMENT CONFIGURATION
-        if (mex.getExperimentConfigurations() != null) {
-            int aux = 1;
-            for (Iterator<ExperimentConfigurationVO> i = mex.getExperimentConfigurations().iterator(); i.hasNext(); ) {
-                ExperimentConfigurationVO item = i.next();
-
-                //SAMPLING
-                String samplingClass = item.SamplingMethod().getClassName();
-                String samplingName   = item.SamplingMethod().getIndividualName();
-                Double samplingTrain  = item.SamplingMethod().getTrainSize();
-                Double samplingTest   = item.SamplingMethod().getTestSize();
-                Integer samplingFolds  = item.SamplingMethod().getFolds();
-
-                MEXEnum.EnumSamplingMethods sm = MEXEnum.EnumSamplingMethods.valueOf(samplingClass);
-
-                SamplingMethodVO tempSampling = new SamplingMethodVO(samplingClass, sm, samplingTrain, samplingTest);
-                tempSampling.setFolds(samplingFolds);
-
-                Collection<ExperimentConfigurationVO> t =
-                        Collections2.filter(mex.getExperimentConfigurations(),
-                                p -> p.SamplingMethod().getFolds().equals(samplingFolds) &&
-                                        p.SamplingMethod().getIndividualName().equals(samplingName) &&
-                                        p.SamplingMethod().getTrainSize().equals(samplingTrain) &&
-                                        p.SamplingMethod().getTestSize().equals(samplingTest));
-                if (t != null && t.size() > 0){
-                    item = null;
-                }
-
-
-            }
-
-        }
     }
 
     private void writeJena(String filename, String URIbase, MyMEX mex, MEXConstant.EnumRDFFormats format) throws Exception{
@@ -783,7 +728,7 @@ public class MEXSerializer {
 
     }
 
-    public String getVersion() {
+    private String getVersion() {
         String path = "/version.prop";
         InputStream stream = getClass().getClass().getResourceAsStream(path);
         if (stream == null)
@@ -817,6 +762,19 @@ public class MEXSerializer {
         }
 
         return auxLabel;
+    }
+
+    public void saveToDisk(String filename, String URIbase, MyMEX mex, MEXConstant.EnumRDFFormats format) throws Exception {
+        try{
+            if (parse(mex)){
+                writeJena(filename, URIbase, mex, format);
+            }else{
+                throw new Exception("The MEX file could not be generated. Please see the log for more details");
+            }
+        }catch (Exception e){
+            LOGGER.error(e.toString());
+            throw(e);
+        }
     }
 
 }

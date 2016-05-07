@@ -28,13 +28,11 @@ public class MyMEX {
     private ExperimentVO experiment;
     private List<ExperimentConfigurationVO> experimentConfigurationList;
     private boolean withoutConfiguration = false;
-    private boolean automatic;
 
     public MyMEX(){
         this.applicationContext = new ApplicationContextVO();
         this.experiment = new ExperimentVO(MEXConstant.DEFAULT_EXP_ID);
         this.experimentConfigurationList = new ArrayList<>();
-        automatic=true;
     }
 
     /* mexcore:ApplicationContext */
