@@ -1,5 +1,8 @@
 package org.aksw.mex.log4mex.core;
 
+import org.aksw.mex.log4mex.Execution;
+import org.aksw.mex.log4mex.ExperimentConfigurationVO;
+
 /**
  * Created by esteves on 26.06.15.
  */

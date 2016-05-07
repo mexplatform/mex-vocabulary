@@ -26,7 +26,7 @@ public class Example03_lightweight {
                 //change later here the sets for adds
                 mex.setAuthorName("D Esteves");
                 mex.setAuthorEmail("esteves@informatik.uni-leipzig.de");
-                mex.setContext(EnumContexts.RECOMENDER_SYSTEMS);
+                mex.setContext(EnumContexts.FACT_PREDICTION);
                 mex.setOrganization("Leipzig University");
 
                 mex.setExperimentId("E001");
