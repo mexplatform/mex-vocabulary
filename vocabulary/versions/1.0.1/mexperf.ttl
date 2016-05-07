@@ -17,11 +17,11 @@
 @base <http://mex.aksw.org/mex-perf> .
 
 <http://mex.aksw.org/mex-perf> rdf:type owl:Ontology ;
+                               
                                rdfs:label "The MEX Vocabulary (mex-perf)"@en ,
-                                          "Vocabulario MEX (mex-perf)"@pt ;
+                                          "Vocabulario MEX (mex-perf)"@pt ;                  
                                dct:created "2014-02-02"^^xsd:date ;
-                               dct:modified "2016-05-01"^^xsd:date ;
-                               dct:creator <http://aksw.org/DiegoEsteves.html> ;
+                               dct:modified "2016-04-01"^^xsd:date ;
                                rdf:about "http://mex.aksw.org/mex-doc-perf#" ;
                                owl:versionInfo "1.0.2" ;
                                dc:publisher "AKSW Research Group - Leipzig University"@en ;
@@ -29,8 +29,14 @@
                                rdfs:comment "MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-perf layer is the 3rd level of the MEX for representing the machine learning algorithm's performances."@en ;
                                dc:publisher "AKSW Grupo de Pesquisa - Universidade de Leipzig"@pt ;
                                rdfs:comment "MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-perf e o 3o. nivel na abordagem MEX para representar performances de algoritmos de aprendizado de maquinas"@pt ;
-                               dct:contributor <http://aksw.org/DiegoMoussallem.html> ,
-                                               <http://aksw.org/JensLehmann.html> ;
+                               dct:creator mex-core:esteves ;
+                               dct:contributor mex-core:hellmann ,
+                                               mex-core:lehmann ,
+                                               mex-core:duarte ,
+                                               mex-core:moussallem ,
+                                               mex-core:usbeck ,
+                                               mex-core:yoko ;
+                               rdfs:isDefinedBy : ;
                                owl:imports doap: ,
                                            rdfs: ,
                                            prov: .
@@ -225,7 +231,7 @@
 
 :formula rdf:type owl:DatatypeProperty ;
          
-         rdfs:domain :UserDefinedMeasure ;
+         rdfs:domain :UserDefinedPerformance ;
          
          rdfs:range xsd:string .
 
@@ -405,7 +411,7 @@
 
 :predictedValue rdf:type owl:DatatypeProperty ;
                 
-                rdfs:domain :ExamplePerformanceMeasure ;
+                rdfs:domain :ExamplePerformance ;
                 
                 rdfs:range xsd:string .
 
@@ -415,7 +421,7 @@
 
 :realValue rdf:type owl:DatatypeProperty ;
            
-           rdfs:domain :ExamplePerformanceMeasure ;
+           rdfs:domain :ExamplePerformance ;
            
            rdfs:range xsd:string .
 
@@ -614,19 +620,19 @@
 
 
 
-###  http://mex.aksw.org/mex-perf#ExamplePerformanceMeasure
+###  http://mex.aksw.org/mex-perf#ExamplePerformance
 
-:ExamplePerformanceMeasure rdf:type owl:Class ;
-                           
-                           rdfs:subClassOf prov:Entity .
+:ExamplePerformance rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf prov:Entity .
 
 
 
-###  http://mex.aksw.org/mex-perf#ExamplePerformanceMeasureCollection
+###  http://mex.aksw.org/mex-perf#ExamplePerformanceCollection
 
-:ExamplePerformanceMeasureCollection rdf:type owl:Class ;
-                                     
-                                     rdfs:subClassOf prov:Collection .
+:ExamplePerformanceCollection rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf prov:Collection .
 
 
 
@@ -662,40 +668,22 @@
 
 
 
-###  http://mex.aksw.org/mex-perf#UserDefinedMeasure
+###  http://mex.aksw.org/mex-perf#UserDefinedPerformance
 
-:UserDefinedMeasure rdf:type owl:Class ;
-                    
-                    rdfs:subClassOf :PerformanceMeasure .
-
-
-
-###  http://mex.aksw.org/mex-perf#UserDefinedMeasureCollection
-
-:UserDefinedMeasureCollection rdf:type owl:Class ;
-                              
-                              rdfs:subClassOf prov:Collection .
+:UserDefinedPerformance rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf prov:Entity .
 
 
 
-###  http://www.w3.org/ns/prov-o#Activity
+###  http://mex.aksw.org/mex-perf#UserDefinedPerformanceCollection
 
-prov:Activity rdf:type owl:Class .
-
-
-
-###  http://www.w3.org/ns/prov-o#Collection
-
-prov:Collection rdf:type owl:Class .
-
-
-
-###  http://www.w3.org/ns/prov-o#Entity
-
-prov:Entity rdf:type owl:Class .
+:UserDefinedPerformanceCollection rdf:type owl:Class ;
+                                  
+                                  rdfs:subClassOf prov:Collection .
 
 
 
 
-###  Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net
+###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
 

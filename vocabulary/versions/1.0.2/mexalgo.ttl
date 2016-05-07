@@ -21,6 +21,7 @@
                                           "Vocabulario MEX (mex-algo)"@pt ;
                                dct:created "2014-02-02"^^xsd:date ;
                                dct:modified "2016-05-01" ;
+                               dct:creator <http://aksw.org/DiegoEsteves.html> ;
                                owl:versionInfo "1.0.2" ;
                                dc:publisher "AKSW Research Group - Leipzig University"@en ;
                                dct:title "MEX Algorithm Ontology (mex-algo)"@en ;
@@ -28,7 +29,6 @@
                                dc:publisher "AKSW Grupo de Pesquisa - Universidade de Leipzig"@pt ;
                                rdfs:comment "MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-algo representa informacaos de algoritmos existentes em um experimento de aprendizado de maquina."@pt ;
                                rdf:about "http://mex.aksw.org/mex-doc-algo#" ;
-                               dct:creator <http://aksw.org/DiegoEsteves.html> ;
                                dct:contributor <http://aksw.org/DiegoMoussallem.html> ,
                                                <http://aksw.org/JensLehmann.html> ;
                                owl:imports doap: ,

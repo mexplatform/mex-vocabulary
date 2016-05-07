@@ -19,6 +19,7 @@
                                           "Vocabulario MEX (mex-core)"@pt ;
                                dct:created "2014-02-02"^^xsd:date ;
                                dct:modified "2016-05-01"^^xsd:date ;
+                               dct:creator <http://aksw.org/DiegoEsteves.html> ;                               
                                owl:versionInfo "1.0.2" ;
                                dc:publisher "AKSW Research Group - Leipzig University"@en ;
                                dct:title "MEX Core (mex-core) is an ontology with the goal of describing the core process for machine learning problems (MEX Platform)"@en ;
@@ -26,7 +27,6 @@
                                rdfs:comment "MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-core layer represents the core information gathered from a basic machine learning experiment design."@en ;
                                dc:publisher "AKSW Grupo de Pesquisa - Universidade de Leipzig"@pt ;
                                rdfs:comment "MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-core representa a principal informacao obtida de um experimento de aprendizado de maquina."@pt ;
-                               dct:creator <http://aksw.org/DiegoEsteves.html> ;
                                dct:contributor <http://aksw.org/DiegoMoussallem.html> ,
                                                <http://aksw.org/JensLehmann.html> ;
                                owl:imports doap: ,
