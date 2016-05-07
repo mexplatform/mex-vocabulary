@@ -14,9 +14,9 @@ Java 8, Maven 3
 LOG4MEX is licensed under the [Creative Commons Non-Commercial](http://creativecommons.org/licenses/by-nc/2.0/).
 
 ##Demo and Documentation
-[Project Site](http://aksw.github.io/mexproject/)
-[Javadoc](http://dne5.com/mex/documentation/log4mex/)
-[SPARQL Endpoint](http://mex.aksw.org/sparql)
+* [Project Site](http://aksw.github.io/mexproject/)
+* [Javadoc](http://dne5.com/mex/documentation/log4mex/)
+* [SPARQL Endpoint](http://mex.aksw.org/sparql)
 
 ##Bugs
 Found a :bug: bug? [Open an issue](https://github.com/AKSW/fox/issues/new) 
@@ -151,3 +151,8 @@ try{
 }catch (Exception e){
     System.out.println(e.toString());
 }
+```
+
+## More Examples
+
+More basic examples are available [here](https://github.com/AKSW/mexproject/tree/master/examples/src/main/java/log4mex). You can check also the [project website](http://aksw.github.io/mexproject/) in order to check recent updates and use cases.
