@@ -1,9 +1,11 @@
 package org.aksw.mex.log4mex.perf.overall;
 
+import org.aksw.mex.log4mex.perf.IMeasure;
+
 /**
  * Created by esteves on 30.06.15.
  */
-public abstract class Measure {
+public abstract class Measure implements IMeasure {
 
     private String _name;
     private Double _value;

@@ -152,7 +152,8 @@ public class ApplicationContextVO  {
      */
     public boolean hasValue(){
 
-        if ((this._givenName != null && !StringUtils.isBlank(this._givenName) && !StringUtils.isEmpty(this._givenName))){
+        if ((this._givenName != null && !StringUtils.isBlank(this._givenName) && !StringUtils.isEmpty(this._givenName)) &&
+                (this._mbox != null && !StringUtils.isBlank(this._mbox) && !StringUtils.isEmpty(this._mbox))){
             return true;
         }else{
             return false;

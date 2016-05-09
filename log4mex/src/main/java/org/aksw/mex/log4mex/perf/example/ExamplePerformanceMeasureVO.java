@@ -22,4 +22,9 @@ public class ExamplePerformanceMeasureVO extends Measure {
         return "Performance measure for a single run (predicted x real)";
     }
 
+    public String getId() {return this._id;}
+
+    public String getPredictedValue() {return this._predicted;}
+
+    public String getRealValue() {return this._real;}
 }

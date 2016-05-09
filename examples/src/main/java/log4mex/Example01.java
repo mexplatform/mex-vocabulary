@@ -21,6 +21,7 @@ public class Example01 {
         try{
             /* (1) basic authoring provenance */
             mex.setAuthorName("D Esteves");
+            mex.setAuthorEmail("esteves@informatik.uni-leipzig.de");
             String confID = mex.addConfiguration();
             /* (2) the dataset */
             mex.Configuration(confID).DataSet().setName("mydataset.csv");

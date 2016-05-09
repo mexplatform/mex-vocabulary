@@ -5,15 +5,13 @@ import com.google.common.collect.Iterables;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.log4mex.core.ExampleVO;
 import org.aksw.mex.log4mex.core.PhaseVO;
+import org.aksw.mex.log4mex.perf.IMeasure;
 import org.aksw.mex.log4mex.perf.example.ExamplePerformanceMeasureVO;
 import org.aksw.mex.log4mex.perf.overall.*;
 import org.aksw.mex.util.MEXEnum;
 import org.apache.commons.lang3.EnumUtils;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by esteves on 26.06.15.
@@ -116,6 +114,16 @@ public abstract class Execution {
     protected List<ExampleVO> getExamples(){
         return this._examples;
     }
+
+    protected List<Measure> getPerformances(Class<? extends IMeasure> klass){
+        List<Measure> _p = new ArrayList<>();
+        for(Iterator<? extends Measure> i = this._performances.iterator(); i.hasNext(); ) {
+            Measure item = i.next();
+            if (item.getClass().equals(klass))
+                _p.add(item);
+        }
+        return _p;
+    }
     
     /**********************************************************************************************************************************************
      *                                                                  setters
@@ -171,7 +179,7 @@ public abstract class Execution {
      * @return
      */
     public boolean addPerformance(String id, String description, String formula, Double value){
-        UserDefinedMeasureVO m = new UserDefinedMeasureVO(id, description, formula, value);
+        Measure m = new UserDefinedMeasureVO(id, description, formula, value);
         return this._performances.add(m);
     }
 
@@ -193,7 +201,7 @@ public abstract class Execution {
      * @param v
      * @return
      */
-    public boolean addPerformance(MEXEnum.EnumMeasures m, double v){
+    public void addPerformance(MEXEnum.EnumMeasures m, double v) throws Exception{
         String type = "";
         String p = m.toString().replace("_","").toUpperCase();
         String paux = m.toString().replace("_","");
@@ -209,34 +217,31 @@ public abstract class Execution {
                     if (EnumUtils.isValidEnum(MEXEnum.EnumStatisticalMeasure.class, p) == false){
                         type = "clu";
                         if (EnumUtils.isValidEnum(MEXEnum.EnumClusteringMeasure.class, p) == false){
-                            return false;}
+                            throw new Exception("measure has not been found: " + m.toString());}
                     }
                 }
             }
 
             switch (type) {
                 case "cla":
-                    ret = addClassificationPerformance(paux,v);
+                    addClassificationPerformance(paux,v);
                     break;
                 case "reg":
-                    ret =  addRegressionPerformance(paux,v);
+                    addRegressionPerformance(paux,v);
                     break;
                 case "sta":
-                    ret = addStatisticalPerformance(paux,v);
+                    addStatisticalPerformance(paux,v);
                     break;
                 case "clu":
-                    ret = addClusteringPerformance(paux,v);
+                    addClusteringPerformance(paux,v);
                     break;
                 default:
-                    ret = false;
-                    break;
+                    throw new Exception("measure has not been found: " + p);
             }
 
         }catch (Exception e){
-            return false;}
-
-        finally {
-            return ret;}
+            throw (e);
+        }
 
     }
 
@@ -268,4 +273,26 @@ public abstract class Execution {
         return this._performances.add(m);
     }
 
+    /**
+     * Add a dataset example to the execution
+     * @param id
+     * @param value value of the example item
+     * @param datasetRow indicates the dataset row
+     * @param datasetColumn indicates the dataset column
+     * @return
+     * @throws Exception
+     */
+    public boolean addDatasetExample(String id, String value, long datasetRow, long datasetColumn) throws Exception{
+        try {
+            ExampleVO example = new ExampleVO();
+            example.setId(id);
+            example.setValue(value);
+            example.setDatasetRow(datasetRow);
+            example.setDatasetColumn(datasetColumn);
+            this._examples.add(example);
+            return true;
+        }catch (Exception e){
+            throw e;
+        }
+    }
 }

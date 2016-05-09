@@ -74,6 +74,7 @@ public class ExampleWeka {
         try {
              /* (1) basic authoring provenance */
             mex.setAuthorName("P.Creek");
+            mex.setAuthorEmail("creek@example.com");
              /* (2) grouping the executions by configurations */
             String confID = mex.addConfiguration();
              /* (2.1) the dataset */

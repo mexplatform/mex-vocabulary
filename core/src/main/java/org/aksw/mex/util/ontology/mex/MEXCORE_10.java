@@ -23,6 +23,9 @@ public abstract class MEXCORE_10 extends MEXCORE implements IOntology {
 
     public static final Property targetClass;
 
+    public static final Property datasetRow;
+    public static final Property datasetColumn;
+
     public static final Property startsAtPosition;
     public static final Property endsAtPosition;
 
@@ -41,6 +44,7 @@ public abstract class MEXCORE_10 extends MEXCORE implements IOntology {
     public static final Property video;
 
     public static final Property trustyURI;
+    public static final Property experimentHash;
 
     public static final Property dataNormalizedDescription;
     public static final Property outliersRemovedDescription;
@@ -55,6 +59,10 @@ public abstract class MEXCORE_10 extends MEXCORE implements IOntology {
         targetClass = m_model.createProperty(NS + "targetClass");
         startsAtPosition = m_model.createProperty(NS + "startsAtPosition");
         endsAtPosition = m_model.createProperty(NS + "endsAtPosition");
+
+        datasetRow = m_model.createProperty(NS + "datasetRow");
+        datasetColumn = m_model.createProperty(NS + "datasetColumn");
+
         startsAtTime = m_model.createProperty(NS + "startsAtTime");
         endsAtTime = m_model.createProperty(NS + "endsAtTime");
         trainSize = m_model.createProperty(NS + "trainSize");
@@ -67,6 +75,7 @@ public abstract class MEXCORE_10 extends MEXCORE implements IOntology {
         hd = m_model.createProperty(NS + "hd");
         video = m_model.createProperty(NS + "video");
         trustyURI = m_model.createProperty(NS + "trustyURI");
+        experimentHash = m_model.createProperty(NS + "experimentHash");
 
         dataNormalizedDescription = m_model.createProperty(NS + "dataNormalizedDescription");
         outliersRemovedDescription = m_model.createProperty(NS + "outliersRemovedDescription");
@@ -89,8 +98,9 @@ public abstract class MEXCORE_10 extends MEXCORE implements IOntology {
         public static final String HARDWARE_CONFIGURATION = "HardwareConfiguration";
         public static final String DATASET = "Dataset";
         public static final String PHASE = "Phase";
-        public static final String EXAMPLE = "Exampleold";
+        public static final String EXAMPLE = "Example";
         public static final String EXAMPLE_COLLECTION = "ExampleCollection";
+        public static final String EXAMPLE_PERFORMANCE_COLLECTION = "ExamplePerformanceCollection";
     }
 
     public class Predicates{

@@ -518,7 +518,7 @@ public class MEXEnum {
         L2NORM("L2norm"),
         L1NORM("L1norm"),
         LINFNORM("Linfnorm"),
-        MATTHEWSCORRELATIONCOEFICIENT("mcc"),
+        MATTHEWSCORRELATIONCOEFICIENT("matthewscorrelationcoeficient"),
         PROCESSINGTIME("processingTime");
 
         private final String text;

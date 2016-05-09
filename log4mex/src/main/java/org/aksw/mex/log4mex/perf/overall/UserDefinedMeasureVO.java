@@ -12,15 +12,15 @@ public class UserDefinedMeasureVO extends Measure{
 
 
 
-    public String get_id() {
+    public String getId() {
         return _id;
     }
 
-    public void set_id(String _id) {
+    public void setId(String _id) {
         this._id = _id;
     }
 
-    public String get_description() {
+    public String getDescription() {
         return _description;
     }
 
@@ -28,7 +28,7 @@ public class UserDefinedMeasureVO extends Measure{
         this._description = _description;
     }
 
-    public String get_formula() {
+    public String getFormula() {
         return _formula;
     }
 
@@ -45,7 +45,7 @@ public class UserDefinedMeasureVO extends Measure{
     }
 
 
-    public String get_creatorName() {
+    public String getCreatorName() {
         return _creatorName;
     }
 

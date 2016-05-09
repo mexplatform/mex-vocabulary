@@ -41,6 +41,24 @@
 #################################################################
 
 
+###  http://mex.aksw.org/mex-core#datasetColumn
+
+:datasetColumn rdf:type owl:DatatypeProperty ;
+        
+        rdfs:domain :Example ;
+        
+        rdfs:range rdfs:Literal .
+
+
+###  http://mex.aksw.org/mex-core#datasetRow
+
+:datasetRow rdf:type owl:DatatypeProperty ;
+        
+        rdfs:domain :Example ;
+        
+        rdfs:range rdfs:Literal .
+
+
 ###  http://mex.aksw.org/mex-core#endsAt
 
 :endsAt rdf:type owl:ObjectProperty ;

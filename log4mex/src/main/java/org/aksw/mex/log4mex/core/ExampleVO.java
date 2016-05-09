@@ -21,8 +21,26 @@ public class ExampleVO implements IDataSetExample{
         this._value = _value;
     }
 
+    public long getDatasetColumn() {
+        return _dsColumn;
+    }
+
+    public void setDatasetColumn(long _id) {
+        this._dsColumn = _id;
+    }
+
+    public long getDatasetRow() {
+        return _dsRow;
+    }
+
+    public void setDatasetRow(long _value) {
+        this._dsRow = _value;
+    }
+
     private String _id;
     private String _value;
+    private long _dsColumn;
+    private long _dsRow;
 
     public ExampleVO(){
     }
