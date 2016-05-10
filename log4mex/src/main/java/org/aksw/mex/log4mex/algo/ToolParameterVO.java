@@ -1,14 +1,15 @@
 package org.aksw.mex.log4mex.algo;
 
 /**
- * Created by esteves on 08.06.15.
+ * Created by dnes on 10/05/16.
  */
-public class AlgorithmParameterVO {
+public class ToolParameterVO {
+
     private String _dct_identifier;
     private String _prov_value;
     private String _label="";
 
-    public AlgorithmParameterVO(String _dct_identifier, String _prov_value){
+    public ToolParameterVO(String _dct_identifier, String _prov_value){
         this._dct_identifier = _dct_identifier;
         this._prov_value = _prov_value;
         this._label = _dct_identifier;
@@ -16,11 +17,11 @@ public class AlgorithmParameterVO {
             this._label = _dct_identifier.toString().substring(0, 1).toUpperCase() + _dct_identifier.toString().substring(1);
     }
 
-    public String getIdentifier() {
+    public String getId() {
         return _dct_identifier;
     }
 
-    public void setIdentifier(String value) {
+    public void setId(String value) {
         this._dct_identifier = value;
     }
 

@@ -2,6 +2,8 @@ package org.aksw.mex.log4mex.algo;
 
 import org.aksw.mex.util.MEXEnum;
 
+import java.util.List;
+
 /**
  * Created by esteves on 08.06.15.
  */
@@ -14,6 +16,7 @@ public class ToolVO {
     private String doap_revision;
     private String doap_description;
     private String doap_programming_language;
+    private List<ToolParameterVO> _parameters;
 
     public ToolVO(MEXEnum.EnumTools name){
         this._individualName = name.toString();
@@ -36,44 +39,6 @@ public class ToolVO {
     public void setName(String value) {
         this.doap_name = value;
     }
-
-
-    //public ArrayList<String> getListOfProperty() {
-    //   return _properties;
-    //}
-
-    /*public void setProperty(String prop, String value) {
-
-        switch (prop) {
-            case "id":
-                this._individualName = value;
-                break;
-            case "doap:name":
-                this.doap_name = value;
-                break;
-            case "rdfs:label":
-                this.rdfs_label = value;
-                break;
-            case "doap:homepage":
-                this.doap_homepage = value;
-                break;
-            case "doap:revision":
-                this.doap_revision = value;
-                break;
-            case "doap:description":
-                this.doap_description = value;
-                break;
-            case "doap:programming-language":
-                this.doap_programming_language = value;
-                break;
-            default:
-                throw new IllegalArgumentException("Invalid property: " + prop);
-        }
-
-
-
-    }*/
-
 
     public String get() {
         return _individualName;
@@ -118,16 +83,20 @@ public class ToolVO {
 
     public boolean hasValue(){
 
-        if ((this.doap_name != null && !this.doap_name.isEmpty()) ||
-                (this.doap_description != null && !this.doap_description.isEmpty()) ||
+        if ((this.doap_name != null && !this.doap_name.isEmpty()) &&
+                ((this.doap_description != null && !this.doap_description.isEmpty()) ||
                 (this.doap_revision != null && !this.doap_revision.isEmpty()) ||
                 (this.doap_programming_language != null && !this.doap_programming_language.isEmpty()) ||
-                (this.doap_homepage != null && !this.doap_homepage.isEmpty())) {
+                (this.doap_homepage != null && !this.doap_homepage.isEmpty()))) {
             return true;
         }else{
             return false;
         }
 
+    }
+
+    public List<ToolParameterVO> getParameters(){
+        return this._parameters;
     }
 
 }

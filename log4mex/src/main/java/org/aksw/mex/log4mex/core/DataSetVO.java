@@ -10,10 +10,12 @@ public class DataSetVO {
     public String getName() {return _name;}
     public String getDescription() {return _description;}
     public String getURI() {return _uri;}
+    public String getLabel() {return _label;}
 
     private String _name;
     private String _description;
     private String _uri;
+    private String _label;
 
     public DataSetVO(String name){
         this._name = name;
@@ -43,6 +45,11 @@ public class DataSetVO {
 
         if ((this._name != null && !StringUtils.isBlank(this._name) && !StringUtils.isEmpty(this._name)) ||
                 (this._uri != null && !StringUtils.isBlank(this._uri) && !StringUtils.isEmpty(this._uri))){
+            if (this._name != null && !StringUtils.isBlank(this._name) && !StringUtils.isEmpty(this._name)) {
+                this._label = this._name;
+            } else{
+                this._label = this._uri;
+            }
             return true;
         }else{
             return false;

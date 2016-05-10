@@ -15,35 +15,35 @@ public class ExperimentVO {
     private String _noiseRemoved;
     private String _attributeSelection;
 
-    public String get_id() {
+    public String getId() {
         return _id;
     }
 
-    public Date get_date() {
+    public Date getDate() {
         return _date;
     }
 
-    public String get_description() {
+    public String getDescription() {
         return _description;
     }
 
-    public String get_dataNormalized() {
+    public String getDataNormalizedDescription() {
         return _dataNormalized;
     }
 
-    public String get_outliersRemoved() {
+    public String getOutliersRemovedDescription() {
         return _outliersRemoved;
     }
 
-    public String get_noiseRemoved() {
+    public String getNoiseRemovedDescription() {
         return _noiseRemoved;
     }
 
-    public String get_attributeSelection() {
+    public String getAttributeSelectionDescription() {
         return _attributeSelection;
     }
 
-    public String get_title() {
+    public String getTitle() {
         return _title;
     }
 
@@ -51,7 +51,7 @@ public class ExperimentVO {
         return _applicationContext;
     }
 
-    public void set_title(String _title) {
+    public void setTitle(String _title) {
         this._title = _title;
     }
 

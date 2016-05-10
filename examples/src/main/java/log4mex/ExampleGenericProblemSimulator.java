@@ -70,10 +70,10 @@ public class ExampleGenericProblemSimulator {
 
 
             mex.Configuration().Execution(exec1).addPerformance(EnumMeasures.ACCURACY, accTrain);
-            mex.Configuration().Execution(exec1).addPerformance(EnumMeasures.FMEASURE, fMeasureTrain);
+            mex.Configuration().Execution(exec1).addPerformance(EnumMeasures.F1MEASURE, fMeasureTrain);
 
             mex.Configuration().Execution(exec2).addPerformance(EnumMeasures.ACCURACY, accTest);
-            mex.Configuration().Execution(exec2).addPerformance(EnumMeasures.FMEASURE, fMeasureTest);
+            mex.Configuration().Execution(exec2).addPerformance(EnumMeasures.F1MEASURE, fMeasureTest);
 
 
         try{

@@ -57,7 +57,7 @@ public class MyMEX {
 
     public void setExperimentId(String value){this.experiment.setId(value);}
 
-    public void setExperimentTitle(String value){this.experiment.set_title(value);}
+    public void setExperimentTitle(String value){this.experiment.setTitle(value);}
 
     public void setExperimentDate(Date value){this.experiment.setDate(value);}
 

@@ -6,18 +6,18 @@ import java.util.List;
 /**
  * Created by esteves on 08.06.15.
  */
-public class AlgorithmParameterCollectionVO {
+public class HyperParameterCollection {
 
-    private List<AlgorithmParameterVO> _algorithmParameter;
+    private List<HyperParameterVO> _algorithmParameter;
     private String _identifier;
 
-    AlgorithmParameterCollectionVO(){
-        this._algorithmParameter = new ArrayList<AlgorithmParameterVO>()  ;
+    HyperParameterCollection(){
+        this._algorithmParameter = new ArrayList<HyperParameterVO>()  ;
         this._identifier = "";
     }
 
-    AlgorithmParameterCollectionVO(String identifier){
-        this._algorithmParameter = new ArrayList<AlgorithmParameterVO>()  ;
+    HyperParameterCollection(String identifier){
+        this._algorithmParameter = new ArrayList<HyperParameterVO>()  ;
         this._identifier = identifier;
     }
 
@@ -30,7 +30,7 @@ public class AlgorithmParameterCollectionVO {
         _identifier = value;
     }
 
-    public List<AlgorithmParameterVO> getParameters(){
+    public List<HyperParameterVO> getParameters(){
         return this._algorithmParameter;
     }
 

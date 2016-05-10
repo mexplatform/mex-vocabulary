@@ -16,7 +16,8 @@ public class MEXALGO_10 extends MEXALGO implements IOntology {
     public static final String PREFIX = "mexalgo";
     public static final Resource NAMESPACE;
     public static final Property acronym;
-    public static final Property hasParameter;
+    public static final Property hasHyperParameter;
+    public static final Property hasToolParameter;
     public static final Property hasAlgorithmClass;
 
     public MEXALGO_10() {
@@ -26,25 +27,23 @@ public class MEXALGO_10 extends MEXALGO implements IOntology {
     static {
         NAMESPACE = m_model.createResource(NS);
         acronym = m_model.createProperty(NS + "acronym");
-        hasParameter = m_model.createProperty(NS + Predicates.HAS_PARAMETER);
+        hasHyperParameter = m_model.createProperty(NS + Predicates.HAS_HYPER_PARAMETER);
+        hasToolParameter = m_model.createProperty(NS + Predicates.HAS_TOOL_PARAMETER);
         hasAlgorithmClass = m_model.createProperty(NS + Predicates.HAS_ALGORITHM_CLASS);
     }
 
     public class ClasseTypes{
-        public static final String LEARNING_METHOD = "LearningMethod";
-        public static final String LEARNING_PROBLEM = "LearningProblem";
-        public static final String ALGORITHM_CLASS = "AlgorithmClass";
-        public static final String TOOL = "Tool";
+
+        public static final String TOOL_PARAMETER = "ToolParameter";
+        public static final String TOOL_PARAMETER_COLLECTION = "ToolParameterCollection";
         public static final String ALGORITHM = "Algorithm";
-        public static final String ALGORITHM_PARAMETER_COLLECTION = "HyperParameterCollection";
-        public static final String ALGORITHM_PARAMETER = "HyperParameter";
+        public static final String HYPER_PARAMETER_COLLECTION = "HyperParameterCollection";
+        public static final String HYPER_PARAMETER = "HyperParameter";
     }
 
     public class Predicates{
-        public static final String HAS_LEARNING_METHOD = "hasLearningMethod";
-        public static final String HAS_LEARNING_PROBLEM = "hasLearningProblem";
-        public static final String HAS_PARAMETER_COLLECTION = "hasParameterCollection";
-        public static final String HAS_PARAMETER = "hasParameter";
+        public static final String HAS_HYPER_PARAMETER = "hasHyperParameter";
+        public static final String HAS_TOOL_PARAMETER = "hasToolParameter";
         public static final String HAS_ALGORITHM_CLASS = "hasAlgorithmClass";
     }
 

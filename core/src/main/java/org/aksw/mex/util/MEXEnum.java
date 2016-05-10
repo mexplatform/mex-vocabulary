@@ -379,7 +379,7 @@ public class MEXEnum {
 
         /*classification*/
         ACCURACY(EnumClassificationMeasure.ACCURACY.toString()),
-        FMEASURE(EnumClassificationMeasure.FMEASURE.toString()),
+        F1MEASURE(EnumClassificationMeasure.F1MEASURE.toString()),
         PRECISION(EnumClassificationMeasure.PRECISION.toString()),
         RECALL(EnumClassificationMeasure.RECALL.toString()),
         ROC(EnumClassificationMeasure.ROC.toString()),
@@ -471,7 +471,7 @@ public class MEXEnum {
 
     public enum EnumClassificationMeasure {
         ACCURACY("accuracy"),
-        FMEASURE("fMeasure"),
+        F1MEASURE("f1Measure"),
         PRECISION("precision"),
         RECALL("recall"),
         ROC("roc"),
@@ -518,7 +518,7 @@ public class MEXEnum {
         L2NORM("L2norm"),
         L1NORM("L1norm"),
         LINFNORM("Linfnorm"),
-        MATTHEWSCORRELATIONCOEFICIENT("matthewscorrelationcoeficient"),
+        MATTHEWSCORRELATIONCOEFICIENT("matthewsCorrelationCoeficient"),
         PROCESSINGTIME("processingTime");
 
         private final String text;

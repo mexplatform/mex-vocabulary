@@ -3,6 +3,7 @@ package org.aksw.mex.log4mex;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Iterables;
 import org.aksw.mex.log4mex.algo.AlgorithmVO;
+import org.aksw.mex.log4mex.algo.ToolParameterVO;
 import org.aksw.mex.log4mex.algo.ToolVO;
 import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.util.MEXConstant;
@@ -13,6 +14,7 @@ import org.aksw.mex.util.ontology.mex.MEXCORE_10;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.tools.Tool;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -35,6 +37,7 @@ public class ExperimentConfigurationVO {
     private DataSetVO _ds;
     private ToolVO _tool;
 
+    private List<ToolParameterVO>      _toolParameters;
     private List<Execution>            _executions;
     private List<FeatureVO>            _features;
     private List<AlgorithmVO>          _algorithms;
@@ -245,6 +248,10 @@ public class ExperimentConfigurationVO {
         return this._features;
     }
 
+    protected List<ToolParameterVO> getToolParameters(){
+        return this._toolParameters;
+    }
+
     protected List<Execution> getExecutions(){
         return this._executions;
     }
@@ -342,6 +349,44 @@ public class ExperimentConfigurationVO {
         return execCode;
 
     }
+
+
+    private void _addToolParameters(String[] values){
+        if (this._toolParameters == null) {
+            this._toolParameters = new ArrayList<>();}
+
+        int size = values.length;
+        for (int i=0; i<size; i++)
+        {
+            String toolparam = values[i];
+            try {
+                Collection<ToolParameterVO> t = Collections2.filter(this._toolParameters, p -> p.getId().equals(toolparam));
+                if (t != null && t.size() > 0){throw new Exception("Tool parameter already assigned");}
+                else {
+                    this._toolParameters.add(new ToolParameterVO(String.valueOf(this._toolParameters.size()+1), toolparam));
+                }
+            } catch (Exception e){
+                System.out.println(e.toString());
+            }
+        }
+    }
+
+    /**
+     * add a feature associated to a set of executions
+     * @param featureName
+     */
+    public void addToolParameters(String value){
+        _addToolParameters(new String[]{value});
+    }
+
+    /**
+     * add recursively a set of features associated to a set of executions
+     * @param featuresName
+     */
+    public void addToolParameters(String[] values){
+        _addToolParameters(values);
+    }
+
 
     private void _addFeatures(String[] featuresName){
         if (this._features == null) {

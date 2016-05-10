@@ -17,9 +17,9 @@ public class AlgorithmVO {
     private String _className;
     private URI _uri;
 
-    private List<AlgorithmParameterVO> _parameters;
+    private List<HyperParameterVO> _parameters;
 
-    public List<AlgorithmParameterVO> getParameters(){
+    public List<HyperParameterVO> getParameters(){
         return this._parameters;
     }
 
@@ -71,7 +71,7 @@ public class AlgorithmVO {
         this._acroynm = value;
     }
 
-    public boolean addParameter(AlgorithmParameterVO param){
+    public boolean addParameter(HyperParameterVO param){
         return _parameters.add(param);
     }
 
@@ -79,7 +79,7 @@ public class AlgorithmVO {
         int i=0;
         for (String p: param){
             if (i%2==0){
-                _parameters.add(new AlgorithmParameterVO(p,param[i+1]));
+                _parameters.add(new HyperParameterVO(p,param[i+1]));
             }
             i++;
         }
@@ -87,10 +87,10 @@ public class AlgorithmVO {
     }
 
     public boolean addParameter(String param, String value){
-        return _parameters.add(new AlgorithmParameterVO(param, value));
+        return _parameters.add(new HyperParameterVO(param, value));
     }
 
-    public boolean removeParam(AlgorithmParameterVO param){
+    public boolean removeParam(HyperParameterVO param){
         return _parameters.remove(param);
     }
 }
