@@ -1,0 +1,748 @@
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix this:  <http://mex.aksw.org/examples/> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:   <http://purl.org/dc/terms/> .
+@prefix mexcore: <http://mex.aksw.org/mex-core#> .
+@prefix doap:  <http://usefulinc.com/ns/doap#> .
+@prefix mexperf: <http://mex.aksw.org/mex-perf#> .
+@prefix mexalgo: <http://mex.aksw.org/mex-algo#> .
+@prefix dcat:  <http://www.w3.org/ns/dcat#> .
+@prefix prov:  <http://www.w3.org/ns/prov#> .
+@prefix foaf:  <http://xmlns.com/foaf/0.1/> .
+@prefix dc:    <http://purl.org/dc/elements/1.1/> .
+
+this:mea_stat_C0_MEX_EXEC_D9_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "3.43"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.666"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_9_cf_1_1523859061 .
+
+this:exe_9_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D9" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_stat_C0_MEX_EXEC_D9_cf_1_1523859061 , this:mea_clas_C0_MEX_EXEC_D9_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D9" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:algorithm28cf1_1523859061 , this:phase_Testcf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+mexalgo:NaiveBayes  rdfs:label  "Naive Bayes" .
+
+this:algorithm21cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Additive Logistic Regression" ;
+        mexalgo:hasAlgorithmClass  mexalgo:AdditiveLogisticRegression ;
+        dct:identifier             "alg" .
+
+this:algorithm31cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Class Level Voting" ;
+        mexalgo:hasAlgorithmClass  mexalgo:ClassLevelVoting ;
+        dct:identifier             "alg" .
+
+this:mea_clas_C0_MEX_EXEC_D12_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.6766"^^xsd:double ;
+        mexperf:precision    "0.7354"^^xsd:double ;
+        mexperf:recall       "0.6316"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_12_cf_1_1523859061 .
+
+this:mea_stat_C0_MEX_EXEC_D17_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "3.33"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.67"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_17_cf_1_1523859061 .
+
+this:mea_clas_C0_MEX_EXEC_D3_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.6785"^^xsd:double ;
+        mexperf:precision    "0.7418"^^xsd:double ;
+        mexperf:recall       "0.628"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_3_cf_1_1523859061 .
+
+mexalgo:SupportVectorMachines
+        rdfs:label  "Support Vector Machines" .
+
+mexalgo:BaggingJ48  rdfs:label  "BaggingJ48" .
+
+this:algorithm25cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Ada BoostM1" ;
+        mexalgo:hasAlgorithmClass  mexalgo:AdaBoostM1 ;
+        dct:identifier             "alg" .
+
+this:algorithm35cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "NER BALIE" ;
+        mexalgo:hasAlgorithmClass  mexalgo:NER_BALIE ;
+        dct:identifier             "alg" .
+
+mexalgo:DecisionTable
+        rdfs:label  "Decision Table" .
+
+this:exe_12_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D12" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_stat_C0_MEX_EXEC_D12_cf_1_1523859061 , this:mea_clas_C0_MEX_EXEC_D12_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D12" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:algorithm31cf1_1523859061 , this:phase_Testcf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+mexalgo:ClassLevelVoting
+        rdfs:label  "Class Level Voting" .
+
+this:mea_clas_C0_MEX_EXEC_D15_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.676"^^xsd:double ;
+        mexperf:precision    "0.7345"^^xsd:double ;
+        mexperf:recall       "0.6294"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_15_cf_1_1523859061 .
+
+this:mea_stat_C0_MEX_EXEC_D1_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "3.57"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.659"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_1_cf_1_1523859061 .
+
+this:ds_cf_1_1523859061
+        a                 mexcore:Dataset ;
+        rdfs:label        "Dataset News*" ;
+        dct:description   "a small subset of the dataset News which consists of text from newspaper articles and was re-annotated manually by the authors to ensure high data quality." ;
+        dct:title         "News*" ;
+        dcat:landingPage  "https://github.com/AKSW/FOX/tree/master/input/2" .
+
+this:exe_1_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D1" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_clas_C0_MEX_EXEC_D1_cf_1_1523859061 , this:mea_stat_C0_MEX_EXEC_D1_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D1" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:algorithm20cf1_1523859061 , this:phase_Testcf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+this:mea_clas_C0_MEX_EXEC_D6_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.6904"^^xsd:double ;
+        mexperf:precision    "0.7483"^^xsd:double ;
+        mexperf:recall       "0.644"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_6_cf_1_1523859061 .
+
+mexalgo:LogisticRegression
+        rdfs:label  "Logistic Regression" .
+
+this:exe_15_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D15" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_clas_C0_MEX_EXEC_D15_cf_1_1523859061 , this:mea_stat_C0_MEX_EXEC_D15_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D15" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:algorithm34cf1_1523859061 , this:phase_Testcf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+this:mea_clas_C0_MEX_EXEC_D18_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.6893"^^xsd:double ;
+        mexperf:precision    "0.7457"^^xsd:double ;
+        mexperf:recall       "0.6436"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_18_cf_1_1523859061 .
+
+this:algorithm30cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Multilayer Perceptron" ;
+        mexalgo:hasAlgorithmClass  mexalgo:MultilayerPerceptron ;
+        dct:identifier             "alg" .
+
+this:algorithm20cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Sequential Minimal Optimization" ;
+        mexalgo:hasAlgorithmClass  mexalgo:SequentialMinimalOptimization ;
+        dct:identifier             "alg" .
+
+this:phase_Testcf1_1523859061
+        a           mexcore:Test ;
+        rdfs:label  "Test" .
+
+this:mea_stat_C0_MEX_EXEC_D4_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "4.42"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.647"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_4_cf_1_1523859061 .
+
+this:exe_4_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D4" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_stat_C0_MEX_EXEC_D4_cf_1_1523859061 , this:mea_clas_C0_MEX_EXEC_D4_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D4" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:phase_Testcf1_1523859061 , this:algorithm23cf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+this:mea_clas_C0_MEX_EXEC_D9_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.6804"^^xsd:double ;
+        mexperf:precision    "0.7424"^^xsd:double ;
+        mexperf:recall       "0.6339"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_9_cf_1_1523859061 .
+
+mexalgo:J48  rdfs:label  "J48" .
+
+this:exe_18_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D18" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_clas_C0_MEX_EXEC_D18_cf_1_1523859061 , this:mea_stat_C0_MEX_EXEC_D18_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D18" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:phase_Testcf1_1523859061 , this:algorithm37cf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+mexalgo:NER_OPEN_NLP  rdfs:label  "NER OPEN NLP" .
+
+this:mea_stat_C0_MEX_EXEC_D12_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "3.49"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.662"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_12_cf_1_1523859061 .
+
+this:org_1523859061  a  prov:Organization ;
+        foaf:givenName  "Leipzig University" .
+
+this:mea_stat_C0_MEX_EXEC_D7_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "3.34"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.663"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_7_cf_1_1523859061 .
+
+this:exe_7_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D7" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_stat_C0_MEX_EXEC_D7_cf_1_1523859061 , this:mea_clas_C0_MEX_EXEC_D7_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D7" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:phase_Testcf1_1523859061 , this:algorithm26cf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+mexalgo:NER_BALIE  rdfs:label  "NER BALIE" .
+
+this:exp_cf_1_1523859061
+        a                  mexcore:ExperimentConfiguration ;
+        rdfs:label         "analyzing 10-fold cross valid..." , "Experiment Configuration" ;
+        dct:description    "analyzing 10-fold cross validation for 15 algorithms" ;
+        dct:identifier     "E001S002" ;
+        prov:used          this:ds_cf_1_1523859061 , this:hard_cf_1_1523859061 , this:sm_cf_1_1523859061 ;
+        prov:wasStartedBy  this:exp_1523859061 .
+
+mexalgo:NER_STANFORD  rdfs:label  "NER STANFORD" .
+
+this:mea_clas_C0_MEX_EXEC_D10_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.4918"^^xsd:double ;
+        mexperf:precision    "0.5881"^^xsd:double ;
+        mexperf:recall       "0.4571"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_10_cf_1_1523859061 .
+
+this:mea_clas_C0_MEX_EXEC_D1_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.6749"^^xsd:double ;
+        mexperf:precision    "0.7245"^^xsd:double ;
+        mexperf:recall       "0.6347"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_1_cf_1_1523859061 .
+
+mexalgo:MultilayerPerceptron
+        rdfs:label  "Multilayer Perceptron" .
+
+this:mea_stat_C0_MEX_EXEC_D15_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "3.49"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.661"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_15_cf_1_1523859061 .
+
+this:algorithm29cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "NER OPEN NLP" ;
+        mexalgo:hasAlgorithmClass  mexalgo:NER_OPEN_NLP ;
+        dct:identifier             "alg" .
+
+this:exe_10_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D10" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_clas_C0_MEX_EXEC_D10_cf_1_1523859061 , this:mea_stat_C0_MEX_EXEC_D10_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D10" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:algorithm29cf1_1523859061 , this:phase_Testcf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+mexalgo:AdditiveLogisticRegression
+        rdfs:label  "Additive Logistic Regression" .
+
+this:app_1523859061  a        mexcore:ApplicationContext ;
+        rdfs:label            foaf:givenName ;
+        dct:dateCopyrighted   "2016.05.10 17:50:42 CEST" ;
+        prov:actedOnBehalfOf  this:org_1523859061 ;
+        foaf:givenName        "René Speck" ;
+        foaf:mbox             "speck@informatik.uni-leipzig.de" .
+
+this:mea_clas_C0_MEX_EXEC_D13_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.6721"^^xsd:double ;
+        mexperf:precision    "0.7378"^^xsd:double ;
+        mexperf:recall       "0.6211"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_13_cf_1_1523859061 .
+
+this:mea_clas_C0_MEX_EXEC_D4_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.6688"^^xsd:double ;
+        mexperf:precision    "0.6342"^^xsd:double ;
+        mexperf:recall       "0.7119"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_4_cf_1_1523859061 .
+
+mexalgo:RandomForest  rdfs:label  "Random Forest" .
+
+this:mea_stat_C0_MEX_EXEC_D18_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "3.338"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.674"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_18_cf_1_1523859061 .
+
+this:exe_13_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D13" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_stat_C0_MEX_EXEC_D13_cf_1_1523859061 , this:mea_clas_C0_MEX_EXEC_D13_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D13" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:phase_Testcf1_1523859061 , this:algorithm32cf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+this:mea_clas_C0_MEX_EXEC_D16_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.4015"^^xsd:double ;
+        mexperf:precision    "0.4383"^^xsd:double ;
+        mexperf:recall       "0.3863"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_16_cf_1_1523859061 .
+
+this:mea_clas_C0_MEX_EXEC_D7_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.6746"^^xsd:double ;
+        mexperf:precision    "0.7619"^^xsd:double ;
+        mexperf:recall       "0.6106"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_7_cf_1_1523859061 .
+
+this:mea_stat_C0_MEX_EXEC_D2_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "3.4"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.665"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_2_cf_1_1523859061 .
+
+this:exe_2_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D2" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_stat_C0_MEX_EXEC_D2_cf_1_1523859061 , this:mea_clas_C0_MEX_EXEC_D2_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D2" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:phase_Testcf1_1523859061 , this:algorithm21cf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+mexalgo:SequentialMinimalOptimization
+        rdfs:label  "Sequential Minimal Optimization" .
+
+this:algorithm24cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Simple Voting" ;
+        mexalgo:hasAlgorithmClass  mexalgo:SimpleVoting ;
+        dct:identifier             "alg" .
+
+this:algorithm34cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Support Vector Machines" ;
+        mexalgo:hasAlgorithmClass  mexalgo:SupportVectorMachines ;
+        dct:identifier             "alg" .
+
+this:exe_16_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D16" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_clas_C0_MEX_EXEC_D16_cf_1_1523859061 , this:mea_stat_C0_MEX_EXEC_D16_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D16" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:phase_Testcf1_1523859061 , this:algorithm35cf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+this:version  dct:hasVersion  "1.0.2" .
+
+this:algorithm28cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Logistic Model Trees" ;
+        mexalgo:hasAlgorithmClass  mexalgo:LogisticModelTrees ;
+        dct:identifier             "alg" .
+
+this:algorithm38cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Logistic Regression" ;
+        mexalgo:hasAlgorithmClass  mexalgo:LogisticRegression ;
+        dct:identifier             "alg" .
+
+this:mea_clas_C0_MEX_EXEC_D19_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.675"^^xsd:double ;
+        mexperf:precision    "0.7789"^^xsd:double ;
+        mexperf:recall       "0.6031"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_19_cf_1_1523859061 .
+
+this:mea_stat_C0_MEX_EXEC_D10_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "5.93"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.477"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_10_cf_1_1523859061 .
+
+this:mea_stat_C0_MEX_EXEC_D5_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "6.02"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.567"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_5_cf_1_1523859061 .
+
+this:exe_5_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D5" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_clas_C0_MEX_EXEC_D5_cf_1_1523859061 , this:mea_stat_C0_MEX_EXEC_D5_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D5" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:phase_Testcf1_1523859061 , this:algorithm24cf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+this:exp_1523859061  a          mexcore:Experiment ;
+        rdfs:label              "Experiment: E1_token" ;
+        mexcore:experimentHash  "1523859061" ;
+        dct:description         "Token-based evaluation on 15 ensemble learning algorithms" ;
+        dct:identifier          "E1_token" ;
+        dct:title               "token-based experiment" ;
+        prov:wasAttributedTo    this:app_1523859061 .
+
+this:exe_19_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D19" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_clas_C0_MEX_EXEC_D19_cf_1_1523859061 , this:mea_stat_C0_MEX_EXEC_D19_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D19" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:algorithm38cf1_1523859061 , this:phase_Testcf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+this:mea_stat_C0_MEX_EXEC_D13_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "3.49"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.658"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_13_cf_1_1523859061 .
+
+this:mea_stat_C0_MEX_EXEC_D8_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "5.09"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.621"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_8_cf_1_1523859061 .
+
+this:exe_8_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D8" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_clas_C0_MEX_EXEC_D8_cf_1_1523859061 , this:mea_stat_C0_MEX_EXEC_D8_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D8" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:algorithm27cf1_1523859061 , this:phase_Testcf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+this:algorithm23cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Naive Bayes" ;
+        mexalgo:hasAlgorithmClass  mexalgo:NaiveBayes ;
+        dct:identifier             "alg" .
+
+this:algorithm33cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "NER STANFORD" ;
+        mexalgo:hasAlgorithmClass  mexalgo:NER_STANFORD ;
+        dct:identifier             "alg" .
+
+this:mea_clas_C0_MEX_EXEC_D11_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.6881"^^xsd:double ;
+        mexperf:precision    "0.7511"^^xsd:double ;
+        mexperf:recall       "0.6386"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_11_cf_1_1523859061 .
+
+this:mea_clas_C0_MEX_EXEC_D2_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.6757"^^xsd:double ;
+        mexperf:precision    "0.7748"^^xsd:double ;
+        mexperf:recall       "0.6047"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_2_cf_1_1523859061 .
+
+this:mea_stat_C0_MEX_EXEC_D16_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "7.02"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.371"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_16_cf_1_1523859061 .
+
+this:sm_cf_1_1523859061
+        a                   mexcore:CrossValidation ;
+        rdfs:label          "Cross Validation" ;
+        mexcore:folds       "10" ;
+        mexcore:sequential  "true" ;
+        mexcore:testSize    "0.1" ;
+        mexcore:trainSize   "0.9" .
+
+this:algorithm27cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "NER ILLINOIS EXTENDED" ;
+        mexalgo:hasAlgorithmClass  mexalgo:NER_ILLINOIS_EXTENDED ;
+        dct:identifier             "alg" .
+
+this:algorithm37cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Random Forest" ;
+        mexalgo:hasAlgorithmClass  mexalgo:RandomForest ;
+        dct:identifier             "alg" .
+
+this:exe_11_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D11" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_clas_C0_MEX_EXEC_D11_cf_1_1523859061 , this:mea_stat_C0_MEX_EXEC_D11_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D11" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:algorithm30cf1_1523859061 , this:phase_Testcf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+this:hard_cf_1_1523859061
+        a               mexcore:HardwareConfiguration ;
+        rdfs:label      "Hardware configuration" ;
+        mexcore:cache   "Cache 3MB" ;
+        mexcore:cpu     "Intel Core i7" ;
+        mexcore:hd      "SSD" ;
+        mexcore:memory  "16GB" ;
+        doap:os         "ubuntu" .
+
+mexalgo:FunctionalTrees
+        rdfs:label  "Functional Trees" .
+
+mexalgo:NER_ILLINOIS_EXTENDED
+        rdfs:label  "NER ILLINOIS EXTENDED" .
+
+this:mea_clas_C0_MEX_EXEC_D14_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.6581"^^xsd:double ;
+        mexperf:precision    "0.7219"^^xsd:double ;
+        mexperf:recall       "0.6057"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_14_cf_1_1523859061 .
+
+this:cxt_1523859061  a        mexcore:NamedEntityRecognition ;
+        rdfs:label            "Named Entity Recognition" ;
+        prov:wasAttributedTo  this:app_1523859061 .
+
+this:mea_clas_C0_MEX_EXEC_D5_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.5859"^^xsd:double ;
+        mexperf:precision    "0.5475"^^xsd:double ;
+        mexperf:recall       "0.6699"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_5_cf_1_1523859061 .
+
+this:mea_stat_C0_MEX_EXEC_D19_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "3.39"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.666"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_19_cf_1_1523859061 .
+
+mexalgo:LogisticModelTrees
+        rdfs:label  "Logistic Model Trees" .
+
+this:exe_14_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D14" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_clas_C0_MEX_EXEC_D14_cf_1_1523859061 , this:mea_stat_C0_MEX_EXEC_D14_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D14" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:phase_Testcf1_1523859061 , this:algorithm33cf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+mexalgo:SimpleVoting  rdfs:label  "Simple Voting" .
+
+this:mea_clas_C0_MEX_EXEC_D17_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.6825"^^xsd:double ;
+        mexperf:precision    "0.7547"^^xsd:double ;
+        mexperf:recall       "0.6298"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_17_cf_1_1523859061 .
+
+this:mea_stat_C0_MEX_EXEC_D3_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "3.43"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.664"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_3_cf_1_1523859061 .
+
+this:exe_3_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D3" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_stat_C0_MEX_EXEC_D3_cf_1_1523859061 , this:mea_clas_C0_MEX_EXEC_D3_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D3" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:algorithm22cf1_1523859061 , this:phase_Testcf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+this:mea_clas_C0_MEX_EXEC_D8_cf_1_1523859061
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.6444"^^xsd:double ;
+        mexperf:precision    "0.6056"^^xsd:double ;
+        mexperf:recall       "0.6964"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_8_cf_1_1523859061 .
+
+this:algorithm22cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Decision Table" ;
+        mexalgo:hasAlgorithmClass  mexalgo:DecisionTable ;
+        dct:identifier             "alg" .
+
+this:algorithm32cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "J48" ;
+        mexalgo:hasAlgorithmClass  mexalgo:J48 ;
+        dct:identifier             "alg" .
+
+this:exe_17_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D17" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_clas_C0_MEX_EXEC_D17_cf_1_1523859061 , this:mea_stat_C0_MEX_EXEC_D17_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D17" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:algorithm36cf1_1523859061 , this:phase_Testcf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+this:algorithm26cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "BaggingJ48" ;
+        mexalgo:hasAlgorithmClass  mexalgo:BaggingJ48 ;
+        dct:identifier             "alg" .
+
+this:algorithm36cf1_1523859061
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Functional Trees" ;
+        mexalgo:hasAlgorithmClass  mexalgo:FunctionalTrees ;
+        dct:identifier             "alg" .
+
+this:mea_stat_C0_MEX_EXEC_D11_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "3.31"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.674"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_11_cf_1_1523859061 .
+
+this:mea_stat_C0_MEX_EXEC_D6_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "3.38"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.675"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_6_cf_1_1523859061 .
+
+this:exe_6_cf_1_1523859061
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C0_MEX_EXEC_D6" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 10 17:50:42 CEST 2016" ;
+        prov:generated      this:mea_stat_C0_MEX_EXEC_D6_cf_1_1523859061 , this:mea_clas_C0_MEX_EXEC_D6_cf_1_1523859061 ;
+        prov:id             "C0_MEX_EXEC_D6" ;
+        prov:startedAtTime  "Tue May 10 17:50:42 CEST 2016" ;
+        prov:used           this:algorithm25cf1_1523859061 , this:phase_Testcf1_1523859061 ;
+        prov:wasInformedBy  this:exp_cf_1_1523859061 .
+
+mexalgo:AdaBoostM1  rdfs:label  "Ada BoostM1" .
+
+this:mea_stat_C0_MEX_EXEC_D14_cf_1_1523859061
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "3.51"^^xsd:double ;
+        mexperf:matthewsCorrelationCoeficient
+                "0.643"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_14_cf_1_1523859061 .
