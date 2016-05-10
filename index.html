@@ -45,13 +45,13 @@
 
 <p><strong>Give me all algorithm which were measured by F-measure.</strong></p>
 
-<p>PREFIX  mexcore:  <a href="http://mex.aksw.org/mex-core#">http://mex.aksw.org/mex-core#</a>
-PREFIX  mexperf:  <a href="http://mex.aksw.org/mex-perf#">http://mex.aksw.org/mex-perf#</a>
-PREFIX  mexalgo:  <a href="http://mex.aksw.org/mex-algo#">http://mex.aksw.org/mex-algo#</a>
-PREFIX  prov:     <a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a>
-PREFIX  rdfs:     <a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a></p>
+<pre><code>PREFIX  mexcore:  &lt;http://mex.aksw.org/mex-core#&gt;
+PREFIX  mexperf:  &lt;http://mex.aksw.org/mex-perf#&gt;
+PREFIX  mexalgo:  &lt;http://mex.aksw.org/mex-algo#&gt;
+PREFIX  prov:     &lt;http://www.w3.org/ns/prov#&gt;
+PREFIX  rdfs:     &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 
-<p>SELECT DISTINCT ?ExecutionID ?Algorithm ?Performance ?fMeasure WHERE {
+SELECT DISTINCT ?ExecutionID ?Algorithm ?Performance ?fMeasure WHERE {
   ?execution prov:used ?alg;
              prov:id ?ExecutionID.
   ?Performance prov:wasGeneratedBy  ?execution.
@@ -60,7 +60,8 @@ PREFIX  rdfs:     <a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.
   ?alg rdfs:label ?Algorithm.
 } 
 ORDER BY DESC (?fMeasure)
-LIMIT 30</p>
+LIMIT 30
+</code></pre>
 
 <p>Result: </p>
 
@@ -255,11 +256,11 @@ LIMIT 30</p>
 
 <p><strong>Give me the best precision achieved by a given algorithm perfomed over dataset called News*.</strong></p>
 
-<p>PREFIX  mexcore:  <a href="http://mex.aksw.org/mex-core#">http://mex.aksw.org/mex-core#</a>
-PREFIX  mexperf:  <a href="http://mex.aksw.org/mex-perf#">http://mex.aksw.org/mex-perf#</a>
-PREFIX  mexalgo:  <a href="http://mex.aksw.org/mex-algo#">http://mex.aksw.org/mex-algo#</a>
-PREFIX  prov:     <a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a>
-PREFIX  rdfs:     <a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>
+<pre><code>PREFIX  mexcore:  &lt;http://mex.aksw.org/mex-core#&gt;
+PREFIX  mexperf:  &lt;http://mex.aksw.org/mex-perf#&gt;
+PREFIX  mexalgo:  &lt;http://mex.aksw.org/mex-algo#&gt;
+PREFIX  prov:     &lt;http://www.w3.org/ns/prov#&gt;
+PREFIX  rdfs:     &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 SELECT DISTINCT ?ExecutionID ?Algorithm ?precision ?execution WHERE {
   ?execution prov:wasInformedBy ?conf.
   ?execution prov:id ?ExecutionID.
@@ -273,7 +274,8 @@ SELECT DISTINCT ?ExecutionID ?Algorithm ?precision ?execution WHERE {
   ?alg rdf:type ?algn.
  } 
 ORDER BY DESC (?precision)
-LIMIT 30</p>
+LIMIT 30
+</code></pre>
 
 <p>Result: </p>
 
