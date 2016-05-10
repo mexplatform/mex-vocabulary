@@ -45,209 +45,209 @@
 
 <p><strong>Give me all algorithm which were measured by F-measure.</strong></p>
 
-<pre><code>PREFIX  mexcore:  &lt;http://mex.aksw.org/mex-core#&gt;
-PREFIX  mexperf:  &lt;http://mex.aksw.org/mex-perf#&gt;
-PREFIX  mexalgo:  &lt;http://mex.aksw.org/mex-algo#&gt;
-PREFIX  prov:     &lt;http://www.w3.org/ns/prov#&gt;
-PREFIX  rdfs:     &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+<p>PREFIX  mexcore:  <a href="http://mex.aksw.org/mex-core#">http://mex.aksw.org/mex-core#</a>
+PREFIX  mexperf:  <a href="http://mex.aksw.org/mex-perf#">http://mex.aksw.org/mex-perf#</a>
+PREFIX  mexalgo:  <a href="http://mex.aksw.org/mex-algo#">http://mex.aksw.org/mex-algo#</a>
+PREFIX  prov:     <a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a>
+PREFIX  rdfs:     <a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a></p>
 
-SELECT DISTINCT ?name ?alg ?perfn ?fMeasure WHERE {
+<p>SELECT DISTINCT ?ExecutionID ?Algorithm ?Performance ?fMeasure WHERE {
   ?execution prov:used ?alg;
-             prov:id ?name.
-  ?perfn prov:wasGeneratedBy  ?execution.
-  ?perfn mexperf:f1Measure ?fMeasure.
+             prov:id ?ExecutionID.
+  ?Performance prov:wasGeneratedBy  ?execution.
+  ?Performance mexperf:f1Measure ?fMeasure.
   ?alg a mexalgo:Algorithm.
+  ?alg rdfs:label ?Algorithm.
 } 
 ORDER BY DESC (?fMeasure)
-LIMIT 30
-</code></pre>
+LIMIT 30</p>
 
 <p>Result: </p>
 
 <table border="1">
   <tr>
-    <th>name</th>
-    <th>alg</th>
-    <th>perfn</th>
+    <th>ExecutionID</th>
+    <th>Algorithm</th>
+    <th>Performance</th>
     <th>fMeasure</th>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D44"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm44cf1_-568657719">algorithm44cf1_-568657719</a></td>
+    <td>"BaggingJ48"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D44_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D44_cf_1_-568657719</a></td>
     <td>0.9968</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D24"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm24cf1_-568657719">algorithm24cf1_-568657719</a></td>
+    <td>"Logistic Model Trees"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D24_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D24_cf_1_-568657719</a></td>
     <td>0.9968</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D16"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm16cf1_-568657719">algorithm16cf1_-568657719</a></td>
+    <td>"Random Forest"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D16_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D16_cf_1_-568657719</a></td>
     <td>0.9968</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D64"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm64cf1_-568657719">algorithm64cf1_-568657719</a></td>
+    <td>"Multilayer Perceptron"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D64_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D64_cf_1_-568657719</a></td>
     <td>0.9967</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D68"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm68cf1_-568657719">algorithm68cf1_-568657719</a></td>
+    <td>"Decision Table"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D68_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D68_cf_1_-568657719</a></td>
     <td>0.9966</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D60"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm60cf1_-568657719">algorithm60cf1_-568657719</a></td>
+    <td>"Functional Trees"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D60_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D60_cf_1_-568657719</a></td>
     <td>0.9966</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D40"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm40cf1_-568657719">algorithm40cf1_-568657719</a></td>
+    <td>"J48"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D40_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D40_cf_1_-568657719</a></td>
     <td>0.9965</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D28"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm28cf1_-568657719">algorithm28cf1_-568657719</a></td>
+    <td>"Ada BoostM1"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D28_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D28_cf_1_-568657719</a></td>
     <td>0.9965</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D56"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm56cf1_-568657719">algorithm56cf1_-568657719</a></td>
+    <td>"Support Vector Machines"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D56_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D56_cf_1_-568657719</a></td>
     <td>0.9964</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D76"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm76cf1_-568657719">algorithm76cf1_-568657719</a></td>
+    <td>"Logistic Regression"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D76_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D76_cf_1_-568657719</a></td>
     <td>0.9962</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D52"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm52cf1_-568657719">algorithm52cf1_-568657719</a></td>
+    <td>"Additive Logistic Regression"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D52_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D52_cf_1_-568657719</a></td>
     <td>0.996</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D4"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm4cf1_-568657719">algorithm4cf1_-568657719</a></td>
+    <td>"NER STANFORD"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D4_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D4_cf_1_-568657719</a></td>
     <td>0.9959</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D36"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm36cf1_-568657719">algorithm36cf1_-568657719</a></td>
+    <td>"Class Level Voting"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D36_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D36_cf_1_-568657719</a></td>
     <td>0.9957</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D8"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm8cf1_-568657719">algorithm8cf1_-568657719</a></td>
+    <td>"Sequential Minimal Optimization"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D8_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D8_cf_1_-568657719</a></td>
     <td>0.9957</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D12"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm12cf1_-568657719">algorithm12cf1_-568657719</a></td>
+    <td>"Naive Bayes"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D12_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D12_cf_1_-568657719</a></td>
     <td>0.9954</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D60"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm60cf1_-567674523">algorithm60cf1_-567674523</a></td>
+    <td>"Functional Trees"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D60_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D60_cf_1_-567674523</a></td>
     <td>0.9945</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D24"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm24cf1_-567674523">algorithm24cf1_-567674523</a></td>
+    <td>"Logistic Model Trees"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D24_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D24_cf_1_-567674523</a></td>
     <td>0.9945</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D44"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm44cf1_-567674523">algorithm44cf1_-567674523</a></td>
+    <td>"BaggingJ48"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D44_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D44_cf_1_-567674523</a></td>
     <td>0.9945</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D28"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm28cf1_-567674523">algorithm28cf1_-567674523</a></td>
+    <td>"Ada BoostM1"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D28_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D28_cf_1_-567674523</a></td>
     <td>0.9945</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D40"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm40cf1_-567674523">algorithm40cf1_-567674523</a></td>
+    <td>"J48"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D40_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D40_cf_1_-567674523</a></td>
     <td>0.9945</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D16"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm16cf1_-567674523">algorithm16cf1_-567674523</a></td>
+    <td>"Random Forest"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D16_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D16_cf_1_-567674523</a></td>
     <td>0.9944</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D64"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm64cf1_-567674523">algorithm64cf1_-567674523</a></td>
+    <td>"Multilayer Perceptron"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D64_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D64_cf_1_-567674523</a></td>
     <td>0.9944</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D68"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm68cf1_-567674523">algorithm68cf1_-567674523</a></td>
+    <td>"Decision Table"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D68_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D68_cf_1_-567674523</a></td>
     <td>0.9944</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D60"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm60cf1_-567554490">algorithm60cf1_-567554490</a></td>
+    <td>"Functional Trees"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D60_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D60_cf_1_-567554490</a></td>
     <td>0.9943</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D24"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm24cf1_-567554490">algorithm24cf1_-567554490</a></td>
+    <td>"Logistic Model Trees"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D24_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D24_cf_1_-567554490</a></td>
     <td>0.9943</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D28"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm28cf1_-567554490">algorithm28cf1_-567554490</a></td>
+    <td>"Ada BoostM1"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D28_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D28_cf_1_-567554490</a></td>
     <td>0.9943</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D40"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm40cf1_-567554490">algorithm40cf1_-567554490</a></td>
+    <td>"J48"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D40_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D40_cf_1_-567554490</a></td>
     <td>0.9943</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D56"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm56cf1_-567674523">algorithm56cf1_-567674523</a></td>
+    <td>"Support Vector Machines"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D56_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D56_cf_1_-567674523</a></td>
     <td>0.9943</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D44"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm44cf1_-567554490">algorithm44cf1_-567554490</a></td>
+    <td>"BaggingJ48"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D44_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D44_cf_1_-567554490</a></td>
     <td>0.9942</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D64"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm64cf1_-567554490">algorithm64cf1_-567554490</a></td>
+    <td>"Multilayer Perceptron"</td>
     <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D64_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D64_cf_1_-567554490</a></td>
     <td>0.9942</td>
   </tr>
@@ -255,182 +255,214 @@ LIMIT 30
 
 <p><strong>Give me the best precision achieved by a given algorithm perfomed over dataset called News*.</strong></p>
 
-<pre><code>PREFIX  mexcore:  &lt;http://mex.aksw.org/mex-core#&gt;
-PREFIX  mexperf:  &lt;http://mex.aksw.org/mex-perf#&gt;
-PREFIX  mexalgo:  &lt;http://mex.aksw.org/mex-algo#&gt;
-PREFIX  prov:     &lt;http://www.w3.org/ns/prov#&gt;
-PREFIX  rdfs:     &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-SELECT DISTINCT ?execution ?algn ?precision WHERE {
+<p>PREFIX  mexcore:  <a href="http://mex.aksw.org/mex-core#">http://mex.aksw.org/mex-core#</a>
+PREFIX  mexperf:  <a href="http://mex.aksw.org/mex-perf#">http://mex.aksw.org/mex-perf#</a>
+PREFIX  mexalgo:  <a href="http://mex.aksw.org/mex-algo#">http://mex.aksw.org/mex-algo#</a>
+PREFIX  prov:     <a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a>
+PREFIX  rdfs:     <a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a>
+SELECT DISTINCT ?ExecutionID ?Algorithm ?precision ?execution WHERE {
   ?execution prov:wasInformedBy ?conf.
+  ?execution prov:id ?ExecutionID.
   ?conf prov:used ?dataset.
   ?dataset dcterms:title "News*".
   ?perfn prov:wasGeneratedBy  ?execution.
   ?perfn mexperf:precision ?precision.
   ?execution prov:used ?alg.
   ?alg a mexalgo:Algorithm.
+  ?alg rdfs:label ?Algorithm.
   ?alg rdf:type ?algn.
-} 
+ } 
 ORDER BY DESC (?precision)
-LIMIT 30
-</code></pre>
+LIMIT 30</p>
 
 <p>Result: </p>
 
 <table border="1">
   <tr>
-    <th>execution</th>
-    <th>algn</th>
+    <th>ExecutionID</th>
+    <th>Algorithm</th>
     <th>precision</th>
+    <th>execution</th>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_12_cf_1_-568620203">exe_12_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D12"</td>
+    <td>"Naive Bayes"</td>
     <td>0.9842</td>
+    <td><a href="http://mex.aksw.org/examples/exe_12_cf_1_-568620203">exe_12_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_20_cf_1_-568620203">exe_20_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D20"</td>
+    <td>"Simple Voting"</td>
     <td>0.9833</td>
+    <td><a href="http://mex.aksw.org/examples/exe_20_cf_1_-568620203">exe_20_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_32_cf_1_-568620203">exe_32_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D32"</td>
+    <td>"NER ILLINOIS EXTENDED"</td>
     <td>0.9785</td>
+    <td><a href="http://mex.aksw.org/examples/exe_32_cf_1_-568620203">exe_32_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_16_cf_1_-568620203">exe_16_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D16"</td>
+    <td>"Random Forest"</td>
     <td>0.9768</td>
+    <td><a href="http://mex.aksw.org/examples/exe_16_cf_1_-568620203">exe_16_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_44_cf_1_-568620203">exe_44_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D44"</td>
+    <td>"BaggingJ48"</td>
     <td>0.9765</td>
+    <td><a href="http://mex.aksw.org/examples/exe_44_cf_1_-568620203">exe_44_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_64_cf_1_-568620203">exe_64_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D64"</td>
+    <td>"Multilayer Perceptron"</td>
     <td>0.9752</td>
+    <td><a href="http://mex.aksw.org/examples/exe_64_cf_1_-568620203">exe_64_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_60_cf_1_-568620203">exe_60_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D60"</td>
+    <td>"Functional Trees"</td>
     <td>0.9751</td>
+    <td><a href="http://mex.aksw.org/examples/exe_60_cf_1_-568620203">exe_60_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_24_cf_1_-568620203">exe_24_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D24"</td>
+    <td>"Logistic Model Trees"</td>
     <td>0.9744</td>
+    <td><a href="http://mex.aksw.org/examples/exe_24_cf_1_-568620203">exe_24_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_28_cf_1_-568620203">exe_28_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D28"</td>
+    <td>"Ada BoostM1"</td>
     <td>0.9743</td>
+    <td><a href="http://mex.aksw.org/examples/exe_28_cf_1_-568620203">exe_28_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_40_cf_1_-568620203">exe_40_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D40"</td>
+    <td>"J48"</td>
     <td>0.974</td>
+    <td><a href="http://mex.aksw.org/examples/exe_40_cf_1_-568620203">exe_40_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_36_cf_1_-568620203">exe_36_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D36"</td>
+    <td>"Class Level Voting"</td>
     <td>0.9731</td>
+    <td><a href="http://mex.aksw.org/examples/exe_36_cf_1_-568620203">exe_36_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_8_cf_1_-568620203">exe_8_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D8"</td>
+    <td>"Sequential Minimal Optimization"</td>
     <td>0.9727</td>
+    <td><a href="http://mex.aksw.org/examples/exe_8_cf_1_-568620203">exe_8_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_56_cf_1_-568620203">exe_56_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D56"</td>
+    <td>"Support Vector Machines"</td>
     <td>0.9722</td>
+    <td><a href="http://mex.aksw.org/examples/exe_56_cf_1_-568620203">exe_56_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_76_cf_1_-568620203">exe_76_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D76"</td>
+    <td>"Logistic Regression"</td>
     <td>0.9716</td>
+    <td><a href="http://mex.aksw.org/examples/exe_76_cf_1_-568620203">exe_76_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_52_cf_1_-568620203">exe_52_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D52"</td>
+    <td>"Additive Logistic Regression"</td>
     <td>0.9715</td>
+    <td><a href="http://mex.aksw.org/examples/exe_52_cf_1_-568620203">exe_52_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_72_cf_1_-568620203">exe_72_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D72"</td>
+    <td>"NER BALIE"</td>
     <td>0.9571</td>
+    <td><a href="http://mex.aksw.org/examples/exe_72_cf_1_-568620203">exe_72_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_48_cf_1_-568620203">exe_48_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D48"</td>
+    <td>"NER OPEN NLP"</td>
     <td>0.9565</td>
+    <td><a href="http://mex.aksw.org/examples/exe_48_cf_1_-568620203">exe_48_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_68_cf_1_-568620203">exe_68_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D68"</td>
+    <td>"Decision Table"</td>
     <td>0.8743</td>
+    <td><a href="http://mex.aksw.org/examples/exe_68_cf_1_-568620203">exe_68_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_4_cf_1_-568620203">exe_4_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D4"</td>
+    <td>"NER STANFORD"</td>
     <td>0.8279</td>
+    <td><a href="http://mex.aksw.org/examples/exe_4_cf_1_-568620203">exe_4_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_75_cf_1_-568620203">exe_75_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D75"</td>
+    <td>"Logistic Regression"</td>
     <td>0.8262</td>
+    <td><a href="http://mex.aksw.org/examples/exe_75_cf_1_-568620203">exe_75_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_35_cf_1_-568620203">exe_35_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D35"</td>
+    <td>"Class Level Voting"</td>
     <td>0.8034</td>
+    <td><a href="http://mex.aksw.org/examples/exe_35_cf_1_-568620203">exe_35_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_51_cf_1_-568620203">exe_51_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D51"</td>
+    <td>"Additive Logistic Regression"</td>
     <td>0.8011</td>
+    <td><a href="http://mex.aksw.org/examples/exe_51_cf_1_-568620203">exe_51_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_63_cf_1_-568620203">exe_63_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D63"</td>
+    <td>"Multilayer Perceptron"</td>
     <td>0.7956</td>
+    <td><a href="http://mex.aksw.org/examples/exe_63_cf_1_-568620203">exe_63_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_19_cf_1_1523859061">exe_19_cf_1_1523859061</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D19"</td>
+    <td>"Logistic Regression"</td>
     <td>0.7789</td>
+    <td><a href="http://mex.aksw.org/examples/exe_19_cf_1_1523859061">exe_19_cf_1_1523859061</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_2_cf_1_1523859061">exe_2_cf_1_1523859061</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D2"</td>
+    <td>"Additive Logistic Regression"</td>
     <td>0.7748</td>
+    <td><a href="http://mex.aksw.org/examples/exe_2_cf_1_1523859061">exe_2_cf_1_1523859061</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_47_cf_1_-568620203">exe_47_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D47"</td>
+    <td>"NER OPEN NLP"</td>
     <td>0.7651</td>
+    <td><a href="http://mex.aksw.org/examples/exe_47_cf_1_-568620203">exe_47_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_7_cf_1_1523859061">exe_7_cf_1_1523859061</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D7"</td>
+    <td>"BaggingJ48"</td>
     <td>0.7619</td>
+    <td><a href="http://mex.aksw.org/examples/exe_7_cf_1_1523859061">exe_7_cf_1_1523859061</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_59_cf_1_-568620203">exe_59_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D59"</td>
+    <td>"Functional Trees"</td>
     <td>0.7609</td>
+    <td><a href="http://mex.aksw.org/examples/exe_59_cf_1_-568620203">exe_59_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_67_cf_1_-568620203">exe_67_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D67"</td>
+    <td>"Decision Table"</td>
     <td>0.7559</td>
+    <td><a href="http://mex.aksw.org/examples/exe_67_cf_1_-568620203">exe_67_cf_1_-568620203</a></td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_17_cf_1_1523859061">exe_17_cf_1_1523859061</a></td>
-    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>"C0_MEX_EXEC_D17"</td>
+    <td>"Functional Trees"</td>
     <td>0.7547</td>
+    <td><a href="http://mex.aksw.org/examples/exe_17_cf_1_1523859061">exe_17_cf_1_1523859061</a></td>
   </tr>
 </table>
 
