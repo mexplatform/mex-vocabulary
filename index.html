@@ -55,7 +55,7 @@ SELECT DISTINCT ?name ?alg ?perfn ?fMeasure WHERE {
   ?execution prov:used ?alg;
              prov:id ?name.
   ?perfn prov:wasGeneratedBy  ?execution.
-  ?perfn mexperf:fMeasure ?fMeasure.
+  ?perfn mexperf:f1Measure ?fMeasure.
   ?alg a mexalgo:Algorithm.
 } 
 ORDER BY DESC (?fMeasure)
@@ -72,64 +72,184 @@ LIMIT 30
     <th>fMeasure</th>
   </tr>
   <tr>
+    <td>"C0_MEX_EXEC_D44"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm44cf1_-568657719">algorithm44cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D44_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D44_cf_1_-568657719</a></td>
+    <td>0.9968</td>
+  </tr>
+  <tr>
     <td>"C0_MEX_EXEC_D24"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm24_conf_1_-18127329">algorithm24_conf_1_-18127329</a></td>
-    <td><a href="http://mex.aksw.org/examples/measure_classification_C0_MEX_EXEC_D24_conf_1_-18127329">measure_classification_C0_MEX_EXEC_D24_conf_1_-18127329</a></td>
+    <td><a href="http://mex.aksw.org/examples/algorithm24cf1_-568657719">algorithm24cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D24_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D24_cf_1_-568657719</a></td>
     <td>0.9968</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D16"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm16_conf_1_-18127329">algorithm16_conf_1_-18127329</a></td>
-    <td><a href="http://mex.aksw.org/examples/measure_classification_C0_MEX_EXEC_D16_conf_1_-18127329">measure_classification_C0_MEX_EXEC_D16_conf_1_-18127329</a></td>
-    <td>0.9968</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D44"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm44_conf_1_-18127329">algorithm44_conf_1_-18127329</a></td>
-    <td><a href="http://mex.aksw.org/examples/measure_classification_C0_MEX_EXEC_D44_conf_1_-18127329">measure_classification_C0_MEX_EXEC_D44_conf_1_-18127329</a></td>
+    <td><a href="http://mex.aksw.org/examples/algorithm16cf1_-568657719">algorithm16cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D16_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D16_cf_1_-568657719</a></td>
     <td>0.9968</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D64"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm64_conf_1_-18127329">algorithm64_conf_1_-18127329</a></td>
-    <td><a href="http://mex.aksw.org/examples/measure_classification_C0_MEX_EXEC_D64_conf_1_-18127329">measure_classification_C0_MEX_EXEC_D64_conf_1_-18127329</a></td>
+    <td><a href="http://mex.aksw.org/examples/algorithm64cf1_-568657719">algorithm64cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D64_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D64_cf_1_-568657719</a></td>
     <td>0.9967</td>
   </tr>
   <tr>
-    <td>"C0_MEX_EXEC_D60"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm60_conf_1_-18127329">algorithm60_conf_1_-18127329</a></td>
-    <td><a href="http://mex.aksw.org/examples/measure_classification_C0_MEX_EXEC_D60_conf_1_-18127329">measure_classification_C0_MEX_EXEC_D60_conf_1_-18127329</a></td>
+    <td>"C0_MEX_EXEC_D68"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm68cf1_-568657719">algorithm68cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D68_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D68_cf_1_-568657719</a></td>
     <td>0.9966</td>
   </tr>
   <tr>
-    <td>"C0_MEX_EXEC_D68"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm68_conf_1_-18127329">algorithm68_conf_1_-18127329</a></td>
-    <td><a href="http://mex.aksw.org/examples/measure_classification_C0_MEX_EXEC_D68_conf_1_-18127329">measure_classification_C0_MEX_EXEC_D68_conf_1_-18127329</a></td>
+    <td>"C0_MEX_EXEC_D60"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm60cf1_-568657719">algorithm60cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D60_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D60_cf_1_-568657719</a></td>
     <td>0.9966</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D40"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm40_conf_1_-18127329">algorithm40_conf_1_-18127329</a></td>
-    <td><a href="http://mex.aksw.org/examples/measure_classification_C0_MEX_EXEC_D40_conf_1_-18127329">measure_classification_C0_MEX_EXEC_D40_conf_1_-18127329</a></td>
+    <td><a href="http://mex.aksw.org/examples/algorithm40cf1_-568657719">algorithm40cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D40_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D40_cf_1_-568657719</a></td>
     <td>0.9965</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D28"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm28_conf_1_-18127329">algorithm28_conf_1_-18127329</a></td>
-    <td><a href="http://mex.aksw.org/examples/measure_classification_C0_MEX_EXEC_D28_conf_1_-18127329">measure_classification_C0_MEX_EXEC_D28_conf_1_-18127329</a></td>
+    <td><a href="http://mex.aksw.org/examples/algorithm28cf1_-568657719">algorithm28cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D28_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D28_cf_1_-568657719</a></td>
     <td>0.9965</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D56"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm56_conf_1_-18127329">algorithm56_conf_1_-18127329</a></td>
-    <td><a href="http://mex.aksw.org/examples/measure_classification_C0_MEX_EXEC_D56_conf_1_-18127329">measure_classification_C0_MEX_EXEC_D56_conf_1_-18127329</a></td>
+    <td><a href="http://mex.aksw.org/examples/algorithm56cf1_-568657719">algorithm56cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D56_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D56_cf_1_-568657719</a></td>
     <td>0.9964</td>
   </tr>
   <tr>
     <td>"C0_MEX_EXEC_D76"</td>
-    <td><a href="http://mex.aksw.org/examples/algorithm76_conf_1_-18127329">algorithm76_conf_1_-18127329</a></td>
-    <td><a href="http://mex.aksw.org/examples/measure_classification_C0_MEX_EXEC_D76_conf_1_-18127329">measure_classification_C0_MEX_EXEC_D76_conf_1_-18127329</a></td>
+    <td><a href="http://mex.aksw.org/examples/algorithm76cf1_-568657719">algorithm76cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D76_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D76_cf_1_-568657719</a></td>
     <td>0.9962</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D52"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm52cf1_-568657719">algorithm52cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D52_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D52_cf_1_-568657719</a></td>
+    <td>0.996</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D4"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm4cf1_-568657719">algorithm4cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D4_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D4_cf_1_-568657719</a></td>
+    <td>0.9959</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D36"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm36cf1_-568657719">algorithm36cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D36_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D36_cf_1_-568657719</a></td>
+    <td>0.9957</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D8"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm8cf1_-568657719">algorithm8cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D8_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D8_cf_1_-568657719</a></td>
+    <td>0.9957</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D12"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm12cf1_-568657719">algorithm12cf1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D12_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D12_cf_1_-568657719</a></td>
+    <td>0.9954</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D60"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm60cf1_-567674523">algorithm60cf1_-567674523</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D60_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D60_cf_1_-567674523</a></td>
+    <td>0.9945</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D24"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm24cf1_-567674523">algorithm24cf1_-567674523</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D24_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D24_cf_1_-567674523</a></td>
+    <td>0.9945</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D44"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm44cf1_-567674523">algorithm44cf1_-567674523</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D44_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D44_cf_1_-567674523</a></td>
+    <td>0.9945</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D28"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm28cf1_-567674523">algorithm28cf1_-567674523</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D28_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D28_cf_1_-567674523</a></td>
+    <td>0.9945</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D40"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm40cf1_-567674523">algorithm40cf1_-567674523</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D40_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D40_cf_1_-567674523</a></td>
+    <td>0.9945</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D16"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm16cf1_-567674523">algorithm16cf1_-567674523</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D16_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D16_cf_1_-567674523</a></td>
+    <td>0.9944</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D64"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm64cf1_-567674523">algorithm64cf1_-567674523</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D64_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D64_cf_1_-567674523</a></td>
+    <td>0.9944</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D68"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm68cf1_-567674523">algorithm68cf1_-567674523</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D68_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D68_cf_1_-567674523</a></td>
+    <td>0.9944</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D60"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm60cf1_-567554490">algorithm60cf1_-567554490</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D60_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D60_cf_1_-567554490</a></td>
+    <td>0.9943</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D24"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm24cf1_-567554490">algorithm24cf1_-567554490</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D24_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D24_cf_1_-567554490</a></td>
+    <td>0.9943</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D28"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm28cf1_-567554490">algorithm28cf1_-567554490</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D28_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D28_cf_1_-567554490</a></td>
+    <td>0.9943</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D40"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm40cf1_-567554490">algorithm40cf1_-567554490</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D40_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D40_cf_1_-567554490</a></td>
+    <td>0.9943</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D56"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm56cf1_-567674523">algorithm56cf1_-567674523</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D56_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D56_cf_1_-567674523</a></td>
+    <td>0.9943</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D44"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm44cf1_-567554490">algorithm44cf1_-567554490</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D44_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D44_cf_1_-567554490</a></td>
+    <td>0.9942</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D64"</td>
+    <td><a href="http://mex.aksw.org/examples/algorithm64cf1_-567554490">algorithm64cf1_-567554490</a></td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D64_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D64_cf_1_-567554490</a></td>
+    <td>0.9942</td>
   </tr>
 </table>
 
@@ -163,54 +283,154 @@ LIMIT 30
     <th>precision</th>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d12_conf_1_-18309014">exec_c0_mex_exec_d12_conf_1_-18309014</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_12_cf_1_-568620203">exe_12_cf_1_-568620203</a></td>
     <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
     <td>0.9842</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d20_conf_1_-18309014">exec_c0_mex_exec_d20_conf_1_-18309014</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_20_cf_1_-568620203">exe_20_cf_1_-568620203</a></td>
     <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
     <td>0.9833</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d32_conf_1_-18309014">exec_c0_mex_exec_d32_conf_1_-18309014</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_32_cf_1_-568620203">exe_32_cf_1_-568620203</a></td>
     <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
     <td>0.9785</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d16_conf_1_-18309014">exec_c0_mex_exec_d16_conf_1_-18309014</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_16_cf_1_-568620203">exe_16_cf_1_-568620203</a></td>
     <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
     <td>0.9768</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d44_conf_1_-18309014">exec_c0_mex_exec_d44_conf_1_-18309014</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_44_cf_1_-568620203">exe_44_cf_1_-568620203</a></td>
     <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
     <td>0.9765</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d64_conf_1_-18309014">exec_c0_mex_exec_d64_conf_1_-18309014</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_64_cf_1_-568620203">exe_64_cf_1_-568620203</a></td>
     <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
     <td>0.9752</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d60_conf_1_-18309014">exec_c0_mex_exec_d60_conf_1_-18309014</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_60_cf_1_-568620203">exe_60_cf_1_-568620203</a></td>
     <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
     <td>0.9751</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d24_conf_1_-18309014">exec_c0_mex_exec_d24_conf_1_-18309014</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_24_cf_1_-568620203">exe_24_cf_1_-568620203</a></td>
     <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
     <td>0.9744</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d28_conf_1_-18309014">exec_c0_mex_exec_d28_conf_1_-18309014</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_28_cf_1_-568620203">exe_28_cf_1_-568620203</a></td>
     <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
     <td>0.9743</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d40_conf_1_-18309014">exec_c0_mex_exec_d40_conf_1_-18309014</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_40_cf_1_-568620203">exe_40_cf_1_-568620203</a></td>
     <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
     <td>0.974</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_36_cf_1_-568620203">exe_36_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.9731</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_8_cf_1_-568620203">exe_8_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.9727</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_56_cf_1_-568620203">exe_56_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.9722</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_76_cf_1_-568620203">exe_76_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.9716</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_52_cf_1_-568620203">exe_52_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.9715</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_72_cf_1_-568620203">exe_72_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.9571</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_48_cf_1_-568620203">exe_48_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.9565</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_68_cf_1_-568620203">exe_68_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.8743</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_4_cf_1_-568620203">exe_4_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.8279</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_75_cf_1_-568620203">exe_75_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.8262</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_35_cf_1_-568620203">exe_35_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.8034</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_51_cf_1_-568620203">exe_51_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.8011</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_63_cf_1_-568620203">exe_63_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.7956</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_19_cf_1_1523859061">exe_19_cf_1_1523859061</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.7789</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_2_cf_1_1523859061">exe_2_cf_1_1523859061</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.7748</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_47_cf_1_-568620203">exe_47_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.7651</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_7_cf_1_1523859061">exe_7_cf_1_1523859061</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.7619</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_59_cf_1_-568620203">exe_59_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.7609</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_67_cf_1_-568620203">exe_67_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.7559</td>
+  </tr>
+  <tr>
+    <td><a href="http://mex.aksw.org/examples/exe_17_cf_1_1523859061">exe_17_cf_1_1523859061</a></td>
+    <td><a href="http://mex.aksw.org/mex-algo#Algorithm">http://mex.aksw.org/mex-algo#Algorithm</a></td>
+    <td>0.7547</td>
   </tr>
 </table>
 
@@ -245,80 +465,80 @@ LIMIT 10
     <th>trainSize</th>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d10_conf_1_-18127329">exec_c0_mex_exec_d10_conf_1_-18127329</a></td>
-    <td><a href="http://mex.aksw.org/examples/sampling_method_conf_1_-18127329">sampling_method_conf_1_-18127329</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_-567554490">exe_10_cf_1_-567554490</a></td>
+    <td><a href="http://mex.aksw.org/examples/sm_cf_1_-567554490">sm_cf_1_-567554490</a></td>
     <td>"10"</td>
     <td>"true"</td>
     <td>"0.1"</td>
     <td>"0.9"</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d10_conf_1_-18309014">exec_c0_mex_exec_d10_conf_1_-18309014</a></td>
-    <td><a href="http://mex.aksw.org/examples/sampling_method_conf_1_-18309014">sampling_method_conf_1_-18309014</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_-567674523">exe_10_cf_1_-567674523</a></td>
+    <td><a href="http://mex.aksw.org/examples/sm_cf_1_-567674523">sm_cf_1_-567674523</a></td>
     <td>"10"</td>
     <td>"true"</td>
     <td>"0.1"</td>
     <td>"0.9"</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d10_conf_1_-567674554">exec_c0_mex_exec_d10_conf_1_-567674554</a></td>
-    <td><a href="http://mex.aksw.org/examples/sampling_method_conf_1_-567674554">sampling_method_conf_1_-567674554</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_-568593294">exe_10_cf_1_-568593294</a></td>
+    <td><a href="http://mex.aksw.org/examples/sm_cf_1_-568593294">sm_cf_1_-568593294</a></td>
     <td>"10"</td>
     <td>"true"</td>
     <td>"0.1"</td>
     <td>"0.9"</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d10_conf_1_-568529938">exec_c0_mex_exec_d10_conf_1_-568529938</a></td>
-    <td><a href="http://mex.aksw.org/examples/sampling_method_conf_1_-568529938">sampling_method_conf_1_-568529938</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_-568620203">exe_10_cf_1_-568620203</a></td>
+    <td><a href="http://mex.aksw.org/examples/sm_cf_1_-568620203">sm_cf_1_-568620203</a></td>
     <td>"10"</td>
     <td>"true"</td>
     <td>"0.1"</td>
     <td>"0.9"</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d10_conf_1_-568626037">exec_c0_mex_exec_d10_conf_1_-568626037</a></td>
-    <td><a href="http://mex.aksw.org/examples/sampling_method_conf_1_-568626037">sampling_method_conf_1_-568626037</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_-568657719">exe_10_cf_1_-568657719</a></td>
+    <td><a href="http://mex.aksw.org/examples/sm_cf_1_-568657719">sm_cf_1_-568657719</a></td>
     <td>"10"</td>
     <td>"true"</td>
     <td>"0.1"</td>
     <td>"0.9"</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d10_conf_1_1522792285">exec_c0_mex_exec_d10_conf_1_1522792285</a></td>
-    <td><a href="http://mex.aksw.org/examples/sampling_method_conf_1_1522792285">sampling_method_conf_1_1522792285</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_1522910486">exe_10_cf_1_1522910486</a></td>
+    <td><a href="http://mex.aksw.org/examples/sm_cf_1_1522910486">sm_cf_1_1522910486</a></td>
     <td>"10"</td>
     <td>"true"</td>
     <td>"0.1"</td>
     <td>"0.9"</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d10_conf_1_1522822941">exec_c0_mex_exec_d10_conf_1_1522822941</a></td>
-    <td><a href="http://mex.aksw.org/examples/sampling_method_conf_1_1522822941">sampling_method_conf_1_1522822941</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_1522910578">exe_10_cf_1_1522910578</a></td>
+    <td><a href="http://mex.aksw.org/examples/sm_cf_1_1522910578">sm_cf_1_1522910578</a></td>
     <td>"10"</td>
     <td>"true"</td>
     <td>"0.1"</td>
     <td>"0.9"</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d10_conf_1_1522906610">exec_c0_mex_exec_d10_conf_1_1522906610</a></td>
-    <td><a href="http://mex.aksw.org/examples/sampling_method_conf_1_1522906610">sampling_method_conf_1_1522906610</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_1523859061">exe_10_cf_1_1523859061</a></td>
+    <td><a href="http://mex.aksw.org/examples/sm_cf_1_1523859061">sm_cf_1_1523859061</a></td>
     <td>"10"</td>
     <td>"true"</td>
     <td>"0.1"</td>
     <td>"0.9"</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d10_conf_1_1523833047">exec_c0_mex_exec_d10_conf_1_1523833047</a></td>
-    <td><a href="http://mex.aksw.org/examples/sampling_method_conf_1_1523833047">sampling_method_conf_1_1523833047</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_1523891668">exe_10_cf_1_1523891668</a></td>
+    <td><a href="http://mex.aksw.org/examples/sm_cf_1_1523891668">sm_cf_1_1523891668</a></td>
     <td>"10"</td>
     <td>"true"</td>
     <td>"0.1"</td>
     <td>"0.9"</td>
   </tr>
   <tr>
-    <td><a href="http://mex.aksw.org/examples/exec_c0_mex_exec_d10_conf_1_2127454137">exec_c0_mex_exec_d10_conf_1_2127454137</a></td>
-    <td><a href="http://mex.aksw.org/examples/sampling_method_conf_1_2127454137">sampling_method_conf_1_2127454137</a></td>
+    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_1524581609">exe_10_cf_1_1524581609</a></td>
+    <td><a href="http://mex.aksw.org/examples/sm_cf_1_1524581609">sm_cf_1_1524581609</a></td>
     <td>"10"</td>
     <td>"true"</td>
     <td>"0.1"</td>
@@ -326,10 +546,10 @@ LIMIT 10
   </tr>
 </table>
 
-<hr>
-
 <h3>
 <a id="sml-bench" class="anchor" href="#sml-bench" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SML-Bench</h3>
+
+<hr>
 
 <p><a href="http://aksw.org/Projects/SMLBench.html">SML-Bench</a> is a benchmark framework for inductive learning tools.
 It currently supports ILP systems like <a href="http://www.cs.ox.ac.uk/activities/machinelearning/Aleph/">Aleph</a>, <a href="http://www.doc.ic.ac.uk/~shm/progol.html">Progol</a> and the <a href="http://www.doc.ic.ac.uk/~jcs06/GILPS/">GILPS</a> implementations, as well as tools for learning on OWL-based ontologies, like the <a href="http://dl-learner.org">DL-Learner</a>.
@@ -357,6 +577,8 @@ The configuration of the SML-Bench framework is done using elements from <a href
 
 <h3>
 <a id="wasota" class="anchor" href="#wasota" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WASOTA</h3>
+
+<hr>
 
 <p><img src="http://www.dne5.com/mex/imagens/wasota.png" alt="WASOTA"></p>
 
