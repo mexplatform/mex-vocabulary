@@ -7,6 +7,8 @@
 * No need to create wrappers to save outputs into SGBD's.
 * Exporting clear information about your executions! Others do not need to guess what you did! (LOG4MEX is based on [MEX Vocabulary](https://github.com/AKSW/mexproject/tree/master/vocabulary))
 
+![LOG4MEX Relations](http://dne5.com/mex/imagens/mex_relations_lod.png)
+
 ##Requirements
 Java 8, Maven 3
 
