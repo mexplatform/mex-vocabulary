@@ -12,90 +12,90 @@
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
-this:fea_4_cf_1_-884476042
-        a               mexcore:Feature ;
-        rdfs:label      "clo" ;
-        dct:identifier  "4" .
-
-this:exp_cf_1_-884476042
-        a                  mexcore:ExperimentConfiguration ;
-        rdfs:label         "" , "Experiment Configuration" ;
-        dct:identifier     "MEX_EXP_CONF_D1" ;
-        prov:used          this:fea_col_cf_1_-884476042 , this:ds_cf_1_-884476042 ;
-        prov:wasStartedBy  this:exp_-884476042 .
-
-this:ds_cf_1_-884476042
+this:ds_cf_1_-883610240
         a           mexcore:Dataset ;
         rdfs:label  "Dataset mydataset.csv" ;
         dct:title   "mydataset.csv" .
 
-this:exe_1_cf_1_-884476042
+this:fea_2_cf_1_-883610240
+        a               mexcore:Feature ;
+        rdfs:label      "max" ;
+        dct:identifier  "2" .
+
+this:exe_1_cf_1_-883610240
         a                   mexcore:ExecutionOverall ;
         rdfs:label          "Overall Execution: C0_MEX_EXEC_D1" ;
         mexcore:group       true ;
-        prov:generated      this:mea_stat_C0_MEX_EXEC_D1_cf_1_-884476042 , this:mea_clas_C0_MEX_EXEC_D1_cf_1_-884476042 ;
+        prov:generated      this:mea_stat_C0_MEX_EXEC_D1_cf_1_-883610240 , this:mea_clas_C0_MEX_EXEC_D1_cf_1_-883610240 ;
         prov:id             "C0_MEX_EXEC_D1" ;
-        prov:used           this:algorithm1cf1_-884476042 , this:phase_Testcf1_-884476042 ;
-        prov:wasInformedBy  this:exp_cf_1_-884476042 .
+        prov:used           this:algorithm1cf1_-883610240 , this:phase_Testcf1_-883610240 ;
+        prov:wasInformedBy  this:exp_cf_1_-883610240 .
 
-this:version  dct:hasVersion  "1.0.2" .
-
-this:mea_clas_C0_MEX_EXEC_D1_cf_1_-884476042
-        a                    mexperf:ClassificationMeasure ;
-        rdfs:label           "Classification measures" ;
-        mexperf:accuracy     "0.96"^^xsd:double ;
-        prov:wasGeneratedBy  this:exe_1_cf_1_-884476042 .
-
-this:algorithm1cf1_-884476042
+this:algorithm1cf1_-883610240
         a                          mexalgo:Algorithm ;
         rdfs:label                 "Naive Bayes" ;
         mexalgo:hasAlgorithmClass  mexalgo:NaiveBayes ;
         dct:identifier             "alg" .
 
-this:cxt_-884476042  a        mexcore: ;
-        rdfs:label            "" ;
-        prov:wasAttributedTo  this:app_-884476042 .
-
-this:fea_1_cf_1_-884476042
-        a               mexcore:Feature ;
-        rdfs:label      "min" ;
-        dct:identifier  "1" .
-
-this:fea_col_cf_1_-884476042
-        a               mexcore:FeatureCollection ;
-        rdfs:label      "Feature Collection" ;
-        prov:hadMember  this:fea_4_cf_1_-884476042 , this:fea_3_cf_1_-884476042 , this:fea_2_cf_1_-884476042 , this:fea_1_cf_1_-884476042 .
-
-this:exp_-884476042  a          mexcore:Experiment ;
-        rdfs:label              "Experiment: MEX_EXPERIMENT" ;
-        mexcore:experimentHash  "-884476042" ;
-        dct:identifier          "MEX_EXPERIMENT" ;
-        prov:wasAttributedTo    this:app_-884476042 .
-
-this:app_-884476042  a       mexcore:ApplicationContext ;
-        rdfs:label           foaf:givenName ;
-        dct:dateCopyrighted  "2016.05.11 17:13:05 CEST" ;
-        foaf:givenName       "D Esteves" ;
-        foaf:mbox            "esteves@informatik.uni-leipzig.de" .
-
-this:fea_2_cf_1_-884476042
-        a               mexcore:Feature ;
-        rdfs:label      "max" ;
-        dct:identifier  "2" .
-
-this:phase_Testcf1_-884476042
-        a           mexcore:Test ;
-        rdfs:label  "Test" .
-
-mexalgo:NaiveBayes  rdfs:label  "Naive Bayes" .
-
-this:fea_3_cf_1_-884476042
+this:fea_3_cf_1_-883610240
         a               mexcore:Feature ;
         rdfs:label      "ope" ;
         dct:identifier  "3" .
 
-this:mea_stat_C0_MEX_EXEC_D1_cf_1_-884476042
+this:cxt_-883610240  a        mexcore: ;
+        rdfs:label            "" ;
+        prov:wasAttributedTo  this:app_-883610240 .
+
+this:version  dct:hasVersion  "1.0.2" .
+
+this:fea_col_cf_1_-883610240
+        a               mexcore:FeatureCollection ;
+        rdfs:label      "Feature Collection" ;
+        prov:hadMember  this:fea_4_cf_1_-883610240 , this:fea_3_cf_1_-883610240 , this:fea_2_cf_1_-883610240 , this:fea_1_cf_1_-883610240 .
+
+this:exp_-883610240  a          mexcore:Experiment ;
+        rdfs:label              "Experiment: MEX_EXPERIMENT" ;
+        mexcore:experimentHash  "-883610240" ;
+        dct:identifier          "MEX_EXPERIMENT" ;
+        prov:wasAttributedTo    this:app_-883610240 .
+
+this:fea_4_cf_1_-883610240
+        a               mexcore:Feature ;
+        rdfs:label      "clo" ;
+        dct:identifier  "4" .
+
+this:exp_cf_1_-883610240
+        a                  mexcore:ExperimentConfiguration ;
+        rdfs:label         "" , "Experiment Configuration" ;
+        dct:identifier     "MEX_EXP_CONF_D1" ;
+        prov:used          this:fea_col_cf_1_-883610240 , this:ds_cf_1_-883610240 ;
+        prov:wasStartedBy  this:exp_-883610240 .
+
+this:phase_Testcf1_-883610240
+        a           mexcore:Test ;
+        rdfs:label  "Test" .
+
+this:mea_stat_C0_MEX_EXEC_D1_cf_1_-883610240
         a                    mexperf:StatisticalMeasure ;
         rdfs:label           "Statistical measures" ;
         mexperf:error        "0.04"^^xsd:double ;
-        prov:wasGeneratedBy  this:exe_1_cf_1_-884476042 .
+        prov:wasGeneratedBy  this:exe_1_cf_1_-883610240 .
+
+mexalgo:NaiveBayes  rdfs:label  "Naive Bayes" .
+
+this:mea_clas_C0_MEX_EXEC_D1_cf_1_-883610240
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:accuracy     "0.96"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_1_cf_1_-883610240 .
+
+this:fea_1_cf_1_-883610240
+        a               mexcore:Feature ;
+        rdfs:label      "min" ;
+        dct:identifier  "1" .
+
+this:app_-883610240  a       mexcore:ApplicationContext ;
+        rdfs:label           foaf:givenName ;
+        dct:dateCopyrighted  "2016.05.11 18:24:01 CEST" ;
+        foaf:givenName       "D Esteves" ;
+        foaf:mbox            "esteves@informatik.uni-leipzig.de" .

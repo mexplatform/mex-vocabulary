@@ -15,6 +15,52 @@
         <module>site</module>
         <module>examples</module>
     </modules>
+    <licenses>
+        <license>
+            <name>GNU General Public License (GPL)</name>
+            <url>http://www.gnu.org/licenses/gpl.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    <organization>
+        <name>AKSW, Department of Computer Science, University of Leipzig</name>
+        <url>http://www.aksw.org</url>
+    </organization>
+    <developers>
+        <developer>
+            <id>dnes</id>
+            <name>Diego Esteves</name>
+            <email>esteves@informatik.uni-leipzig.de</email>
+            <organization>AKSW, Department of Computer Science, University of Leipzig</organization>
+            <organizationUrl>http://www.aksw.org</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>0</timezone>
+        </developer>
+        <developer>
+            <id>moussallem</id>
+            <name>Diego Moussallem</name>
+            <email>moussallem@informatik.uni-leipzig.de</email>
+            <organization>AKSW, Department of Computer Science, University of Leipzig</organization>
+            <organizationUrl>http://www.aksw.org</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>0</timezone>
+        </developer>
+        <developer>
+            <id>cbaron</id>
+            <name>Ciro Baron</name>
+            <email>cbaron@informatik.uni-leipzig.de</email>
+            <organization>AKSW, Department of Computer Science, University of Leipzig</organization>
+            <organizationUrl>http://www.aksw.org</organizationUrl>
+            <roles>
+                <role>developer</role>
+            </roles>
+            <timezone>0</timezone>
+        </developer>
+    </developers>
     <build>
         <plugins>
             <plugin>
