@@ -13,7 +13,7 @@
 Java 8, Maven 3
 
 ##License
-LOG4MEX is licensed under the [Creative Commons Non-Commercial](http://creativecommons.org/licenses/by-nc/2.0/).
+LOG4MEX - a MEX Project - is Open Source and licensed under the [GNU General Public License 3](http://www.gnu.org/licenses/gpl-3.0.en.html) (Copyright (c) 2014-2016, Diego Esteves).
 
 ##Demo and Documentation
 * [Project Site](http://aksw.github.io/mexproject/)
