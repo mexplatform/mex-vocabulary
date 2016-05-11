@@ -9,9 +9,8 @@ For more information, please see the sub projects listed bellow:
 
 ## MEX Projects
   * [MEX Vocabulary: A Lightweight Interchange Format for Machine Learning Experiments](https://github.com/AKSW/mexproject/tree/master/vocabulary)
-  * [LOG4MEX Library](https://github.com/AKSW/mexproject/tree/master/log4mex)
+  * [LOG4MEX Java Library](https://github.com/AKSW/mexproject/tree/master/log4mex)
   * [MEX Framework](https://github.com/AKSW/mexproject/tree/master/framework)
-  * [Examples](https://github.com/AKSW/mexproject/tree/master/examples)
   * [Get in touch! Google Group](mex-project@googlegroups.com)
 
 ##LOG4MEX Library: Demo and Documentation
@@ -21,7 +20,13 @@ For more information, please see the sub projects listed bellow:
 [SPARQL Endpoint](http://mex.aksw.org/sparql)
 
 ##License
-MEX Project is licensed under the [Creative Commons Non-Commercial](http://creativecommons.org/licenses/by-nc/2.0/).
+MEX is Open Source and licensed under the GNU General Public License 3.
+(Copyright (c) 2014-2016, Diego Esteves)
+
+MEX uses several other libraries. An incomplete list is as follows:
+  * Google Guava (Apache License Version 2.0)
+  * Log4j (Apache License Version 2.0)
+  * Apache Jena (Apache License Version 2.0)
 
 ### How to use MEX?
 
