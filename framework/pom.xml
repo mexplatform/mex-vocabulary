@@ -3,8 +3,8 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>mex</artifactId>
-        <groupId>org.aksw</groupId>
+        <artifactId>mex-parent</artifactId>
+        <groupId>org.aksw.mex</groupId>
         <version>1.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -12,12 +12,12 @@
     <artifactId>framework</artifactId>
     <dependencies>
         <dependency>
-            <groupId>org.aksw</groupId>
+            <groupId>org.aksw.mex</groupId>
             <artifactId>core</artifactId>
             <version>1.0</version>
         </dependency>
         <dependency>
-            <groupId>org.aksw</groupId>
+            <groupId>org.aksw.mex</groupId>
             <artifactId>log4mex</artifactId>
             <version>1.0.2</version>
         </dependency>
