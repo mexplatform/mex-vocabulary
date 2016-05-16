@@ -19,57 +19,40 @@
     </section>
 
     <section class="main-content">
-      <h1>
-<a id="log4mex-managing-machine-learning-outputs" class="anchor" href="#log4mex-managing-machine-learning-outputs" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>LOG4MEX: Managing Machine Learning Outputs</h1>
+      <p><strong>MEX</strong> is an <em>open source</em> initiative which aims at facilitating the sharing and data management of machine learning experiment outputs. Relying on Linked Data technologies, we provide a simple, flexible and lightweight platform to manage machine leaning metadata. In the following we introduce the sub-projects (<a href="https://github.com/AKSW/mexproject/">more info...</a>).</p>
 
-<p><strong>LOG4MEX</strong> is a Java library which aims at facilitating the <code>data management</code> for machine learning experiments, increasing the <code>interoperability</code> as well as adding <code>provenance</code> to the generated metadata. The library is based on <strong>MEX</strong> Vocabulary. For a complete <a href="http://dne5.com/mex/documentation/log4mex/">java documentation</a>, access this <a href="http://dne5.com/mex/documentation/log4mex/">link</a>. </p>
+<h2>
+<a id="mex-vocabulary" class="anchor" href="#mex-vocabulary" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/AKSW/mexproject/tree/master/vocabulary">MEX Vocabulary</a>
+</h2>
 
-<p><strong>LOG4MEX</strong> provides rich metadata about machine learning experiments, both machine-readable and human-readable<sup>1</sup> format at same time! Experiments now can be easily compared, regardless ML strategy. No need to use frameworks or workflow systems! Check it out!  </p>
+<p>MEX Vocabulary provides a free-format to export and share machine learning metadata, indifferent to existing workflow systems or frameworks. As major advantage, users can benefit of the <code>mex format</code> for further analysis and integrations with less effort (<a href="https://github.com/AKSW/mexproject/tree/master/vocabulary">more info...</a>).</p>
 
-<p><img src="http://dne5.com/mex/imagens/mex_experiment.png" alt="experiment"></p>
+<h2>
+<a id="log4mex-library" class="anchor" href="#log4mex-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/AKSW/mexproject/tree/master/log4mex">LOG4MEX Library</a>
+</h2>
 
-<p>An <code>Experiment</code> is divided into <code>n</code> <code>Experiment Configurations</code>, each of that consisting into different dimensions of analysis (e.g.: <code>Datasets</code>, <code>Hardware Environments</code>, <code>Features</code>, etc.) </p>
+<p><strong>LOG4MEX</strong> is a Java library (<a href="http://dne5.com/mex/documentation/log4mex/">javadoc</a>) which aims at facilitating the <code>data management</code> for machine learning experiments, increasing the <code>interoperability</code> as well as adding <code>provenance</code> to the generated metadata (<a href="https://github.com/AKSW/mexproject/tree/master/log4mex">more info...</a>).</p>
 
-<p><img src="http://dne5.com/mex/imagens/mex_experiment_conf.png" alt="experimentconf"></p>
-
-<p>Each <code>Experiment Configuration</code> contains one or more <code>Executions</code>.  </p>
-
-<p><img src="http://dne5.com/mex/imagens/mex_overall_execution.png" alt="exec"></p>
-
-<p>The complete graph can be rendered in a more fancy visualisation of the variables.</p>
-
-<p><img src="http://dne5.com/mex/imagens/mex_relations_lod.png" alt="rel"></p>
-
-<p>[1] - thanks to <a href="http://lodview.it/">lodview</a></p>
-
-<h3>
-<a id="more-information" class="anchor" href="#more-information" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>More information</h3>
+<p><strong>Advantages</strong></p>
 
 <ul>
-<li><a href="https://github.com/AKSW/mexproject/tree/master/vocabulary">MEX Vocabulary</a></li>
-<li><a href="https://github.com/AKSW/mexproject/tree/master/log4mex">LOG4MEX Library: How to use it?</a></li>
+<li>With a few lines of code, automatically generate metadata for your ML experiments at every run (code excerpt below).</li>
 </ul>
 
-<p>Following, we introduce some use cases which have been benefiting from its usage. </p>
+<div class="highlight highlight-source-java"><pre><span class="pl-smi">MyMEX</span> mex <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">MyMEX</span>();
+<span class="pl-c1">...</span>
+<span class="pl-smi">String</span> ex1 <span class="pl-k">=</span> <span class="pl-smi">mex<span class="pl-k">.</span>Configuration</span>()<span class="pl-k">.</span>addExecution(<span class="pl-smi">EnumExecutionsType</span><span class="pl-c1"><span class="pl-k">.</span>OVERALL</span>, <span class="pl-smi">EnumPhases</span><span class="pl-c1"><span class="pl-k">.</span>TRAIN</span>);
+<span class="pl-smi">mex<span class="pl-k">.</span>Configuration</span>()<span class="pl-k">.</span>Execution(ex1)<span class="pl-k">.</span>setStartDate(<span class="pl-k">new</span> <span class="pl-smi">Date</span>());
+<span class="pl-smi">mex<span class="pl-k">.</span>Configuration</span>()<span class="pl-k">.</span>Execution(ex1)<span class="pl-k">.</span>setAlgorithm(alg1);
+<span class="pl-c1">...</span>
+<span class="pl-smi">mex<span class="pl-k">.</span>Configuration</span>()<span class="pl-k">.</span>Execution(ex1)<span class="pl-k">.</span>setEndDate(<span class="pl-k">new</span> <span class="pl-smi">Date</span>());
+<span class="pl-c1">...</span></pre></div>
 
-<h3>
-<a id="fox" class="anchor" href="#fox" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>FOX</h3>
+<ul>
+<li>
+<p>Never lose an experiment configuration and find the best results among thousands with a simple query!</p>
 
-<p><a href="https://github.com/AKSW/FOX">FOX</a> is a highly accurate open-source framework for named entity recognition. We used <code>LOG4MEX</code> to export the ML outputs of its experiment, minimising the drawbacks of not having a more refined schemata. Instead of trawling through the <a href="https://github.com/AKSW/FOX/blob/master/evaluation/evaluation.zip">directory structure</a> (more than 20.000 files in about 5GB of uncompressed data) and make suppositions, SPARQL queries comes into play as a most elegant and fast solution to extract information.</p>
-
-<p><img src="http://www.dne5.com/mex/architecture.png" alt="Fox architecture"></p>
-
-<p>Figure above depicts an excerpt of code for the generated metadata file. Researchers are able to intuitively understand and absorb the relation of the variables existing along experiment configurations.</p>
-
-<p><strong>Give me all algorithm which were measured by F-measure.</strong></p>
-
-<pre><code>PREFIX  mexcore:  &lt;http://mex.aksw.org/mex-core#&gt;
-PREFIX  mexperf:  &lt;http://mex.aksw.org/mex-perf#&gt;
-PREFIX  mexalgo:  &lt;http://mex.aksw.org/mex-algo#&gt;
-PREFIX  prov:     &lt;http://www.w3.org/ns/prov#&gt;
-PREFIX  rdfs:     &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-
-SELECT DISTINCT ?ExecutionID ?Algorithm ?Performance ?fMeasure WHERE {
+<p>SELECT DISTINCT ?ExecutionID ?Algorithm ?Performance ?fMeasure WHERE {
   ?execution prov:used ?alg;
              prov:id ?ExecutionID.
   ?Performance prov:wasGeneratedBy  ?execution.
@@ -77,564 +60,29 @@ SELECT DISTINCT ?ExecutionID ?Algorithm ?Performance ?fMeasure WHERE {
   ?alg a mexalgo:Algorithm.
   ?alg rdfs:label ?Algorithm.
 } 
-ORDER BY DESC (?fMeasure)
-LIMIT 30
-</code></pre>
+ORDER BY DESC (?fMeasure)</p>
+</li>
+<li><p>Analyse your experiment and related variables visually with Linked Data technologies. Compare your results with the state of the art and enter our leaderboard by sharing the metadata on the <a href="http://cirola2000.cloudapp.net:3019/#/home">WASOTA</a>.</p></li>
+</ul>
 
-<p>Result: </p>
+<p><img src="http://dne5.com/mex/imagens/mex_relations_lod.png" alt="rel"></p>
 
-<table border="1">
-  <tr>
-    <th>ExecutionID</th>
-    <th>Algorithm</th>
-    <th>Performance</th>
-    <th>fMeasure</th>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D44"</td>
-    <td>"BaggingJ48"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D44_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D44_cf_1_-568657719</a></td>
-    <td>0.9968</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D24"</td>
-    <td>"Logistic Model Trees"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D24_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D24_cf_1_-568657719</a></td>
-    <td>0.9968</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D16"</td>
-    <td>"Random Forest"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D16_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D16_cf_1_-568657719</a></td>
-    <td>0.9968</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D64"</td>
-    <td>"Multilayer Perceptron"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D64_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D64_cf_1_-568657719</a></td>
-    <td>0.9967</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D68"</td>
-    <td>"Decision Table"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D68_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D68_cf_1_-568657719</a></td>
-    <td>0.9966</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D60"</td>
-    <td>"Functional Trees"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D60_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D60_cf_1_-568657719</a></td>
-    <td>0.9966</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D40"</td>
-    <td>"J48"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D40_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D40_cf_1_-568657719</a></td>
-    <td>0.9965</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D28"</td>
-    <td>"Ada BoostM1"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D28_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D28_cf_1_-568657719</a></td>
-    <td>0.9965</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D56"</td>
-    <td>"Support Vector Machines"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D56_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D56_cf_1_-568657719</a></td>
-    <td>0.9964</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D76"</td>
-    <td>"Logistic Regression"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D76_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D76_cf_1_-568657719</a></td>
-    <td>0.9962</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D52"</td>
-    <td>"Additive Logistic Regression"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D52_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D52_cf_1_-568657719</a></td>
-    <td>0.996</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D4"</td>
-    <td>"NER STANFORD"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D4_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D4_cf_1_-568657719</a></td>
-    <td>0.9959</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D36"</td>
-    <td>"Class Level Voting"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D36_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D36_cf_1_-568657719</a></td>
-    <td>0.9957</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D8"</td>
-    <td>"Sequential Minimal Optimization"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D8_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D8_cf_1_-568657719</a></td>
-    <td>0.9957</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D12"</td>
-    <td>"Naive Bayes"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D12_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D12_cf_1_-568657719</a></td>
-    <td>0.9954</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D60"</td>
-    <td>"Functional Trees"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D60_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D60_cf_1_-567674523</a></td>
-    <td>0.9945</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D24"</td>
-    <td>"Logistic Model Trees"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D24_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D24_cf_1_-567674523</a></td>
-    <td>0.9945</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D44"</td>
-    <td>"BaggingJ48"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D44_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D44_cf_1_-567674523</a></td>
-    <td>0.9945</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D28"</td>
-    <td>"Ada BoostM1"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D28_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D28_cf_1_-567674523</a></td>
-    <td>0.9945</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D40"</td>
-    <td>"J48"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D40_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D40_cf_1_-567674523</a></td>
-    <td>0.9945</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D16"</td>
-    <td>"Random Forest"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D16_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D16_cf_1_-567674523</a></td>
-    <td>0.9944</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D64"</td>
-    <td>"Multilayer Perceptron"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D64_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D64_cf_1_-567674523</a></td>
-    <td>0.9944</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D68"</td>
-    <td>"Decision Table"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D68_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D68_cf_1_-567674523</a></td>
-    <td>0.9944</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D60"</td>
-    <td>"Functional Trees"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D60_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D60_cf_1_-567554490</a></td>
-    <td>0.9943</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D24"</td>
-    <td>"Logistic Model Trees"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D24_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D24_cf_1_-567554490</a></td>
-    <td>0.9943</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D28"</td>
-    <td>"Ada BoostM1"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D28_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D28_cf_1_-567554490</a></td>
-    <td>0.9943</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D40"</td>
-    <td>"J48"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D40_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D40_cf_1_-567554490</a></td>
-    <td>0.9943</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D56"</td>
-    <td>"Support Vector Machines"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D56_cf_1_-567674523">mea_clas_C0_MEX_EXEC_D56_cf_1_-567674523</a></td>
-    <td>0.9943</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D44"</td>
-    <td>"BaggingJ48"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D44_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D44_cf_1_-567554490</a></td>
-    <td>0.9942</td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D64"</td>
-    <td>"Multilayer Perceptron"</td>
-    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D64_cf_1_-567554490">mea_clas_C0_MEX_EXEC_D64_cf_1_-567554490</a></td>
-    <td>0.9942</td>
-  </tr>
-</table>
+<h2>
+<a id="mex-framework" class="anchor" href="#mex-framework" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/AKSW/mexproject/tree/master/framework/src/main/java/org/aksw/mex/framework">MEX Framework</a>
+</h2>
 
-<p><strong>Give me the best precision achieved by a given algorithm perfomed over dataset called News*.</strong></p>
+<p>What about annotating your machine learning code and generate <code>mex output</code>? </p>
 
-<pre><code>PREFIX  mexcore:  &lt;http://mex.aksw.org/mex-core#&gt;
-PREFIX  mexperf:  &lt;http://mex.aksw.org/mex-perf#&gt;
-PREFIX  mexalgo:  &lt;http://mex.aksw.org/mex-algo#&gt;
-PREFIX  prov:     &lt;http://www.w3.org/ns/prov#&gt;
-PREFIX  rdfs:     &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-SELECT DISTINCT ?ExecutionID ?Algorithm ?precision ?execution WHERE {
-  ?execution prov:wasInformedBy ?conf.
-  ?execution prov:id ?ExecutionID.
-  ?conf prov:used ?dataset.
-  ?dataset dcterms:title "News*".
-  ?perfn prov:wasGeneratedBy  ?execution.
-  ?perfn mexperf:precision ?precision.
-  ?execution prov:used ?alg.
-  ?alg a mexalgo:Algorithm.
-  ?alg rdfs:label ?Algorithm.
-  ?alg rdf:type ?algn.
- } 
-ORDER BY DESC (?precision)
-LIMIT 30
-</code></pre>
+<div class="highlight highlight-source-java"><pre>@ExperimentInfo(createdBy <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Esteves<span class="pl-pds">"</span></span>, email <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>esteves@informatik.uni-leipzig.de<span class="pl-pds">"</span></span>, title <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Weka Lib Example<span class="pl-pds">"</span></span>, tags <span class="pl-k">=</span> {<span class="pl-s"><span class="pl-pds">"</span>WEKA<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>J48<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>DecisionTable<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>MEX<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>Iris<span class="pl-pds">"</span></span>})
+@Hardware(cpu <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>Intel Core i7<span class="pl-pds">"</span></span>, memory <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>8 GB<span class="pl-pds">"</span></span>, hdType <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>SSD<span class="pl-pds">"</span></span>)
+@SamplingMethod(klass <span class="pl-k">=</span> <span class="pl-smi">MEXEnum</span><span class="pl-k">.</span><span class="pl-smi">EnumSamplingMethod</span><span class="pl-k">.</span><span class="pl-smi">CrossValidation</span>, trainSize <span class="pl-k">=</span> <span class="pl-c1">0.8</span>, testSize <span class="pl-k">=</span> <span class="pl-c1">0.2</span>, folds <span class="pl-k">=</span> <span class="pl-c1">10</span>)
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">Foo</span>{
+  <span class="pl-c1">...</span>
+}</pre></div>
 
-<p>Result: </p>
+<p>as easy as possible (<a href="https://github.com/AKSW/mexproject/tree/master/framework/src/main/java/org/aksw/mex/framework">more info...</a>).</p>
 
-<table border="1">
-  <tr>
-    <th>ExecutionID</th>
-    <th>Algorithm</th>
-    <th>precision</th>
-    <th>execution</th>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D12"</td>
-    <td>"Naive Bayes"</td>
-    <td>0.9842</td>
-    <td><a href="http://mex.aksw.org/examples/exe_12_cf_1_-568620203">exe_12_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D20"</td>
-    <td>"Simple Voting"</td>
-    <td>0.9833</td>
-    <td><a href="http://mex.aksw.org/examples/exe_20_cf_1_-568620203">exe_20_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D32"</td>
-    <td>"NER ILLINOIS EXTENDED"</td>
-    <td>0.9785</td>
-    <td><a href="http://mex.aksw.org/examples/exe_32_cf_1_-568620203">exe_32_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D16"</td>
-    <td>"Random Forest"</td>
-    <td>0.9768</td>
-    <td><a href="http://mex.aksw.org/examples/exe_16_cf_1_-568620203">exe_16_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D44"</td>
-    <td>"BaggingJ48"</td>
-    <td>0.9765</td>
-    <td><a href="http://mex.aksw.org/examples/exe_44_cf_1_-568620203">exe_44_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D64"</td>
-    <td>"Multilayer Perceptron"</td>
-    <td>0.9752</td>
-    <td><a href="http://mex.aksw.org/examples/exe_64_cf_1_-568620203">exe_64_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D60"</td>
-    <td>"Functional Trees"</td>
-    <td>0.9751</td>
-    <td><a href="http://mex.aksw.org/examples/exe_60_cf_1_-568620203">exe_60_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D24"</td>
-    <td>"Logistic Model Trees"</td>
-    <td>0.9744</td>
-    <td><a href="http://mex.aksw.org/examples/exe_24_cf_1_-568620203">exe_24_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D28"</td>
-    <td>"Ada BoostM1"</td>
-    <td>0.9743</td>
-    <td><a href="http://mex.aksw.org/examples/exe_28_cf_1_-568620203">exe_28_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D40"</td>
-    <td>"J48"</td>
-    <td>0.974</td>
-    <td><a href="http://mex.aksw.org/examples/exe_40_cf_1_-568620203">exe_40_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D36"</td>
-    <td>"Class Level Voting"</td>
-    <td>0.9731</td>
-    <td><a href="http://mex.aksw.org/examples/exe_36_cf_1_-568620203">exe_36_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D8"</td>
-    <td>"Sequential Minimal Optimization"</td>
-    <td>0.9727</td>
-    <td><a href="http://mex.aksw.org/examples/exe_8_cf_1_-568620203">exe_8_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D56"</td>
-    <td>"Support Vector Machines"</td>
-    <td>0.9722</td>
-    <td><a href="http://mex.aksw.org/examples/exe_56_cf_1_-568620203">exe_56_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D76"</td>
-    <td>"Logistic Regression"</td>
-    <td>0.9716</td>
-    <td><a href="http://mex.aksw.org/examples/exe_76_cf_1_-568620203">exe_76_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D52"</td>
-    <td>"Additive Logistic Regression"</td>
-    <td>0.9715</td>
-    <td><a href="http://mex.aksw.org/examples/exe_52_cf_1_-568620203">exe_52_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D72"</td>
-    <td>"NER BALIE"</td>
-    <td>0.9571</td>
-    <td><a href="http://mex.aksw.org/examples/exe_72_cf_1_-568620203">exe_72_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D48"</td>
-    <td>"NER OPEN NLP"</td>
-    <td>0.9565</td>
-    <td><a href="http://mex.aksw.org/examples/exe_48_cf_1_-568620203">exe_48_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D68"</td>
-    <td>"Decision Table"</td>
-    <td>0.8743</td>
-    <td><a href="http://mex.aksw.org/examples/exe_68_cf_1_-568620203">exe_68_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D4"</td>
-    <td>"NER STANFORD"</td>
-    <td>0.8279</td>
-    <td><a href="http://mex.aksw.org/examples/exe_4_cf_1_-568620203">exe_4_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D75"</td>
-    <td>"Logistic Regression"</td>
-    <td>0.8262</td>
-    <td><a href="http://mex.aksw.org/examples/exe_75_cf_1_-568620203">exe_75_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D35"</td>
-    <td>"Class Level Voting"</td>
-    <td>0.8034</td>
-    <td><a href="http://mex.aksw.org/examples/exe_35_cf_1_-568620203">exe_35_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D51"</td>
-    <td>"Additive Logistic Regression"</td>
-    <td>0.8011</td>
-    <td><a href="http://mex.aksw.org/examples/exe_51_cf_1_-568620203">exe_51_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D63"</td>
-    <td>"Multilayer Perceptron"</td>
-    <td>0.7956</td>
-    <td><a href="http://mex.aksw.org/examples/exe_63_cf_1_-568620203">exe_63_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D19"</td>
-    <td>"Logistic Regression"</td>
-    <td>0.7789</td>
-    <td><a href="http://mex.aksw.org/examples/exe_19_cf_1_1523859061">exe_19_cf_1_1523859061</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D2"</td>
-    <td>"Additive Logistic Regression"</td>
-    <td>0.7748</td>
-    <td><a href="http://mex.aksw.org/examples/exe_2_cf_1_1523859061">exe_2_cf_1_1523859061</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D47"</td>
-    <td>"NER OPEN NLP"</td>
-    <td>0.7651</td>
-    <td><a href="http://mex.aksw.org/examples/exe_47_cf_1_-568620203">exe_47_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D7"</td>
-    <td>"BaggingJ48"</td>
-    <td>0.7619</td>
-    <td><a href="http://mex.aksw.org/examples/exe_7_cf_1_1523859061">exe_7_cf_1_1523859061</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D59"</td>
-    <td>"Functional Trees"</td>
-    <td>0.7609</td>
-    <td><a href="http://mex.aksw.org/examples/exe_59_cf_1_-568620203">exe_59_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D67"</td>
-    <td>"Decision Table"</td>
-    <td>0.7559</td>
-    <td><a href="http://mex.aksw.org/examples/exe_67_cf_1_-568620203">exe_67_cf_1_-568620203</a></td>
-  </tr>
-  <tr>
-    <td>"C0_MEX_EXEC_D17"</td>
-    <td>"Functional Trees"</td>
-    <td>0.7547</td>
-    <td><a href="http://mex.aksw.org/examples/exe_17_cf_1_1523859061">exe_17_cf_1_1523859061</a></td>
-  </tr>
-</table>
-
-<p><strong>Give me the sampling method used by a given execution.</strong></p>
-
-<pre><code>PREFIX  mexcore:  &lt;http://mex.aksw.org/mex-core#&gt;
-PREFIX  mexperf:  &lt;http://mex.aksw.org/mex-perf#&gt;
-PREFIX  mexalgo:  &lt;http://mex.aksw.org/mex-algo#&gt;
-PREFIX  prov:     &lt;http://www.w3.org/ns/prov#&gt;
-PREFIX  rdfs:     &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
-SELECT DISTINCT ?execution ?sampling ?folds ?sequential ?testSize ?trainSize WHERE {
-  ?execution prov:wasInformedBy ?conf.
-  ?conf prov:used ?sampling.
-  ?sampling mexcore:folds ?folds.
-  ?sampling mexcore:sequential ?sequential.
-  ?sampling mexcore:testSize ?testSize.
-  ?sampling mexcore:trainSize ?trainSize.
-  } 
-ORDER BY ASC (?execution)
-LIMIT 10
-</code></pre>
-
-<p>Result: </p>
-
-<table border="1">
-  <tr>
-    <th>execution</th>
-    <th>sampling</th>
-    <th>folds</th>
-    <th>sequential</th>
-    <th>testSize</th>
-    <th>trainSize</th>
-  </tr>
-  <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_-567554490">exe_10_cf_1_-567554490</a></td>
-    <td><a href="http://mex.aksw.org/examples/sm_cf_1_-567554490">sm_cf_1_-567554490</a></td>
-    <td>"10"</td>
-    <td>"true"</td>
-    <td>"0.1"</td>
-    <td>"0.9"</td>
-  </tr>
-  <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_-567674523">exe_10_cf_1_-567674523</a></td>
-    <td><a href="http://mex.aksw.org/examples/sm_cf_1_-567674523">sm_cf_1_-567674523</a></td>
-    <td>"10"</td>
-    <td>"true"</td>
-    <td>"0.1"</td>
-    <td>"0.9"</td>
-  </tr>
-  <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_-568593294">exe_10_cf_1_-568593294</a></td>
-    <td><a href="http://mex.aksw.org/examples/sm_cf_1_-568593294">sm_cf_1_-568593294</a></td>
-    <td>"10"</td>
-    <td>"true"</td>
-    <td>"0.1"</td>
-    <td>"0.9"</td>
-  </tr>
-  <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_-568620203">exe_10_cf_1_-568620203</a></td>
-    <td><a href="http://mex.aksw.org/examples/sm_cf_1_-568620203">sm_cf_1_-568620203</a></td>
-    <td>"10"</td>
-    <td>"true"</td>
-    <td>"0.1"</td>
-    <td>"0.9"</td>
-  </tr>
-  <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_-568657719">exe_10_cf_1_-568657719</a></td>
-    <td><a href="http://mex.aksw.org/examples/sm_cf_1_-568657719">sm_cf_1_-568657719</a></td>
-    <td>"10"</td>
-    <td>"true"</td>
-    <td>"0.1"</td>
-    <td>"0.9"</td>
-  </tr>
-  <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_1522910486">exe_10_cf_1_1522910486</a></td>
-    <td><a href="http://mex.aksw.org/examples/sm_cf_1_1522910486">sm_cf_1_1522910486</a></td>
-    <td>"10"</td>
-    <td>"true"</td>
-    <td>"0.1"</td>
-    <td>"0.9"</td>
-  </tr>
-  <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_1522910578">exe_10_cf_1_1522910578</a></td>
-    <td><a href="http://mex.aksw.org/examples/sm_cf_1_1522910578">sm_cf_1_1522910578</a></td>
-    <td>"10"</td>
-    <td>"true"</td>
-    <td>"0.1"</td>
-    <td>"0.9"</td>
-  </tr>
-  <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_1523859061">exe_10_cf_1_1523859061</a></td>
-    <td><a href="http://mex.aksw.org/examples/sm_cf_1_1523859061">sm_cf_1_1523859061</a></td>
-    <td>"10"</td>
-    <td>"true"</td>
-    <td>"0.1"</td>
-    <td>"0.9"</td>
-  </tr>
-  <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_1523891668">exe_10_cf_1_1523891668</a></td>
-    <td><a href="http://mex.aksw.org/examples/sm_cf_1_1523891668">sm_cf_1_1523891668</a></td>
-    <td>"10"</td>
-    <td>"true"</td>
-    <td>"0.1"</td>
-    <td>"0.9"</td>
-  </tr>
-  <tr>
-    <td><a href="http://mex.aksw.org/examples/exe_10_cf_1_1524581609">exe_10_cf_1_1524581609</a></td>
-    <td><a href="http://mex.aksw.org/examples/sm_cf_1_1524581609">sm_cf_1_1524581609</a></td>
-    <td>"10"</td>
-    <td>"true"</td>
-    <td>"0.1"</td>
-    <td>"0.9"</td>
-  </tr>
-</table>
-
-<h3>
-<a id="sml-bench" class="anchor" href="#sml-bench" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SML-Bench</h3>
-
-<hr>
-
-<p><a href="http://aksw.org/Projects/SMLBench.html">SML-Bench</a> is a benchmark framework for inductive learning tools.
-It currently supports ILP systems like <a href="http://www.cs.ox.ac.uk/activities/machinelearning/Aleph/">Aleph</a>, <a href="http://www.doc.ic.ac.uk/~shm/progol.html">Progol</a> and the <a href="http://www.doc.ic.ac.uk/~jcs06/GILPS/">GILPS</a> implementations, as well as tools for learning on OWL-based ontologies, like the <a href="http://dl-learner.org">DL-Learner</a>.
-SML-Bench is easily extensible with further systems or own prototypes and comes with a set of pre-defined learning scenarios.
-These scenarios define the dataset to learn on, positive and negative examples to inductively derive new knowledge from, and tool settings.
-</p>
-
-<p>
-To make benchmark results better comparable and also to be able to load and share 'blueprints' for benchmark setups, a MEX import and output feature was added.
-The generation of RDF data describing a benchmark run is established by LOG4MEX annotations inside the SML-Bench Java code.
-As an alternative to a (flat) configuration file, an existing MEX benchmark description can be used to configure SML-Bench.
-A MEX description of a benchmark run comprises the specification of the assessed tools, their configured parameters and the algorithms they are based on using the <a href="http://mex.aksw.org/mex-algo#">mex-algo vocabulary</a>.
-The configuration of the SML-Bench framework is done using elements from <a href="http://mex.aksw.org/mex-core#">mex-core</a> which describe aspects like the overall maximum execution time, the positive and negative examples used, the actual dataset and the utilized hardware.
-<a href="http://mex.aksw.org/mex-perf#">mex-perf</a> was used to express the actual benchmarking results, e.g. the accuracy, F-score values achieved by the benchmarked inductive learning systems, as well as possible failures, e.g. due to timeouts.
-</p>
-
-<h3>
-<a id="federated-query-engines" class="anchor" href="#federated-query-engines" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Federated Query Engines</h3>
-
-<hr>
-
-<p>A <a href="http://mex.aksw.org/mex-core#Execution">query</a> that collects <a href="http://mex.aksw.org/mex-perf#ExecutionPerformance">results</a> from more than one data sources is called <strong>federated query</strong>. The engines that allow executing federated queries are called <strong>federated engines</strong>. In SPARQL endpoint <a href="http://mex.aksw.org/mex-core#Experiment">federation engines evaluation</a>, the <a href="http://mex.aksw.org/mex-core#endsAt">query runtime</a> is the central <a href="http://mex.aksw.org/mex-perf#PerformanceMeasure">performance measure</a>. In addition, the number of data sources selected, the source selection time, the number of intermediate results, the <a href="http://mex.aksw.org/mex-perf#precision">precision</a> and <a href="http://mex.aksw.org/mex-perf#recall">recall</a> are also important measures to pinpoint the limitations of the <strong>federated engines</strong>. </p>
-
-<p>We have two type of configurations to run the experiments: 1) we specify the specification (<a href="http://mex.aksw.org/mex-core#memory">RAM</a>, <a href="http://mex.aksw.org/mex-core#hdType">Hard disk</a>, <a href="http://mex.aksw.org/mex-core#cpu">Processor</a>, etc..) of all the machines running the SPARQL endpoints, 2) the specification of the machine running the <strong>federation engines</strong>. In this use case, we exported the <a href="https://github.com/AKSW/largerdfbench">LargeRDFBench</a> results in to <code>mex</code> machine readable format. The selected <strong>federated engines</strong> can be directly compared using simple SPARQL queries over <code>mex</code> results, optimizing the results analysis process.</p>
-
-<h3>
-<a id="wasota" class="anchor" href="#wasota" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>WASOTA</h3>
-
-<hr>
-
-<p><img src="http://www.dne5.com/mex/imagens/wasota.png" alt="WASOTA"></p>
-
-<p>WASOTA <a href="http://cirola2000.cloudapp.net:3019/#/home">Project Website</a></p>
+<div class="highlight highlight-source-java"><pre>java <span class="pl-k">-</span>cp <span class="pl-k">/</span>home<span class="pl-k">/</span>user<span class="pl-k">/</span>mexframework <span class="pl-smi">org.aksw.mex.framework<span class="pl-k">.</span>MetaGeneration</span> <span class="pl-k">-</span>uc <span class="pl-smi">IrisWekaExample</span><span class="pl-k">.</span>java <span class="pl-k">-</span>out mymex01<span class="pl-k">.</span>ttl</pre></div>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/AKSW/mexproject">MEX Project</a> is maintained by <a href="https://github.com/AKSW">AKSW</a>.</span>
