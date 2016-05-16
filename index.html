@@ -52,6 +52,12 @@
 <li>
 <p>Never lose an experiment configuration and find the best results among thousands with a simple query!</p>
 
+<p>PREFIX  mexcore:  <a href="http://mex.aksw.org/mex-core#">http://mex.aksw.org/mex-core#</a>
+PREFIX  mexperf:  <a href="http://mex.aksw.org/mex-perf#">http://mex.aksw.org/mex-perf#</a>
+PREFIX  mexalgo:  <a href="http://mex.aksw.org/mex-algo#">http://mex.aksw.org/mex-algo#</a>
+PREFIX  prov:     <a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a>
+PREFIX  rdfs:     <a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a></p>
+
 <p>SELECT DISTINCT ?ExecutionID ?Algorithm ?Performance ?fMeasure WHERE {
   ?execution prov:used ?alg;
              prov:id ?ExecutionID.
@@ -60,7 +66,8 @@
   ?alg a mexalgo:Algorithm.
   ?alg rdfs:label ?Algorithm.
 } 
-ORDER BY DESC (?fMeasure)</p>
+ORDER BY DESC (?fMeasure)
+LIMIT 30</p>
 </li>
 <li><p>Analyse your experiment and related variables visually with Linked Data technologies. Compare your results with the state of the art and enter our leaderboard by sharing the metadata on the <a href="http://cirola2000.cloudapp.net:3019/#/home">WASOTA</a>.</p></li>
 </ul>
