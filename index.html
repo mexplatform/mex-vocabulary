@@ -31,11 +31,13 @@
 <a id="log4mex-library" class="anchor" href="#log4mex-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><a href="https://github.com/AKSW/mexproject/tree/master/log4mex">LOG4MEX Library</a>
 </h2>
 
-<p><strong>LOG4MEX</strong> is a Java library (<a href="http://dne5.com/mex/documentation/log4mex/">javadoc</a>) which aims at facilitating the <code>data management</code> for machine learning experiments, increasing the <code>interoperability</code> as well as adding <code>provenance</code> to the generated metadata (<a href="https://github.com/AKSW/mexproject/tree/master/log4mex">more info...</a>).</p>
+<p><strong>LOG4MEX</strong> is a Java library (<a href="http://dne5.com/mex/documentation/log4mex/">javadoc</a>) which aims at facilitating the <code>data management</code> for machine learning experiments, increasing the <code>interoperability</code> as well as adding <code>provenance</code> to the generated metadata (<a href="https://github.com/AKSW/mexproject/tree/master/log4mex">more info and use cases...</a>).</p>
 
 <p><strong>Advantages</strong></p>
 
+<blockquote>
 <p>With a few lines of code, automatically generate metadata for your ML experiments at every run (code excerpt below).</p>
+</blockquote>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-smi">MyMEX</span> mex <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">MyMEX</span>();
 <span class="pl-c1">...</span>
@@ -46,7 +48,9 @@
 <span class="pl-smi">mex<span class="pl-k">.</span>Configuration</span>()<span class="pl-k">.</span>Execution(ex1)<span class="pl-k">.</span>setEndDate(<span class="pl-k">new</span> <span class="pl-smi">Date</span>());
 <span class="pl-c1">...</span></pre></div>
 
+<blockquote>
 <p>Never lose an experiment configuration and find the best results among thousands with a simple query!</p>
+</blockquote>
 
 <pre><code>PREFIX  mexcore:  &lt;http://mex.aksw.org/mex-core#&gt;
 PREFIX  mexperf:  &lt;http://mex.aksw.org/mex-perf#&gt;
@@ -99,7 +103,9 @@ LIMIT 4
   </tr>
 </table>
 
+<blockquote>
 <p>Analyse your experiment and related variables visually with Linked Data technologies. Compare your results with the state of the art and enter our leaderboard by sharing the metadata on the <a href="http://cirola2000.cloudapp.net:3019/#/home">WASOTA</a>.</p>
+</blockquote>
 
 <p><img src="http://dne5.com/mex/imagens/mex_relations_lod.png" alt="rel"></p>
 
