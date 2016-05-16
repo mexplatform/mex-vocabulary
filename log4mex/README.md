@@ -88,9 +88,9 @@ mex.Configuration().addFeature(new String[]{"openp", "closep", "minp", "maxp"});
 **What are your algorithms? You can also refer to them in case you need to specify different hyperparameters values** 
 ```java
 ...
-String alg1 = mex.Configuration(eid).addAlgorithm("svm", EnumAlgorithmsClasses.SupportVectorMachines);
-String alg2 = mex.Configuration(eid).addAlgorithm("svm", EnumAlgorithmsClasses.SupportVectorMachines);
-              mex.Configuration(eid).addAlgorithm("nb", EnumAlgorithmsClasses.NaiveBayes);
+String alg1 = mex.Configuration().addAlgorithm("svm", EnumAlgorithmsClasses.SupportVectorMachines);
+String alg2 = mex.Configuration().addAlgorithm("svm", EnumAlgorithmsClasses.SupportVectorMachines);
+              mex.Configuration().addAlgorithm("nb", EnumAlgorithmsClasses.NaiveBayes);
 ...
 mex.Configuration().Algorithm(alg1).addParameter(new String[]{"C", "10^3", "alpha", "0.2"});
 mex.Configuration().Algorithm(alg2).addParameter(new String[]{"C", "10^3", "alpha", "0.4"});
