@@ -1,4 +1,4 @@
-# LOG4MEX API
+# LOG4MEX Library
 
 ## Do you need an API to manage machine learning metadata? 
 
@@ -19,6 +19,7 @@ LOG4MEX - a MEX Project - is Open Source and licensed under the [GNU General Pub
 * [Project Site](http://aksw.github.io/mexproject/)
 * [Javadoc](http://dne5.com/mex/documentation/log4mex/)
 * [SPARQL Endpoint](http://mex.aksw.org/sparql)
+* [MEX Wiki: LOG4MEX Use Cases](https://github.com/AKSW/mexproject/wiki/LOG4MEX-Use-Cases)
 
 ##Bugs
 Found a :bug: bug? [Open an issue](https://github.com/AKSW/fox/issues/new) 
@@ -157,4 +158,4 @@ try{
 
 ## More Examples
 
-More basic examples are available [here](https://github.com/AKSW/mexproject/tree/master/examples/src/main/java/log4mex). You can also visit the [project website](http://aksw.github.io/mexproject/) in order to check recent updates and further use cases.
+More basic examples are available [here](https://github.com/AKSW/mexproject/tree/master/examples/src/main/java/log4mex). You can also visit the [project wiki](https://github.com/AKSW/mexproject/wiki/MEX-Wiki---Home) in order to check recent updates and further use cases.
