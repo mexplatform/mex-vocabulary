@@ -35,9 +35,7 @@
 
 <p><strong>Advantages</strong></p>
 
-<ul>
-<li>With a few lines of code, automatically generate metadata for your ML experiments at every run (code excerpt below).</li>
-</ul>
+<p>With a few lines of code, automatically generate metadata for your ML experiments at every run (code excerpt below).</p>
 
 <div class="highlight highlight-source-java"><pre><span class="pl-smi">MyMEX</span> mex <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-smi">MyMEX</span>();
 <span class="pl-c1">...</span>
@@ -48,17 +46,15 @@
 <span class="pl-smi">mex<span class="pl-k">.</span>Configuration</span>()<span class="pl-k">.</span>Execution(ex1)<span class="pl-k">.</span>setEndDate(<span class="pl-k">new</span> <span class="pl-smi">Date</span>());
 <span class="pl-c1">...</span></pre></div>
 
-<ul>
-<li>
 <p>Never lose an experiment configuration and find the best results among thousands with a simple query!</p>
 
-<p>PREFIX  mexcore:  <a href="http://mex.aksw.org/mex-core#">http://mex.aksw.org/mex-core#</a>
-PREFIX  mexperf:  <a href="http://mex.aksw.org/mex-perf#">http://mex.aksw.org/mex-perf#</a>
-PREFIX  mexalgo:  <a href="http://mex.aksw.org/mex-algo#">http://mex.aksw.org/mex-algo#</a>
-PREFIX  prov:     <a href="http://www.w3.org/ns/prov#">http://www.w3.org/ns/prov#</a>
-PREFIX  rdfs:     <a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.org/2000/01/rdf-schema#</a></p>
+<pre><code>PREFIX  mexcore:  &lt;http://mex.aksw.org/mex-core#&gt;
+PREFIX  mexperf:  &lt;http://mex.aksw.org/mex-perf#&gt;
+PREFIX  mexalgo:  &lt;http://mex.aksw.org/mex-algo#&gt;
+PREFIX  prov:     &lt;http://www.w3.org/ns/prov#&gt;
+PREFIX  rdfs:     &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 
-<p>SELECT DISTINCT ?ExecutionID ?Algorithm ?Performance ?fMeasure WHERE {
+SELECT DISTINCT ?ExecutionID ?Algorithm ?Performance ?fMeasure WHERE {
   ?execution prov:used ?alg;
              prov:id ?ExecutionID.
   ?Performance prov:wasGeneratedBy  ?execution.
@@ -67,10 +63,43 @@ PREFIX  rdfs:     <a href="http://www.w3.org/2000/01/rdf-schema#">http://www.w3.
   ?alg rdfs:label ?Algorithm.
 } 
 ORDER BY DESC (?fMeasure)
-LIMIT 30</p>
-</li>
-<li><p>Analyse your experiment and related variables visually with Linked Data technologies. Compare your results with the state of the art and enter our leaderboard by sharing the metadata on the <a href="http://cirola2000.cloudapp.net:3019/#/home">WASOTA</a>.</p></li>
-</ul>
+LIMIT 4
+</code></pre>
+
+<table border="1">
+  <tr>
+    <th>ExecutionID</th>
+    <th>Algorithm</th>
+    <th>Performance</th>
+    <th>fMeasure</th>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D44"</td>
+    <td>"BaggingJ48"</td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D44_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D44_cf_1_-568657719</a></td>
+    <td>0.9968</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D24"</td>
+    <td>"Logistic Model Trees"</td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D24_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D24_cf_1_-568657719</a></td>
+    <td>0.9968</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D16"</td>
+    <td>"Random Forest"</td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D16_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D16_cf_1_-568657719</a></td>
+    <td>0.9968</td>
+  </tr>
+  <tr>
+    <td>"C0_MEX_EXEC_D64"</td>
+    <td>"Multilayer Perceptron"</td>
+    <td><a href="http://mex.aksw.org/examples/mea_clas_C0_MEX_EXEC_D64_cf_1_-568657719">mea_clas_C0_MEX_EXEC_D64_cf_1_-568657719</a></td>
+    <td>0.9967</td>
+  </tr>
+</table>
+
+<p>Analyse your experiment and related variables visually with Linked Data technologies. Compare your results with the state of the art and enter our leaderboard by sharing the metadata on the <a href="http://cirola2000.cloudapp.net:3019/#/home">WASOTA</a>.</p>
 
 <p><img src="http://dne5.com/mex/imagens/mex_relations_lod.png" alt="rel"></p>
 
