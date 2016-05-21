@@ -2,8 +2,6 @@ package org.aksw.mex.log4mex.algo;
 
 import org.aksw.mex.util.MEXEnum;
 
-import java.util.List;
-
 /**
  * Created by esteves on 08.06.15.
  */
@@ -16,7 +14,6 @@ public class ToolVO {
     private String doap_revision;
     private String doap_description;
     private String doap_programming_language;
-    private List<ToolParameterVO> _parameters;
 
     public ToolVO(MEXEnum.EnumTools name){
         this._individualName = name.toString();
@@ -95,8 +92,42 @@ public class ToolVO {
 
     }
 
-    public List<ToolParameterVO> getParameters(){
-        return this._parameters;
+
+
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof ToolVO)) {
+            return false;
+        }
+
+        ToolVO that = (ToolVO) other;
+
+        return this._individualName.equals(that._individualName)
+                && this.rdfs_label.equals(that.rdfs_label)
+                && this.doap_name.equals(that.doap_name)
+                && this.doap_homepage.equals(that.doap_homepage)
+                && this.doap_revision.equals(that.doap_revision)
+                && this.doap_description.equals(that.doap_description)
+                && this.doap_programming_language.equals(that.doap_programming_language);
+
     }
+
+
+    @Override
+    public int hashCode() {
+        int hashCode = 1;
+
+        hashCode = hashCode * 37 + this._individualName.hashCode();
+        hashCode = hashCode * 37 + this.rdfs_label.hashCode();
+        hashCode = hashCode * 37 + this.doap_name.hashCode();
+        hashCode = hashCode * 37 + this.doap_homepage.hashCode();
+        hashCode = hashCode * 37 + this.doap_revision.hashCode();
+        hashCode = hashCode * 37 + this.doap_description.hashCode();
+        hashCode = hashCode * 37 + this.doap_programming_language.hashCode();
+
+
+        return hashCode;
+    }
+
 
 }
