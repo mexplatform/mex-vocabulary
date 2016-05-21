@@ -1,4 +1,4 @@
-# LOG4MEX API
+# LOG4MEX Library
 
 ## Do you need an API to manage machine learning metadata? 
 
@@ -13,12 +13,13 @@
 Java 8, Maven 3
 
 ##License
-LOG4MEX is licensed under the [Creative Commons Non-Commercial](http://creativecommons.org/licenses/by-nc/2.0/).
+LOG4MEX - a MEX Project - is Open Source and licensed under the [GNU General Public License 3](http://www.gnu.org/licenses/gpl-3.0.en.html) (Copyright (c) 2014-2016, Diego Esteves).
 
 ##Demo and Documentation
 * [Project Site](http://aksw.github.io/mexproject/)
 * [Javadoc](http://dne5.com/mex/documentation/log4mex/)
 * [SPARQL Endpoint](http://mex.aksw.org/sparql)
+* [MEX Wiki: LOG4MEX Use Cases](https://github.com/AKSW/mexproject/wiki/LOG4MEX-Use-Cases)
 
 ##Bugs
 Found a :bug: bug? [Open an issue](https://github.com/AKSW/fox/issues/new) 
@@ -87,9 +88,9 @@ mex.Configuration().addFeature(new String[]{"openp", "closep", "minp", "maxp"});
 **What are your algorithms? You can also refer to them in case you need to specify different hyperparameters values** 
 ```java
 ...
-String alg1 = mex.Configuration(eid).addAlgorithm("svm", EnumAlgorithmsClasses.SupportVectorMachines);
-String alg2 = mex.Configuration(eid).addAlgorithm("svm", EnumAlgorithmsClasses.SupportVectorMachines);
-              mex.Configuration(eid).addAlgorithm("nb", EnumAlgorithmsClasses.NaiveBayes);
+String alg1 = mex.Configuration().addAlgorithm("svm", EnumAlgorithmsClasses.SupportVectorMachines);
+String alg2 = mex.Configuration().addAlgorithm("svm", EnumAlgorithmsClasses.SupportVectorMachines);
+              mex.Configuration().addAlgorithm("nb", EnumAlgorithmsClasses.NaiveBayes);
 ...
 mex.Configuration().Algorithm(alg1).addParameter(new String[]{"C", "10^3", "alpha", "0.2"});
 mex.Configuration().Algorithm(alg2).addParameter(new String[]{"C", "10^3", "alpha", "0.4"});
@@ -157,4 +158,4 @@ try{
 
 ## More Examples
 
-More basic examples are available [here](https://github.com/AKSW/mexproject/tree/master/examples/src/main/java/log4mex). You can also visit the [project website](http://aksw.github.io/mexproject/) in order to check recent updates and further use cases.
+More basic examples are available [here](https://github.com/AKSW/mexproject/tree/master/examples/src/main/java/log4mex). You can also visit the [project wiki](https://github.com/AKSW/mexproject/wiki/MEX-Wiki---Home) in order to check recent updates and further use cases.
