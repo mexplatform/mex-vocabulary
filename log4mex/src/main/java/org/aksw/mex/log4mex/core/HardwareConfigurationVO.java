@@ -79,4 +79,35 @@ public class HardwareConfigurationVO {
 
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof HardwareConfigurationVO)) {
+            return false;
+        }
+
+        HardwareConfigurationVO that = (HardwareConfigurationVO) other;
+
+        return this._os.equals(that._os)
+                && this._cpu.equals(that._cpu)
+                && this._cache.equals(that._cache)
+                && this._video.equals(that._video)
+                && this._memory.equals(that._memory)
+                && this._hd.equals(that._hd);
+    }
+
+    @Override
+    public int hashCode() {
+        int hashCode = 1;
+
+        hashCode = hashCode * 37 + this._os.hashCode();
+        hashCode = hashCode * 37 + this._cpu.hashCode();
+        hashCode = hashCode * 37 + this._cache.hashCode();
+        hashCode = hashCode * 37 + this._video.hashCode();
+        hashCode = hashCode * 37 + this._memory.hashCode();
+        hashCode = hashCode * 37 + this._hd.hashCode();
+
+        return hashCode;
+    }
+
+
 }
