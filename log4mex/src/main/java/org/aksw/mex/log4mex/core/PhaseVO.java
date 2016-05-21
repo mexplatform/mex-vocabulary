@@ -24,4 +24,26 @@ public class PhaseVO {
         return this._label;
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof PhaseVO)) {
+            return false;
+        }
+
+        PhaseVO that = (PhaseVO) other;
+
+        return this._label.equals(that._label)
+                && this._phase.equals(that._phase);
+    }
+
+    @Override
+    public int hashCode() {
+        int hashCode = 1;
+
+        hashCode = hashCode * 37 + this._label.hashCode();
+        hashCode = hashCode * 37 + this._phase.toString().hashCode();
+
+        return hashCode;
+    }
+
 }
