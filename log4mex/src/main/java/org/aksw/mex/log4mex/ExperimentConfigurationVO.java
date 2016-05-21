@@ -30,12 +30,12 @@ public class ExperimentConfigurationVO {
     private String                     _description;
     private Integer                    _seq = 0;
 
-    private ModelVO _model;
-    private PhaseVO _phase;
-    private SamplingMethodVO _sampling;
-    private HardwareConfigurationVO _hard;
-    private DataSetVO _ds;
-    private ToolVO _tool;
+    private ModelVO                    _model;
+    private PhaseVO                    _phase;
+    private SamplingMethodVO           _sampling;
+    private HardwareConfigurationVO    _hard;
+    private DataSetVO                  _ds;
+    private ToolVO                     _tool;
 
     private List<ToolParameterVO>      _toolParameters;
     private List<Execution>            _executions;
@@ -48,7 +48,7 @@ public class ExperimentConfigurationVO {
 
 
 
-    public ExperimentConfigurationVO(String id, String description) {
+    public ExperimentConfigurationVO(String id, String description, Integer sequential) {
         this._id = id;
         this._description = description;
         this._executions = new ArrayList<>();
@@ -59,14 +59,16 @@ public class ExperimentConfigurationVO {
         if (this._label.length() > _maxLabel){
             this._label = this._label.substring(0,_maxLabel-1)+ "...";
         }
+        this._seq = sequential;
     }
 
-    public ExperimentConfigurationVO(String id) {
+    public ExperimentConfigurationVO(String id, Integer sequential) {
         this._id = id;
         this._executions = new ArrayList<>();
         this._features = new ArrayList<>();
         this._algorithms = new ArrayList<>();
         this._ds = new DataSetVO();
+        this._seq = sequential;
     }
 
     /**********************************************************************************************************************************************

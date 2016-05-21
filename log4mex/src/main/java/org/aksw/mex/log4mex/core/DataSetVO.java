@@ -81,7 +81,7 @@ public class DataSetVO {
         hashCode = hashCode * 37 + this._description.toString().hashCode();
         hashCode = hashCode * 37 + this._uri.toString().hashCode();
         hashCode = hashCode * 37 + this._label.toString().hashCode();
-        
+
         return hashCode;
     }
 

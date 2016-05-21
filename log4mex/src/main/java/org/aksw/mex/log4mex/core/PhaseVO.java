@@ -1,27 +1,26 @@
 package org.aksw.mex.log4mex.core;
 
+import org.aksw.mex.log4mex.InstanceObjects;
 import org.aksw.mex.util.MEXEnum;
 
 /**
  * Created by esteves on 26.06.15.
  */
-public class PhaseVO {
+public class PhaseVO extends InstanceObjects {
 
     private MEXEnum.EnumPhases _phase;
-    private String _label = "";
 
     public PhaseVO(MEXEnum.EnumPhases value){
         this._phase = value;
-        if (value.toString().length() > 2)
-            this._label = value.toString().substring(0, 1).toUpperCase() + value.toString().substring(1);
+        if (value.toString().length() > 2){
+            this.setLabel(value.toString().substring(0, 1).toUpperCase() + value.toString().substring(1));
+            this.setIndividualName("phase_" + this.getLabel());
+        }
+
     }
 
     public MEXEnum.EnumPhases getName(){
         return this._phase;
-    }
-
-    public String getLabel(){
-        return this._label;
     }
 
     @Override
@@ -32,7 +31,7 @@ public class PhaseVO {
 
         PhaseVO that = (PhaseVO) other;
 
-        return this._label.equals(that._label)
+        return this.getLabel().equals(that.getLabel())
                 && this._phase.equals(that._phase);
     }
 
@@ -40,7 +39,7 @@ public class PhaseVO {
     public int hashCode() {
         int hashCode = 1;
 
-        hashCode = hashCode * 37 + this._label.hashCode();
+        hashCode = hashCode * 37 + this.getLabel().hashCode();
         hashCode = hashCode * 37 + this._phase.toString().hashCode();
 
         return hashCode;

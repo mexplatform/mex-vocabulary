@@ -7,10 +7,8 @@ import com.hp.hpl.jena.rdf.model.Resource;
 import com.hp.hpl.jena.vocabulary.*;
 import org.aksw.mex.log4mex.algo.HyperParameterVO;
 import org.aksw.mex.log4mex.algo.ToolParameterVO;
-import org.aksw.mex.log4mex.core.ExampleVO;
-import org.aksw.mex.log4mex.core.ExecutionIndividualVO;
-import org.aksw.mex.log4mex.core.ExecutionSetVO;
-import org.aksw.mex.log4mex.core.FeatureVO;
+import org.aksw.mex.log4mex.algo.ToolVO;
+import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.log4mex.perf.example.ExamplePerformanceMeasureVO;
 import org.aksw.mex.log4mex.perf.overall.*;
 import org.aksw.mex.util.MEXConstant;
@@ -575,7 +573,7 @@ public class MEXSerializer {
                                 if (e.getPhase() != null){
                                     Resource mexcore_PHASE = model.createResource(MEXCORE_10.NS + e.getPhase().getName());
                                     if (StringUtils.isNotBlank(e.getPhase().getName().toString()) && StringUtils.isNotEmpty(e.getPhase().getName().toString())) {
-                                    Resource _phase = model.createResource(URIbase + "phase_" + e.getPhase().getName() + "cf" + auxExpConf + "_"  + this.userHash)
+                                    Resource _phase = model.createResource(URIbase + e.getPhase().getIndividualName()+ "cf" + auxExpConf + "_"  + this.userHash)
                                             //.addProperty(RDF.type, provEntity)
                                             .addProperty(RDFS.label, e.getPhase().getLabel())
                                             .addProperty(RDF.type, mexcore_PHASE);
@@ -903,6 +901,41 @@ public class MEXSerializer {
             LOGGER.error(e.toString());
             throw(e);
         }
+    }
+
+    /**
+     * check if an instance has been defined before, avoiding unnecessary duplicates
+     * @param obj
+     * @param current
+     * @param conf
+     * @return instance name
+     * @throws Exception
+     */
+    private String objectCreatedBefore(Object obj, int current, List<ExperimentConfigurationVO> conf) throws Exception{
+
+        try{
+
+            for (int i = 0; i < current; i++){
+                ExperimentConfigurationVO item = conf.get(i);
+
+                if (obj instanceof ModelVO && item.Model().equals(obj)){
+                        return item.Model().getId();}
+                else if (obj instanceof SamplingMethodVO && item.SamplingMethod().equals(obj)){
+                    return item.SamplingMethod().getIndividualName()}
+                else if (obj instanceof PhaseVO && item.Phase().equals(obj)){
+                    return item.Phase().get}
+                else if (obj instanceof HardwareConfigurationVO && item.HardwareConfiguration().equals(obj)){
+                    return true;}
+                else if (obj instanceof ToolVO && item.Tool().equals(obj)){
+                    return true;}
+                else if (obj instanceof DataSetVO && item.DataSet().equals(obj)){
+                    return true;}
+            }
+
+        }catch (Exception e){
+            throw (e);
+        }
+        return false;
     }
 
 }
