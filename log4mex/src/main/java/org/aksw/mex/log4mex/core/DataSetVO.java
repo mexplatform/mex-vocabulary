@@ -57,4 +57,32 @@ public class DataSetVO {
 
     }
 
+
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof DataSetVO)) {
+            return false;
+        }
+
+        DataSetVO that = (DataSetVO) other;
+
+        return this._name.equals(that._name)
+                && this._description.equals(that._description)
+                && this._uri.equals(that._uri)
+                && this._label.equals(that._label);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int hashCode = 1;
+
+        hashCode = hashCode * 37 + this._name.hashCode();
+        hashCode = hashCode * 37 + this._description.toString().hashCode();
+        hashCode = hashCode * 37 + this._uri.toString().hashCode();
+        hashCode = hashCode * 37 + this._label.toString().hashCode();
+        
+        return hashCode;
+    }
+
 }
