@@ -33,7 +33,7 @@ public class Example01 {
             /* (5) the executions */
 
 
-            String execID = mex.Configuration(confID).addExecution(EnumExecutionsType.OVERALL, EnumPhases.TEST);
+            String execID = mex.Configuration(confID).addExecution(EnumExecutionsType.SINGLE, EnumPhases.VALIDATION);
             {
                 //your models call here !
             }

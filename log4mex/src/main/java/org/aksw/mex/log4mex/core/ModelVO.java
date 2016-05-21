@@ -62,4 +62,28 @@ public class ModelVO {
 
     }
 
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof ModelVO)) {
+            return false;
+        }
+
+        ModelVO that = (ModelVO) other;
+
+        return this._date.equals(that._date)
+                && this._description.equals(that._description)
+                && this._id.equals(that._id);
+    }
+
+    @Override
+    public int hashCode() {
+        int hashCode = 1;
+
+        hashCode = hashCode * 37 + this._id.hashCode();
+        hashCode = hashCode * 37 + this._date.hashCode();
+        hashCode = hashCode * 37 + this._description.hashCode();
+
+        return hashCode;
+    }
+
 }

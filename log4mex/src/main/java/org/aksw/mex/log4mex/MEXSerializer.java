@@ -294,7 +294,8 @@ public class MEXSerializer {
                 }
 
             }
-            //EXPERIMENT CONFIGURATION
+
+            //EXPERIMENT CONFIGURATIONS
             if (mex.getExperimentConfigurations() != null) {
                 int auxExpConf = 1;
                 for (Iterator<ExperimentConfigurationVO> i = mex.getExperimentConfigurations().iterator(); i.hasNext(); ) {
@@ -520,14 +521,16 @@ public class MEXSerializer {
                                 //EXECUTION
                                 Resource mexcore_EXEC = null;
 
-                                if (iexec instanceof ExecutionIndividualVO){
+                                if (e instanceof ExecutionIndividualVO){
                                     mexcore_EXEC = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXECUTION_SINGLE);
                                     _exec.addProperty(RDF.type, mexcore_EXEC);
                                     _exec.addProperty(RDFS.label, "Single Execution: " + e.getId());
-                                }else{
+                                }else  if (e instanceof ExecutionSetVO){
                                     mexcore_EXEC = model.createResource(MEXCORE_10.NS + MEXCORE_10.ClasseTypes.EXECUTION_OVERALL);
                                     _exec.addProperty(RDF.type, mexcore_EXEC);
                                     _exec.addProperty(RDFS.label, "Overall Execution: " + e.getId());
+                                }else{
+                                    throw new Exception("Execution type unknown!");
                                 }
 
                                 _exec.addProperty(PROVO.id, e.getId());
