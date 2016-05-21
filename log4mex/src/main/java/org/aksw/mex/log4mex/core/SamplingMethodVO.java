@@ -108,4 +108,39 @@ public class SamplingMethodVO {
 
     }
 
+
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof SamplingMethodVO)) {
+            return false;
+        }
+
+        SamplingMethodVO that = (SamplingMethodVO) other;
+
+        return this._className.equals(that._className)
+                && this._trainSize.equals(that._trainSize)
+                && this._testSize.equals(that._testSize)
+                && this._individualName.equals(that._individualName)
+                && this._folds.equals(that._folds)
+                && this._sequential.equals(that._sequential)
+                && this._label.equals(that._label);
+    }
+
+    @Override
+    public int hashCode() {
+        int hashCode = 1;
+
+        hashCode = hashCode * 37 + this._className.hashCode();
+        hashCode = hashCode * 37 + this._trainSize.hashCode();
+        hashCode = hashCode * 37 + this._testSize.hashCode();
+        hashCode = hashCode * 37 + this._individualName.hashCode();
+        hashCode = hashCode * 37 + this._folds.hashCode();
+        hashCode = hashCode * 37 + this._sequential.hashCode();
+        hashCode = hashCode * 37 + this._label.hashCode();
+
+        return hashCode;
+    }
+
+
+
 }
