@@ -571,13 +571,26 @@ public class MEXSerializer {
 
                                 //PHASE
                                 if (e.getPhase() != null){
-                                    Resource mexcore_PHASE = model.createResource(MEXCORE_10.NS + e.getPhase().getName());
-                                    if (StringUtils.isNotBlank(e.getPhase().getName().toString()) && StringUtils.isNotEmpty(e.getPhase().getName().toString())) {
-                                    Resource _phase = model.createResource(URIbase + e.getPhase().getIndividualName()+ "cf" + auxExpConf + "_"  + this.userHash)
-                                            //.addProperty(RDF.type, provEntity)
-                                            .addProperty(RDFS.label, e.getPhase().getLabel())
-                                            .addProperty(RDF.type, mexcore_PHASE);
-                                    _exec.addProperty(PROVO.used, _phase);}
+                                    //is there a similar resource in the list?
+                                    String auxIN = objectCreatedBefore(e.getPhase(), auxExpConf, mex.getExperimentConfigurations());
+                                    Resource _phase;
+
+                                    if (auxIN == ""){
+                                        Resource mexcore_PHASE = model.createResource(MEXCORE_10.NS + e.getPhase().getName());
+                                        if (StringUtils.isNotBlank(e.getPhase().getName().toString()) && StringUtils.isNotEmpty(e.getPhase().getName().toString())) {
+                                            //updating individual name
+                                            e.getPhase().setIndividualName(e.getPhase().getIndividualName() + "cf" + auxExpConf + "_"  + this.userHash);
+                                            //creating resource
+                                            _phase = model.createResource(URIbase + e.getPhase().getIndividualName())
+                                                    .addProperty(RDFS.label, e.getPhase().getLabel())
+                                                    .addProperty(RDF.type, mexcore_PHASE);
+                                            _exec.addProperty(PROVO.used, _phase);}}
+                                    else{
+                                        _phase = model.getResource(auxIN);
+                                        _exec.addProperty(PROVO.used, _phase);}
+
+                                    }
+
                                 }
 
 
