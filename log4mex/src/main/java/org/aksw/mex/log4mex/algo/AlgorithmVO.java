@@ -9,12 +9,12 @@ import java.util.List;
  */
 public class AlgorithmVO {
 
-    private String _individualName;
+    private String _individualName = "";
 
-    private String _dct_identifier;
-    private String _rdfs_label;
-    private String _acroynm;
-    private String _className;
+    private String _dct_identifier = "";
+    private String _rdfs_label = "";
+    private String _acroynm = "";
+    private String _className = "";
     private URI _uri;
 
     private List<HyperParameterVO> _parameters;

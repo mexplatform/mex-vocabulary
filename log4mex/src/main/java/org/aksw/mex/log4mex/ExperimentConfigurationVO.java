@@ -14,7 +14,6 @@ import org.aksw.mex.util.ontology.mex.MEXCORE_10;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.tools.Tool;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,7 +23,7 @@ import java.util.List;
 /**
  * Created by esteves on 25.06.15.
  */
-public class ExperimentConfigurationVO {
+public class ExperimentConfigurationVO extends InstanceObjects {
 
     private String                     _id;
     private String                     _description;
@@ -42,7 +41,6 @@ public class ExperimentConfigurationVO {
     private List<FeatureVO>            _features;
     private List<AlgorithmVO>          _algorithms;
 
-    private String                     _label="";
     private int                        _maxLabel = 30;
     private static final Logger        LOGGER = LoggerFactory.getLogger(ExperimentConfigurationVO.class);
 
@@ -54,12 +52,14 @@ public class ExperimentConfigurationVO {
         this._executions = new ArrayList<>();
         this._features = new ArrayList<>();
         this._algorithms = new ArrayList<>();
-        this._ds = new DataSetVO();
+       // this._ds = new DataSetVO();
         this._label = _description + "...";
         if (this._label.length() > _maxLabel){
             this._label = this._label.substring(0,_maxLabel-1)+ "...";
         }
         this._seq = sequential;
+        this._individualName = "exp_cf_" + sequential.toString() + "_";
+        this._label = "Configuration for a set of Executions";
     }
 
     public ExperimentConfigurationVO(String id, Integer sequential) {
@@ -67,8 +67,10 @@ public class ExperimentConfigurationVO {
         this._executions = new ArrayList<>();
         this._features = new ArrayList<>();
         this._algorithms = new ArrayList<>();
-        this._ds = new DataSetVO();
+       // this._ds = new DataSetVO();
         this._seq = sequential;
+        this._individualName = "exp_cf_" + sequential.toString() + "_";
+        this._label = "Configuration for a set of Executions";
     }
 
     /**********************************************************************************************************************************************
@@ -108,6 +110,7 @@ public class ExperimentConfigurationVO {
     public ModelVO Model() {
         if (this._model == null){
             this._model = new ModelVO();
+            this._model.setIndividualName("mod_cf_" + this._seq + "_");
         }
         return this._model;
     }
@@ -119,6 +122,7 @@ public class ExperimentConfigurationVO {
     public PhaseVO Phase() {
         if (this._phase == null){
             this._phase = new PhaseVO(MEXEnum.EnumPhases.NOT_INFORMED);
+            this._phase.setIndividualName("phase_cf_" + this._seq + "_");
         }
         return this._phase;
     }
@@ -131,6 +135,7 @@ public class ExperimentConfigurationVO {
         try {
             if (this._sampling == null) {
                 this.setSamplingMethod(MEXEnum.EnumSamplingMethods.NOT_INFORMED, null);
+                this._phase.setIndividualName("sm_cf_" + this._seq + "_");
             }
             return this._sampling;
         }
@@ -147,6 +152,7 @@ public class ExperimentConfigurationVO {
         try {
             if (this._hard == null) {
                 this.setHardwareConfiguration(null, MEXEnum.EnumProcessors.NOT_INFORMED, MEXEnum.EnumRAM.NOT_INFORMED, null, MEXEnum.EnumCaches.NOT_INFORMED);
+                this._hard.setIndividualName("hard_cf_" + this._seq + "_");
             }
             return this._hard;
         }
@@ -162,7 +168,8 @@ public class ExperimentConfigurationVO {
     public ToolVO Tool() {
         try {
             if (this._tool == null) {
-                this.setTool(null, null);
+                this.setTool("", null);
+                this._tool.setIndividualName("tool_cf_" + this._seq + "_");
             }
             return this._tool;
         }
@@ -178,6 +185,7 @@ public class ExperimentConfigurationVO {
     public DataSetVO DataSet() {
         if (_ds == null) {
             this._ds = new DataSetVO();
+            this._ds.setIndividualName("ds_cf_" + this._seq + "_");
         }
         return this._ds;
     }
@@ -353,40 +361,32 @@ public class ExperimentConfigurationVO {
     }
 
 
-    private void _addToolParameters(String[] values){
+    /**
+     * add a tool parameter associated to a set of executions
+     * @param key
+     * @param value
+     */
+    public void addToolParameters(String key, String value){
+        int indexaux = 0;
+
         if (this._toolParameters == null) {
-            this._toolParameters = new ArrayList<>();}
-
-        int size = values.length;
-        for (int i=0; i<size; i++)
-        {
-            String toolparam = values[i];
-            try {
-                Collection<ToolParameterVO> t = Collections2.filter(this._toolParameters, p -> p.getId().equals(toolparam));
-                if (t != null && t.size() > 0){throw new Exception("Tool parameter already assigned");}
-                else {
-                    this._toolParameters.add(new ToolParameterVO(String.valueOf(this._toolParameters.size()+1), toolparam));
-                }
-            } catch (Exception e){
-                System.out.println(e.toString());
-            }
+            this._toolParameters = new ArrayList<>();
+        }else{
+            indexaux = this._toolParameters.size() + 1;
         }
-    }
 
-    /**
-     * add a feature associated to a set of executions
-     * @param featureName
-     */
-    public void addToolParameters(String value){
-        _addToolParameters(new String[]{value});
-    }
-
-    /**
-     * add recursively a set of features associated to a set of executions
-     * @param featuresName
-     */
-    public void addToolParameters(String[] values){
-        _addToolParameters(values);
+        try {
+            Collection<ToolParameterVO> t = Collections2.filter(this._toolParameters, p -> p.getId().equals(key));
+            if (t != null && t.size() > 0){throw new Exception("Tool parameter key " + key + " already assigned");}
+            else {
+                ToolParameterVO tp = new ToolParameterVO(key, value);
+                tp.setIndividualName("tool_par_" + String.valueOf(indexaux + 1) + "_cf_" + this._seq + "_");
+                this._toolParameters.add(tp);
+            }
+        } catch (Exception e){
+            System.out.println(e.toString());
+        }
+        indexaux++;
     }
 
 
@@ -585,6 +585,19 @@ public class ExperimentConfigurationVO {
     }
 
     /**
+     * set the Software Implementation associated to a set of executions
+     * @param name
+     * @param version
+     */
+    public void setTool(String name, String version){
+        if (this._tool == null){
+            this._tool = new ToolVO();
+        }
+        this._tool.setRevision(version);
+        this._tool.setName(name);
+    }
+
+    /**
      * add an Algorithm available in an Experiment Configuration
      * @param algorithmId
      * @param algorithmURI
@@ -706,6 +719,16 @@ public class ExperimentConfigurationVO {
 
         return algo;
 
+    }
+
+    @Override
+    public boolean equals(Object other){
+        return false;
+    }
+
+    @Override
+    public int hashCode(){
+        return 0;
     }
 
 }

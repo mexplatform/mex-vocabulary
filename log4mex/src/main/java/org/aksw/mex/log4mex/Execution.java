@@ -22,6 +22,7 @@ public abstract class Execution {
     protected String                    _targetClass;
     protected Date                      _startedAtTime;
     protected Date                      _endedAtTime;
+    protected String                    _errorMessage;
 
     protected ExperimentConfigurationVO _expConf;
     protected PhaseVO                   _phase;
@@ -124,6 +125,8 @@ public abstract class Execution {
         }
         return _p;
     }
+
+    protected String getErrorMessage(){ return this._errorMessage;}
     
     /**********************************************************************************************************************************************
      *                                                                  setters
@@ -164,6 +167,10 @@ public abstract class Execution {
             throw new Exception(e);
         }
         return true;
+    }
+
+    public void setErrorMessage(String value){
+        this._errorMessage = value;
     }
 
     /**********************************************************************************************************************************************
@@ -282,13 +289,14 @@ public abstract class Execution {
      * @return
      * @throws Exception
      */
-    public boolean addDatasetExample(String id, String value, long datasetRow, long datasetColumn) throws Exception{
+    public boolean addDatasetExample(String id, String value, long datasetRow, long datasetColumn, MEXEnum.EnumExamplesType type) throws Exception{
         try {
             ExampleVO example = new ExampleVO();
             example.setId(id);
             example.setValue(value);
             example.setDatasetRow(datasetRow);
             example.setDatasetColumn(datasetColumn);
+            example.setExampleType(type.toString());
             this._examples.add(example);
             return true;
         }catch (Exception e){

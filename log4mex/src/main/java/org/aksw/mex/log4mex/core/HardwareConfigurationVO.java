@@ -1,28 +1,31 @@
 package org.aksw.mex.log4mex.core;
 
+import org.aksw.mex.log4mex.InstanceObjects;
 import org.aksw.mex.util.MEXEnum;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by esteves on 26.06.15.
  */
-public class HardwareConfigurationVO {
+public class HardwareConfigurationVO extends InstanceObjects {
 
-    private String _os;
-    private String _cpu;
-    private String _memory;
-    private String _hd;
-    private String _cache;
-    private String _video;
+    private String _os = "";
+    private String _cpu = "";
+    private String _memory = "";
+    private String _hd = "";
+    private String _cache = "";
+    private String _video = "";
 
 
     public HardwareConfigurationVO(MEXEnum.EnumProcessors cpu, MEXEnum.EnumRAM memory, MEXEnum.EnumCaches cache){
         this._cache =cache.toString();
         this._memory = memory.toString();
         this._cpu=cpu.toString();
+        this.setLabel("Hardware configuration");
     }
 
     public HardwareConfigurationVO(){
-
+        this.setLabel("Hardware configuration");
     }
 
     public void setOperationalSystem(String value){
@@ -99,12 +102,23 @@ public class HardwareConfigurationVO {
     public int hashCode() {
         int hashCode = 1;
 
-        hashCode = hashCode * 37 + this._os.hashCode();
-        hashCode = hashCode * 37 + this._cpu.hashCode();
-        hashCode = hashCode * 37 + this._cache.hashCode();
-        hashCode = hashCode * 37 + this._video.hashCode();
-        hashCode = hashCode * 37 + this._memory.hashCode();
-        hashCode = hashCode * 37 + this._hd.hashCode();
+        if (StringUtils.isNotEmpty(this._os) && StringUtils.isNotBlank(this._os))
+            hashCode = hashCode * 37 + this._os.hashCode();
+
+        if (StringUtils.isNotEmpty(this._cpu) && StringUtils.isNotBlank(this._cpu))
+            hashCode = hashCode * 37 + this._cpu.hashCode();
+
+        if (StringUtils.isNotEmpty(this._cache) && StringUtils.isNotBlank(this._cache))
+            hashCode = hashCode * 37 + this._cache.hashCode();
+
+        if (StringUtils.isNotEmpty(this._video) && StringUtils.isNotBlank(this._video))
+            hashCode = hashCode * 37 + this._video.hashCode();
+
+        if (StringUtils.isNotEmpty(this._memory) && StringUtils.isNotBlank(this._memory))
+            hashCode = hashCode * 37 + this._memory.hashCode();
+
+        if (StringUtils.isNotEmpty(this._hd) && StringUtils.isNotBlank(this._hd))
+            hashCode = hashCode * 37 + this._hd.hashCode();
 
         return hashCode;
     }

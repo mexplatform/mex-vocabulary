@@ -9,13 +9,13 @@ import org.apache.commons.lang3.StringUtils;
 public class SamplingMethodVO {
 
 
-    private String _individualName;
-    private String _className;
+    private String _individualName = "";
+    private String _className = "";
     private Double _trainSize;
     private Double _testSize;
     private Integer _folds;
     private Boolean _sequential;
-    private String _label;
+    private String _label = "";
 
 
     public SamplingMethodVO(String ind, MEXEnum.EnumSamplingMethods sm) {
@@ -118,11 +118,11 @@ public class SamplingMethodVO {
         SamplingMethodVO that = (SamplingMethodVO) other;
 
         return this._className.equals(that._className)
-                && this._trainSize.equals(that._trainSize)
-                && this._testSize.equals(that._testSize)
+                && this._trainSize != null && this._trainSize.equals(that._trainSize)
+                && this._testSize != null && this._testSize.equals(that._testSize)
                 && this._individualName.equals(that._individualName)
-                && this._folds.equals(that._folds)
-                && this._sequential.equals(that._sequential)
+                && this._folds != null && this._folds.equals(that._folds)
+                && this._sequential != null && this._sequential.equals(that._sequential)
                 && this._label.equals(that._label);
     }
 
@@ -130,13 +130,26 @@ public class SamplingMethodVO {
     public int hashCode() {
         int hashCode = 1;
 
-        hashCode = hashCode * 37 + this._className.hashCode();
-        hashCode = hashCode * 37 + this._trainSize.hashCode();
-        hashCode = hashCode * 37 + this._testSize.hashCode();
-        hashCode = hashCode * 37 + this._individualName.hashCode();
-        hashCode = hashCode * 37 + this._folds.hashCode();
-        hashCode = hashCode * 37 + this._sequential.hashCode();
-        hashCode = hashCode * 37 + this._label.hashCode();
+        if (StringUtils.isNotEmpty(this._className) && StringUtils.isNotBlank(this._className))
+            hashCode = hashCode * 37 + this._className.hashCode();
+
+        if (this._trainSize != null)
+            hashCode = hashCode * 37 + this._trainSize.hashCode();
+
+        if (this._testSize != null)
+            hashCode = hashCode * 37 + this._testSize.hashCode();
+
+        if (StringUtils.isNotEmpty(this._individualName) && StringUtils.isNotBlank(this._individualName))
+            hashCode = hashCode * 37 + this._individualName.hashCode();
+
+        if (this._folds != null)
+            hashCode = hashCode * 37 + this._folds.hashCode();
+
+        if (this._sequential != null)
+            hashCode = hashCode * 37 + this._sequential.hashCode();
+
+        if (StringUtils.isNotEmpty(this._label) && StringUtils.isNotBlank(this._label))
+            hashCode = hashCode * 37 + this._label.hashCode();
 
         return hashCode;
     }

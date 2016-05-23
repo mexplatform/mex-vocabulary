@@ -54,7 +54,7 @@ public class Example02 {
             mex.Configuration(conf02ID).Execution(exec02ID).setAlgorithm(alg02ID);
             mex.Configuration(conf02ID).Execution(exec02ID).addPerformance(EnumMeasures.ACCURACY, .80);
             mex.Configuration(conf02ID).Execution(exec02ID).addPerformance(EnumMeasures.ERROR, .20);
-            mex.Configuration(conf01ID).Execution(exec02ID).addPerformance(EnumMeasures.TRUEPOSITIVE, 3143);
+            mex.Configuration(conf02ID).Execution(exec02ID).addPerformance(EnumMeasures.TRUEPOSITIVE, 3143);
 
             /* (2.7) saving the mex file */
             try{

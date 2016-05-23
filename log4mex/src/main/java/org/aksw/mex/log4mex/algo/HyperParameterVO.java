@@ -4,9 +4,9 @@ package org.aksw.mex.log4mex.algo;
  * Created by esteves on 08.06.15.
  */
 public class HyperParameterVO {
-    private String _dct_identifier;
-    private String _prov_value;
-    private String _label="";
+    private String _dct_identifier = "";
+    private String _prov_value = "";
+    private String _label = "";
 
     public HyperParameterVO(String _dct_identifier, String _prov_value){
         this._dct_identifier = _dct_identifier;

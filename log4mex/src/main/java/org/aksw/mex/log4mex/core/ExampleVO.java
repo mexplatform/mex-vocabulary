@@ -37,10 +37,20 @@ public class ExampleVO implements IDataSetExample{
         this._dsRow = _value;
     }
 
+    public String getExampleType() {
+        return _type;
+    }
+
+    public void setExampleType(String _value) {
+        this._type = _value;
+    }
+
+
     private String _id;
     private String _value;
     private long _dsColumn;
     private long _dsRow;
+    private String _type;
 
     public ExampleVO(){
     }

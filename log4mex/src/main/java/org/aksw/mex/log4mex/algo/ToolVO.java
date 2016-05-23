@@ -1,22 +1,22 @@
 package org.aksw.mex.log4mex.algo;
 
+import org.aksw.mex.log4mex.InstanceObjects;
 import org.aksw.mex.util.MEXEnum;
 
 /**
  * Created by esteves on 08.06.15.
  */
-public class ToolVO {
+public class ToolVO extends InstanceObjects {
 
-    private String _individualName;
-    private String rdfs_label;
-    private String doap_name;
-    private String doap_homepage;
-    private String doap_revision;
-    private String doap_description;
-    private String doap_programming_language;
+    private String rdfs_label = "";
+    private String doap_name = "";
+    private String doap_homepage = "";
+    private String doap_revision = "";
+    private String doap_description = "";
+    private String doap_programming_language = "";
 
     public ToolVO(MEXEnum.EnumTools name){
-        this._individualName = name.toString();
+        this.setIndividualName(name.toString());
     }
 
     public ToolVO(){}
@@ -37,12 +37,8 @@ public class ToolVO {
         this.doap_name = value;
     }
 
-    public String get() {
-        return _individualName;
-    }
-
     public void set(MEXEnum.EnumTools value) {
-        this._individualName = value.toString();
+        this.setIndividualName(value.toString());
     }
 
     public String getHomepage() {
@@ -102,7 +98,7 @@ public class ToolVO {
 
         ToolVO that = (ToolVO) other;
 
-        return this._individualName.equals(that._individualName)
+        return this.getIndividualName().equals(that.getIndividualName())
                 && this.rdfs_label.equals(that.rdfs_label)
                 && this.doap_name.equals(that.doap_name)
                 && this.doap_homepage.equals(that.doap_homepage)
@@ -117,7 +113,7 @@ public class ToolVO {
     public int hashCode() {
         int hashCode = 1;
 
-        hashCode = hashCode * 37 + this._individualName.hashCode();
+        hashCode = hashCode * 37 + this.getIndividualName().hashCode();
         hashCode = hashCode * 37 + this.rdfs_label.hashCode();
         hashCode = hashCode * 37 + this.doap_name.hashCode();
         hashCode = hashCode * 37 + this.doap_homepage.hashCode();

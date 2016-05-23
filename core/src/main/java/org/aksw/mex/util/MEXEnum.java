@@ -236,6 +236,11 @@ public class MEXEnum {
         public static final String OVERALL = "OVERALL";
     }
 
+    private class EnumExampleType{
+        public static final String POS = "1";
+        public static final String NEG = "-1";
+    }
+
     /**************** ENUM **************/
 
 
@@ -549,6 +554,27 @@ public class MEXEnum {
          * @param text
          */
         private EnumClusteringMeasure(final String text) {
+            this.text = text;
+        }
+
+        /* (non-Javadoc)
+         * @see java.lang.Enum#toString()
+         */
+        @Override
+        public String toString() {return text;}
+
+    }
+
+    public enum EnumExamplesType{
+
+        NEG(EnumExampleType.NEG.toString()),
+        POS(EnumExampleType.POS.toString());
+
+        private final String text;
+        /**
+         * @param text
+         */
+        private EnumExamplesType(final String text) {
             this.text = text;
         }
 

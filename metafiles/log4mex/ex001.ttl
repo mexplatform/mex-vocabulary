@@ -12,90 +12,90 @@
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
-this:algorithm1cf1_-884535686
-        a                          mexalgo:Algorithm ;
-        rdfs:label                 "Naive Bayes" ;
-        mexalgo:hasAlgorithmClass  mexalgo:NaiveBayes ;
-        dct:identifier             "alg" .
-
-this:cxt_-884535686  a        mexcore: ;
+this:cxt_-885430346  a        mexcore: ;
         rdfs:label            "" ;
-        prov:wasAttributedTo  this:app_-884535686 .
+        prov:wasAttributedTo  this:app_-885430346 .
 
-this:fea_1_cf_1_-884535686
+this:fea_1_cf_1_-885430346
         a               mexcore:Feature ;
         rdfs:label      "min" ;
         dct:identifier  "1" .
 
-this:fea_col_cf_1_-884535686
+this:fea_col_cf_1_-885430346
         a               mexcore:FeatureCollection ;
         rdfs:label      "Feature Collection" ;
-        prov:hadMember  this:fea_4_cf_1_-884535686 , this:fea_3_cf_1_-884535686 , this:fea_2_cf_1_-884535686 , this:fea_1_cf_1_-884535686 .
+        prov:hadMember  this:fea_4_cf_1_-885430346 , this:fea_3_cf_1_-885430346 , this:fea_2_cf_1_-885430346 , this:fea_1_cf_1_-885430346 .
 
-this:exp_-884535686  a          mexcore:Experiment ;
+this:app_-885430346  a       mexcore:ApplicationContext ;
+        rdfs:label           "Basic Experiment Infomation" ;
+        dct:dateCopyrighted  "2016.05.23 19:42:51 CEST" ;
+        foaf:givenName       "D Esteves" ;
+        foaf:mbox            "esteves@informatik.uni-leipzig.de" .
+
+this:exp_-885430346  a          mexcore:Experiment ;
         rdfs:label              "Experiment: MEX_EXPERIMENT" ;
-        mexcore:experimentHash  "-884535686" ;
+        mexcore:experimentHash  "-885430346" ;
         dct:identifier          "MEX_EXPERIMENT" ;
-        prov:wasAttributedTo    this:app_-884535686 .
+        prov:wasAttributedTo    this:app_-885430346 .
 
-this:fea_2_cf_1_-884535686
+this:phase_Validationcf1_-885430346
+        a           mexcore:Validation ;
+        rdfs:label  "Validation" .
+
+this:mea_stat_C1_MEX_EXEC_D1_cf_1_-885430346
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "0.04"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_1_cf_1_-885430346 .
+
+this:fea_2_cf_1_-885430346
         a               mexcore:Feature ;
         rdfs:label      "max" ;
         dct:identifier  "2" .
 
-this:exp_cf_1_-884535686
-        a                  mexcore:ExperimentConfiguration ;
-        rdfs:label         "" , "Experiment Configuration" ;
-        dct:identifier     "MEX_EXP_CONF_D1" ;
-        prov:used          this:fea_col_cf_1_-884535686 , this:ds_cf_1_-884535686 ;
-        prov:wasStartedBy  this:exp_-884535686 .
-
 this:version  dct:hasVersion  "1.0.2" .
 
-this:fea_3_cf_1_-884535686
+this:mea_clas_C1_MEX_EXEC_D1_cf_1_-885430346
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:accuracy     "0.96"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_1_cf_1_-885430346 .
+
+this:fea_3_cf_1_-885430346
         a               mexcore:Feature ;
         rdfs:label      "ope" ;
         dct:identifier  "3" .
 
-this:mea_stat_C0_MEX_EXEC_D1_cf_1_-884535686
-        a                    mexperf:StatisticalMeasure ;
-        rdfs:label           "Statistical measures" ;
-        mexperf:error        "0.04"^^xsd:double ;
-        prov:wasGeneratedBy  this:exe_1_cf_1_-884535686 .
-
-this:fea_4_cf_1_-884535686
+this:fea_4_cf_1_-885430346
         a               mexcore:Feature ;
         rdfs:label      "clo" ;
         dct:identifier  "4" .
 
-this:mea_clas_C0_MEX_EXEC_D1_cf_1_-884535686
-        a                    mexperf:ClassificationMeasure ;
-        rdfs:label           "Classification measures" ;
-        mexperf:accuracy     "0.96"^^xsd:double ;
-        prov:wasGeneratedBy  this:exe_1_cf_1_-884535686 .
+this:exp_cf_1_-885430346
+        a                  mexcore:ExperimentConfiguration ;
+        rdfs:label         "Configuration for a set of Executions" ;
+        dct:identifier     "MEX_EXP_CONF_D1" ;
+        prov:used          this:fea_col_cf_1_-885430346 , this:ds_cf_1_-885430346 ;
+        prov:wasStartedBy  this:exp_-885430346 .
 
-this:app_-884535686  a       mexcore:ApplicationContext ;
-        rdfs:label           foaf:givenName ;
-        dct:dateCopyrighted  "2016.05.21 23:40:11 CEST" ;
-        foaf:givenName       "D Esteves" ;
-        foaf:mbox            "esteves@informatik.uni-leipzig.de" .
-
-mexalgo:NaiveBayes  rdfs:label  "Naive Bayes" .
-
-this:ds_cf_1_-884535686
+this:ds_cf_1_-885430346
         a           mexcore:Dataset ;
         rdfs:label  "Dataset mydataset.csv" ;
         dct:title   "mydataset.csv" .
 
-this:phase_Validationcf1_-884535686
-        a           mexcore:Validation ;
-        rdfs:label  "Validation" .
+mexalgo:NaiveBayes  rdfs:label  "Naive Bayes" .
 
-this:exe_1_cf_1_-884535686
+this:exe_1_cf_1_-885430346
         a                   mexcore:ExecutionSingle ;
-        rdfs:label          "Single Execution: C0_MEX_EXEC_D1" ;
+        rdfs:label          "Single Execution: C1_MEX_EXEC_D1" ;
         mexcore:group       false ;
-        prov:generated      this:mea_stat_C0_MEX_EXEC_D1_cf_1_-884535686 , this:mea_clas_C0_MEX_EXEC_D1_cf_1_-884535686 ;
-        prov:id             "C0_MEX_EXEC_D1" ;
-        prov:used           this:algorithm1cf1_-884535686 , this:phase_Validationcf1_-884535686 ;
-        prov:wasInformedBy  this:exp_cf_1_-884535686 .
+        prov:generated      this:mea_stat_C1_MEX_EXEC_D1_cf_1_-885430346 , this:mea_clas_C1_MEX_EXEC_D1_cf_1_-885430346 ;
+        prov:id             "C1_MEX_EXEC_D1" ;
+        prov:used           this:algorithm1cf1_-885430346 , this:phase_Validationcf1_-885430346 ;
+        prov:wasInformedBy  this:exp_cf_1_-885430346 .
+
+this:algorithm1cf1_-885430346
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Naive Bayes" ;
+        mexalgo:hasAlgorithmClass  mexalgo:NaiveBayes ;
+        dct:identifier             "alg" .

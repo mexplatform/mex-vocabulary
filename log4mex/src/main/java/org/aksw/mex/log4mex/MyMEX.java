@@ -79,68 +79,45 @@ public class MyMEX {
         String logmessage;
 
         try {
-            if (withoutConfiguration == true){
+
+            if (withoutConfiguration == true && (StringUtils.isNotEmpty(value) || StringUtils.isNotBlank(value)) ){
                 logmessage = "You defined a SINGLE Configuration before and now are trying add a MULTIPLE Configuration. It's not allowed, sorry!"
                         + " Please change your method calls in order to have either [Configuration()] calls (just ONE configuration) or [addConfiguration(id) and Configuration(id)] (MORE THAN ONE configuration)";
                 LOGGER.warn(logmessage);
                 throw new Exception(logmessage);
-            }
-            else if (this.experimentConfigurationList ==null){
+            } else if (this.experimentConfigurationList == null){
                 logmessage = "fatal error: experiment config list is null!";
                 LOGGER.warn(logmessage);
                 throw new Exception(logmessage);
             }
-            else {
-                /* if (StringUtils.isNotEmpty(value) || StringUtils.isNotBlank(value)) {
-                    //user wants to control it, first insertion...
-                    if (this.experimentConfigurationList.size() == 1){
-                        automatic=false;
-                        //excluding experiment configuration created automatically on start, since the user wants to controll it
-                        this.experimentConfigurationList.removeIf(p -> p.getId().equals(MEXConstant.DEFAULT_EXP_CONFIGURATION_ID + "1"));
-                    }
-                    valueaux=value;
-                }
-                else
-                {
-                    if (automatic==false) {
-                        throw new Exception("Error: please inform the Experiment Configuration ID, since you started by defining it");
-                    }else{
-                        valueaux = MEXConstant.DEFAULT_EXP_CONFIGURATION_ID +
-                            String.valueOf(this.experimentConfigurationList.size() + 1);
-                    }
-                }
-                */
 
-                //automatic incrementation process
-                if (StringUtils.isEmpty(value) || StringUtils.isBlank(value)) {
-                    Integer nextID = 0;
-                    Collection<ExperimentConfigurationVO> tdefault = Collections2.filter(
-                            this.experimentConfigurationList, p -> p.getId().contains(MEXConstant.DEFAULT_EXP_CONFIGURATION_ID));
-                    if (tdefault != null) {
-                        nextID = tdefault.size() + 1;
-                    }
-                    valueaux = MEXConstant.DEFAULT_EXP_CONFIGURATION_ID + String.valueOf(nextID);
+            int totalElements = this.experimentConfigurationList.size();
 
+            //automatic incrementation process
+            if (StringUtils.isEmpty(value) || StringUtils.isBlank(value)) {
+                /*
+                Integer nextID = 0;
+                Collection<ExperimentConfigurationVO> tdefault = Collections2.filter(
+                        this.experimentConfigurationList, p -> p.getId().contains(MEXConstant.DEFAULT_EXP_CONFIGURATION_ID));
+                if (tdefault != null) {
+                    nextID = tdefault.size() + 1;
                 }
-                //manual incrementation process
-                else
-                {
-                    valueaux=value;
-                }
-                //checking the existing
-                final String check = valueaux;
-                Collection<ExperimentConfigurationVO> t =
-                        Collections2.filter(this.experimentConfigurationList, p -> p.getId().equals(check));
-                if (t != null && t.size() > 0){
-                    throw new Exception("Error: Experiment Configuration ID " + check + " already assigned");
-                }
-
-                //adding the code
-                if (this.experimentConfigurationList.add(new ExperimentConfigurationVO(check))==false){
-                    throw new Exception("Error when including the item in the list");
-                }
-
+                 */
+                valueaux = MEXConstant.DEFAULT_EXP_CONFIGURATION_ID + String.valueOf(totalElements + 1);
             }
+            else //manual incrementation process
+            {
+                valueaux = value;
+            }
+
+            //checking the existing
+            final String check = valueaux;
+            Collection<ExperimentConfigurationVO> t = Collections2.filter(this.experimentConfigurationList, p -> p.getId().equals(check));
+            if (t != null && t.size() > 0){
+                throw new Exception("Error: Experiment Configuration ID " + check + " already assigned");}
+            //adding the code
+            if (this.experimentConfigurationList.add(new ExperimentConfigurationVO(valueaux, totalElements + 1))==false){
+                throw new Exception("Error when including the item in the list");}
 
         }catch (Exception e){
             LOGGER.error(e.toString());
@@ -236,7 +213,7 @@ public class MyMEX {
             //first access to Configuration()
             else if (withoutConfiguration == false && this.experimentConfigurationList.size() == 0){
                 withoutConfiguration = true;
-                ExperimentConfigurationVO conf = new ExperimentConfigurationVO(id);
+                ExperimentConfigurationVO conf = new ExperimentConfigurationVO(id, 1);
                 this.experimentConfigurationList.add(conf);
                 ret = conf;
             }

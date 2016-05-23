@@ -12,6 +12,7 @@ import org.aksw.mex.log4mex.core.*;
 import org.aksw.mex.log4mex.perf.example.ExamplePerformanceMeasureVO;
 import org.aksw.mex.log4mex.perf.overall.*;
 import org.aksw.mex.util.MEXConstant;
+import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.util.ontology.DCAT;
 import org.aksw.mex.util.ontology.DOAP;
 import org.aksw.mex.util.ontology.FOAF;
@@ -196,10 +197,7 @@ public class MEXSerializer {
             //gets
             if (mex.getApplicationContext() != null) {
                 _application = model.createResource(URIbase + "app_" + this.userHash)
-                        //.addProperty(RDF.type, provAgent)
-                        //.addProperty(RDF.type, provPerson)
-                        //.addProperty(RDF.type, provOrganization)
-                        .addProperty(RDFS.label,FOAF.givenName)
+                        .addProperty(RDFS.label, "Basic Experiment Infomation")
                         .addProperty(RDF.type, mexcore_APC)
                         .addProperty(DCTerms.dateCopyrighted, new SimpleDateFormat("yyyy.MM.dd HH:mm:ss z").format(mex.getApplicationContext().get_fileDate()));
 
@@ -235,12 +233,12 @@ public class MEXSerializer {
                     _application.addProperty(PROVO.actedOnBehalfOf, _organization);
                 }
 
-                if (mex.getApplicationContext().getContext() != null) {
+                if (mex.getApplicationContext().getContext() != null && mex.getApplicationContext().getContext().get_context() != MEXEnum.EnumContexts.NOT_INFORMED) {
 
                     mex.getApplicationContext().getContext().setLabel(setLabelSplitingTerms(mex.getApplicationContext().getContext().get_context().toString()));
 
-                    Resource mexcore_CON = model.createResource(MEXCORE_10.NS + mex.getApplicationContext().getContext().get_context());
-                    _context = model.createResource(URIbase + "cxt_"  + this.userHash)
+                    Resource mexcore_CON = model.createResource(MEXCORE_10.NS + mex.getApplicationContext().getContext().get_context().toString());
+                    _context = model.createResource(URIbase + "cxt_" + this.userHash)
                             .addProperty(RDF.type, mexcore_CON)
                             .addProperty(RDFS.label, mex.getApplicationContext().getContext().getLabel())
                             .addProperty(PROVO.wasAttributedTo, _application);
@@ -253,7 +251,6 @@ public class MEXSerializer {
             //EXPERIMENT
             if (mex.getExperiment() != null) {
                 _expHeader = model.createResource(URIbase + "exp_"  + this.userHash)
-                        //.addProperty(RDF.type, provEntity)
                         .addProperty(RDF.type, mexcore_EXP_HEADER)
                         .addProperty(MEXCORE_10.experimentHash, this.userHash);
                         if(StringUtils.isNotEmpty(mex.getExperiment().getId()) && StringUtils.isNotBlank(mex.getExperiment().getId())) {
@@ -299,9 +296,7 @@ public class MEXSerializer {
                 for (Iterator<ExperimentConfigurationVO> i = mex.getExperimentConfigurations().iterator(); i.hasNext(); ) {
                     ExperimentConfigurationVO item = i.next();
 
-                    Resource _expConfiguration = model.createResource(URIbase + "exp_cf_" + auxExpConf + "_" + this.userHash)
-                            //.addProperty(RDF.type, provActivity)
-                            .addProperty(RDFS.label, "Experiment Configuration")
+                    Resource _expConfiguration = model.createResource(URIbase + item.getIndividualName() + this.userHash)
                             .addProperty(RDF.type, mexcore_EXP_CONF)
                             .addProperty(PROVO.wasStartedBy, _expHeader)
                             .addProperty(RDFS.label, item.getLabel());
@@ -315,45 +310,56 @@ public class MEXSerializer {
 
                     //MODEL
                     if (item.Model() != null && item.Model().hasValue()) {
-                        boolean atLeastOne = false;
 
-                        Resource _model = model.createResource(URIbase + "mod" + "_cf_" + auxExpConf + "_"  + this.userHash)
-                                //.addProperty(RDF.type, provEntity)
-                                .addProperty(RDF.type, mexcore_MODEL);
+                        String auxIN = objectCreatedBefore(item.Model(), auxExpConf, mex.getExperimentConfigurations());
+                        Resource _model;
 
-                        if (StringUtils.isNotBlank(item.Model().getId()) &&
-                                StringUtils.isNotEmpty(item.Model().getId())) {
-                            _model.addProperty(DCTerms.identifier, item.Model().getId());
-                            atLeastOne=true;
+                        if (StringUtils.isEmpty(auxIN)) {
+
+                            _model = model.createResource(URIbase + item.Model().getIndividualName() + this.userHash)
+                                    .addProperty(RDF.type, mexcore_MODEL);
+
+                            if (StringUtils.isNotBlank(item.Model().getId()) &&
+                                    StringUtils.isNotEmpty(item.Model().getId())) {
+                                _model.addProperty(DCTerms.identifier, item.Model().getId());}
+
+                            if (StringUtils.isNotBlank(item.Model().getDescription()) &&
+                                    StringUtils.isNotEmpty(item.Model().getDescription())) {
+                                _model.addProperty(DCTerms.description, item.Model().getDescription());}
+
+                            if (item.Model().getDate() != null) {
+                                _model.addProperty(DCTerms.date, item.Model().getDate().toString());}
+
+                        } else {
+                            _model = model.getResource(auxIN);
                         }
 
-                        if (StringUtils.isNotBlank(item.Model().getDescription()) &&
-                                StringUtils.isNotEmpty(item.Model().getDescription())) {
-                            _model.addProperty(DCTerms.description, item.Model().getDescription());
-                            atLeastOne=true;
-                        }
-
-                        if (item.Model().getDate() != null) {
-                            _model.addProperty(DCTerms.date, item.Model().getDate().toString());
-                            atLeastOne=true;
-                        }
-
-                        if (atLeastOne) {
-                            _expConfiguration.addProperty(PROVO.used, _model);
-
-                        }
+                        _expConfiguration.addProperty(PROVO.used, _model);
 
                     }
-                    Resource _imp = null;
+
+
                     //TOOL
+                    Resource _imp = null;
                     if (item.Tool() != null && item.Tool().hasValue()) {
                         if (StringUtils.isNotBlank(item.Tool().getName()) && StringUtils.isNotEmpty(item.Tool().getName())) {
 
-                            Resource _tool = model.createResource(MEXALGO_10.NS + item.Tool().getName());
-                            _imp = model.createResource(URIbase + "tool" + "_cf_" + auxExpConf + "_"  + this.userHash)
-                                    .addProperty(RDFS.label, setLabelSplitingTerms(item.Tool().getName()))
-                                    .addProperty(RDF.type, _tool);
-                            _expConfiguration.addProperty(PROVO.used, _imp);}
+                            String auxIN = objectCreatedBefore(item.Tool(), auxExpConf, mex.getExperimentConfigurations());
+                            Resource _tool;
+
+                            if (StringUtils.isEmpty(auxIN)) {
+
+                                _tool = model.createResource(MEXALGO_10.NS + item.Tool().getName());
+
+                                _imp = model.createResource(URIbase + item.Tool().getIndividualName() + this.userHash)
+                                        .addProperty(RDFS.label, setLabelSplitingTerms(item.Tool().getName()))
+                                        .addProperty(RDF.type, _tool);
+
+                            }else{
+                                _imp = model.getResource(auxIN);
+                            }
+                            _expConfiguration.addProperty(PROVO.used, _imp);
+                        }
 
                         //TOOL PARAMETER
                         if (item.getToolParameters() != null && item.getToolParameters().size() > 0) {
@@ -368,16 +374,25 @@ public class MEXSerializer {
                             Integer auxtoolparam = 1;
                             for(Iterator<ToolParameterVO> iparam = item.getToolParameters().iterator(); iparam.hasNext(); ) {
                                 ToolParameterVO toolParam = iparam.next();
-                                if (toolParam != null) {
-                                    Resource _toolParam = model.createResource(URIbase + "tool_par_" + String.valueOf(auxtoolparam) + "cf_" + auxExpConf + "_" + this.userHash)
+
+                                String auxIN = objectCreatedBefore(toolParam, auxExpConf, mex.getExperimentConfigurations());
+                                Resource _toolParam;
+
+                                if (StringUtils.isEmpty(auxIN)) {
+
+                                    _toolParam = model.createResource(URIbase + toolParam.getIndividualName() + this.userHash)
                                             .addProperty(RDF.type, mexalgo_TOOL_PARAM)
                                             .addProperty(RDFS.label, toolParam.getLabel())
                                             .addProperty(PROVO.value, toolParam.getValue())
                                             .addProperty(DCTerms.identifier, toolParam.getId());
 
-                                    _imp.addProperty(MEXALGO_10.hasToolParameter,_toolParam);
-                                    _toolcollection.addProperty(PROVO.hadMember, _toolParam);
-                                    auxtoolparam++;}
+                                }else{
+                                    _toolParam = model.getResource(auxIN);
+                                }
+
+                                _imp.addProperty(MEXALGO_10.hasToolParameter,_toolParam);
+                                _toolcollection.addProperty(PROVO.hadMember, _toolParam);
+                                auxtoolparam++;
                             }
                         }
                     }
@@ -385,29 +400,34 @@ public class MEXSerializer {
                     //SAMPLING METHOD
                     if (item.SamplingMethod() != null && item.SamplingMethod().hasValue()) {
 
-                        item.SamplingMethod().setLabel(setLabelSplitingTerms(item.SamplingMethod().getClassName()));
+                        String auxIN = objectCreatedBefore(item.SamplingMethod(), auxExpConf, mex.getExperimentConfigurations());
+                        Resource _sampling;
 
-                        Resource mexcore_SAMPLING_METHOD = model.createResource(MEXCORE_10.NS + item.SamplingMethod().getClassName());
+                        if (StringUtils.isEmpty(auxIN)) {
 
-                        Resource _sampling = model.createResource(URIbase + "sm" + "_cf_" + auxExpConf + "_" + this.userHash)
-                                //.addProperty(RDF.type, provEntity)
-                                .addProperty(RDFS.label, item.SamplingMethod().getLabel())
-                                .addProperty(RDF.type, mexcore_SAMPLING_METHOD);
+                            item.SamplingMethod().setLabel(setLabelSplitingTerms(item.SamplingMethod().getClassName()));
 
-                        if (item.SamplingMethod().getFolds() != null && StringUtils.isNotBlank(item.SamplingMethod().getFolds().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getFolds().toString())) {
-                            _sampling.addProperty(MEXCORE_10.folds, item.SamplingMethod().getFolds().toString());
+                            Resource mexcore_SAMPLING_METHOD = model.createResource(MEXCORE_10.NS + item.SamplingMethod().getClassName());
+
+                            _sampling = model.createResource(URIbase + item.SamplingMethod().getIndividualName() + this.userHash)
+                                    .addProperty(RDFS.label, item.SamplingMethod().getLabel())
+                                    .addProperty(RDF.type, mexcore_SAMPLING_METHOD);
+
+                            if (item.SamplingMethod().getFolds() != null && StringUtils.isNotBlank(item.SamplingMethod().getFolds().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getFolds().toString())) {
+                                _sampling.addProperty(MEXCORE_10.folds, item.SamplingMethod().getFolds().toString());}
+
+                            if (item.SamplingMethod().getSequential() != null && StringUtils.isNotBlank(item.SamplingMethod().getSequential().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getSequential().toString())) {
+                                _sampling.addProperty(MEXCORE_10.sequential, item.SamplingMethod().getSequential().toString());}
+
+                            if (item.SamplingMethod().getTrainSize() != null && StringUtils.isNotBlank(item.SamplingMethod().getTrainSize().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getTrainSize().toString())) {
+                                _sampling.addProperty(MEXCORE_10.trainSize, item.SamplingMethod().getTrainSize().toString());}
+
+                            if (item.SamplingMethod().getTestSize() != null && StringUtils.isNotBlank(item.SamplingMethod().getTestSize().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getTestSize().toString())) {
+                                _sampling.addProperty(MEXCORE_10.testSize, item.SamplingMethod().getTestSize().toString());}
+
                         }
-
-                        if (item.SamplingMethod().getSequential() != null && StringUtils.isNotBlank(item.SamplingMethod().getSequential().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getSequential().toString())) {
-                            _sampling.addProperty(MEXCORE_10.sequential, item.SamplingMethod().getSequential().toString());
-                        }
-
-                        if (item.SamplingMethod().getTrainSize() != null && StringUtils.isNotBlank(item.SamplingMethod().getTrainSize().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getTrainSize().toString())) {
-                            _sampling.addProperty(MEXCORE_10.trainSize, item.SamplingMethod().getTrainSize().toString());
-                        }
-
-                        if (item.SamplingMethod().getTestSize() != null && StringUtils.isNotBlank(item.SamplingMethod().getTestSize().toString()) && StringUtils.isNotEmpty(item.SamplingMethod().getTestSize().toString())) {
-                            _sampling.addProperty(MEXCORE_10.testSize, item.SamplingMethod().getTestSize().toString());
+                        else{
+                            _sampling = model.getResource(auxIN);
                         }
 
                         _expConfiguration.addProperty(PROVO.used, _sampling);
@@ -416,56 +436,67 @@ public class MEXSerializer {
                     //HARDWARE CONFIGURATION
                     if (item.HardwareConfiguration() != null && item.HardwareConfiguration().hasValue()) {
 
-                        Resource _hardware = model.createResource(URIbase + "hard" + "_cf_" + auxExpConf + "_"  + this.userHash)
-                                //.addProperty(RDF.type, provEntity)
-                                .addProperty(RDF.type, mexcore_HARDWARE);
+                        String auxIN = objectCreatedBefore(item.HardwareConfiguration(), auxExpConf, mex.getExperimentConfigurations());
+                        Resource _hardware;
 
-                        if (StringUtils.isNotBlank(item.HardwareConfiguration().getOs()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getOs())) {
-                            _hardware.addProperty(DOAP.os, item.HardwareConfiguration().getOs());
+                        if (StringUtils.isEmpty(auxIN)) {
+
+                            _hardware = model.createResource(URIbase + item.HardwareConfiguration().getIndividualName() + this.userHash)
+                                    .addProperty(RDF.type, mexcore_HARDWARE);
+
+                            if (StringUtils.isNotBlank(item.HardwareConfiguration().getOs()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getOs())) {
+                                _hardware.addProperty(DOAP.os, item.HardwareConfiguration().getOs());}
+
+                            if (StringUtils.isNotBlank(item.HardwareConfiguration().getCache()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getCache())) {
+                                _hardware.addProperty(MEXCORE_10.cache, item.HardwareConfiguration().getCache());}
+
+                            if (StringUtils.isNotBlank(item.HardwareConfiguration().getCPU()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getCPU())) {
+                                _hardware.addProperty(MEXCORE_10.cpu, item.HardwareConfiguration().getCPU());}
+
+                            if (StringUtils.isNotBlank(item.HardwareConfiguration().getMemory()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getMemory())) {
+                                _hardware.addProperty(MEXCORE_10.memory, item.HardwareConfiguration().getMemory());}
+
+                            if (StringUtils.isNotBlank(item.HardwareConfiguration().getHD()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getHD())) {
+                                _hardware.addProperty(MEXCORE_10.hd, item.HardwareConfiguration().getHD());}
+
+                            if (StringUtils.isNotBlank(item.HardwareConfiguration().getVideo()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getVideo())) {
+                                _hardware.addProperty(MEXCORE_10.video, item.HardwareConfiguration().getVideo());}
+
+                            _hardware.addProperty(RDFS.label, item.HardwareConfiguration().getLabel());
+
+                        } else {
+                            _hardware = model.getResource(auxIN);
                         }
-
-                        if (StringUtils.isNotBlank(item.HardwareConfiguration().getCache()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getCache())) {
-                            _hardware.addProperty(MEXCORE_10.cache, item.HardwareConfiguration().getCache());
-                        }
-
-                        if (StringUtils.isNotBlank(item.HardwareConfiguration().getCPU()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getCPU())) {
-                            _hardware.addProperty(MEXCORE_10.cpu, item.HardwareConfiguration().getCPU());
-                        }
-
-                        if (StringUtils.isNotBlank(item.HardwareConfiguration().getMemory()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getMemory())) {
-                            _hardware.addProperty(MEXCORE_10.memory, item.HardwareConfiguration().getMemory());
-                        }
-
-                        if (StringUtils.isNotBlank(item.HardwareConfiguration().getHD()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getHD())) {
-                            _hardware.addProperty(MEXCORE_10.hd, item.HardwareConfiguration().getHD());
-                        }
-
-                        if (StringUtils.isNotBlank(item.HardwareConfiguration().getVideo()) && StringUtils.isNotEmpty(item.HardwareConfiguration().getVideo())) {
-                            _hardware.addProperty(MEXCORE_10.video, item.HardwareConfiguration().getVideo());
-                        }
-                        _hardware.addProperty(RDFS.label, "Hardware configuration");
-
                         _expConfiguration.addProperty(PROVO.used, _hardware);
                     }
 
                     //DATASET
                     if (item.DataSet() != null && item.DataSet().hasValue()) {
 
-                        Resource _dataset = model.createResource(URIbase + "ds" + "_cf_" + auxExpConf + "_"  + this.userHash)
-                                .addProperty(RDFS.label, "Dataset " + item.DataSet().getLabel())
-                                .addProperty(RDF.type, mexcore_DATASET);
+                        String auxIN = objectCreatedBefore(item.DataSet(), auxExpConf, mex.getExperimentConfigurations());
+                        Resource _dataset;
 
-                        if (StringUtils.isNotBlank(item.DataSet().getName()) && StringUtils.isNotEmpty(item.DataSet().getName())) {
-                            _dataset.addProperty(DCTerms.title, item.DataSet().getName());
-                        }
-                        if (StringUtils.isNotBlank(item.DataSet().getDescription()) && StringUtils.isNotEmpty(item.DataSet().getDescription())) {
-                            _dataset.addProperty(DCTerms.description, item.DataSet().getDescription());
-                        }
-                        if (StringUtils.isNotBlank(item.DataSet().getURI()) && StringUtils.isNotEmpty(item.DataSet().getURI())) {
-                            _dataset.addProperty(DCAT.landingPage, item.DataSet().getURI());
+                        if (StringUtils.isEmpty(auxIN)) {
+
+                            _dataset = model.createResource(URIbase + item.DataSet().getIndividualName() + this.userHash)
+                                    .addProperty(RDFS.label, "Dataset " + item.DataSet().getLabel())
+                                    .addProperty(RDF.type, mexcore_DATASET);
+
+                            if (StringUtils.isNotBlank(item.DataSet().getName()) && StringUtils.isNotEmpty(item.DataSet().getName())) {
+                                _dataset.addProperty(DCTerms.title, item.DataSet().getName());}
+
+                            if (StringUtils.isNotBlank(item.DataSet().getDescription()) && StringUtils.isNotEmpty(item.DataSet().getDescription())) {
+                                _dataset.addProperty(DCTerms.description, item.DataSet().getDescription());}
+
+                            if (StringUtils.isNotBlank(item.DataSet().getURI()) && StringUtils.isNotEmpty(item.DataSet().getURI())) {
+                                _dataset.addProperty(DCAT.landingPage, item.DataSet().getURI());}
+
+                        }else{
+                            _dataset = model.getResource(auxIN);
                         }
 
                         _expConfiguration.addProperty(PROVO.used, _dataset);
+
                     }
 
 
@@ -534,6 +565,9 @@ public class MEXSerializer {
                                 _exec.addProperty(PROVO.id, e.getId());
 
 
+                                if (e.getErrorMessage() != null) {
+                                    _exec.addProperty(MEXCORE_10.executionErrorMessage, e.getErrorMessage().toString());
+                                }
                                 if (e.getStartedAtTime() != null) {
                                     _exec.addProperty(PROVO.startedAtTime, e.getStartedAtTime().toString());
                                 }
@@ -572,26 +606,26 @@ public class MEXSerializer {
                                 //PHASE
                                 if (e.getPhase() != null){
                                     //is there a similar resource in the list?
-                                    String auxIN = objectCreatedBefore(e.getPhase(), auxExpConf, mex.getExperimentConfigurations());
-                                    Resource _phase;
+                                        String auxIN = objectCreatedBefore(e.getPhase(), auxExpConf, mex.getExperimentConfigurations());
+                                        Resource _phase;
 
-                                    if (auxIN == ""){
-                                        Resource mexcore_PHASE = model.createResource(MEXCORE_10.NS + e.getPhase().getName());
-                                        if (StringUtils.isNotBlank(e.getPhase().getName().toString()) && StringUtils.isNotEmpty(e.getPhase().getName().toString())) {
-                                            //updating individual name
-                                            e.getPhase().setIndividualName(e.getPhase().getIndividualName() + "cf" + auxExpConf + "_"  + this.userHash);
-                                            //creating resource
-                                            _phase = model.createResource(URIbase + e.getPhase().getIndividualName())
-                                                    .addProperty(RDFS.label, e.getPhase().getLabel())
-                                                    .addProperty(RDF.type, mexcore_PHASE);
-                                            _exec.addProperty(PROVO.used, _phase);}}
+                                        if (StringUtils.isEmpty(auxIN)){
+                                            Resource mexcore_PHASE = model.createResource(MEXCORE_10.NS + e.getPhase().getName());
+                                            if (StringUtils.isNotBlank(e.getPhase().getName().toString()) && StringUtils.isNotEmpty(e.getPhase().getName().toString())) {
+                                                //updating individual name
+                                                e.getPhase().setIndividualName(e.getPhase().getIndividualName() + "cf" + auxExpConf + "_"  + this.userHash);
+                                                //creating resource
+                                                _phase = model.createResource(URIbase + e.getPhase().getIndividualName())
+                                                        .addProperty(RDFS.label, e.getPhase().getLabel())
+                                                        .addProperty(RDF.type, mexcore_PHASE);
+                                                _exec.addProperty(PROVO.used, _phase);}}
                                     else{
                                         _phase = model.getResource(auxIN);
                                         _exec.addProperty(PROVO.used, _phase);}
 
                                     }
 
-                                }
+                                //} //esse aqui sai???
 
 
                                 //EXAMPLE COLLECTION
@@ -619,6 +653,9 @@ public class MEXSerializer {
                                             }
                                             if (example.getDatasetRow() != 0) {
                                                 _ex.addProperty(MEXCORE_10.datasetRow, String.valueOf(example.getDatasetRow()));
+                                            }
+                                            if (StringUtils.isNotEmpty(example.getExampleType())) {
+                                                _ex.addProperty(MEXCORE_10.exampleType, String.valueOf(example.getExampleType()));
                                             }
 
                                             //_exec.addProperty(PROVO.used, _ex);
@@ -926,29 +963,32 @@ public class MEXSerializer {
      */
     private String objectCreatedBefore(Object obj, int current, List<ExperimentConfigurationVO> conf) throws Exception{
 
-        try{
+        String ind = "";
 
-            for (int i = 0; i < current; i++){
+        try{
+            for (int i = 1; i < current; i++){
                 ExperimentConfigurationVO item = conf.get(i);
 
                 if (obj instanceof ModelVO && item.Model().equals(obj)){
-                        return item.Model().getId();}
+                    ind = item.Model().getId();}
                 else if (obj instanceof SamplingMethodVO && item.SamplingMethod().equals(obj)){
-                    return item.SamplingMethod().getIndividualName()}
+                    ind = item.SamplingMethod().getIndividualName();}
                 else if (obj instanceof PhaseVO && item.Phase().equals(obj)){
-                    return item.Phase().get}
+                    ind = item.Phase().getIndividualName();}
                 else if (obj instanceof HardwareConfigurationVO && item.HardwareConfiguration().equals(obj)){
-                    return true;}
+                    ind =  item.HardwareConfiguration().getIndividualName();}
                 else if (obj instanceof ToolVO && item.Tool().equals(obj)){
-                    return true;}
+                    ind = item.Tool().getIndividualName();}
                 else if (obj instanceof DataSetVO && item.DataSet().equals(obj)){
-                    return true;}
+                    ind = item.DataSet().getIndividualName();}
             }
 
         }catch (Exception e){
             throw (e);
         }
-        return false;
+
+        return ind;
+
     }
 
 }

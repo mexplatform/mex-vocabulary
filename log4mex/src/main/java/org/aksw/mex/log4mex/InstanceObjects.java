@@ -5,8 +5,8 @@ package org.aksw.mex.log4mex;
  */
 public abstract class InstanceObjects {
 
-    String _individualName;
-    String _label;
+    String _individualName = "";
+    String _label = "";
 
     public String getIndividualName(){
         return this._individualName;

@@ -1,21 +1,22 @@
 package org.aksw.mex.log4mex.core;
 
+import org.aksw.mex.log4mex.InstanceObjects;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by esteves on 26.06.15.
  */
-public class DataSetVO {
+public class DataSetVO extends InstanceObjects {
 
     public String getName() {return _name;}
     public String getDescription() {return _description;}
     public String getURI() {return _uri;}
     public String getLabel() {return _label;}
 
-    private String _name;
-    private String _description;
-    private String _uri;
-    private String _label;
+    private String _name = "";
+    private String _description = "";
+    private String _uri = "";
+    private String _label = "";
 
     public DataSetVO(String name){
         this._name = name;
@@ -77,10 +78,17 @@ public class DataSetVO {
     public int hashCode() {
         int hashCode = 1;
 
-        hashCode = hashCode * 37 + this._name.hashCode();
-        hashCode = hashCode * 37 + this._description.toString().hashCode();
-        hashCode = hashCode * 37 + this._uri.toString().hashCode();
-        hashCode = hashCode * 37 + this._label.toString().hashCode();
+        if (StringUtils.isNotEmpty(this._name) && StringUtils.isNotBlank(this._name))
+            hashCode = hashCode * 37 + this._name.hashCode();
+
+        if (StringUtils.isNotEmpty(this._description) && StringUtils.isNotBlank(this._description))
+            hashCode = hashCode * 37 + this._description.toString().hashCode();
+
+        if (StringUtils.isNotEmpty(this._uri) && StringUtils.isNotBlank(this._uri))
+            hashCode = hashCode * 37 + this._uri.toString().hashCode();
+
+        if (StringUtils.isNotEmpty(this._label) && StringUtils.isNotBlank(this._label))
+          hashCode = hashCode * 37 + this._label.toString().hashCode();
 
         return hashCode;
     }

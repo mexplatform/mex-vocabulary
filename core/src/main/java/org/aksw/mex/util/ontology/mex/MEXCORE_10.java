@@ -25,9 +25,13 @@ public abstract class MEXCORE_10 extends MEXCORE implements IOntology {
 
     public static final Property datasetRow;
     public static final Property datasetColumn;
+    public static final Property exampleType;
+
 
     public static final Property startsAtPosition;
     public static final Property endsAtPosition;
+
+    public static final Property executionErrorMessage;
 
     public static final Property startsAtTime;
     public static final Property endsAtTime;
@@ -59,9 +63,11 @@ public abstract class MEXCORE_10 extends MEXCORE implements IOntology {
         targetClass = m_model.createProperty(NS + "targetClass");
         startsAtPosition = m_model.createProperty(NS + "startsAtPosition");
         endsAtPosition = m_model.createProperty(NS + "endsAtPosition");
+        executionErrorMessage = m_model.createProperty(NS + "errorMessage");
 
         datasetRow = m_model.createProperty(NS + "datasetRow");
         datasetColumn = m_model.createProperty(NS + "datasetColumn");
+        exampleType = m_model.createProperty(NS + "exampleType");
 
         startsAtTime = m_model.createProperty(NS + "startsAtTime");
         endsAtTime = m_model.createProperty(NS + "endsAtTime");

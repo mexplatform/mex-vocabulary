@@ -1,14 +1,17 @@
 package org.aksw.mex.log4mex.core;
 
+import org.aksw.mex.log4mex.InstanceObjects;
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Date;
 
 /**
  * Created by esteves on 26.06.15.
  */
-public class ModelVO {
+public class ModelVO extends InstanceObjects {
 
-    private String _id;
-    private String _description;
+    private String _id = "";
+    private String _description = "";
     private Date _date;
 
 
@@ -70,18 +73,29 @@ public class ModelVO {
 
         ModelVO that = (ModelVO) other;
 
-        return this._date.equals(that._date)
+        if (this._date != null)
+            return this._date.equals(that._date)
                 && this._description.equals(that._description)
                 && this._id.equals(that._id);
+
+        return that._date == null
+                    && this._description.equals(that._description)
+                    && this._id.equals(that._id);
+
     }
 
     @Override
     public int hashCode() {
         int hashCode = 1;
 
-        hashCode = hashCode * 37 + this._id.hashCode();
-        hashCode = hashCode * 37 + this._date.hashCode();
-        hashCode = hashCode * 37 + this._description.hashCode();
+        if (StringUtils.isNotEmpty(this._id) && StringUtils.isNotBlank(this._id))
+            hashCode = hashCode * 37 + this._id.hashCode();
+
+        if (this._date != null)
+            hashCode = hashCode * 37 + this._date.hashCode();
+
+        if (StringUtils.isNotEmpty(this._description) && StringUtils.isNotBlank(this._description))
+            hashCode = hashCode * 37 + this._description.hashCode();
 
         return hashCode;
     }
