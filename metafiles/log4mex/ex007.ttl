@@ -12,180 +12,167 @@
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
-this:sm_cf_1_2024658852
-        a                  mexcore:CrossValidation ;
-        rdfs:label         "Cross Validation" ;
-        mexcore:testSize   "0.2" ;
-        mexcore:trainSize  "0.8" .
-
-this:app_2024658852  a        mexcore:ApplicationContext ;
-        rdfs:label            foaf:givenName ;
-        dct:dateCopyrighted   "2016.05.11 17:14:34 CEST" ;
-        prov:actedOnBehalfOf  this:org_2024658852 ;
-        foaf:givenName        "D Esteves" ;
-        foaf:mbox             "esteves@informatik.uni-leipzig.de" .
-
-this:fea_col_cf_1_2024658852
-        a               mexcore:FeatureCollection ;
-        rdfs:label      "Feature Collection" ;
-        prov:hadMember  this:fea_4_cf_1_2024658852 , this:fea_3_cf_1_2024658852 , this:fea_2_cf_1_2024658852 , this:fea_1_cf_1_2024658852 .
-
-this:fea_1_cf_1_2024658852
-        a               mexcore:Feature ;
-        rdfs:label      "min" ;
-        dct:identifier  "1" .
-
-this:phase_Testcf1_2024658852
-        a           mexcore:Test ;
-        rdfs:label  "Test" .
-
-this:hard_cf_1_2024658852
-        a               mexcore:HardwareConfiguration ;
-        rdfs:label      "Hardware configuration" ;
-        mexcore:cache   "Cache 3MB" ;
-        mexcore:cpu     "Intel Core i7" ;
-        mexcore:hd      "SSD" ;
-        mexcore:memory  "16GB" ;
-        doap:os         "ubuntu" .
-
-this:hyperp_1cf1_2024658852
-        a               mexalgo:HyperParameter ;
-        rdfs:label      "C" ;
-        dct:identifier  "C" ;
-        prov:value      "10^3" .
-
-this:cxt_2024658852  a        mexcore:RecomenderSystems ;
-        rdfs:label            "Recomender Systems" ;
-        prov:wasAttributedTo  this:app_2024658852 .
-
-this:algorithm1cf1_2024658852
-        a                          mexalgo:Algorithm ;
-        rdfs:label                 "Support Vector Machines" ;
-        mexalgo:hasAlgorithmClass  mexalgo:SupportVectorMachines ;
-        mexalgo:hasHyperParameter  this:hyperp_2cf1_2024658852 , this:hyperp_1cf1_2024658852 ;
-        dct:identifier             "svm" .
-
-mexalgo:SupportVectorMachines
-        rdfs:label  "Support Vector Machines" .
-
-this:exp_cf_1_2024658852
-        a                  mexcore:ExperimentConfiguration ;
-        rdfs:label         "analyzing 10-fold cross valid..." , "Experiment Configuration" ;
-        dct:description    "analyzing 10-fold cross validation for SVM" ;
-        dct:identifier     "MEX_EXP_CONF_D1" ;
-        prov:used          this:sm_cf_1_2024658852 , this:fea_col_cf_1_2024658852 , this:mod_cf_1_2024658852 , this:tool_cf_1_2024658852 , this:hard_cf_1_2024658852 , this:ds_cf_1_2024658852 ;
-        prov:wasStartedBy  this:exp_2024658852 .
-
-this:fea_4_cf_1_2024658852
-        a               mexcore:Feature ;
-        rdfs:label      "clo" ;
-        dct:identifier  "4" .
-
-this:mea_clas_EX001_cf_1_2024658852
-        a                         mexperf:ClassificationMeasure ;
-        rdfs:label                "Classification measures" ;
-        mexperf:accuracy          "0.96"^^xsd:double ;
-        mexperf:truePositiveRate  "0.7"^^xsd:double ;
-        prov:wasGeneratedBy       this:exe_1_cf_1_2024658852 .
-
-this:exe_1_cf_1_2024658852
-        a                         mexcore:ExecutionOverall ;
-        rdfs:label                "Overall Execution: EX001" ;
-        mexcore:endsAtPosition    "1376" ;
-        mexcore:group             true ;
-        mexcore:startsAtPosition  "1233" ;
-        prov:endedAtTime          "Wed May 11 17:14:34 CEST 2016" ;
-        prov:generated            this:mea_clas_EX001_cf_1_2024658852 ;
-        prov:id                   "EX001" ;
-        prov:startedAtTime        "Wed May 11 17:14:34 CEST 2016" ;
-        prov:used                 this:algorithm1cf1_2024658852 , this:hyperp_colcf1_2024658852 , this:phase_Traincf1_2024658852 ;
-        prov:wasInformedBy        this:exp_cf_1_2024658852 .
-
-this:fea_2_cf_1_2024658852
-        a               mexcore:Feature ;
-        rdfs:label      "max" ;
-        dct:identifier  "2" .
-
-this:exp_2024658852  a          mexcore:Experiment ;
-        rdfs:label              "Experiment: E001" ;
-        mexcore:experimentHash  "2024658852" ;
-        dct:description         "my first MEX experiment" ;
-        dct:identifier          "E001" ;
-        dct:title               "my first experiment" ;
-        prov:wasAttributedTo    this:app_2024658852 .
-
-this:tool_cf_1_2024658852
-        a           mexalgo:WEKA ;
-        rdfs:label  "WEKA" .
-
-this:hyperp_2cf1_2024658852
-        a               mexalgo:HyperParameter ;
-        rdfs:label      "Alpha" ;
-        dct:identifier  "alpha" ;
-        prov:value      "0.2" .
-
-this:algorithm2cf1_2024658852
-        a                          mexalgo:Algorithm ;
-        rdfs:label                 "Naive Bayes" ;
-        mexalgo:hasAlgorithmClass  mexalgo:NaiveBayes ;
-        dct:identifier             "nb" .
-
-this:org_2024658852  a  prov:Organization ;
-        foaf:givenName  "Leipzig University" .
-
-this:mea_stat_EX002_cf_1_2024658852
-        a                    mexperf:StatisticalMeasure ;
-        rdfs:label           "Statistical measures" ;
-        mexperf:error        "0.04"^^xsd:double ;
-        prov:wasGeneratedBy  this:exe_2_cf_1_2024658852 .
-
-this:phase_Traincf1_2024658852
-        a           mexcore:Train ;
-        rdfs:label  "Train" .
-
-mexalgo:NaiveBayes  rdfs:label  "Naive Bayes" .
-
-this:version  dct:hasVersion  "1.0.2" .
-
-this:exe_2_cf_1_2024658852
+this:exe_2_cf_1_2025733276
         a                         mexcore:ExecutionOverall ;
         rdfs:label                "Overall Execution: EX002" ;
         mexcore:endsAtPosition    "1420" ;
         mexcore:group             true ;
         mexcore:startsAtPosition  "1377" ;
-        prov:endedAtTime          "Wed May 11 17:14:34 CEST 2016" ;
-        prov:generated            this:mea_clas_EX002_cf_1_2024658852 , this:mea_stat_EX002_cf_1_2024658852 ;
+        prov:endedAtTime          "Mon May 23 20:11:01 CEST 2016" ;
+        prov:generated            this:mea_clas_EX002_cf_1_2025733276 , this:mea_stat_EX002_cf_1_2025733276 ;
         prov:id                   "EX002" ;
-        prov:startedAtTime        "Wed May 11 17:14:34 CEST 2016" ;
-        prov:used                 this:phase_Testcf1_2024658852 , this:algorithm2cf1_2024658852 ;
-        prov:wasInformedBy        this:exp_cf_1_2024658852 .
+        prov:startedAtTime        "Mon May 23 20:11:01 CEST 2016" ;
+        prov:used                 this:algorithm2cf1_2025733276 , this:phase_Testcf1_2025733276 ;
+        prov:wasInformedBy        this:exp_cf_1_2025733276 .
 
-this:ds_cf_1_2024658852
-        a                 mexcore:Dataset ;
-        rdfs:label        "Dataset bovespa" ;
-        dct:description   "bovespads" ;
-        dct:title         "bovespa" ;
-        dcat:landingPage  "http://www.bmfbovespa.com.br/shared/iframe.aspx?idioma=pt-br&url=http://www.bmfbovespa.com.br/pt-br/cotacoes-historicas/FormSeriesHistoricas.asp" .
-
-this:hyperp_colcf1_2024658852
+this:hyperp_colcf1_2025733276
         a               mexalgo:HyperParameterCollection ;
         rdfs:label      "HyperParameter Collection" ;
-        prov:hadMember  this:hyperp_2cf1_2024658852 , this:hyperp_1cf1_2024658852 .
+        prov:hadMember  this:hyperp_2cf1_2025733276 , this:hyperp_1cf1_2025733276 .
 
-this:mea_clas_EX002_cf_1_2024658852
+this:mea_clas_EX002_cf_1_2025733276
         a                         mexperf:ClassificationMeasure ;
         rdfs:label                "Classification measures" ;
         mexperf:accuracy          "0.83"^^xsd:double ;
         mexperf:truePositiveRate  "0.61"^^xsd:double ;
-        prov:wasGeneratedBy       this:exe_2_cf_1_2024658852 .
+        prov:wasGeneratedBy       this:exe_2_cf_1_2025733276 .
 
-this:fea_3_cf_1_2024658852
+this:fea_3_cf_1_2025733276
         a               mexcore:Feature ;
         rdfs:label      "ope" ;
         dct:identifier  "3" .
 
-this:mod_cf_1_2024658852
-        a                mexcore:Model ;
-        dct:date         "Wed May 11 17:14:34 CEST 2016" ;
-        dct:description  "model generated by LibSVM" ;
-        dct:identifier   "svm20150322" .
+this:phase_Testcf1_2025733276
+        a           mexcore:Test ;
+        rdfs:label  "Test" .
+
+this:app_2025733276  a        mexcore:ApplicationContext ;
+        rdfs:label            "Basic Experiment Infomation" ;
+        dct:dateCopyrighted   "2016.05.23 20:11:01 CEST" ;
+        prov:actedOnBehalfOf  this:org_2025733276 ;
+        foaf:givenName        "D Esteves" ;
+        foaf:mbox             "esteves@informatik.uni-leipzig.de" .
+
+this:fea_col_cf_1_2025733276
+        a               mexcore:FeatureCollection ;
+        rdfs:label      "Feature Collection" ;
+        prov:hadMember  this:fea_4_cf_1_2025733276 , this:fea_3_cf_1_2025733276 , this:fea_2_cf_1_2025733276 , this:fea_1_cf_1_2025733276 .
+
+this:fea_1_cf_1_2025733276
+        a               mexcore:Feature ;
+        rdfs:label      "min" ;
+        dct:identifier  "1" .
+
+mexalgo:SupportVectorMachines
+        rdfs:label  "Support Vector Machines" .
+
+this:hyperp_1cf1_2025733276
+        a               mexalgo:HyperParameter ;
+        rdfs:label      "C" ;
+        dct:identifier  "C" ;
+        prov:value      "10^3" .
+
+this:cxt_2025733276  a        mexcore:RecomenderSystems ;
+        rdfs:label            "Recomender Systems" ;
+        prov:wasAttributedTo  this:app_2025733276 .
+
+this:algorithm1cf1_2025733276
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Support Vector Machines" ;
+        mexalgo:hasAlgorithmClass  mexalgo:SupportVectorMachines ;
+        mexalgo:hasHyperParameter  this:hyperp_2cf1_2025733276 , this:hyperp_1cf1_2025733276 ;
+        dct:identifier             "svm" .
+
+this:exp_cf_1_2025733276
+        a                  mexcore:ExperimentConfiguration ;
+        rdfs:label         "analyzing 10-fold cross valid..." ;
+        dct:description    "analyzing 10-fold cross validation for SVM" ;
+        dct:identifier     "MEX_EXP_CONF_D1" ;
+        prov:used          this:fea_col_cf_1_2025733276 , this:samplingmethod12025733276 , this:2025733276 ;
+        prov:wasStartedBy  this:exp_2025733276 .
+
+this:fea_4_cf_1_2025733276
+        a               mexcore:Feature ;
+        rdfs:label      "clo" ;
+        dct:identifier  "4" .
+
+this:mea_clas_EX001_cf_1_2025733276
+        a                         mexperf:ClassificationMeasure ;
+        rdfs:label                "Classification measures" ;
+        mexperf:accuracy          "0.96"^^xsd:double ;
+        mexperf:truePositiveRate  "0.7"^^xsd:double ;
+        prov:wasGeneratedBy       this:exe_1_cf_1_2025733276 .
+
+this:exe_1_cf_1_2025733276
+        a                         mexcore:ExecutionOverall ;
+        rdfs:label                "Overall Execution: EX001" ;
+        mexcore:endsAtPosition    "1376" ;
+        mexcore:group             true ;
+        mexcore:startsAtPosition  "1233" ;
+        prov:endedAtTime          "Mon May 23 20:11:01 CEST 2016" ;
+        prov:generated            this:mea_clas_EX001_cf_1_2025733276 ;
+        prov:id                   "EX001" ;
+        prov:startedAtTime        "Mon May 23 20:11:01 CEST 2016" ;
+        prov:used                 this:hyperp_colcf1_2025733276 , this:algorithm1cf1_2025733276 , this:phase_Traincf1_2025733276 ;
+        prov:wasInformedBy        this:exp_cf_1_2025733276 .
+
+this:samplingmethod12025733276
+        a                  mexcore:CrossValidation ;
+        rdfs:label         "Cross Validation" ;
+        mexcore:testSize   "0.2" ;
+        mexcore:trainSize  "0.8" .
+
+this:fea_2_cf_1_2025733276
+        a               mexcore:Feature ;
+        rdfs:label      "max" ;
+        dct:identifier  "2" .
+
+this:exp_2025733276  a          mexcore:Experiment ;
+        rdfs:label              "Experiment: E001" ;
+        mexcore:experimentHash  "2025733276" ;
+        dct:description         "my first MEX experiment" ;
+        dct:identifier          "E001" ;
+        dct:title               "my first experiment" ;
+        prov:wasAttributedTo    this:app_2025733276 .
+
+this:2025733276  a        mexcore:Dataset , mexalgo:WEKA , mexcore:Model , mexcore:HardwareConfiguration ;
+        rdfs:label        "Hardware configuration" , "WEKA" , "Dataset bovespa" ;
+        mexcore:cache     "Cache 3MB" ;
+        mexcore:cpu       "Intel Core i7" ;
+        mexcore:hd        "SSD" ;
+        mexcore:memory    "16GB" ;
+        dct:date          "Mon May 23 20:11:01 CEST 2016" ;
+        dct:description   "model generated by LibSVM" , "bovespads" ;
+        dct:identifier    "svm20150322" ;
+        dct:title         "bovespa" ;
+        doap:os           "ubuntu" ;
+        dcat:landingPage  "http://www.bmfbovespa.com.br/shared/iframe.aspx?idioma=pt-br&url=http://www.bmfbovespa.com.br/pt-br/cotacoes-historicas/FormSeriesHistoricas.asp" .
+
+mexalgo:NaiveBayes  rdfs:label  "Naive Bayes" .
+
+this:hyperp_2cf1_2025733276
+        a               mexalgo:HyperParameter ;
+        rdfs:label      "Alpha" ;
+        dct:identifier  "alpha" ;
+        prov:value      "0.2" .
+
+this:algorithm2cf1_2025733276
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Naive Bayes" ;
+        mexalgo:hasAlgorithmClass  mexalgo:NaiveBayes ;
+        dct:identifier             "nb" .
+
+this:version  dct:hasVersion  "1.0.2" .
+
+this:org_2025733276  a  prov:Organization ;
+        foaf:givenName  "Leipzig University" .
+
+this:mea_stat_EX002_cf_1_2025733276
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "0.04"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_2_cf_1_2025733276 .
+
+this:phase_Traincf1_2025733276
+        a           mexcore:Train ;
+        rdfs:label  "Train" .

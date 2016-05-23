@@ -135,7 +135,7 @@ public class ExperimentConfigurationVO extends InstanceObjects {
         try {
             if (this._sampling == null) {
                 this.setSamplingMethod(MEXEnum.EnumSamplingMethods.NOT_INFORMED, null);
-                this._phase.setIndividualName("sm_cf_" + this._seq + "_");
+                this._sampling.setIndividualName("sm_cf_" + this._seq + "_");
             }
             return this._sampling;
         }

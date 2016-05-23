@@ -12,160 +12,156 @@
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
-this:exe_2_cf_1_1611648767
+this:mea_clas_C1_MEX_EXEC_D4_cf_1_1991646639
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:accuracy     "21.428571428571427"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_4_cf_1_1991646639 .
+
+this:exe_4_cf_1_1991646639
         a                   mexcore:ExecutionOverall ;
-        rdfs:label          "Overall Execution: C0_MEX_EXEC_D2" ;
+        rdfs:label          "Overall Execution: C1_MEX_EXEC_D4" ;
         mexcore:group       true ;
-        prov:generated      this:mea_clas_C0_MEX_EXEC_D2_cf_1_1611648767 ;
-        prov:id             "C0_MEX_EXEC_D2" ;
-        prov:used           this:algorithm2cf1_1611648767 , this:phase_Testcf1_1611648767 ;
-        prov:wasInformedBy  this:exp_cf_1_1611648767 .
-
-this:ds_cf_1_1611648767
-        a           mexcore:Dataset ;
-        rdfs:label  "Dataset weather.arff" ;
-        dct:title   "weather.arff" .
-
-this:exp_cf_1_1611648767
-        a                  mexcore:ExperimentConfiguration ;
-        rdfs:label         "" , "Experiment Configuration" ;
-        dct:identifier     "MEX_EXP_CONF_D1" ;
-        prov:used          this:fea_col_cf_1_1611648767 , this:ds_cf_1_1611648767 ;
-        prov:wasStartedBy  this:exp_1611648767 .
-
-this:fea_3_cf_1_1611648767
-        a               mexcore:Feature ;
-        rdfs:label      "humidity" ;
-        dct:identifier  "3" .
+        prov:generated      this:mea_clas_C1_MEX_EXEC_D4_cf_1_1991646639 ;
+        prov:id             "C1_MEX_EXEC_D4" ;
+        prov:used           this:algorithm4cf1_1991646639 , this:phase_Testcf1_1991646639 ;
+        prov:wasInformedBy  this:exp_cf_1_1991646639 .
 
 mexalgo:DecisionStump
         rdfs:label  "Decision Stump" .
 
-this:exe_3_cf_1_1611648767
-        a                   mexcore:ExecutionOverall ;
-        rdfs:label          "Overall Execution: C0_MEX_EXEC_D3" ;
-        mexcore:group       true ;
-        prov:generated      this:mea_clas_C0_MEX_EXEC_D3_cf_1_1611648767 ;
-        prov:id             "C0_MEX_EXEC_D3" ;
-        prov:used           this:algorithm3cf1_1611648767 , this:phase_Testcf1_1611648767 ;
-        prov:wasInformedBy  this:exp_cf_1_1611648767 .
+this:fea_5_cf_1_1991646639
+        a               mexcore:Feature ;
+        rdfs:label      "play" ;
+        dct:identifier  "5" .
 
-this:fea_1_cf_1_1611648767
+this:mea_clas_C1_MEX_EXEC_D2_cf_1_1991646639
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:accuracy     "50.0"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_2_cf_1_1991646639 .
+
+this:ds_cf_1_1991646639
+        a           mexcore:Dataset ;
+        rdfs:label  "Dataset weather.arff" ;
+        dct:title   "weather.arff" .
+
+this:exp_cf_1_1991646639
+        a                  mexcore:ExperimentConfiguration ;
+        rdfs:label         "Configuration for a set of Executions" ;
+        dct:identifier     "MEX_EXP_CONF_D1" ;
+        prov:used          this:fea_col_cf_1_1991646639 , this:ds_cf_1_1991646639 ;
+        prov:wasStartedBy  this:exp_1991646639 .
+
+this:exe_2_cf_1_1991646639
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C1_MEX_EXEC_D2" ;
+        mexcore:group       true ;
+        prov:generated      this:mea_clas_C1_MEX_EXEC_D2_cf_1_1991646639 ;
+        prov:id             "C1_MEX_EXEC_D2" ;
+        prov:used           this:algorithm2cf1_1991646639 , this:phase_Testcf1_1991646639 ;
+        prov:wasInformedBy  this:exp_cf_1_1991646639 .
+
+this:fea_3_cf_1_1991646639
+        a               mexcore:Feature ;
+        rdfs:label      "humidity" ;
+        dct:identifier  "3" .
+
+this:fea_1_cf_1_1991646639
         a               mexcore:Feature ;
         rdfs:label      "outlook" ;
         dct:identifier  "1" .
 
-this:phase_Testcf1_1611648767
+this:phase_Testcf1_1991646639
         a           mexcore:Test ;
         rdfs:label  "Test" .
 
 mexalgo:PART  rdfs:label  "PART" .
 
-this:algorithm1cf1_1611648767
+mexalgo:J48  rdfs:label  "J48" .
+
+this:algorithm1cf1_1991646639
         a                          mexalgo:Algorithm ;
         rdfs:label                 "J48" ;
         mexalgo:hasAlgorithmClass  mexalgo:J48 ;
         dct:identifier             "j48" .
 
-this:mea_clas_C0_MEX_EXEC_D3_cf_1_1611648767
-        a                    mexperf:ClassificationMeasure ;
-        rdfs:label           "Classification measures" ;
-        mexperf:accuracy     "64.28571428571429"^^xsd:double ;
-        prov:wasGeneratedBy  this:exe_3_cf_1_1611648767 .
-
-this:algorithm3cf1_1611648767
+this:algorithm3cf1_1991646639
         a                          mexalgo:Algorithm ;
         rdfs:label                 "Decision Table" ;
         mexalgo:hasAlgorithmClass  mexalgo:DecisionTable ;
         dct:identifier             "dt" .
 
-mexalgo:J48  rdfs:label  "J48" .
-
-this:mea_clas_C0_MEX_EXEC_D1_cf_1_1611648767
+this:mea_clas_C1_MEX_EXEC_D3_cf_1_1991646639
         a                    mexperf:ClassificationMeasure ;
         rdfs:label           "Classification measures" ;
-        mexperf:accuracy     "50.0"^^xsd:double ;
-        prov:wasGeneratedBy  this:exe_1_cf_1_1611648767 .
+        mexperf:accuracy     "64.28571428571429"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_3_cf_1_1991646639 .
 
-this:fea_4_cf_1_1611648767
+this:exe_3_cf_1_1991646639
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C1_MEX_EXEC_D3" ;
+        mexcore:group       true ;
+        prov:generated      this:mea_clas_C1_MEX_EXEC_D3_cf_1_1991646639 ;
+        prov:id             "C1_MEX_EXEC_D3" ;
+        prov:used           this:algorithm3cf1_1991646639 , this:phase_Testcf1_1991646639 ;
+        prov:wasInformedBy  this:exp_cf_1_1991646639 .
+
+this:fea_4_cf_1_1991646639
         a               mexcore:Feature ;
         rdfs:label      "windy" ;
         dct:identifier  "4" .
 
-this:exe_1_cf_1_1611648767
+this:mea_clas_C1_MEX_EXEC_D1_cf_1_1991646639
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:accuracy     "50.0"^^xsd:double ;
+        prov:wasGeneratedBy  this:exe_1_cf_1_1991646639 .
+
+this:exe_1_cf_1_1991646639
         a                   mexcore:ExecutionOverall ;
-        rdfs:label          "Overall Execution: C0_MEX_EXEC_D1" ;
+        rdfs:label          "Overall Execution: C1_MEX_EXEC_D1" ;
         mexcore:group       true ;
-        prov:generated      this:mea_clas_C0_MEX_EXEC_D1_cf_1_1611648767 ;
-        prov:id             "C0_MEX_EXEC_D1" ;
-        prov:used           this:algorithm1cf1_1611648767 , this:phase_Testcf1_1611648767 ;
-        prov:wasInformedBy  this:exp_cf_1_1611648767 .
+        prov:generated      this:mea_clas_C1_MEX_EXEC_D1_cf_1_1991646639 ;
+        prov:id             "C1_MEX_EXEC_D1" ;
+        prov:used           this:algorithm1cf1_1991646639 , this:phase_Testcf1_1991646639 ;
+        prov:wasInformedBy  this:exp_cf_1_1991646639 .
 
-this:exp_1611648767  a          mexcore:Experiment ;
-        rdfs:label              "Experiment: MEX_EXPERIMENT" ;
-        mexcore:experimentHash  "1611648767" ;
-        dct:identifier          "MEX_EXPERIMENT" ;
-        prov:wasAttributedTo    this:app_1611648767 .
-
-this:fea_2_cf_1_1611648767
+this:fea_2_cf_1_1991646639
         a               mexcore:Feature ;
         rdfs:label      "temperature" ;
         dct:identifier  "2" .
 
-this:exe_4_cf_1_1611648767
-        a                   mexcore:ExecutionOverall ;
-        rdfs:label          "Overall Execution: C0_MEX_EXEC_D4" ;
-        mexcore:group       true ;
-        prov:generated      this:mea_clas_C0_MEX_EXEC_D4_cf_1_1611648767 ;
-        prov:id             "C0_MEX_EXEC_D4" ;
-        prov:used           this:algorithm4cf1_1611648767 , this:phase_Testcf1_1611648767 ;
-        prov:wasInformedBy  this:exp_cf_1_1611648767 .
-
-this:mea_clas_C0_MEX_EXEC_D4_cf_1_1611648767
-        a                    mexperf:ClassificationMeasure ;
-        rdfs:label           "Classification measures" ;
-        mexperf:accuracy     "21.428571428571427"^^xsd:double ;
-        prov:wasGeneratedBy  this:exe_4_cf_1_1611648767 .
+this:exp_1991646639  a          mexcore:Experiment ;
+        rdfs:label              "Experiment: MEX_EXPERIMENT" ;
+        mexcore:experimentHash  "1991646639" ;
+        dct:identifier          "MEX_EXPERIMENT" ;
+        prov:wasAttributedTo    this:app_1991646639 .
 
 mexalgo:DecisionTable
         rdfs:label  "Decision Table" .
 
-this:app_1611648767  a       mexcore:ApplicationContext ;
-        rdfs:label           foaf:givenName ;
-        dct:dateCopyrighted  "2016.05.11 17:14:44 CEST" ;
+this:version  dct:hasVersion  "1.0.2" .
+
+this:app_1991646639  a       mexcore:ApplicationContext ;
+        rdfs:label           "Basic Experiment Infomation" ;
+        dct:dateCopyrighted  "2016.05.23 20:11:12 CEST" ;
         foaf:givenName       "P.Creek" ;
         foaf:mbox            "creek@example.com" .
 
-this:algorithm2cf1_1611648767
+this:algorithm2cf1_1991646639
         a                          mexalgo:Algorithm ;
         rdfs:label                 "PART" ;
         mexalgo:hasAlgorithmClass  mexalgo:PART ;
         dct:identifier             "part" .
 
-this:fea_col_cf_1_1611648767
+this:fea_col_cf_1_1991646639
         a               mexcore:FeatureCollection ;
         rdfs:label      "Feature Collection" ;
-        prov:hadMember  this:fea_5_cf_1_1611648767 , this:fea_4_cf_1_1611648767 , this:fea_3_cf_1_1611648767 , this:fea_2_cf_1_1611648767 , this:fea_1_cf_1_1611648767 .
+        prov:hadMember  this:fea_5_cf_1_1991646639 , this:fea_4_cf_1_1991646639 , this:fea_3_cf_1_1991646639 , this:fea_2_cf_1_1991646639 , this:fea_1_cf_1_1991646639 .
 
-this:mea_clas_C0_MEX_EXEC_D2_cf_1_1611648767
-        a                    mexperf:ClassificationMeasure ;
-        rdfs:label           "Classification measures" ;
-        mexperf:accuracy     "50.0"^^xsd:double ;
-        prov:wasGeneratedBy  this:exe_2_cf_1_1611648767 .
-
-this:version  dct:hasVersion  "1.0.2" .
-
-this:algorithm4cf1_1611648767
+this:algorithm4cf1_1991646639
         a                          mexalgo:Algorithm ;
         rdfs:label                 "Decision Stump" ;
         mexalgo:hasAlgorithmClass  mexalgo:DecisionStump ;
         dct:identifier             "ds" .
-
-this:cxt_1611648767  a        mexcore: ;
-        rdfs:label            "" ;
-        prov:wasAttributedTo  this:app_1611648767 .
-
-this:fea_5_cf_1_1611648767
-        a               mexcore:Feature ;
-        rdfs:label      "play" ;
-        dct:identifier  "5" .
