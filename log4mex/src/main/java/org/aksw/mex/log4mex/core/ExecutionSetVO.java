@@ -40,4 +40,13 @@ public class ExecutionSetVO extends Execution {
         return this._endPosition;
     }
 
+    @Override
+    public boolean equals(Object other) {
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
 }

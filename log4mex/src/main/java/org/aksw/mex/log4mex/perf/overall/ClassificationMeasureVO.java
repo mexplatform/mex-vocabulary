@@ -32,6 +32,16 @@ public class ClassificationMeasureVO extends Measure {
         return "Classification measures";
     }
 
+    @Override
+    public boolean equals(Object other) {
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
     public void set_fMeasure(Double _fMeasure) {
         this._fMeasure = _fMeasure;
     }

@@ -11,6 +11,7 @@ import org.aksw.mex.util.MEXController;
 import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.util.ontology.mex.MEXALGO_10;
 import org.aksw.mex.util.ontology.mex.MEXCORE_10;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -42,6 +43,7 @@ public class ExperimentConfigurationVO extends InstanceObjects {
     private List<AlgorithmVO>          _algorithms;
 
     private int                        _maxLabel = 30;
+    private static String              _userHash;
     private static final Logger        LOGGER = LoggerFactory.getLogger(ExperimentConfigurationVO.class);
 
 
@@ -606,7 +608,6 @@ public class ExperimentConfigurationVO extends InstanceObjects {
      */
     public String addAlgorithm(String algorithmId, URI algorithmURI) throws Exception {
         return _addAlgorithm(algorithmId, null, null, algorithmURI, null).getIndividualName();
-        //return _addAlgorithm(algorithmClass, id);
     }
 
     /**
@@ -624,17 +625,6 @@ public class ExperimentConfigurationVO extends InstanceObjects {
     /**
      * add an Algorithm available in an Experiment Configuration
      * @param algorithmId
-     * @param algorithmName
-     * @return algorithm's instance name
-     * @throws Exception
-     */
-    public String addAlgorithm(String algorithmId, String algorithmName) throws Exception {
-        return _addAlgorithm(algorithmId, algorithmName, null, null, null).getIndividualName();
-    }
-
-    /**
-     * add an Algorithm available in an Experiment Configuration
-     * @param algorithmId
      * @param algorithmClass
      * @return algorithm's instance name
      * @throws Exception
@@ -646,13 +636,26 @@ public class ExperimentConfigurationVO extends InstanceObjects {
     /**
      * add an Algorithm available in an Experiment Configuration
      * @param algorithmId
-     * @param algorithmName
+     * @param algorithmClass
+     * @param algorithmLabel
+     * @return algorithm's instance name
+     * @throws Exception
+     */
+    public String addAlgorithm(String algorithmId, MEXEnum.EnumAlgorithmsClasses algorithmClass, String algorithmLabel) throws Exception {
+        return _addAlgorithm(algorithmId, algorithmLabel, algorithmClass, null, null).getIndividualName();
+    }
+
+
+    /**
+     * add an Algorithm available in an Experiment Configuration
+     * @param algorithmId
+     * @param algorithmLabel
      * @param algorithmClass
      * @return algorithm's instance name
      * @throws Exception
      */
-    public String addAlgorithm(String algorithmId, String algorithmName, MEXEnum.EnumAlgorithmsClasses algorithmClass) throws Exception {
-        return _addAlgorithm(algorithmId, algorithmName, algorithmClass, null, null).getIndividualName();
+    public String addAlgorithm(String algorithmId, String algorithmLabel, MEXEnum.EnumAlgorithmsClasses algorithmClass) throws Exception {
+        return _addAlgorithm(algorithmId, algorithmLabel, algorithmClass, null, null).getIndividualName();
     }
 
     /**
@@ -671,15 +674,15 @@ public class ExperimentConfigurationVO extends InstanceObjects {
     /**
      * add an Algorithm available in an Experiment Configuration
      * @param algorithmId
-     * @param algorithmName
+     * @param algorithmAcronym
      * @param algorithmClass
      * @param algorithmURI
      * @param algorithmLabel
      * @return algorithm's instance name
      * @throws Exception
      */
-    public String addAlgorithm(String algorithmId, String algorithmName, MEXEnum.EnumAlgorithmsClasses algorithmClass, URI algorithmURI, String algorithmLabel) throws Exception {
-        return _addAlgorithm(algorithmId, algorithmName, algorithmClass, algorithmURI, algorithmLabel).getIndividualName();
+    public String addAlgorithm(String algorithmId, String algorithmLabel, MEXEnum.EnumAlgorithmsClasses algorithmClass, URI algorithmURI, String algorithmAcronym) throws Exception {
+        return _addAlgorithm(algorithmId, algorithmLabel, algorithmClass, algorithmURI, algorithmAcronym).getIndividualName();
     }
 
     /**
@@ -697,7 +700,19 @@ public class ExperimentConfigurationVO extends InstanceObjects {
     private AlgorithmVO _addAlgorithm(String id, String algorithmLabel, MEXEnum.EnumAlgorithmsClasses algorithmClass, URI algorithmURI, String algorithmAcronym) throws Exception{
 
         AlgorithmVO algo = null;
+        String klass = "";
         try{
+
+            try{
+                if (algorithmClass != null && StringUtils.isNotEmpty(algorithmClass.name()))
+                {
+                    MEXEnum.EnumAlgorithmsClasses.valueOf(algorithmClass.toString());
+                    klass = algorithmClass.name().toString();
+                }
+            }catch (Exception e){
+                throw new Exception(algorithmClass.toString() + " does not exist in MEXEnum.EnumAlgorithmsClasses. Please, check the method you're invoking...");
+            }
+
             if (this._algorithms == null) {
                 this._algorithms = new ArrayList<>();}
 
@@ -706,9 +721,11 @@ public class ExperimentConfigurationVO extends InstanceObjects {
 
             if (id == "") id = individualName;
 
-            if (algorithmLabel == null || algorithmLabel =="") algorithmLabel = id;
+            if (algorithmLabel == null || algorithmLabel == "") algorithmLabel = id;
 
-            algo = new AlgorithmVO(individualName, id, algorithmAcronym, algorithmLabel, algorithmURI,  algorithmClass.name().toString());
+
+
+            algo = new AlgorithmVO(individualName, id, algorithmAcronym, algorithmLabel, algorithmURI, klass);
             this._algorithms.add(algo);
 
             MEXController.getInstance().addAlgorithmCounter();

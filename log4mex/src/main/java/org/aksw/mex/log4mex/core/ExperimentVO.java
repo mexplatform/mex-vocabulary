@@ -1,11 +1,13 @@
 package org.aksw.mex.log4mex.core;
 
+import org.aksw.mex.log4mex.InstanceObjects;
+
 import java.util.Date;
 
 /**
  * Created by esteves on 25.06.15.
  */
-public class ExperimentVO {
+public class ExperimentVO extends InstanceObjects {
 
     private String _id;
     private Date _date;
@@ -99,6 +101,16 @@ public class ExperimentVO {
 
     public void setAttributeSelectionDescription(String value){
         this._attributeSelection = value;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
     }
 
 

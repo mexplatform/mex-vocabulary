@@ -21,6 +21,7 @@ public class Example02 {
             /* (1) basic authoring provenance */
             mex.setAuthorName("D Esteves");
             mex.setAuthorEmail("esteves@informatik.uni-leipzig.de");
+
             /* (2) grouping the executions by configurations */
             String conf01ID = mex.addConfiguration();
             String conf02ID = mex.addConfiguration();

@@ -159,4 +159,14 @@ public class StatisticalMeasureVO extends Measure {
         return "Statistical measures";
     }
 
+    @Override
+    public boolean equals(Object other) {
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
 }

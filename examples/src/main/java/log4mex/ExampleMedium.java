@@ -33,7 +33,7 @@ public class ExampleMedium {
             mex.setExperimentDescription("my first MEX experiment");
         }
 
-        String eid = "E001S001";
+        String eid = "E001S001"; String eid2 = "E001S002";
         //ml-experiment-configuration
         {
             mex.addConfiguration(eid);

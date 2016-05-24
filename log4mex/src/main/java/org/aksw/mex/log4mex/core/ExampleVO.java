@@ -1,9 +1,11 @@
 package org.aksw.mex.log4mex.core;
 
+import org.aksw.mex.log4mex.InstanceObjects;
+
 /**
  * Created by esteves on 26.06.15.
  */
-public class ExampleVO implements IDataSetExample{
+public class ExampleVO extends InstanceObjects implements IDataSetExample{
 
     public String getId() {
         return _id;
@@ -61,4 +63,13 @@ public class ExampleVO implements IDataSetExample{
     }
 
 
+    @Override
+    public boolean equals(Object other) {
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
 }

@@ -1,5 +1,7 @@
 package org.aksw.mex.log4mex.algo;
 
+import org.aksw.mex.log4mex.InstanceObjects;
+
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
@@ -7,7 +9,7 @@ import java.util.List;
 /**
  * Created by esteves on 08.06.15.
  */
-public class AlgorithmVO {
+public class AlgorithmVO extends InstanceObjects {
 
     private String _individualName = "";
 
@@ -37,6 +39,16 @@ public class AlgorithmVO {
 
     public String getLabel(){
         return this._rdfs_label;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
     }
 
     public String getClassName(){

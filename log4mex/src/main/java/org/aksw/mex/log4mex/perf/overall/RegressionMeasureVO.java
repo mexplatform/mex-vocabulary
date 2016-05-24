@@ -62,4 +62,14 @@ public class RegressionMeasureVO extends Measure {
         return "Regression measures";
     }
 
+    @Override
+    public boolean equals(Object other) {
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
 }

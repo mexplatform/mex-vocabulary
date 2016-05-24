@@ -27,5 +27,13 @@ public class ExecutionIndividualVO extends Execution {
     public void setEndsAtPosition(String value){}
 
 
+    @Override
+    public boolean equals(Object other) {
+        return false;
+    }
 
+    @Override
+    public int hashCode() {
+        return 0;
+    }
 }

@@ -12,156 +12,165 @@
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
-this:mea_clas_C2_MEX_EXEC_D1_cf_2_-885461995
-        a                     mexperf:ClassificationMeasure ;
-        rdfs:label            "Classification measures" ;
-        mexperf:accuracy      "0.8"^^xsd:double ;
-        mexperf:truePositive  "3143.0"^^xsd:double ;
-        prov:wasGeneratedBy   this:exe_1_cf_2_-885461995 .
+this:exp_cf_1_-884505674_exe_1
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C1_MEX_EXEC_D1" ;
+        mexcore:group       true ;
+        prov:generated      this:exp_cf_1_-884505674_exe_1_mea_3 , this:exp_cf_1_-884505674_exe_1_mea_1 , this:exp_cf_1_-884505674_exe_1_mea_2 ;
+        prov:id             "C1_MEX_EXEC_D1" ;
+        prov:used           <algorithm1> , this:exp_cf_1_-884505674_exe_1_phase ;
+        prov:wasInformedBy  this:exp_cf_1_-884505674 .
 
-this:ds_cf_1_-885461995
-        a           mexcore:Dataset ;
-        rdfs:label  "Dataset mydataset.csv" ;
-        dct:title   "mydataset.csv" .
+<http://mex.aksw.org/examples/http://mex.aksw.org/examples/app_-884505674>
+        a                    mexcore:ApplicationContext ;
+        rdfs:label           "Basic Experiment Infomation" ;
+        dct:dateCopyrighted  "2016.05.24 18:35:53 CEST" ;
+        foaf:givenName       "D Esteves" ;
+        foaf:mbox            "esteves@informatik.uni-leipzig.de" .
 
-this:exp_cf_1_-885461995
-        a                  mexcore:ExperimentConfiguration ;
-        rdfs:label         "Configuration for a set of Executions" ;
-        dct:identifier     "MEX_EXP_CONF_D1" ;
-        prov:used          this:fea_col_cf_1_-885461995 , this:ds_cf_1_-885461995 , this:samplingmethod1-885461995 ;
-        prov:wasStartedBy  this:exp_-885461995 .
-
-this:fea_1_cf_2_-885461995
-        a               mexcore:Feature ;
-        rdfs:label      "min" ;
-        dct:identifier  "1" .
-
-this:fea_col_cf_2_-885461995
-        a               mexcore:FeatureCollection ;
-        rdfs:label      "Feature Collection" ;
-        prov:hadMember  this:fea_2_cf_2_-885461995 , this:fea_1_cf_2_-885461995 .
-
-this:fea_3_cf_1_-885461995
-        a               mexcore:Feature ;
-        rdfs:label      "ope" ;
-        dct:identifier  "3" .
-
-this:phase_Testcf2_-885461995
-        a           mexcore:Test ;
-        rdfs:label  "Test" .
-
-this:fea_1_cf_1_-885461995
-        a               mexcore:Feature ;
-        rdfs:label      "min" ;
-        dct:identifier  "1" .
-
-this:phase_Testcf1_-885461995
-        a           mexcore:Test ;
-        rdfs:label  "Test" .
-
-this:exp_cf_2_-885461995
-        a                  mexcore:ExperimentConfiguration ;
-        rdfs:label         "Configuration for a set of Executions" ;
-        dct:identifier     "MEX_EXP_CONF_D2" ;
-        prov:used          this:fea_col_cf_2_-885461995 , <ds_cf_2_> , this:samplingmethod2-885461995 ;
-        prov:wasStartedBy  this:exp_-885461995 .
-
-this:mea_stat_C1_MEX_EXEC_D1_cf_1_-885461995
-        a                    mexperf:StatisticalMeasure ;
-        rdfs:label           "Statistical measures" ;
-        mexperf:error        "0.14"^^xsd:double ;
-        prov:wasGeneratedBy  this:exe_1_cf_1_-885461995 .
-
-this:algorithm1cf1_-885461995
-        a                          mexalgo:Algorithm ;
+<algorithm1>  a                    mexalgo:Algorithm ;
         rdfs:label                 "Naive Bayes" ;
         mexalgo:hasAlgorithmClass  mexalgo:NaiveBayes ;
         dct:identifier             "nb" .
 
-this:mea_stat_C2_MEX_EXEC_D1_cf_2_-885461995
-        a                    mexperf:StatisticalMeasure ;
-        rdfs:label           "Statistical measures" ;
-        mexperf:error        "0.2"^^xsd:double ;
-        prov:wasGeneratedBy  this:exe_1_cf_2_-885461995 .
+this:exp_cf_2_-884505674_exe_1_mea_3
+        a                     mexperf:ClassificationMeasure ;
+        rdfs:label            "Classification measures" ;
+        mexperf:truePositive  "3143.0"^^xsd:double ;
+        prov:wasGeneratedBy   this:exp_cf_2_-884505674_exe_1 .
 
-this:exe_1_cf_2_-885461995
-        a                   mexcore:ExecutionOverall ;
-        rdfs:label          "Overall Execution: C2_MEX_EXEC_D1" ;
-        mexcore:group       true ;
-        prov:generated      this:mea_stat_C2_MEX_EXEC_D1_cf_2_-885461995 , this:mea_clas_C2_MEX_EXEC_D1_cf_2_-885461995 ;
-        prov:id             "C2_MEX_EXEC_D1" ;
-        prov:used           this:algorithm2cf2_-885461995 , this:phase_Testcf2_-885461995 ;
-        prov:wasInformedBy  this:exp_cf_2_-885461995 .
+this:fea_col_cf_2_-884505674
+        a               mexcore:FeatureCollection ;
+        rdfs:label      "Feature Collection" ;
+        prov:hadMember  this:exp_cf_2_-884505674_feat_2 , this:exp_cf_2_-884505674_feat_1 .
 
-this:fea_2_cf_2_-885461995
+this:exp_cf_1_-884505674_ds
+        a           mexcore:Dataset ;
+        rdfs:label  "Dataset mydataset.csv" ;
+        dct:title   "mydataset.csv" .
+
+this:exp_cf_2_-884505674_feat_2
         a               mexcore:Feature ;
         rdfs:label      "max" ;
         dct:identifier  "2" .
 
-this:fea_4_cf_1_-885461995
+this:fea_col_cf_1_-884505674
+        a               mexcore:FeatureCollection ;
+        rdfs:label      "Feature Collection" ;
+        prov:hadMember  this:exp_cf_1_-884505674_feat_4 , this:exp_cf_1_-884505674_feat_3 , this:exp_cf_1_-884505674_feat_2 , this:exp_cf_1_-884505674_feat_1 .
+
+this:exp_cf_1_-884505674_exe_1_phase
+        a           mexcore:Test ;
+        rdfs:label  "Test" .
+
+this:exp_cf_2_-884505674_exe_1_mea_2
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "0.2"^^xsd:double ;
+        prov:wasGeneratedBy  this:exp_cf_2_-884505674_exe_1 .
+
+this:exp_cf_2_-884505674
+        a                  mexcore:ExperimentConfiguration ;
+        rdfs:label         "Configuration for a set of Executions" ;
+        dct:identifier     "MEX_EXP_CONF_D2" ;
+        prov:used          this:fea_col_cf_2_-884505674 , this:exp_cf_2_-884505674_ds , this:exp_cf_2_-884505674_sm ;
+        prov:wasStartedBy  this:exp_-884505674 .
+
+this:exp_cf_2_-884505674_feat_1
+        a               mexcore:Feature ;
+        rdfs:label      "min" ;
+        dct:identifier  "1" .
+
+this:exp_cf_1_-884505674_feat_4
         a               mexcore:Feature ;
         rdfs:label      "clo" ;
         dct:identifier  "4" .
 
-this:samplingmethod2-885461995
+this:exp_cf_1_-884505674
+        a                  mexcore:ExperimentConfiguration ;
+        rdfs:label         "Configuration for a set of Executions" ;
+        dct:identifier     "MEX_EXP_CONF_D1" ;
+        prov:used          this:fea_col_cf_1_-884505674 , this:exp_cf_1_-884505674_ds , this:exp_cf_1_-884505674_sm ;
+        prov:wasStartedBy  this:exp_-884505674 .
+
+this:exp_cf_2_-884505674_exe_1_mea_1
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:accuracy     "0.8"^^xsd:double ;
+        prov:wasGeneratedBy  this:exp_cf_2_-884505674_exe_1 .
+
+this:exp_cf_2_-884505674_sm
         a                  mexcore:Holdout ;
         rdfs:label         "Holdout" ;
         mexcore:testSize   "0.2" ;
         mexcore:trainSize  "0.8" .
 
-this:mea_clas_C1_MEX_EXEC_D1_cf_1_-885461995
+this:exp_cf_1_-884505674_exe_1_mea_3
         a                     mexperf:ClassificationMeasure ;
         rdfs:label            "Classification measures" ;
-        mexperf:accuracy      "0.86"^^xsd:double ;
         mexperf:truePositive  "3534.0"^^xsd:double ;
-        prov:wasGeneratedBy   this:exe_1_cf_1_-885461995 .
+        prov:wasGeneratedBy   this:exp_cf_1_-884505674_exe_1 .
 
-this:exe_1_cf_1_-885461995
-        a                   mexcore:ExecutionOverall ;
-        rdfs:label          "Overall Execution: C1_MEX_EXEC_D1" ;
-        mexcore:group       true ;
-        prov:generated      this:mea_stat_C1_MEX_EXEC_D1_cf_1_-885461995 , this:mea_clas_C1_MEX_EXEC_D1_cf_1_-885461995 ;
-        prov:id             "C1_MEX_EXEC_D1" ;
-        prov:used           this:algorithm1cf1_-885461995 , this:phase_Testcf1_-885461995 ;
-        prov:wasInformedBy  this:exp_cf_1_-885461995 .
+this:exp_cf_1_-884505674_feat_3
+        a               mexcore:Feature ;
+        rdfs:label      "ope" ;
+        dct:identifier  "3" .
 
-this:fea_2_cf_1_-885461995
+this:exp_cf_1_-884505674_sm
+        a                  mexcore:Holdout ;
+        rdfs:label         "Holdout" ;
+        mexcore:testSize   "0.2" ;
+        mexcore:trainSize  "0.8" .
+
+this:exp_cf_1_-884505674_exe_1_mea_2
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "0.14"^^xsd:double ;
+        prov:wasGeneratedBy  this:exp_cf_1_-884505674_exe_1 .
+
+this:exp_-884505674  a          mexcore:Experiment ;
+        rdfs:label              "Experiment: MEX_EXPERIMENT" ;
+        mexcore:experimentHash  "-884505674" ;
+        dct:identifier          "MEX_EXPERIMENT" ;
+        prov:wasAttributedTo    <http://mex.aksw.org/examples/http://mex.aksw.org/examples/app_-884505674> .
+
+mexalgo:NaiveBayes  rdfs:label  "Naive Bayes" .
+
+this:exp_cf_1_-884505674_feat_2
         a               mexcore:Feature ;
         rdfs:label      "max" ;
         dct:identifier  "2" .
 
-this:samplingmethod1-885461995
-        a                  mexcore:Holdout ;
-        rdfs:label         "Holdout" ;
-        mexcore:testSize   "0.2" ;
-        mexcore:trainSize  "0.8" .
+this:exp_cf_2_-884505674_exe_1
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C2_MEX_EXEC_D1" ;
+        mexcore:group       true ;
+        prov:generated      this:exp_cf_2_-884505674_exe_1_mea_3 , this:exp_cf_2_-884505674_exe_1_mea_1 , this:exp_cf_2_-884505674_exe_1_mea_2 ;
+        prov:id             "C2_MEX_EXEC_D1" ;
+        prov:used           this:exp_cf_2_-884505674_exe_1_phase , <algorithm2> ;
+        prov:wasInformedBy  this:exp_cf_2_-884505674 .
 
-this:exp_-885461995  a          mexcore:Experiment ;
-        rdfs:label              "Experiment: MEX_EXPERIMENT" ;
-        mexcore:experimentHash  "-885461995" ;
-        dct:identifier          "MEX_EXPERIMENT" ;
-        prov:wasAttributedTo    this:app_-885461995 .
-
-mexalgo:NaiveBayes  rdfs:label  "Naive Bayes" .
-
-this:algorithm2cf2_-885461995
-        a                          mexalgo:Algorithm ;
+<algorithm2>  a                    mexalgo:Algorithm ;
         rdfs:label                 "Logistic Regression" ;
         mexalgo:hasAlgorithmClass  mexalgo:LogisticRegression ;
         dct:identifier             "lr" .
 
 this:version  dct:hasVersion  "1.0.2" .
 
-this:app_-885461995  a       mexcore:ApplicationContext ;
-        rdfs:label           "Basic Experiment Infomation" ;
-        dct:dateCopyrighted  "2016.05.23 20:07:17 CEST" ;
-        foaf:givenName       "D Esteves" ;
-        foaf:mbox            "esteves@informatik.uni-leipzig.de" .
-
-this:fea_col_cf_1_-885461995
-        a               mexcore:FeatureCollection ;
-        rdfs:label      "Feature Collection" ;
-        prov:hadMember  this:fea_4_cf_1_-885461995 , this:fea_3_cf_1_-885461995 , this:fea_2_cf_1_-885461995 , this:fea_1_cf_1_-885461995 .
+this:exp_cf_1_-884505674_exe_1_mea_1
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:accuracy     "0.86"^^xsd:double ;
+        prov:wasGeneratedBy  this:exp_cf_1_-884505674_exe_1 .
 
 mexalgo:LogisticRegression
         rdfs:label  "Logistic Regression" .
+
+this:exp_cf_1_-884505674_feat_1
+        a               mexcore:Feature ;
+        rdfs:label      "min" ;
+        dct:identifier  "1" .
+
+this:exp_cf_2_-884505674_exe_1_phase
+        a           mexcore:Test ;
+        rdfs:label  "Test" .

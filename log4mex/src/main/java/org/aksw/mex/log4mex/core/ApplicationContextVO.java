@@ -1,5 +1,6 @@
 package org.aksw.mex.log4mex.core;
 
+import org.aksw.mex.log4mex.InstanceObjects;
 import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.util.ontology.mex.MEXCORE_10;
 import org.aksw.mex.util.ontology.PROVO;
@@ -13,7 +14,7 @@ import java.util.List;
 /**
  * Created by esteves on 25.06.15.
  */
-public class ApplicationContextVO  {
+public class ApplicationContextVO extends InstanceObjects {
 
     public Date get_fileDate() {return _fileDate;}
 
@@ -160,5 +161,29 @@ public class ApplicationContextVO  {
         }
 
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        int hashCode = 1;
+
+        if (StringUtils.isNotEmpty(this._givenName) && StringUtils.isNotBlank(this._givenName))
+            hashCode = hashCode * 37 + this._givenName.hashCode();
+
+        if (StringUtils.isNotEmpty(this._description) && StringUtils.isNotBlank(this._description))
+            hashCode = hashCode * 37 + this._description.toString().hashCode();
+
+        if (StringUtils.isNotEmpty(this._mbox) && StringUtils.isNotBlank(this._mbox))
+            hashCode = hashCode * 37 + this._mbox.toString().hashCode();
+
+        return hashCode;
+    }
+
+
+
 
 }

@@ -70,4 +70,14 @@ public class UserDefinedMeasureVO extends Measure{
     public String getLabel(){
         return "Custom measures defined by user";
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
 }

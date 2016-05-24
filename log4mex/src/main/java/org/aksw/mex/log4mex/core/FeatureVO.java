@@ -1,9 +1,11 @@
 package org.aksw.mex.log4mex.core;
 
+import org.aksw.mex.log4mex.InstanceObjects;
+
 /**
  * Created by esteves on 26.06.15.
  */
-public class FeatureVO {
+public class FeatureVO extends InstanceObjects {
 
     public String getId() {
         return _id;
@@ -30,5 +32,13 @@ public class FeatureVO {
     }
 
 
+    @Override
+    public boolean equals(Object other) {
+        return false;
+    }
 
+    @Override
+    public int hashCode() {
+        return 0;
+    }
 }

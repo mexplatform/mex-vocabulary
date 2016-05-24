@@ -16,7 +16,7 @@ import java.util.*;
 /**
  * Created by esteves on 26.06.15.
  */
-public abstract class Execution {
+public abstract class Execution extends InstanceObjects {
 
     protected String                    _id;
     protected String                    _targetClass;
@@ -152,15 +152,21 @@ public abstract class Execution {
         this._algo = value;
     }
 
-    public boolean setAlgorithm(String instanceName) throws Exception{
+    /**
+     *
+     * @param algorithmidentifier (instanceName or algorithmID)
+     * @return
+     * @throws Exception
+     */
+    public boolean setAlgorithm(String algorithmidentifier) throws Exception{
         try{
             //check whether the algorithm exists into the experiment configuration
-            Collection<AlgorithmVO> t
-                    = Collections2.filter(this.getExpConf().getAlgorithms(), p -> (p instanceof AlgorithmVO && p.getIndividualName().equals(instanceName)));
+            Collection<AlgorithmVO> t = Collections2.filter(this.getExpConf().getAlgorithms(),
+                    p -> (p instanceof AlgorithmVO && (p.getIndividualName().equals(algorithmidentifier) || p.getIdentifier().equals(algorithmidentifier))));
             if (t != null && t.size() > 0){
                 this._algo = Iterables.get(t, 0);
             }else{
-                throw new Exception("The algorithm (instanceName = " + instanceName + ") does not exists for the experiment");
+                throw new Exception("The algorithm " + algorithmidentifier + " does not belong to the experiment");
             }
 
         }catch (Exception e){

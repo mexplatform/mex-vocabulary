@@ -39,4 +39,14 @@ public class ClusteringMeasureVO extends Measure  {
     public String getLabel(){
         return "Clustering measures";
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
 }

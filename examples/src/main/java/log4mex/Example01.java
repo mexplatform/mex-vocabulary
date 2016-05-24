@@ -29,7 +29,15 @@ public class Example01 {
             String[] features = {"min", "max", "ope", "clo"};
             mex.Configuration(confID).addFeature(features);
             /* (4) the algorithms and hyperparameters */
-            String alg01ID = mex.Configuration(confID).addAlgorithm("alg", EnumAlgorithmsClasses.NaiveBayes);
+
+
+
+
+            String alg01ID = "golem-alg";
+            String algorithmName = "golem Algorithm";
+            mex.Configuration(confID).addAlgorithm(alg01ID, null , algorithmName);
+
+            //String alg01ID = mex.Configuration(confID).addAlgorithm("alg", EnumAlgorithmsClasses.NaiveBayes);
             /* (5) the executions */
 
 

@@ -11,10 +11,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by esteves on 26.06.15.
@@ -27,6 +24,7 @@ public class MyMEX {
     private ExperimentVO experiment;
     private List<ExperimentConfigurationVO> experimentConfigurationList;
     private boolean withoutConfiguration = false;
+    private String userHash;
 
     public MyMEX(){
         this.applicationContext = new ApplicationContextVO();
@@ -235,4 +233,18 @@ public class MyMEX {
 
     }
 
+    protected void setUserHash() throws Exception{
+        try{
+            Random rand = new Random();
+            int  n = rand.nextInt(31999) + 1;
+            this.userHash = String.valueOf(String.valueOf((getApplicationContext().get_mbox()) +
+                    String.valueOf(getApplicationContext().get_givenName()) + getExperiment().getId() + n).hashCode());
+        }catch (Exception e){
+            throw (e);
+        }
+    }
+
+    protected String getUserHash(){
+        return this.userHash;
+    }
 }

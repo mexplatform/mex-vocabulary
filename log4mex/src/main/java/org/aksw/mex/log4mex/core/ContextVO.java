@@ -1,11 +1,12 @@
 package org.aksw.mex.log4mex.core;
 
+import org.aksw.mex.log4mex.InstanceObjects;
 import org.aksw.mex.util.MEXEnum;
 
 /**
  * Created by esteves on 25.06.15.
  */
-public class ContextVO {
+public class ContextVO extends InstanceObjects{
 
     private String _label;
 
@@ -17,6 +18,7 @@ public class ContextVO {
 
     public ContextVO(MEXEnum.EnumContexts param) {
         this._context = param;
+        this.setIndividualName("ctx_");
     }
 
     public void setContext(MEXEnum.EnumContexts value) {
@@ -30,4 +32,16 @@ public class ContextVO {
     public void setLabel(String value){
         this._label = value;
     }
+
+    @Override
+    public boolean equals(Object other) {
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
+
 }

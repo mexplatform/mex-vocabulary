@@ -22,6 +22,16 @@ public class ExamplePerformanceMeasureVO extends Measure {
         return "Performance measure for a single run (predicted x real)";
     }
 
+    @Override
+    public boolean equals(Object other) {
+        return false;
+    }
+
+    @Override
+    public int hashCode() {
+        return 0;
+    }
+
     public String getId() {return this._id;}
 
     public String getPredictedValue() {return this._predicted;}
