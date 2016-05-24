@@ -10,7 +10,6 @@ import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXController;
 import org.aksw.mex.util.MEXEnum;
 import org.aksw.mex.util.ontology.mex.MEXALGO_10;
-import org.aksw.mex.util.ontology.mex.MEXCORE_10;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -442,10 +441,10 @@ public class ExperimentConfigurationVO extends InstanceObjects {
         try{
 
             if (this._sampling == null) {
-                String individualName = MEXCORE_10.ClasseTypes.SAMPLING_METHOD.toLowerCase() +
-                        String.valueOf(MEXController.getInstance().getNumberOfSamplingMethods() + 1);
+                //String individualName = MEXCORE_10.ClasseTypes.SAMPLING_METHOD.toLowerCase() +
+                //        String.valueOf(MEXController.getInstance().getNumberOfSamplingMethods() + 1);
 
-                this._sampling = new SamplingMethodVO(individualName,sm, train, test);
+                this._sampling = new SamplingMethodVO(sm, train, test);
 
                 MEXController.getInstance().addSamplingMethodCounter();
             }
@@ -471,10 +470,10 @@ public class ExperimentConfigurationVO extends InstanceObjects {
         try{
 
             if (this._sampling == null) {
-                String individualName = MEXCORE_10.ClasseTypes.SAMPLING_METHOD.toLowerCase() +
-                        String.valueOf(MEXController.getInstance().getNumberOfSamplingMethods() + 1);
+                //String individualName = MEXCORE_10.ClasseTypes.SAMPLING_METHOD.toLowerCase() +
+                //        String.valueOf(MEXController.getInstance().getNumberOfSamplingMethods() + 1);
 
-                this._sampling = new SamplingMethodVO(individualName,sm);
+                this._sampling = new SamplingMethodVO(sm);
                 if (folds != null) this._sampling.setFolds(folds);
 
                 MEXController.getInstance().addSamplingMethodCounter();
@@ -716,16 +715,15 @@ public class ExperimentConfigurationVO extends InstanceObjects {
             if (this._algorithms == null) {
                 this._algorithms = new ArrayList<>();}
 
-            String individualName = MEXALGO_10.ClasseTypes.ALGORITHM.toLowerCase() +
+            String idaux = MEXALGO_10.ClasseTypes.ALGORITHM.toLowerCase() +
                     String.valueOf(MEXController.getInstance().getNumberOfAlgorithms() + 1);
 
-            if (id == "") id = individualName;
+            if (id == "") id = idaux;
 
-            if (algorithmLabel == null || algorithmLabel == "") algorithmLabel = id;
+            if (algorithmLabel == null || algorithmLabel == "") algorithmLabel = idaux;
 
 
-
-            algo = new AlgorithmVO(individualName, id, algorithmAcronym, algorithmLabel, algorithmURI, klass);
+            algo = new AlgorithmVO(id, algorithmAcronym, algorithmLabel, algorithmURI, klass);
             this._algorithms.add(algo);
 
             MEXController.getInstance().addAlgorithmCounter();

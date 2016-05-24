@@ -147,6 +147,8 @@ public class MEXSerializer {
         }
         if (mex.getApplicationContext().getContext() != null) {
             mex.getApplicationContext().getContext().setIndividualName(URIbase + "ctx_" + mex.getUserHash());
+            mex.getApplicationContext().getContext().setLabel(setLabelSplitingTerms(mex.getApplicationContext().getContext().get_context().toString()));
+
         }
         if (mex.getExperiment() != null) {
             mex.getExperiment().setIndividualName(URIbase + "exp_" + mex.getUserHash());
@@ -167,8 +169,10 @@ public class MEXSerializer {
             if (item.HardwareConfiguration() != null)
                 item.HardwareConfiguration().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_hard" );
 
-            if (item.SamplingMethod() != null)
-                item.SamplingMethod().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_sm" );
+            if (item.SamplingMethod() != null) {
+                item.SamplingMethod().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_sm");
+                item.SamplingMethod().setLabel(setLabelSplitingTerms(item.SamplingMethod().getClassName()));
+            }
 
             if (item.Tool() != null)
                 item.Tool().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_tool" );
@@ -259,12 +263,18 @@ public class MEXSerializer {
 
     }
 
+    /**
+     * serializes the mex file
+     * @param filename
+     * @param URIbase
+     * @param mex
+     * @param format
+     * @throws Exception
+     */
     private void writeJena(String filename, String URIbase, MyMEX mex, MEXConstant.EnumRDFFormats format) throws Exception{
 
-        //cleanUpTheResources(mex);
 
         Model model = ModelFactory.createDefaultModel();
-
 
         try {
 
@@ -314,7 +324,7 @@ public class MEXSerializer {
 
             //gets
             if (mex.getApplicationContext() != null) {
-                _application = model.createResource(URIbase + mex.getApplicationContext().getIndividualName())
+                _application = model.createResource(mex.getApplicationContext().getIndividualName())
                         .addProperty(RDFS.label, "Basic Experiment Infomation")
                         .addProperty(RDF.type, mexcore_APC)
                         .addProperty(DCTerms.dateCopyrighted, new SimpleDateFormat("yyyy.MM.dd HH:mm:ss z").format(mex.getApplicationContext().get_fileDate()));
@@ -352,8 +362,6 @@ public class MEXSerializer {
                 }
 
                 if (mex.getApplicationContext().getContext() != null && mex.getApplicationContext().getContext().get_context() != MEXEnum.EnumContexts.NOT_INFORMED) {
-
-                    mex.getApplicationContext().getContext().setLabel(setLabelSplitingTerms(mex.getApplicationContext().getContext().get_context().toString()));
 
                     Resource mexcore_CON = model.createResource(MEXCORE_10.NS + mex.getApplicationContext().getContext().get_context().toString());
                     _context = model.createResource(mex.getApplicationContext().getContext().getIndividualName())
@@ -410,7 +418,7 @@ public class MEXSerializer {
 
             //EXPERIMENT CONFIGURATIONS
             if (mex.getExperimentConfigurations() != null) {
-                int auxExpConf = 1;
+                int auxExpConf = 0;
                 for (Iterator<ExperimentConfigurationVO> i = mex.getExperimentConfigurations().iterator(); i.hasNext(); ) {
                     ExperimentConfigurationVO item = i.next();
 
@@ -482,7 +490,7 @@ public class MEXSerializer {
                         if (item.getToolParameters() != null && item.getToolParameters().size() > 0) {
 
                             //COLLECTION
-                            Resource _toolcollection = model.createResource(URIbase + "tool_par_col_" + "cf_" + auxExpConf + "_" + mex.getUserHash())
+                            Resource _toolcollection = model.createResource(URIbase + "tool_par_col_" + "cf_" + (auxExpConf + 1) + "_" + mex.getUserHash())
                                     .addProperty(RDF.type, mexalgo_TOOL_PARAM_COLLECTION)
                                     .addProperty(RDFS.label, "Tool Parameter Collection");
                             _expConfiguration.addProperty(PROVO.used, _toolcollection);
@@ -521,8 +529,6 @@ public class MEXSerializer {
                         Resource _sampling;
 
                         if (StringUtils.isEmpty(auxIN)) {
-
-                            item.SamplingMethod().setLabel(setLabelSplitingTerms(item.SamplingMethod().getClassName()));
 
                             Resource mexcore_SAMPLING_METHOD = model.createResource(MEXCORE_10.NS + item.SamplingMethod().getClassName());
 
@@ -620,7 +626,7 @@ public class MEXSerializer {
                     //FEATURE COLLECTION
                     if (item.getFeatures() != null && item.getFeatures().size() > 0){
 
-                        Resource _featurecollection = model.createResource(URIbase + "fea_col" + "_cf_" + auxExpConf + "_"  + mex.getUserHash())
+                        Resource _featurecollection = model.createResource(URIbase + "fea_col" + "_cf_" + (auxExpConf + 1) + "_"  + mex.getUserHash())
                                 .addProperty(RDF.type, mexcore_FEATURE_COLLECTION)
                                 .addProperty(RDFS.label, "Feature Collection");
 
@@ -745,7 +751,7 @@ public class MEXSerializer {
                                 //EXAMPLE COLLECTION
                                 if (e.getExamples() != null && e.getExamples().size() > 0) {
 
-                                    Resource _examplecollection = model.createResource(URIbase + "exa_col_" + "_cf_" + auxExpConf + "_exe_" + String.valueOf(auxexecutions) + "_" + mex.getUserHash())
+                                    Resource _examplecollection = model.createResource(URIbase + "exa_col_" + "_cf_" + (auxExpConf + 1) + "_exe_" + String.valueOf(auxexecutions) + "_" + mex.getUserHash())
                                             .addProperty(RDF.type, mexcore_EXAMPLE_COLLECTION)
                                             .addProperty(RDFS.label, "Example Collection");
 
@@ -820,7 +826,7 @@ public class MEXSerializer {
                                     if (e.getAlgorithm().getParameters() != null && e.getAlgorithm().getParameters().size() > 0) {
 
                                         //COLLECTION
-                                        Resource _hypercollection = model.createResource(URIbase + "hyperp_col" + "cf" + auxExpConf + "_" + mex.getUserHash())
+                                        Resource _hypercollection = model.createResource(URIbase + "hyperp_col" + "cf" + (auxExpConf + 1) + "_" + mex.getUserHash())
                                                 .addProperty(RDF.type, mexalgo_HYPER_PARAM_COLLECTION)
                                                 .addProperty(RDFS.label, "HyperParameter Collection");
 
@@ -914,7 +920,7 @@ public class MEXSerializer {
                                     List<Measure> examplePerformanceList = e.getPerformances(ExamplePerformanceMeasureVO.class);
                                     if (examplePerformanceList != null && examplePerformanceList.size() > 0 ) {
 
-                                        Resource _examplePerformanceCollection = model.createResource(URIbase + "exa_perf_col" + "_cf_" + auxExpConf + "_" + mex.getUserHash())
+                                        Resource _examplePerformanceCollection = model.createResource(URIbase + "exa_perf_col" + "_cf_" + (auxExpConf + 1) + "_" + mex.getUserHash())
                                                 .addProperty(RDF.type, mexperf_EXAMPLE_PERFORMANCE_COLLECTION)
                                                 .addProperty(RDFS.label, "Dataset Example Performance")
                                                 .addProperty(PROVO.wasGeneratedBy, _exec);
@@ -944,7 +950,7 @@ public class MEXSerializer {
                                     List<Measure> UserDefinedList = e.getPerformances(UserDefinedMeasureVO.class);
                                     if (UserDefinedList != null && UserDefinedList.size() > 0 ) {
 
-                                        Resource _userDefinedCollection = model.createResource(URIbase + "userdef_perf_col" + "_cf_" + auxExpConf + "_" + mex.getUserHash())
+                                        Resource _userDefinedCollection = model.createResource(URIbase + "userdef_perf_col" + "_cf_" + (auxExpConf + 1) + "_" + mex.getUserHash())
                                                 .addProperty(RDF.type, mexperf_USER_DEFINED_PERFORMANCE_COLLECTION)
                                                 .addProperty(PROVO.wasGeneratedBy, _exec);
                                         _exec.addProperty(PROVO.generated, _userDefinedCollection);
@@ -1079,21 +1085,25 @@ public class MEXSerializer {
         String ind = "";
 
         try{
-            for (int i = 1; i < current; i++){
-                ExperimentConfigurationVO item = conf.get(i);
+
+            if (current == 0 || conf == null || conf.size() == 1)
+                return "";
+
+            for (int i = current; i <= conf.size(); i++){
+                ExperimentConfigurationVO item = conf.get(i-1);
 
                 if (obj instanceof ModelVO && item.Model().equals(obj)){
-                    ind = item.Model().getId();}
+                    ind = item.Model().getId(); return ind;}
                 else if (obj instanceof SamplingMethodVO && item.SamplingMethod().equals(obj)){
-                    ind = item.SamplingMethod().getIndividualName();}
+                    ind = item.SamplingMethod().getIndividualName(); return ind;}
                 else if (obj instanceof PhaseVO && item.Phase().equals(obj)){
-                    ind = item.Phase().getIndividualName();}
+                    ind = item.Phase().getIndividualName(); return ind;}
                 else if (obj instanceof HardwareConfigurationVO && item.HardwareConfiguration().equals(obj)){
-                    ind =  item.HardwareConfiguration().getIndividualName();}
+                    ind =  item.HardwareConfiguration().getIndividualName(); return ind;}
                 else if (obj instanceof ToolVO && item.Tool().equals(obj)){
-                    ind = item.Tool().getIndividualName();}
+                    ind = item.Tool().getIndividualName(); return ind;}
                 else if (obj instanceof DataSetVO && item.DataSet().equals(obj)){
-                    ind = item.DataSet().getIndividualName();}
+                    ind = item.DataSet().getIndividualName(); return ind;}
             }
 
         }catch (Exception e){

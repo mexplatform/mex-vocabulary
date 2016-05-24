@@ -11,8 +11,6 @@ import java.util.List;
  */
 public class AlgorithmVO extends InstanceObjects {
 
-    private String _individualName = "";
-
     private String _dct_identifier = "";
     private String _rdfs_label = "";
     private String _acroynm = "";
@@ -25,8 +23,7 @@ public class AlgorithmVO extends InstanceObjects {
         return this._parameters;
     }
 
-    public AlgorithmVO(String ind, String _dct_identifier, String _acroynm, String _rdfs_label, URI _uri, String klass){
-        this._individualName = ind;
+    public AlgorithmVO(String _dct_identifier, String _acroynm, String _rdfs_label, URI _uri, String klass){
 
         this._dct_identifier = _dct_identifier;
         this._rdfs_label = _rdfs_label;
@@ -57,10 +54,6 @@ public class AlgorithmVO extends InstanceObjects {
 
     public String getIdentifier() {
         return _dct_identifier;
-    }
-
-    public String getIndividualName() {
-        return this._individualName;
     }
 
     public void setIdentifier(String value) {

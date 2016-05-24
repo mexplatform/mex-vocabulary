@@ -3,99 +3,110 @@
     "@id" : "mexalgo:RESCAL",
     "label" : "RESCAL"
   }, {
-    "@id" : "this:algorithm1cf1_-5601248",
-    "@type" : "mexalgo:Algorithm",
-    "hasAlgorithmClass" : "mexalgo:RESCAL",
-    "hasHyperParameter" : "this:hyperp_1cf1_-5601248",
-    "identifier" : "alg rescal",
-    "label" : "RESCAL",
-    "landingPage" : "https://github.com/nzhiltsov/Ext-RESCAL"
-  }, {
-    "@id" : "this:app_-5601248",
+    "@id" : "this:app_-4621983",
     "@type" : "mexcore:ApplicationContext",
-    "dateCopyrighted" : "2016.05.11 17:14:50 CEST",
-    "label" : {
-      "@id" : "foaf:givenName"
-    },
+    "dateCopyrighted" : "2016.05.24 23:39:22 CEST",
+    "label" : "Basic Experiment Infomation",
     "givenName" : "Tommaso Soru",
     "mbox" : "tsoru@informatik.uni-leipzig.de"
   }, {
-    "@id" : "this:cxt_-5601248",
-    "@type" : "mexcore",
-    "label" : "",
-    "wasAttributedTo" : "this:app_-5601248"
+    "@id" : "this:exp_-4621983",
+    "@type" : "mexcore:Experiment",
+    "experimentHash" : "-4621983",
+    "identifier" : "MEX_EXPERIMENT",
+    "label" : "Experiment: MEX_EXPERIMENT",
+    "wasAttributedTo" : "this:app_-4621983"
   }, {
-    "@id" : "this:ds_cf_1_-5601248",
+    "@id" : "this:exp_cf_1_-4621983",
+    "@type" : "mexcore:ExperimentConfiguration",
+    "identifier" : "MEX_EXP_CONF_D1",
+    "label" : "Configuration for a set of Executions",
+    "used" : [ "this:fea_col_cf_1_-4621983", "this:exp_cf_1_-4621983_ds" ],
+    "wasStartedBy" : "this:exp_-4621983"
+  }, {
+    "@id" : "this:exp_cf_1_-4621983_ds",
     "@type" : "mexcore:Dataset",
     "title" : "yagoSchema",
     "label" : "Dataset yagoSchema",
     "landingPage" : "tmp/resource2vec/datasets/yagoSchema.ttl"
   }, {
-    "@id" : "this:exe_1_cf_1_-5601248",
-    "@type" : "mexcore:ExecutionOverall",
+    "@id" : "this:exp_cf_1_-4621983_exe_1",
+    "@type" : "mexcore:ExecutionSingle",
     "mexcore:group" : false,
-    "label" : "Overall Execution: C0_MEX_EXEC_D1",
-    "generated" : "this:mea_stat_C0_MEX_EXEC_D1_cf_1_-5601248",
-    "id" : "C0_MEX_EXEC_D1",
-    "used" : [ "this:hyperp_colcf1_-5601248", "this:algorithm1cf1_-5601248", "this:phase_Testcf1_-5601248" ],
-    "wasInformedBy" : "this:exp_cf_1_-5601248"
+    "label" : "Single Execution: C1_MEX_EXEC_D1",
+    "generated" : "this:exp_cf_1_-4621983_exe_1_mea_1",
+    "id" : "C1_MEX_EXEC_D1",
+    "used" : [ "this:hyperp_colcf1_-4621983", "this:exp_cf_1_-4621983_exe_1_algo", "this:exp_cf_1_-4621983_exe_1_phase" ],
+    "wasInformedBy" : "this:exp_cf_1_-4621983"
   }, {
-    "@id" : "this:exp_-5601248",
-    "@type" : "mexcore:Experiment",
-    "experimentHash" : "-5601248",
-    "identifier" : "MEX_EXPERIMENT",
-    "label" : "Experiment: MEX_EXPERIMENT",
-    "wasAttributedTo" : "this:app_-5601248"
+    "@id" : "this:exp_cf_1_-4621983_exe_1_algo",
+    "@type" : "mexalgo:Algorithm",
+    "hasAlgorithmClass" : "mexalgo:RESCAL",
+    "hasHyperParameter" : "this:exp_cf_1_-4621983_exe_1_hyperpar_1",
+    "identifier" : "alg rescal",
+    "label" : "RESCAL",
+    "landingPage" : "https://github.com/nzhiltsov/Ext-RESCAL"
   }, {
-    "@id" : "this:exp_cf_1_-5601248",
-    "@type" : "mexcore:ExperimentConfiguration",
-    "identifier" : "MEX_EXP_CONF_D1",
-    "label" : [ "", "Experiment Configuration" ],
-    "used" : [ "this:fea_col_cf_1_-5601248", "this:ds_cf_1_-5601248" ],
-    "wasStartedBy" : "this:exp_-5601248"
-  }, {
-    "@id" : "this:fea_1_cf_1_-5601248",
-    "@type" : "mexcore:Feature",
-    "identifier" : "1",
-    "label" : "http://w3id.org/resource2vec/embeddings/15785942"
-  }, {
-    "@id" : "this:fea_col_cf_1_-5601248",
-    "@type" : "mexcore:FeatureCollection",
-    "label" : "Feature Collection",
-    "hadMember" : "this:fea_1_cf_1_-5601248"
-  }, {
-    "@id" : "this:hyperp_1cf1_-5601248",
+    "@id" : "this:exp_cf_1_-4621983_exe_1_hyperpar_1",
     "@type" : "mexalgo:HyperParameter",
     "identifier" : "rank",
     "label" : "Rank",
     "value" : "2"
   }, {
-    "@id" : "this:hyperp_colcf1_-5601248",
-    "@type" : "mexalgo:HyperParameterCollection",
-    "label" : "HyperParameter Collection",
-    "hadMember" : "this:hyperp_1cf1_-5601248"
-  }, {
-    "@id" : "this:mea_stat_C0_MEX_EXEC_D1_cf_1_-5601248",
+    "@id" : "this:exp_cf_1_-4621983_exe_1_mea_1",
     "@type" : "mexperf:StatisticalMeasure",
     "mexperf:processingTime" : 3245.0,
     "label" : "Statistical measures",
-    "wasGeneratedBy" : "this:exe_1_cf_1_-5601248"
+    "wasGeneratedBy" : "this:exp_cf_1_-4621983_exe_1"
   }, {
-    "@id" : "this:phase_Testcf1_-5601248",
+    "@id" : "this:exp_cf_1_-4621983_exe_1_phase",
     "@type" : "mexcore:Test",
     "label" : "Test"
+  }, {
+    "@id" : "this:exp_cf_1_-4621983_feat_1",
+    "@type" : "mexcore:Feature",
+    "identifier" : "1",
+    "label" : "http://w3id.org/resource2vec/embeddings/15785942"
+  }, {
+    "@id" : "this:fea_col_cf_1_-4621983",
+    "@type" : "mexcore:FeatureCollection",
+    "label" : "Feature Collection",
+    "hadMember" : "this:exp_cf_1_-4621983_feat_1"
+  }, {
+    "@id" : "this:hyperp_colcf1_-4621983",
+    "@type" : "mexalgo:HyperParameterCollection",
+    "label" : "HyperParameter Collection",
+    "hadMember" : "this:exp_cf_1_-4621983_exe_1_hyperpar_1"
   }, {
     "@id" : "this:version",
     "hasVersion" : "1.0.2"
   } ],
   "@context" : {
-    "identifier" : "http://purl.org/dc/terms/identifier",
-    "value" : "http://www.w3.org/ns/prov#value",
     "label" : "http://www.w3.org/2000/01/rdf-schema#label",
+    "hasHyperParameter" : {
+      "@id" : "http://mex.aksw.org/mex-algo#hasHyperParameter",
+      "@type" : "@id"
+    },
+    "landingPage" : "http://www.w3.org/ns/dcat#landingPage",
+    "identifier" : "http://purl.org/dc/terms/identifier",
+    "hasAlgorithmClass" : {
+      "@id" : "http://mex.aksw.org/mex-algo#hasAlgorithmClass",
+      "@type" : "@id"
+    },
     "hadMember" : {
       "@id" : "http://www.w3.org/ns/prov#hadMember",
       "@type" : "@id"
     },
+    "used" : {
+      "@id" : "http://www.w3.org/ns/prov#used",
+      "@type" : "@id"
+    },
+    "wasStartedBy" : {
+      "@id" : "http://www.w3.org/ns/prov#wasStartedBy",
+      "@type" : "@id"
+    },
+    "value" : "http://www.w3.org/ns/prov#value",
+    "title" : "http://purl.org/dc/terms/title",
     "wasInformedBy" : {
       "@id" : "http://www.w3.org/ns/prov#wasInformedBy",
       "@type" : "@id"
@@ -104,24 +115,11 @@
       "@id" : "http://www.w3.org/ns/prov#generated",
       "@type" : "@id"
     },
-    "used" : {
-      "@id" : "http://www.w3.org/ns/prov#used",
-      "@type" : "@id"
-    },
     "group" : {
       "@id" : "http://mex.aksw.org/mex-core#group",
       "@type" : "http://www.w3.org/2001/XMLSchema#boolean"
     },
     "id" : "http://www.w3.org/ns/prov#id",
-    "hasHyperParameter" : {
-      "@id" : "http://mex.aksw.org/mex-algo#hasHyperParameter",
-      "@type" : "@id"
-    },
-    "landingPage" : "http://www.w3.org/ns/dcat#landingPage",
-    "hasAlgorithmClass" : {
-      "@id" : "http://mex.aksw.org/mex-algo#hasAlgorithmClass",
-      "@type" : "@id"
-    },
     "wasGeneratedBy" : {
       "@id" : "http://www.w3.org/ns/prov#wasGeneratedBy",
       "@type" : "@id"
@@ -130,20 +128,15 @@
       "@id" : "http://mex.aksw.org/mex-perf#processingTime",
       "@type" : "http://www.w3.org/2001/XMLSchema#double"
     },
-    "wasStartedBy" : {
-      "@id" : "http://www.w3.org/ns/prov#wasStartedBy",
-      "@type" : "@id"
-    },
+    "hasVersion" : "http://purl.org/dc/terms/hasVersion",
+    "mbox" : "http://xmlns.com/foaf/0.1/mbox",
+    "givenName" : "http://xmlns.com/foaf/0.1/givenName",
+    "dateCopyrighted" : "http://purl.org/dc/terms/dateCopyrighted",
     "wasAttributedTo" : {
       "@id" : "http://www.w3.org/ns/prov#wasAttributedTo",
       "@type" : "@id"
     },
-    "mbox" : "http://xmlns.com/foaf/0.1/mbox",
-    "givenName" : "http://xmlns.com/foaf/0.1/givenName",
-    "dateCopyrighted" : "http://purl.org/dc/terms/dateCopyrighted",
     "experimentHash" : "http://mex.aksw.org/mex-core#experimentHash",
-    "title" : "http://purl.org/dc/terms/title",
-    "hasVersion" : "http://purl.org/dc/terms/hasVersion",
     "owl" : "http://www.w3.org/2002/07/owl#",
     "this" : "http://w3id.org/resource2vec/",
     "xsd" : "http://www.w3.org/2001/XMLSchema#",

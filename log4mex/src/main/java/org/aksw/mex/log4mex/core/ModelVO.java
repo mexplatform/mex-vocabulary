@@ -73,15 +73,13 @@ public class ModelVO extends InstanceObjects {
 
         ModelVO that = (ModelVO) other;
 
+        boolean ret = this._id.equals(that._id) && this._description.equals(that._description);
+
         if (this._date != null)
-            return this._date.equals(that._date)
-                && this._description.equals(that._description)
-                && this._id.equals(that._id);
+            ret = ret && this._date.equals(that._date);
 
-        return that._date == null
-                    && this._description.equals(that._description)
-                    && this._id.equals(that._id);
-
+        return ret;
+        
     }
 
     @Override

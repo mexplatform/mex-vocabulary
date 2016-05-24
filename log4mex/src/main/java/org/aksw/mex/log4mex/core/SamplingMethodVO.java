@@ -1,15 +1,14 @@
 package org.aksw.mex.log4mex.core;
 
+import org.aksw.mex.log4mex.InstanceObjects;
 import org.aksw.mex.util.MEXEnum;
 import org.apache.commons.lang3.StringUtils;
 
 /**
  * Created by esteves on 26.06.15.
  */
-public class SamplingMethodVO {
+public class SamplingMethodVO extends InstanceObjects {
 
-
-    private String _individualName = "";
     private String _className = "";
     private Double _trainSize;
     private Double _testSize;
@@ -18,24 +17,18 @@ public class SamplingMethodVO {
     private String _label = "";
 
 
-    public SamplingMethodVO(String ind, MEXEnum.EnumSamplingMethods sm) {
-        this._individualName = ind;
+    public SamplingMethodVO(MEXEnum.EnumSamplingMethods sm) {
+        //this._individualName = ind;
         this._className = sm.toString();
 
     }
 
-    public SamplingMethodVO(String ind, MEXEnum.EnumSamplingMethods sm, Double train, Double test) {
-        this._individualName = ind;
+    public SamplingMethodVO(MEXEnum.EnumSamplingMethods sm, Double train, Double test) {
+        //this._individualName = ind;
         this._className = sm.toString();
         this._trainSize = train;
         this._testSize = test;
 
-    }
-
-
-
-    public String getIndividualName() {
-        return _individualName;
     }
 
     public String getClassName() {
@@ -69,10 +62,6 @@ public class SamplingMethodVO {
     public void setClassName(MEXEnum.EnumSamplingMethods value){
         this._className = value.toString();
 
-    }
-
-    public void setIndividualName(String value){
-        this._individualName = value;
     }
 
     public void setTrainSize(Double value){
@@ -117,13 +106,20 @@ public class SamplingMethodVO {
 
         SamplingMethodVO that = (SamplingMethodVO) other;
 
-        return this._className.equals(that._className)
-                && this._trainSize != null && this._trainSize.equals(that._trainSize)
-                && this._testSize != null && this._testSize.equals(that._testSize)
-                && this._individualName.equals(that._individualName)
-                && this._folds != null && this._folds.equals(that._folds)
-                && this._sequential != null && this._sequential.equals(that._sequential)
-                && this._label.equals(that._label);
+        boolean ret = this._className.equals(that._className);
+
+        if (this._trainSize != null)
+            ret = ret && this._trainSize.equals(that._trainSize);
+        if (this._testSize != null)
+            ret = ret && this._testSize.equals(that._testSize);
+        if (this._folds != null)
+            ret = ret && this._folds.equals(that._folds);
+        if (this._sequential != null)
+            ret = ret && this._sequential.equals(that._sequential);
+
+        ret = ret && this._label.equals(that._label);
+
+        return ret;
     }
 
     @Override
@@ -138,9 +134,6 @@ public class SamplingMethodVO {
 
         if (this._testSize != null)
             hashCode = hashCode * 37 + this._testSize.hashCode();
-
-        if (StringUtils.isNotEmpty(this._individualName) && StringUtils.isNotBlank(this._individualName))
-            hashCode = hashCode * 37 + this._individualName.hashCode();
 
         if (this._folds != null)
             hashCode = hashCode * 37 + this._folds.hashCode();

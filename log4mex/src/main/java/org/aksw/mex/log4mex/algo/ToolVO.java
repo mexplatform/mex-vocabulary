@@ -98,8 +98,7 @@ public class ToolVO extends InstanceObjects {
 
         ToolVO that = (ToolVO) other;
 
-        return this.getIndividualName().equals(that.getIndividualName())
-                && this.rdfs_label.equals(that.rdfs_label)
+        return this.rdfs_label.equals(that.rdfs_label)
                 && this.doap_name.equals(that.doap_name)
                 && this.doap_homepage.equals(that.doap_homepage)
                 && this.doap_revision.equals(that.doap_revision)

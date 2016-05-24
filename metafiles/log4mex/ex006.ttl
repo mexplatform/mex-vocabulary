@@ -12,109 +12,127 @@
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
-this:exe_2_cf_1_70410431
-        a                   mexcore:ExecutionOverall ;
-        rdfs:label          "Overall Execution: C1_MEX_EXEC_D2" ;
-        mexcore:group       true ;
-        prov:endedAtTime    "Mon May 23 20:10:56 CEST 2016" ;
-        prov:generated      this:mea_clas_C1_MEX_EXEC_D2_cf_1_70410431 ;
-        prov:id             "C1_MEX_EXEC_D2" ;
-        prov:startedAtTime  "Mon May 23 20:10:52 CEST 2016" ;
-        prov:used           this:algorithm1cf1_70410431 , this:phase_Testcf1_70410431 ;
-        prov:wasInformedBy  this:exp_cf_1_70410431 .
-
-this:mea_clas_C1_MEX_EXEC_D2_cf_1_70410431
-        a                    mexperf:ClassificationMeasure ;
-        rdfs:label           "Classification measures" ;
-        mexperf:accuracy     "0.65"^^xsd:double ;
-        mexperf:f1Measure    "0.57"^^xsd:double ;
-        prov:wasGeneratedBy  this:exe_2_cf_1_70410431 .
-
-this:algorithm1cf1_70410431
-        a                          mexalgo:Algorithm ;
-        rdfs:label                 "Naive Bayes" ;
-        mexalgo:hasAlgorithmClass  mexalgo:NaiveBayes ;
-        dct:identifier             "nb" .
-
-this:phase_Testcf1_70410431
-        a           mexcore:Test ;
-        rdfs:label  "Test" .
-
-this:phase_Traincf1_70410431
-        a           mexcore:Train ;
-        rdfs:label  "Train" .
-
-this:70410431  a        mexcore:HardwareConfiguration , mexcore:Model , mexalgo:WEKA ;
-        rdfs:label      "Hardware configuration" , "WEKA" ;
-        mexcore:cache   "Cache 3MB" ;
-        mexcore:cpu     "Intel Core i7" ;
-        mexcore:hd      "SSD" ;
-        mexcore:memory  "16GB" ;
-        dct:identifier  "MSVM003201502" ;
-        doap:os         "ubuntu" .
-
-this:exe_1_cf_1_70410431
-        a                   mexcore:ExecutionOverall ;
-        rdfs:label          "Overall Execution: C1_MEX_EXEC_D1" ;
-        mexcore:group       true ;
-        prov:endedAtTime    "Mon May 23 20:10:52 CEST 2016" ;
-        prov:generated      this:mea_clas_C1_MEX_EXEC_D1_cf_1_70410431 ;
-        prov:id             "C1_MEX_EXEC_D1" ;
-        prov:startedAtTime  "Mon May 23 20:10:50 CEST 2016" ;
-        prov:used           this:algorithm1cf1_70410431 , this:phase_Traincf1_70410431 ;
-        prov:wasInformedBy  this:exp_cf_1_70410431 .
-
-this:mea_clas_C1_MEX_EXEC_D1_cf_1_70410431
-        a                    mexperf:ClassificationMeasure ;
-        rdfs:label           "Classification measures" ;
-        mexperf:accuracy     "0.88"^^xsd:double ;
-        mexperf:f1Measure    "0.7"^^xsd:double ;
-        prov:wasGeneratedBy  this:exe_1_cf_1_70410431 .
-
-this:version  dct:hasVersion  "1.0.2" .
-
-this:app_70410431  a         mexcore:ApplicationContext ;
-        rdfs:label           "Basic Experiment Infomation" ;
-        dct:dateCopyrighted  "2016.05.23 20:10:50 CEST" ;
-        foaf:givenName       "D Esteves" ;
-        foaf:mbox            "esteves@informatik.uni-leipzig.de" .
-
-this:cxt_70410431  a          mexcore:ComputationalFinance ;
-        rdfs:label            "Computational Finance" ;
-        prov:wasAttributedTo  this:app_70410431 .
-
-this:exp_70410431  a            mexcore:Experiment ;
+this:exp_70651616  a            mexcore:Experiment ;
         rdfs:label              "Experiment: BOVESPA_PETR4_20150515" ;
         mexcore:dataNormalizedDescription
                 "min-max" ;
-        mexcore:experimentHash  "70410431" ;
+        mexcore:experimentHash  "70651616" ;
         mexcore:outliersRemovedDescription
                 "split and inplit removed" ;
         dct:description         "PETR4 stock market prediction" ;
         dct:identifier          "BOVESPA_PETR4_20150515" ;
         dct:title               "BOVESPA PETR4 Analysis" ;
-        prov:wasAttributedTo    this:app_70410431 .
+        prov:wasAttributedTo    this:app_70651616 .
 
-this:ds_cf_1_70410431
-        a                 mexcore:Dataset ;
-        rdfs:label        "Dataset bovespa" ;
-        dct:description   "brazilian stock market 2013" ;
-        dct:title         "bovespa" ;
-        dcat:landingPage  "http://www.bmfbovespa.com.br/shared/iframe.aspx?idioma=pt-br&url=http://www.bmfbovespa.com.br/pt-br/cotacoes-historicas/FormSeriesHistoricas.asp" .
+this:exp_cf_1_70651616_exe_1_mea_1
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:accuracy     "0.88"^^xsd:double ;
+        prov:wasGeneratedBy  this:exp_cf_1_70651616_exe_1 .
 
-mexalgo:NaiveBayes  rdfs:label  "Naive Bayes" .
+this:exp_cf_1_70651616_exe_2_phase
+        a           mexcore:Test ;
+        rdfs:label  "Test" .
 
-this:exp_cf_1_70410431
-        a                  mexcore:ExperimentConfiguration ;
-        rdfs:label         "Configuration for a set of Executions" ;
-        dct:identifier     "MEX_EXP_CONF_D1" ;
-        prov:used          this:ds_cf_1_70410431 , this:samplingmethod170410431 , this:70410431 ;
-        prov:wasStartedBy  this:exp_70410431 .
+this:exp_cf_1_70651616_tool
+        a           mexalgo:WEKA ;
+        rdfs:label  "WEKA" .
 
-this:samplingmethod170410431
+this:exp_cf_1_70651616_hard
+        a               mexcore:HardwareConfiguration ;
+        rdfs:label      "Hardware configuration" ;
+        mexcore:cache   "Cache 3MB" ;
+        mexcore:cpu     "Intel Core i7" ;
+        mexcore:hd      "SSD" ;
+        mexcore:memory  "16GB" ;
+        doap:os         "ubuntu" .
+
+this:exp_cf_1_70651616_sm
         a                   mexcore:CrossValidation ;
         rdfs:label          "Cross Validation" ;
         mexcore:folds       "10" ;
         mexcore:sequential  "true" ;
         mexcore:testSize    "0.2" ;
         mexcore:trainSize   "0.8" .
+
+this:exp_cf_1_70651616_mod
+        a               mexcore:Model ;
+        dct:identifier  "MSVM003201502" .
+
+this:app_70651616  a         mexcore:ApplicationContext ;
+        rdfs:label           "Basic Experiment Infomation" ;
+        dct:dateCopyrighted  "2016.05.24 23:38:53 CEST" ;
+        foaf:givenName       "D Esteves" ;
+        foaf:mbox            "esteves@informatik.uni-leipzig.de" .
+
+this:exp_cf_1_70651616_exe_2_mea_2
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.57"^^xsd:double ;
+        prov:wasGeneratedBy  this:exp_cf_1_70651616_exe_2 .
+
+this:exp_cf_1_70651616_exe_1_phase
+        a           mexcore:Train ;
+        rdfs:label  "Train" .
+
+this:exp_cf_1_70651616_exe_2
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C1_MEX_EXEC_D2" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 24 23:38:59 CEST 2016" ;
+        prov:generated      this:exp_cf_1_70651616_exe_2_mea_1 , this:exp_cf_1_70651616_exe_2_mea_2 ;
+        prov:id             "C1_MEX_EXEC_D2" ;
+        prov:startedAtTime  "Tue May 24 23:38:55 CEST 2016" ;
+        prov:used           this:exp_cf_1_70651616_exe_2_phase , this:exp_cf_1_70651616_exe_2_algo ;
+        prov:wasInformedBy  this:exp_cf_1_70651616 .
+
+this:exp_cf_1_70651616
+        a                  mexcore:ExperimentConfiguration ;
+        rdfs:label         "Configuration for a set of Executions" ;
+        dct:identifier     "MEX_EXP_CONF_D1" ;
+        prov:used          this:exp_cf_1_70651616_ds , this:exp_cf_1_70651616_hard , this:exp_cf_1_70651616_sm , this:exp_cf_1_70651616_tool , this:exp_cf_1_70651616_mod ;
+        prov:wasStartedBy  this:exp_70651616 .
+
+this:exp_cf_1_70651616_exe_2_mea_1
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:accuracy     "0.65"^^xsd:double ;
+        prov:wasGeneratedBy  this:exp_cf_1_70651616_exe_2 .
+
+this:exp_cf_1_70651616_exe_2_algo
+        a                          mexalgo:Algorithm ;
+        rdfs:label                 "Naive Bayes" ;
+        mexalgo:hasAlgorithmClass  mexalgo:NaiveBayes ;
+        dct:identifier             "nb" .
+
+mexalgo:NaiveBayes  rdfs:label  "Naive Bayes" .
+
+this:exp_cf_1_70651616_exe_1
+        a                   mexcore:ExecutionOverall ;
+        rdfs:label          "Overall Execution: C1_MEX_EXEC_D1" ;
+        mexcore:group       true ;
+        prov:endedAtTime    "Tue May 24 23:38:55 CEST 2016" ;
+        prov:generated      this:exp_cf_1_70651616_exe_1_mea_2 , this:exp_cf_1_70651616_exe_1_mea_1 ;
+        prov:id             "C1_MEX_EXEC_D1" ;
+        prov:startedAtTime  "Tue May 24 23:38:53 CEST 2016" ;
+        prov:used           this:exp_cf_1_70651616_exe_1_phase , this:exp_cf_1_70651616_exe_2_algo ;
+        prov:wasInformedBy  this:exp_cf_1_70651616 .
+
+this:ctx_70651616  a          mexcore:ComputationalFinance ;
+        rdfs:label            "Computational Finance" ;
+        prov:wasAttributedTo  this:app_70651616 .
+
+this:exp_cf_1_70651616_ds
+        a                 mexcore:Dataset ;
+        rdfs:label        "Dataset bovespa" ;
+        dct:description   "brazilian stock market 2013" ;
+        dct:title         "bovespa" ;
+        dcat:landingPage  "http://www.bmfbovespa.com.br/shared/iframe.aspx?idioma=pt-br&url=http://www.bmfbovespa.com.br/pt-br/cotacoes-historicas/FormSeriesHistoricas.asp" .
+
+this:version  dct:hasVersion  "1.0.2" .
+
+this:exp_cf_1_70651616_exe_1_mea_2
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:f1Measure    "0.7"^^xsd:double ;
+        prov:wasGeneratedBy  this:exp_cf_1_70651616_exe_1 .
