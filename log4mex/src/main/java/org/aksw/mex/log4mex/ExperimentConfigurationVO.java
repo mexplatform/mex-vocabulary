@@ -170,7 +170,6 @@ public class ExperimentConfigurationVO extends InstanceObjects {
         try {
             if (this._tool == null) {
                 this.setTool("", null);
-                this._tool.setIndividualName("tool_cf_" + this._seq + "_");
             }
             return this._tool;
         }

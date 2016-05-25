@@ -174,39 +174,39 @@ public class MEXSerializer {
                 ExperimentConfigurationVO item = experimentConfigs.next(); i++;
                 item.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash());
 
-                if (item.Model() != null){
+                if (item.Model() != null && item.Model().hasValue()){
                     item.Model().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_mod" );}
                 else{
                     LOGGER.warn("No model defined");
                 }
 
-                if (item.DataSet() != null){
+                if (item.DataSet() != null && item.DataSet().hasValue()){
                     item.DataSet().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_ds");}
                 else{
                     LOGGER.warn("No dataset defined");
                 }
 
-                if (item.HardwareConfiguration() != null){
+                if (item.HardwareConfiguration() != null && item.HardwareConfiguration().hasValue()){
                     item.HardwareConfiguration().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_hard" );}
                 else{
                     LOGGER.warn("No hardware defined");
                 }
 
-                if (item.SamplingMethod() != null) {
+                if (item.SamplingMethod() != null && item.SamplingMethod().hasValue()) {
                     item.SamplingMethod().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_sm");
                     item.SamplingMethod().setLabel(setLabelSplitingTerms(item.SamplingMethod().getClassName()));
                 }else{
                     LOGGER.warn("No sampling method defined");
                 }
 
-                if (item.Tool() != null) {
+                if (item.Tool() != null && item.Tool().hasValue()) {
                     item.Tool().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_tool");
                 }else{
                     LOGGER.warn("No tool defined");
                 }
 
                 if (item.getToolParameters() != null){
-                    if (item.Tool() == null) {
+                    if (item.Tool() == null || !item.Tool().hasValue()) {
                         throw new Exception("Tool Parameters defined without a proper Tool defined! Please define also a Tool ...");
                     }
                     int auxtoolparam = 0;
