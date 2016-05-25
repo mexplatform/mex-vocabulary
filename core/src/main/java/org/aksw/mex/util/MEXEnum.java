@@ -173,8 +173,6 @@ public class MEXEnum {
         public static final String NER_OPEN_NLP = "NER_OPEN_NLP";
         public static final String NER_BALIE = "NER_BALIE";
         public static final String RESCAL = "RESCAL";
-        public static final String NOT_INFORMED = "";
-
     }
 
     private class EnumSamplingMethod{
@@ -349,8 +347,7 @@ public class MEXEnum {
         NER_ILLINOIS_EXTENDED(EnumAlgorithmClass.NER_ILLINOIS_EXTENDED.toString()),
         NER_OPEN_NLP(EnumAlgorithmClass.NER_OPEN_NLP.toString()),
         NER_BALIE(EnumAlgorithmClass.NER_BALIE.toString()),
-        RESCAL(EnumAlgorithmClass.RESCAL.toString()),
-        NOT_INFORMED(EnumAlgorithmClass.NOT_INFORMED.toString());
+        RESCAL(EnumAlgorithmClass.RESCAL.toString());
 
 
         private final String text;

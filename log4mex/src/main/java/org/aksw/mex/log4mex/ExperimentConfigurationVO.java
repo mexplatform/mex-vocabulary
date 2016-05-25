@@ -612,6 +612,17 @@ public class ExperimentConfigurationVO extends InstanceObjects {
     /**
      * add an Algorithm available in an Experiment Configuration
      * @param algorithmId
+     * @param algorithmLabel
+     * @return algorithm's instance name
+     * @throws Exception
+     */
+    public String addAlgorithm(String algorithmId, String algorithmLabel) throws Exception {
+        return _addAlgorithm(algorithmId, algorithmLabel, null, null, null).getIndividualName();
+    }
+
+    /**
+     * add an Algorithm available in an Experiment Configuration
+     * @param algorithmId
      * @param algorithmName
      * @param algorithmURI
      * @return algorithm's instance name
@@ -641,19 +652,6 @@ public class ExperimentConfigurationVO extends InstanceObjects {
      * @throws Exception
      */
     public String addAlgorithm(String algorithmId, MEXEnum.EnumAlgorithmsClasses algorithmClass, String algorithmLabel) throws Exception {
-        return _addAlgorithm(algorithmId, algorithmLabel, algorithmClass, null, null).getIndividualName();
-    }
-
-
-    /**
-     * add an Algorithm available in an Experiment Configuration
-     * @param algorithmId
-     * @param algorithmLabel
-     * @param algorithmClass
-     * @return algorithm's instance name
-     * @throws Exception
-     */
-    public String addAlgorithm(String algorithmId, String algorithmLabel, MEXEnum.EnumAlgorithmsClasses algorithmClass) throws Exception {
         return _addAlgorithm(algorithmId, algorithmLabel, algorithmClass, null, null).getIndividualName();
     }
 

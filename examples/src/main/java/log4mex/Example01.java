@@ -35,7 +35,7 @@ public class Example01 {
 
             String alg01ID = "golem-alg";
             String algorithmName = "golem Algorithm";
-            mex.Configuration(confID).addAlgorithm(alg01ID, null , algorithmName);
+            mex.Configuration(confID).addAlgorithm(alg01ID , algorithmName);
 
             //String alg01ID = mex.Configuration(confID).addAlgorithm("alg", EnumAlgorithmsClasses.NaiveBayes);
             /* (5) the executions */

@@ -12,83 +12,83 @@
 @prefix foaf:  <http://xmlns.com/foaf/0.1/> .
 @prefix dc:    <http://purl.org/dc/elements/1.1/> .
 
-this:exp_cf_1_-884300143_exe_1_phase
-        a           mexcore:Validation ;
-        rdfs:label  "Validation" .
+this:exp_cf_1_-885461154_exe_1
+        a                   mexcore:ExecutionSingle ;
+        rdfs:label          "Single Execution: C1_MEX_EXEC_D1" ;
+        mexcore:group       false ;
+        prov:generated      this:exp_cf_1_-885461154_exe_1_mea_2 , this:exp_cf_1_-885461154_exe_1_mea_1 ;
+        prov:id             "C1_MEX_EXEC_D1" ;
+        prov:used           this:exp_cf_1_-885461154_exe_1_algo , this:exp_cf_1_-885461154_exe_1_phase ;
+        prov:wasInformedBy  this:exp_cf_1_-885461154 .
 
-this:exp_cf_1_-884300143_exe_1_mea_1
-        a                    mexperf:ClassificationMeasure ;
-        rdfs:label           "Classification measures" ;
-        mexperf:accuracy     "0.96"^^xsd:double ;
-        prov:wasGeneratedBy  this:exp_cf_1_-884300143_exe_1 .
-
-this:exp_cf_1_-884300143_feat_3
+this:exp_cf_1_-885461154_feat_3
         a               mexcore:Feature ;
         rdfs:label      "ope" ;
         dct:identifier  "3" .
 
-this:app_-884300143  a       mexcore:ApplicationContext ;
+this:version  dct:hasVersion  "1.0.2" .
+
+this:app_-885461154  a       mexcore:ApplicationContext ;
         rdfs:label           "Basic Experiment Infomation" ;
-        dct:dateCopyrighted  "2016.05.24 23:38:25 CEST" ;
+        dct:dateCopyrighted  "2016.05.25 11:31:51 CEST" ;
         foaf:givenName       "D Esteves" ;
         foaf:mbox            "esteves@informatik.uni-leipzig.de" .
 
-this:exp_-884300143  a          mexcore:Experiment ;
+this:exp_-885461154  a          mexcore:Experiment ;
         rdfs:label              "Experiment: MEX_EXPERIMENT" ;
-        mexcore:experimentHash  "-884300143" ;
+        mexcore:experimentHash  "-885461154" ;
         dct:identifier          "MEX_EXPERIMENT" ;
-        prov:wasAttributedTo    this:app_-884300143 .
+        prov:wasAttributedTo    this:app_-885461154 .
 
-this:exp_cf_1_-884300143_feat_1
+this:exp_cf_1_-885461154_exe_1_phase
+        a           mexcore:Validation ;
+        rdfs:label  "Validation" .
+
+this:exp_cf_1_-885461154_exe_1_mea_2
+        a                    mexperf:StatisticalMeasure ;
+        rdfs:label           "Statistical measures" ;
+        mexperf:error        "0.04"^^xsd:double ;
+        prov:wasGeneratedBy  this:exp_cf_1_-885461154_exe_1 .
+
+this:exp_cf_1_-885461154_exe_1_algo
+        a               mexalgo:Algorithm ;
+        rdfs:label      "golem Algorithm" ;
+        dct:identifier  "golem-alg" .
+
+this:exp_cf_1_-885461154_feat_1
         a               mexcore:Feature ;
         rdfs:label      "min" ;
         dct:identifier  "1" .
 
-this:version  dct:hasVersion  "1.0.2" .
-
-this:exp_cf_1_-884300143_exe_1_mea_2
-        a                    mexperf:StatisticalMeasure ;
-        rdfs:label           "Statistical measures" ;
-        mexperf:error        "0.04"^^xsd:double ;
-        prov:wasGeneratedBy  this:exp_cf_1_-884300143_exe_1 .
-
-this:exp_cf_1_-884300143_feat_4
-        a               mexcore:Feature ;
-        rdfs:label      "clo" ;
-        dct:identifier  "4" .
-
-this:fea_col_cf_1_-884300143
-        a               mexcore:FeatureCollection ;
-        rdfs:label      "Feature Collection" ;
-        prov:hadMember  this:exp_cf_1_-884300143_feat_4 , this:exp_cf_1_-884300143_feat_3 , this:exp_cf_1_-884300143_feat_2 , this:exp_cf_1_-884300143_feat_1 .
-
-this:exp_cf_1_-884300143_exe_1
-        a                   mexcore:ExecutionSingle ;
-        rdfs:label          "Single Execution: C1_MEX_EXEC_D1" ;
-        mexcore:group       false ;
-        prov:generated      this:exp_cf_1_-884300143_exe_1_mea_2 , this:exp_cf_1_-884300143_exe_1_mea_1 ;
-        prov:id             "C1_MEX_EXEC_D1" ;
-        prov:used           this:exp_cf_1_-884300143_exe_1_algo , this:exp_cf_1_-884300143_exe_1_phase ;
-        prov:wasInformedBy  this:exp_cf_1_-884300143 .
-
-this:exp_cf_1_-884300143_ds
+this:exp_cf_1_-885461154_ds
         a           mexcore:Dataset ;
         rdfs:label  "Dataset mydataset.csv" ;
         dct:title   "mydataset.csv" .
 
-this:exp_cf_1_-884300143_feat_2
+this:fea_col_cf_1_-885461154
+        a               mexcore:FeatureCollection ;
+        rdfs:label      "Feature Collection" ;
+        prov:hadMember  this:exp_cf_1_-885461154_feat_4 , this:exp_cf_1_-885461154_feat_3 , this:exp_cf_1_-885461154_feat_2 , this:exp_cf_1_-885461154_feat_1 .
+
+this:exp_cf_1_-885461154_feat_4
+        a               mexcore:Feature ;
+        rdfs:label      "clo" ;
+        dct:identifier  "4" .
+
+this:exp_cf_1_-885461154
+        a                  mexcore:ExperimentConfiguration ;
+        rdfs:label         "Configuration for a set of Executions" ;
+        dct:identifier     "MEX_EXP_CONF_D1" ;
+        prov:used          this:fea_col_cf_1_-885461154 , this:exp_cf_1_-885461154_ds ;
+        prov:wasStartedBy  this:exp_-885461154 .
+
+this:exp_cf_1_-885461154_feat_2
         a               mexcore:Feature ;
         rdfs:label      "max" ;
         dct:identifier  "2" .
 
-this:exp_cf_1_-884300143
-        a                  mexcore:ExperimentConfiguration ;
-        rdfs:label         "Configuration for a set of Executions" ;
-        dct:identifier     "MEX_EXP_CONF_D1" ;
-        prov:used          this:fea_col_cf_1_-884300143 , this:exp_cf_1_-884300143_ds ;
-        prov:wasStartedBy  this:exp_-884300143 .
-
-this:exp_cf_1_-884300143_exe_1_algo
-        a               mexalgo:Algorithm ;
-        rdfs:label      "golem Algorithm" ;
-        dct:identifier  "golem-alg" .
+this:exp_cf_1_-885461154_exe_1_mea_1
+        a                    mexperf:ClassificationMeasure ;
+        rdfs:label           "Classification measures" ;
+        mexperf:accuracy     "0.96"^^xsd:double ;
+        prov:wasGeneratedBy  this:exp_cf_1_-885461154_exe_1 .
