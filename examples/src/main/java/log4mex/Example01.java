@@ -30,7 +30,9 @@ public class Example01 {
             mex.Configuration(confID).addFeature(features);
             /* (4) the algorithms and hyperparameters */
 
-
+            mex.Configuration(confID).setTool(EnumTools.DL_LEARNER, "1.0.0");
+            mex.Configuration(confID).addToolParameters("param1", "param1val");
+            mex.Configuration(confID).addToolParameters("param2", "param2val");
 
 
             String alg01ID = "golem-alg";
@@ -49,6 +51,8 @@ public class Example01 {
             mex.Configuration(confID).Execution(execID).setAlgorithm(alg01ID);
             mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ACCURACY, .96);
             mex.Configuration(confID).Execution(execID).addPerformance(EnumMeasures.ERROR, .04);
+            mex.Configuration(confID).Execution(execID).setErrorMessage("An error occurred");
+
              /* (7) saving the mex file */
             MEXSerializer.getInstance().saveToDisk("./metafiles/log4mex/ex001",
                     "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);

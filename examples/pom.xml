@@ -18,7 +18,7 @@
         <dependency>
             <groupId>org.aksw.mex</groupId>
             <artifactId>log4mex</artifactId>
-            <version>1.0.2b</version>
+            <version>1.0.2</version>
         </dependency>
         <dependency>
             <groupId>com.edwardraff</groupId>

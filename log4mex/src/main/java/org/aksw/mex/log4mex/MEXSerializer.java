@@ -174,28 +174,48 @@ public class MEXSerializer {
                 ExperimentConfigurationVO item = experimentConfigs.next(); i++;
                 item.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash());
 
-                if (item.Model() != null)
-                    item.Model().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_mod" );
+                if (item.Model() != null){
+                    item.Model().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_mod" );}
+                else{
+                    LOGGER.warn("No model defined");
+                }
 
-                if (item.DataSet() != null)
-                    item.DataSet().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_ds" );
+                if (item.DataSet() != null){
+                    item.DataSet().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_ds");}
+                else{
+                    LOGGER.warn("No dataset defined");
+                }
 
-                if (item.HardwareConfiguration() != null)
-                    item.HardwareConfiguration().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_hard" );
+                if (item.HardwareConfiguration() != null){
+                    item.HardwareConfiguration().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_hard" );}
+                else{
+                    LOGGER.warn("No hardware defined");
+                }
 
                 if (item.SamplingMethod() != null) {
                     item.SamplingMethod().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_sm");
                     item.SamplingMethod().setLabel(setLabelSplitingTerms(item.SamplingMethod().getClassName()));
+                }else{
+                    LOGGER.warn("No sampling method defined");
                 }
 
-                if (item.Tool() != null)
-                    item.Tool().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_tool" );
+                if (item.Tool() != null) {
+                    item.Tool().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_tool");
+                }else{
+                    LOGGER.warn("No tool defined");
+                }
 
                 if (item.getToolParameters() != null){
-                    for(Iterator<ToolParameterVO> iparam = item.getToolParameters().iterator(); iparam.hasNext(); ) {
-                        ToolParameterVO toolParam = iparam.next();
-                        toolParam.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_tool_param" );
+                    if (item.Tool() == null) {
+                        throw new Exception("Tool Parameters defined without a proper Tool defined! Please define also a Tool ...");
                     }
+                    int auxtoolparam = 0;
+                    for(Iterator<ToolParameterVO> iparam = item.getToolParameters().iterator(); iparam.hasNext(); ) {
+                        ToolParameterVO toolParam = iparam.next(); auxtoolparam++;
+                        toolParam.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_tool_param_" + auxtoolparam);
+                    }
+                } else {
+                    LOGGER.warn("No tool parameter defined");
                 }
 
                 if (item.getFeatures() != null) {
@@ -515,13 +535,12 @@ public class MEXSerializer {
                         if (item.getToolParameters() != null && item.getToolParameters().size() > 0) {
 
                             //COLLECTION
-                            Resource _toolcollection = model.createResource(URIbase + "tool_par_col_" + "cf_" + (auxExpConf + 1) + "_" + mex.getUserHash())
+                            Resource _toolcollection = model.createResource(URIbase + "exp_cf_" + (auxExpConf + 1) + "_" + mex.getUserHash() + "_tool_param_collection")
                                     .addProperty(RDF.type, mexalgo_TOOL_PARAM_COLLECTION)
                                     .addProperty(RDFS.label, "Tool Parameter Collection");
                             _expConfiguration.addProperty(PROVO.used, _toolcollection);
 
                             //TOOL PARAMETER
-                            Integer auxtoolparam = 1;
                             for(Iterator<ToolParameterVO> iparam = item.getToolParameters().iterator(); iparam.hasNext(); ) {
                                 ToolParameterVO toolParam = iparam.next();
 
@@ -542,7 +561,6 @@ public class MEXSerializer {
 
                                 _imp.addProperty(MEXALGO_10.hasToolParameter,_toolParam);
                                 _toolcollection.addProperty(PROVO.hadMember, _toolParam);
-                                auxtoolparam++;
                             }
                         }
                     }
@@ -1129,6 +1147,13 @@ public class MEXSerializer {
                     ind = item.Tool().getIndividualName(); return ind;}
                 else if (obj instanceof DataSetVO && item.DataSet().equals(obj)){
                     ind = item.DataSet().getIndividualName(); return ind;}
+                else if (obj instanceof ToolParameterVO){
+                    for (int j = 0; j <= item.getToolParameters().size(); j++) {
+                        ToolParameterVO tp = item.getToolParameters().get(j);
+                        if (tp.equals(obj)){
+                            ind = tp.getIndividualName(); return ind;}
+                    }
+                }
             }
 
         }catch (Exception e){

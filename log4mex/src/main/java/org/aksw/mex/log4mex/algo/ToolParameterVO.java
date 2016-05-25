@@ -42,8 +42,7 @@ public class ToolParameterVO extends InstanceObjects {
 
         ToolParameterVO that = (ToolParameterVO) other;
 
-        return this.getIndividualName().equals(that.getIndividualName())
-                && this._dct_identifier.equals(that._dct_identifier)
+        return this._dct_identifier.equals(that._dct_identifier)
                 && this._prov_value.equals(that._prov_value);
 
     }

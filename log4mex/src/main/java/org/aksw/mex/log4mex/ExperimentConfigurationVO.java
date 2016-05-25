@@ -367,27 +367,34 @@ public class ExperimentConfigurationVO extends InstanceObjects {
      * @param key
      * @param value
      */
-    public void addToolParameters(String key, String value){
-        int indexaux = 0;
+    public void addToolParameters(String key, String value) throws Exception{
 
-        if (this._toolParameters == null) {
-            this._toolParameters = new ArrayList<>();
-        }else{
-            indexaux = this._toolParameters.size() + 1;
-        }
+        //int indexaux = 0;
 
         try {
+
+            if (this._toolParameters == null) {
+                this._toolParameters = new ArrayList<>();}
+            else {
+                //indexaux = this._toolParameters.size() + 1;
+            }
+
             Collection<ToolParameterVO> t = Collections2.filter(this._toolParameters, p -> p.getId().equals(key));
-            if (t != null && t.size() > 0){throw new Exception("Tool parameter key " + key + " already assigned");}
+
+            if (t != null && t.size() > 0){
+                throw new Exception("Tool parameter key " + key + " already assigned");
+            }
+
             else {
                 ToolParameterVO tp = new ToolParameterVO(key, value);
-                tp.setIndividualName("tool_par_" + String.valueOf(indexaux + 1) + "_cf_" + this._seq + "_");
+                //tp.setIndividualName("tool_par_" + String.valueOf(indexaux + 1) + "_cf_" + this._seq + "_");
                 this._toolParameters.add(tp);
             }
+
         } catch (Exception e){
-            System.out.println(e.toString());
+            throw new Exception(e);
         }
-        indexaux++;
+
     }
 
 
