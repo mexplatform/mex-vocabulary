@@ -109,7 +109,7 @@ public class MEXSerializer {
 
         }  catch (Exception e){
             LOGGER.error(e.toString());
-            throw(e);
+            return false;
         }
 
         return true;
@@ -139,126 +139,151 @@ public class MEXSerializer {
      * i.e., excluding identical objects in different experiment configurations
      * @param mex
      */
-    private void updateInstanceNames(String URIbase, MyMEX mex){
+    private void updateInstanceNames(String URIbase, MyMEX mex) throws Exception{
 
 
-        if (mex.getApplicationContext() != null) {
-            mex.getApplicationContext().setIndividualName(URIbase + "app_" + mex.getUserHash());
-        }
-        if (mex.getApplicationContext().getContext() != null) {
-            mex.getApplicationContext().getContext().setIndividualName(URIbase + "ctx_" + mex.getUserHash());
-            mex.getApplicationContext().getContext().setLabel(setLabelSplitingTerms(mex.getApplicationContext().getContext().get_context().toString()));
+        try{
 
-        }
-        if (mex.getExperiment() != null) {
-            mex.getExperiment().setIndividualName(URIbase + "exp_" + mex.getUserHash());
-        }
+            LOGGER.debug("creating the instance names...");
 
-        int i = 0;
-        for (Iterator<ExperimentConfigurationVO> experimentConfigs = mex.getExperimentConfigurations().iterator(); experimentConfigs.hasNext(); ) {
-            ExperimentConfigurationVO item = experimentConfigs.next(); i++;
-            item.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash());
-
-
-            if (item.Model() != null)
-                item.Model().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_mod" );
-
-            if (item.DataSet() != null)
-                item.DataSet().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_ds" );
-
-            if (item.HardwareConfiguration() != null)
-                item.HardwareConfiguration().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_hard" );
-
-            if (item.SamplingMethod() != null) {
-                item.SamplingMethod().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_sm");
-                item.SamplingMethod().setLabel(setLabelSplitingTerms(item.SamplingMethod().getClassName()));
+            if (mex.getApplicationContext() != null) {
+                mex.getApplicationContext().setIndividualName(URIbase + "app_" + mex.getUserHash());
+            }else{
+                throw new Exception("No application data informed!");
             }
 
-            if (item.Tool() != null)
-                item.Tool().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_tool" );
+            if (mex.getApplicationContext().getContext() != null) {
+                mex.getApplicationContext().getContext().setIndividualName(URIbase + "ctx_" + mex.getUserHash());
+                mex.getApplicationContext().getContext().setLabel(setLabelSplitingTerms(mex.getApplicationContext().getContext().get_context().toString()));
+            }
 
-            if (item.getToolParameters() != null){
-                for(Iterator<ToolParameterVO> iparam = item.getToolParameters().iterator(); iparam.hasNext(); ) {
-                    ToolParameterVO toolParam = iparam.next();
-                    toolParam.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_tool_param" );
+            if (mex.getExperiment() != null) {
+                mex.getExperiment().setIndividualName(URIbase + "exp_" + mex.getUserHash());
+            }else{
+                throw new Exception("No experiment defined!");
+            }
+
+            if (mex.getExperimentConfigurations() == null) {
+                throw new Exception("No experiment configuration defined!");
+            }
+
+            int i = 0;
+            for (Iterator<ExperimentConfigurationVO> experimentConfigs = mex.getExperimentConfigurations().iterator();
+                 experimentConfigs.hasNext(); ) {
+
+                ExperimentConfigurationVO item = experimentConfigs.next(); i++;
+                item.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash());
+
+                if (item.Model() != null)
+                    item.Model().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_mod" );
+
+                if (item.DataSet() != null)
+                    item.DataSet().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_ds" );
+
+                if (item.HardwareConfiguration() != null)
+                    item.HardwareConfiguration().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_hard" );
+
+                if (item.SamplingMethod() != null) {
+                    item.SamplingMethod().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_sm");
+                    item.SamplingMethod().setLabel(setLabelSplitingTerms(item.SamplingMethod().getClassName()));
+                }
+
+                if (item.Tool() != null)
+                    item.Tool().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_tool" );
+
+                if (item.getToolParameters() != null){
+                    for(Iterator<ToolParameterVO> iparam = item.getToolParameters().iterator(); iparam.hasNext(); ) {
+                        ToolParameterVO toolParam = iparam.next();
+                        toolParam.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_tool_param" );
+                    }
+                }
+
+                if (item.getFeatures() != null) {
+                    int auxf = 0;
+                    for (Iterator<FeatureVO> ifeature = item.getFeatures().iterator(); ifeature.hasNext();) {
+                        FeatureVO f = ifeature.next(); auxf++;
+                        f.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_feat_" +auxf);
+                    }
+                }
+
+                int auxe = 0;
+                if (item.getExecutions() != null) {
+                    for (Iterator<Execution> iexec = item.getExecutions().iterator(); iexec.hasNext(); ) {
+
+                        Execution e = iexec.next();
+                        auxe++;
+                        e.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe);
+
+                        if (e.getPhase() != null)
+                            e.getPhase().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe + "_phase");
+
+                        if (e.getExamples() != null) {
+                            int auxexa = 0;
+                            for (Iterator<ExampleVO> iexample = e.getExamples().iterator(); iexample.hasNext(); ) {
+                                ExampleVO example = iexample.next();
+                                auxexa++;
+                                example.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe + "_example_" + auxexa);
+                            }
+                        }
+
+                        if (e.getAlgorithm() != null) {
+                            e.getAlgorithm().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe + "_algo");
+                        }else{
+                            throw new Exception("There is no algorithm defined for execution (" + auxe + ") id: " + e.getId() + ". Did you set ALGORITHM and EXECUTION (.Execution(x).setAlgorithm(y))? ");
+                        }
+
+                        if (e.getAlgorithm().getParameters() != null) {
+                            Integer auxparam = 0;
+                            for (Iterator<HyperParameterVO> iparam = e.getAlgorithm().getParameters().iterator(); iparam.hasNext(); ) {
+                                HyperParameterVO algoParam = iparam.next();
+                                auxparam++;
+                                algoParam.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe + "_hyperpar_" + auxparam);
+                            }
+                        }
+
+                        //COMMON MEASURES
+                        if (e.getPerformances() != null && e.getPerformances().size() > 0) {
+                            Integer auxmea = 0;
+                            for (Iterator<Measure> imea = e.getPerformances().iterator(); imea.hasNext(); ) {
+                                Measure mea = imea.next();
+                                auxmea++;
+                                mea.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe + "_mea_" + auxmea);
+                            }
+                        }else{
+                            LOGGER.warn("Potential problem: no common measures defined for execution (" + auxe + ") id: " + e.getId());
+                        }
+
+                        //EXAMPLE MEASURES
+                        List<Measure> examplePerformanceList = e.getPerformances(ExamplePerformanceMeasureVO.class);
+                        if (examplePerformanceList != null && examplePerformanceList.size() > 0) {
+                            int auxep = 0;
+                            for (Iterator<Measure> iexpm = examplePerformanceList.iterator(); iexpm.hasNext(); ) {
+                                ExamplePerformanceMeasureVO epm = (ExamplePerformanceMeasureVO) iexpm.next();
+                                auxep++;
+                                epm.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe + "_mea_example_" + auxep);
+                            }
+                        }
+
+                        //USER DEFINED MEASURES
+                        List<Measure> UserDefinedList = e.getPerformances(UserDefinedMeasureVO.class);
+                        if (UserDefinedList != null && UserDefinedList.size() > 0) {
+                            int auxud = 0;
+                            for (Iterator<Measure> iexpud = UserDefinedList.iterator(); iexpud.hasNext(); ) {
+                                UserDefinedMeasureVO udm = (UserDefinedMeasureVO) iexpud.next();
+                                auxud++;
+                                udm.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe + "_mea_example_userdrf_" + auxud);
+                            }
+                        }
+
+                    } //executions
                 }
             }
 
-            if (item.getFeatures() != null) {
-                int auxf = 0;
-                for (Iterator<FeatureVO> ifeature = item.getFeatures().iterator(); ifeature.hasNext();) {
-                    FeatureVO f = ifeature.next(); auxf++;
-                    f.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_feat_" +auxf);
-                }
-            }
+            LOGGER.debug("done...");
 
-            int auxe = 0;
-            if (item.getExecutions() != null) {
-                for (Iterator<Execution> iexec = item.getExecutions().iterator(); iexec.hasNext(); ) {
-
-                    Execution e = iexec.next();
-                    auxe++;
-                    e.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe);
-
-                    if (e.getPhase() != null)
-                        e.getPhase().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe + "_phase");
-
-                    if (e.getExamples() != null) {
-                        int auxexa = 0;
-                        for (Iterator<ExampleVO> iexample = e.getExamples().iterator(); iexample.hasNext(); ) {
-                            ExampleVO example = iexample.next();
-                            auxexa++;
-                            example.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe + "_example_" + auxexa);
-                        }
-                    }
-
-                    if (e.getAlgorithm() != null) {
-                        e.getAlgorithm().setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe + "_algo");
-                    }
-
-                    if (e.getAlgorithm().getParameters() != null) {
-                        Integer auxparam = 0;
-                        for (Iterator<HyperParameterVO> iparam = e.getAlgorithm().getParameters().iterator(); iparam.hasNext(); ) {
-                            HyperParameterVO algoParam = iparam.next();
-                            auxparam++;
-                            algoParam.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe + "_hyperpar_" + auxparam);
-                        }
-                    }
-
-                    //COMMON MEASURES
-                    if (e.getPerformances() != null && e.getPerformances().size() > 0) {
-                        Integer auxmea = 0;
-                        for (Iterator<Measure> imea = e.getPerformances().iterator(); imea.hasNext(); ) {
-                            Measure mea = imea.next();
-                            auxmea++;
-                            mea.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe + "_mea_" + auxmea);
-                        }
-                    }
-
-                    //EXAMPLE MEASURES
-                    List<Measure> examplePerformanceList = e.getPerformances(ExamplePerformanceMeasureVO.class);
-                    if (examplePerformanceList != null && examplePerformanceList.size() > 0) {
-                        int auxep = 0;
-                        for (Iterator<Measure> iexpm = examplePerformanceList.iterator(); iexpm.hasNext(); ) {
-                            ExamplePerformanceMeasureVO epm = (ExamplePerformanceMeasureVO) iexpm.next();
-                            auxep++;
-                            epm.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe + "_mea_example_" + auxep);
-                        }
-                    }
-
-                    //USER DEFINED MEASURES
-                    List<Measure> UserDefinedList = e.getPerformances(UserDefinedMeasureVO.class);
-                    if (UserDefinedList != null && UserDefinedList.size() > 0) {
-                        int auxud = 0;
-                        for (Iterator<Measure> iexpud = UserDefinedList.iterator(); iexpud.hasNext(); ) {
-                            UserDefinedMeasureVO udm = (UserDefinedMeasureVO) iexpud.next();
-                            auxud++;
-                            udm.setIndividualName(URIbase + "exp_cf_" + String.valueOf(i) + "_" + mex.getUserHash() + "_exe_" + auxe + "_mea_example_userdrf_" + auxud);
-                        }
-                    }
-
-                } //executions
-            }
+        }catch (Exception e){
+            //LOGGER.error(e.toString());
+            throw new Exception(e);
         }
 
     }
@@ -1068,7 +1093,7 @@ public class MEXSerializer {
             }
         }catch (Exception e){
             LOGGER.error(e.toString());
-            throw(e);
+            throw new Exception(e);
         }
     }
 
