@@ -1,0 +1,689 @@
+@prefix : <http://mex.aksw.org/mex-perf#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix prov: <http://www.w3.org/ns/prov-o#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix mex-algo: <http://mex.aksw.org/mex-algo#> .
+@prefix mex-core: <http://mex.aksw.org/mex-core#> .
+@prefix mex-perf: <http://mex.aksw.org/mex-perf#> .
+@base <http://mex.aksw.org/mex-perf> .
+
+<http://mex.aksw.org/mex-perf> rdf:type owl:Ontology ;
+                               
+                               rdfs:label "The MEX Vocabulary (mex-perf)"@en ,
+                                          "Vocabulario MEX (mex-perf)"@pt ;                  
+                               dct:created "2014-02-02"^^xsd:date ;
+                               dct:modified "2016-04-01"^^xsd:date ;
+                               rdf:about "http://mex.aksw.org/mex-doc-perf#" ;
+                               owl:versionInfo "1.0.2" ;
+                               dc:publisher "AKSW Research Group - Leipzig University"@en ;
+                               dct:title "MEX Performance (mex-perf) is an ontology with the goal of describing performance values for machine learning problems (MEX Platform)"@en ;
+                               rdfs:comment "MEX is an RDF vocabulary designed to facilitate interoperability between published machine learning experiments results on the Web. The mex-perf layer is the 3rd level of the MEX for representing the machine learning algorithm's performances."@en ;
+                               dc:publisher "AKSW Grupo de Pesquisa - Universidade de Leipzig"@pt ;
+                               rdfs:comment "MEX e um vocabulario modelado para facilitar a interoperabilidade entre resultados de experimentos de aprendizado de maquinas publicados na Web. A camada mex-perf e o 3o. nivel na abordagem MEX para representar performances de algoritmos de aprendizado de maquinas"@pt ;
+                               dct:creator mex-core:esteves ;
+                               dct:contributor mex-core:hellmann ,
+                                               mex-core:lehmann ,
+                                               mex-core:duarte ,
+                                               mex-core:moussallem ,
+                                               mex-core:usbeck ,
+                                               mex-core:yoko ;
+                               rdfs:isDefinedBy : ;
+                               owl:imports doap: ,
+                                           rdfs: ,
+                                           prov: .
+
+#################################################################
+#
+#    Data properties
+#
+#################################################################
+
+
+###  http://mex.aksw.org/mex-perf#L1norm
+
+:L1norm rdf:type owl:DatatypeProperty ;
+        
+        rdfs:domain :StatisticalMeasure ;
+        
+        rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#L2norm
+
+:L2norm rdf:type owl:DatatypeProperty ;
+        
+        rdfs:domain :StatisticalMeasure ;
+        
+        rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#Linfnorm
+
+:Linfnorm rdf:type owl:DatatypeProperty ;
+          
+          rdfs:domain :StatisticalMeasure ;
+          
+          rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#accuracy
+
+:accuracy rdf:type owl:DatatypeProperty ;
+          
+          rdfs:domain :ClassificationMeasure ;
+          
+          rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#bonferroniDunn
+
+:bonferroniDunn rdf:type owl:DatatypeProperty ;
+                
+                rdfs:domain :StatisticalMeasure ;
+                
+                rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#chebyschevDistance
+
+:chebyschevDistance rdf:type owl:DatatypeProperty ;
+                    
+                    rdfs:domain :ClusteringMeasure ;
+                    
+                    rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#chiSquare
+
+:chiSquare rdf:type owl:DatatypeProperty ;
+           
+           rdfs:domain :StatisticalMeasure ;
+           
+           rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#correlationCoefficient
+
+:correlationCoefficient rdf:type owl:DatatypeProperty ;
+                        
+                        rdfs:domain :RegressionMeasure ;
+                        
+                        rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#cosine
+
+:cosine rdf:type owl:DatatypeProperty ;
+        
+        rdfs:domain :ClusteringMeasure ;
+        
+        rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#costParameter
+
+:costParameter rdf:type owl:DatatypeProperty .
+
+
+
+###  http://mex.aksw.org/mex-perf#error
+
+:error rdf:type owl:DatatypeProperty ;
+       
+       rdfs:domain :ClassificationMeasure ,
+                   :ClusteringMeasure ,
+                   :RegressionMeasure ,
+                   :StatisticalMeasure ;
+       
+       rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#euclideanDistance
+
+:euclideanDistance rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:domain :ClusteringMeasure ;
+                   
+                   rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#f1Measure
+
+:f1Measure rdf:type owl:DatatypeProperty ;
+           
+           dc:description "F-measure or F-score or F1 score" ;
+           
+           rdfs:domain :ClassificationMeasure ;
+           
+           rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#falseNegative
+
+:falseNegative rdf:type owl:DatatypeProperty ;
+               
+               rdfs:domain :ClassificationMeasure ;
+               
+               rdfs:range xsd:integer .
+
+
+
+###  http://mex.aksw.org/mex-perf#falseNegativeRate
+
+:falseNegativeRate rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:domain :ClassificationMeasure ;
+                   
+                   rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#falsePositive
+
+:falsePositive rdf:type owl:DatatypeProperty ;
+               
+               rdfs:domain :ClassificationMeasure ;
+               
+               rdfs:range xsd:integer .
+
+
+
+###  http://mex.aksw.org/mex-perf#falsePositiveRate
+
+:falsePositiveRate rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:domain :ClassificationMeasure ;
+                   
+                   rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#folds
+
+:folds rdf:type owl:DatatypeProperty ;
+       
+       rdfs:range xsd:int .
+
+
+
+###  http://mex.aksw.org/mex-perf#formula
+
+:formula rdf:type owl:DatatypeProperty ;
+         
+         rdfs:domain :UserDefinedPerformance ;
+         
+         rdfs:range xsd:string .
+
+
+
+###  http://mex.aksw.org/mex-perf#friedman
+
+:friedman rdf:type owl:DatatypeProperty ;
+          
+          rdfs:domain :StatisticalMeasure ;
+          
+          rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#genSimilarityCoefficient
+
+:genSimilarityCoefficient rdf:type owl:DatatypeProperty ;
+                          
+                          rdfs:domain :ClusteringMeasure ;
+                          
+                          rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#hammingDistance
+
+:hammingDistance rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:domain :ClusteringMeasure ;
+                 
+                 rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#kappaStatistics
+
+:kappaStatistics rdf:type owl:DatatypeProperty ;
+                 
+                 rdfs:domain :StatisticalMeasure ;
+                 
+                 rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#kernel
+
+:kernel rdf:type owl:DatatypeProperty ;
+        
+        rdfs:range xsd:string .
+
+
+
+###  http://mex.aksw.org/mex-perf#kolmogorovSmirnov
+
+:kolmogorovSmirnov rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:domain :StatisticalMeasure ;
+                   
+                   rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#manhattanDistance
+
+:manhattanDistance rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:domain :ClusteringMeasure ;
+                   
+                   rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#mean
+
+:mean rdf:type owl:DatatypeProperty ;
+      
+      rdfs:domain :StatisticalMeasure ;
+      
+      rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#meanAbsoluteDeviation
+
+:meanAbsoluteDeviation rdf:type owl:DatatypeProperty ;
+                       
+                       rdfs:domain :RegressionMeasure ;
+                       
+                       rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#meanSquaredError
+
+:meanSquaredError rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:domain :RegressionMeasure ;
+                  
+                  rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#median
+
+:median rdf:type owl:DatatypeProperty ;
+        
+        rdfs:domain :StatisticalMeasure ;
+        
+        rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#medianAbsoluteDeviation
+
+:medianAbsoluteDeviation rdf:type owl:DatatypeProperty ;
+                         
+                         rdfs:domain :RegressionMeasure ;
+                         
+                         rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#mode
+
+:mode rdf:type owl:DatatypeProperty ;
+      
+      rdfs:domain :StatisticalMeasure ;
+      
+      rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#nemenyi
+
+:nemenyi rdf:type owl:DatatypeProperty ;
+         
+         rdfs:domain :StatisticalMeasure ;
+         
+         rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#pearsonCorrelation
+
+:pearsonCorrelation rdf:type owl:DatatypeProperty ;
+                    
+                    rdfs:domain :StatisticalMeasure ;
+                    
+                    rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#pmi
+
+:pmi rdf:type owl:DatatypeProperty ;
+     
+     rdfs:label "Pointwise mutual information"@en ;
+     
+     rdfs:domain :StatisticalMeasure ;
+     
+     rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#precision
+
+:precision rdf:type owl:DatatypeProperty ;
+           
+           rdfs:domain :ClassificationMeasure ;
+           
+           rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#predictedValue
+
+:predictedValue rdf:type owl:DatatypeProperty ;
+                
+                rdfs:domain :ExamplePerformance ;
+                
+                rdfs:range xsd:string .
+
+
+
+###  http://mex.aksw.org/mex-perf#realValue
+
+:realValue rdf:type owl:DatatypeProperty ;
+           
+           rdfs:domain :ExamplePerformance ;
+           
+           rdfs:range xsd:string .
+
+
+
+###  http://mex.aksw.org/mex-perf#recall
+
+:recall rdf:type owl:DatatypeProperty ;
+        
+        rdfs:domain :ClassificationMeasure ;
+        
+        rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#relativeAbsoluteError
+
+:relativeAbsoluteError rdf:type owl:DatatypeProperty ;
+                       
+                       rdfs:domain :RegressionMeasure ;
+                       
+                       rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#residual
+
+:residual rdf:type owl:DatatypeProperty ;
+          
+          rdfs:domain :RegressionMeasure ;
+          
+          rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#roc
+
+:roc rdf:type owl:DatatypeProperty ;
+     
+     rdfs:domain :ClassificationMeasure ;
+     
+     rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#rootMeanSquaredError
+
+:rootMeanSquaredError rdf:type owl:DatatypeProperty ;
+                      
+                      rdfs:domain :RegressionMeasure ;
+                      
+                      rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#rootRelativeSquaredError
+
+:rootRelativeSquaredError rdf:type owl:DatatypeProperty ;
+                          
+                          rdfs:domain :RegressionMeasure ;
+                          
+                          rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#sensitivity
+
+:sensitivity rdf:type owl:DatatypeProperty ;
+             
+             rdfs:domain :ClassificationMeasure ;
+             
+             rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#specificity
+
+:specificity rdf:type owl:DatatypeProperty ;
+             
+             rdfs:domain :ClassificationMeasure ;
+             
+             rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#spmi
+
+:spmi rdf:type owl:DatatypeProperty ;
+      
+      rdfs:domain :StatisticalMeasure .
+
+
+
+###  http://mex.aksw.org/mex-perf#standardDeviation
+
+:standardDeviation rdf:type owl:DatatypeProperty ;
+                   
+                   rdfs:domain :StatisticalMeasure ;
+                   
+                   rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#totalError
+
+:totalError rdf:type owl:DatatypeProperty ;
+            
+            rdfs:domain :RegressionMeasure ;
+            
+            rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#trueNegative
+
+:trueNegative rdf:type owl:DatatypeProperty ;
+              
+              rdfs:domain :ClassificationMeasure ;
+              
+              rdfs:range xsd:integer .
+
+
+
+###  http://mex.aksw.org/mex-perf#trueNegativeRate
+
+:trueNegativeRate rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:domain :ClassificationMeasure ;
+                  
+                  rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#truePositive
+
+:truePositive rdf:type owl:DatatypeProperty ;
+              
+              rdfs:domain :ClassificationMeasure ;
+              
+              rdfs:range xsd:integer .
+
+
+
+###  http://mex.aksw.org/mex-perf#truePositiveRate
+
+:truePositiveRate rdf:type owl:DatatypeProperty ;
+                  
+                  rdfs:domain :ClassificationMeasure ;
+                  
+                  rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#variance
+
+:variance rdf:type owl:DatatypeProperty ;
+          
+          rdfs:domain :StatisticalMeasure ;
+          
+          rdfs:range xsd:double .
+
+
+
+###  http://mex.aksw.org/mex-perf#wilcoxon
+
+:wilcoxon rdf:type owl:DatatypeProperty ;
+          
+          rdfs:domain :StatisticalMeasure ;
+          
+          rdfs:range xsd:double .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://mex.aksw.org/mex-perf#ClassificationMeasure
+
+:ClassificationMeasure rdf:type owl:Class ;
+                       
+                       rdfs:subClassOf :PerformanceMeasure .
+
+
+
+###  http://mex.aksw.org/mex-perf#ClusteringMeasure
+
+:ClusteringMeasure rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :PerformanceMeasure .
+
+
+
+###  http://mex.aksw.org/mex-perf#ExamplePerformance
+
+:ExamplePerformance rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf prov:Entity .
+
+
+
+###  http://mex.aksw.org/mex-perf#ExamplePerformanceCollection
+
+:ExamplePerformanceCollection rdf:type owl:Class ;
+                              
+                              rdfs:subClassOf prov:Collection .
+
+
+
+###  http://mex.aksw.org/mex-perf#ExecutionPerformance
+
+:ExecutionPerformance rdf:type owl:Class ;
+                      
+                      rdfs:subClassOf prov:Activity .
+
+
+
+###  http://mex.aksw.org/mex-perf#PerformanceMeasure
+
+:PerformanceMeasure rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf prov:Entity .
+
+
+
+###  http://mex.aksw.org/mex-perf#RegressionMeasure
+
+:RegressionMeasure rdf:type owl:Class ;
+                   
+                   rdfs:subClassOf :PerformanceMeasure .
+
+
+
+###  http://mex.aksw.org/mex-perf#StatisticalMeasure
+
+:StatisticalMeasure rdf:type owl:Class ;
+                    
+                    rdfs:subClassOf :PerformanceMeasure .
+
+
+
+###  http://mex.aksw.org/mex-perf#UserDefinedPerformance
+
+:UserDefinedPerformance rdf:type owl:Class ;
+                        
+                        rdfs:subClassOf prov:Entity .
+
+
+
+###  http://mex.aksw.org/mex-perf#UserDefinedPerformanceCollection
+
+:UserDefinedPerformanceCollection rdf:type owl:Class ;
+                                  
+                                  rdfs:subClassOf prov:Collection .
+
+
+
+
+###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
+

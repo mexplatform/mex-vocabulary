@@ -1,5 +1,0 @@
-/home/esteves/Dropbox/github/mex/algorithm/api/dotnetapi/mexapi/mexapi/obj/Release/.NETFramework,Version=v4.5.AssemblyAttribute.cs
-/home/esteves/Dropbox/github/mex/algorithm/api/dotnetapi/mexapi/mexapi/bin/Release/mexapi.dll.mdb
-/home/esteves/Dropbox/github/mex/algorithm/api/dotnetapi/mexapi/mexapi/bin/Release/mexapi.dll
-/home/esteves/Dropbox/github/mex/algorithm/api/dotnetapi/mexapi/mexapi/obj/Release/mexapi.dll
-/home/esteves/Dropbox/github/mex/algorithm/api/dotnetapi/mexapi/mexapi/obj/Release/mexapi.dll.mdb

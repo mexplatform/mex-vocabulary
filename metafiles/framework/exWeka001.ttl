@@ -1,0 +1,146 @@
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix this:    <http://mex.aksw.org/examples/ESWC/001/> .
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dct:     <http://purl.org/dc/terms/> .
+@prefix mexcore:  <http://mex.aksw.org/mex-core#> .
+@prefix doap:    <http://usefulinc.com/ns/doap#> .
+@prefix mexperf:  <http://mex.aksw.org/mex-perf#> .
+@prefix mexalgo:  <http://mex.aksw.org/mex-algo#> .
+@prefix dcat:    <http://www.w3.org/ns/dcat#> .
+@prefix prov:    <http://www.w3.org/ns/prov#> .
+@prefix foaf:    <http://xmlns.com/foaf/0.1/> .
+@prefix dc:      <http://purl.org/dc/elements/1.1/> .
+
+this:hardware
+      a       mexcore:HardwareConfiguration , prov:Entity ;
+      mexcore:cpu "Intel Core i7" ;
+      mexcore:hd "SSD" ;
+      mexcore:memory "8 GB" .
+
+this:execution_3
+      a       mexcore:Execution , prov:Activity ;
+      mexcore:group "true" ;
+      prov:id "3" ;
+      prov:used this:phaseTEST ;
+      prov:wasInformedBy this:configuration1 .
+
+this:CrossValidation
+      a       prov:Entity , mexcore:CrossValidation ;
+      mexcore:folds "10" ;
+      mexcore:sequential "true" ;
+      mexcore:testSize "0.5" ;
+      mexcore:trainSize "0.5" .
+
+this:execution_1
+      a       mexcore:Execution , prov:Activity ;
+      mexcore:group "true" ;
+      prov:id "1" ;
+      prov:used this:phaseTEST ;
+      prov:wasInformedBy this:configuration1 .
+
+this:feature4
+      a       mexcore:Feature , prov:Entity ;
+      rdfs:label "petalwidth" ;
+      dct:identifier "4" .
+
+this:measure1_1
+      a       mexperf:StatisticalMeasure , prov:Entity ;
+      mexperf:error "6.0" ;
+      prov:wasInformedBy this:execution_1 .
+
+this:measure2_2
+      a       prov:Entity , mexperf:ClassificationMeasure ;
+      mexperf:accuracy "90.66666666666667" ;
+      prov:wasInformedBy this:execution_2 .
+
+this:measure3_1
+      a       mexperf:StatisticalMeasure , prov:Entity ;
+      mexperf:error "7.333333333333329" ;
+      prov:wasInformedBy this:execution_3 .
+
+this:context
+      a       prov:Entity , mexcore: ;
+      prov:wasAttributedTo
+              this:application .
+
+this:feature2
+      a       mexcore:Feature , prov:Entity ;
+      rdfs:label "sepalwidth" ;
+      dct:identifier "2" .
+
+this:application
+      a       prov:Organization , mexcore:ApplicationContext , prov:Person , prov:Agent ;
+      dct:dateCopyrighted "2016.01.03 17:57:31 CET" ;
+      foaf:givenName "Esteves" ;
+      foaf:mbox "esteves@informatik.uni-leipzig.de" .
+
+this:measure4_2
+      a       prov:Entity , mexperf:ClassificationMeasure ;
+      mexperf:accuracy "36.666666666666664" ;
+      prov:wasInformedBy this:execution_4 .
+
+this:model
+      a       prov:Entity , mexcore:Model .
+
+this:experiment-header
+      a       prov:Entity , mexcore:Experiment ;
+      dct:title "Weka Lib Example" ;
+      prov:wasAttributedTo
+              this:application .
+
+this:execution_4
+      a       mexcore:Execution , prov:Activity ;
+      mexcore:group "true" ;
+      prov:id "4" ;
+      prov:used this:phaseTEST ;
+      prov:wasInformedBy this:configuration1 .
+
+this:execution_2
+      a       mexcore:Execution , prov:Activity ;
+      mexcore:group "true" ;
+      prov:id "2" ;
+      prov:used this:phaseTEST ;
+      prov:wasInformedBy this:configuration1 .
+
+this:phaseTEST
+      a       prov:Entity , mexcore:TEST .
+
+this:dataset
+      a       prov:Entity , mexcore:DatasetName ;
+      dct:title "iris.arff" .
+
+this:configuration1
+      a       mexcore:ExperimentConfiguration , prov:Activity ;
+      dct:identifier "MEX_EXP_CONF_D1" ;
+      prov:used this:dataset , this:feature3 , this:hardware , this:feature4 , this:feature1 , this:CrossValidation , this:feature2 .
+
+this:measure2_1
+      a       mexperf:StatisticalMeasure , prov:Entity ;
+      mexperf:error "9.333333333333329" ;
+      prov:wasInformedBy this:execution_2 .
+
+this:feature3
+      a       mexcore:Feature , prov:Entity ;
+      rdfs:label "petallength" ;
+      dct:identifier "3" .
+
+this:measure3_2
+      a       prov:Entity , mexperf:ClassificationMeasure ;
+      mexperf:accuracy "92.66666666666667" ;
+      prov:wasInformedBy this:execution_3 .
+
+this:measure1_2
+      a       prov:Entity , mexperf:ClassificationMeasure ;
+      mexperf:accuracy "94.0" ;
+      prov:wasInformedBy this:execution_1 .
+
+this:measure4_1
+      a       mexperf:StatisticalMeasure , prov:Entity ;
+      mexperf:error "63.333333333333336" ;
+      prov:wasInformedBy this:execution_4 .
+
+this:feature1
+      a       mexcore:Feature , prov:Entity ;
+      rdfs:label "sepallength" ;
+      dct:identifier "1" .
