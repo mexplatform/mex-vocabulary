@@ -33,6 +33,7 @@ public class Example01 {
             mex.Configuration(confID).setTool(EnumTools.DL_LEARNER, "1.0.0");
             mex.Configuration(confID).addToolParameters("param1", "param1val");
             mex.Configuration(confID).addToolParameters("param2", "param2val");
+            mex.Configuration(confID).addToolParameters("param3", "param3val");
 
 
             String alg01ID = "golem-alg";

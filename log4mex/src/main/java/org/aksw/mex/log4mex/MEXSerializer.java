@@ -541,6 +541,7 @@ public class MEXSerializer {
                             _expConfiguration.addProperty(PROVO.used, _toolcollection);
 
                             //TOOL PARAMETER
+                            //int auxtoolp = 0;
                             for(Iterator<ToolParameterVO> iparam = item.getToolParameters().iterator(); iparam.hasNext(); ) {
                                 ToolParameterVO toolParam = iparam.next();
 
@@ -561,6 +562,7 @@ public class MEXSerializer {
 
                                 _imp.addProperty(MEXALGO_10.hasToolParameter,_toolParam);
                                 _toolcollection.addProperty(PROVO.hadMember, _toolParam);
+                                //auxtoolp++;
                             }
                         }
                     }
@@ -1119,17 +1121,19 @@ public class MEXSerializer {
      * check if an instance has been defined before, avoiding unnecessary duplicates
      * @param obj
      * @param current
-     * @param conf
+     * @param lst
      * @return instance name
      * @throws Exception
      */
-    private String objectCreatedBefore(Object obj, int current, List<ExperimentConfigurationVO> conf) throws Exception{
+    protected String objectCreatedBefore(Object obj, int current, List<ExperimentConfigurationVO> conf) throws Exception{
+
+        //TODO: implement other objects later (e.g.: mex-core:Example)
 
         String ind = "";
 
         try{
 
-            if (current == 0 || conf == null || conf.size() == 1)
+            if ((current == 0 || conf == null || conf.size() == 1))
                 return "";
 
             for (int i = current; i <= conf.size(); i++){
@@ -1148,11 +1152,19 @@ public class MEXSerializer {
                 else if (obj instanceof DataSetVO && item.DataSet().equals(obj)){
                     ind = item.DataSet().getIndividualName(); return ind;}
                 else if (obj instanceof ToolParameterVO){
-                    for (int j = 0; j <= item.getToolParameters().size(); j++) {
-                        ToolParameterVO tp = item.getToolParameters().get(j);
-                        if (tp.equals(obj)){
-                            ind = tp.getIndividualName(); return ind;}
+                    //it's a list, iterate over it
+                    List<ToolParameterVO> lstToolParameter = item.getToolParameters();
+                    if (lstToolParameter != null){
+                        for (ToolParameterVO toolParameter : lstToolParameter) {
+                            if (toolParameter.equals(obj)){
+                                ind = toolParameter.getIndividualName(); return ind;
+                            }
+                        }
                     }
+                } else if (obj instanceof PhaseVO){
+                    //TODO: implement
+                } else {
+                    throw new Exception("Sorry, LOG4MEX has not implemented yet call for " + obj.getClass().getName().toString() + ". Drop us a message!");
                 }
             }
 

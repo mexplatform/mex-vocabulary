@@ -25,6 +25,17 @@ public class Example02 {
             /* (2) grouping the executions by configurations */
             String conf01ID = mex.addConfiguration();
             String conf02ID = mex.addConfiguration();
+
+            mex.Configuration(conf01ID).setTool(EnumTools.DL_LEARNER, "1.0.0");
+            mex.Configuration(conf01ID).addToolParameters("param1", "param1val");
+            mex.Configuration(conf01ID).addToolParameters("param2", "param2val");
+            mex.Configuration(conf01ID).addToolParameters("param3", "param3val");
+
+            mex.Configuration(conf02ID).setTool(EnumTools.DL_LEARNER, "1.0.0");
+            mex.Configuration(conf02ID).addToolParameters("param1", "param1val");
+            mex.Configuration(conf02ID).addToolParameters("param2", "param2val");
+            mex.Configuration(conf02ID).addToolParameters("param3", "param3val");
+
             /* (2.1) the dataset */
             mex.Configuration(conf01ID).DataSet().setName("mydataset.csv");
             mex.Configuration(conf02ID).DataSet().setName("mydataset.csv");
