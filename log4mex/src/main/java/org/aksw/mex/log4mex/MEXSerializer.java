@@ -117,9 +117,11 @@ public class MEXSerializer {
                 }
 
                 for (int j = 0; j < configurations.get(i).getExecutions().size(); j++) {
-                    if (configurations.get(i).getExecutions().get(j).getPerformances() == null ||
-                            configurations.get(i).getExecutions().get(j).getPerformances().size() == 0){
-                                LOGGER.warn("[PERFORMANCE]: missing execution's performance for the execution index " + String.valueOf(j));
+                    if ((configurations.get(i).getExecutions().get(j).getPerformances() == null ||
+                            configurations.get(i).getExecutions().get(j).getPerformances().size() == 0) &&
+                            StringUtils.isBlank(configurations.get(i).getExecutions().get(j).getErrorMessage())){
+                                LOGGER.warn("[PERFORMANCE]: missing execution's performance for the execution index " + String.valueOf(j) +
+                                        ". In case you have a run that have generated an exception, please set the execution's error message!");
                                 return false;
                             }
                 }
