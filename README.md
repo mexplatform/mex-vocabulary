@@ -34,4 +34,10 @@ For **semantic web users** the usage is straightforward, once the vocabulary can
 
 For **non-semantic web users**, there are two ways to use `MEX`: if you're coding, you can import [LOG4MEX](http://aksw.github.io/mexproject/), which implements an interface to be consumed into the user code for directly exporting the metadata in a simple manner, regardless possible semantic web aspects. 
 
-More recently, we have started the Framework's development, which aims at automatizing the task of generating metadata for ``Java`` classes based on the concepts of ``reflection``, ``annotation`` and ``generics``.
+More recently, we have started the [Framework's](https://github.com/AKSW/mexproject/tree/master/framework) development, which aims at automatizing the task of generating metadata for ``Java`` classes based on the concepts of ``reflection``, ``annotation`` and ``generics``.
+
+Finally, soon you'll be able to benefit from a REST interface and export your metadada via HTTP.
+
+![MEX Platform](http://dne5.com/mex/imagens/mex_platform.png)
+
+![](http://dne5.com/mex/imagens/staytuned.jpg)
