@@ -1157,8 +1157,8 @@ public class MEXSerializer {
             if ((current == 0 || conf == null || conf.size() == 1))
                 return "";
 
-            for (int i = current; i <= conf.size(); i++){
-                ExperimentConfigurationVO item = conf.get(i-1);
+            for (int i = 0; i < current; i++){
+                ExperimentConfigurationVO item = conf.get(i);
 
                 if (obj instanceof ModelVO && item.Model().equals(obj)){
                     ind = item.Model().getId(); return ind;}
@@ -1184,9 +1184,10 @@ public class MEXSerializer {
                     }
                 } else if (obj instanceof PhaseVO){
                     //TODO: implement
-                } else {
-                    throw new Exception("Sorry, LOG4MEX has not implemented yet call for " + obj.getClass().getName().toString() + ". Drop us a message!");
                 }
+                /*else {
+                    throw new Exception("Sorry, LOG4MEX has not implemented yet call for " + obj.getClass().getName().toString() + ". Drop us a message!");
+                }*/
             }
 
         }catch (Exception e){
