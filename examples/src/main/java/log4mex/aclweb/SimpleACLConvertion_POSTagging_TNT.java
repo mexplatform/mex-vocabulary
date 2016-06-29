@@ -1,7 +1,11 @@
 package log4mex.aclweb;
 
+import org.aksw.mex.log4mex.MEXSerializer;
 import org.aksw.mex.log4mex.MyMEX;
+import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum;
+
+import java.net.URI;
 
 /**
  * Created by dnes on 29/06/16.
@@ -20,8 +24,6 @@ public class SimpleACLConvertion_POSTagging_TNT {
             mex.setOrganization("Universitat des Saarlandes");
             mex.setExperimentTitle("ACL POS Tagging - TnT");
 
-            mex.addConfiguration();
-
             mex.Configuration().setSamplingMethod(MEXEnum.EnumSamplingMethods.NOT_INFORMED, 0.76, 0.12);
             mex.Configuration().SamplingMethod().setSequential(true);
 
@@ -29,7 +31,37 @@ public class SimpleACLConvertion_POSTagging_TNT {
             mex.Configuration().DataSet().setDescription("Wall Street Journal (WSJ) release 3 (LDC99T42)");
             mex.Configuration().DataSet().setURI("https://catalog.ldc.upenn.edu/LDC99T42");
 
+            mex.Configuration().setTool("TnT", "26 Oct 1998");
+            String algID = mex.Configuration().addAlgorithm("tnt", new URI("http://www.coli.uni-saarland.de/~thorsten/tnt/"));
+
+            String exTID = mex.Configuration().addExecution(MEXEnum.EnumExecutionsType.OVERALL, MEXEnum.EnumPhases.TEST);
+            mex.Configuration().Execution(exTID).setAlgorithm(algID);
+            mex.Configuration().Execution(exTID).setTargetClass("All tokens");
+            mex.Configuration().Execution(exTID).setStartsAtPosition("section 0");
+            mex.Configuration().Execution(exTID).setEndsAtPosition("section 18");
+
+            mex.Configuration().Execution(exTID).addPerformance(MEXEnum.EnumMeasures.ACCURACY, 0.9646);
+
+            String exTID2 = mex.Configuration().addExecution(MEXEnum.EnumExecutionsType.OVERALL, MEXEnum.EnumPhases.TEST);
+            mex.Configuration().Execution(exTID2).setAlgorithm(algID);
+            mex.Configuration().Execution(exTID2).setTargetClass("Unknown words");
+            mex.Configuration().Execution(exTID2).setStartsAtPosition("section 0");
+            mex.Configuration().Execution(exTID2).setEndsAtPosition("section 18");
+            mex.Configuration().Execution(exTID2).addPerformance(MEXEnum.EnumMeasures.ACCURACY, 0.8586);
+
+
+            try{
+                MEXSerializer.getInstance().saveToDisk("./metafiles/log4mex/acl/pos_tagging/ex001", "http://mex.aksw.org/examples/", mex, MEXConstant.EnumRDFFormats.TTL);
+            }catch (Exception e){
+                System.out.print(e.toString());
+            }
+
+            System.out.println("The MEX file has been successfully created: share it ;-)");
+
+            System.exit(0);
+
         } catch (Exception e) {
+            System.out.println(e.toString());
 
         }
 
