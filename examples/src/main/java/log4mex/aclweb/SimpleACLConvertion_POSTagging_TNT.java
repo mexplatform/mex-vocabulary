@@ -12,7 +12,26 @@ import java.net.URI;
  */
 public class SimpleACLConvertion_POSTagging_TNT {
 
+    /*
+    TODO: convert http://www.aclweb.org/aclwiki/index.php?title=State_of_the_art as use case
+     */
     public static void main(String[] args) {
+
+        generate_POS_Tagging();
+        
+
+    }
+
+
+    /**
+     * http://www.aclweb.org/aclwiki/index.php?title=POS_Tagging_(State_of_the_art)
+     */
+    private static void generate_POS_Tagging(){
+        ex_POS_Tagging_01();
+        ex_POS_Tagging_02();
+    }
+
+    private static void ex_POS_Tagging_01(){
 
         MyMEX mex = new MyMEX();
 
@@ -65,6 +84,21 @@ public class SimpleACLConvertion_POSTagging_TNT {
 
         }
 
+    }
+
+    private static void ex_POS_Tagging_02(){
+
+        // ....
 
     }
+
+
+    /**
+     * http://www.aclweb.org/aclwiki/index.php?title=NP_Chunking_(State_of_the_art)
+     */
+    private static void generate_NP_Chunking(){
+
+    }
+
+
 }
