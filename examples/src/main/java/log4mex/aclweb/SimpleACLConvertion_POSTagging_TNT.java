@@ -18,7 +18,7 @@ public class SimpleACLConvertion_POSTagging_TNT {
     public static void main(String[] args) {
 
         generate_POS_Tagging();
-        
+
 
     }
 
