@@ -8,9 +8,13 @@ This project aims at facilitating the sharing and data management of machine lea
 For more information, please see the sub projects listed bellow:
 
 ## MEX Projects
+
+![MEX Framework](http://dne5.com/mex/logos/logo_mex-framework_peq.png)
+
   * [MEX Vocabulary: A Lightweight Interchange Format for Machine Learning Experiments](https://github.com/AKSW/mexproject/tree/master/vocabulary)
   * [LOG4MEX Java Library](https://github.com/AKSW/mexproject/tree/master/log4mex)
-  * [MEX Framework](https://github.com/AKSW/mexproject/tree/master/framework)
+  * [MEX Interfaces](https://github.com/AKSW/mexproject/tree/master/framework)
+  * [WASOTA Metadata Repository](https://github.com/cirola2000/wasota)
   * [Get in touch! Google Group](mex-project@googlegroups.com)
 
 ##LOG4MEX Library: Demo and Documentation
