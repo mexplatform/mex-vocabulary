@@ -1,6 +1,6 @@
-# LOG4MEX Library
+## Do you need an API to export machine learning configurations and outcomes?
 
-## Do you need an API to manage machine learning metadata? 
+<img src="http://dne5.com/mex/logos/logo_mex-log4mex_peq.png" data-canonical-src="http://dne5.com/mex/logos/logo_mex-log4mex_peq.png" width="40%" height="40%" />
 
 * LOG4MEX helps developers to manage ML metadata, improving interoperability and adding provenance information to the experiment.
 * No need to create scripts to manage the outputs.
