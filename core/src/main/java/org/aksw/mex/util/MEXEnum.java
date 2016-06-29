@@ -103,7 +103,6 @@ public class MEXEnum {
         public static final String ComputerVision = "ComputerVision";
         public static final String SequenceMining = "SequenceMining";
         public static final String ObjectRecognition = "ObjectRecognition";
-        public static final String SentimentAnalysis = "SentimentAnalysis";
         public static final String StructuralHealthMonitoring = "StructuralHealthMonitoring";
         public static final String MedicalDiagnosis = "MedicalDiagnosis";
         public static final String LinkDiscovery = "LinkDiscovery";
@@ -127,10 +126,33 @@ public class MEXEnum {
         public static final String Optimization = "Optimization";
         public static final String FactPrediction = "FactPrediction";
         public static final String AdaptativeWebsite = "AdaptativeWebsite";
+        public static final String PosTagging = "PosTagging";
         public static final String ComputationalAdversiting = "ComputationalAdversiting";
         public static final String Cheminformatics = "Cheminformatics";
         public static final String SpeechAndHandwritingRecognition = "SpeechAndHandwritingRecognition";
         public static final String NotInformed = "";
+        public static final String AnaphoraResolution = "AnaphoraResolution";
+        public static final String AutomaticTextSummarization = "AutomaticTextSummarization";
+        public static final String Chunking = "Chunking";
+        public static final String DependencyParsing = "DependencyParsing";
+        public static final String DocumentClassification = "DocumentClassification";
+        public static final String LanguageIdentification = "LanguageIdentification";
+        public static final String NounModifierSemanticRelations = "NounModifierSemanticRelations";
+        public static final String NPChunking = "NPChunking";
+        public static final String ParaphraseIdentification = "ParaphraseIdentification";
+        public static final String Parsing = "Parsing";
+        public static final String POSInduction = "POSInduction";
+        public static final String PPAttachment = "PPAttachment";
+        public static final String QuestionAnswering = "QuestionAnswering";
+        public static final String SemanticRoleLabeling = "SemanticRoleLabeling";
+        public static final String SentimentAnalysis = "SentimentAnalysis";
+        public static final String Similarity = "Similarity";
+        public static final String SpeechRecognition = "SpeechRecognition";
+        public static final String TemporalInformationExtraction = "TemporalInformationExtraction";
+        public static final String WebCorpusCleaning = "WebCorpusCleaning";
+        public static final String WordSegmentation = "WordSegmentation";
+        public static final String WordSenseDisambiguation = "WordSenseDisambiguation";
+
     }
 
     private class EnumAlgorithmClass {
@@ -627,6 +649,28 @@ public class MEXEnum {
 
     public enum EnumContexts{
 
+        Anaphora_Resolution(EnumContext.AnaphoraResolution.toString()),
+        Automatic_Text_Summarization(EnumContext.AutomaticTextSummarization.toString()),
+        Chunking(EnumContext.Chunking.toString()),
+        Dependency_Parsing(EnumContext.DependencyParsing.toString()),
+        Document_Classification(EnumContext.DocumentClassification.toString()),
+        Language_Identification(EnumContext.LanguageIdentification.toString()),
+        Noun_Modifier_Semantic_Relations(EnumContext.NounModifierSemanticRelations.toString()),
+        NP_Chunking(EnumContext.NPChunking.toString()),
+        Paraphrase_Identification(EnumContext.ParaphraseIdentification.toString()),
+        Parsing(EnumContext.Parsing.toString()),
+        POS_Induction(EnumContext.POSInduction.toString()),
+        PP_Attachment(EnumContext.PPAttachment.toString()),
+        Question_Answering(EnumContext.QuestionAnswering.toString()),
+        Semantic_Role_Labeling(EnumContext.SemanticRoleLabeling.toString()),
+        Sentiment_Analysis(EnumContext.SentimentAnalysis.toString()),
+        Similarity(EnumContext.Similarity.toString()),
+        Speech_Recognition(EnumContext.SpeechRecognition.toString()),
+        Temporal_Information(EnumContext.TemporalInformationExtraction.toString()),
+        Web_Corpus_Cleaning(EnumContext.WebCorpusCleaning.toString()),
+        Word_Segmentation(EnumContext.WordSegmentation.toString()),
+        Word_Sense_Disambiguation(EnumContext.WordSenseDisambiguation.toString()),
+        POS_TAGGING(EnumContext.PosTagging.toString()),
         ADAPTATIVE_WEBSITE(EnumContext.AdaptativeWebsite.toString()),
         AFFECTIVE_COMPUTING(EnumContext.AffectiveComputing.toString()),
         BIOINFORMATICS(EnumContext.Bioinformatics.toString()),
