@@ -10,7 +10,7 @@ import java.net.URI;
 /**
  * Created by dnes on 29/06/16.
  */
-public class SimpleACLConvertion_POSTagging_TNT {
+public class SimpleACLConvertion {
 
     /*
     TODO: convert http://www.aclweb.org/aclwiki/index.php?title=State_of_the_art as use case
