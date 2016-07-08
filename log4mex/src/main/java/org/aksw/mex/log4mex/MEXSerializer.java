@@ -430,8 +430,12 @@ public class MEXSerializer {
                 if (mex.getApplicationContext().getContext() != null && mex.getApplicationContext().getContext().get_context() != MEXEnum.EnumContexts.NOT_INFORMED) {
 
                     Resource mexcore_CON = model.createResource(MEXCORE_10.NS + mex.getApplicationContext().getContext().get_context().toString());
+                    //it should be removed later, just a temp hack for wasota
+                    Resource mexcore_CONAux = model.createResource(MEXCORE_10.NS + "Context");
+
                     _context = model.createResource(mex.getApplicationContext().getContext().getIndividualName())
                             .addProperty(RDF.type, mexcore_CON)
+                            .addProperty(RDF.type, mexcore_CONAux)
                             .addProperty(RDFS.label, mex.getApplicationContext().getContext().getLabel())
                             .addProperty(PROVO.wasAttributedTo, _application);
                 }
