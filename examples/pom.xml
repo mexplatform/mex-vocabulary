@@ -12,7 +12,7 @@
     <dependencies>
         <dependency>
             <groupId>org.aksw.mex</groupId>
-            <artifactId>framework</artifactId>
+            <artifactId>interfaces</artifactId>
             <version>1.0</version>
         </dependency>
         <dependency>

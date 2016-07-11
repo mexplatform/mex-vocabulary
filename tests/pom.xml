@@ -23,7 +23,7 @@
         </dependency>
         <dependency>
             <groupId>org.aksw</groupId>
-            <artifactId>framework</artifactId>
+            <artifactId>interfaces</artifactId>
             <version>1.0</version>
         </dependency>
     </dependencies>

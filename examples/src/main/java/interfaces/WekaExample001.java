@@ -1,18 +1,18 @@
-package framework;
+package interfaces;
 
 /**
  * This is an example of usage of the MEX Framework v.0.0.1
  * Here, we annotate a generic machine learning class which uses Weka (http://weka.sourceforge.net/doc.stable/)
  * with MEX Annotations. This class will then be processed by the MEX Framework which reads the class and,
- * in run-time, automatically generates the produced metadata
+ * in run-time, automatically generates the metadata file
  * see more: https://github.com/AKSW/mexproject
  * @author esteves.
  */
-import org.aksw.mex.framework.annotations.InterfaceVersion;
-import org.aksw.mex.framework.annotations.Start;
-import org.aksw.mex.framework.annotations.algo.Algorithm;
-import org.aksw.mex.framework.annotations.core.*;
-import org.aksw.mex.framework.annotations.perf.Measure;
+import org.aksw.mex.interfaces.annotations.InterfaceVersion;
+import org.aksw.mex.interfaces.annotations.Start;
+import org.aksw.mex.interfaces.annotations.algo.Algorithm;
+import org.aksw.mex.interfaces.annotations.core.*;
+import org.aksw.mex.interfaces.annotations.perf.Measure;
 import org.aksw.mex.util.MEXEnum;
 import org.apache.log4j.Logger;
 import weka.classifiers.Classifier;
@@ -30,7 +30,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-@ExperimentInfo(createdBy = "Esteves", email = "esteves@informatik.uni-leipzig.de", title = "Weka Lib Example", tags = {"WEKA","J48", "DecisionTable", "MEX", "Iris"})
+@ExperimentInfo(identifier = "e1", createdBy = "Esteves", email = "esteves@informatik.uni-leipzig.de", title = "Weka Lib Example", tags = {"WEKA","J48", "DecisionTable", "MEX", "Iris"})
 @Hardware(cpu = MEXEnum.EnumProcessors.INTEL_COREI7, memory = MEXEnum.EnumRAM.SIZE_8GB, hdType = "SSD")
 @SamplingMethod(klass = MEXEnum.EnumSamplingMethods.CROSS_VALIDATION, trainSize = 0.5, testSize = 0.5, folds = 10)
 @InterfaceVersion(version = MEXEnum.EnumAnnotationInterfaceStyles.M1)
@@ -38,16 +38,13 @@ public class WekaExample001 {
 
     private final static Logger LOG = Logger.getLogger(WekaExample001.class);
 
-
-    @DatasetName
-    public String ds = "iris.arff"; Instances data;
-    @Algorithm(algorithmType = MEXEnum.EnumAlgorithmsClasses.J48,           algorithmID = "1") public J48 wekaJ48;
-    @Algorithm(algorithmType = MEXEnum.EnumAlgorithmsClasses.PART,          algorithmID = "2") public PART wekaPART;
-    @Algorithm(algorithmType = MEXEnum.EnumAlgorithmsClasses.DecisionTable, algorithmID = "3") public DecisionTable wekaDecisionTable;
-    @Algorithm(algorithmType = MEXEnum.EnumAlgorithmsClasses.DecisionStump, algorithmID = "4") public DecisionStump wekaDecisionStump;
+    @DatasetName public String ds = "iris.arff"; Instances data;
+    @Algorithm(algorithmClass = MEXEnum.EnumAlgorithmsClasses.J48,           algorithmID = "1", algorithmName = "J48", algorithmURI = "http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/J48.html") public J48 wekaJ48;
+    @Algorithm(algorithmClass = MEXEnum.EnumAlgorithmsClasses.PART,          algorithmID = "2", algorithmName = "PART", algorithmURI = "http://weka.sourceforge.net/doc.dev/weka/classifiers/rules/PART.html") public PART wekaPART;
+    @Algorithm(algorithmClass = MEXEnum.EnumAlgorithmsClasses.DecisionTable, algorithmID = "3", algorithmName = "Decision Table", algorithmURI = "http://weka.sourceforge.net/doc.dev/weka/classifiers/rules/DecisionTable.html") public DecisionTable wekaDecisionTable;
+    @Algorithm(algorithmClass = MEXEnum.EnumAlgorithmsClasses.DecisionStump, algorithmID = "4", algorithmName = "Decision Stump", algorithmURI = "http://weka.sourceforge.net/doc.dev/weka/classifiers/trees/DecisionStump.html") public DecisionStump wekaDecisionStump;
     @Measure(idMeasure = MEXEnum.EnumMeasures.ERROR) public List<Double> errors;
     @Measure(idMeasure = MEXEnum.EnumMeasures.ACCURACY) public List<Double> accuracies;
-
 
     public static void main(String[] args)
     {

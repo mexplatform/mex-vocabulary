@@ -1,4 +1,4 @@
-package framework;
+package interfaces;
 
 import jsat.ARFFLoader;
 import jsat.DataSet;
@@ -8,11 +8,11 @@ import jsat.classifiers.Classifier;
 import jsat.classifiers.DataPoint;
 import jsat.classifiers.bayesian.NaiveBayes;
 import jsat.linear.Vec;
-import org.aksw.mex.framework.annotations.InterfaceVersion;
-import org.aksw.mex.framework.annotations.Start;
-import org.aksw.mex.framework.annotations.algo.Algorithm;
-import org.aksw.mex.framework.annotations.core.*;
-import org.aksw.mex.framework.annotations.perf.Measure;
+import org.aksw.mex.interfaces.annotations.InterfaceVersion;
+import org.aksw.mex.interfaces.annotations.Start;
+import org.aksw.mex.interfaces.annotations.algo.Algorithm;
+import org.aksw.mex.interfaces.annotations.core.*;
+import org.aksw.mex.interfaces.annotations.perf.Measure;
 import org.aksw.mex.util.MEXEnum;
 import org.apache.log4j.Logger;
 
@@ -24,7 +24,7 @@ import java.util.List;
  * This is an example of usage of the MEX Framework v.0.0.1
  * Here, we annotate a generic machine learning class which uses JSAT (https://github.com/EdwardRaff/JSAT)
  * with MEX Annotations. This class will then be processed by the MEX Framework which reads the class and,
- * in run-time, automatically generates the produced metadata
+ * in run-time, automatically generates the metadata file
  * see more: https://github.com/AKSW/mexproject
  * @author esteves.
  */
@@ -38,7 +38,7 @@ public class JSATExample001 {
 
     DataSet ds;
     @DatasetName public String filename = "iris.arff"; public ClassificationDataSet cDataSet;
-    @Algorithm(algorithmID = "1" , algorithmType = MEXEnum.EnumAlgorithmsClasses.NaiveBayes) public Classifier cNB;
+    @Algorithm(algorithmID = "1" , algorithmName = "NB", algorithmClass = MEXEnum.EnumAlgorithmsClasses.NaiveBayes) public Classifier cNB;
     @Measure(idMeasure = MEXEnum.EnumMeasures.ERROR,    algorithmID = "1", idPhase = MEXEnum.EnumPhases.TEST, executionType = MEXEnum.EnumExecutionsType.OVERALL) public List<Double> errors; //per execution
     @Measure(idMeasure = MEXEnum.EnumMeasures.ACCURACY, algorithmID = "1", idPhase = MEXEnum.EnumPhases.TEST, executionType = MEXEnum.EnumExecutionsType.OVERALL) public List<Double> accuracies; //per execution
 

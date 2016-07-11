@@ -690,7 +690,7 @@ public class ExperimentConfigurationVO extends InstanceObjects {
      * @throws Exception
      */
     public String addAlgorithm(String algorithmId, String algorithmName, MEXEnum.EnumAlgorithmsClasses algorithmClass, URI algorithmURI) throws Exception {
-        return _addAlgorithm(algorithmId, algorithmName, algorithmClass, algorithmURI, null).getIndividualName();
+        return _addAlgorithm(algorithmId, algorithmName, algorithmClass, algorithmURI, null).getIdentifier();
     }
 
     /**

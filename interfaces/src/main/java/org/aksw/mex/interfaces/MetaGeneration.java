@@ -4,22 +4,22 @@ package org.aksw.mex.interfaces;
 import org.aksw.mex.interfaces.annotations.InterfaceVersion;
 import org.aksw.mex.interfaces.annotations.Start;
 import org.aksw.mex.interfaces.annotations.algo.Algorithm;
-import org.aksw.mex.framework.annotations.core.*;
-import org.aksw.mex.interfaces.annotations.perf.Measure;
 import org.aksw.mex.interfaces.annotations.core.*;
+import org.aksw.mex.interfaces.annotations.perf.Measure;
 import org.aksw.mex.log4mex.MEXSerializer;
 import org.aksw.mex.log4mex.MyMEX;
-import org.aksw.mex.log4mex.algo.AlgorithmVO;
-import org.aksw.mex.log4mex.core.HardwareConfigurationVO;
-import org.aksw.mex.log4mex.core.SamplingMethodVO;
 import org.aksw.mex.util.MEXConstant;
 import org.aksw.mex.util.MEXEnum;
 import org.apache.commons.cli.*;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+import java.net.URI;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.*;
 
 /**
@@ -28,7 +28,7 @@ import java.util.*;
 public class MetaGeneration {
 
     /* general */
-    private final static String javaDocURL = "http://mex.aksw.org/framework/doc";
+    private final static String javaDocURL = "http://mex.aksw.org/interfaces/doc";
     private final static Logger LOG = Logger.getLogger(MetaGeneration.class);
     private final static MyMEX mex = new MyMEX();
 
@@ -43,6 +43,13 @@ public class MetaGeneration {
         CommandLineParser parser = new DefaultParser();
 
         try {
+
+            ClassLoader clo = ClassLoader.getSystemClassLoader();
+
+            URL[] urls = ((URLClassLoader)clo).getURLs();
+            for(URL url: urls){
+                System.out.println(url.getFile());
+            }
 
             Options opt = new Options();
 
@@ -63,6 +70,7 @@ public class MetaGeneration {
                 LOG.info("Starting the process: MetaGeneration -uc " + cl.getOptionValue("uc") + " -out " + cl.getOptionValue("out"));
                 process(cl.getOptionValue("uc"), cl.getOptionValue("out"));
             }
+
 
         }
         catch( ParseException exp ) {
@@ -90,14 +98,14 @@ public class MetaGeneration {
         try{
 
             Class<?> klass = Class.forName(uc);
-            //Class<?> klass = WekaExample001.class;
+            //Class<?> klass2 = WekaExample001.class;
             Object ins = klass.newInstance();
 
             //String outputPath = "/Users/dnes/github/mexproject/metafiles/framework/";
             //String outputFileName = "exWeka001.ttl";
             //mexfile = /Users/dnes/github/mexproject/metafiles/framework/exWeka001.ttl
 
-            LOG.info("********************** MEX Framework **********************");
+            LOG.info("********************** MEX Interfaces **********************");
             LOG.info("                                                           ");
             LOG.info("                    http://mex.aksw.org                    ");
             LOG.info("                                                           ");
@@ -146,15 +154,7 @@ public class MetaGeneration {
 
                 LOG.info("@Hardware - OK");
 
-                HardwareConfigurationVO h = new HardwareConfigurationVO();
-                h.setCPU(aHard.cpu());
-                h.setCache(aHard.cpuCache());
-                h.setHD(aHard.hdType());
-                h.setMemory(aHard.memory());
-                h.setOperationalSystem(aHard.os());
-                h.setVideoGraph(aHard.video());
-
-               // mex.Configuration().setHardwareConfiguration(h);
+                mex.Configuration().setHardwareConfiguration(aHard.os(),aHard.cpu(),aHard.memory(),aHard.hdType(),aHard.cpuCache());
 
             }else{
                 LOG.info("@Hardware - Not Found");
@@ -168,13 +168,9 @@ public class MetaGeneration {
 
                 LOG.info("@SamplingMethod - OK");
 
-                SamplingMethodVO s = new SamplingMethodVO("sm", aSM.klass());
-                s.setTrainSize(aSM.trainSize());
-                s.setTestSize(aSM.testSize());
-                s.setFolds(aSM.folds());
-                s.setSequential(aSM.sequential());
-
-                //mex.Configuration().setSamplingMethod(s);
+                mex.Configuration().setSamplingMethod(aSM.klass(), aSM.trainSize(), aSM.testSize());
+                mex.Configuration().SamplingMethod().setFolds(aSM.folds());
+                mex.Configuration().SamplingMethod().setSequential(aSM.sequential());
 
             }else{
                 LOG.info("@SamplingMethod - Not Found");
@@ -190,7 +186,7 @@ public class MetaGeneration {
 
             /********************* TEST WITH LOCAL VARIABLE ***************************/
 
-            Field _tst = getFieldAnnotatedWith(klass, TestDataSet2.class);
+            /*Field _tst = getFieldAnnotatedWith(klass, TestDataSet2.class);
             if (_tst == null)
                 throw new Exception("error: missing annotation @TestDataSet2, please see " + javaDocURL + " for more information");
 
@@ -200,7 +196,7 @@ public class MetaGeneration {
                 TestDataSet2 aSM = (TestDataSet2) annotationTest;
 
                 getValueOfPrivatedField("@TestDataSet2", ins);
-            }
+            }*/
 
             /********************* TEST WITH LOCAL VARIABLE ***************************/
 
@@ -236,7 +232,8 @@ public class MetaGeneration {
                 }
             }
 
-            _getFinalTestData = getMethodAnnotatedWith(klass, FinalDataSet.class);
+           /*
+           _getFinalTestData = getMethodAnnotatedWith(klass, FinalDataSet.class);
             if (_getFinalTestData == null) {
                 LOG.info(" -> missing annotation @FinalDataSet, please see " + javaDocURL + " for more information");
             }else {
@@ -252,6 +249,7 @@ public class MetaGeneration {
                     LOG.debug("line " + i + ":" + l);
                 }
             }
+            */
 
 
             /* DATASET */
@@ -260,7 +258,7 @@ public class MetaGeneration {
             if (_dataset == null)
                 throw new Exception("error: missing annotation @DatasetName, please see " + javaDocURL + " for more information");
 
-            //mex.Configuration().setDataset("", "", (String)_dataset.get(ins));
+            mex.Configuration().setDataSet("", "", (String)_dataset.get(ins));
 
             LOG.info("@DataSet - OK");
 
@@ -275,8 +273,16 @@ public class MetaGeneration {
 
             LOG.info("@Algorithm - OK");
             for (Field fa: _algorithms) {
-                String alg = mex.Configuration().addAlgorithm(fa.getAnnotation(Algorithm.class).algorithmType(),
-                        fa.getAnnotation(Algorithm.class).algorithmID());
+
+                URI url = null;
+                if (StringUtils.isNotEmpty(fa.getAnnotation(Algorithm.class).algorithmURI())){
+                    url = new URI(fa.getAnnotation(Algorithm.class).algorithmURI());
+                }
+                        String alg = mex.Configuration().addAlgorithm(
+                                fa.getAnnotation(Algorithm.class).algorithmID(),
+                                fa.getAnnotation(Algorithm.class).algorithmClass().toString(),
+                                fa.getAnnotation(Algorithm.class).algorithmClass(),
+                                url);
 
                 algorithms.put(fa.getAnnotation(Algorithm.class).algorithmID(), alg);
             }
@@ -335,6 +341,8 @@ public class MetaGeneration {
     private static boolean addExecutions(List<Field> _measures, Object ins, HashMap<String, String> algorithms) throws Exception{
 
 
+        LOG.info(":: starting to add executions...");
+
         HashMap<ExecutionHelperKey, Integer> vetExecutions = new HashMap<>();
         //HashMap<Integer, ExecutionHelperKey> vetExecutionsInv = new HashMap<>();
         int totalExecutions = 0;
@@ -356,17 +364,21 @@ public class MetaGeneration {
                 List<?> vectorExecutions = (List) _measures.get(0).get(ins);
                 totalExecutions = vectorExecutions.size();
 
+                LOG.info(":: nr. executions = " + totalExecutions);
+
                 if (algorithms.size() != totalExecutions)
                     throw new Exception("something is wrong...the number of algorithms (" + algorithms.size() + ") can not be different from the total of executions (" + totalExecutions + ")");
 
                 for (int i=0; i<totalExecutions; i++){
-                    ;
+
 
                     String idExecution = mex.Configuration().addExecution(MEXEnum.EnumExecutionsType.OVERALL,
                             MEXEnum.EnumPhases.TEST);
 
-                    AlgorithmVO algtemp = algorithms.get(i);
-                    mex.Configuration().Execution(String.valueOf(i+1)).setAlgorithm(algtemp);
+                    LOG.info(":: idExecution = " + idExecution);
+
+                    //AlgorithmVO algtemp = new AlgorithmVO(algorithms.get(i),algorithms.get(i), "", null, "") ;
+                    mex.Configuration().Execution(idExecution).setAlgorithm(algorithms.get(String.valueOf(i+1)));
 
                     //adding measures
                     for (Field fa : _measures) {
@@ -417,7 +429,7 @@ public class MetaGeneration {
                     mex.Configuration().addExecution(MEXEnum.EnumExecutionsType.OVERALL,
                             key.phaseID());
 
-                    AlgorithmVO algtemp = algorithms.get(key.algorithmID());
+                    String algtemp = algorithms.get(key.algorithmID());
                     mex.Configuration().Execution(String.valueOf(value)).setAlgorithm(algtemp);
 
                 }
