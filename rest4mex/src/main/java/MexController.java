@@ -1,9 +1,13 @@
-import javax.json.Json;
-import javax.json.JsonArray;
-import javax.json.JsonArrayBuilder;
+//import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.stream.JsonParser;
+//import javax.json.JsonReader;
+//import javax.json.JsonArray;
+//import javax.json.JsonArrayBuilder;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+//import org.json.*;
 
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -28,6 +32,7 @@ import org.aksw.mex.log4mex.core.HardwareConfigurationVO;
 import org.aksw.mex.log4mex.core.SamplingMethodVO;
 import org.aksw.mex.util.MEXEnum;
 
+import java.io.StringReader;
 import java.util.Date;
 
 import org.aksw.mex.util.MEXEnum;
@@ -66,14 +71,15 @@ public class MexController {
 
     }***/
 
+
+
     @Path("/setexperimentinfo")
     @POST
     @Consumes("application/json")
     public String setExperimentInfo(String content) throws Exception {
 
         JSONParser parser = new JSONParser();
-        String stringToParse = content;
-        Object obj = parser.parse(stringToParse);
+        Object obj = parser.parse(content);
         JSONObject jsonObject = (JSONObject) obj;
 
         String experimentId = (String) jsonObject.get("id");
@@ -102,7 +108,7 @@ public class MexController {
 
 
         //MEXSerializer.getInstance().parse(mex);
-        MEXSerializer.getInstance().saveToDisk("/Users/igorcosta/Downloads/experiment_1.ttl","",mex,MEXConstant.EnumRDFFormats.TTL);
+        MEXSerializer.getInstance().saveToDisk("","/Users/igorcosta/Downloads/experiment_1.ttl",mex,MEXConstant.EnumRDFFormats.TTL);
         //return Response.status(201);
         return "Experiment info - OK";
 
