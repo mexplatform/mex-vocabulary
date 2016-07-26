@@ -5,6 +5,7 @@ import javax.json.stream.JsonParser;
 //import javax.json.JsonArray;
 //import javax.json.JsonArrayBuilder;
 
+import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 //import org.json.*;
@@ -33,7 +34,11 @@ import org.aksw.mex.log4mex.core.SamplingMethodVO;
 import org.aksw.mex.util.MEXEnum;
 
 import java.io.StringReader;
+import java.lang.reflect.Field;
+import java.net.URI;
 import java.util.Date;
+import java.util.*;
+
 
 import org.aksw.mex.util.MEXEnum;
 
@@ -46,30 +51,32 @@ import org.aksw.mex.util.MEXEnum;
 public class MexController {
 
 
-
     private  MyMEX mex = new MyMEX();
     //private  MEXSerializer mexSerializer  = new MEXSerializer();
 
-    /***@Path("/setauthorname")
+
+    @Path("/algorithm")
     @POST
     @Consumes("application/json")
-    public String setAuthorName(String content) throws Exception {
+    public String algorithm (String content) throws Exception {
 
         JSONParser parser = new JSONParser();
-        String stringToParse = content;
-        Object obj = parser.parse(stringToParse);
+        Object obj = parser.parse(content);
         JSONObject jsonObject = (JSONObject) obj;
-        String authorName = (String) jsonObject.get("author");
-        System.out.println("Nome do autor:" + authorName);
 
-        mex.setAuthorName(authorName);
-        MEXSerializer.getInstance().saveToDisk( "http://mex.aksw.org/examples/ISWC/001/", mex, MEXConstant.EnumRDFFormats.TTL);
-        //MEXSerializer.getInstance().parse(mex);
-        //MEXSerializer.getInstance().saveToDisk("/Users/igorcosta/Downloads/experiment.ttl","",mex);
-        //return Response.status(201);
-        return "Author: " + authorName;
 
-    }***/
+        String algorithmID = (String) jsonObject.get("algoritbmID");
+        String algorithmName = (String) jsonObject.get("algorithmName") ;
+        URI algorithmURI = (URI) jsonObject.get("algorithmURI");
+        MEXEnum.EnumAlgorithmsClasses algorithmClass = (MEXEnum.EnumAlgorithmsClasses) jsonObject.get("algorithmClass");
+        String idExecution = (String) jsonObject.get("idExecution");
+
+        mex.Configuration().addAlgorithm(algorithmID, algorithmName, algorithmClass, algorithmURI, idExecution);
+
+        return "Algorithm - OK";
+
+    }
+
 
 
 
@@ -108,13 +115,13 @@ public class MexController {
 
 
         //MEXSerializer.getInstance().parse(mex);
-        MEXSerializer.getInstance().saveToDisk("","/Users/igorcosta/Downloads/experiment_1.ttl",mex,MEXConstant.EnumRDFFormats.TTL);
+        MEXSerializer.getInstance().parseAndSave("experiment1","/Users/igorcosta/Downloads/experiment_1.ttl",mex,MEXConstant.EnumRDFFormats.TTL);
         //return Response.status(201);
         return "Experiment info - OK";
 
     }
 
-    /***@Path("/sethardware")
+    @Path("/sethardware")
     @POST
     @Consumes("application/json")
     public String setHardwareInfo(String content) throws Exception {
@@ -188,7 +195,26 @@ public class MexController {
         //return Response.status(201);
         return "Sampling method - OK";
 
-    }***/
+    }
+
+    @Path("/setdatasetname")
+    @POST
+    @Consumes("application/json")
+    public String setDataSetName(String content) throws Exception {
+
+    }
+
+    @Path("/")
+    @POST
+    @Consumes("application/json")
+    public String (String content) throws Exception {
+
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(content);
+        JSONObject jsonObject = (JSONObject) obj;
+
+    }
+
 }
 
 
