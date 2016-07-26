@@ -1142,6 +1142,16 @@ public class MEXSerializer {
         }
     }
 
+    public void parseAndSave(String filename,String URIbase, MyMEX mex, MEXConstant.EnumRDFFormats format) throws Exception {
+        try {
+            parse(mex);
+            writeJena(filename, URIbase, mex, format);
+        }catch (Exception error){
+            LOGGER.error(error.toString());
+            throw new Exception("The MEX file couldn't be parsed and saved.");
+        }
+    }
+
     /**
      * check if an instance has been defined before, avoiding unnecessary duplicates
      * @param obj
