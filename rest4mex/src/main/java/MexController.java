@@ -55,6 +55,20 @@ public class MexController {
     //private  MEXSerializer mexSerializer  = new MEXSerializer();
 
 
+    //cola
+    /*@Path("/")
+    @POST
+    @Consumes("application/json")
+    public String (String content) throws Exception {
+
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(content);
+        JSONObject jsonObject = (JSONObject) obj;
+
+    }*/
+
+
+
     @Path("/algorithm")
     @POST
     @Consumes("application/json")
@@ -77,7 +91,33 @@ public class MexController {
 
     }
 
+    @Path("/setdatasetname")
+    @POST
+    @Consumes("application/json")
+    public String setDatasetName(String content) throws Exception {
 
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(content);
+        JSONObject jsonObject = (JSONObject) obj;
+
+        String name = (String) jsonObject.get("name");
+        String URI = (String) jsonObject.get("URI");
+        String description = (String) jsonObject.get("description");
+
+        mex.Configuration().setDataSet(URI, description, name);
+
+    }
+
+    @Path("/")
+    @POST
+    @Consumes("application/json")
+    public String (String content) throws Exception {
+
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(content);
+        JSONObject jsonObject = (JSONObject) obj;
+
+    }
 
 
     @Path("/setexperimentinfo")
@@ -194,24 +234,6 @@ public class MexController {
         MEXSerializer.getInstance().saveToDisk("/Users/igorcosta/Downloads/experiment_1.ttl","",mex);
         //return Response.status(201);
         return "Sampling method - OK";
-
-    }
-
-    @Path("/setdatasetname")
-    @POST
-    @Consumes("application/json")
-    public String setDataSetName(String content) throws Exception {
-
-    }
-
-    @Path("/")
-    @POST
-    @Consumes("application/json")
-    public String (String content) throws Exception {
-
-        JSONParser parser = new JSONParser();
-        Object obj = parser.parse(content);
-        JSONObject jsonObject = (JSONObject) obj;
 
     }
 
