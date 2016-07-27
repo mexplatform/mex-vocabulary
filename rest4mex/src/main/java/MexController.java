@@ -106,18 +106,27 @@ public class MexController {
 
         mex.Configuration().setDataSet(URI, description, name);
 
+        return "Dataset - OK";
+
     }
 
-    @Path("/")
+    /***@Path("/execution")
     @POST
     @Consumes("application/json")
-    public String (String content) throws Exception {
+    public String execution (String content) throws Exception {
 
         JSONParser parser = new JSONParser();
         Object obj = parser.parse(content);
         JSONObject jsonObject = (JSONObject) obj;
 
-    }
+        String id = (String) jsonObject.get("id");
+        boolean enabled = (boolean) jsonObject.get("enable");
+        double accuracy = (double) jsonObject.get("accuracy");
+
+        return "Execution - OK";
+
+    }***/
+
 
 
     @Path("/setexperimentinfo")
@@ -137,13 +146,6 @@ public class MexController {
         Date experimentDate = (Date) jsonObject.get("date");
         MEXEnum.EnumContexts context = (MEXEnum.EnumContexts) jsonObject.get("context");
 
-        System.out.println("experiment's id:" + experimentId);
-        System.out.println("experiment's title:" + experimentTitle);
-        System.out.println("experiment's descriptio :" + experimentDescription);
-        System.out.println("authors's e-mail:" + authorEmail);
-        System.out.println("author's name:" + authorName);
-        System.out.println("experiment's date" + experimentDate);
-        System.out.println("context:" + context);
 
         mex.setExperimentId(experimentId);
         mex.setExperimentTitle(experimentTitle);
@@ -161,6 +163,22 @@ public class MexController {
 
     }
 
+    @Path("/setfeatures")
+    @POST
+    @Consumes("application/json")
+    public String setFeatures (String content) throws Exception {
+
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(content);
+        JSONObject jsonObject = (JSONObject) obj;
+
+        String[] features = (String[]) jsonObject.get("features");
+
+        mex.Configuration().addFeature(features);
+
+        return "Features - OK"
+    }
+
     @Path("/sethardware")
     @POST
     @Consumes("application/json")
@@ -171,35 +189,20 @@ public class MexController {
         Object obj = parser.parse(stringToParse);
         JSONObject jsonObject = (JSONObject) obj;
 
-        String cpu = (String) jsonObject.get("cpu");
-        String memory = (String) jsonObject.get("memory");
+        MEXEnum.EnumProcessors cpu = (MEXEnum.EnumProcessors) jsonObject.get("cpu");
+        MEXEnum.EnumRAM memory = (MEXEnum.EnumRAM) jsonObject.get("memory");
         String hd = (String) jsonObject.get("hd");
-        String cache = (String) jsonObject.get("cpu");
+        MEXEnum.EnumCaches cache = (MEXEnum.EnumCaches) jsonObject.get("cpu");
         String os = (String) jsonObject.get("memory");
         String video = (String) jsonObject.get("hd");
 
-        System.out.println("cpu:" + cpu);
-        System.out.println("memory:" + memory);
-        System.out.println("hd:" + hd);
-        System.out.println("cache:" + cache);
-        System.out.println("os:" + os);
-        System.out.println("video:" + video);
 
-
-        HardwareConfigurationVO h = new HardwareConfigurationVO();
-        h.setCPU(cpu);
-        h.setCache(cache);
-        h.setHD(hd);
-        h.setMemory(memory);
-        h.setOperationalSystem(os);
-        h.setVideoGraph(video);
-
-        mex.Configuration().setHardwareConfiguration(h);
+        mex.Configuration().setHardwareConfiguration(os,cpu,memory,hd,cache);
 
 
 
-        MEXSerializer.getInstance().parse(mex);
-        MEXSerializer.getInstance().saveToDisk("/Users/igorcosta/Downloads/experiment_1.ttl","",mex);
+        //MEXSerializer.getInstance().parse(mex);
+        //MEXSerializer.getInstance().saveToDisk("/Users/igorcosta/Downloads/experiment_1.ttl","",mex);
         //return Response.status(201);
         return "Hardware info - OK";
 
