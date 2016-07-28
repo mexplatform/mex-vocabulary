@@ -1,0 +1,10 @@
+target/
+demoApplication.log
+/src/main/java/org/aksw/mex/beta/
+/.idea
+/.idea
+/tests
+*.iml
+core/target
+examples/target
+                       
