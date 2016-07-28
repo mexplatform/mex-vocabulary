@@ -176,7 +176,7 @@ public class MexController {
 
         mex.Configuration().addFeature(features);
 
-        return "Features - OK"
+        return "Features - OK";
     }
 
     @Path("/sethardware")
@@ -225,16 +225,14 @@ public class MexController {
         int folds = (int) jsonObject.get("folds");
         boolean sequential = (boolean) jsonObject.get("sequential");
 
-        SamplingMethodVO s = new SamplingMethodVO(aSM.klass(), aSM.klass());
-        s.setTrainSize(trainSize);
-        s.setTestSize(testSize);
-        s.setFolds(folds);
-        s.setSequential(sequential);
 
-        mex.Configuration().setSamplingMethod(s);
 
-        MEXSerializer.getInstance().parse(mex);
-        MEXSerializer.getInstance().saveToDisk("/Users/igorcosta/Downloads/experiment_1.ttl","",mex);
+        mex.Configuration().setSamplingMethod(aSM.klass(), trainSize, testSize);
+        mex.Configuration().SamplingMethod().setFolds(folds);
+        mex.Configuration().SamplingMethod().setSequential(sequential);
+
+        //MEXSerializer.getInstance().parse(mex);
+        //MEXSerializer.getInstance().saveToDisk("/Users/igorcosta/Downloads/experiment_1.ttl","",mex);
         //return Response.status(201);
         return "Sampling method - OK";
 
