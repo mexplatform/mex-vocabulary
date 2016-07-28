@@ -5,6 +5,7 @@ import javax.json.stream.JsonParser;
 //import javax.json.JsonArray;
 //import javax.json.JsonArrayBuilder;
 
+import org.aksw.mex.interfaces.MetaGeneration;
 import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -32,6 +33,7 @@ import org.aksw.mex.log4mex.algo.AlgorithmVO;
 import org.aksw.mex.log4mex.core.HardwareConfigurationVO;
 import org.aksw.mex.log4mex.core.SamplingMethodVO;
 import org.aksw.mex.util.MEXEnum;
+import org.apache.log4j.Logger;
 
 import java.io.StringReader;
 import java.lang.reflect.Field;
@@ -50,8 +52,16 @@ import org.aksw.mex.util.MEXEnum;
 @Path("/experiment")
 public class MexController {
 
+    /* general */
+    private final static String javaDocURL = "http://mex.aksw.org/interfaces/doc";
+    private final static Logger LOG = Logger.getLogger(MetaGeneration.class);
+    private final static MyMEX mex = new MyMEX();
 
-    private  MyMEX mex = new MyMEX();
+    /* performance issues */
+    private static long START_TIME;
+    private static long END_TIME;
+    private static long TOTAL_EXECUTION_TIME;
+
     //private  MEXSerializer mexSerializer  = new MEXSerializer();
 
 
