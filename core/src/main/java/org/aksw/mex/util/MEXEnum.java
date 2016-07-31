@@ -195,7 +195,7 @@ public class MEXEnum {
         public static final String RandomForest = "RandomForest";
         public static final String Baseline = "Baseline";
         public static final String HybridAlgorithm = "HybridAlgorithm";
-        public static final String NearestNeigbour = "NearestNeigbour";
+        public static final String NearestNeighbor = "NearestNeighbor";
         public static final String CURE = "CURE";
         public static final String ID3 = "ID3";
         public static final String LADTree = "LADTree";
@@ -370,7 +370,7 @@ public class MEXEnum {
         RandomForest(EnumAlgorithmClass.RandomForest.toString()),
         Baseline(EnumAlgorithmClass.Baseline.toString()),
         HybridAlgorithm(EnumAlgorithmClass.HybridAlgorithm.toString()),
-        NearestNeigbour(EnumAlgorithmClass.NearestNeigbour.toString()),
+        NearestNeighbor(EnumAlgorithmClass.NearestNeighbor.toString()),
         CURE(EnumAlgorithmClass.CURE.toString()),
         ID3(EnumAlgorithmClass.ID3.toString()),
         LADTree(EnumAlgorithmClass.LADTree.toString()),
