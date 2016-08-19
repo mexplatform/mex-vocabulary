@@ -6,6 +6,9 @@ import javax.json.stream.JsonParser;
 //import javax.json.JsonArrayBuilder;
 
 import org.aksw.mex.interfaces.MetaGeneration;
+import org.apache.commons.cli.CommandLine;
+import org.apache.commons.cli.CommandLineParser;
+import org.apache.commons.cli.DefaultParser;
 import org.apache.commons.lang3.StringUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -61,6 +64,9 @@ public class MexController {
     private static long START_TIME;
     private static long END_TIME;
     private static long TOTAL_EXECUTION_TIME;
+
+
+    //CommandLine cl = parser.parse(opt, args);
 
     //private  MEXSerializer mexSerializer  = new MEXSerializer();
 
@@ -167,7 +173,7 @@ public class MexController {
 
 
         //MEXSerializer.getInstance().parse(mex);
-        MEXSerializer.getInstance().parseAndSave("experiment1","/Users/igorcosta/Downloads/experiment_1.ttl",mex,MEXConstant.EnumRDFFormats.TTL);
+        MEXSerializer.getInstance().parseAndSave("/Users/igorcosta/Downloads/experiment.ttl","http://localhost:8080/rest4mex/", mex, MEXConstant.EnumRDFFormats.TTL);
         //return Response.status(201);
         return "Experiment info - OK";
 
@@ -199,17 +205,17 @@ public class MexController {
         Object obj = parser.parse(stringToParse);
         JSONObject jsonObject = (JSONObject) obj;
 
-        MEXEnum.EnumProcessors cpu = (MEXEnum.EnumProcessors) jsonObject.get("cpu");
-        MEXEnum.EnumRAM memory = (MEXEnum.EnumRAM) jsonObject.get("memory");
+        MEXEnum.EnumProcessors cpu = MEXEnum.EnumProcessors.valueOf((String)jsonObject.get("cpu"));
+        MEXEnum.EnumRAM memory = MEXEnum.EnumRAM.valueOf((String)jsonObject.get("memory"));
         String hd = (String) jsonObject.get("hd");
-        MEXEnum.EnumCaches cache = (MEXEnum.EnumCaches) jsonObject.get("cpu");
+        MEXEnum.EnumCaches cache = MEXEnum.EnumCaches.valueOf((String) jsonObject.get("cache"));
         String os = (String) jsonObject.get("memory");
         String video = (String) jsonObject.get("hd");
 
 
         mex.Configuration().setHardwareConfiguration(os,cpu,memory,hd,cache);
 
-
+        MEXSerializer.getInstance().parseAndSave("/Users/igorcosta/Downloads/experiment.ttl","http://localhost:8080/rest4mex/", mex, MEXConstant.EnumRDFFormats.TTL);
 
         //MEXSerializer.getInstance().parse(mex);
         //MEXSerializer.getInstance().saveToDisk("/Users/igorcosta/Downloads/experiment_1.ttl","",mex);
@@ -247,6 +253,54 @@ public class MexController {
         return "Sampling method - OK";
 
     }
+
+    @Path("/setinterfaceversion")
+    @POST
+    @Consumes("application/json")
+    public String setInterfaceVersion (String content) throws Exception {
+
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(content);
+        JSONObject jsonObject = (JSONObject) obj;
+
+        MEXEnum.EnumAnnotationInterfaceStyles version;
+
+        return "Interface version - OK";
+
+
+    }
+
+
+
+    @Path("/measure")
+    @POST
+    @Consumes("application/json")
+    public String measure (String content) throws Exception {
+
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(content);
+        JSONObject jsonObject = (JSONObject) obj;
+
+        MEXEnum.EnumMeasures idMeasure = (MEXEnum.EnumMeasures) jsonObject.get("idMeasure");
+        String algorithmID = (String) jsonObject.get("algorithmID");
+        MEXEnum.EnumPhases idPhase = (MEXEnum.EnumPhases) jsonObject.get("idPhase");
+        MEXEnum.EnumExecutionsType executionType = (MEXEnum.EnumExecutionsType) MEXEnum.EnumExecutionsType.valueOf((String) jsonObject.get("executionType"));
+
+
+        return "Measure - OK";
+
+    }
+
+    public static void main(String[] args) throws Exception {
+        //CommandLineParser parser = new DefaultParser();
+        MEXSerializer.getInstance().saveToDisk("/Users/igorcosta/Downloads/experiment_1.ttl", "", mex, MEXConstant.EnumRDFFormats.TTL);
+
+    }
+
+
+    @Path("")
+
+
 
 }
 

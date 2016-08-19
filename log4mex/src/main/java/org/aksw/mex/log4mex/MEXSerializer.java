@@ -1127,6 +1127,7 @@ public class MEXSerializer {
         return auxLabel;
     }
 
+
     public void saveToDisk(String filename, String URIbase, MyMEX mex, MEXConstant.EnumRDFFormats format) throws Exception {
         try{
             if (parse(mex)){
@@ -1143,13 +1144,12 @@ public class MEXSerializer {
     }
 
     public void parseAndSave(String filename,String URIbase, MyMEX mex, MEXConstant.EnumRDFFormats format) throws Exception {
-        try {
-            parse(mex);
-            writeJena(filename, URIbase, mex, format);
-        }catch (Exception error){
-            LOGGER.error(error.toString());
-            throw new Exception("The MEX file couldn't be parsed and saved.");
-        }
+        //try {
+        writeJena(filename, URIbase, mex, format);
+        //}catch (Exception error){
+            //LOGGER.error(error.toString());
+            //throw new Exception("The MEX file couldn't be parsed and saved.");
+        //}
     }
 
     /**
