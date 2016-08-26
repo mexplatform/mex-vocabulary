@@ -23,6 +23,16 @@ def dataset_name(set_dataset_name):
         return set_dataset_name(*args, **kwargs)
     return get_dataset_name
 
+def execution(set_execution):
+    def get_execution(*args, **kwargs):
+        params = set_execution()
+        json_params = json.dumps(params, indent=2)
+        print json_params
+        response = requests.post('http://localhost:8080/rest4mex/resources/experiment/execution',json = params)
+        print response
+        return set_execution(*args, **kwargs)
+    return get_execution
+
 def experiment_info(set_experiment_info):
     def get_experiment_info(*args, **kwargs):
         params = set_experiment_info()
@@ -82,3 +92,11 @@ def measure(set_measure):
         print response
         return set_measure(*args, **kwargs)
     return get_measure
+
+def start(argument):
+    def get_start(*args, **kwargs):
+        params = argument()
+        response = requests.post('http://localhost:8080/rest4mex/resources/experiment/start',)
+        print response
+        return argument(*args, **kwargs)
+    return get_start
