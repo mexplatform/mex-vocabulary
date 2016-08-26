@@ -38,6 +38,8 @@ import org.aksw.mex.log4mex.core.SamplingMethodVO;
 import org.aksw.mex.util.MEXEnum;
 import org.apache.log4j.Logger;
 
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.StringReader;
 import java.lang.reflect.Field;
 import java.net.URI;
@@ -94,14 +96,10 @@ public class MexController {
         Object obj = parser.parse(content);
         JSONObject jsonObject = (JSONObject) obj;
 
-
-        String algorithmID = (String) jsonObject.get("algoritbmID");
-        String algorithmName = (String) jsonObject.get("algorithmName") ;
-        URI algorithmURI = (URI) jsonObject.get("algorithmURI");
-        MEXEnum.EnumAlgorithmsClasses algorithmClass = (MEXEnum.EnumAlgorithmsClasses) jsonObject.get("algorithmClass");
-        String idExecution = (String) jsonObject.get("idExecution");
-
-        mex.Configuration().addAlgorithm(algorithmID, algorithmName, algorithmClass, algorithmURI, idExecution);
+        try(FileWriter file = new FileWriter("/Users/igorcosta/mexproject/rest4mex/cache/algorithm.txt")) {
+            file.write(jsonObject.toJSONString());
+            System.out.println(jsonObject);
+        }
 
         return "Algorithm - OK";
 
@@ -116,17 +114,16 @@ public class MexController {
         Object obj = parser.parse(content);
         JSONObject jsonObject = (JSONObject) obj;
 
-        String name = (String) jsonObject.get("name");
-        String URI = (String) jsonObject.get("URI");
-        String description = (String) jsonObject.get("description");
-
-        mex.Configuration().setDataSet(URI, description, name);
+        try(FileWriter file = new FileWriter("/Users/igorcosta/mexproject/rest4mex/cache/datasetname.txt")) {
+            file.write(jsonObject.toJSONString());
+            System.out.println(jsonObject);
+        }
 
         return "Dataset - OK";
 
     }
 
-    /***@Path("/execution")
+    @Path("/execution")
     @POST
     @Consumes("application/json")
     public String execution (String content) throws Exception {
@@ -135,13 +132,14 @@ public class MexController {
         Object obj = parser.parse(content);
         JSONObject jsonObject = (JSONObject) obj;
 
-        String id = (String) jsonObject.get("id");
-        boolean enabled = (boolean) jsonObject.get("enable");
-        double accuracy = (double) jsonObject.get("accuracy");
+        try(FileWriter file = new FileWriter("/Users/igorcosta/mexproject/rest4mex/cache/execution.txt")) {
+            file.write(jsonObject.toJSONString());
+            System.out.println(jsonObject);
+        }
 
         return "Execution - OK";
 
-    }***/
+    }
 
 
 
@@ -154,27 +152,11 @@ public class MexController {
         Object obj = parser.parse(content);
         JSONObject jsonObject = (JSONObject) obj;
 
-        String experimentId = (String) jsonObject.get("id");
-        String experimentTitle = (String) jsonObject.get("title");
-        String experimentDescription = (String) jsonObject.get("description");
-        String authorEmail= (String) jsonObject.get("email");
-        String authorName = (String) jsonObject.get("author");
-        Date experimentDate = (Date) jsonObject.get("date");
-        MEXEnum.EnumContexts context = (MEXEnum.EnumContexts) jsonObject.get("context");
+        try(FileWriter file = new FileWriter("/Users/igorcosta/mexproject/rest4mex/cache/experimentinfo.txt")) {
+            file.write(jsonObject.toJSONString());
+            System.out.println(jsonObject);
+        }
 
-
-        mex.setExperimentId(experimentId);
-        mex.setExperimentTitle(experimentTitle);
-        mex.setExperimentDescription(experimentDescription);
-        mex.setAuthorEmail(authorEmail);
-        mex.setAuthorName(authorName);
-        mex.setExperimentDate(experimentDate);
-        mex.setContext(context);
-
-
-        //MEXSerializer.getInstance().parse(mex);
-        MEXSerializer.getInstance().parseAndSave("/Users/igorcosta/Downloads/experiment.ttl","http://localhost:8080/rest4mex/", mex, MEXConstant.EnumRDFFormats.TTL);
-        //return Response.status(201);
         return "Experiment info - OK";
 
     }
@@ -188,9 +170,10 @@ public class MexController {
         Object obj = parser.parse(content);
         JSONObject jsonObject = (JSONObject) obj;
 
-        String[] features = (String[]) jsonObject.get("features");
-
-        mex.Configuration().addFeature(features);
+        try(FileWriter file = new FileWriter("/Users/igorcosta/mexproject/rest4mex/cache/features.txt")) {
+            file.write(jsonObject.toJSONString());
+            System.out.println(jsonObject);
+        }
 
         return "Features - OK";
     }
@@ -205,21 +188,11 @@ public class MexController {
         Object obj = parser.parse(stringToParse);
         JSONObject jsonObject = (JSONObject) obj;
 
-        MEXEnum.EnumProcessors cpu = MEXEnum.EnumProcessors.valueOf((String)jsonObject.get("cpu"));
-        MEXEnum.EnumRAM memory = MEXEnum.EnumRAM.valueOf((String)jsonObject.get("memory"));
-        String hd = (String) jsonObject.get("hd");
-        MEXEnum.EnumCaches cache = MEXEnum.EnumCaches.valueOf((String) jsonObject.get("cache"));
-        String os = (String) jsonObject.get("memory");
-        String video = (String) jsonObject.get("hd");
+        try(FileWriter file = new FileWriter("/Users/igorcosta/mexproject/rest4mex/cache/hardware.txt")) {
+            file.write(jsonObject.toJSONString());
+            System.out.println(jsonObject);
+        }
 
-
-        mex.Configuration().setHardwareConfiguration(os,cpu,memory,hd,cache);
-
-        MEXSerializer.getInstance().parseAndSave("/Users/igorcosta/Downloads/experiment.ttl","http://localhost:8080/rest4mex/", mex, MEXConstant.EnumRDFFormats.TTL);
-
-        //MEXSerializer.getInstance().parse(mex);
-        //MEXSerializer.getInstance().saveToDisk("/Users/igorcosta/Downloads/experiment_1.ttl","",mex);
-        //return Response.status(201);
         return "Hardware info - OK";
 
     }
@@ -306,17 +279,89 @@ public class MexController {
 
         //algorithm
 
+        Object algorithm_ = parser.parse(new FileReader("/Users/igorcosta/mexproject/rest4mex/cache/algorithm.txt"));
+        JSONObject jsonAlgorithm = (JSONObject) algorithm_;
+
+        String algorithmID = (String) jsonAlgorithm.get("algoritbmID");
+        String algorithmName = (String) jsonAlgorithm.get("algorithmName") ;
+        String stringURL = (String) jsonAlgorithm.get("algorithmURI");
+        URI algorithmURI =  new URI(stringURL);
+        MEXEnum.EnumAlgorithmsClasses algorithmClass = MEXEnum.EnumAlgorithmsClasses.valueOf((String)jsonAlgorithm.get("algorithmClass"));
+        String idExecution = (String) jsonAlgorithm.get("idExecution");
+
+        mex.Configuration().addAlgorithm(algorithmID, algorithmName, algorithmClass, algorithmURI, idExecution);
+
         //Dataset Name
+
+        Object datasetName = parser.parse(new FileReader("/Users/igorcosta/mexproject/rest4mex/cache/datasetname.txt"));
+        JSONObject jsonDatasetName = (JSONObject) datasetName;
+
+        String name = (String) jsonDatasetName.get("name");
+        String URI = (String) jsonDatasetName.get("URI");
+        String description = (String) jsonDatasetName.get("description");
+
+        mex.Configuration().setDataSet(URI, description, name);
 
 
         //Execution
 
+        Object execution_ = parser.parse(new FileReader("/Users/igorcosta/mexproject/rest4mex/cache/execution.txt"));
+        JSONObject jsonExecution = (JSONObject) execution_;
+
+        String id = (String) jsonExecution.get("id");
+        boolean enabled = (boolean) jsonExecution.get("enable");
+        double accuracy = (double) jsonExecution.get("accuracy");
+
+        //mex.Configuration().addExecution(MEXEnum.EnumExecutionsType.OVERALL, key.phaseID());
+        //mex.Configuration().Execution(String.valueOf(value)).setAlgorithm(algtemp);
+        //mex.Configuration().Execution(String.valueOf(executionID)).addPerformance(m, Double.parseDouble(mValue.get(0).toString()));
+
 
         //Experiment Info
 
+        Object experimentInfo = parser.parse(new FileReader("/Users/igorcosta/mexproject/rest4mex/cache/experimentinfo.txt"));
+        JSONObject jsonExperimentInfo = (JSONObject) experimentInfo;
+
+        String experimentId = (String) jsonExperimentInfo.get("id");
+        String experimentTitle = (String) jsonExperimentInfo.get("title");
+        String experimentDescription = (String) jsonExperimentInfo.get("description");
+        String authorEmail= (String) jsonExperimentInfo.get("email");
+        String authorName = (String) jsonExperimentInfo.get("author");
+        Date experimentDate = (Date) jsonExperimentInfo.get("date");
+        MEXEnum.EnumContexts context = (MEXEnum.EnumContexts) jsonExperimentInfo.get("context");
+
+
+        mex.setExperimentId(experimentId);
+        mex.setExperimentTitle(experimentTitle);
+        mex.setExperimentDescription(experimentDescription);
+        mex.setAuthorEmail(authorEmail);
+        mex.setAuthorName(authorName);
+        mex.setExperimentDate(experimentDate);
+        mex.setContext(context);
+
+
         //Features
 
+        Object features_ = parser.parse(new FileReader("/Users/igorcosta/mexproject/rest4mex/cache/features.txt"));
+        JSONObject jsonFeatures = (JSONObject) features_;
+
+        String[] features = (String[]) jsonFeatures.get("features");
+
+        mex.Configuration().addFeature(features);
+
         //Hardware
+
+        Object hardware = parser.parse(new FileReader("/Users/igorcosta/mexproject/rest4mex/cache/hardware.txt"));
+        JSONObject jsonHardware = (JSONObject) hardware;
+
+        MEXEnum.EnumProcessors cpu = MEXEnum.EnumProcessors.valueOf((String)jsonHardware.get("cpu"));
+        MEXEnum.EnumRAM memory = MEXEnum.EnumRAM.valueOf((String)jsonHardware.get("memory"));
+        String hd = (String) jsonHardware.get("hd");
+        MEXEnum.EnumCaches cache = MEXEnum.EnumCaches.valueOf((String) jsonHardware.get("cache"));
+        String os = (String) jsonHardware.get("memory");
+        String video = (String) jsonHardware.get("hd");
+
+        mex.Configuration().setHardwareConfiguration(os,cpu,memory,hd,cache);
 
         //Sampling Method
 
