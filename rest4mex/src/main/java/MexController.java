@@ -298,7 +298,30 @@ public class MexController {
     }
 
 
-    @Path("")
+    @Path("/start")
+    @POST
+    //@Consumes("application/json")
+    public String start (String content) throws Exception {
+        JSONParser parser = new JSONParser();
+
+        //algorithm
+
+        //Dataset Name
+
+
+        //Execution
+
+
+        //Experiment Info
+
+        //Features
+
+        //Hardware
+
+        //Sampling Method
+
+        return "Your experiment has been generated.";
+    }
 
 
 

@@ -1,0 +1,1 @@
+{"cache":"6M","memory":"16 GB"," os":"OSX El Capitan 10.11.6","cpu":"Intel Core i7","video":"Nvidia GeForce GT750M","hd":"SSD"}
