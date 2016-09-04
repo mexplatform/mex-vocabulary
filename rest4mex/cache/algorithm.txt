@@ -1,0 +1,1 @@
+{"algorithmClass":"NearestNeighbor","algorithmURI":"http:\/\/scikit-learn.org\/stable\/modules\/neighbors.html","algorithmName":"K-Nearest Neighbors","algorithmID":"0"}
