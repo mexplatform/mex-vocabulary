@@ -7,7 +7,7 @@ MEX Vocabulary provides a free-format to export and share machine learning metad
 ### How to cite
 ```Tex
 @inproceedings{esteves2015mex,
-  title={{MEX} Vocabulary: a Lightweight Interchange Format for Machine Learning Experiments},
+  title={MEX Vocabulary: a Lightweight Interchange Format for Machine Learning Experiments},
   author={Esteves, Diego and Moussallem, Diego and Neto, Ciro Baron and Soru, Tommaso and Usbeck, Ricardo and Ackermann, Markus and Lehmann, Jens},
   booktitle={Proceedings of the 11th International Conference on Semantic Systems},
   pages={169--176},
