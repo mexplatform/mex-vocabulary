@@ -1,12 +1,35 @@
-**MEX** is an _open source_ initiative which aims at facilitating the sharing and data management of machine learning experiment outputs. Relying on Linked Data technologies, we provide a simple, flexible and lightweight platform to manage machine leaning metadata. In the following we introduce the sub-projects ([more info...](https://github.com/AKSW/mexproject/)).
+**MEX** is an _open source_ initiative which aims at facilitating the sharing and data management of machine learning experiment outcomes. Relying on Linked Data technologies, we provide a *simple*, *flexible* and *lightweight* platform to manage machine leaning metadata. In the following we introduce the sub-projects ([more info...](https://github.com/SmartDataAnalytics/mexproject/)).
 
-## [MEX Vocabulary](https://github.com/AKSW/mexproject/tree/master/vocabulary)
+## [MEX Vocabulary](https://github.com/SmartDataAnalytics/mexproject/tree/master/vocabulary)
 
 MEX Vocabulary provides a free-format to export and share machine learning metadata, indifferent to existing workflow systems or frameworks. As major advantage, users can benefit of the ``mex format`` for further analysis and integrations with less effort ([more info...](https://github.com/AKSW/mexproject/tree/master/vocabulary)).
 
-## [LOG4MEX Library](https://github.com/AKSW/mexproject/tree/master/log4mex)
+## How to cite
+```Tex
+@inproceedings{esteves2015mex,
+  title={{MEX} Vocabulary: a Lightweight Interchange Format for Machine Learning Experiments},
+  author={Esteves, Diego and Moussallem, Diego and Neto, Ciro Baron and Soru, Tommaso and Usbeck, Ricardo and Ackermann, Markus and Lehmann, Jens},
+  booktitle={Proceedings of the 11th International Conference on Semantic Systems},
+  pages={169--176},
+  year={2015},
+  organization={ACM}
+}
+```
+
+## [LOG4MEX Library](https://github.com/SmartDataAnalytics/mexproject/tree/master/log4mex)
 
 **LOG4MEX** is a Java library ([javadoc](http://dne5.com/mex/documentation/log4mex/)) which aims at facilitating the ``data management`` for machine learning experiments, increasing the ``interoperability`` as well as adding ``provenance`` to the generated metadata ([more info](https://github.com/AKSW/mexproject/tree/master/log4mex) and [use cases](https://github.com/AKSW/mexproject/wiki/LOG4MEX-Use-Cases)).
+
+## How to cite
+```Tex
+@inproceedings{esteves2017log4mex,
+  title={{LOG4MEX}: A Library to Export Machine Learning Experiments},
+  author={Esteves, Diego and Moussallem, Diego and Soru, Tommaso and Baron Neto, Ciro and Lehmann, Jens and Ngomo, Axel and Duarte, Julio Cesar},
+  booktitle={Web Intelligence (WI), 2017 IEEE/WIC/ACM International Conference},
+  year={2017},
+  organization={IEEE}
+}
+```
 
 **Advantages**
 ###
@@ -80,6 +103,25 @@ mex.Configuration().Execution(ex1).setEndDate(new Date());
 ![rel](http://dne5.com/mex/imagens/mex_relations_lod.png)
 
 ## [MEX Framework](https://github.com/AKSW/mexproject/tree/master/framework/src/main/java/org/aksw/mex/framework)
+
+## How to cite
+```Tex
+@inproceedings{esteves2016mex,
+  title={{MEX} Interfaces: Automating Machine Learning Metadata Generation},
+  author={Esteves, Diego and Mendes, Pablo N and Moussallem, Diego and Duarte, Julio Cesar and Zaveri, Amrapali and Lehmann, Jens},
+  booktitle={Proceedings of the 12th International Conference on Semantic Systems},
+  pages={17--24},
+  year={2016},
+  organization={ACM}
+}
+@inproceedings{duarte2017mex,
+  title={An Interoperable Service for the Provenance of Machine Learning Experiments},
+  author={Duarte, Julio Cesar and Cavalcanti, Maria Claudia and Sousa Costa, Igor and Esteves, Diego},
+  booktitle={Web Intelligence (WI), 2017 IEEE/WIC/ACM International Conference},
+  year={2017},
+  organization={IEEE}
+}
+```
 
 What about annotating your machine learning code and generate ``mex output``? 
 
