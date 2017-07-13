@@ -23,7 +23,7 @@ MEX Vocabulary provides a free-format to export and share machine learning metad
 ### How to cite
 ```Tex
 @inproceedings{esteves2017log4mex,
-  title={{LOG4MEX}: A Library to Export Machine Learning Experiments},
+  title={LOG4MEX: A Library to Export Machine Learning Experiments},
   author={Esteves, Diego and Moussallem, Diego and Soru, Tommaso and Baron Neto, Ciro and Lehmann, Jens and Ngomo, Axel and Duarte, Julio Cesar},
   booktitle={Web Intelligence (WI), 2017 IEEE/WIC/ACM International Conference},
   year={2017},
@@ -107,7 +107,7 @@ mex.Configuration().Execution(ex1).setEndDate(new Date());
 ### How to cite
 ```Tex
 @inproceedings{esteves2016mex,
-  title={{MEX} Interfaces: Automating Machine Learning Metadata Generation},
+  title={MEX Interfaces: Automating Machine Learning Metadata Generation},
   author={Esteves, Diego and Mendes, Pablo N and Moussallem, Diego and Duarte, Julio Cesar and Zaveri, Amrapali and Lehmann, Jens},
   booktitle={Proceedings of the 12th International Conference on Semantic Systems},
   pages={17--24},
