@@ -4,7 +4,7 @@
 
 MEX Vocabulary provides a free-format to export and share machine learning metadata, indifferent to existing workflow systems or frameworks. As major advantage, users can benefit of the ``mex format`` for further analysis and integrations with less effort ([more info...](https://github.com/AKSW/mexproject/tree/master/vocabulary)).
 
-## How to cite
+### How to cite
 ```Tex
 @inproceedings{esteves2015mex,
   title={{MEX} Vocabulary: a Lightweight Interchange Format for Machine Learning Experiments},
@@ -20,7 +20,7 @@ MEX Vocabulary provides a free-format to export and share machine learning metad
 
 **LOG4MEX** is a Java library ([javadoc](http://dne5.com/mex/documentation/log4mex/)) which aims at facilitating the ``data management`` for machine learning experiments, increasing the ``interoperability`` as well as adding ``provenance`` to the generated metadata ([more info](https://github.com/AKSW/mexproject/tree/master/log4mex) and [use cases](https://github.com/AKSW/mexproject/wiki/LOG4MEX-Use-Cases)).
 
-## How to cite
+### How to cite
 ```Tex
 @inproceedings{esteves2017log4mex,
   title={{LOG4MEX}: A Library to Export Machine Learning Experiments},
@@ -100,11 +100,11 @@ mex.Configuration().Execution(ex1).setEndDate(new Date());
 
 > Analyse your experiment and related variables visually with Linked Data technologies. Compare your results with the state of the art and enter our leaderboard by sharing the metadata on the [WASOTA](http://cirola2000.cloudapp.net:3019/#/home).
 
-![rel](http://dne5.com/mex/imagens/mex_relations_lod.png)
+<!--![rel](http://dne5.com/mex/imagens/mex_relations_lod.png)-->
 
 ## [MEX Framework](https://github.com/AKSW/mexproject/tree/master/framework/src/main/java/org/aksw/mex/framework)
 
-## How to cite
+### How to cite
 ```Tex
 @inproceedings{esteves2016mex,
   title={{MEX} Interfaces: Automating Machine Learning Metadata Generation},
