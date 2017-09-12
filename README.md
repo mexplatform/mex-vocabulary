@@ -1,9 +1,8 @@
-## [MEX](http://mex.aksw.org/): Metadata for Machine Learning Outputs
+## [MEX Vocabulary](http://mex.aksw.org/): A Lighweight Machine Learning Interchange Format
 
-[![Join the chat at https://gitter.im/AKSW/mexproject](https://badges.gitter.im/AKSW/mexproject.svg)](https://gitter.im/AKSW/mexproject?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![Build Status](https://travis-ci.org/AKSW/mexproject.svg?branch=master)](https://travis-ci.org/AKSW/mexproject)
 
-This project aims at facilitating the sharing and data management of machine learning experiment outputs. 
+**MEX Vocabulary** is part of the **METArchive Project** and aims at facilitating the sharing and data management of machine learning experiment, by defining a simple RDF schema. 
 
 For more information, please see the sub projects listed bellow:
 
@@ -11,7 +10,7 @@ For more information, please see the sub projects listed bellow:
 
 [SPARQL Endpoint](http://mex.aksw.org/sparql) (link will be updated soon)
 
-##License
+## License
 MEX is Open Source and licensed under the GNU General Public License 3.
 (Copyright (c) 2014-2016, Diego Esteves)
 
