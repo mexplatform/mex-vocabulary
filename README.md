@@ -1,4 +1,4 @@
-## [MEX Vocabulary](http://mex.aksw.org/): A Lighweight Machine Learning Interchange Format
+## [MEX Vocabulary](http://mex.aksw.org/): A Lightweight Machine Learning Interchange Format
 
 [![Build Status](https://travis-ci.org/AKSW/mexproject.svg?branch=master)](https://travis-ci.org/AKSW/mexproject)
 
