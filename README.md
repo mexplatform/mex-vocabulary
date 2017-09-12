@@ -9,7 +9,7 @@ For more information, please see the sub projects listed bellow:
 
 [Project Page](http://aksw.github.io/mexproject/)
 
-[SPARQL Endpoint](http://mex.aksw.org/sparql) (will be updated soon!)
+[SPARQL Endpoint](http://mex.aksw.org/sparql) (link will be updated soon)
 
 ##License
 MEX is Open Source and licensed under the GNU General Public License 3.
@@ -24,4 +24,6 @@ MEX uses several other libraries. An incomplete list is as follows:
 
 For **semantic web users** the usage is straightforward, once the vocabulary can easily be handled with semantic web technologies, such as [Apache Jena](https://jena.apache.org/).
 
-For **non-semantic web users**, there are two ways to use `MEX`: if you're coding, you can import [LOG4MEX](http://aksw.github.io/mexproject/) library, which implements an interface to be consumed into the user code for directly exporting the metadata in a simple manner, regardless possible semantic web aspects. 
+For **non-semantic web users**, there are two ways to use `MEX`: 
+- you can use our java library [LOG4MEX](http://aksw.github.io/mexproject/)
+- you can use our REST service [WEB4MEX](http://aksw.github.io/mexproject/) (link will be updated soon)
