@@ -7,21 +7,9 @@ This project aims at facilitating the sharing and data management of machine lea
 
 For more information, please see the sub projects listed bellow:
 
-## MEX Projects
-
-![MEX Framework](http://dne5.com/mex/logos/logo_mex-framework_peq.png)
-
-  * [MEX Vocabulary: A Lightweight Interchange Format for Machine Learning Experiments](https://github.com/AKSW/mexproject/tree/master/vocabulary)
-  * [LOG4MEX Java Library](https://github.com/AKSW/mexproject/tree/master/log4mex)
-  * [MEX Interfaces](https://github.com/AKSW/mexproject/tree/master/framework)
-  * [WASOTA Metadata Repository](https://github.com/cirola2000/wasota)
-  * [Get in touch! Google Group](mex-project@googlegroups.com)
-
-##LOG4MEX Library: Demo and Documentation
-
 [Project Page](http://aksw.github.io/mexproject/)
 
-[SPARQL Endpoint](http://mex.aksw.org/sparql)
+[SPARQL Endpoint](http://mex.aksw.org/sparql) (will be updated soon!)
 
 ##License
 MEX is Open Source and licensed under the GNU General Public License 3.
@@ -36,12 +24,4 @@ MEX uses several other libraries. An incomplete list is as follows:
 
 For **semantic web users** the usage is straightforward, once the vocabulary can easily be handled with semantic web technologies, such as [Apache Jena](https://jena.apache.org/).
 
-For **non-semantic web users**, there are two ways to use `MEX`: if you're coding, you can import [LOG4MEX](http://aksw.github.io/mexproject/), which implements an interface to be consumed into the user code for directly exporting the metadata in a simple manner, regardless possible semantic web aspects. 
-
-More recently, we have started the [Framework's](https://github.com/AKSW/mexproject/tree/master/framework) development, which aims at automatizing the task of generating metadata for ``Java`` classes based on the concepts of ``reflection``, ``annotation`` and ``generics``.
-
-Finally, soon you'll be able to benefit from a REST interface and export your metadada via HTTP.
-
-![MEX Platform](http://dne5.com/mex/imagens/mex_platform.png)
-
-![](http://dne5.com/mex/imagens/staytuned.jpg)
+For **non-semantic web users**, there are two ways to use `MEX`: if you're coding, you can import [LOG4MEX](http://aksw.github.io/mexproject/) library, which implements an interface to be consumed into the user code for directly exporting the metadata in a simple manner, regardless possible semantic web aspects. 
