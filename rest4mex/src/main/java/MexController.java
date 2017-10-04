@@ -208,21 +208,12 @@ public class MexController {
         Object obj = parser.parse(stringToParse);
         JSONObject jsonObject = (JSONObject) obj;
 
-        SamplingMethod aSM = (SamplingMethod) jsonObject.get("klass");
-        double trainSize = (double) jsonObject.get("trainSize");
-        double testSize = (double) jsonObject.get("testSize");
-        int folds = (int) jsonObject.get("folds");
-        boolean sequential = (boolean) jsonObject.get("sequential");
+        try(FileWriter file = new FileWriter("/Users/igorcosta/mexproject/rest4mex/cache/samplingmethod.txt")) {
+            file.write(jsonObject.toJSONString());
+            System.out.println(jsonObject);
+        }
 
 
-
-        mex.Configuration().setSamplingMethod(aSM.klass(), trainSize, testSize);
-        mex.Configuration().SamplingMethod().setFolds(folds);
-        mex.Configuration().SamplingMethod().setSequential(sequential);
-
-        //MEXSerializer.getInstance().parse(mex);
-        //MEXSerializer.getInstance().saveToDisk("/Users/igorcosta/Downloads/experiment_1.ttl","",mex);
-        //return Response.status(201);
         return "Sampling method - OK";
 
     }
@@ -276,6 +267,7 @@ public class MexController {
     //@Consumes("application/json")
     public String start (String content) throws Exception {
         JSONParser parser = new JSONParser();
+        String mexfile = "/Users/igorcosta/mexproject/rest4mex/cache/test1.ttl";
 
         //algorithm
 
@@ -309,8 +301,8 @@ public class MexController {
         JSONObject jsonExecution = (JSONObject) execution_;
 
         String id = (String) jsonExecution.get("id");
-        boolean enabled = (boolean) jsonExecution.get("enable");
-        double accuracy = (double) jsonExecution.get("accuracy");
+        //boolean enabled = (boolean) jsonExecution.get("enable");
+        //double accuracy = (double) jsonExecution.get("accuracy");
 
         //mex.Configuration().addExecution(MEXEnum.EnumExecutionsType.OVERALL, key.phaseID());
         //mex.Configuration().Execution(String.valueOf(value)).setAlgorithm(algtemp);
@@ -345,9 +337,8 @@ public class MexController {
         Object features_ = parser.parse(new FileReader("/Users/igorcosta/mexproject/rest4mex/cache/features.txt"));
         JSONObject jsonFeatures = (JSONObject) features_;
 
-        String[] features = (String[]) jsonFeatures.get("features");
-
-        mex.Configuration().addFeature(features);
+//        String[] features = (String[]) jsonFeatures.get("features");
+//        mex.Configuration().addFeature(features);
 
         //Hardware
 
@@ -364,6 +355,28 @@ public class MexController {
         mex.Configuration().setHardwareConfiguration(os,cpu,memory,hd,cache);
 
         //Sampling Method
+
+        Object samplingMethod = parser.parse(new FileReader("/Users/igorcosta/mexproject/rest4mex/cache/samplingmethod.txt"));
+        JSONObject jsonSamplingMethod = (JSONObject) samplingMethod;
+
+        SamplingMethod aSM = (SamplingMethod) jsonSamplingMethod.get("klass");
+        double trainSize = (double) jsonSamplingMethod.get("trainSize");
+        double testSize = (double) jsonSamplingMethod.get("testSize");
+        int folds = (int) jsonSamplingMethod.get("folds");
+        boolean sequential = (boolean) jsonSamplingMethod.get("sequential");
+
+        mex.Configuration().setSamplingMethod(aSM.klass(), trainSize, testSize);
+        mex.Configuration().SamplingMethod().setFolds(folds);
+        mex.Configuration().SamplingMethod().setSequential(sequential);
+
+
+        //interface version
+
+        //measure
+
+
+        MEXSerializer.getInstance().saveToDisk(mexfile, "/Users/igorcosta/Downloads/experiment_1.ttl", mex, MEXConstant.EnumRDFFormats.TTL);
+
 
         return "Your experiment has been generated.";
     }
