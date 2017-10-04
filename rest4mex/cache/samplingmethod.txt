@@ -1,0 +1,1 @@
+{"testSize":"0.3","trainSize":"0.7"}

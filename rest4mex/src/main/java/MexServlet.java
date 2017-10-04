@@ -12,6 +12,6 @@ import java.io.IOException;
 public class MexServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.getWriter().write("Welcome To NEW MEX@!");
+        resp.getWriter().write("Welcome To MEX");
     }
 }
