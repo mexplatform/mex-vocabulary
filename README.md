@@ -1,6 +1,6 @@
 ### [MEX Vocabulary](http://mex.aksw.org/): A Lightweight Machine Learning Interchange Format
 
-[![Build Status](https://travis-ci.org/AKSW/mexproject.svg?branch=master)](https://travis-ci.org/AKSW/mexproject)
+[![Build Status](https://travis-ci.org/METArchive/mex-vocabulary.svg?branch=master)](https://travis-ci.org/METArchive/mex-vocabulary)
 
 **MEX Vocabulary** is part of the **METArchive Project** and aims at facilitating the sharing and data management of machine learning experiment, by defining a simple RDF schema. 
 
