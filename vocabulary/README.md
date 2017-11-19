@@ -1,12 +1,12 @@
-### Lightweight and Flexible Schema for Machine Learning Experiments
+#### MEX Vocabulary: Lightweight and Flexible Schema for Machine Learning Experiments
 
-<img src="http://dne5.com/mex/logos/logo_mex-vocabulary_peq.png" data-canonical-src="http://dne5.com/mex/logos/logo_mex-vocabulary_peq.png" width="40%" height="40%" />
+<!--<img src="http://dne5.com/mex/logos/logo_mex-vocabulary_peq.png" data-canonical-src="http://dne5.com/mex/logos/logo_mex-vocabulary_peq.png" width="40%" height="40%" />-->
 
 More than just a **machine readable way**, the `MEX` Vocabulary has been designed to define a **lightweight and flexible schema** for publishing machine learning outputs metadata. We aim at providing a **free-format** to export and share machine learning metadata, indifferent to existing **workflow systems** or **frameworks**. As an immediate advantage, users can benefit of the `mex format` for further analysis and integrations more easily.
 
 The definition of an `ontology` can be a complex and never-ending task, even more for a highly complex environment such as machine learning. The `MEX` vocabulary has been designed to serve as an ally in the metadata exporting process, focusing in practical and important aspects concerning the publication of the achieved results, i.e.: the needed `input parameters` for an `model` which produces `measures` as output. More sophisticated variables and procedures (e.g.: optimizations and feature selection) are not covered, simply because they go beyond a logical threshold of simplicity we aim to achieve. At first, people are usualy more interested in finding out, comparing and sharing `methodologies` and their achieved `performances` than to have deep understanding of performed sub tasks. **MEX** is a **[PROV-O](https://www.w3.org/TR/prov-o/)** based vocabulary.
 
-## How to cite
+#### How to cite
 ```Tex
 @inproceedings{esteves2015mexvoc,
   title={MEX vocabulary: a lightweight interchange format for machine learning experiments},
@@ -18,10 +18,10 @@ The definition of an `ontology` can be a complex and never-ending task, even mor
 }
 ```
 
-### MEX Vocabulary - Snapshot v1.0.2
-![Experiment ER](http://dne5.com/mex/diagram/mex-1.0.2.png)
+#### MEX Vocabulary - Snapshot v1.0.2
+<!--![Experiment ER](http://dne5.com/mex/diagram/mex-1.0.2.png)-->
 
-## Schema
+#### Schema
 
 The current version of the vocabulaty is described (per layer) as following. We've omitted obvious information for brevity.
 

@@ -1,1 +1,0 @@
-{"author":"Igor Costa 2","title":"Scikit Learn Test","email":"igorcosta@ime.eb.br","tags":["Scikit Learn","Python 2.7","MEX","Iris"]}
