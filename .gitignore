@@ -1,15 +1,5 @@
 target/
 demoApplication.log
-/src/main/java/org/aksw/mex/beta/
-/.idea
+.idea/
 /tests
 *.iml
-core/target
-examples/target
-framework/target
-log4mex/target
-site/target
-/mex.iml
-examples/nb-configuration.xml
-log4mex/nb-configuration.xml
-nb-configuration.xml
