@@ -16,9 +16,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.metarchive.mex.mappings;
+package org.metarchive.mex.core.mappings;
 
-import org.metarchive.mex.util.ontologies.IOntology;
+import org.metarchive.mex.core.ontologies.IOntology;
 
 /**
  * Created by esteves on 28.06.15.

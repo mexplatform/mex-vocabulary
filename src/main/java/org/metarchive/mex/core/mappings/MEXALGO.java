@@ -16,12 +16,14 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package org.metarchive.mex.util.ontologies;
+package org.metarchive.mex.core.mappings;
+
+import org.metarchive.mex.core.ontologies.IOntology;
 
 /**
- * Created by esteves on 27.06.15.
+ * Created by esteves on 28.06.15.
  */
-public interface IOntology {
+public abstract class MEXALGO implements IOntology {
 
 
 }
