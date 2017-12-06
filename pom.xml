@@ -10,7 +10,7 @@
         data management of machine learning experiment, by defining a simple RDF schema.</description>
     <packaging>jar</packaging>
     <url>http://aksw.github.io/mexproject/</url>
-    <version>1.0.2b</version>
+    <version>1.0.3</version>
     <licenses>
         <license>
             <name>GNU General Public License (GPL)</name>
